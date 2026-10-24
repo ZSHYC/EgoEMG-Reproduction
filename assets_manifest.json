@@ -1,0 +1,237 @@
+{
+  "inventory_version": 1,
+  "release_format": "egoemg_v2_memmap",
+  "source_url": "https://drive.google.com/drive/folders/1325S0iBVvbT_OnFAeiacLSRjXoWbCPsl",
+  "inspected_date": "2026-10-24",
+  "total_rows": 66161725,
+  "num_episodes": 41,
+  "minimum_free_bytes": 16106127360,
+  "preprocessing_limitation": "Official whole-episode prefiltered EMG can carry dependencies across temporal partitions. This inventory does not provide strict preprocessing isolation; raw interval filtering is a separate track.",
+  "checksum_policy": "Metadata SHA256 values pin the inspected public files. Bulk hashes are computed after transfer and recorded locally; the source publishes no authenticated bulk SHA256 values.",
+  "files": [
+    {
+      "filename": "manifest.json",
+      "drive_id": "1dAK4NpIE3_z9xU0BTTcx0hUyxjc6nmk_",
+      "expected_bytes": 9419,
+      "sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+      "group": "metadata"
+    },
+    {
+      "filename": "metadata.npz",
+      "drive_id": "19L5VM8GNckOPKz4rLdbjGZy38pF3_kDE",
+      "expected_bytes": 17088,
+      "sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+      "group": "metadata"
+    },
+    {
+      "filename": "metadata_summary.json",
+      "drive_id": "1eUm1qKTyYW0BG3y0yn7TzUBo9dcZhR6i",
+      "expected_bytes": 7173,
+      "sha256": "34736a9ef3c311a0ddc4a060d6a996c6c850c26f90d1cb32856c9231fe87be62",
+      "group": "metadata"
+    },
+    {
+      "filename": "emg_left_filtered.dat",
+      "drive_id": "1zoA8gLo4byS8yf242KkMmf6zngELSB5V",
+      "expected_bytes": 2117175200,
+      "field": "emg_left_filtered",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        8
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "emg_right_filtered.dat",
+      "drive_id": "1GJxGQdg1qoI38bVK7nhaeEZPjN_tku1t",
+      "expected_bytes": 2117175200,
+      "field": "emg_right_filtered",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        8
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "generated_joint_angles_left.dat",
+      "drive_id": "1ID1EMRmRuTWr1KmvFTWy-as1d9Qrs3kJ",
+      "expected_bytes": 5292938000,
+      "field": "generated_joint_angles_left",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        20
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "generated_joint_angles_right.dat",
+      "drive_id": "13fIlayef2mSO-eYIGqhtGfls7BcrzeEn",
+      "expected_bytes": 5292938000,
+      "field": "generated_joint_angles_right",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        20
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "generated_label_valid.dat",
+      "drive_id": "1Fr6a5DL3Skk3wpL5hinIqqazrzXZ4x3A",
+      "expected_bytes": 132323450,
+      "field": "generated_label_valid",
+      "dtype": "bool",
+      "shape": [
+        66161725,
+        2
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "mocap_left_wrist_pitch.dat",
+      "drive_id": "13v3WADaIAZmvWg5iPavbxTAzPSs3xGp_",
+      "expected_bytes": 264646900,
+      "field": "mocap_left_wrist_pitch",
+      "dtype": "float32",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "mocap_left_wrist_yaw.dat",
+      "drive_id": "12AvxjLCX4KF5HrNsp8rFbYNU6gFViw38",
+      "expected_bytes": 264646900,
+      "field": "mocap_left_wrist_yaw",
+      "dtype": "float32",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "mocap_left_wrist_angles_valid.dat",
+      "drive_id": "1CA91ZXqRrd8voutAwPb5e-QIW3vlHqju",
+      "expected_bytes": 66161725,
+      "field": "mocap_left_wrist_angles_valid",
+      "dtype": "bool",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "mocap_right_wrist_pitch.dat",
+      "drive_id": "1GqqalTM3a0MrsdXcqWWnYGReASOq_CJg",
+      "expected_bytes": 264646900,
+      "field": "mocap_right_wrist_pitch",
+      "dtype": "float32",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "mocap_right_wrist_yaw.dat",
+      "drive_id": "1E-ZTA-H3LSfqM2p7ggtWdTheDEkJ4sGW",
+      "expected_bytes": 264646900,
+      "field": "mocap_right_wrist_yaw",
+      "dtype": "float32",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "mocap_right_wrist_angles_valid.dat",
+      "drive_id": "1qf86itHOD8pXw_aCrST516cvg8I_Flc0",
+      "expected_bytes": 66161725,
+      "field": "mocap_right_wrist_angles_valid",
+      "dtype": "bool",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "frame_split_id.dat",
+      "drive_id": "1m9cE4aRkUZRJYZfZEAwRyUlQhQbzH1om",
+      "expected_bytes": 66161725,
+      "field": "frame_split_id",
+      "dtype": "int8",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "label_gesture_class.dat",
+      "drive_id": "1IgoUAV8zJNUzQg0CgFMhB2wzdYENKtYM",
+      "expected_bytes": 264646900,
+      "field": "label_gesture_class",
+      "dtype": "int32",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "label_gesture_active.dat",
+      "drive_id": "1IVvm5NQTX73X93JdULpLf6z0fA0OxnyA",
+      "expected_bytes": 66161725,
+      "field": "label_gesture_active",
+      "dtype": "bool",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "timestamp_us.dat",
+      "drive_id": "19d3cNGvJq5m0UWMLXtbldT7f_s6r5mIJ",
+      "expected_bytes": 529293800,
+      "field": "timestamp_us",
+      "dtype": "int64",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "episode_index.dat",
+      "drive_id": "1UpSMdb7hbvVDkp4nVRpCIQi4UaQHBxsK",
+      "expected_bytes": 529293800,
+      "field": "episode_index",
+      "dtype": "int64",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "frame_index.dat",
+      "drive_id": "1fEjzLX9AXKxyMuXghBZxjjIImjL_Hrxn",
+      "expected_bytes": 529293800,
+      "field": "frame_index",
+      "dtype": "int64",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    },
+    {
+      "filename": "subject_id.dat",
+      "drive_id": "1nSfWCZvP3F4Qokh8cdnHHo6wlWZiIoXh",
+      "expected_bytes": 264646900,
+      "field": "subject_id",
+      "dtype": "int32",
+      "shape": [
+        66161725
+      ],
+      "group": "legacy_prefiltered"
+    }
+  ]
+}

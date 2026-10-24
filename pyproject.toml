@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "egoemg-reproduction"
+version = "0.1.0"
+description = "Version-pinned EgoEMG reproduction and evaluation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<2", "gdown>=5.2,<6", "requests>=2.31", "tqdm>=4.65"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+vision = ["Pillow==11.0.0", "lmdb==1.7.3"]
+
+[tool.setuptools.packages.find]
+include = ["egoemg_repro*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

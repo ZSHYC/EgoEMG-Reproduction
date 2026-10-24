@@ -1,0 +1,288 @@
+{
+  "inventory_version": 1,
+  "release_format": "egoemg_legacy_crops_v2",
+  "source_url": "https://drive.google.com/drive/folders/1Cy7Hu6allGhFcKV5ZlMNIxqsxnjWErk3",
+  "lmdb_contract": {
+    "one_database_per_episode": true,
+    "hands_in_same_database": [
+      "L",
+      "R"
+    ],
+    "key_format": "{frame:08d}_L / {frame:08d}_R",
+    "frame_semantics": "Source video frame index, not the 2 kHz EMG row index",
+    "value_format": "JPEG bytes",
+    "patch_size": 256,
+    "jpeg_quality": 90,
+    "missing_crop_policy": "A key may be absent when the hand label or projected keypoints are invalid; do not assume both hands exist for every frame",
+    "verification_scope": "Manifest and published crop-generation code verified; individual LMDB keys were not enumerated"
+  },
+  "total_mdb_bytes": 45037686784,
+  "files": [
+    {
+      "episode_id": "episode_000000",
+      "filename": "episode_000000.data.mdb",
+      "drive_id": "159HLie8NPB61MCiEKOUF7qsOrwIywrBB",
+      "expected_bytes": 654102528
+    },
+    {
+      "episode_id": "episode_000001",
+      "filename": "episode_000001.data.mdb",
+      "drive_id": "1-2skieWR_dL9Ux5LkFbG8bWX7RiuWYR-",
+      "expected_bytes": 604397568
+    },
+    {
+      "episode_id": "episode_000002",
+      "filename": "episode_000002.data.mdb",
+      "drive_id": "1yQzIsGCLquoFO9ModI2dFCCbS38_XO29",
+      "expected_bytes": 526356480
+    },
+    {
+      "episode_id": "episode_000003",
+      "filename": "episode_000003.data.mdb",
+      "drive_id": "1b-p5rCW8jdHIdft0izIRrZOLWiWHOTbb",
+      "expected_bytes": 866758656
+    },
+    {
+      "episode_id": "episode_000004",
+      "filename": "episode_000004.data.mdb",
+      "drive_id": "1ZoOwJmBckgVjAGNGOtrzFpiPoBsZ6RJZ",
+      "expected_bytes": 2428928
+    },
+    {
+      "episode_id": "episode_000005",
+      "filename": "episode_000005.data.mdb",
+      "drive_id": "12Q5HoG1Bz7Jpi2H58PlFQ-pijg4tXM6F",
+      "expected_bytes": 905535488
+    },
+    {
+      "episode_id": "episode_000006",
+      "filename": "episode_000006.data.mdb",
+      "drive_id": "1V0nkqDFCK0djbLhHsOlGKDPljAhorG_E",
+      "expected_bytes": 1065746432
+    },
+    {
+      "episode_id": "episode_000007",
+      "filename": "episode_000007.data.mdb",
+      "drive_id": "1-vIzHIwT2BuAu-kcP6t_Gx7DtjSiCqiG",
+      "expected_bytes": 1025323008
+    },
+    {
+      "episode_id": "episode_000008",
+      "filename": "episode_000008.data.mdb",
+      "drive_id": "1WYl2r8wobajWjwUXhUqYqW9UHVSyTqpT",
+      "expected_bytes": 1223573504
+    },
+    {
+      "episode_id": "episode_000009",
+      "filename": "episode_000009.data.mdb",
+      "drive_id": "1X7u93HanM5EL6FG7zCmRnAivaM82BPp5",
+      "expected_bytes": 1099882496
+    },
+    {
+      "episode_id": "episode_000010",
+      "filename": "episode_000010.data.mdb",
+      "drive_id": "1XUjuGBMFl6u5_h38SGXERbJxCWrQV8QR",
+      "expected_bytes": 1389670400
+    },
+    {
+      "episode_id": "episode_000011",
+      "filename": "episode_000011.data.mdb",
+      "drive_id": "108SmNT_rEbTlfb47kREvXUDklKf_xNb3",
+      "expected_bytes": 790659072
+    },
+    {
+      "episode_id": "episode_000012",
+      "filename": "episode_000012.data.mdb",
+      "drive_id": "1xk22ghA41mH6FJmnT-trgvqb3uXYDRCM",
+      "expected_bytes": 1261907968
+    },
+    {
+      "episode_id": "episode_000013",
+      "filename": "episode_000013.data.mdb",
+      "drive_id": "1hrfkbczOtzz0RAq5zXxG7t4se96qrT-F",
+      "expected_bytes": 1245741056
+    },
+    {
+      "episode_id": "episode_000014",
+      "filename": "episode_000014.data.mdb",
+      "drive_id": "1rZo5k6XyzEqVPUAXnXbAH6kQvVQ1q-ss",
+      "expected_bytes": 644091904
+    },
+    {
+      "episode_id": "episode_000015",
+      "filename": "episode_000015.data.mdb",
+      "drive_id": "1VWbXEDaSKaP_xfMvGlg_N1leXUjWGaAd",
+      "expected_bytes": 1321373696
+    },
+    {
+      "episode_id": "episode_000016",
+      "filename": "episode_000016.data.mdb",
+      "drive_id": "1XVboBpZE6Y2SqjlGAZa37iN3Ul4jPqx4",
+      "expected_bytes": 1557983232
+    },
+    {
+      "episode_id": "episode_000017",
+      "filename": "episode_000017.data.mdb",
+      "drive_id": "1rIqLTBqA4WS6jBmBwrSlb2zIFOI1eBvD",
+      "expected_bytes": 1433067520
+    },
+    {
+      "episode_id": "episode_000018",
+      "filename": "episode_000018.data.mdb",
+      "drive_id": "1PsBlvPqKh9IOudBB92a0vXHK918bA1mv",
+      "expected_bytes": 1679110144
+    },
+    {
+      "episode_id": "episode_000019",
+      "filename": "episode_000019.data.mdb",
+      "drive_id": "15KE0_cE3v_uI-omeA0NkLz_DvzmsPn7j",
+      "expected_bytes": 1450123264
+    },
+    {
+      "episode_id": "episode_000020",
+      "filename": "episode_000020.data.mdb",
+      "drive_id": "1GRUnpPYxa6lu7IIrk08eTSYk3jNdC9im",
+      "expected_bytes": 1245265920
+    },
+    {
+      "episode_id": "episode_000021",
+      "filename": "episode_000021.data.mdb",
+      "drive_id": "1JbQ86GJFOdndJBgb2ianYmcr7gI8_F7O",
+      "expected_bytes": 1191211008
+    },
+    {
+      "episode_id": "episode_000022",
+      "filename": "episode_000022.data.mdb",
+      "drive_id": "1yGEZFPmZkzHWLi9VUdUtDxV5AcjiiBf3",
+      "expected_bytes": 551043072
+    },
+    {
+      "episode_id": "episode_000023",
+      "filename": "episode_000023.data.mdb",
+      "drive_id": "14E1jMFJjVCCE7VOZWlQXz2oBqieqz5ak",
+      "expected_bytes": 1726005248
+    },
+    {
+      "episode_id": "episode_000024",
+      "filename": "episode_000024.data.mdb",
+      "drive_id": "1QFdyE-A72Tgm9HZGrgix1S5IOdB8IjRa",
+      "expected_bytes": 1322823680
+    },
+    {
+      "episode_id": "episode_000025",
+      "filename": "episode_000025.data.mdb",
+      "drive_id": "1LnJqiUYId3hjBFPPAhnsMja0xpchYOpe",
+      "expected_bytes": 1395941376
+    },
+    {
+      "episode_id": "episode_000026",
+      "filename": "episode_000026.data.mdb",
+      "drive_id": "147t3HXk8V8ahm588fkjWUm5bArZgx0_9",
+      "expected_bytes": 1598955520
+    },
+    {
+      "episode_id": "episode_000027",
+      "filename": "episode_000027.data.mdb",
+      "drive_id": "1zB9grleQfIYUkeUrDIzkISqBUe7L1Hzp",
+      "expected_bytes": 1166434304
+    },
+    {
+      "episode_id": "episode_000028",
+      "filename": "episode_000028.data.mdb",
+      "drive_id": "1FIrDFGf7RNdQ9itluSGxRbRBxBUmDGjG",
+      "expected_bytes": 299630592
+    },
+    {
+      "episode_id": "episode_000029",
+      "filename": "episode_000029.data.mdb",
+      "drive_id": "1dmhIPcqAxE8ytXKv26-HL8ZxL9t9Eebd",
+      "expected_bytes": 1323646976
+    },
+    {
+      "episode_id": "episode_000030",
+      "filename": "episode_000030.data.mdb",
+      "drive_id": "17z_cp7X1BiKiSV6_1br1xozz3HJWjn3q",
+      "expected_bytes": 139014144
+    },
+    {
+      "episode_id": "episode_000031",
+      "filename": "episode_000031.data.mdb",
+      "drive_id": "1wsaEXj0oZNklkeuDRUPUB5wwRaT5a1jV",
+      "expected_bytes": 679477248
+    },
+    {
+      "episode_id": "episode_000032",
+      "filename": "episode_000032.data.mdb",
+      "drive_id": "1qGpfKJtlCF01uiDA5EzQ9fbX3gw4yiKS",
+      "expected_bytes": 1484435456
+    },
+    {
+      "episode_id": "episode_000033",
+      "filename": "episode_000033.data.mdb",
+      "drive_id": "1djhMQCywqogdZCcJ17ad9u7JU04snRuX",
+      "expected_bytes": 1031700480
+    },
+    {
+      "episode_id": "episode_000034",
+      "filename": "episode_000034.data.mdb",
+      "drive_id": "1smiv7fsiuqOimnmtdV7ckCaZ4yjFOgxY",
+      "expected_bytes": 1753657344
+    },
+    {
+      "episode_id": "episode_000035",
+      "filename": "episode_000035.data.mdb",
+      "drive_id": "1Bw0twDAQsqlNRgoh1xyDbUv6fZBxD6rb",
+      "expected_bytes": 948187136
+    },
+    {
+      "episode_id": "episode_000036",
+      "filename": "episode_000036.data.mdb",
+      "drive_id": "1Ru35Z20sGm52hh6VyCMXNjank_mqkB5h",
+      "expected_bytes": 1483042816
+    },
+    {
+      "episode_id": "episode_000037",
+      "filename": "episode_000037.data.mdb",
+      "drive_id": "1gwhzMGULAQVhukEpfscikK2jKBZSccnX",
+      "expected_bytes": 1468043264
+    },
+    {
+      "episode_id": "episode_000038",
+      "filename": "episode_000038.data.mdb",
+      "drive_id": "1bBFOHutrsBYOFHI3An7FXmDQkTfi6SOY",
+      "expected_bytes": 1735630848
+    },
+    {
+      "episode_id": "episode_000039",
+      "filename": "episode_000039.data.mdb",
+      "drive_id": "1wvQZjfjh2aQkvgO2lSr0TmDkq85Kkwsf",
+      "expected_bytes": 633552896
+    },
+    {
+      "episode_id": "episode_000040",
+      "filename": "episode_000040.data.mdb",
+      "drive_id": "1hSsHIt19y7WM5uh68E-3LxnQVbOY30vq",
+      "expected_bytes": 1112154112
+    }
+  ],
+  "required_frame_fields": [
+    {
+      "field": "image_webcam_frame_index",
+      "filename": "image_webcam_frame_index.dat",
+      "drive_id": "1y_43eg0FAfPy57a4FW4PLlvfKYNb_2-B",
+      "expected_bytes": 264646900
+    },
+    {
+      "field": "image_webcam_stale",
+      "filename": "image_webcam_stale.dat",
+      "drive_id": "1CEm7NCervj9x2ukoD7ZVZyPh-A7TQTGj",
+      "expected_bytes": 66161725
+    },
+    {
+      "field": "image_webcam_delta_ms",
+      "filename": "image_webcam_delta_ms.dat",
+      "drive_id": "1aS5REKuEBqz6UlNbLOGib_z7BHCuXIer",
+      "expected_bytes": 264646900
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-24",
+  "scope": "Engineering integration evidence on the legacy release; full quantitative reproduction remains pending.",
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "quantitative_reproduction_complete": false,
+  "synthetic_gpu_profile": {
+    "scope": "Synthetic architecture steps; timing is not real-data training throughput.",
+    "observations": [
+      {
+        "kind": "synthetic_architecture_gpu_check",
+        "batch_size": 64,
+        "finite_loss": true,
+        "finite_gradient": true,
+        "elapsed_seconds": 0.6864682361483574,
+        "peak_allocated_GiB": 2.707498073577881,
+        "GPU": "NVIDIA A800-SXM4-80GB"
+      },
+      {
+        "kind": "synthetic_architecture_gpu_check",
+        "batch_size": 500,
+        "finite_loss": true,
+        "finite_gradient": true,
+        "elapsed_seconds": 0.5750024700537324,
+        "peak_allocated_GiB": 20.86513090133667,
+        "GPU": "NVIDIA A800-SXM4-80GB"
+      }
+    ]
+  },
+  "real_array_finite_audit": {
+    "scope": "Six sampled hand windows, not an exhaustive scan of all release rows.",
+    "receipt_files": 24,
+    "checked_hand_samples": 6,
+    "checked_samples_per_hand": {
+      "left": 3,
+      "right": 3
+    },
+    "emg_shape": [
+      8,
+      12000
+    ],
+    "angle_shape": [
+      22,
+      12000
+    ],
+    "all_checked_emg_finite": true,
+    "all_checked_angles_finite": true,
+    "valid_angle_count_range_per_checked_sample": [
+      263626,
+      264000
+    ]
+  },
+  "protocol_counts": {
+    "count_unit": "single-hand window samples",
+    "train": 63172,
+    "validation": 1052,
+    "test": 2792,
+    "windows": {
+      "train": 31586,
+      "validation": 526,
+      "test": 1396
+    },
+    "validation_definition": "Deterministic contiguous temporal holdout within official training runs; paired hands share partitions."
+  },
+  "tests": {
+    "full_runtime_passed": 72,
+    "full_runtime_skipped": 0,
+    "lightweight_passed": 58,
+    "lightweight_optional_skipped": 14
+  },
+  "real_visual_gpu_profile": [
+    {
+      "model": "vision",
+      "batch_size": 64,
+      "scope": "real released crop/label finite GPU step; repeated two-hand sample, not cohort accuracy",
+      "finite_loss": true,
+      "finite_gradient": true,
+      "peak_allocated_GiB": 1.0779690742492676,
+      "step_seconds": 0.556712940800935
+    },
+    {
+      "model": "vision",
+      "batch_size": 900,
+      "scope": "real released crop/label finite GPU step; repeated two-hand sample, not cohort accuracy",
+      "finite_loss": true,
+      "finite_gradient": true,
+      "peak_allocated_GiB": 13.967778205871582,
+      "step_seconds": 0.4562621838413179
+    },
+    {
+      "model": "fusion",
+      "batch_size": 64,
+      "scope": "real released crop/label finite GPU step; repeated two-hand sample, not cohort accuracy",
+      "finite_loss": true,
+      "finite_gradient": true,
+      "peak_allocated_GiB": 2.836383819580078,
+      "step_seconds": 0.21948859514668584
+    },
+    {
+      "model": "fusion",
+      "batch_size": 200,
+      "scope": "real released crop/label finite GPU step; repeated two-hand sample, not cohort accuracy",
+      "finite_loss": true,
+      "finite_gradient": true,
+      "peak_allocated_GiB": 8.632688522338867,
+      "step_seconds": 0.25880672270432115
+    }
+  ],
+  "real_emg_checkpoint_check": {
+    "strict_reload": true,
+    "identical_validation_reports": true,
+    "report_sha256": "5e956e530b9ace31f80a1d220c2073dce76957a551d3faf40762e4b3da2a73c3",
+    "test_evaluated": false,
+    "global_step": 2,
+    "batch_size": 500,
+    "scope": "Two real-data optimizer updates; strict restore and repeated validation; not a final benchmark",
+    "saved_config_relocated_resume_step": 3
+  }
+}

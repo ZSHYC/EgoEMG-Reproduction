@@ -11,6 +11,8 @@
 /runs/
 /logs/
 /.venv/
+/.runtime/
+/.superpowers/
 /.env
 /.env.*
 *.ckpt

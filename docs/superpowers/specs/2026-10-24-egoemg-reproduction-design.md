@@ -2,7 +2,7 @@
 
 Date: 2026-10-24, Asia/Shanghai.
 
-Status: Proposed design, pending user review. The user has selected reproduction based on the official implementation. Design approval, implementation, and experimental results must not be inferred from that choice.
+Status: Approved by the user on 2026-10-24. The user explicitly authorized preparing data and starting training under this design. Experimental results remain pending until runs are actually verified.
 
 ## Intent
 
