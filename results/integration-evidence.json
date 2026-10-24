@@ -115,5 +115,20 @@
     "batch_size": 500,
     "scope": "Two real-data optimizer updates; strict restore and repeated validation; not a final benchmark",
     "saved_config_relocated_resume_step": 3
+  },
+  "implementation_commit": "5c2712385ecf97010e2a8fce41ad9291f15daf03",
+  "full_training": {
+    "status": "EMGFormer-S running; ResNet-18 and fusion queued with acceptance gates",
+    "seed": 42,
+    "emg_epochs": 200,
+    "vision_epochs": 150,
+    "fusion_epochs": 150,
+    "batch_sizes": {
+      "emg": 500,
+      "vision": 900,
+      "fusion": 200
+    },
+    "gpu_count": 1,
+    "final_test_results_available": false
   }
 }

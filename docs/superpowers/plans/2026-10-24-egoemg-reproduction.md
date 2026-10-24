@@ -83,8 +83,8 @@
 
 - [x] Run the meaningful full reproduction-package test suite, dependency checks, and real GPU integration checks.
 - [x] Obtain independent code/scientific-protocol review and resolve material findings before publishing implementation.
-- [ ] Commit and push tested code to the user-authorized public repository; verify remote commit and public visibility.
-- [ ] Launch persistent full experiments only after the corresponding integration check passes; record PID/session/logs privately and publish sanitized aggregate status.
+- [x] Commit and push tested code to the user-authorized public repository; verify remote commit and public visibility.
+- [x] Launch persistent full experiments only after the corresponding integration check passes; record PID/session/logs privately and publish sanitized aggregate status.
 - [ ] Publish completed measured results with all provenance; identify running, blocked, or unavailable experiments honestly.
 
 ## Execution ruling
