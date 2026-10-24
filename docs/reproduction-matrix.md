@@ -13,7 +13,7 @@
 | E1 | EMGFormer-S，8 通道、12,000 点 | [配方](../configs/emgformer_s.json)完整训练已成功结束：200 epochs、25,400 次更新，独立验证所选 best 为第 635 次更新；训练器最终测试及严格结果导出通过，记录交叉复核通过；实际锁定复算等待完整裁剪 | 完整训练结束事件；独立完整验证选出的 best；可恢复检查点；轨迹及中心最终测试；逐手/逐 split、手指/腕角、误差和/有效分母 |
 | E2 | ResNet-18，单帧 256×256 | [配方](../configs/resnet18.json)、数据适配和 batch900 真实 crop 有限值 GPU 步已检查；完整 crop acquisition 未完成，训练按依赖排队 | 全 episode crop receipt/中心覆盖核验；真实短训练与重载；150 epochs 完整训练；选中 best 的中心帧测试；缺图数量及双 population |
 | E3 | RN18 + EMGFormer-S 中心残差融合 | [配方](../configs/fusion_rn18_s.json)与 batch200 有限值 GPU 步已检查；依赖 E1/E2 选出的独立验证 checkpoint | 两个初始 checkpoint 的 SHA256/来源；精确零残差初始化记录；150 epochs 完整训练；中心测试与 E2 相同 population；完整选模/重载证据 |
-| E4 | EMGFormer-M 比较 | [M 配方](../configs/emgformer_m.json)与 6 层/256 宽/8 heads/FFN1024 结构已核对；[独立真实数据两步、严格重载和重复验证](../results/emgformer-m-integration.json)通过，200 epochs、batch500 完整训练已启动 | 保留独立验收记录及同队列、partition/normalization 身份；完整训练结束、独立验证选出的 best、轨迹/中心最终测试 |
+| E4 | EMGFormer-M 比较 | [M 配方](../configs/emgformer_m.json)与 6 层/256 宽/8 heads/FFN1024 结构已核对；[独立集成检查](../results/emgformer-m-integration.json)之后，200 epochs、25,400 次更新完整训练已成功结束；独立验证选择第 635 次更新，训练器最终测试与严格导出通过，实际锁定复算待完整裁剪 | 保留独立验收记录及同队列、partition/normalization 身份；完整训练结束、独立验证选出的 best、轨迹/中心最终测试 |
 
 当前公开的[集成证据](../results/integration-evidence.json)明确 `quantitative_reproduction_complete=false`。E1 的两步真实训练和 E2/E3 的重复双手 crop 内存探测都不是最终 benchmark。新增 M 不继承 S 的训练通过结论。运行中的模型/数据/训练代码与前三个配方保持冻结；报告、文档或新增 M 配方不得悄悄改变既有实验身份。
 

@@ -121,7 +121,7 @@ S/M 前端形状为 `(B,256,T′)`。总时间 stride 为 50，名义步距对�
 | 选模 | PDF 未提供足以重建的独立验证划分/选模记录 | 官方训练区间内时间留出，完整独立验证选最优 |
 | 精度模式 | bf16，6×RTX4090 | bf16，实际 GPU 与配置写入 run 元数据 |
 
-配方依据：[C.1/C.2，Tables 7–8，pp.21–22](https://arxiv.org/pdf/2605.05712v1#page=21)、[S 配方](../configs/emgformer_s.json)、[M 配方](../configs/emgformer_m.json)、[RN18 配方](../configs/resnet18.json)、[融合配方](../configs/fusion_rn18_s.json)。M 的[独立验收记录](../results/emgformer-m-integration.json)已包含两步真实训练与严格重载；完整训练已启动，尚无最终测试结果，不从 S 的通过状态推定 M 的结果。复现层保留模型架构，但数据队列、归一化、验证和训练配方的这些差异使其属于 **legacy-release reproduction**。
+配方依据：[C.1/C.2，Tables 7–8，pp.21–22](https://arxiv.org/pdf/2605.05712v1#page=21)、[S 配方](../configs/emgformer_s.json)、[M 配方](../configs/emgformer_m.json)、[RN18 配方](../configs/resnet18.json)、[融合配方](../configs/fusion_rn18_s.json)。M 的[独立集成记录](../results/emgformer-m-integration.json)包含两步真实训练与严格重载；此后 S/M 已分别完成 200 轮完整训练、独立验证选模和训练器最终测试，并通过各自的严格结果导出，独立复算待完整裁剪后执行。复现层保留模型架构，但数据队列、归一化、验证和训练配方的这些差异使其属于 **legacy-release reproduction**。
 
 ## 6. 划分和评价：名称相同不保证统计口径相同
 

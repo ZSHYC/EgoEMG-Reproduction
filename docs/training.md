@@ -68,7 +68,7 @@ EGOEMG_UPSTREAM="$PWD/upstream" "$PY" -m pytest -q
 
 ### 3.1 EMGFormer-M 扩展比较
 
-M 使用固定上游 `emgformer/egoemg_emgformer_middle` 配方：6 层、256 维、8 个注意力头、FFN1024，实际参数数为 6,617,382。输入、划分和归一化协议与 S 相同，使用独立输出目录。该配方的 batch500 已通过真实数据短训练、严格重载和重复验证，200 epochs 完整训练已启动；最终结果尚未产出。
+M 使用固定上游 `emgformer/egoemg_emgformer_middle` 配方：6 层、256 维、8 个注意力头、FFN1024，实际参数数为 6,617,382。输入、划分和归一化协议与 S 相同，使用独立输出目录。该配方的 batch500 已通过真实数据短训练、严格重载和重复验证，此后 200 epochs 完整训练、验证选模与训练器最终测试已成功结束；严格结果导出通过，最终成绩待独立复算后发布。
 
 ```bash
 "$PY" -m egoemg_repro.train \

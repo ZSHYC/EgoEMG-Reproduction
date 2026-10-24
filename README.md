@@ -12,7 +12,7 @@
 
 > **当前进度 · 2026-10-24**
 >
-> 41 人 legacy release 的 EMG、标签与视觉对齐字段已下载校验。EMGFormer-S 已完成 200 轮训练、验证选模和训练器最终测试，严格结果导出已通过；独立复算正在等待完整视觉裁剪。EMGFormer-M 仍在训练，视觉与融合按依赖排队。**最终结果尚待独立审计发布，论文定量复现尚未完成。** 最新进度以[运行状态](docs/run-status.md)为准。
+> 41 人 legacy release 的 EMG、标签与视觉对齐字段已下载校验。EMGFormer-S 与 EMGFormer-M 均已完成 200 轮训练、验证选模和训练器最终测试，严格结果导出已通过；独立复算正在等待完整视觉裁剪，视觉与融合按依赖排队。**最终结果尚待独立审计发布，论文定量复现尚未完成。** 最新进度以[运行状态](docs/run-status.md)为准。
 
 [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
@@ -23,11 +23,11 @@
 | 路线 | 本次配置 | 完整实验状态 | 最终测试 MAE |
 | --- | --- | --- | --- |
 | **EMG → Pose** | EMGFormer-S · 8 通道 · 12,000 点 · 200 epochs | 训练器测试及严格导出完成；独立复算排队 | 待审计发布 |
-| **EMG → Pose · 扩展** | EMGFormer-M · 8 通道 · 12,000 点 · 200 epochs | 训练中 | 待完成 |
+| **EMG → Pose · 扩展** | EMGFormer-M · 8 通道 · 12,000 点 · 200 epochs | 训练器测试及严格导出完成；独立复算排队 | 待审计发布 |
 | **Vision → Pose** | ResNet-18 · 中心帧手部裁剪 · 150 epochs | 等待完整裁剪与阶段验收 | 待完成 |
 | **EMG + Vision → Pose** | ResNet-18 + EMGFormer-S · 8 通道残差融合 · 150 epochs | 等待两分支完整验证选模 | 待完成 |
 
-EMGFormer-M 已通过独立的真实数据 GPU 有界训练与重载验收，作为扩展比较另行记录。表中待完成或待发布项不表示零误差，也不以短训练或发布检查点结果替代。指标定义、结果发布条件和证据入口见[实验结果](docs/results.md)。
+EMGFormer-M 使用独立配方和输出目录，作为扩展比较另行记录。表中待完成或待发布项不表示零误差，也不以短训练或发布检查点结果替代。指标定义、结果发布条件和证据入口见[实验结果](docs/results.md)。
 
 <details>
 <summary>查看 EMGFormer-S 早期训练与独立验证曲线（历史快照）</summary>
