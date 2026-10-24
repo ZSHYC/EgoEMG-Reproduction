@@ -63,10 +63,11 @@
     "validation_definition": "Deterministic contiguous temporal holdout within official training runs; paired hands share partitions."
   },
   "tests": {
-    "full_runtime_passed": 72,
+    "full_runtime_passed": 73,
     "full_runtime_skipped": 0,
-    "lightweight_passed": 58,
-    "lightweight_optional_skipped": 14
+    "lightweight_passed": 59,
+    "lightweight_optional_skipped": 14,
+    "small_disk_simulation_gib_free": 8
   },
   "real_visual_gpu_profile": [
     {

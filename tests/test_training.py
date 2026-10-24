@@ -78,7 +78,13 @@ def checkpoint_fixture(value=1., score=3., step=1):
             'run_id': 'fixture-run'}
 
 
+def ample_fixture_disk(_path):
+    """Successful-write fixtures own capacity; host free space is irrelevant."""
+    return SimpleNamespace(total=200 * 1024**3, used=100 * 1024**3, free=100 * 1024**3)
+
+
 class CheckpointSafetyTests(unittest.TestCase):
+    @patch('egoemg_repro.train.shutil.disk_usage', ample_fixture_disk)
     def test_interrupted_best_publication_recovers_matching_weights_from_last(self):
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp)
@@ -101,6 +107,7 @@ class CheckpointSafetyTests(unittest.TestCase):
             continued = checkpoint_with_best(latest, best)
             self.assertEqual(selected_best_checkpoint(continued)['model']['weight'], [2.])
 
+    @patch('egoemg_repro.train.shutil.disk_usage', ample_fixture_disk)
     def test_resume_into_new_output_preserves_historical_best_without_improvement(self):
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp) / 'relocated'
@@ -160,6 +167,7 @@ class CheckpointSafetyTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(), b'known-good')
             self.assertFalse(Path(str(path) + '.tmp').exists())
 
+    @patch('egoemg_repro.train.shutil.disk_usage', ample_fixture_disk)
     def test_failed_serialization_keeps_previous_checkpoint_and_cleans_temp(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'last.pt'
@@ -183,6 +191,7 @@ class CheckpointSafetyTests(unittest.TestCase):
                 prepare_output(output, checkpoint_with_best(checkpoint_fixture()), loader=deserialize_fixture)
             self.assertEqual((output / 'config.json').read_text(), '{"existing": true}')
 
+    @patch('egoemg_repro.train.shutil.disk_usage', ample_fixture_disk)
     def test_same_output_resume_checks_best_artifact_provenance(self):
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp)
@@ -417,6 +426,7 @@ class VisualProvenanceTests(unittest.TestCase):
 
 @unittest.skipUnless(os.getenv('EGOEMG_UPSTREAM'), 'set EGOEMG_UPSTREAM for the real visual training driver')
 class VisualDriverTests(unittest.TestCase):
+    @patch('egoemg_repro.train.shutil.disk_usage', ample_fixture_disk)
     def test_real_vision_bounded_training_relocated_resume_and_repeat_evaluation(self):
         import hashlib
         import numpy as np

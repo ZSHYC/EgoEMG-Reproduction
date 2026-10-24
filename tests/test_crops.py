@@ -2,6 +2,7 @@
 import io
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import pytest
@@ -57,12 +58,14 @@ def test_missing_key_is_explicit_but_absent_episode_file_fails(tmp_path):
         reader.read('episode_absent', 17, 'left')
 
 
-def test_cache_retains_only_selected_keys_and_records_missing_hand(tmp_path):
+def test_cache_retains_only_selected_keys_and_records_missing_hand(tmp_path, monkeypatch):
     data, crops, cache = [tmp_path / name for name in ('data', 'crops', 'cache')]
     data.mkdir()
     make_store(data)
     add_video_indices(data, np.arange(47) + 15)
     payload = make_crops(crops)
+    monkeypatch.setattr('egoemg_repro.crops.shutil.disk_usage',
+                        lambda _path: SimpleNamespace(free=100 * 1024**3))
     report = extract_centers(data, [window()], crops, cache)
     assert report['requested_samples'] == 2
     assert report['missing_samples'] == 1
@@ -129,3 +132,19 @@ def test_download_help_runs_without_numpy_or_any_site_packages():
                             cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     assert '--episodes' in result.stdout
+
+
+def test_cache_rejects_low_disk_before_publishing_any_payload(tmp_path, monkeypatch):
+    from egoemg_repro.download import MIN_FREE_BYTES
+    data, crops, cache = [tmp_path / name for name in ('data', 'crops', 'cache')]
+    data.mkdir()
+    make_store(data)
+    add_video_indices(data, np.arange(47) + 15)
+    make_crops(crops)
+    monkeypatch.setattr('egoemg_repro.crops.shutil.disk_usage',
+                        lambda _path: SimpleNamespace(free=MIN_FREE_BYTES))
+    with pytest.raises(OSError, match='15 GiB'):
+        extract_centers(data, [window()], crops, cache)
+    assert not (cache / 'episode_0.lmdb').exists()
+    assert not (cache / 'episode_0.lmdb.partial').exists()
+    assert not (cache / 'center_cache_manifest.json').exists()
