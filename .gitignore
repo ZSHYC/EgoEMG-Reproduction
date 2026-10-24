@@ -1,0 +1,30 @@
+# Local source paper and reading intermediates
+/EgoEMG.pdf
+/tmp/
+
+# Third-party checkout, environments, and research assets
+/upstream/
+/data/
+/assets/
+/checkpoints/
+/outputs/
+/runs/
+/logs/
+/.venv/
+/.env
+/.env.*
+*.ckpt
+*.pt
+*.pth
+*.dat
+*.lmdb
+*.mp4
+*.parquet
+*.npz
+*.npy
+*.pem
+*.key
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.DS_Store
