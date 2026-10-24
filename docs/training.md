@@ -66,6 +66,19 @@ EGOEMG_UPSTREAM="$PWD/upstream" "$PY" -m pytest -q
 
 训练使用固定官方模块和发布损失，先设置随机种子，再初始化模型。验证选模后才执行最终官方测试；同时输出 EMG 轨迹指标与中心帧指标。与视觉/融合比较时使用同一中心帧定义，不能把轨迹 MAE 当成中心帧 MAE。
 
+### 3.1 EMGFormer-M 扩展比较
+
+M 使用固定上游 `emgformer/egoemg_emgformer_middle` 配方：6 层、256 维、8 个注意力头、FFN1024，实际参数数为 6,617,382。输入、划分和归一化协议与 S 相同，使用独立输出目录。该配方的 batch500 已通过真实数据短训练、严格重载和重复验证，200 epochs 完整训练已启动；最终结果尚未产出。
+
+```bash
+"$PY" -m egoemg_repro.train \
+  --data data/legacy --upstream upstream \
+  --config configs/emgformer_m.json --output runs/emg_m_full \
+  --device cuda:0
+```
+
+M 的 checkpoint 与 S 架构不同；现有 RN18+S 融合只接收 S 分支，不能用 M 的权重替代。配方与集成记录见 [M 配方](../configs/emgformer_m.json)和[M 集成证据](../results/emgformer-m-integration.json)。
+
 ## 4. 视觉裁剪和 ResNet-18
 
 视觉训练需要额外的视频帧映射和完整所需 episode 的 crop。下面按顺序执行，避免独立下载进程同时修改 `data/legacy/acquisition_ledger.json`：

@@ -12,6 +12,7 @@ dependencies = ["numpy>=1.26,<2", "gdown>=5.2,<6", "requests>=2.31", "tqdm>=4.65
 [project.optional-dependencies]
 test = ["pytest>=8,<9"]
 vision = ["Pillow==11.0.0", "lmdb==1.7.3"]
+report = ["matplotlib==3.9.4", "contourpy<1.4"]
 
 [tool.setuptools.packages.find]
 include = ["egoemg_repro*"]

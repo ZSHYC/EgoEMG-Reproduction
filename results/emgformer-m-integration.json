@@ -1,0 +1,27 @@
+{
+  "model": "EMGFormer-M",
+  "parameter_count": 6617382,
+  "upstream_experiment": "emgformer/egoemg_emgformer_middle",
+  "num_layers": 6,
+  "model_dim": 256,
+  "num_heads": 8,
+  "ffn_dim": 1024,
+  "batch_size": 500,
+  "real_bounded_steps": 2,
+  "finite_loss_and_gradient": true,
+  "peak_allocated_GiB": 25.552425861358643,
+  "checkpoint_check": {
+    "strict_reload": true,
+    "identical_validation_reports": true,
+    "report_sha256": "a4a015b2ebc837ca7fcaf8190b7d267cb4666ce7235859c8dabc35ed4fafeb9d",
+    "test_evaluated": false,
+    "global_step": 2
+  },
+  "test_evaluated": false,
+  "scope": "Released-compatible legacy model; integration check is not final quantitative reproduction",
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "full_training_started": true,
+  "full_training_epochs": 200,
+  "seed": 42,
+  "final_test_result_available": false
+}

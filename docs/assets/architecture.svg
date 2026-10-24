@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">EgoEMG reproduction: data, baselines, and evaluation</title>
+  <desc id="desc">Verified legacy signals, labels, and aligned crops enter a shared time partition and train-only normalization protocol. EMGFormer-S and ResNet-18 form independent baselines; validation-selected weights initialize eight-channel residual fusion. Independent validation selects checkpoints before final test reporting with provenance and valid-angle counts. This is the current reproduction configuration, not a copy of the paper architecture.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#678296"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="1198" height="798" rx="18" fill="#f7fafc" stroke="#d7e2ea"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="54" fill="#102238" font-size="31" font-weight="700">One protocol. Three baseline routes.</text>
+    <text x="40" y="86" fill="#5a7081" font-size="20">Pinned official models / current legacy-release reproduction configuration</text>
+    <g fill="#102238" font-size="18" font-weight="700" letter-spacing="1.5">
+      <text x="40" y="135">01 / VERIFIED INPUTS</text>
+      <text x="40" y="313">02 / SHARED PROTOCOL</text>
+      <text x="40" y="473">03 / BASELINES</text>
+      <text x="40" y="665">04 / EVALUATION</text>
+    </g>
+    <g>
+      <rect x="40" y="155" width="350" height="95" rx="12" fill="#e2f3f0" stroke="#9acfc7"/>
+      <text x="61" y="189" fill="#125c56" font-size="23" font-weight="700">Wrist EMG</text>
+      <text x="61" y="224" fill="#375968" font-size="20">8 channels / target hand</text>
+      <rect x="425" y="155" width="350" height="95" rx="12" fill="#fff4dc" stroke="#e2c78e"/>
+      <text x="446" y="189" fill="#74521c" font-size="23" font-weight="700">Egocentric crops</text>
+      <text x="446" y="224" fill="#655c48" font-size="20">Aligned RGB / 256 × 256</text>
+      <rect x="810" y="155" width="350" height="95" rx="12" fill="#eaf0f6" stroke="#bdcdda"/>
+      <text x="831" y="189" fill="#284963" font-size="23" font-weight="700">Joint-angle labels</text>
+      <text x="831" y="224" fill="#4f687b" font-size="20">22 angles / validity mask</text>
+    </g>
+    <g fill="none" stroke="#678296" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M215 250V275H600V325"/>
+      <path d="M600 250V275" marker-end="none"/>
+      <path d="M985 250V275H600" marker-end="none"/>
+    </g>
+    <rect x="40" y="330" width="1120" height="98" rx="12" fill="#102b42"/>
+    <text x="65" y="369" fill="#f0f7fc" font-size="24" font-weight="700">Time partitions before windows · Same centers for both hands</text>
+    <text x="65" y="404" fill="#bddbdc" font-size="20">Train-only EMG normalization · Independent temporal validation</text>
+    <g fill="none" stroke="#678296" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M215 428V491"/>
+      <path d="M600 428V491"/>
+      <path d="M985 428V491"/>
+    </g>
+    <rect x="40" y="496" width="350" height="117" rx="12" fill="#e2f3f0" stroke="#9acfc7"/>
+    <text x="61" y="531" fill="#125c56" font-size="24" font-weight="700">EMGFormer-S</text>
+    <text x="61" y="564" fill="#375968" font-size="20">8 × 12,000 EMG input</text>
+    <text x="61" y="592" fill="#375968" font-size="19">Trajectory + center output</text>
+    <rect x="425" y="496" width="350" height="117" rx="12" fill="#fff4dc" stroke="#e2c78e"/>
+    <text x="446" y="531" fill="#74521c" font-size="24" font-weight="700">ResNet-18</text>
+    <text x="446" y="564" fill="#655c48" font-size="20">Center-frame RGB input</text>
+    <text x="446" y="592" fill="#655c48" font-size="19">22-angle center output</text>
+    <rect x="810" y="496" width="350" height="117" rx="12" fill="#eaf0f6" stroke="#bdcdda"/>
+    <text x="831" y="531" fill="#284963" font-size="24" font-weight="700">Residual fusion</text>
+    <text x="831" y="564" fill="#4f687b" font-size="20">Vision + 8-channel EMG-S</text>
+    <text x="831" y="592" fill="#4f687b" font-size="19">Validation-selected branches*</text>
+    <g fill="none" stroke="#678296" stroke-width="2">
+      <path d="M215 613V630H600M985 613V630H600"/>
+      <path d="M600 613V677" marker-end="url(#arrow)"/>
+    </g>
+    <rect x="40" y="682" width="1120" height="70" rx="12" fill="#ffffff" stroke="#bdcdda"/>
+    <text x="65" y="713" fill="#102238" font-size="22" font-weight="700">Independent validation → checkpoint selection → final test</text>
+    <text x="65" y="739" fill="#5a7081" font-size="18">Center / trajectory MAE · Valid-angle counts · Crop coverage · Provenance</text>
+    <text x="40" y="782" fill="#5a7081" font-size="17">* Fusion starts from independently validated branches; residual output is explicitly zero-initialized.</text>
+  </g>
+</svg>

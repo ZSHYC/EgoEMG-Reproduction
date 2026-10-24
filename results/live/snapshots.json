@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "report_type": "incomplete_training_snapshots",
+  "benchmark_eligible": false,
+  "generated_at_utc": "2026-10-24T06:04:19+00:00",
+  "models": {
+    "emg-s": {
+      "collected_at_utc": "2026-10-24T06:02:15+00:00",
+      "input_config_sha256": "c181d53f78e77a4ffbf12d527e6a4c05613af24908764ddae24455b19b396e7e",
+      "input_progress_sha256": "96453e2ecb6e88d6c9dc039f3bf1f30c545a626933a1b14fdf7889a14f4e0164",
+      "status_sha256": "6b18a05b9f118d444909e2d940d2c64530e78b101f28a10a6d53f63ab50fc8ad",
+      "global_step": 2753,
+      "validation_events": 21
+    },
+    "emg-m": {
+      "collected_at_utc": "2026-10-24T06:02:22+00:00",
+      "input_config_sha256": "4438bda6548ffc5fb2192b6c63e0ca084b44ae63b61b9ffe4d2077c6a27927b6",
+      "input_progress_sha256": "ffb0dd729b04dc4aec3b53b8bd5149ca9cd92a8a3558342883008337c3cda0bf",
+      "status_sha256": "0f50a9800215f0e51aecb236098cdeff3b319eff3e9bbcb70bc3128c615a2bbe",
+      "global_step": 1397,
+      "validation_events": 11
+    }
+  }
+}

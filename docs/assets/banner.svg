@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="title desc">
+  <title id="title">EgoEMG independent reproduction</title>
+  <desc id="desc">Original academic banner showing wrist EMG waveforms and an egocentric camera leading to a hand skeleton, with an emphasis on pinned source and traceable evaluation.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#102238"/><stop offset="1" stop-color="#19394c"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#c6f1eb" stroke-opacity=".05"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="400" rx="20" fill="url(#background)"/>
+  <rect width="1280" height="400" rx="20" fill="url(#grid)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="54" y="50" width="5" height="22" rx="2" fill="#2dd4bf"/>
+    <text x="74" y="68" fill="#9cdbd6" font-size="18" font-weight="700" letter-spacing="3">INDEPENDENT REPRODUCTION</text>
+    <text x="50" y="172" fill="#f5f9fc" font-size="92" font-weight="700" letter-spacing="-3">EgoEMG</text>
+    <text x="56" y="222" fill="#d3e2ec" font-size="27">Wrist EMG. Egocentric vision. Hand pose.</text>
+    <text x="57" y="265" fill="#a8c0d0" font-size="21">A transparent path from released data to evaluation.</text>
+    <path d="M56 301H631" stroke="#416174"/>
+    <circle cx="63" cy="339" r="5" fill="#2dd4bf"/>
+    <text x="79" y="346" fill="#d3e2ec" font-size="17" letter-spacing="1">PINNED SOURCE</text>
+    <circle cx="272" cy="339" r="5" fill="#f6c76a"/>
+    <text x="288" y="346" fill="#d3e2ec" font-size="17" letter-spacing="1">TRACEABLE RESULTS</text>
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <rect x="764" y="49" width="200" height="109" rx="14" fill="#11283e" stroke="#38596b"/>
+    <path d="M781 101H802L810 86L819 128L831 74L843 118L852 95L860 101H879L888 88L897 118L906 87L916 104H946" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+    <text x="781" y="141" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#a8c0d0" letter-spacing="2">EMG</text>
+    <rect x="764" y="203" width="200" height="125" rx="14" fill="#11283e" stroke="#38596b"/>
+    <rect x="781" y="222" width="66" height="61" rx="7" fill="none" stroke="#f6c76a" stroke-width="3"/>
+    <circle cx="814" cy="252" r="16" fill="none" stroke="#f6c76a" stroke-width="3"/>
+    <path d="M847 243L875 229V276L847 263" fill="none" stroke="#f6c76a" stroke-width="3"/>
+    <text x="781" y="310" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#a8c0d0" letter-spacing="2">VISION</text>
+    <path d="M974 103H1000V186H1030M974 265H1000V186" fill="none" stroke="#688b9c" stroke-width="2"/>
+    <path d="M1021 179L1030 186L1021 193" fill="none" stroke="#688b9c" stroke-width="2"/>
+    <rect x="1043" y="78" width="184" height="250" rx="17" fill="#173449" stroke="#42677b"/>
+    <g fill="none" stroke="#99e4d8" stroke-width="4">
+      <path d="M1129 273L1091 232L1075 207L1083 199L1105 218L1108 170L1106 126L1115 123L1120 168L1127 209"/>
+      <path d="M1127 209L1130 161L1132 111L1141 111L1141 161L1142 208"/>
+      <path d="M1142 208L1151 167L1160 128L1169 132L1162 173L1157 215"/>
+      <path d="M1157 215L1171 189L1186 160L1194 165L1184 196L1177 233L1152 273Z"/>
+      <path d="M1105 218L1127 209L1142 208L1157 215L1177 233M1129 273L1127 209M1152 273L1157 215" stroke="#6da99f" stroke-width="2"/>
+    </g>
+    <g fill="#f6c76a">
+      <circle cx="1129" cy="273" r="5"/><circle cx="1105" cy="218" r="4"/><circle cx="1127" cy="209" r="4"/><circle cx="1142" cy="208" r="4"/><circle cx="1157" cy="215" r="4"/><circle cx="1177" cy="233" r="4"/>
+    </g>
+    <text x="1135" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#d3e2ec" letter-spacing="2">HAND POSE</text>
+  </g>
+</svg>

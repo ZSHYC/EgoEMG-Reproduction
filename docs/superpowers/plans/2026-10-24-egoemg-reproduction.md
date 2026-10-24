@@ -90,3 +90,65 @@
 ## Execution ruling
 
 The user explicitly approved this design and requested data preparation and training. Execute without another plan-approval round. Independent modules may be delegated concurrently with disjoint file ownership; the root agent owns integration, server actions, commits, and final review. This concurrency follows the session's proactive-delegation instruction.
+
+### Task 6: Paper guide and coverage audit
+
+**Files:** create `docs/paper-guide.md` and `docs/reproduction-matrix.md`.
+
+- [x] Explain paper methods/data/training/tables from the supplied PDF and pinned source, citing pages and code.
+- [x] Identify each accepted experiment and remaining verification artifact; distinguish strict-paper equivalence from released-compatible experiments.
+- [x] Review scientific claims, units, architecture shapes, recipe differences, and source links.
+
+### Task 7: Repository presentation
+
+**Files:** update `README.md`; create original `docs/assets/banner.svg`, `docs/assets/architecture.svg`, and navigation/citation material as useful.
+
+- [x] Build a restrained academic layout with honest running status, clear quick start and navigation.
+- [x] Render and visually inspect SVGs and the README preview; verify links and command blocks.
+- [x] Preserve source attribution and avoid any private data or paper-figure redistribution.
+
+### Task 8: Independent result exporter
+
+**Files:** create `egoemg_repro/report.py`, `tests/test_report.py`, `docs/results.md`; optional reporting extras in `pyproject.toml`.
+
+**Interfaces:** `python -m egoemg_repro.report status --run RUN --output DIR` writes a sanitized current-run summary and training/validation curves. `... export --run RUN --output DIR --model-label NAME` accepts only full completed runs with selected-best provenance, and writes sanitized JSON/Markdown plus plots. Status does not read the test set or checkpoint weights; export must reject bounded/mismatched/incomplete evidence.
+
+- [x] Write meaningful rejection/aggregation/privacy tests, observe failure, then implement the independent reporter.
+- [x] Render plots with standard plotting tools; keep degree conversion and sampling definitions unchanged.
+- [x] Check runtime/recipe bytes against the running implementation before integration.
+
+### Task 9: EMGFormer-M comparison
+
+**Files:** create an explicit new recipe after inspecting its pinned official experiment; server run artifacts remain private.
+
+- [x] Verify official medium architecture/config, real-data finite GPU step, bounded training and checkpoint reload.
+- [x] Launch a separate full run on an available GPU, using the same frozen cohort/partitions/normalization and complete validation selection.
+- [ ] Publish complete metrics only after training and final test finish.
+
+### Task 10: Goal completion audit
+
+- [ ] Finish every required full experiment and publish the measured results with source/data/config/partition/normalization/initialization identities.
+- [ ] Verify the result exporter against actual selected checkpoints and repeated evaluation; compare matched center populations and explicit error sums/counts.
+- [ ] Obtain independent scientific/code/publication review, pass local/hosted checks, and inspect public repository artifacts.
+- [ ] Derive a requirement-by-requirement completion audit from both approved designs and this plan. Keep the goal active until all evidence is complete.
+
+### Task 11: Locked-checkpoint metric audit
+
+Checked implementation items below are supported by fixture integration and independent review; the last item requires actual completed experiment artifacts and remains open.
+
+**Files:** new `egoemg_repro/audit.py`, `tests/test_audit.py`, documentation under `docs/results.md` or a dedicated audit guide.
+
+- [x] Keep every executed training file/recipe unchanged. Validate completed run, selected-best checkpoint, source/config/data/partition/norm/initialization identity before an audit.
+- [x] Recompute center predictions using frozen official alignment, target masks, precision and evaluation grid; compare all-label baseline MAE against the completed run's saved center result.
+- [x] Accumulate error sums/counts for hand/split/user intersections and compute explicitly pooled versus per-user mean/population SD. Add the identical actual crop-present subset for EMG, vision and fusion, preserving missing counts.
+- [x] Publish only sanitized metric identifiers/hashes, anonymous user groups and aggregate center sets. Test grouping, weighting, units, mismatched evidence, bounded/incomplete rejection and privacy before implementation.
+- [ ] Verify on actual completed checkpoints and record this additional deterministic verification pass; never tune or choose a checkpoint based on audited test accuracy.
+
+### Task 12: Public crop transport recovery
+
+**Files:** new `egoemg_repro/range_download.py`, `tests/test_range_download.py`, recovery documentation in `docs/download.md`. Existing executed acquisition/training modules remain byte-identical.
+
+- [x] Diagnose official Drive HTML responses without treating them as binary data; preserve inspected erroneous partials separately from genuine binary resumable work.
+- [x] Implement explicit sequential HTTP Range recovery against the same public asset IDs, requiring exact byte range/total/body-size, bounded chunks, no account cookies/auth/proxies, existing capacity and final receipt checks.
+- [ ] Independently review rejection/resume/quarantine tests and run a real missing-episode acceptance before a persistent full recovery.
+- [ ] Complete and verify all 41 LMDB payloads before the real visual/fusion driver acceptance and matched-population final audits.

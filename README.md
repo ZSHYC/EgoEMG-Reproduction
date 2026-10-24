@@ -1,48 +1,82 @@
+![EgoEMG 独立复现：以固定官方源码连接腕部肌电、第一视角图像与手部姿态估计。](docs/assets/banner.svg)
+
 # EgoEMG Reproduction
 
-基于固定官方实现的独立复现项目，研究 **EgoEMG: A Multimodal Egocentric Dataset with Bilateral EMG and Vision for Hand Pose Estimation**。本仓库不是官方仓库。
+[![Reproduction checks](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml/badge.svg)](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml)
+[![Paper: arXiv 2605.05712v1](https://img.shields.io/badge/Paper-arXiv%3A2605.05712v1-355c7d)](https://arxiv.org/abs/2605.05712v1)
+[![Original code: MIT](https://img.shields.io/badge/Original_code-MIT-1e847c)](LICENSE)
 
-**完整 EMG/标签已下载校验，最终版本的真实数据 GPU 检查已通过；EMGFormer-S 完整训练已启动，尚未完成论文定量复现。**
+**从腕部肌电与第一视角图像，复现可核验的手部姿态估计基线。**
 
-截至 2026-10-24：41 人 legacy release 的 21 个 EMG/标签文件共 18,392,993,230 bytes，已全部下载校验；3 个视觉对齐字段已核验并固定。训练、验证、测试分别为 63,172、1,052、2,792 个单手窗口样本。约 45.04 GB 的官方视觉裁剪仍在下载。
+这是论文 *EgoEMG: A Multimodal Egocentric Dataset with Bilateral EMG and Vision for Hand Pose Estimation* 的独立复现仓库，基于[固定版本的官方实现](https://github.com/zhenqis123/EgoEMG/tree/f7cbd048b7092139852270491d3859cd472e0311)，覆盖 EMG、视觉和残差融合三条路线。本项目与[官方仓库](https://github.com/zhenqis123/EgoEMG)分别维护。
 
-73 项完整运行时测试全部通过。EMGFormer-S 已用真实数据、batch 500 完成两步训练、严格重载、两次一致验证及使用保存配置迁移目录恢复。ResNet-18 batch 900、融合 batch 200 已用真实裁剪重复样本完成有限值 GPU 步检查，峰值显存分别约 13.968、8.633 GiB。这些属于运行与显存验收，不代表完整 cohort 精度或训练收敛。
+> **当前进度 · 2026-10-24**
+>
+> 41 人 legacy release 的 EMG、标签与视觉对齐字段已下载校验，真实数据 GPU 集成、严格重载和恢复检查已通过。EMGFormer-S 与扩展比较 EMGFormer-M 的完整训练已启动；完整视觉裁剪准备及后续基线仍在推进。**最终测试 MAE 尚未产出，论文定量复现尚未完成。** 最新进度以[运行状态](docs/run-status.md)为准。
 
-- [运行状态与证据边界](docs/run-status.md)及[脱敏集成证据](results/integration-evidence.json)
-- [环境、数据、训练和评估命令](docs/training.md)
-- [选择性下载与校验](docs/download.md)
-- [视觉裁剪、对齐与模型约定](docs/vision.md)
-- [已批准设计](docs/superpowers/specs/2026-10-24-egoemg-reproduction-design.md)与[可行性审计](docs/feasibility-audit.md)
+[论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
-## 固定版本与实验范围
+## 复现什么
 
-| 项目 | 使用版本 / 约定 |
-| --- | --- |
-| 论文参考 | [arXiv:2605.05712v1](https://arxiv.org/abs/2605.05712v1)，41 人版本 |
-| 官方源码 | [zhenqis123/EgoEMG](https://github.com/zhenqis123/EgoEMG)，固定 [`f7cbd048b7092139852270491d3859cd472e0311`](https://github.com/zhenqis123/EgoEMG/tree/f7cbd048b7092139852270491d3859cd472e0311) |
-| 初始数据 | 官方公开 legacy `egoemg_v2_memmap`，41 episodes、66,161,725 rows |
-| 独立环境 | Python 3.11.12、PyTorch 2.2.2+cu118、torchvision 0.17.2+cu118、NumPy 1.26.4 |
-| 初始基线 | EMGFormer-S；ResNet-18；ResNet-18 + EMGFormer-S 残差融合 |
-| 主 EMG 配置 | 发布兼容的 8 通道、12,000 点窗口；与论文 7,790 点设置分别记录 |
+论文研究双侧腕部 EMG 与第一视角视觉在手部姿态估计中的互补性。本仓库围绕公开 legacy 数据，建立从获取数据到独立验证选模、最终测试与结果追溯的完整流程。
 
-EMG 单手模型分别使用目标手的 8 个通道；双手共享划分，不把单手输入称为双侧融合。清洁重训练的融合配置使用官方 8 通道 S 分支和 12,000 点窗口，以便严格载入独立训练的 EMG 权重。它不同于发布的 16 通道融合检查点配置；融合残差末层的精确零初始化也是显式记录的复现调整。
+| 路线 | 本次配置 | 完整实验状态 | 最终测试 MAE |
+| --- | --- | --- | --- |
+| **EMG → Pose** | EMGFormer-S · 8 通道 · 12,000 点 · 200 epochs | 训练中 | 待完成 |
+| **EMG → Pose · 扩展** | EMGFormer-M · 8 通道 · 12,000 点 · 200 epochs | 训练中 | 待完成 |
+| **Vision → Pose** | ResNet-18 · 中心帧手部裁剪 · 150 epochs | 等待完整裁剪与阶段验收 | 待完成 |
+| **EMG + Vision → Pose** | ResNet-18 + EMGFormer-S · 8 通道残差融合 · 150 epochs | 等待两分支完整验证选模 | 待完成 |
+
+EMGFormer-M 已通过独立的真实数据 GPU 有界训练与重载验收，作为扩展比较另行记录。表中“待完成”不表示零误差，也不以短训练或发布检查点结果替代。指标定义、结果发布条件和证据入口见[实验结果](docs/results.md)。
+
+<details>
+<summary>查看 EMGFormer-S 训练与独立验证曲线（进行中快照）</summary>
+
+![EMGFormer-S 尚未完成的真实训练曲线快照：仅显示训练与独立验证进度，不包含最终测试结果。](results/live/emg-s/training-curves.svg)
+
+该图来自实际运行的脱敏进度日志，是生成时刻的快照。训练中指标不构成最终测试结论；已记录的优化器更新数与验证记录数见[快照记录](results/live/emg-s/status.md)。
+
+</details>
+
+## 从数据到结果
+
+![复现流程：校验 legacy 数据与固定官方源码，按时间划分并仅用训练行归一化；EMGFormer-S、ResNet-18 和残差融合共享评估中心，经独立验证选模后执行最终测试，并记录来源与有效计数。](docs/assets/architecture.svg)
+
+- **固定来源。** 官方模型类保持原样，训练入口校验源码、配置、数据与检查点身份。
+- **独立选模。** 从官方训练区间留出连续时间验证块，先划分后构造窗口；双手共享划分，EMG 归一化只使用最终训练窗口覆盖的唯一行。
+- **保留分母。** 按有效角度计数汇总 MAE，区分中心帧与完整轨迹；视觉另外报告 crop 有效子集及缺失数量。
+
+当前划分有 **63,172 / 1,052 / 2,792** 个训练 / 验证 / 测试单手窗口样本。它们按“窗口 × 手”计数，验证是训练用户内的时间留出。协议与适配调整见[复现对照表](docs/reproduction-matrix.md)。
 
 ## 快速开始
 
-以下命令在仓库根目录、有 CUDA 和 Conda 的运行主机执行。环境和数据保留在本项目目录内；数据完成下载后再执行训练。
+在有 **Conda 和 CUDA** 的运行主机上执行。EMG/标签约 18.39 GB，全部视觉裁剪另需约 45.04 GB；下载器额外保留至少 15 GiB 磁盘余量。固定环境与完整命令见[训练指南](docs/training.md)。
+
+**1. 获取源码，建立独立环境**
 
 ```bash
+git clone https://github.com/ZSHYC/EgoEMG-Reproduction.git
+cd EgoEMG-Reproduction
 bash scripts/bootstrap_upstream.sh upstream
 bash scripts/setup_environment.sh "$PWD/.venv"
 PY="$PWD/.venv/bin/python"
 "$PY" -m pip install -e '.[test,vision]' --no-deps
-
-"$PY" -m egoemg_repro.download --root data/legacy --metadata-only
-"$PY" -m egoemg_repro.download --root data/legacy --workers 4
-"$PY" -m egoemg_repro.partitions --data data/legacy --output outputs/partitions.json
 ```
 
-先执行有界真实数据检查，使用新的输出目录：
+**2. 获取并校验 EMG、标签与对齐字段**
+
+```bash
+"$PY" -m egoemg_repro.download --root data/legacy --metadata-only
+"$PY" -m egoemg_repro.download --root data/legacy --workers 4
+"$PY" -m egoemg_repro.crops download \
+  --root data/crops --data data/legacy --fields-only --workers 2
+"$PY" -m egoemg_repro.partitions \
+  --data data/legacy --output outputs/partitions.json
+```
+
+按顺序执行，让各分支训练前的数据 receipt 保持一致。完整视觉裁剪可在独立的 `data/crops` 目录继续下载，参阅[下载说明](docs/download.md)和[视觉数据指南](docs/vision.md)。
+
+**3. 先运行两步真实数据检查**
 
 ```bash
 "$PY" -m egoemg_repro.train \
@@ -51,22 +85,38 @@ PY="$PWD/.venv/bin/python"
   --device cuda:0 --batch-size 2 --num-workers 0 --max-steps 2
 ```
 
-`--max-steps` 只做有界集成检查，限制验证批数并跳过最终测试。完整训练、恢复、独立评估及视觉数据命令见[训练指南](docs/training.md)。默认 batch 为 EMG 500、ResNet-18 900、融合 200，均保留对应发布配方，并通过 GPU 内存检查。
+`--max-steps` 限制训练与验证，并跳过最终测试；其产物仅用于集成检查。完整训练使用新的输出目录，默认 batch 为 EMG **500**、视觉 **900**、融合 **200**。恢复、完整评估和融合分支初始化的要求见[训练指南](docs/training.md)。
 
-## 评估约定与已知限制
+## 如何理解当前证据
 
-- 依据 release 的 split 名称解析 Gesture / User / Both；独立验证来自原训练区间的连续时间块，不再把官方测试别名当成验证集。
-- 在构造重叠窗口前划分时间，并剔除跨角色的完整输入足迹。双手使用相同时间区间，初始关闭时间抖动。
-- 归一化仅统计最终保留训练窗口覆盖的唯一行，按手和通道计算；检查点仅依据独立验证选择。
-- EMG 同时报出完整轨迹与中心帧指标；视觉和融合报中心帧。角度 MAE 转为度一次，以有效角度计数重算加权均值，并保留手、split 和用户分组。
-- 原始生成标签与论文标签流程尚未证明等价；当前结论只能按 legacy release 复现解释。
-- 默认 EMG 是官方整 episode FFT 预过滤信号。时间窗口互不重叠仍不能消除上游滤波依赖，不能据此宣称严格预处理隔离。
-- 视觉使用真实视频帧映射。单个缺失 crop 保留为黑图并计数；同时报告全部有标签中心与 crop 有效子集。缺失整个 episode 数据库会报错。
+已经完成的工程验收包括完整运行时测试，以及真实 EMG 两步优化、严格重载、两次一致验证与迁移目录恢复。视觉和融合也已使用真实裁剪的**重复双手样本**通过有限值与显存检查；这些检查不支持完整 cohort 的精度或收敛结论。[脱敏集成证据](results/integration-evidence.json)记录了验收范围。
 
-EMGFormer-S 完整训练正在运行，后续依次进行 ResNet-18 与融合；每阶段通过真实数据短训练及重载检查后再进入完整训练。完整独立验证选模与最终测试尚待完成。仓库不将合成测试、少量预览或发布检查点载入当作论文表格复现结果。
+解释任何后续数字时，仍需保留以下边界：
 
-## 归属与资产
+| 边界 | 对结论的影响 |
+| --- | --- |
+| **legacy 数据与标签** | 41 人版本与论文人数一致，但公开生成标签尚未证明与论文标签流程等价。 |
+| **输入与融合配置** | 当前使用发布兼容的 12,000 点窗口，论文的 7,790 点设置另行区分；清洁融合采用 8 通道分支与显式零残差初始化，区别于发布的 16 通道融合检查点。 |
+| **上游整 episode FFT** | 窗口行足迹分离不能消除预过滤引入的跨时间依赖，不能据此宣称原始预处理严格隔离。 |
+| **视觉覆盖与指标人群** | 缺失单个 crop 的样本保留并计数，同时报告全部有标签中心与 crop 有效子集；完整目标中心覆盖仍需核验。 |
 
-论文及原实现作者：Ziheng Xi、Jiayi Yu、Yitao Wang、Yanbo Duan、Jianjiang Feng、Jie Zhou。
+因此，本仓库首先交付可追溯的 **legacy release 独立验证重训练**；与论文设置的逐项对应关系见[复现对照表](docs/reproduction-matrix.md)，当前进度见[运行状态](docs/run-status.md)。
 
-本仓库不分发论文 PDF、参与者元数据、信号、视频、模型权重或 MANO 资产。外部资产保留原有使用条款。上游基线声明 MIT，继承的 emg2pose 部分使用 CC-BY-NC-SA-4.0；请参阅[固定版本的许可证](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/LICENSE)。本仓库原创部分适用 [LICENSE](LICENSE)。
+## 文档导航
+
+| 想了解什么 | 入口 |
+| --- | --- |
+| 论文的数据、模型、损失与实验设计 | [论文解读](docs/paper-guide.md) |
+| 论文、固定官方源码与本次实现有何差异 | [复现对照表](docs/reproduction-matrix.md) |
+| 安装、训练、恢复、独立评估 | [训练指南](docs/training.md) |
+| 断点下载、文件校验与磁盘预留 | [下载说明](docs/download.md) |
+| 视觉帧对齐、LMDB、缺失裁剪与融合初始化 | [视觉数据指南](docs/vision.md) |
+| 已完成的运行证据、结果与尚待完成项 | [运行状态](docs/run-status.md) · [实验结果](docs/results.md) |
+
+## 引用与许可
+
+使用本项目开展研究时，请引用[原论文](https://arxiv.org/abs/2605.05712v1)，并记录本仓库地址与所用提交。论文作者为 Ziheng Xi、Jiayi Yu、Yitao Wang、Yanbo Duan、Jianjiang Feng、Jie Zhou；引用元数据见 [CITATION.cff](CITATION.cff)。
+
+本仓库原创内容适用 [MIT License](LICENSE)。外部资产保留原有条款：上游基线声明 MIT，继承的 emg2pose 部分使用 CC-BY-NC-SA-4.0，详见[固定上游许可证](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/LICENSE)。
+
+本仓库不分发论文 PDF、参与者元数据、信号、视频、模型权重或 MANO 资产。首页插图为本项目原创示意图。

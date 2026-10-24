@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: >-
+  If you use this reproduction, cite the original EgoEMG paper below and
+  record this repository URL and the exact commit used in your experiment.
+title: "EgoEMG Reproduction: independent legacy-release baselines"
+type: software
+authors:
+  - name: ZSHYC
+repository-code: "https://github.com/ZSHYC/EgoEMG-Reproduction"
+url: "https://github.com/ZSHYC/EgoEMG-Reproduction"
+version: 0.1.0
+license: MIT
+abstract: >-
+  Independent reproduction infrastructure for the public EgoEMG legacy release.
+  The MIT license applies to original repository contributions only; external
+  source code, data, weights, and assets retain their original licenses.
+preferred-citation:
+  type: article
+  title: "EgoEMG: A Multimodal Egocentric Dataset with Bilateral EMG and Vision for Hand Pose Estimation"
+  authors:
+    - family-names: Xi
+      given-names: Ziheng
+    - family-names: Yu
+      given-names: Jiayi
+    - family-names: Wang
+      given-names: Yitao
+    - family-names: Duan
+      given-names: Yanbo
+    - family-names: Feng
+      given-names: Jianjiang
+    - family-names: Zhou
+      given-names: Jie
+  journal: arXiv
+  year: 2026
+  month: 5
+  url: "https://arxiv.org/abs/2605.05712v1"
+  identifiers:
+    - type: other
+      value: "arXiv:2605.05712v1"
