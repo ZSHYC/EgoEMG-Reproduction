@@ -129,6 +129,10 @@ S/M 前端形状为 `(B,256,T′)`。总时间 stride 为 50，名义步距对�
 
 固定上游 [dataset 配置][up-dataset]把 `user/gesture/both` 用作 `val`，又令 `test=${dataset.val}`。新训练不能把这直接当独立验证。本项目在足够长的官方训练连续区间尾部确定性留出验证，并剔除跨训练/验证/测试输入行足迹的训练窗口。约 12% 是目标比例，短区间与完整窗口约束会改变实际比例。验证仍是**已见训练用户的时间留出**，不等于额外未见用户验证。当前数量与排除数以 sidecar 和[运行状态](run-status.md)为准。
 
+**实际窗口队列与分组交集。** 已下载的 41 个 episode 对应 41 个不同用户标签，但其中 1 个只有 10,109 行，短于 12,000 点输入，实际测试窗口覆盖 40 人。训练、验证、Gesture 请求窗口的用户集合相同，均为 36 人；User 与 Both 的用户集合相同，均为 5 人，其中各有 1 人也出现在训练窗口中。这是按请求窗口、合并双手的集合统计，不代表逐条件具有有效监督的训练用户数。公开数量与来源哈希见[队列覆盖记录](../results/cohort-coverage.json)。
+
+已逐一核对保存的 33,508 个窗口中心与发布的 `frame_split_id`，类别不一致数为 0。固定官方加载器同样[按中心标签取 split](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/egoemg/datasets/egoemg_memmap_dataset.py#L903-L918)，[预览构建说明](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/data/build_egoemg_preview_memmap.py#L13-L21)也记录单个 recording 可含四类标签。这些源码没有证明该用户交集的成因或科学合理性。因此本项目将 User、Both 解释为 **legacy 发布中心标签分组**，不宣称严格无用户交集，也不由此改写论文 §3.4 的持出用户定义。本次冻结实验保留原标签、窗口和所选检查点，不依据测试结果删改队列。
+
 令有效角度集合为 V，报告的 pooled MAE 为：
 
 ```text

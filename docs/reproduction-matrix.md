@@ -10,7 +10,7 @@
 
 | ID | 必须交付的实验 | 当前可验证范围 | 完成时必须出现的证据 |
 | --- | --- | --- | --- |
-| E1 | EMGFormer-S，8 通道、12,000 点 | [配方](../configs/emgformer_s.json)与官方结构已接通；真实有限值优化、短训练、严格重载/重复验证已记录；200 epochs、batch500 完整训练已启动 | 完整训练结束事件；独立完整验证选出的 best；可恢复检查点；轨迹及中心最终测试；逐手/逐 split、手指/腕角、误差和/有效分母 |
+| E1 | EMGFormer-S，8 通道、12,000 点 | [配方](../configs/emgformer_s.json)完整训练已成功结束：200 epochs、25,400 次更新，独立验证所选 best 为第 635 次更新；训练器最终测试及严格结果导出通过，记录交叉复核通过；实际锁定复算等待完整裁剪 | 完整训练结束事件；独立完整验证选出的 best；可恢复检查点；轨迹及中心最终测试；逐手/逐 split、手指/腕角、误差和/有效分母 |
 | E2 | ResNet-18，单帧 256×256 | [配方](../configs/resnet18.json)、数据适配和 batch900 真实 crop 有限值 GPU 步已检查；完整 crop acquisition 未完成，训练按依赖排队 | 全 episode crop receipt/中心覆盖核验；真实短训练与重载；150 epochs 完整训练；选中 best 的中心帧测试；缺图数量及双 population |
 | E3 | RN18 + EMGFormer-S 中心残差融合 | [配方](../configs/fusion_rn18_s.json)与 batch200 有限值 GPU 步已检查；依赖 E1/E2 选出的独立验证 checkpoint | 两个初始 checkpoint 的 SHA256/来源；精确零残差初始化记录；150 epochs 完整训练；中心测试与 E2 相同 population；完整选模/重载证据 |
 | E4 | EMGFormer-M 比较 | [M 配方](../configs/emgformer_m.json)与 6 层/256 宽/8 heads/FFN1024 结构已核对；[独立真实数据两步、严格重载和重复验证](../results/emgformer-m-integration.json)通过，200 epochs、batch500 完整训练已启动 | 保留独立验收记录及同队列、partition/normalization 身份；完整训练结束、独立验证选出的 best、轨迹/中心最终测试 |
@@ -27,11 +27,11 @@
 | R2 | 独立环境与可复核硬件 | [环境脚本](../scripts/setup_environment.sh)、run 环境记录 | 实际 Python/torch/CUDA、GPU、bf16、依赖版本可追溯；已有集成检查不能代替最终 run 的环境记录 |
 | R3 | 官方数据的来源和完整性 | [下载器](../egoemg_repro/download.py)、manifest/metadata、冻结 acquisition receipt | 校验源、大小、SHA256、必要字段；EMG/标签与视觉对齐字段已冻结；全 crop 下载与覆盖仍需完成 |
 | R4 | legacy schema、22 维单位和有效性 | [data.py](../egoemg_repro/data.py)、真实样本 schema/有限值检查 | 手指 rad、腕角 deg→rad；20+2 分离 mask；不把填充值当有效标签；标签与论文生成流程的等价性仍未证明 |
-| R5 | 独立验证与不重叠窗口 | [partitions.py](../egoemg_repro/partitions.py)、`partitions.json`、coverage/discarded 计数 | 保留官方测试中心标签；成对双手共用时间划分；跨角色完整输入行足迹不重叠；报告训练用户时间留出的定义 |
+| R5 | 独立验证与不重叠窗口 | [partitions.py](../egoemg_repro/partitions.py)、`partitions.json`、[队列覆盖记录](../results/cohort-coverage.json) | 保留官方测试中心标签；成对双手共用时间划分；跨角色完整输入行足迹不重叠；验证为训练用户时间留出。旧版 User、Both 各与训练窗口有 1 名用户交集，不能称严格未见用户测试 |
 | R6 | 训练集统计与预处理声明 | `normalization.json`、训练唯一样本行统计、partition/normalization 哈希 | 当前训练专用归一化已实现；整 episode 预过滤仍有跨时间依赖，不能宣称严格滤波隔离 |
 | R7 | 官方架构、初始化与配方 | [EMG 构建与训练](../egoemg_repro/train.py)、[视觉/融合构建](../egoemg_repro/visual.py)、`config.json` 与 provenance | 先设置 seed，再建模型；保留 composed module 配置；记录预训练权重来源/摘要、残差零初始化、冻结设置；所有差异明示 |
 | R8 | 完整训练、恢复和选模 | `progress.jsonl`、`last.pt`、`best.pt`、保存的优化器/调度器/RNG 状态 | 必须达到所声明训练预算；完整验证选模；有界结果不能竞争完整验证最佳值；中断后恢复不改变身份 |
-| R9 | 最终指标可重算 | `summary.json` 的 `test`、锁定重载的 `audit.json`、检查点/配置/数据身份、[metrics.py](../egoemg_repro/metrics.py) | 最终测试来自所选 best；误差和、有效角度数、单位/采样/分组齐全；中心指标完整复算与冻结训练器一致，轨迹分母严格核对固定模型对齐长度；审计产物给出逐 split/逐手用户均值与总体 SD。目前尚无 E1–E4 最终结果；独立 `--evaluate` 入口另产 `evaluation.json`，不是额外要求的第三次测试 |
+| R9 | 最终指标可重算 | `summary.json` 的 `test`、锁定重载的 `audit.json`、检查点/配置/数据身份、[metrics.py](../egoemg_repro/metrics.py) | 最终测试来自所选 best；误差和、有效角度数、单位/采样/分组齐全；中心指标完整复算与冻结训练器一致，轨迹分母严格核对固定模型对齐长度；审计产物给出逐 split/逐手用户均值与总体 SD。目前尚无 E1–E4 独立审计后的公开结果；独立 `--evaluate` 入口另产 `evaluation.json`，不是额外要求的第三次测试 |
 | R10 | 跨模态配对与缺图透明 | [crops.py](../egoemg_repro/crops.py)、视觉 receipt、`all`/`vision_valid`、缺图计数 | E2/E3 同中心、同手、同 crop-present 集合；还需把 EMG 中心预测按同一 crop-valid 集合独立复算；全缺失 episode 不能静默删除；中心覆盖必须基于完整 acquisition 实测 |
 | R11 | 发布真实表格与曲线 | 独立结果导出器、脱敏 JSON/Markdown、训练/验证曲线 | exporter 拒绝不完整/有界/身份不符 run；曲线注明训练损失和验证度数的区别；只发布真实完成结果，不能把论文参考表当本项目结果 |
 | R12 | 易读中文文档与学术展示 | [论文指南](paper-guide.md)、本矩阵、[训练](training.md)/[下载](download.md)/[视觉](vision.md)指南、README、原创 SVG | 方法、版本、命令、状态相互一致；检查源链接、图像渲染、快速开始；不复制论文图或私有路径 |

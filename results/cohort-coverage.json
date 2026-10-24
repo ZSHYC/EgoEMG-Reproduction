@@ -1,0 +1,77 @@
+{
+  "acquired": {
+    "distinct_subject_labels": 41,
+    "episodes": 41
+  },
+  "benchmark_eligible": false,
+  "count_scope": "Distinct released subject labels in requested saved windows, both hands combined; not per-condition positive-label training exposure.",
+  "excluded_short_episodes": {
+    "count": 1,
+    "lengths_rows": [
+      10109
+    ]
+  },
+  "generated_at_utc": "2026-10-24T11:12:48+00:00",
+  "identities": {
+    "data_sha256": "571a93fa21f6c1edb2f31b3948883880ec61934949c07d3ec2e67de2a4e66592",
+    "frame_split_sha256": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+    "manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+    "metadata_sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+    "normalization_sha256": "bdfba74af8f084160a770732767d1081bb949b9d6dcf2d0cb1b1cecc20f7e827",
+    "partition_file_sha256": "534a20d8710b0706362a6b26e02c7c4e06bf854e00fb9e073a8179ecc048d896",
+    "partition_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+    "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+    "upstream_source_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69"
+  },
+  "input_row_footprint_overlap_counts": {
+    "train__test": 0,
+    "train__val": 0,
+    "val__test": 0
+  },
+  "interpretation": {
+    "category_names": "released legacy center-label populations",
+    "locked_inference_audit_complete": false,
+    "protocol_and_selected_checkpoints_changed": false,
+    "upstream_cause_established": false,
+    "user_and_both_are_strictly_subject_disjoint_from_training": false,
+    "whole_episode_prefilter_limit_remains": true
+  },
+  "released_center_label_alignment": {
+    "basis": "Read-only comparison with the released frame_split_id payload matching the recorded frame_split_sha256.",
+    "category_mismatches": 0,
+    "checked_windows": 33508
+  },
+  "report_type": "saved_window_cohort_coverage",
+  "requested_hand_samples_by_role": {
+    "test": 2792,
+    "train": 63172,
+    "val": 1052
+  },
+  "requested_subject_intersections": {
+    "gesture__user": 1,
+    "train__both": 1,
+    "train__user": 1
+  },
+  "requested_unique_subjects_by_role": {
+    "test": 40,
+    "train": 36,
+    "val": 36
+  },
+  "requested_unique_subjects_by_test_category": {
+    "both": 5,
+    "gesture": 36,
+    "user": 5
+  },
+  "requested_windows_by_role": {
+    "test": 1396,
+    "train": 31586,
+    "val": 526
+  },
+  "schema_version": 1,
+  "subject_set_equalities": {
+    "train_equals_gesture": true,
+    "train_equals_validation": true,
+    "user_equals_both": true
+  },
+  "window_length": 12000
+}
