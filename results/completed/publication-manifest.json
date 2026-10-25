@@ -2,6 +2,12 @@
   "all_four_required_experiments_complete": false,
   "as_of_date": "2026-10-25",
   "common_population_sha256": "4cf005e68d2c3db3af7ac67028779c8535c1075218a04995662ca55b8f0ee371",
+  "environment_publication_policy": {
+    "device_identifier": "process-local logical CUDA ordinal; not the physical server GPU index",
+    "extraction": "explicit whitelist from each completed run environment; original file SHA bound by the finished receipt",
+    "pretrained_backbone_scope_field": "digest_scope is preserved verbatim from the original pretrained_weights record",
+    "unknown_fields_copied": false
+  },
   "metric_policy": {
     "anonymous_user_ordinals_are_local_to_each_report_schema": true,
     "center_all_source": "original completed trainer final test; verified by one locked center inference pass",
@@ -9,6 +15,7 @@
     "locked_center_absolute_tolerance_deg": 0.0001,
     "locked_center_count_tolerance": 0,
     "mae_formula": "absolute_error_sum_rad / valid_angle_count * 180 / pi",
+    "trajectory_applicability": "EMG sequence models only; no trajectory metric for single-frame ResNet-18",
     "trajectory_source": "original completed trainer final test; no second trajectory inference",
     "unit": "degrees"
   },
@@ -25,6 +32,22 @@
       },
       "best_validation_trajectory_mae_deg": 15.155954123208094,
       "center_baseline_groups_checked": 14,
+      "environment": {
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "device": "cuda:0",
+        "gpu_name": "NVIDIA A800-SXM4-80GB",
+        "initialization": {
+          "policy": "random",
+          "seed_before_model": 42
+        },
+        "matmul_precision": "high",
+        "numpy": "1.26.4",
+        "precision": "bfloat16",
+        "python": "3.11.12",
+        "torch": "2.2.2+cu118"
+      },
+      "environment_file_sha256": "4fc33923f2fa69d8e5d5f04065895e8b63207ca622e37d9d9878708b0ea61ec5",
       "epochs": 200,
       "experiment_id": "E4",
       "global_step": 25400,
@@ -63,6 +86,7 @@
       "locked_center_audit_verified": true,
       "model_label": "EMGFormer-M",
       "selected_checkpoint_step": 635,
+      "selection_metric_sampling": "trajectory",
       "test_center_all": {
         "absolute_error_sum_rad": 17145.97553068008,
         "mae_deg": 16.490835183350406,
@@ -83,7 +107,115 @@
       "training_final_test_passes": 1,
       "trajectory_verification": "saved full-trajectory denominators checked by the locked artifact gate; no additional trajectory inference",
       "verification_receipt_sha256": {
-        "m-accepted": "e2f147e59cc9e7cdd6f555c26f79e859aaef599211952b0d4c37e28bbe01baa2"
+        "m-accepted": "e2f147e59cc9e7cdd6f555c26f79e859aaef599211952b0d4c37e28bbe01baa2",
+        "m-finished": "db429af18d6f2bcf6f6a11ba01b4a7b663bc7d9936e541bc8f791057e21d059f"
+      }
+    },
+    "rn18": {
+      "additional_locked_center_verification_passes": 1,
+      "anonymous_test_user_count": 40,
+      "artifact_sha256": {
+        "resnet18/audit.json": "842786c15330efefa23ec55fbf438660496554f8e89b86a7bce2ce6737b1b9fe",
+        "resnet18/metrics.json": "de64bb247399a3b1123c8c06c25afeb505f91379e301e3e51b85a0a87a49f9ed",
+        "resnet18/metrics.md": "b93fed0212fc20cbe93bb27c5d75410406ef495d9be90685b49347fd8746a4f4",
+        "resnet18/training-curves.png": "089fda9772469b992c6d99e4e94df9855e8a720885bf8263a352f80de0304cab",
+        "resnet18/training-curves.svg": "019154857c82c0b18627676e57397d3a8e1a4789504893ef8318b0cabc467eea"
+      },
+      "best_validation_center_mae_deg": 7.82514494103519,
+      "center_baseline_groups_checked": 14,
+      "environment": {
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "device": "cuda:0",
+        "gpu_name": "NVIDIA A800-SXM4-80GB",
+        "initialization": {
+          "official_builder": {
+            "pretrained_weights": {
+              "backbone_tensor_sha256": "4bd22a0de6dd2e02bdedae51844e261cf65a79154b3550d09faa069c15c8ddc2",
+              "digest_format": "length-prefixed canonical JSON header + raw tensor bytes, v1",
+              "digest_scope": "sorted backbone state_dict names/dtypes/shapes and raw contiguous CPU bytes; excludes pose head and unused ImageNet FC",
+              "enum": "torchvision.models.ResNet18_Weights.IMAGENET1K_V1",
+              "source_url": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
+              "torchvision_version": "0.17.2+cu118"
+            }
+          },
+          "policy": "ImageNet1K_V1 backbone",
+          "seed_before_model": 42
+        },
+        "matmul_precision": "high",
+        "numpy": "1.26.4",
+        "precision": "bfloat16",
+        "python": "3.11.12",
+        "torch": "2.2.2+cu118"
+      },
+      "environment_file_sha256": "093227449f34c2e572f87aa9efa2d15a265d1ca6d0e3bacef974f6acae3a6bdb",
+      "epochs": 150,
+      "experiment_id": "E2",
+      "global_step": 10650,
+      "identities": {
+        "audit": {
+          "audit_runtime_sha256": "b4ccaab5687cd1bdc3ebe17cc94e931480d3c57e5059a6a7938288c261c41ab8",
+          "checkpoint_sha256": "e9bf7c7fa2abee7997c2c7c50f750137ded4ae8dad1cba998f52392516db5fc0",
+          "config_sha256": "aa46eaac0b603200f9a1b7da909ab421ddc6f8aa7578757ffbdef8a9230084f2",
+          "data_sha256": "571a93fa21f6c1edb2f31b3948883880ec61934949c07d3ec2e67de2a4e66592",
+          "initialization_sha256": "6f9f666d748013345d3a5a613dfa9bb033010f97423f209185ba62232aecc6b2",
+          "normalization_sha256": "bdfba74af8f084160a770732767d1081bb949b9d6dcf2d0cb1b1cecc20f7e827",
+          "partition_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+          "reproduction_sha256": "aee6c1be984e7486548e8c7da4aee083ed205b43582980b18f19e7e2dfe72af8",
+          "selected_recipe_sha256": "ad3d43fd4757408f8357cb15769fe314ec1ef41913e03fdc3c1566b5a2ebf33c",
+          "source_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+          "summary_sha256": "8014c41af5dcf7598549f52d1bdfaefa5a09ee528a61b3eb8821e74ca16cd568",
+          "visual_data_sha256": "a72f06683858e1d0101ad4a7fa1ab10c59980baf95a65b6b9f38957e7ee79249"
+        },
+        "report": {
+          "authoritative_checkpoint_file_sha256": "e9bf7c7fa2abee7997c2c7c50f750137ded4ae8dad1cba998f52392516db5fc0",
+          "config_sha256": "aa46eaac0b603200f9a1b7da909ab421ddc6f8aa7578757ffbdef8a9230084f2",
+          "data_sha256": "571a93fa21f6c1edb2f31b3948883880ec61934949c07d3ec2e67de2a4e66592",
+          "initialization": {
+            "policy": "ImageNet1K_V1 backbone",
+            "pretrained_backbone_tensor_sha256": "4bd22a0de6dd2e02bdedae51844e261cf65a79154b3550d09faa069c15c8ddc2",
+            "pretrained_enum": "torchvision.models.ResNet18_Weights.IMAGENET1K_V1",
+            "pretrained_source_url": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
+            "seed": 42,
+            "torchvision_version": "0.17.2+cu118"
+          },
+          "normalization_sha256": "bdfba74af8f084160a770732767d1081bb949b9d6dcf2d0cb1b1cecc20f7e827",
+          "original_recipe_sha256": "ad3d43fd4757408f8357cb15769fe314ec1ef41913e03fdc3c1566b5a2ebf33c",
+          "partition_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+          "runtime_sha256": "aee6c1be984e7486548e8c7da4aee083ed205b43582980b18f19e7e2dfe72af8",
+          "selected_checkpoint_file_sha256": "85acf8d823b95bee2754022916978d928c4d5d270e49edfe58844519adc924b7",
+          "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+          "upstream_source_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+          "visual_data_sha256": "a72f06683858e1d0101ad4a7fa1ab10c59980baf95a65b6b9f38957e7ee79249"
+        }
+      },
+      "locked_center_audit_verified": true,
+      "model_label": "ResNet-18",
+      "saved_crop_present_baseline_verified": true,
+      "selected_checkpoint_step": 6319,
+      "selection_metric_sampling": "center",
+      "test_center_all": {
+        "absolute_error_sum_rad": 8094.161305526286,
+        "mae_deg": 7.784886884857931,
+        "valid_angle_count": 59572
+      },
+      "test_center_crop_present": {
+        "absolute_error_sum_rad": 7937.260581803173,
+        "mae_deg": 7.690785568437972,
+        "valid_angle_count": 59132
+      },
+      "training_complete": true,
+      "training_curves_renderer": {
+        "matplotlib": "3.9.4",
+        "svg_postprocessing": "trailing whitespace only",
+        "writer": "egoemg_repro.report.write_report"
+      },
+      "training_curves_source_metrics_sha256": "de64bb247399a3b1123c8c06c25afeb505f91379e301e3e51b85a0a87a49f9ed",
+      "training_final_test_passes": 1,
+      "trajectory_applicable": false,
+      "verification_receipt_sha256": {
+        "rn18-accepted": "7bff25d502342dd832f1744eea7d9d463205b9a8ba146d464c7d13f586dccb25",
+        "rn18-finished": "6801c8b2b65b9648f61de92a1656611d5b8c0c6104a6eb974c638536e7b7705d"
       }
     },
     "s": {
@@ -98,6 +230,22 @@
       },
       "best_validation_trajectory_mae_deg": 15.096172508212788,
       "center_baseline_groups_checked": 14,
+      "environment": {
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "device": "cuda:0",
+        "gpu_name": "NVIDIA A800-SXM4-80GB",
+        "initialization": {
+          "policy": "random",
+          "seed_before_model": 42
+        },
+        "matmul_precision": "high",
+        "numpy": "1.26.4",
+        "precision": "bfloat16",
+        "python": "3.11.12",
+        "torch": "2.2.2+cu118"
+      },
+      "environment_file_sha256": "4fc33923f2fa69d8e5d5f04065895e8b63207ca622e37d9d9878708b0ea61ec5",
       "epochs": 200,
       "experiment_id": "E1",
       "global_step": 25400,
@@ -136,6 +284,7 @@
       "locked_center_audit_verified": true,
       "model_label": "EMGFormer-S",
       "selected_checkpoint_step": 635,
+      "selection_metric_sampling": "trajectory",
       "successful_original_s_audit_adopted_without_replay": true,
       "test_center_all": {
         "absolute_error_sum_rad": 16961.86249457764,
@@ -158,7 +307,8 @@
       "trajectory_verification": "saved full-trajectory denominators checked by the locked artifact gate; no additional trajectory inference",
       "verification_receipt_sha256": {
         "s-accepted": "46c68f0b16be001cf74de1fcd85aeafdf17a7ac6509e312815235ec46c109e55",
-        "s-adoption": "f50691fdc83cc403503e774ba8642dd443f6790e76b7dfbd4c1c1d64653d9c69"
+        "s-adoption": "f50691fdc83cc403503e774ba8642dd443f6790e76b7dfbd4c1c1d64653d9c69",
+        "s-finished": "f6b0523aded061ee10a7b03c84fb178b1572f135f88529d02436b372ebaa2e16"
       }
     }
   },
@@ -171,11 +321,11 @@
   },
   "published_experiment_ids": [
     "E1",
+    "E2",
     "E4"
   ],
   "remaining_experiments": [
-    "E2: ResNet-18 full training and audit",
-    "E3: fusion full training and audit"
+    "E3: fusion full training in progress; final test and audit pending"
   ],
   "report_type": "completed_legacy_training_and_locked_center_audits",
   "schema_version": 1,

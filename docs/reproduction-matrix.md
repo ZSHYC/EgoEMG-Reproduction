@@ -11,8 +11,8 @@
 | ID | 必须交付的实验 | 当前可验证范围 | 完成时必须出现的证据 |
 | --- | --- | --- | --- |
 | E1 | EMGFormer-S，8 通道、12,000 点 | [配方](../configs/emgformer_s.json)完整训练已成功结束：200 epochs、25,400 次更新，独立验证所选 best 为第 635 次更新；训练器最终测试、严格导出及独立复算通过。原成功产物由独立续跑核验接纳，没有重复推理，见[完整产物](../results/completed/README.md) | 完整训练结束事件；独立完整验证选出的 best；可恢复检查点；轨迹及中心最终测试；逐手/逐 split、手指/腕角、误差和/有效分母 |
-| E2 | ResNet-18，单帧 256×256 | [配方](../configs/resnet18.json)、数据适配和 batch900 真实 crop 有限值 GPU 步已检查；41/41 裁剪与中心覆盖 G1 门槛通过，真实有界训练及严格重载通过，完整训练已于 2026-10-25 16:15:14（北京时间）启动并运行中 | 全 episode crop receipt/中心覆盖核验；真实短训练与重载；150 epochs 完整训练；选中 best 的中心帧测试；缺图数量及双 population |
-| E3 | RN18 + EMGFormer-S 中心残差融合 | [配方](../configs/fusion_rn18_s.json)与 batch200 有限值 GPU 步已检查；完整训练尚未启动，依赖 E1/E2 选出的独立验证 checkpoint 及阶段验收 | 两个初始 checkpoint 的 SHA256/来源；精确零残差初始化记录；150 epochs 完整训练；中心测试与 E2 相同 population；完整选模/重载证据 |
+| E2 | ResNet-18，单帧 256×256 | [配方](../configs/resnet18.json)已完成 150 epochs、10,650 次更新与 150 次完整验证；验证选中第 6,319 次更新，训练器最终测试、严格导出和锁定审计通过。全部中心 MAE 7.7849°，有图子集 7.6908°；单帧无轨迹成绩，见[完整产物](../results/completed/README.md) | 全 episode crop receipt/中心覆盖核验；真实短训练与重载；150 epochs 完整训练；选中 best 的中心帧测试；缺图数量及双 population |
+| E3 | RN18 + EMGFormer-S 中心残差融合 | [配方](../configs/fusion_rn18_s.json)在 E1/E2 分支选模与依赖验收后通过真实两步有界训练及严格重载；150 epochs、batch200 完整训练于 2026-10-25 18:09:04（北京时间）启动，当前运行中，最终测试及审计待完成 | 两个初始 checkpoint 的 SHA256/来源；精确零残差初始化记录；150 epochs 完整训练；中心测试与 E2 相同 population；完整选模/重载证据 |
 | E4 | EMGFormer-M 比较 | [M 配方](../configs/emgformer_m.json)与 6 层/256 宽/8 heads/FFN1024 结构已核对；[独立集成检查](../results/emgformer-m-integration.json)之后，200 epochs、25,400 次更新完整训练已成功结束；独立验证选择第 635 次更新，训练器最终测试、严格导出及实际独立复算通过，见[完整产物](../results/completed/README.md) | 保留独立验收记录及同队列、partition/normalization 身份；完整训练结束、独立验证选出的 best、轨迹/中心最终测试 |
 
 当前公开的[集成证据](../results/integration-evidence.json)明确 `quantitative_reproduction_complete=false`。E1 的两步真实训练和 E2/E3 的重复双手 crop 内存探测都不是最终 benchmark。新增 M 不继承 S 的训练通过结论。运行中的模型/数据/训练代码与前三个配方保持冻结；报告、文档或新增 M 配方不得悄悄改变既有实验身份。
@@ -31,14 +31,14 @@
 | R6 | 训练集统计与预处理声明 | `normalization.json`、训练唯一样本行统计、partition/normalization 哈希 | 当前训练专用归一化已实现；整 episode 预过滤仍有跨时间依赖，不能宣称严格滤波隔离 |
 | R7 | 官方架构、初始化与配方 | [EMG 构建与训练](../egoemg_repro/train.py)、[视觉/融合构建](../egoemg_repro/visual.py)、`config.json` 与 provenance | 先设置 seed，再建模型；保留 composed module 配置；记录预训练权重来源/摘要、残差零初始化、冻结设置；所有差异明示 |
 | R8 | 完整训练、恢复和选模 | `progress.jsonl`、`last.pt`、`best.pt`、保存的优化器/调度器/RNG 状态 | 必须达到所声明训练预算；完整验证选模；有界结果不能竞争完整验证最佳值；中断后恢复不改变身份 |
-| R9 | 最终指标可重算 | `summary.json` 的 `test`、锁定重载的 `audit.json`、检查点/配置/数据身份、[metrics.py](../egoemg_repro/metrics.py) | 最终测试来自所选 best；误差和、有效角度数、单位/采样/分组齐全；中心指标完整复算与冻结训练器一致，轨迹分母严格核对固定模型对齐长度；审计产物给出逐 split/逐手用户均值与总体 SD。E1/E4 严格导出及独立复算已通过，见[完整产物](../results/completed/README.md)；E2/E3 尚待完成。独立 `--evaluate` 入口另产 `evaluation.json`，不是额外要求的第三次测试 |
+| R9 | 最终指标可重算 | `summary.json` 的 `test`、锁定重载的 `audit.json`、检查点/配置/数据身份、[metrics.py](../egoemg_repro/metrics.py) | 最终测试来自所选 best；误差和、有效角度数、单位/采样/分组齐全；中心指标完整复算与冻结训练器一致，轨迹分母严格核对固定模型对齐长度；审计产物给出逐 split/逐手用户均值与总体 SD。E1/E2/E4 严格导出及独立复算已通过，见[完整产物](../results/completed/README.md)；E3 尚待完成。独立 `--evaluate` 入口另产 `evaluation.json`，不是额外要求的第三次测试 |
 | R10 | 跨模态配对与缺图透明 | [crops.py](../egoemg_repro/crops.py)、视觉 receipt、`all`/`vision_valid`、[中心覆盖与缺图计数](../results/crop-readiness.json) | 完整 acquisition 的中心覆盖已实测：训练/验证/测试缺图为 3,739/63,172、67/1,052、104/2,792；E2/E3 仍须同中心、同手、同 crop-present 集合；全部模型的匹配复算尚未完成；全缺失 episode 不能静默删除 |
 | R11 | 发布真实表格与曲线 | 独立结果导出器、脱敏 JSON/Markdown、训练/验证曲线 | exporter 拒绝不完整/有界/身份不符 run；曲线注明训练损失和验证度数的区别；只发布真实完成结果，不能把论文参考表当本项目结果 |
 | R12 | 易读中文文档与学术展示 | [论文指南](paper-guide.md)、本矩阵、[训练](training.md)/[下载](download.md)/[视觉](vision.md)指南、README、原创 SVG | 方法、版本、命令、状态相互一致；检查源链接、图像渲染、快速开始；不复制论文图或私有路径 |
 | R13 | 测试、托管 CI、公开仓库验证 | 本地完整测试、托管 workflow、公开页面与产物检查 | 最终版本完整测试、CI 成功及远端可见性均需独立核验；先前 73 项运行时测试记录只是已有版本的证据 |
 | R14 | 科学与工程完成审查 | 按本矩阵逐项更新的最终审查 | E1–E4 与 R1–R13 所欠必需证据闭合后，才能称已批准范围完成；扩展和严格论文等价条件仍按下表公开保留 |
 
-独立训练后审计使用已由验证选定的 best 计算逐 split/逐手的用户均值与总体 SD，并生成 EMG 的匹配 crop-valid 中心结果。原父流程曾在 S 复算子进程成功后因进程绑定校验失败停止，历史记录为 `failed`、`completed_models=[]`。该阻断已由独立续跑解决：保留原来源、配置、锁和输出，核验接纳 S 原成功产物且没有重复推理，并实际完成 M 复算。两者接纳记录均为 `verified`，共同中心人口摘要一致；当前 `completed_models=['s','m']`、`waiting_original_rn18`。RN18 仍在训练，融合尚未启动，不能称全部模型审计完成。审计不参与 checkpoint 选择或调参；全中心误差和、有效分母及 MAE 必须与冻结运行时结果在预先声明的数值容差内一致。工具存在、文档计划及部分阶段成功均不能代替全部产物验收。
+独立训练后审计使用已由验证选定的 best 计算逐 split/逐手的用户均值与总体 SD，并生成 EMG 的匹配 crop-valid 中心结果。原父流程曾在 S 复算子进程成功后因进程绑定校验失败停止，历史记录为 `failed`、`completed_models=[]`。该阻断已由独立续跑解决：保留原来源、配置、锁和输出，核验接纳 S 原成功产物且没有重复推理，并实际完成 M 复算；后续 RN18 完整训练、严格导出与锁定审计也已通过。三者接纳记录均为 `verified`，共同中心人口摘要一致；当前 `completed_models=['s','m','rn18']`、`waiting_original_fusion`。融合完整训练正在进行，不能称全部模型审计完成。审计不参与 checkpoint 选择或调参；全中心误差和、有效分母及 MAE 必须与冻结运行时结果在预先声明的数值容差内一致。工具存在、文档计划及部分阶段成功均不能代替全部产物验收。
 
 运行产物的确切字段以[训练指南](training.md)和当前训练入口为准，脱敏汇总保留 identity 摘要即可，不发布机器地址、账户、参与者姓名、原始样本或 checkpoint 权重。公开仓库提交号与某个实验运行时提交号可能不同；必须分别保留，不能用发布文档的最新提交覆盖正在运行模型的身份。
 
@@ -54,7 +54,7 @@
 | G5 完整训练与测试 | 达到所声明预算、完整独立验证选模、选中 best 的最终测试 | 仍在运行、提前停止的检查、有界验证、论文表中值 |
 | G6 发布复核 | 身份绑定、计数可重算、匹配比较、脱敏产物/曲线/CI/公开链接验证 | 本地截图、未核对 checkpoint 的表格、只有测试总数 |
 
-现有 [integration-evidence.json](../results/integration-evidence.json)支持 E1 的 G2–G4，[M 集成记录](../results/emgformer-m-integration.json)另行支持 E4 的 G2–G4；两者之后均已完成完整训练、训练器最终测试、严格导出及独立复算。[裁剪就绪证据](../results/crop-readiness.json)记录全部 41 份文件及固定中心覆盖的 G1 门槛通过。E2 的真实有界训练和严格重载现已通过，G5 完整训练仍在运行；E3 有真实 crop 有限值探测，但尚未启动完整训练。S/M 的独立复算通过不代表全部四模型或整个项目的 G6 发布复核完成。实验完整性按各自身份逐项判定，不从公共组件通过推导所有实验完成。
+现有 [integration-evidence.json](../results/integration-evidence.json)支持 E1 的 G2–G4，[M 集成记录](../results/emgformer-m-integration.json)另行支持 E4 的 G2–G4；两者之后均已完成完整训练、训练器最终测试、严格导出及独立复算。[裁剪就绪证据](../results/crop-readiness.json)记录全部 41 份文件及固定中心覆盖的 G1 门槛通过。E2 已完成真实有界训练、严格重载及 G5 完整训练与最终测试，严格导出和独立复算通过；E3 真实有界训练及严格重载通过，完整训练运行中。S/M/RN18 的独立复算通过不代表全部四模型或整个项目的 G6 发布复核完成。实验完整性按各自身份逐项判定，不从公共组件通过推导所有实验完成。
 
 ## 4. 论文更大范围的逐项覆盖
 
