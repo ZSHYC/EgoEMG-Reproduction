@@ -1,6 +1,6 @@
 # 环境、数据与训练
 
-这些命令描述仓库当前接口；执行命令不等于已经获得结果。EMG 与标签已下载校验，真实 EMG 短训练、重载和迁移恢复已通过。视觉 crop 仍在下载；视觉/融合已使用真实裁剪完成有限值 GPU 步检查，完整 cohort 训练尚待执行；最新状态见 [run-status.md](run-status.md)。
+这些命令用于新建独立复现实验，依次完成数据核验、有界训练、严格重载、完整训练和结果检查。各阶段的实际运行状态统一见[运行记录](run-status.md)，已完成模型的报告、审计与曲线见[完整结果](../results/completed/README.md)。本次全部 41 份裁剪及固定中心覆盖已经通过[数据就绪核验](../results/crop-readiness.json)；新环境仍需完成自己的下载与检查。
 
 ## 1. 固定源码和独立环境
 
@@ -68,7 +68,7 @@ EGOEMG_UPSTREAM="$PWD/upstream" "$PY" -m pytest -q
 
 ### 3.1 EMGFormer-M 扩展比较
 
-M 使用固定上游 `emgformer/egoemg_emgformer_middle` 配方：6 层、256 维、8 个注意力头、FFN1024，实际参数数为 6,617,382。输入、划分和归一化协议与 S 相同，使用独立输出目录。该配方的 batch500 已通过真实数据短训练、严格重载和重复验证，此后 200 epochs 完整训练、验证选模与训练器最终测试已成功结束；严格结果导出通过，最终成绩待独立复算后发布。
+M 使用固定上游 `emgformer/egoemg_emgformer_middle` 配方：6 层、256 维、8 个注意力头、FFN1024，实际参数数为 6,617,382。输入、划分和归一化协议与 S 相同，使用独立输出目录。该配方的 batch500 已通过真实数据短训练、严格重载和重复验证，此后 200 epochs 完整训练、验证选模、训练器最终测试、严格结果导出与独立复算均已通过；真实成绩见[完整结果](../results/completed/README.md)。
 
 ```bash
 "$PY" -m egoemg_repro.train \
@@ -96,7 +96,7 @@ M 的 checkpoint 与 S 架构不同；现有 RN18+S 融合只接收 S 分支，�
 
 视觉样本使用 `image_webcam_frame_index[center]`，兼容新命名 `image_head_frame_index`；不能拿 EMG 的 `frame_index` 当视频帧编号。官方左手裁剪已经翻转，读取时不再额外翻转。图像按 ImageNet 统计归一化，中心标签保留 22 角度的逐角有效掩码。
 
-已实现的 RN18 训练接口如下；真实数据有界运行与完整训练尚待核验：
+RN18 同样先做真实数据有界检查，按第 6 节核对严格重载后，再在新的输出目录执行完整配置。命令如下，实际阶段证据见[运行记录](run-status.md)：
 
 ```bash
 "$PY" -m egoemg_repro.train \
@@ -114,7 +114,7 @@ RN18 默认 ImageNet 预训练 backbone，首次运行可能需要获取对应�
 
 ## 5. ResNet-18 + EMGFormer-S 融合
 
-融合需要同一数据、划分和归一化协议下，经过**完整独立验证**选出的 EMG 与 RN18 `best.pt`。有界检查产物不能作为这两个初始化分支。当前融合接口如下，真实数据运行证据尚待完成：
+融合需要同一数据、划分和归一化协议下，经过**完整独立验证**选出的 EMG 与 RN18 `best.pt`。有界检查产物不能作为这两个初始化分支。以下依次展示有界检查与完整训练，实际阶段证据见[运行记录](run-status.md)：
 
 ```bash
 "$PY" -m egoemg_repro.train \
