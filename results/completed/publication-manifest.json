@@ -16,7 +16,7 @@
     "locked_center_count_tolerance": 0,
     "mae_formula": "absolute_error_sum_rad / valid_angle_count * 180 / pi",
     "trajectory_applicability": "EMG sequence models only; no trajectory metric for single-frame ResNet-18",
-    "trajectory_source": "original completed trainer final test; no second trajectory inference",
+    "trajectory_source": "original completed trainer final test; no additional full-trajectory metric recomputation",
     "unit": "degrees"
   },
   "models": {
@@ -105,7 +105,7 @@
       "training_complete": true,
       "training_curves_source_metrics_sha256": "a85f9a11818684d4189af0c24d5bd7f7222059a9aa41360732c0743f5b648884",
       "training_final_test_passes": 1,
-      "trajectory_verification": "saved full-trajectory denominators checked by the locked artifact gate; no additional trajectory inference",
+      "trajectory_verification": "saved full-trajectory denominators checked by the locked artifact gate; no additional full-trajectory metric recomputation",
       "verification_receipt_sha256": {
         "m-accepted": "e2f147e59cc9e7cdd6f555c26f79e859aaef599211952b0d4c37e28bbe01baa2",
         "m-finished": "db429af18d6f2bcf6f6a11ba01b4a7b663bc7d9936e541bc8f791057e21d059f"
@@ -304,7 +304,7 @@
       "training_complete": true,
       "training_curves_source_metrics_sha256": "1a263923298e3a033e43deee334e3d40266be77a439517db0cb1077a5e18c8ef",
       "training_final_test_passes": 1,
-      "trajectory_verification": "saved full-trajectory denominators checked by the locked artifact gate; no additional trajectory inference",
+      "trajectory_verification": "saved full-trajectory denominators checked by the locked artifact gate; no additional full-trajectory metric recomputation",
       "verification_receipt_sha256": {
         "s-accepted": "46c68f0b16be001cf74de1fcd85aeafdf17a7ac6509e312815235ec46c109e55",
         "s-adoption": "f50691fdc83cc403503e774ba8642dd443f6790e76b7dfbd4c1c1d64653d9c69",

@@ -30,7 +30,7 @@ python -m egoemg_repro.audit \
 - 重建模型使用冻结的官方构建函数和 `resume_state`，严格加载 best，不需要原始支路 checkpoint，也不触发 ImageNet 权重下载。保留保存的 batch size、worker 配置、precision、matmul precision、固定测试网格及双手顺序，不接受审计时覆盖超参数。若原最终测试使用 bf16，改用 CPU float32 将被拒绝。
 - 数据／crop 身份遵循冻结训练器的检查范围：metadata 和映射字段内容、array 大小及已验证 receipt 摘要。工具不会逐次重新读取数百 GB payload 来证明发布者真实性；receipt 的来源与覆盖仍须单独核验。
 
-EMG 先使用冻结的 `aligned_training_batch` 完成 510 点上下文裁剪和官方预测插值，再取 `emg_window_length // 2 - model.left_context` 的真实中心。视觉／融合取索引 0 的唯一中心目标。三种模型都使用权威 `angle_valid_mask`；手指 20 维与腕角 2 维独立有效，弧度误差只在报告 MAE 时乘一次 `180/π`。
+额外锁定核验中的 EMG 前向仍先产生时间序列预测，再使用冻结的 `aligned_training_batch` 完成 510 点上下文裁剪和官方预测插值，取 `emg_window_length // 2 - model.left_context` 的真实中心。审计只重新累计中心指标，**没有额外复算整段轨迹指标**；公开轨迹数值仍来自原训练器最终测试，锁定产物检查只核对其保存的轨迹分母。这不表示 EMG 核验没有计算时序预测。视觉／融合取索引 0 的唯一中心目标。三种模型都使用权威 `angle_valid_mask`；手指 20 维与腕角 2 维独立有效，弧度误差只在报告 MAE 时乘一次 `180/π`。
 
 ## 预先声明的数值门槛
 
