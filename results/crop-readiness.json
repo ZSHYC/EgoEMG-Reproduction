@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "report_type": "crop_acquisition_readiness",
+  "benchmark_eligible": false,
+  "model_results_included": false,
+  "verified_at": "2026-10-25T08:14:04.936747+00:00",
+  "recovery_terminal_at": "2026-10-25T08:14:24.910464+00:00",
+  "status": "ready",
+  "payload_files": 41,
+  "payload_total_bytes": 45037686784,
+  "payload_checksum_basis": "local_transfer; the release provides no authenticated publisher SHA256 for these payloads",
+  "gates": {
+    "complete_inventory": true,
+    "all_payload_sizes_and_sha256_verified": true,
+    "readonly_lmdb_schema_verified": true,
+    "saved_center_coverage_and_present_jpeg_decoding_verified": true
+  },
+  "evidence_sha256": {
+    "ready": "1f4f390aaea118f50028cebc476279f88d0f796b1e388d8d883b4f08f9d2db78",
+    "coverage": "4497e5e4b3f411b00ffcdc1c1f0031815821b2dae9b1baccb6ef41a2cf52c267",
+    "ledger": "d85c1417e0dea3a28d79c437ea5849a011b3f7890139cdce0e3cb6b416aad556",
+    "backoff_terminal": "9804d1be25291344ea8a1605e1eb70d970c2c6a4e39fb3210bed246d222c7f83",
+    "readiness_checker": "2e98cffe7b75963f36db242201f3ef283ca31299d6eb548e61bb64386661e279"
+  },
+  "identities": {
+    "source_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+    "runtime_sha256": "7e0d45f1d6397cbf6774c5e423f2a8bc0c6890a67da00b1de18b5060cce4a0b5",
+    "data_sha256": "571a93fa21f6c1edb2f31b3948883880ec61934949c07d3ec2e67de2a4e66592",
+    "partition_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+    "normalization_sha256": "bdfba74af8f084160a770732767d1081bb949b9d6dcf2d0cb1b1cecc20f7e827",
+    "inventory_sha256": "a5d7509fcc466c78c3729e320e6c566d63a0e340cf62118a1d6ccea53474c859",
+    "ledger_sha256": "d85c1417e0dea3a28d79c437ea5849a011b3f7890139cdce0e3cb6b416aad556"
+  },
+  "populations": {
+    "test": {
+      "by_hand": {
+        "left": {
+          "all_sha256": "dbcdd150c68a05de884a714fdadd7b6eda8b23b67b134c1e37623a1430e6432e",
+          "crop_present_centers": 1343,
+          "crop_present_sha256": "fbfe09ddc0069286fbc8d57bcce147a428f3e85d11dd8ef4523633605febe660",
+          "missing_crop_centers": 53,
+          "missing_sha256": "9676574675b8b2dc65588ee13ab36cfad1a90b3d253943117b08ae75bdad5b14",
+          "requested_centers": 1396
+        },
+        "right": {
+          "all_sha256": "30318b475e78b2bf68441f592aaad41ccb76c2655c55d481233cdf0afd891226",
+          "crop_present_centers": 1345,
+          "crop_present_sha256": "e0c73d14ea5e119c7c723f7e746b706c53e29b93ab01bfec4a5750536dfea744",
+          "missing_crop_centers": 51,
+          "missing_sha256": "c17bf00d425b5931b7e7a3cdcea064ba404fed9e87c634a9a436f38787b26ccc",
+          "requested_centers": 1396
+        }
+      },
+      "by_hand_split": {
+        "left": {
+          "both": {
+            "all_sha256": "08d8dd5af7aee77618d5264687ed7144225f8cc772fec140433b00fbda153ad8",
+            "crop_present_centers": 100,
+            "crop_present_sha256": "0cd499110fe496ea81ca8307403943391aff5a56eee14301f202436d46831a51",
+            "missing_crop_centers": 4,
+            "missing_sha256": "3b91297f1b28adc4af115fd1a2e36b019b8ef0cee5f559b93acfd421bfaae413",
+            "requested_centers": 104
+          },
+          "gesture": {
+            "all_sha256": "f25075347080e1e1f7ff65d00e24507f1523a1d5d6d8176756b5c4b53155d234",
+            "crop_present_centers": 718,
+            "crop_present_sha256": "c0d7efe2c7adabf33efaea043dfe2230669bf51247ff77c9360f9d1702690995",
+            "missing_crop_centers": 36,
+            "missing_sha256": "79372f786a60b9465389bc1c3d8b6d12782ca9fcd7cee40b7504145b785e3a57",
+            "requested_centers": 754
+          },
+          "user": {
+            "all_sha256": "ced316d4544a2b97dd838cd6c894b75976a9176ba1d8b944630cf5fa30e1c58c",
+            "crop_present_centers": 525,
+            "crop_present_sha256": "8a550cd67da0be43450dabc7f2d89b459356bb64cfa3e47c1f763fd20aba4d40",
+            "missing_crop_centers": 13,
+            "missing_sha256": "7524de8f5d66562ceabb3fabed2dbd77ea25672cee3dfa087a40f883ea505716",
+            "requested_centers": 538
+          }
+        },
+        "right": {
+          "both": {
+            "all_sha256": "1a703b7786ff77b91443365383867340ecbabdf03ac388bb699f1479ec635f28",
+            "crop_present_centers": 101,
+            "crop_present_sha256": "46f2968ec11c669fe7e28f5606c1738384aea60ae39eb0306a18fdba46ab1b87",
+            "missing_crop_centers": 3,
+            "missing_sha256": "c47d1b25ff808fda70763804fb8b461dbbc83168ea723b53ad8aeb8406aeddda",
+            "requested_centers": 104
+          },
+          "gesture": {
+            "all_sha256": "dc93da72ad4cf76ce162a7219eb7c0781f00d38b449624492dba75506d0feb1c",
+            "crop_present_centers": 717,
+            "crop_present_sha256": "01869cf876baecd1221b5d69ff7cc47a2a538ffdcf493250eafdba35abd9728e",
+            "missing_crop_centers": 37,
+            "missing_sha256": "1cb602d1556c8f91af045d919e6c678a1d9c5c0cca74ae51962bcd73a29f626f",
+            "requested_centers": 754
+          },
+          "user": {
+            "all_sha256": "58c1d3cd5157a5a2958083b229797fdfd76c2a2631b7b0ef4622440d89883c96",
+            "crop_present_centers": 527,
+            "crop_present_sha256": "4e3700ed6669f7f86c8fc1982eaa0fe2e3ef46bbf1e0ae87ec0fe9e3597a3a4f",
+            "missing_crop_centers": 11,
+            "missing_sha256": "2f3460376ae1e3ba1b0e17dc697928bece2932ed5016c07cdda1236100afb208",
+            "requested_centers": 538
+          }
+        }
+      },
+      "by_split": {
+        "both": {
+          "all_sha256": "66e1abbae452b403af7a2cb8327d2af83db5b9b154a2453c4c40ef1b7d7e0a0f",
+          "crop_present_centers": 201,
+          "crop_present_sha256": "33d29561dbe90adc0597825c597e3f4855b2fee3d9e1fab5e5db4e6ed53c8873",
+          "missing_crop_centers": 7,
+          "missing_sha256": "69dc2a9ce43978967dc5c50cdc97febf0f02bc37fdada1d221eda69a621dcacb",
+          "requested_centers": 208
+        },
+        "gesture": {
+          "all_sha256": "b0ebfd7cdb278fc3962e1c858253ddb0d993cd6dc04233bc6dbe9fe2b22e3d87",
+          "crop_present_centers": 1435,
+          "crop_present_sha256": "a250b63e432af17d22a5f15e43a193493b6737e19da2c916203a3b7e2bab515c",
+          "missing_crop_centers": 73,
+          "missing_sha256": "f04c399150d004f115062f30005cee3b8f0007cc43e0a668f82b919d2cfa21da",
+          "requested_centers": 1508
+        },
+        "user": {
+          "all_sha256": "4bf2cc3f773e58c70f3c73d1d0fe89b4fa9ccbebdea4c9634006595964ef4cb4",
+          "crop_present_centers": 1052,
+          "crop_present_sha256": "ee3b058b35c3d30767cb13474c92424023dce18eb49226a4f1127d19bcd6bf9e",
+          "missing_crop_centers": 24,
+          "missing_sha256": "a76ea3b858a828310c9b2df327e864608112ba5437c640ee0da8f5aab64f6683",
+          "requested_centers": 1076
+        }
+      },
+      "digest_definition": "SHA256 of sorted opaque center/hand/partition tokens; repeated requests retained",
+      "overall": {
+        "all_sha256": "7b67b0d42fc1edc339dc4d9477025a5964d1830ae06519384f5666838d227082",
+        "crop_present_centers": 2688,
+        "crop_present_sha256": "06cdac31d8dbab511e9c076593c09b46728872c9275c5f969386dc0ea8b14279",
+        "missing_crop_centers": 104,
+        "missing_sha256": "ba8015fd90930defad29bfb9255bdc48b0344f1e244e88714cc26c4bbabb7f35",
+        "requested_centers": 2792
+      }
+    },
+    "train": {
+      "by_hand": {
+        "left": {
+          "all_sha256": "a2c3074a6ec4c37b001519cdc56dcbc36ee017bfe43a8f8628d208838f20c21b",
+          "crop_present_centers": 29669,
+          "crop_present_sha256": "15415bc70512cb8050cfd6a53cf08234bd25dd17c074fe7e410242a58fbeab3e",
+          "missing_crop_centers": 1917,
+          "missing_sha256": "012c5e6d198d2d5fbe078e0268a138f2a0d3d9f285aad170ab0da3ffa40c72a1",
+          "requested_centers": 31586
+        },
+        "right": {
+          "all_sha256": "2fb11b5376dc9f44f38732528166f744173da70eae43b26fe03ac3ae6db3d775",
+          "crop_present_centers": 29764,
+          "crop_present_sha256": "ada6a9aa5e9957df6a0064b403b076f89aad61f8ef47d7553fc0da24e07ebd88",
+          "missing_crop_centers": 1822,
+          "missing_sha256": "04f7ef6c96815477a830a13fd86b54d100fb9073059d2b513820cb242c04e013",
+          "requested_centers": 31586
+        }
+      },
+      "by_hand_split": {
+        "left": {
+          "train": {
+            "all_sha256": "a2c3074a6ec4c37b001519cdc56dcbc36ee017bfe43a8f8628d208838f20c21b",
+            "crop_present_centers": 29669,
+            "crop_present_sha256": "15415bc70512cb8050cfd6a53cf08234bd25dd17c074fe7e410242a58fbeab3e",
+            "missing_crop_centers": 1917,
+            "missing_sha256": "012c5e6d198d2d5fbe078e0268a138f2a0d3d9f285aad170ab0da3ffa40c72a1",
+            "requested_centers": 31586
+          }
+        },
+        "right": {
+          "train": {
+            "all_sha256": "2fb11b5376dc9f44f38732528166f744173da70eae43b26fe03ac3ae6db3d775",
+            "crop_present_centers": 29764,
+            "crop_present_sha256": "ada6a9aa5e9957df6a0064b403b076f89aad61f8ef47d7553fc0da24e07ebd88",
+            "missing_crop_centers": 1822,
+            "missing_sha256": "04f7ef6c96815477a830a13fd86b54d100fb9073059d2b513820cb242c04e013",
+            "requested_centers": 31586
+          }
+        }
+      },
+      "by_split": {
+        "train": {
+          "all_sha256": "a136d51be71a0e39156938d59b34da6b8edfb9e60dd4798d06c24c64b3ee510d",
+          "crop_present_centers": 59433,
+          "crop_present_sha256": "e68c90e6a58200c4d63b513f8834a71a9c8d7c14ded17b83008e7924d334e2f7",
+          "missing_crop_centers": 3739,
+          "missing_sha256": "54866de6e9133988db71b13448b634efb194f48d5479fcaf4e3ce84bf37ee0e7",
+          "requested_centers": 63172
+        }
+      },
+      "digest_definition": "SHA256 of sorted opaque center/hand/partition tokens; repeated requests retained",
+      "overall": {
+        "all_sha256": "a136d51be71a0e39156938d59b34da6b8edfb9e60dd4798d06c24c64b3ee510d",
+        "crop_present_centers": 59433,
+        "crop_present_sha256": "e68c90e6a58200c4d63b513f8834a71a9c8d7c14ded17b83008e7924d334e2f7",
+        "missing_crop_centers": 3739,
+        "missing_sha256": "54866de6e9133988db71b13448b634efb194f48d5479fcaf4e3ce84bf37ee0e7",
+        "requested_centers": 63172
+      }
+    },
+    "val": {
+      "by_hand": {
+        "left": {
+          "all_sha256": "fc7c39b564a52c1c17dc9aff7d4bc6c2c2c6334ca4fc55d1b0752a8f6278660d",
+          "crop_present_centers": 490,
+          "crop_present_sha256": "362c77a5bbceb3a7be74d760bec5d56835f4225359e1e5555cbe9f9c7677267f",
+          "missing_crop_centers": 36,
+          "missing_sha256": "7d132abad02778895d5f122c16e1d049ade84acbc6d0ed284d2c8bf6dff32cec",
+          "requested_centers": 526
+        },
+        "right": {
+          "all_sha256": "5dddc329d335c5a6f6a443ed7dd6c99df197858bac7f96aca803a40ece5fdc5d",
+          "crop_present_centers": 495,
+          "crop_present_sha256": "f64b881f4f040c179446e19bd094fa52dbd8e53394bc6a3b885b61d8a06cebff",
+          "missing_crop_centers": 31,
+          "missing_sha256": "878cf7d1bdd1ae3d6f1caffad857cdb0885892176ff80fcd02f24b6c3cade65d",
+          "requested_centers": 526
+        }
+      },
+      "by_hand_split": {
+        "left": {
+          "train": {
+            "all_sha256": "fc7c39b564a52c1c17dc9aff7d4bc6c2c2c6334ca4fc55d1b0752a8f6278660d",
+            "crop_present_centers": 490,
+            "crop_present_sha256": "362c77a5bbceb3a7be74d760bec5d56835f4225359e1e5555cbe9f9c7677267f",
+            "missing_crop_centers": 36,
+            "missing_sha256": "7d132abad02778895d5f122c16e1d049ade84acbc6d0ed284d2c8bf6dff32cec",
+            "requested_centers": 526
+          }
+        },
+        "right": {
+          "train": {
+            "all_sha256": "5dddc329d335c5a6f6a443ed7dd6c99df197858bac7f96aca803a40ece5fdc5d",
+            "crop_present_centers": 495,
+            "crop_present_sha256": "f64b881f4f040c179446e19bd094fa52dbd8e53394bc6a3b885b61d8a06cebff",
+            "missing_crop_centers": 31,
+            "missing_sha256": "878cf7d1bdd1ae3d6f1caffad857cdb0885892176ff80fcd02f24b6c3cade65d",
+            "requested_centers": 526
+          }
+        }
+      },
+      "by_split": {
+        "train": {
+          "all_sha256": "f5b35ee4ea4da7bdc09f9a3b407d56b2ddae99df9d633572134e9722139f7ae7",
+          "crop_present_centers": 985,
+          "crop_present_sha256": "389a08dad542cffd72dbaa996ec476885618e5f3ee34220f4705cad175aae8c9",
+          "missing_crop_centers": 67,
+          "missing_sha256": "876fa54ccd58d8cc9c3de74d235dc45c6607ad71eb464e8f65101ef5b6f4fe9a",
+          "requested_centers": 1052
+        }
+      },
+      "digest_definition": "SHA256 of sorted opaque center/hand/partition tokens; repeated requests retained",
+      "overall": {
+        "all_sha256": "f5b35ee4ea4da7bdc09f9a3b407d56b2ddae99df9d633572134e9722139f7ae7",
+        "crop_present_centers": 985,
+        "crop_present_sha256": "389a08dad542cffd72dbaa996ec476885618e5f3ee34220f4705cad175aae8c9",
+        "missing_crop_centers": 67,
+        "missing_sha256": "876fa54ccd58d8cc9c3de74d235dc45c6607ad71eb464e8f65101ef5b6f4fe9a",
+        "requested_centers": 1052
+      }
+    }
+  },
+  "count_unit": "requested window center x hand",
+  "missing_crop_policy": "Missing keys are counted and requested centers are retained. All requested centers and the identical crop-present subset must be reported separately.",
+  "limitations": [
+    "Complete payload acquisition does not imply that every requested center has a crop.",
+    "This gate checks released alignment fields and present image decoding; it does not establish corrected video alignment or equivalence to the PDF dataset.",
+    "This record is acquisition evidence, not evidence that every required full training or locked-checkpoint audit is complete."
+  ]
+}

@@ -1,6 +1,6 @@
 # 复现覆盖矩阵与完成标准
 
-本页按用户批准的[初始复现设计](superpowers/specs/2026-10-24-egoemg-reproduction-design.md)及[完成与发布设计](superpowers/specs/2026-10-24-publication-and-completion-design.md)逐项核对范围。**目标是完成固定官方模型在官方 legacy 数据上的可追溯复现；当前尚不能称为完整定量复现，更不能称为全论文数值等价。** 动态运行进度以[运行状态](run-status.md)和真实 run 证据为准，本页状态快照日期为 2026-10-24。
+本页按用户批准的[初始复现设计](superpowers/specs/2026-10-24-egoemg-reproduction-design.md)及[完成与发布设计](superpowers/specs/2026-10-24-publication-and-completion-design.md)逐项核对范围。**目标是完成固定官方模型在官方 legacy 数据上的可追溯复现；当前尚不能称为完整定量复现，更不能称为全论文数值等价。** 动态运行进度以[运行状态](run-status.md)和真实 run 证据为准，本页状态快照日期为 2026-10-25。
 
 “已实现”指代码/配置存在并有对应检查；“验收通过”只适用于已经完成的具体阶段；“训练中/排队”不是实验结果；“条件未满足”表示缺少可核验来源或完整产物；“扩展”表示论文有此内容，但未纳入已批准的初始完整训练集合。任何一种状态都不允许用论文数值填补本项目结果。
 
@@ -10,10 +10,10 @@
 
 | ID | 必须交付的实验 | 当前可验证范围 | 完成时必须出现的证据 |
 | --- | --- | --- | --- |
-| E1 | EMGFormer-S，8 通道、12,000 点 | [配方](../configs/emgformer_s.json)完整训练已成功结束：200 epochs、25,400 次更新，独立验证所选 best 为第 635 次更新；训练器最终测试及严格结果导出通过，记录交叉复核通过；实际锁定复算等待完整裁剪 | 完整训练结束事件；独立完整验证选出的 best；可恢复检查点；轨迹及中心最终测试；逐手/逐 split、手指/腕角、误差和/有效分母 |
-| E2 | ResNet-18，单帧 256×256 | [配方](../configs/resnet18.json)、数据适配和 batch900 真实 crop 有限值 GPU 步已检查；完整 crop acquisition 未完成，训练按依赖排队 | 全 episode crop receipt/中心覆盖核验；真实短训练与重载；150 epochs 完整训练；选中 best 的中心帧测试；缺图数量及双 population |
-| E3 | RN18 + EMGFormer-S 中心残差融合 | [配方](../configs/fusion_rn18_s.json)与 batch200 有限值 GPU 步已检查；依赖 E1/E2 选出的独立验证 checkpoint | 两个初始 checkpoint 的 SHA256/来源；精确零残差初始化记录；150 epochs 完整训练；中心测试与 E2 相同 population；完整选模/重载证据 |
-| E4 | EMGFormer-M 比较 | [M 配方](../configs/emgformer_m.json)与 6 层/256 宽/8 heads/FFN1024 结构已核对；[独立集成检查](../results/emgformer-m-integration.json)之后，200 epochs、25,400 次更新完整训练已成功结束；独立验证选择第 635 次更新，训练器最终测试与严格导出通过，实际锁定复算待完整裁剪 | 保留独立验收记录及同队列、partition/normalization 身份；完整训练结束、独立验证选出的 best、轨迹/中心最终测试 |
+| E1 | EMGFormer-S，8 通道、12,000 点 | [配方](../configs/emgformer_s.json)完整训练已成功结束：200 epochs、25,400 次更新，独立验证所选 best 为第 635 次更新；训练器最终测试、严格导出及独立复算通过。原成功产物由独立续跑核验接纳，没有重复推理，见[完整产物](../results/completed/README.md) | 完整训练结束事件；独立完整验证选出的 best；可恢复检查点；轨迹及中心最终测试；逐手/逐 split、手指/腕角、误差和/有效分母 |
+| E2 | ResNet-18，单帧 256×256 | [配方](../configs/resnet18.json)、数据适配和 batch900 真实 crop 有限值 GPU 步已检查；41/41 裁剪与中心覆盖 G1 门槛通过，真实有界训练及严格重载通过，完整训练已于 2026-10-25 16:15:14（北京时间）启动并运行中 | 全 episode crop receipt/中心覆盖核验；真实短训练与重载；150 epochs 完整训练；选中 best 的中心帧测试；缺图数量及双 population |
+| E3 | RN18 + EMGFormer-S 中心残差融合 | [配方](../configs/fusion_rn18_s.json)与 batch200 有限值 GPU 步已检查；完整训练尚未启动，依赖 E1/E2 选出的独立验证 checkpoint 及阶段验收 | 两个初始 checkpoint 的 SHA256/来源；精确零残差初始化记录；150 epochs 完整训练；中心测试与 E2 相同 population；完整选模/重载证据 |
+| E4 | EMGFormer-M 比较 | [M 配方](../configs/emgformer_m.json)与 6 层/256 宽/8 heads/FFN1024 结构已核对；[独立集成检查](../results/emgformer-m-integration.json)之后，200 epochs、25,400 次更新完整训练已成功结束；独立验证选择第 635 次更新，训练器最终测试、严格导出及实际独立复算通过，见[完整产物](../results/completed/README.md) | 保留独立验收记录及同队列、partition/normalization 身份；完整训练结束、独立验证选出的 best、轨迹/中心最终测试 |
 
 当前公开的[集成证据](../results/integration-evidence.json)明确 `quantitative_reproduction_complete=false`。E1 的两步真实训练和 E2/E3 的重复双手 crop 内存探测都不是最终 benchmark。新增 M 不继承 S 的训练通过结论。运行中的模型/数据/训练代码与前三个配方保持冻结；报告、文档或新增 M 配方不得悄悄改变既有实验身份。
 
@@ -25,20 +25,20 @@
 | --- | --- | --- | --- |
 | R1 | 独立公共仓库、固定官方源码 | [bootstrap 脚本](../scripts/bootstrap_upstream.sh)、上游 commit、源码身份摘要、许可证/第三方说明 | 固定 `f7cbd048b7092139852270491d3859cd472e0311`；每个 run 记录实际源码和适配身份；公开文件/远端可访问性仍需发布验收 |
 | R2 | 独立环境与可复核硬件 | [环境脚本](../scripts/setup_environment.sh)、run 环境记录 | 实际 Python/torch/CUDA、GPU、bf16、依赖版本可追溯；已有集成检查不能代替最终 run 的环境记录 |
-| R3 | 官方数据的来源和完整性 | [下载器](../egoemg_repro/download.py)、manifest/metadata、冻结 acquisition receipt | 校验源、大小、SHA256、必要字段；EMG/标签与视觉对齐字段已冻结；全 crop 下载与覆盖仍需完成 |
+| R3 | 官方数据的来源和完整性 | [下载器](../egoemg_repro/download.py)、manifest/metadata、冻结 acquisition receipt、[裁剪就绪证据](../results/crop-readiness.json) | EMG/标签与视觉对齐字段已冻结；41/41 crop 的完整 payload 哈希与中心覆盖已核验，库存/ledger/coverage/ready 摘要关联一致；本地传输摘要不等于发布方认证摘要 |
 | R4 | legacy schema、22 维单位和有效性 | [data.py](../egoemg_repro/data.py)、真实样本 schema/有限值检查 | 手指 rad、腕角 deg→rad；20+2 分离 mask；不把填充值当有效标签；标签与论文生成流程的等价性仍未证明 |
 | R5 | 独立验证与不重叠窗口 | [partitions.py](../egoemg_repro/partitions.py)、`partitions.json`、[队列覆盖记录](../results/cohort-coverage.json) | 保留官方测试中心标签；成对双手共用时间划分；跨角色完整输入行足迹不重叠；验证为训练用户时间留出。旧版 User、Both 各与训练窗口有 1 名用户交集，不能称严格未见用户测试 |
 | R6 | 训练集统计与预处理声明 | `normalization.json`、训练唯一样本行统计、partition/normalization 哈希 | 当前训练专用归一化已实现；整 episode 预过滤仍有跨时间依赖，不能宣称严格滤波隔离 |
 | R7 | 官方架构、初始化与配方 | [EMG 构建与训练](../egoemg_repro/train.py)、[视觉/融合构建](../egoemg_repro/visual.py)、`config.json` 与 provenance | 先设置 seed，再建模型；保留 composed module 配置；记录预训练权重来源/摘要、残差零初始化、冻结设置；所有差异明示 |
 | R8 | 完整训练、恢复和选模 | `progress.jsonl`、`last.pt`、`best.pt`、保存的优化器/调度器/RNG 状态 | 必须达到所声明训练预算；完整验证选模；有界结果不能竞争完整验证最佳值；中断后恢复不改变身份 |
-| R9 | 最终指标可重算 | `summary.json` 的 `test`、锁定重载的 `audit.json`、检查点/配置/数据身份、[metrics.py](../egoemg_repro/metrics.py) | 最终测试来自所选 best；误差和、有效角度数、单位/采样/分组齐全；中心指标完整复算与冻结训练器一致，轨迹分母严格核对固定模型对齐长度；审计产物给出逐 split/逐手用户均值与总体 SD。目前尚无 E1–E4 独立审计后的公开结果；独立 `--evaluate` 入口另产 `evaluation.json`，不是额外要求的第三次测试 |
-| R10 | 跨模态配对与缺图透明 | [crops.py](../egoemg_repro/crops.py)、视觉 receipt、`all`/`vision_valid`、缺图计数 | E2/E3 同中心、同手、同 crop-present 集合；还需把 EMG 中心预测按同一 crop-valid 集合独立复算；全缺失 episode 不能静默删除；中心覆盖必须基于完整 acquisition 实测 |
+| R9 | 最终指标可重算 | `summary.json` 的 `test`、锁定重载的 `audit.json`、检查点/配置/数据身份、[metrics.py](../egoemg_repro/metrics.py) | 最终测试来自所选 best；误差和、有效角度数、单位/采样/分组齐全；中心指标完整复算与冻结训练器一致，轨迹分母严格核对固定模型对齐长度；审计产物给出逐 split/逐手用户均值与总体 SD。E1/E4 严格导出及独立复算已通过，见[完整产物](../results/completed/README.md)；E2/E3 尚待完成。独立 `--evaluate` 入口另产 `evaluation.json`，不是额外要求的第三次测试 |
+| R10 | 跨模态配对与缺图透明 | [crops.py](../egoemg_repro/crops.py)、视觉 receipt、`all`/`vision_valid`、[中心覆盖与缺图计数](../results/crop-readiness.json) | 完整 acquisition 的中心覆盖已实测：训练/验证/测试缺图为 3,739/63,172、67/1,052、104/2,792；E2/E3 仍须同中心、同手、同 crop-present 集合；全部模型的匹配复算尚未完成；全缺失 episode 不能静默删除 |
 | R11 | 发布真实表格与曲线 | 独立结果导出器、脱敏 JSON/Markdown、训练/验证曲线 | exporter 拒绝不完整/有界/身份不符 run；曲线注明训练损失和验证度数的区别；只发布真实完成结果，不能把论文参考表当本项目结果 |
 | R12 | 易读中文文档与学术展示 | [论文指南](paper-guide.md)、本矩阵、[训练](training.md)/[下载](download.md)/[视觉](vision.md)指南、README、原创 SVG | 方法、版本、命令、状态相互一致；检查源链接、图像渲染、快速开始；不复制论文图或私有路径 |
 | R13 | 测试、托管 CI、公开仓库验证 | 本地完整测试、托管 workflow、公开页面与产物检查 | 最终版本完整测试、CI 成功及远端可见性均需独立核验；先前 73 项运行时测试记录只是已有版本的证据 |
 | R14 | 科学与工程完成审查 | 按本矩阵逐项更新的最终审查 | E1–E4 与 R1–R13 所欠必需证据闭合后，才能称已批准范围完成；扩展和严格论文等价条件仍按下表公开保留 |
 
-计划增加的独立训练后审计在完整训练和 crop acquisition 后，使用已由验证选定的 best 计算逐 split/逐手的用户均值与总体 SD，并生成 EMG 的匹配 crop-valid 中心结果。它不参与 checkpoint 选择或调参；全中心误差和、有效分母及 MAE 必须与冻结运行时结果在预先声明的数值容差内一致。审计工具存在也不等于这些产物已验证，当前仍作为缺口保留。
+独立训练后审计使用已由验证选定的 best 计算逐 split/逐手的用户均值与总体 SD，并生成 EMG 的匹配 crop-valid 中心结果。原父流程曾在 S 复算子进程成功后因进程绑定校验失败停止，历史记录为 `failed`、`completed_models=[]`。该阻断已由独立续跑解决：保留原来源、配置、锁和输出，核验接纳 S 原成功产物且没有重复推理，并实际完成 M 复算。两者接纳记录均为 `verified`，共同中心人口摘要一致；当前 `completed_models=['s','m']`、`waiting_original_rn18`。RN18 仍在训练，融合尚未启动，不能称全部模型审计完成。审计不参与 checkpoint 选择或调参；全中心误差和、有效分母及 MAE 必须与冻结运行时结果在预先声明的数值容差内一致。工具存在、文档计划及部分阶段成功均不能代替全部产物验收。
 
 运行产物的确切字段以[训练指南](training.md)和当前训练入口为准，脱敏汇总保留 identity 摘要即可，不发布机器地址、账户、参与者姓名、原始样本或 checkpoint 权重。公开仓库提交号与某个实验运行时提交号可能不同；必须分别保留，不能用发布文档的最新提交覆盖正在运行模型的身份。
 
@@ -54,7 +54,7 @@
 | G5 完整训练与测试 | 达到所声明预算、完整独立验证选模、选中 best 的最终测试 | 仍在运行、提前停止的检查、有界验证、论文表中值 |
 | G6 发布复核 | 身份绑定、计数可重算、匹配比较、脱敏产物/曲线/CI/公开链接验证 | 本地截图、未核对 checkpoint 的表格、只有测试总数 |
 
-现有 [integration-evidence.json](../results/integration-evidence.json)支持 E1 的 G2–G4，[M 集成记录](../results/emgformer-m-integration.json)另行支持 E4 的 G2–G4；E2/E3 有真实 crop G2 探测，但不能替代所有模型的完整数据 G1、G3–G6。实验完整性按各自身份逐项判定，不从公共组件通过推导所有实验完成。
+现有 [integration-evidence.json](../results/integration-evidence.json)支持 E1 的 G2–G4，[M 集成记录](../results/emgformer-m-integration.json)另行支持 E4 的 G2–G4；两者之后均已完成完整训练、训练器最终测试、严格导出及独立复算。[裁剪就绪证据](../results/crop-readiness.json)记录全部 41 份文件及固定中心覆盖的 G1 门槛通过。E2 的真实有界训练和严格重载现已通过，G5 完整训练仍在运行；E3 有真实 crop 有限值探测，但尚未启动完整训练。S/M 的独立复算通过不代表全部四模型或整个项目的 G6 发布复核完成。实验完整性按各自身份逐项判定，不从公共组件通过推导所有实验完成。
 
 ## 4. 论文更大范围的逐项覆盖
 
@@ -68,7 +68,7 @@
 | RN18 与 RN18+S | Table 3，p.8 | E2/E3；不是其他视觉/融合模型的代替结果 |
 | RN50、RN152、ViT-S/B/L、WiLoR | Tables 3/8，pp.8、22 | 扩展；需各自初始化权重与授权、配方、资源与完整测试；WiLoR 专门预训练不能省略来源 |
 | ViT-S+S 融合 | Table 3，p.8 | 扩展；需独立训练视觉支路和融合、同中心配对评估 |
-| 逐手及中心帧 EMG | Tables 9/10，p.23 | 本项目统计接口覆盖逐手和中心；E1/E4 完整结果待产出；不能声称已重现表格全部方法 |
+| 逐手及中心帧 EMG | Tables 9/10，p.23 | 本项目统计接口覆盖逐手和中心；E1/E4 训练器最终结果、严格导出及独立复算已通过，见[完整产物](../results/completed/README.md)；不能声称已重现表格全部方法 |
 | EMG2Pose 的 S/M/L | Table 11，p.24 | 扩展；另一数据集、20 维与另一 split 协议；需数据获取、来源、独立验证和完整训练。不是 EgoEMG→EMG2Pose 迁移 |
 | 逐关节/指组误差 | Tables 12/13，p.24 | 当前有手指整体与腕角整体；尚未完整重做各重叠关节组、另一数据集和所有模型 |
 | 手势互补性与遮挡分析 | Tables 14/15、Figures 12/13，pp.25–27 | 扩展；需逐手势配对中心、过滤规则、GT mesh/camera 几何、密采样、有效分母与统计口径；当前尚未重做 |

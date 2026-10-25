@@ -10,9 +10,9 @@
 
 这是论文 *EgoEMG: A Multimodal Egocentric Dataset with Bilateral EMG and Vision for Hand Pose Estimation* 的独立复现仓库，基于[固定版本的官方实现](https://github.com/zhenqis123/EgoEMG/tree/f7cbd048b7092139852270491d3859cd472e0311)，覆盖 EMG、视觉和残差融合三条路线。本项目与[官方仓库](https://github.com/zhenqis123/EgoEMG)分别维护。
 
-> **当前进度 · 2026-10-24**
+> **当前进度 · 2026-10-25**
 >
-> 41 人 legacy release 的 EMG、标签与视觉对齐字段已下载校验。EMGFormer-S 与 EMGFormer-M 均已完成 200 轮训练、验证选模和训练器最终测试，严格结果导出已通过；独立复算正在等待完整视觉裁剪，视觉与融合按依赖排队。**最终结果尚待独立审计发布，论文定量复现尚未完成。** 最新进度以[运行状态](docs/run-status.md)为准。
+> 41 人 legacy release 的 EMG、标签、视觉对齐字段及全部 41 份裁剪已校验，完整裁剪与中心覆盖就绪门槛已通过。EMGFormer-S 与 EMGFormer-M 均已完成 200 轮训练、验证选模、训练器最终测试、严格结果导出及独立复算，结果见[已完成实验](results/completed/README.md)。原审计父流程的进程绑定阻断已由独立续跑解决：核验接纳 S 的原成功产物而未重复推理，并完成 M 实际复算；队列现等待 RN18。RN18 真实有界训练和严格重载已通过，完整训练运行中；融合尚未启动。**全项目定量复现尚未完成。** 最新进度以[运行状态](docs/run-status.md)为准。
 
 [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
@@ -20,21 +20,23 @@
 
 论文研究双侧腕部 EMG 与第一视角视觉在手部姿态估计中的互补性。本仓库围绕公开 legacy 数据，建立从获取数据到独立验证选模、最终测试与结果追溯的完整流程。
 
-| 路线 | 本次配置 | 完整实验状态 | 最终测试 MAE |
+| 路线 | 本次配置 | 完整实验状态 | 全部中心测试 MAE ↓ |
 | --- | --- | --- | --- |
-| **EMG → Pose** | EMGFormer-S · 8 通道 · 12,000 点 · 200 epochs | 训练器测试及严格导出完成；独立复算排队 | 待审计发布 |
-| **EMG → Pose · 扩展** | EMGFormer-M · 8 通道 · 12,000 点 · 200 epochs | 训练器测试及严格导出完成；独立复算排队 | 待审计发布 |
-| **Vision → Pose** | ResNet-18 · 中心帧手部裁剪 · 150 epochs | 等待完整裁剪与阶段验收 | 待完成 |
-| **EMG + Vision → Pose** | ResNet-18 + EMGFormer-S · 8 通道残差融合 · 150 epochs | 等待两分支完整验证选模 | 待完成 |
+| **EMG → Pose** | EMGFormer-S · 8 通道 · 12,000 点 · 200 epochs | 训练器测试、严格导出及独立复算通过 | **16.3138°** |
+| **EMG → Pose · 扩展** | EMGFormer-M · 8 通道 · 12,000 点 · 200 epochs | 训练器测试、严格导出及独立复算通过 | **16.4908°** |
+| **Vision → Pose** | ResNet-18 · 中心帧手部裁剪 · 150 epochs | 完整裁剪就绪；真实有界训练与严格重载通过，完整训练运行中 | 待完成 |
+| **EMG + Vision → Pose** | ResNet-18 + EMGFormer-S · 8 通道残差融合 · 150 epochs | 尚未启动，等待两分支完整验证选模及依赖验收 | 待完成 |
 
 EMGFormer-M 使用独立配方和输出目录，作为扩展比较另行记录。表中待完成或待发布项不表示零误差，也不以短训练或发布检查点结果替代。指标定义、结果发布条件和证据入口见[实验结果](docs/results.md)。
 
+上述 MAE 来自本项目的 legacy 数据重训练，覆盖 2,792 个单手测试中心、59,572 个有效角度。匹配有图子集、完整轨迹、分组指标及训练曲线见[完整报告与审计](results/completed/README.md)；这些结果与论文原表的队列和设置不等价。
+
 <details>
-<summary>查看 EMGFormer-S 早期训练与独立验证曲线（历史快照）</summary>
+<summary>查看 EMGFormer-S 完整训练与独立验证曲线</summary>
 
-![EMGFormer-S 尚未完成的真实训练曲线快照：仅显示训练与独立验证进度，不包含最终测试结果。](results/live/emg-s/training-curves.svg)
+![EMGFormer-S 完成 200 轮训练的损失与独立验证 MAE 曲线。](results/completed/emgformer-s/training-curves.svg)
 
-该图来自实际运行的脱敏进度日志，保留生成时刻的早期状态，不代表当前训练进度。训练中指标不构成最终测试结论；快照时间、优化器更新数与验证记录数见[快照记录](results/live/emg-s/status.md)。
+该图来自完整运行的 25,400 次更新与 200 次独立验证；左图为训练目标函数，右图为验证 MAE（度）。模型按验证集选定，最终测试见上表。[M 完整曲线与审计](results/completed/README.md)、[早期历史快照](results/live/emg-s/status.md)另行保留。
 
 </details>
 
@@ -91,7 +93,7 @@ PY="$PWD/.venv/bin/python"
 
 ## 如何理解当前证据
 
-已经完成的工程验收包括完整运行时测试，以及真实 EMG 两步优化、严格重载、两次一致验证与迁移目录恢复。视觉和融合也已使用真实裁剪的**重复双手样本**通过有限值与显存检查；这些检查不支持完整 cohort 的精度或收敛结论。[脱敏集成证据](results/integration-evidence.json)记录了验收范围。
+已经完成的工程验收包括完整运行时测试，以及真实 EMG 两步优化、严格重载、两次一致验证与迁移目录恢复。视觉和融合也已使用真实裁剪的**重复双手样本**通过有限值与显存检查；这些检查不支持完整 cohort 的精度或收敛结论。[脱敏集成证据](results/integration-evidence.json)记录了验收范围。后续全部 41 份裁剪与中心覆盖已通过 G1 就绪门槛，见[裁剪就绪证据](results/crop-readiness.json)；RN18 已通过真实有界训练及严格重载并进入完整训练，尚无完整训练完成或最终测试通过结论。
 
 解释任何后续数字时，仍需保留以下边界：
 
@@ -101,7 +103,7 @@ PY="$PWD/.venv/bin/python"
 | **发布分组与用户交集** | 实际测试覆盖 40 人；旧版 User、Both 各与训练窗口有 1 名用户交集，按发布中心标签报告，不能称为严格未见用户测试。 |
 | **输入与融合配置** | 当前使用发布兼容的 12,000 点窗口，论文的 7,790 点设置另行区分；清洁融合采用 8 通道分支与显式零残差初始化，区别于发布的 16 通道融合检查点。 |
 | **上游整 episode FFT** | 窗口行足迹分离不能消除预过滤引入的跨时间依赖，不能据此宣称原始预处理严格隔离。 |
-| **视觉覆盖与指标人群** | 缺失单个 crop 的样本保留并计数，同时报告全部有标签中心与 crop 有效子集；完整目标中心覆盖仍需核验。 |
+| **视觉覆盖与指标人群** | 完整文件与目标中心覆盖已核验；训练/验证/测试缺图为 3,739/63,172、67/1,052、104/2,792。缺图样本保留并计数，同时报告全部有标签中心与 crop 有效子集；这不证明发布的视频帧对齐质量已校正。 |
 
 因此，本仓库首先交付可追溯的 **legacy release 独立验证重训练**；与论文设置的逐项对应关系见[复现对照表](docs/reproduction-matrix.md)，当前进度见[运行状态](docs/run-status.md)。
 
