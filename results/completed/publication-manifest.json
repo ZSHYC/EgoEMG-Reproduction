@@ -1,10 +1,85 @@
 {
-  "all_four_required_experiments_complete": false,
+  "all_four_required_experiments_complete": true,
   "as_of_date": "2026-10-25",
+  "audit_queue_completion": {
+    "additional_verification_passes_per_model": 1,
+    "adopted_without_replay": [
+      "s"
+    ],
+    "common_population_sha256": "4cf005e68d2c3db3af7ac67028779c8535c1075218a04995662ca55b8f0ee371",
+    "completed_at_utc": "2026-10-25T13:18:54.490074+00:00",
+    "exit_receipt_sha256": "d2d56f625c69407c0a2a90b04b4edf89da203be9508c939f76efc9177b2b71cf",
+    "models": [
+      "s",
+      "m",
+      "rn18",
+      "fusion"
+    ],
+    "status": "complete",
+    "status_receipt_sha256": "832585c85b9b8063803b79f031cc858a31fe701e2fcc9d05c4c20ac342a00a59"
+  },
+  "code_validation": {
+    "actual_local_test_environment": {
+      "fixture_execution": "CPU",
+      "matplotlib": "3.9.4",
+      "numpy": "1.26.4",
+      "production_runtime_environment": "separately recorded per completed server run; not inferred from local test environment",
+      "pytest": "8.2.2",
+      "python": "3.12.14",
+      "torch": "2.2.2+cpu",
+      "torchvision": "0.17.2+cpu"
+    },
+    "completed_proof_sha256": "ac102eccdd2d73f9ddc02bf74f225a271208b50535fd060907b6b2763b81e9b9",
+    "execution_commit": "f481f5f0b19fa0a06b9599880cccc24678ed5485",
+    "hosted_ci_policy": "the final published commit must be verified separately; this local test record does not assert its hosted CI result",
+    "log_sha256": "6349943444cc6b811d3ef9eaf07071d397cc61b119d62014a73199004c5747d2",
+    "official_upstream": "f7cbd048b7092139852270491d3859cd472e0311",
+    "passed": 162,
+    "scope": "complete repository tests including official-model CPU fixtures; not a replacement for full experimental acceptance",
+    "seconds": 22.89,
+    "skipped": 0,
+    "source_byte_identity_scope": "exact tested code/config/test/build/workflow files; documentation and result artifacts are outside this source map",
+    "tested_file_count": 30,
+    "tested_files_sha256": {
+      ".github/workflows/tests.yml": "6ca0e19ddf5f74b2e10c913ee68a2f896c2b53713ba989993296abacb0af122d",
+      "configs/emgformer_m.json": "2af1ea564a946d814866d09f836727fe655639107bce0194384677a1cb676a6c",
+      "configs/emgformer_s.json": "5bf43671557bac3d0f1be27e49d812de61bd6d5e9d8fa62507507e573cfad6a9",
+      "configs/fusion_rn18_s.json": "e6b2cc78742caae64bac8b4698467bfcf2ebad02d20c20ebe12db399ad5a0a74",
+      "configs/resnet18.json": "ad3d43fd4757408f8357cb15769fe314ec1ef41913e03fdc3c1566b5a2ebf33c",
+      "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+      "egoemg_repro/audit.py": "86cf0c74086f2581f430ee88d8725df10c3389379535ef9036e2d7a892b27cdd",
+      "egoemg_repro/crops.py": "1aa0871d6ede77d93988d455d0930e1f42470c1a92a47cfc8e49252bbfc0695e",
+      "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+      "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+      "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+      "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+      "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+      "egoemg_repro/report.py": "ec2855b86331863465a4500293a453203b408c6076fd8ec32d88402c5040ea42",
+      "egoemg_repro/train.py": "f40f375d11bd535bd54edb4a6d98f399e3c74ea6c9f846ba94210a203e808418",
+      "egoemg_repro/visual.py": "588a18cfd0bbd106c6843fbbe6e436635784cd2b0ea7b59f3db33878ab1f084b",
+      "environment.yml": "8d5cb29f1fd5779c56eded61040f9a34f84ac24a37f15e277e6e1177fb3d020c",
+      "pyproject.toml": "a3f43c081beca80f1cdd8e22d3217f596f3f4a34fe14af91bd848dc5c1f13d81",
+      "scripts/bootstrap_upstream.sh": "ae6cb471eaa47554076970347800a858d307dd944afe8e9a00c3d54a662d0eaf",
+      "scripts/setup_environment.sh": "2e870508183f6acd399578f3ea46637238ee3ef5ca5f760cc0b2ebd3a562fa83",
+      "tests/test_audit.py": "a6f9c8eff77d3c8073fdbcdcfbd3fb8d9dce8536a9a01fd89b4ea81ed2992222",
+      "tests/test_crops.py": "c14c13743d8eab4a306c7f976725721816665a74b025a2d30a476f274a29d3b2",
+      "tests/test_data.py": "f21d7f5a5542c0bc96580d2b8db7e800ae4f12d3c80a64ef7df8c012b9052aea",
+      "tests/test_download.py": "2a73959c03d67280ae3a9abce7292458d64c3e8a35e25f8b091dec2794fd24c1",
+      "tests/test_metrics.py": "a7b3112170755032d91194bee64bb4e2d966b58f782617d9d4d6eafe4692c883",
+      "tests/test_partitions.py": "019489c7bc211d9bce863754d4503b1eb9e3bdd616fc6a8a5cef687eb693f8c6",
+      "tests/test_range_download.py": "58a7c77673be76e3436f2413362cbb28e7d1f04b0f7baa2af0a9378f72cba173",
+      "tests/test_report.py": "a6429f8646ae89220e92f01a2a678b4b1d648a489e106d45e8d5d1059aaa741b",
+      "tests/test_training.py": "7ae3cf9db90a20d130e3b2a29f68eac8c78f217da0f42006e053171c27e67403",
+      "tests/test_visual.py": "e10c5debc19002a717d3ce04ef45fad78199eeb1629e7ccde5fcec0256418c82"
+    },
+    "tested_files_unchanged_since_execution": true,
+    "warnings": 17
+  },
   "common_population_sha256": "4cf005e68d2c3db3af7ac67028779c8535c1075218a04995662ca55b8f0ee371",
   "environment_publication_policy": {
     "device_identifier": "process-local logical CUDA ordinal; not the physical server GPU index",
     "extraction": "explicit whitelist from each completed run environment; original file SHA bound by the finished receipt",
+    "fusion_initialization_whitelist": "policy/seed, selected branch identity summaries, and explicit official-builder residual/layout/difference fields only",
     "pretrained_backbone_scope_field": "digest_scope is preserved verbatim from the original pretrained_weights record",
     "unknown_fields_copied": false
   },
@@ -15,11 +90,171 @@
     "locked_center_absolute_tolerance_deg": 0.0001,
     "locked_center_count_tolerance": 0,
     "mae_formula": "absolute_error_sum_rad / valid_angle_count * 180 / pi",
-    "trajectory_applicability": "EMG sequence models only; no trajectory metric for single-frame ResNet-18",
+    "trajectory_applicability": "EMG sequence models only; no trajectory metric for single-frame ResNet-18 or center-only fusion",
     "trajectory_source": "original completed trainer final test; no additional full-trajectory metric recomputation",
     "unit": "degrees"
   },
   "models": {
+    "fusion": {
+      "additional_locked_center_verification_passes": 1,
+      "anonymous_test_user_count": 40,
+      "artifact_sha256": {
+        "fusion-rn18-s/audit.json": "01f3ec4bfe71645ee9fb839a3eda97666d42a625646683e9d69c868fd54c94e9",
+        "fusion-rn18-s/metrics.json": "fd38a15eead0ce32d78e62726f703d02cd16fd0da990f8ebd9ea0d3c9f5d0698",
+        "fusion-rn18-s/metrics.md": "f732c90ef0d8e6ade8acde4bf59ff96673368f52ef8642c7f76dfefd02a59e57",
+        "fusion-rn18-s/training-curves.png": "93b747b384292d029b60d71bba8b8672c928feb58c05624cacaad85f7b5e6cd1",
+        "fusion-rn18-s/training-curves.svg": "8435867eb0650f5b6864a5f9e28bb51d993340c4a535555ef28a8cea58618f03"
+      },
+      "best_validation_center_mae_deg": 6.832980371891606,
+      "center_baseline_groups_checked": 14,
+      "environment": {
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "device": "cuda:0",
+        "gpu_name": "NVIDIA A800-SXM4-80GB",
+        "initialization": {
+          "emg": {
+            "best_val_mae_deg": 15.096172508212788,
+            "model_kind": "emg",
+            "selected_step": 635,
+            "selection": "complete independent validation",
+            "sha256": "be50bf2a1eb262c49d68fb17bbb4f56043ed14c100f68ebab326ca97d601b365"
+          },
+          "official_builder": {
+            "difference_from_published_fusion": "8ch official S branch; shared 12000 footprint; 12000 centered input",
+            "emg_checkpoint_sha256": "be50bf2a1eb262c49d68fb17bbb4f56043ed14c100f68ebab326ca97d601b365",
+            "emg_head": "loaded_then_final_layer_reset",
+            "emg_layout": "target_hand_8ch_no_expansion",
+            "emg_window_length": 12000,
+            "kind": "fusion",
+            "residual_final": "exact_zero_after_official_initialization",
+            "upstream_experiment": "fusion/fusion_rn18_s_center_8ch",
+            "vision_checkpoint_sha256": "85acf8d823b95bee2754022916978d928c4d5d270e49edfe58844519adc924b7"
+          },
+          "policy": "clean branches then official residual-zero initialization",
+          "seed_before_model": 42,
+          "vision": {
+            "best_val_mae_deg": 7.82514494103519,
+            "model_kind": "vision",
+            "selected_step": 6319,
+            "selection": "complete independent validation",
+            "sha256": "85acf8d823b95bee2754022916978d928c4d5d270e49edfe58844519adc924b7"
+          }
+        },
+        "matmul_precision": "high",
+        "numpy": "1.26.4",
+        "precision": "bfloat16",
+        "python": "3.11.12",
+        "torch": "2.2.2+cu118"
+      },
+      "environment_file_sha256": "1c883abf43fab80840b0de157f74d2350c06bea503a31ea28fa2018dc7393d9d",
+      "epochs": 150,
+      "experiment_id": "E3",
+      "full_training_exit_evidence_sha256": "561ed99276fe17f9dd6a7315b1fc9367baab8e7e1a34ca538935623f9fc12227",
+      "global_step": 47400,
+      "identities": {
+        "audit": {
+          "audit_runtime_sha256": "b4ccaab5687cd1bdc3ebe17cc94e931480d3c57e5059a6a7938288c261c41ab8",
+          "checkpoint_sha256": "a305c998dcb57e52b9289e141b1d6c5d882e33a7ecc1f04fee0dd321682a43b2",
+          "config_sha256": "fdddb1e3ccab168ebb061ee33c26fa186440d17a2b00b11f3c951831300d54fe",
+          "data_sha256": "571a93fa21f6c1edb2f31b3948883880ec61934949c07d3ec2e67de2a4e66592",
+          "initialization_sha256": "bc216598e1bfbfdecd18310bd924bdb1ba22ae2aadcc0f6207879c4239352f86",
+          "normalization_sha256": "bdfba74af8f084160a770732767d1081bb949b9d6dcf2d0cb1b1cecc20f7e827",
+          "partition_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+          "reproduction_sha256": "cc74352f3345598a64b91cad1b6fd71b5c4ce469001974f17e0a0e6a9cb5b6c9",
+          "selected_recipe_sha256": "e6b2cc78742caae64bac8b4698467bfcf2ebad02d20c20ebe12db399ad5a0a74",
+          "source_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+          "summary_sha256": "6b55289cb498f4c04b0f9f42c887cb981457187ba9a56e3f8f0ed4eb768cb5a8",
+          "visual_data_sha256": "a72f06683858e1d0101ad4a7fa1ab10c59980baf95a65b6b9f38957e7ee79249"
+        },
+        "report": {
+          "authoritative_checkpoint_file_sha256": "a305c998dcb57e52b9289e141b1d6c5d882e33a7ecc1f04fee0dd321682a43b2",
+          "config_sha256": "fdddb1e3ccab168ebb061ee33c26fa186440d17a2b00b11f3c951831300d54fe",
+          "data_sha256": "571a93fa21f6c1edb2f31b3948883880ec61934949c07d3ec2e67de2a4e66592",
+          "initialization": {
+            "emg": {
+              "best_val_mae_deg": 15.096172508212788,
+              "checkpoint_sha256": "be50bf2a1eb262c49d68fb17bbb4f56043ed14c100f68ebab326ca97d601b365",
+              "selected_step": 635
+            },
+            "policy": "clean branches then official residual-zero initialization",
+            "seed": 42,
+            "vision": {
+              "best_val_mae_deg": 7.82514494103519,
+              "checkpoint_sha256": "85acf8d823b95bee2754022916978d928c4d5d270e49edfe58844519adc924b7",
+              "selected_step": 6319
+            }
+          },
+          "normalization_sha256": "bdfba74af8f084160a770732767d1081bb949b9d6dcf2d0cb1b1cecc20f7e827",
+          "original_recipe_sha256": "e6b2cc78742caae64bac8b4698467bfcf2ebad02d20c20ebe12db399ad5a0a74",
+          "partition_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+          "runtime_sha256": "cc74352f3345598a64b91cad1b6fd71b5c4ce469001974f17e0a0e6a9cb5b6c9",
+          "selected_checkpoint_file_sha256": "874adb63ecef78d969e5705924fa3ec7170949985aadeb8eba5b9f85bba81ac0",
+          "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+          "upstream_source_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+          "visual_data_sha256": "a72f06683858e1d0101ad4a7fa1ab10c59980baf95a65b6b9f38957e7ee79249"
+        }
+      },
+      "initialization_evidence": {
+        "exact_zero_residual_initialization_recorded": true,
+        "initial_metadata_snapshot_sha256": "de9657407dda3fb0ca23d9d672c5642584f5ad8636c347581ad236be2f3727af",
+        "initial_protocol_file_sha256": {
+          "config.json": "a45b6d399ec5b56edb066a2fac9c232fd212314dbf907c6de466736a5e4a75aa",
+          "environment.json": "1c883abf43fab80840b0de157f74d2350c06bea503a31ea28fa2018dc7393d9d",
+          "normalization.json": "62734cd4766804b1e405ad0d64c172b9b6a9fe367988c6310ab5d4652b341f49",
+          "official_module.json": "aba5e1335cad845c82b0b0c008a7bb6359c24e444595a00bb651886b5f47f8c9",
+          "partitions.json": "534a20d8710b0706362a6b26e02c7c4e06bf854e00fb9e073a8179ecc048d896",
+          "provenance.json": "23fd796cf3194d20c6b580318096c1776a2adcd3b59d1a9c83e65a5e71052e31",
+          "recipe_source.json": "e6b2cc78742caae64bac8b4698467bfcf2ebad02d20c20ebe12db399ad5a0a74",
+          "run.json": "4dcc19ea3400c1be60a016bab1c94353a625bac7700bf055e871fa512f2c79e3"
+        },
+        "initial_protocol_unchanged_at_completion": true,
+        "selected_sources": {
+          "emg": {
+            "selected_step": 635,
+            "selection": "complete independent validation",
+            "sha256": "be50bf2a1eb262c49d68fb17bbb4f56043ed14c100f68ebab326ca97d601b365"
+          },
+          "vision": {
+            "selected_step": 6319,
+            "selection": "complete independent validation",
+            "sha256": "85acf8d823b95bee2754022916978d928c4d5d270e49edfe58844519adc924b7"
+          }
+        },
+        "snapshot_scope": "initialization metadata only; final completion established by the separate finished and accepted receipts"
+      },
+      "locked_center_audit_verified": true,
+      "model_label": "ResNet-18 + EMGFormer-S",
+      "saved_crop_present_baseline_verified": true,
+      "selected_checkpoint_step": 36024,
+      "selection_metric_sampling": "center",
+      "test_center_all": {
+        "absolute_error_sum_rad": 7063.423613302133,
+        "mae_deg": 6.793533236340198,
+        "valid_angle_count": 59572
+      },
+      "test_center_crop_present": {
+        "absolute_error_sum_rad": 6906.825844098188,
+        "mae_deg": 6.692348824641623,
+        "valid_angle_count": 59132
+      },
+      "training_complete": true,
+      "training_curves_renderer": {
+        "matplotlib": "3.9.4",
+        "svg_postprocessing": "trailing whitespace only",
+        "writer": "egoemg_repro.report.write_report"
+      },
+      "training_curves_source_metrics_sha256": "fd38a15eead0ce32d78e62726f703d02cd16fd0da990f8ebd9ea0d3c9f5d0698",
+      "training_final_test_passes": 1,
+      "trajectory_applicable": false,
+      "verification_receipt_sha256": {
+        "fusion-accepted": "e0ad9c23c8abcf85121dcd3a811d2855d737648d06f4e7bdf9e18e0c758e72a1",
+        "fusion-audit.exit": "4e81c3900b57e7d595439e755b2d605eaa38d42896824c6e73cc16497da4663e",
+        "fusion-finished": "335b18cc2c3a548d173027fe306ad7166ddcdacf66105af071cc6360d114f8d1",
+        "fusion-producer": "a1d7bb9c5ab8a6194ca4e3400ed2bd4db678ceaace60ec2dd38fe130e6c4ccfb",
+        "fusion-report.exit": "f3e66314466fa9a1a4efd03136bea5959f98002c95d7c0b4cb395a9283fba4fd"
+      }
+    },
     "m": {
       "additional_locked_center_verification_passes": 1,
       "anonymous_test_user_count": 40,
@@ -312,6 +547,7 @@
       }
     }
   },
+  "paper_extensions_complete": false,
   "paper_quantitative_equivalence_claimed": false,
   "privacy": {
     "private_host_paths_published": false,
@@ -322,11 +558,10 @@
   "published_experiment_ids": [
     "E1",
     "E2",
+    "E3",
     "E4"
   ],
-  "remaining_experiments": [
-    "E3: fusion full training in progress; final test and audit pending"
-  ],
+  "remaining_experiments": [],
   "report_type": "completed_legacy_training_and_locked_center_audits",
   "schema_version": 1,
   "scientific_limitations": [
