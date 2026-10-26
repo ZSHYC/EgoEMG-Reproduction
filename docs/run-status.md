@@ -28,6 +28,8 @@ legacy raw的直连下载因TLS握手中断退出。随后通过显式SSH路由�
 
 新增mini数据[工程报告](../results/emg2pose-mini-data.md)记录修后独立目录的30文件、4,218,756行、645,469,668字段字节、1,015 valid blocks以及360官方reader窗口位级核验。旧转换来源与新来源分开保留；没有优化模型、没有独立val性能、没有完整EMG2Pose实验。
 
+Task3的[官方模型入口与真实mini CPU证据](../results/emg2pose-mini-runtime.md)已经完成：S/M/L各检查1个实际窗口，16ch/20D、7790→7280、归一化、构造前seed、严格禁网重载均核验；526是可用窗口数，未做完整526评价。独立审查的字段hash后变更漏洞已用真实RED修复，11个新变更用例通过，Spec/Quality最终均PASS。修后核心统一检查为445 passed、1个未改ViT-L内存准入skip；真实无Torch环境379 passed、67个可选依赖skip。两项运行均明确排除仍在实现的semantic模块测试，不将未完任务计入。新提交托管CI仍需对应实际运行另验。
+
 新增[损失与选模审计](../results/official-loss-audit.md)：实际Hydra合成、未改官方Lightning归约AST和独立复核发现，EgoEMG S/M/L、RN18、RN18+S、DINO-S及classic两项的两个指尖别名合计系数0.02；既有复现层实际为0.01。旧四结果和当前L/RN50/RN152源身份不改，继续明确为该legacy配方；不得把完成记录升级为官方字面协议等价。classic实际监控val_loss并有patience50，RN18/DINO-S有patience30；今后须保留真实回调行为。EMG2Pose三项仅有base指尖项0.01，不受该叠加影响。
 
 DINOv2-S已从匿名HF实际取得88,240,510 bytes预训练文件，实际文件与主干tensor摘要、官方位置嵌入重采样、合成256px前向和严格离线重载逐位相同均记录于[独立工程报告](../results/dinov2-small-pretrained.md)。该验收使用冻结`8dabdaf`、隔离小型依赖且禁用CUDA，不涉及真实cohort优化/性能。B/L仍仅实际CPU构造/schema，真实预训练资产、GPU与完整预算实验仍未完成。

@@ -12,7 +12,7 @@
 - **RN50/152 正在完整训练：** 官方类适配、ImageNet 权重获取、真实 crop 两步优化与两次完整验证重载均通过，独立 150 epoch 训练已启动，运行时复现代码为 a357423。固定官方版本缺两份独立 YAML，当前是明确声明的派生 legacy 对照，尚无最终结果。
 - **DINOv2-S 真实预训练已取得并通过CPU验收：** [下载身份与验收](../results/dinov2-small-pretrained.md)记录匿名HF真实权重、加载后主干tensor摘要、官方位置嵌入插值及合成256px前向/严格离线重载。尚未进行真实cohort优化、GPU容量准入或完整训练；B/L仍只完成实际CPU构造/schema。
 - **手形统计与聚合图已生成并独立核验：** [实际统计与分布图](../results/dataset-statistics/shape-statistics.md)覆盖 41 个引用 beta 行/82 手，50 项官方 float32/ddof0/range 重算误差为零。PDF Table5 在三位小数有 48/50 项吻合，两处微差保留；真正 P5/P95 单列。聚合箱线图的展示适配、独立参与者计数限制均明示。校准为 3840×3360，包含 rational_polynomial 与 fisheye 模型，与 PDF 720p 的关系尚待核验。
-- **EMG2Pose metadata 与 mini 已完整取得，数据转换和官方 reader 工程验收已通过。** [脱敏证据](../results/emg2pose-mini-data.md)记录30文件、4,218,756行的全字段/原mask位级复核及360窗口检查；全部仍为原val。尚未进行模型优化或性能评价，Table 11 / 13 仍需完整数据与三个完整训练。用户无法下载百度发布，不以此阻断现有数据与公开 S3 路线。
+- **EMG2Pose metadata、mini及官方模型CPU入口已核验。** [数据证据](../results/emg2pose-mini-data.md)记录30文件、4,218,756行的全字段/原mask位级复核及360窗口检查；[模型证据](../results/emg2pose-mini-runtime.md)记录真实S/M/L单窗口前向、20D/7280对齐与严格离线重载。全部mini仍为原val，没有优化模型或完整评价；Table 11 / 13仍需完整数据与三个完整训练。用户无法下载百度发布，不以此阻断现有数据与公开S3路线。
 - **扩展代码已公开，指定提交的托管工程检查已通过。** [全论文分支](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)保留原训练提交身份；`2a779df` 的[实际 CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40264031015)为官方 CPU 398 passed、轻量350 passed/48可选运行时skip。完整数据已开始无损分块接收，尚未完成；通过测试不改变各实验的实际完成状态。
 
 EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 另有 S/M/L 三项，markers2mano 还需独立训练与质量验证。现有四项只是这份清单中的 legacy 实验子集，不能写成“原表已复现 4/17”。全文还包括数据统计、预处理和标注重生成、派生评价及全部定性图。
@@ -57,9 +57,9 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实 22 角类及 module YAML；无独立 fusion/vision_wilor YAML | **未实现完整接入、外部依赖**；缺固定专用源码/配置/权重/许可与独立角度训练配方。缺权重时官方类可能保留随机主干，构造成功不证明预训练成功；MANO 监督文档不是同一 22 角任务 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16 通道、20 角、独立数据协议 | **工程接入中、未完整运行**；metadata/mini 已取，全量获取与可核验无损存储尚未完成 |
-| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **工程接入中、未完整运行**；须完整独立训练/验证/测试 |
-| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **工程接入中、未完整运行**；不能用 EgoEMG-L 或 mini 结果填表 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16 通道、20 角、独立数据协议 | **官方工厂与真实mini CPU前向/严格重载已核验，未优化/完整训练**；[单窗口证据](../results/emg2pose-mini-runtime.md)，全量仍在接收 |
+| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **真实mini CPU单窗口/严格重载已核验**；尚须真实优化、完整独立训练/验证/测试 |
+| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **真实mini CPU单窗口/严格重载已核验**；尚无完整科研运行，不能用EgoEMG-L或mini结果填表 |
 
 classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实现检查：现有复现训练器只为 bfloat16 启用 autocast，裁剪值直接设 0 会清零非零梯度，不能照搬数值宣称忠实训练。两类模型 tuple 已对齐，不能重复裁剪。RN50/152、ViT-B/L/WiLoR 缺独立 YAML 是固定提交内的已核验发布缺口，不是模型类不存在；新增派生配方必须明确其来源和差异。[官方配置说明][config-readme]也将配置定位为研究记录。
 

@@ -1,0 +1,457 @@
+{
+  "admission_fix": {
+    "filesystem_state_in_content_identity": false,
+    "issue": "Field changes after hash were not rejected at admission end",
+    "new_actual_mutation_cases_passed": 11,
+    "old_integration_sha256": "fb34f787f6bfb959be6b64363f4bcbc7810cb66aad29a941156c7e21b11d387a",
+    "old_mini_evidence_retained": true,
+    "old_runtime_source_sha256": "b9e33e358bd49deaeae7d3abe15339092d20c3f7c80d17e47d32ec85bf95e40d",
+    "resolution": "Safe path and dev/inode/size/mtime_ns/ctime_ns checked before/after each field hash and at transaction end"
+  },
+  "completed_training": false,
+  "data_completion_sha256": "5b1d8a08daf2323f32c9a09661296f59f5ea77c4dd8c2f34e7d43894ecff5623",
+  "data_converter_sha256": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+  "device": "cpu",
+  "engineering_only": true,
+  "format": "emg2pose_mini_runtime_engineering_v1",
+  "full_corpus_complete": false,
+  "independent_review": {
+    "four_selected_migration_and_mutation_cases_passed": 4,
+    "original_field_race_script_rejected_after_fix": true,
+    "quality": "PASS",
+    "scope": "Task3 runtime admission, real official factories and strict random-weight reload; no optimization or full training",
+    "spec": "PASS"
+  },
+  "network_policy": "socket.connect denied for all three initial constructions and reloads",
+  "optimizer_updates": 0,
+  "peak_process_rss_bytes": 659046400,
+  "private_integration_sha256": "611a4d4cc1205b2669427398fa99ef4fab81da5d283dcede22a1b6db06eeed39",
+  "records": [
+    {
+      "actual_checked_forward_windows": 1,
+      "actual_validation_windows": 526,
+      "aligned_center": 3385,
+      "aligned_mask_shape": [
+        1,
+        7280
+      ],
+      "aligned_prediction_shape": [
+        1,
+        20,
+        7280
+      ],
+      "aligned_target_shape": [
+        1,
+        20,
+        7280
+      ],
+      "checkpoint_scope": "engineering random weights only; not selected, optimized or trained",
+      "checkpoint_sha256": "d1d66a1e31b60e87b6c2b52aec01ddc1d68e545d907c28ed98b6b040f854fc3f",
+      "eval_normalization_bitwise": true,
+      "identity": {
+        "config_sha256": "b5605cb6fe4896fe5a426f65104ea9000049f5c235f3c1b496b3cee0b5174732",
+        "data": {
+          "angle_dimensions": 20,
+          "cohort": "mini",
+          "completion_sha256": "5b1d8a08daf2323f32c9a09661296f59f5ea77c4dd8c2f34e7d43894ecff5623",
+          "converter_sha256": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+          "counts": {
+            "generalization": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "side": {
+              "left": 15,
+              "right": 15
+            },
+            "split": {
+              "val": 30
+            }
+          },
+          "embedded_snapshot_sha256": "44b523964b2f90a8189064c378feb0395b6313fafb2c88e86121278b4c898ca2",
+          "engineering_only": true,
+          "fields": {
+            "emg": {
+              "bytes": 270000384,
+              "dtype": "<f4",
+              "filename": "emg.dat",
+              "sha256": "2f6efe2e0f6b01438017f491975e2b65050fc26e4c31d4067951d7b8ef3153fd",
+              "shape": [
+                4218756,
+                16
+              ]
+            },
+            "joint_angles": {
+              "bytes": 337500480,
+              "dtype": "<f4",
+              "filename": "joint_angles.dat",
+              "sha256": "335560bcce440b46f2354ccaa6047fde84e0f9712eb3c8f137d129de3b6c6e24",
+              "shape": [
+                4218756,
+                20
+              ]
+            },
+            "time": {
+              "bytes": 33750048,
+              "dtype": "<f8",
+              "filename": "time.dat",
+              "sha256": "0baee45098397606ee2ea5ec635e7fd709263453429b1dd0777cd255707efb57",
+              "shape": [
+                4218756
+              ]
+            },
+            "valid_mask": {
+              "bytes": 4218756,
+              "dtype": "|b1",
+              "filename": "valid_mask.dat",
+              "sha256": "9839fba27fdce689a5f508085ef925ce9666c23061b87ca62d42c9fc7236ea4d",
+              "shape": [
+                4218756
+              ]
+            }
+          },
+          "file_count": 30,
+          "format": "emg2pose_runtime_data_identity_v1",
+          "full_corpus_complete": false,
+          "input_channels": 16,
+          "manifest_sha256": "0331f1355dedc8eeb7d5a843b103b1bf9b916b7cd1390617999bc622c291ba2e",
+          "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+          "metadata_sha256": "e2b4d02d2ab419c0d3bb068e325d1769fbeea303edf01033cec54b3cd83275a6",
+          "present_splits": [
+            "val"
+          ],
+          "rows": 4218756,
+          "source_receipt_sha256": "cd806295ea323fb58c0a1c2d088124bbe6c94e12464c9e4a8bc65d9f9914e329"
+        },
+        "dependencies": {
+          "h5py": "3.11.0",
+          "hydra-core": "1.3.2",
+          "joblib": "1.5.2",
+          "lightning-utilities": "0.11.9",
+          "numpy": "1.26.4",
+          "omegaconf": "2.3.1",
+          "pandas": "2.2.3",
+          "pytorch-lightning": "2.5.0.post0",
+          "scipy": "1.13.1",
+          "torch": "2.2.2+cpu",
+          "torchmetrics": "1.4.3",
+          "torchvision": "0.17.2+cpu"
+        },
+        "format": "emg2pose_runtime_identity_v1",
+        "identity_path_policy": "explicit validated locations in private config; content hashes compare relocated artifacts",
+        "initialization": "seeded random official module; no pretrained or resume path; no downloads",
+        "runtime_files_sha256": {
+          "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+          "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+          "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422"
+        },
+        "seed_policy": "official setup_runtime before model factory; explicit correction of upstream train() launch ordering",
+        "size": "small",
+        "upstream_bundle_sha256": "0a29070d1cd600fdb1334e0aef457372e2de749fdaaeccc606edb71400d5dd59",
+        "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+      },
+      "input_shape": [
+        1,
+        16,
+        7790
+      ],
+      "left_context": 510,
+      "mask_sha256": "ab02d4872efd7cf466cb07c37dfb25bc3b738d84ff519b8e1dbb302b351a3d66",
+      "model_class": "egoemg.models.modules.emgformer.Emg2PoseFormer",
+      "module_class": "egoemg.lightning.EmgPredictionModule",
+      "original_mini_only_val": true,
+      "parameters": 3481636,
+      "prediction_finite": true,
+      "prediction_sha256": "109f90f9e45da317eb2a62ecb1d271fac12b7e2fcec0459f5e5fc9bbbac9745e",
+      "right_context": 0,
+      "size": "small",
+      "strict_offline_reload_prediction_equal": true,
+      "target_sha256": "208e9c4dd9fb9c23994842df1124b39aab91d321e75541d1e2af83ed0b716c05"
+    },
+    {
+      "actual_checked_forward_windows": 1,
+      "actual_validation_windows": 526,
+      "aligned_center": 3385,
+      "aligned_mask_shape": [
+        1,
+        7280
+      ],
+      "aligned_prediction_shape": [
+        1,
+        20,
+        7280
+      ],
+      "aligned_target_shape": [
+        1,
+        20,
+        7280
+      ],
+      "checkpoint_scope": "engineering random weights only; not selected, optimized or trained",
+      "checkpoint_sha256": "93daf6d76b005a79151d7df77a28ac6010e97122b1fee1b24650c65cb636cb04",
+      "eval_normalization_bitwise": true,
+      "identity": {
+        "config_sha256": "b7bcac53c01b25017794823864c70dfc2830bd88392fee9f29dce29413b346c4",
+        "data": {
+          "angle_dimensions": 20,
+          "cohort": "mini",
+          "completion_sha256": "5b1d8a08daf2323f32c9a09661296f59f5ea77c4dd8c2f34e7d43894ecff5623",
+          "converter_sha256": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+          "counts": {
+            "generalization": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "side": {
+              "left": 15,
+              "right": 15
+            },
+            "split": {
+              "val": 30
+            }
+          },
+          "embedded_snapshot_sha256": "44b523964b2f90a8189064c378feb0395b6313fafb2c88e86121278b4c898ca2",
+          "engineering_only": true,
+          "fields": {
+            "emg": {
+              "bytes": 270000384,
+              "dtype": "<f4",
+              "filename": "emg.dat",
+              "sha256": "2f6efe2e0f6b01438017f491975e2b65050fc26e4c31d4067951d7b8ef3153fd",
+              "shape": [
+                4218756,
+                16
+              ]
+            },
+            "joint_angles": {
+              "bytes": 337500480,
+              "dtype": "<f4",
+              "filename": "joint_angles.dat",
+              "sha256": "335560bcce440b46f2354ccaa6047fde84e0f9712eb3c8f137d129de3b6c6e24",
+              "shape": [
+                4218756,
+                20
+              ]
+            },
+            "time": {
+              "bytes": 33750048,
+              "dtype": "<f8",
+              "filename": "time.dat",
+              "sha256": "0baee45098397606ee2ea5ec635e7fd709263453429b1dd0777cd255707efb57",
+              "shape": [
+                4218756
+              ]
+            },
+            "valid_mask": {
+              "bytes": 4218756,
+              "dtype": "|b1",
+              "filename": "valid_mask.dat",
+              "sha256": "9839fba27fdce689a5f508085ef925ce9666c23061b87ca62d42c9fc7236ea4d",
+              "shape": [
+                4218756
+              ]
+            }
+          },
+          "file_count": 30,
+          "format": "emg2pose_runtime_data_identity_v1",
+          "full_corpus_complete": false,
+          "input_channels": 16,
+          "manifest_sha256": "0331f1355dedc8eeb7d5a843b103b1bf9b916b7cd1390617999bc622c291ba2e",
+          "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+          "metadata_sha256": "e2b4d02d2ab419c0d3bb068e325d1769fbeea303edf01033cec54b3cd83275a6",
+          "present_splits": [
+            "val"
+          ],
+          "rows": 4218756,
+          "source_receipt_sha256": "cd806295ea323fb58c0a1c2d088124bbe6c94e12464c9e4a8bc65d9f9914e329"
+        },
+        "dependencies": {
+          "h5py": "3.11.0",
+          "hydra-core": "1.3.2",
+          "joblib": "1.5.2",
+          "lightning-utilities": "0.11.9",
+          "numpy": "1.26.4",
+          "omegaconf": "2.3.1",
+          "pandas": "2.2.3",
+          "pytorch-lightning": "2.5.0.post0",
+          "scipy": "1.13.1",
+          "torch": "2.2.2+cpu",
+          "torchmetrics": "1.4.3",
+          "torchvision": "0.17.2+cpu"
+        },
+        "format": "emg2pose_runtime_identity_v1",
+        "identity_path_policy": "explicit validated locations in private config; content hashes compare relocated artifacts",
+        "initialization": "seeded random official module; no pretrained or resume path; no downloads",
+        "runtime_files_sha256": {
+          "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+          "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+          "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422"
+        },
+        "seed_policy": "official setup_runtime before model factory; explicit correction of upstream train() launch ordering",
+        "size": "middle",
+        "upstream_bundle_sha256": "0a29070d1cd600fdb1334e0aef457372e2de749fdaaeccc606edb71400d5dd59",
+        "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+      },
+      "input_shape": [
+        1,
+        16,
+        7790
+      ],
+      "left_context": 510,
+      "mask_sha256": "ab02d4872efd7cf466cb07c37dfb25bc3b738d84ff519b8e1dbb302b351a3d66",
+      "model_class": "egoemg.models.modules.emgformer.Emg2PoseFormer",
+      "module_class": "egoemg.lightning.EmgPredictionModule",
+      "original_mini_only_val": true,
+      "parameters": 6638884,
+      "prediction_finite": true,
+      "prediction_sha256": "369b873ffc5b67398d0fd4ce9d2033c56eb1e4dd28158cf5bbca90b869fe3f64",
+      "right_context": 0,
+      "size": "middle",
+      "strict_offline_reload_prediction_equal": true,
+      "target_sha256": "208e9c4dd9fb9c23994842df1124b39aab91d321e75541d1e2af83ed0b716c05"
+    },
+    {
+      "actual_checked_forward_windows": 1,
+      "actual_validation_windows": 526,
+      "aligned_center": 3385,
+      "aligned_mask_shape": [
+        1,
+        7280
+      ],
+      "aligned_prediction_shape": [
+        1,
+        20,
+        7280
+      ],
+      "aligned_target_shape": [
+        1,
+        20,
+        7280
+      ],
+      "checkpoint_scope": "engineering random weights only; not selected, optimized or trained",
+      "checkpoint_sha256": "d9b819fe01d18e8f04198db6010ae6d1daa1dc0aab4a4fa1fcc238232e2f5cf5",
+      "eval_normalization_bitwise": true,
+      "identity": {
+        "config_sha256": "824764797b1aaabafbe3aa0530c9b6396a51622b743e9337a04344c662cf36d1",
+        "data": {
+          "angle_dimensions": 20,
+          "cohort": "mini",
+          "completion_sha256": "5b1d8a08daf2323f32c9a09661296f59f5ea77c4dd8c2f34e7d43894ecff5623",
+          "converter_sha256": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+          "counts": {
+            "generalization": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "side": {
+              "left": 15,
+              "right": 15
+            },
+            "split": {
+              "val": 30
+            }
+          },
+          "embedded_snapshot_sha256": "44b523964b2f90a8189064c378feb0395b6313fafb2c88e86121278b4c898ca2",
+          "engineering_only": true,
+          "fields": {
+            "emg": {
+              "bytes": 270000384,
+              "dtype": "<f4",
+              "filename": "emg.dat",
+              "sha256": "2f6efe2e0f6b01438017f491975e2b65050fc26e4c31d4067951d7b8ef3153fd",
+              "shape": [
+                4218756,
+                16
+              ]
+            },
+            "joint_angles": {
+              "bytes": 337500480,
+              "dtype": "<f4",
+              "filename": "joint_angles.dat",
+              "sha256": "335560bcce440b46f2354ccaa6047fde84e0f9712eb3c8f137d129de3b6c6e24",
+              "shape": [
+                4218756,
+                20
+              ]
+            },
+            "time": {
+              "bytes": 33750048,
+              "dtype": "<f8",
+              "filename": "time.dat",
+              "sha256": "0baee45098397606ee2ea5ec635e7fd709263453429b1dd0777cd255707efb57",
+              "shape": [
+                4218756
+              ]
+            },
+            "valid_mask": {
+              "bytes": 4218756,
+              "dtype": "|b1",
+              "filename": "valid_mask.dat",
+              "sha256": "9839fba27fdce689a5f508085ef925ce9666c23061b87ca62d42c9fc7236ea4d",
+              "shape": [
+                4218756
+              ]
+            }
+          },
+          "file_count": 30,
+          "format": "emg2pose_runtime_data_identity_v1",
+          "full_corpus_complete": false,
+          "input_channels": 16,
+          "manifest_sha256": "0331f1355dedc8eeb7d5a843b103b1bf9b916b7cd1390617999bc622c291ba2e",
+          "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+          "metadata_sha256": "e2b4d02d2ab419c0d3bb068e325d1769fbeea303edf01033cec54b3cd83275a6",
+          "present_splits": [
+            "val"
+          ],
+          "rows": 4218756,
+          "source_receipt_sha256": "cd806295ea323fb58c0a1c2d088124bbe6c94e12464c9e4a8bc65d9f9914e329"
+        },
+        "dependencies": {
+          "h5py": "3.11.0",
+          "hydra-core": "1.3.2",
+          "joblib": "1.5.2",
+          "lightning-utilities": "0.11.9",
+          "numpy": "1.26.4",
+          "omegaconf": "2.3.1",
+          "pandas": "2.2.3",
+          "pytorch-lightning": "2.5.0.post0",
+          "scipy": "1.13.1",
+          "torch": "2.2.2+cpu",
+          "torchmetrics": "1.4.3",
+          "torchvision": "0.17.2+cpu"
+        },
+        "format": "emg2pose_runtime_identity_v1",
+        "identity_path_policy": "explicit validated locations in private config; content hashes compare relocated artifacts",
+        "initialization": "seeded random official module; no pretrained or resume path; no downloads",
+        "runtime_files_sha256": {
+          "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+          "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+          "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422"
+        },
+        "seed_policy": "official setup_runtime before model factory; explicit correction of upstream train() launch ordering",
+        "size": "large",
+        "upstream_bundle_sha256": "0a29070d1cd600fdb1334e0aef457372e2de749fdaaeccc606edb71400d5dd59",
+        "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+      },
+      "input_shape": [
+        1,
+        16,
+        7790
+      ],
+      "left_context": 510,
+      "mask_sha256": "ab02d4872efd7cf466cb07c37dfb25bc3b738d84ff519b8e1dbb302b351a3d66",
+      "model_class": "egoemg.models.modules.emgformer.Emg2PoseFormer",
+      "module_class": "egoemg.lightning.EmgPredictionModule",
+      "original_mini_only_val": true,
+      "parameters": 16342308,
+      "prediction_finite": true,
+      "prediction_sha256": "cc945fd26dbbd2e33cea087b23564e2d5d445de7cfaa9f5d56c086eeb3c8eeef",
+      "right_context": 0,
+      "size": "large",
+      "strict_offline_reload_prediction_equal": true,
+      "target_sha256": "208e9c4dd9fb9c23994842df1124b39aab91d321e75541d1e2af83ed0b716c05"
+    }
+  ],
+  "runtime_source_sha256": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422",
+  "scope": "Actual real-mini single-window forward per model and strict random-weight restore only; no optimization, full validation or benchmark result",
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+}
