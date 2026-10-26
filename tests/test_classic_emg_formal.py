@@ -135,6 +135,59 @@ def test_actual_callbacks_select_first_minimum_loss_despite_opposite_mae_and_une
     assert observer.last_validation['batch_weighted_loss']==pytest.approx(3.2)
 
 
+def test_native_callback_restore_compares_only_fields_lightning_restores(tmp_path):
+    """Actual CPU Trainer restore, aborted before the first resumed forward."""
+    import hashlib
+    torch=pytest.importorskip('torch');pl=pytest.importorskip('pytorch_lightning')
+    from pytorch_lightning.callbacks import Callback,EarlyStopping,ModelCheckpoint
+    r=api();directory=tmp_path/'checkpoints';observed={}
+    class StopAtRestore(RuntimeError):pass
+    class Module(pl.LightningModule):
+        def __init__(self):super().__init__();self.weight=torch.nn.Parameter(torch.tensor(1.))
+        def training_step(self,batch,batch_idx):return self.weight.square()
+        def validation_step(self,batch,batch_idx):self.log('val_loss',torch.tensor(1.),on_epoch=True,batch_size=len(batch))
+        def configure_optimizers(self):
+            optimizer=torch.optim.AdamW(self.parameters(),lr=.001)
+            return dict(optimizer=optimizer,lr_scheduler=torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,T_max=100))
+    def callbacks(observer=None):
+        result=[EarlyStopping(monitor='val_loss',mode='min',patience=50,check_on_train_epoch_end=False),
+            ModelCheckpoint(dirpath=directory,monitor='val_loss',mode='min',save_top_k=1,
+                save_last=True,save_on_train_epoch_end=True)]
+        return [observer,*result] if observer is not None else result
+    def trainer(values,epochs):
+        return pl.Trainer(accelerator='cpu',devices=1,max_epochs=epochs,callbacks=values,logger=False,
+            num_sanity_val_steps=0,enable_progress_bar=False,enable_model_summary=False)
+    loader=torch.utils.data.DataLoader(torch.zeros(2,1),batch_size=1)
+    trainer(callbacks(),1).fit(Module(),train_dataloaders=loader,val_dataloaders=loader)
+    path=directory/'last.ckpt';before=hashlib.sha256(path.read_bytes()).hexdigest()
+    checkpoint=torch.load(path,map_location='cpu',weights_only=False)
+    original_callbacks=r.storage.state_digest(checkpoint['callbacks'])
+    class ObserveRestore(Callback):
+        def on_train_start(self,trainer,pl_module):
+            actual=r._callbacks_state(trainer);saved=checkpoint['callbacks']
+            key=next(k for k in saved if k.startswith('ModelCheckpoint{'))
+            # These are native values, never assigned to satisfy the comparison.
+            assert float(saved[key]['current_score'])==1. and actual[key]['current_score'] is None
+            assert r.storage.state_digest(pl_module.state_dict())==r.storage.state_digest(checkpoint['state_dict'])
+            assert r.storage.state_digest([o.state_dict() for o in trainer.optimizers])==r.storage.state_digest(checkpoint['optimizer_states'])
+            assert r.storage.state_digest([c.scheduler.state_dict() for c in trainer.lr_scheduler_configs])==r.storage.state_digest(checkpoint['lr_schedulers'])
+            expected=r._canonical_callbacks(saved);restored=r._canonical_callbacks(actual)
+            assert r.storage.state_digest(restored)==r.storage.state_digest(expected)
+            # All native-restored selection and early-stop fields still matter.
+            early=next(k for k in actual if k.startswith('EarlyStopping{'))
+            for state_key,field in [(key,'best_model_score'),(key,'kth_value'),(early,'best_score'),(early,'wait_count')]:
+                damaged=copy.deepcopy(actual);damaged[state_key][field]+=1
+                assert r.storage.state_digest(r._canonical_callbacks(damaged))!=r.storage.state_digest(expected)
+            observed['reached']=True
+            raise StopAtRestore('no resumed training forward or update')
+    with pytest.raises(StopAtRestore):
+        trainer(callbacks(ObserveRestore()),2).fit(Module(),train_dataloaders=loader,
+            val_dataloaders=loader,ckpt_path=str(path))
+    assert observed=={'reached':True}
+    assert r.storage.state_digest(checkpoint['callbacks'])==original_callbacks
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==before
+
+
 def test_missing_final_source_acceptance_cannot_be_promoted_from_an_engineering_result(tmp_path):
     (tmp_path/'status.json').write_text('{"state":"engineering_finished"}')
     (tmp_path/'result.json').write_text('{"passed":true,"production_ready":true}')

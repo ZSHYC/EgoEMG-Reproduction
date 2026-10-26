@@ -384,10 +384,13 @@ def _callbacks_state(trainer):
 
 
 def _canonical_callbacks(states):
-    """Only the strict IO's known owned-path rebasing is normalized."""
+    """Compare native-restored fields, with the strict IO's owned paths rebased."""
     result=copy.deepcopy(states)
     for key,state in result.items():
         if key.startswith('ModelCheckpoint{'):
+            # PL saves current_score but never restores it. The artifact reader
+            # still validates this field in the original saved checkpoint.
+            state['current_score']=None
             state['dirpath']='OWNED_CHECKPOINT_DIRECTORY'
             for name in ('best_model_path','kth_best_model_path'):
                 state[name]='OWNED_SELECTED_BEST' if state[name] else ''

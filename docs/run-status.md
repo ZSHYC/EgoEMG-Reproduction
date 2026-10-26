@@ -4,6 +4,10 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
+最新回调恢复修正：原生CPU Trainer的checkpoint→fresh Trainer在首次恢复forward前真实表明，ModelCheckpoint.current_score虽保存却不恢复，旧完整callback digest因此拒绝；actual GPU prefix为非空tensor，原失败保留。仅在比较副本规范这一非恢复字段，原checkpoint/保存校验和其他可恢复字段不变。新增回归真实RED→GREEN、定向155 passed/1实际GPU skip；77文件冻结组完整1119 passed/3实际GPU skip（263.56s），轻量739 passed/383依赖skip（20.74s），所有冻结hash再核一致。新6adc源码已在独立目录暂存并重验55个输入pin，GPU验收已再次启动；完整训练尚未开放。
+
+`4925caada9b13acacc38cf347185f8eaf7be1f17`已正常公开，[实际CI40319331373](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40319331373)两项成功：官方CPU1118 passed/3真实CUDA skip（277.90s），轻量739 passed/382依赖skip（19.72s），pip check通过。它覆盖上一artifact/evaluator组，不覆盖此后6adc回调比较修正。
+
 最新修正组77文件实际完整CPU **1118 passed/3 skipped**（271.95s），轻量 **739 passed/382依赖skip**（21.40s）；三个完整环境skip仍为真实CUDA检查，七项已完成结果和所有冻结成员hash不变。新增selected-best独立测试入口已修复实际权重载入及目录移走后本次完成标记撤销问题，原探针与33项定向测试、独立复审通过；尚未做正常终止完整训练后的GPU测试或报告。
 
 此前5285正式入口的首次GPU工程运行真实到达两次训练尝试和完整1,576手val，随后首轮保存被原生AdamW校验拒绝：唯一差异为Hydra betas的ListConfig与临时期望参考默认tuple。原失败输出保留，未保存checkpoint、未进行后续阶段，也不是OOM。仅修正临时参考的列表语义后，两原配置真实helper、严格错误值拒绝与独立复审通过；新独立源码集合5285+187b逐一实读55个输入pin后再次实际GPU验收：VEMG连续两轮及单轮prefix均成功，第三个新进程在训练前的完整状态恢复核对失败，原输出与checkpoint保留。尚未执行Neuro阶段或完整训练；新的恢复差异另行诊断，不把前两阶段成功当整个验收通过。共享固定GPU每阶段启动需64GiB空闲、运行监测需8GiB，停止仅作用本次child；耗时不当作论文独占GPU-hours。

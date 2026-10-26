@@ -8,6 +8,8 @@
 
 修后新集合的实际GPU运行已完成VEMG连续两轮和单轮prefix，保存成功；第三个新进程在首次forward前的完整状态恢复核对失败。该失败及前两阶段原checkpoint保留，尚未执行Neuro阶段或证明最终源码验收。恢复差异另行调查，不能据两阶段成功开放完整训练。
 
+该恢复拒绝现已用真实CPU原生Trainer复现：ModelCheckpoint把`current_score`写入checkpoint，但原生`load_state_dict`不恢复它，fresh callback保留None。实际GPU prefix也确实保存非空score；此前没有记录GPU resumed逐组件快照，不能称其余GPU组件已逐项排除。修正只在用于恢复比较的副本中将这一非恢复字段规范为None，不改原callback或checkpoint；原保存校验仍严格验证真实current_score，best/kth与EarlyStopping各字段继续比较。新增原生恢复测试真实RED→GREEN，formal/artifact/evaluator定向155 passed/1真实GPU skip；新77文件组完整1119 passed/3真实GPU skip（263.56s），轻量739 passed/383依赖skip（20.74s）。新formal源码6adcadfe与artifact187b的GPU验收另行启动，旧失败不追溯改成通过。
+
 测试入口只接纳真实完整预算或有限patience正常终止的训练，严格载入验证选中的best及scaler，使用原`Trainer.test/test_step/_step`遍历4,306手测试人口。它不优化参数、不重选模型，结果仅为独立测试sidecar；原调用探针确认selected参数和buffer确实载入，失败回滚只撤销本次拥有的目录状态。33项定向CPU检查和独立复审通过，尚无完整训练后的真实GPU测试。输入/目标/mask指纹不冒称预测指纹，独立预测报告与复算仍欠。
 
 2026-10-26新增[正式训练入口](../egoemg_repro/classic_emg_formal.py)，已通过CPU契约检查、完整集成及独立审查，实际源码SHA为`5285f6c6bdcb310162fce3e1973b1ff258ae9c446c3888f47b291f04ee9368c1`。它严格读取原数值检查、三梯级容量、完整队列及最终源码GPU验收产物；调用方的通过标记或旧工程结果不能开启完整训练。当前尚无该入口的三进程GPU验收bundle，不能据此称正式GPU训练已开始。

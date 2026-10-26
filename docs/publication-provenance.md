@@ -61,3 +61,7 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 该75文件组已公开为`2927aabfbe5a7a8e2f7003cc276ba729d0e24745`，[实际CI40310839399](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40310839399)成功：官方CPU1076 passed/3真实CUDA skip（300.14s），轻量727 passed/352依赖skip（17.34s），pip check及固定commit的有界fetch通过。旧6599失败不改写，此结果不覆盖后续artifact/evaluator修正。
 
 后续原生AdamW参考修正及selected-best独立测试入口的77文件快照SHA为`d93e3d3824293c6355c01b92d9ad9e684e445172356e4cabc7329b1858eb559f`，本机完整1118 passed/3真实CUDA skip（271.95s）、轻量739 passed/382依赖skip（21.40s）。四个新增/修改源码与测试均冻结并独立复审，原七项结果不变；修前真实GPU保存失败保留，修后的新源码GPU验收与本次发布头托管CI须另读。CPU检查及独立测试入口实现不构成完整训练或论文数值完成。
+
+该组已正常公开为`4925caada9b13acacc38cf347185f8eaf7be1f17`，[实际CI40319331373](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40319331373)两项success：官方CPU1118 passed/3实际CUDA skip（277.90s），轻量739 passed/382依赖skip（19.72s），pip check通过。
+
+随后ModelCheckpoint原生不恢复current_score的比较修正，保留原checkpoint严格校验，新增原生Trainer恢复回归真实RED→GREEN；77文件快照SHA为`9cd7d7cc01a1aee1a8ff298b40b0e675011b90ebf56e8e5bd4149034247be498`。本机完整1119 passed/3实际CUDA skip（263.56s），轻量739 passed/383依赖skip（20.74s），源hash再次复核一致。新formal文件SHA为6adcadfe4f99c818560e0cc26272edea93205d9ab0d1b2130fe081eb1a98c1b6；此前5285+187b的fresh GPU恢复失败保留，新的实际GPU验收及本次发布头CI分别另读。
