@@ -4,6 +4,8 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
+**586c36f的真实托管结果已读取：完整CPU检查失败，旧记录保留。** [CI40345052715](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40345052715)的官方CPU为1244 passed／3真实CUDA skip／6 failed（361.86s），轻量762 passed／444依赖skip（23.73s）。6项新文件发布fixture均触发原15GiB保留门槛；日志同时记录`/tmp`为7.9GiB tmpfs、剩余7.5GiB，而工作磁盘剩余86GiB。新修正仅将官方CPU的pytest basetemp移到`RUNNER_TEMP/egoemg-pytest`并补对应磁盘诊断，原运行代码、15GiB门槛和真实低容量拒绝检查保持不变。新提交的实际托管结果待实读；下文1250通过是本机结果，不能覆盖这次托管失败。尚在开发的原生测试启动绑定不属于该公开修正。
+
 **新增验证集报告准备实现，未完成实际GPU校准。** [入口与边界](classic-report.md)提供原22角／原中心算术、完整1576手独立预测、逐批原dtype精确复算和原始证据绑定profile；测试启动绑定、测试预测参考／独立复算及最后科学导出仍欠。[修复后本机证据](../results/classic-report-validation-cpu.md)为定向110 passed，固定80文件完整组1250 passed／3真实CUDA skip（276.93s），轻量762 passed／444依赖skip（21.63s）。独立静态审查的3项发布问题经7个RED回归修复，没有第二次复审；未改formal/evaluator/artifacts或旧七项结果。本次源码托管CI尚未观察。VEMG于2026-10-26T14:51:54UTC实读2213次真实更新、13次完整1576手验证，相同PID/start仍存活；这是历史快照，尚未完成训练或最终测试。下文各次早期状态按原时间保留。
 
 **当前新增：VEMG已通过最终源码GPU限定验收并进入完整训练；NeuroPose预测检查失败。** [实际证据](../results/classic-formal-gpu-engineering.md)记录六个GPU进程均成功，VEMG汇总与fresh复核成功，Neuro汇总在8/171,380个预测元素处超出[固定规则](classic-canonical-comparison.md)，原失败保留、门槛未放宽。两者所有工程train/val批次输入一致、checkpoint-to-live严格恢复，最终浮点状态与完整RNG不逐位一致。VEMG另起full cohort训练，train/val为101,714/1,576手、max100/patience50/原同B600；2026-10-26T13:52:31UTC实读309次attempt及真实执行、1次完整验证，原PID/start仍存活。这是运行快照，未完成训练或最终测试。匹配658d8c6源码[实际CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40330846529)为1173 passed/3实际CUDA skip及739 passed/390依赖skip；本机78成员及七项旧结果未变。下文历史检查不覆盖后续报告实现。
