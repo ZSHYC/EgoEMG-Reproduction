@@ -41,7 +41,8 @@ Callback=storage.Callback
 MAX_EPOCH_BYTES=2*1024**2
 LOOP_MODULES=('pytorch_lightning.loops.fit_loop','pytorch_lightning.loops.training_epoch_loop',
     'pytorch_lightning.loops.fetchers','pytorch_lightning.trainer.connectors.checkpoint_connector',
-    'torch.utils.data.dataloader','torch.utils.data.sampler')
+    'torch.utils.data.dataloader','torch.utils.data.sampler','torch.utils.checkpoint',
+    'timm.models._manipulate','timm.layers.config')
 
 
 def _loop_paths():return {name:Path(importlib.import_module(name).__file__).resolve() for name in LOOP_MODULES}
@@ -50,8 +51,32 @@ def _loop_paths():return {name:Path(importlib.import_module(name).__file__).reso
 def _loop_sources():return {name:_file_hash(path) for name,path in _loop_paths().items()}
 
 
-def vision_fit_policy(upstream,config,*,scope='full'):
+def _native_checkpoint_use_reentrant():
+    from timm.models._manipulate import use_reentrant_ckpt
+    value=use_reentrant_ckpt()
+    if type(value) is not bool:raise ValueError('native checkpoint reentrant choice must be boolean')
+    return value
+
+
+def _configure_activation_checkpointing(prepared,enabled):
+    from timm.models.vision_transformer import VisionTransformer
+    if type(enabled) is not bool:raise ValueError('activation checkpointing requires explicit boolean')
+    backbone=prepared.module.model.backbone
+    if type(backbone) is not VisionTransformer:raise ValueError('native DINO VisionTransformer required for checkpointing')
+    backbone.set_grad_checkpointing(enabled)
+    if backbone.grad_checkpointing is not enabled:raise ValueError('native activation checkpoint switch was not applied')
+
+
+def _check_activation_checkpointing(prepared,policy):
+    if prepared.module.model.backbone.grad_checkpointing is not policy['activation_checkpointing']:
+        raise ValueError('native activation checkpoint switch changed during fit')
+    if policy['activation_checkpointing'] and _native_checkpoint_use_reentrant()!=policy['activation_checkpoint_use_reentrant']:
+        raise ValueError('native activation checkpoint reentrant choice changed during fit')
+
+
+def vision_fit_policy(upstream,config,*,scope='full',activation_checkpointing=False):
     if type(scope) is not str or scope not in SCOPES:raise ValueError('explicit supported vision fit scope required')
+    if type(activation_checkpointing) is not bool:raise ValueError('activation checkpointing requires explicit boolean')
     p=vision_protocol(upstream,config);full=scope=='full';cpu=scope=='cpu_engineering'
     checkpoint,_,early=p['callbacks']
     result=dict(format='original_vision_fit_policy_v1',scope=scope,variant=p['variant'],protocol_sha256=p['sha256'],
@@ -62,6 +87,8 @@ def vision_fit_policy(upstream,config,*,scope='full'):
         patience=early['patience'],save_top_k=checkpoint['save_top_k'],save_last=checkpoint['save_last'],
         num_sanity_val_steps=2 if full else 0,engineering_train_samples=None if full else (4 if cpu else 720),
         native_global_loader_rng=True,workers=0,single_rank=True,scientific_eligible=False,full_paper_complete=False,
+        activation_checkpointing=activation_checkpointing,
+        activation_checkpoint_use_reentrant=_native_checkpoint_use_reentrant() if activation_checkpointing else None,
         performance_is_paper_gpu_hours=False,bitwise_training_trajectory_guaranteed=False)
     result['sha256']=_hash(result);return result
 
@@ -215,6 +242,7 @@ class FitWitness(Callback):
         self.steps=state['steps'];self.completed_epochs=state['completed_epochs'];self.records=copy.deepcopy(state['records'])
 
     def check(self):
+        _check_activation_checkpointing(self.prepared,self.identity['policy'])
         self.cohort.guard.check();self.source_guard.check();_space(self.output)
 
     def on_load_checkpoint(self,trainer,module,checkpoint):
@@ -407,11 +435,11 @@ def read_vision_fit(output,*,require_full=True):
     return result
 
 
-def fit_vision(cohort,output,*,scope='full',resume=False,stop_after_epoch=None,cohort_receipt=None):
+def fit_vision(cohort,output,*,scope='full',resume=False,stop_after_epoch=None,cohort_receipt=None,activation_checkpointing=False):
     import torch
     from omegaconf import OmegaConf
     from pytorch_lightning.callbacks import ModelCheckpoint
-    cohort.check();policy=vision_fit_policy(cohort.upstream,cohort.config,scope=scope)
+    cohort.check();policy=vision_fit_policy(cohort.upstream,cohort.config,scope=scope,activation_checkpointing=activation_checkpointing)
     receipt_path,receipt_binding=_cohort_receipt(cohort,cohort_receipt,required=scope=='full')
     if scope=='full' and (not cohort.identity['metadata_matches_registered_legacy_release'] or cohort.identity['counts']!=FULL_COUNTS):
         raise ValueError('full vision fit requires complete registered legacy cohort')
@@ -441,6 +469,7 @@ def fit_vision(cohort,output,*,scope='full',resume=False,stop_after_epoch=None,c
                 with path.open('wb') as f:f.write(carry);f.flush();os.fsync(f.fileno())
         prepared=build_vision_runtime(cohort.upstream,cohort.config,**({} if checkpoint is None else dict(
             state=checkpoint['state_dict'],expected_initialization=identity['construction'])))
+        _configure_activation_checkpointing(prepared,policy['activation_checkpointing'])
         loaders=native_vision_loaders(cohort)
         train_samples=len(cohort.datasets['train'])
         if scope!='full':
@@ -509,6 +538,8 @@ def main():
     fit.add_argument('--variant',choices=('vit_small','vit_base','vit_large'),default='vit_small')
     fit.add_argument('--scope',choices=SCOPES,required=True);fit.add_argument('--resume',action='store_true')
     fit.add_argument('--cohort-receipt',type=Path)
+    fit.add_argument('--activation-checkpointing',action='store_true',
+        help='explicit native timm activation recomputation; preserve original batch and training objective')
     fit.add_argument('--stop-after-epoch',type=int)
     args=vars(parser.parse_args());args.pop('action');data=args.pop('data');crops=args.pop('crops');upstream=args.pop('upstream');variant=args.pop('variant')
     if args['scope']=='full' and args['cohort_receipt'] is None:

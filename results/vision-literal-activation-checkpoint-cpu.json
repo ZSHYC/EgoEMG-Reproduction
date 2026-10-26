@@ -1,0 +1,169 @@
+{
+  "actual_checkpointing": true,
+  "actual_checks": {
+    "combined_native_fit_eval": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 394.25,
+      "log_sha256": "d919baccce138cec8dfe184422c54a714663154145ed06b888fe8616ef718c0c",
+      "passed": 38
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "dependency_skipped": 689,
+      "elapsed_seconds": 25.5,
+      "log_sha256": "7ee0f81f5bfd1bd473570f727763c3299ab53e5adc084b2c0fbd40281a0315ed",
+      "passed": 841
+    },
+    "targeted_native": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 138.88,
+      "log_sha256": "5898197d9822670c26e8b93e4814e69611482568ac76af9da91792e01eb36d4c",
+      "passed": 24
+    }
+  },
+  "actual_cpu_variant": "vit_small",
+  "backward_check": {
+    "all_parameter_gradients_exact": true,
+    "initialization": "random native DINO-S for paired backward comparison; separate native fit uses genuine pretrained DINO-S",
+    "parameter_identities_preserved": true,
+    "post_backward_CPU_RNG_exact": true,
+    "predictions_exact": true,
+    "state_tensors_unchanged_by_switch": true
+  },
+  "default_checkpointing": false,
+  "format": "native_DINO_activation_checkpoint_CPU_evidence_v1",
+  "full_integration": {
+    "actual_exit_code": 0,
+    "elapsed_seconds": 767.49,
+    "log_sha256": "5bbcbf7f8a806acd0c0a6c2ff349483dc164bf0dee79f8250a188cd3319cce2c",
+    "passed": 1573,
+    "skipped": 4,
+    "skips": [
+      "2 actual CUDA numeric acceptance positives",
+      "1 actual three-process CUDA formal acceptance positive",
+      "1 optional legacy ViT-L CPU constructor: MemAvailable2852569088 below2967539888 reserve"
+    ],
+    "source_manifest_sha256": "fd6952fec2a7d8e5730745f175ac44897863fe0929aec990a016c3658390db1c",
+    "source_members": 97,
+    "warnings": 106
+  },
+  "full_paper_complete": false,
+  "independent_review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "scope": "one focused review for new activation-checkpointing change; original vision implementation not re-reviewed",
+    "sha256": "cae4252f9e67ee5549fc4f54d2cdd2c6556fd3195619e5d20edce472cf1f6c83"
+  },
+  "limitations": [
+    "No smaller batch, gradient accumulation, precision/loss/data/mask or tolerance changes.",
+    "This CPU engineering run is not a ViT-L GPU capacity result or a model performance result.",
+    "Original failed-L output remains failed; live original S/B source stages remain immutable.",
+    "No bitwise interrupted-versus-uninterrupted trajectory promise."
+  ],
+  "native_checkpoint_sources_sha256": {
+    "timm.layers.config": "59ec44335504ed70c5c3a02a7cf91d943c6435ee87c1006063730835783fa4e5",
+    "timm.models._manipulate": "950f6f2e8b016eb77efd00b726672384d0e4e194cf2f1bc50b7c54aa4d62ca42",
+    "torch.utils.checkpoint": "a97dc22421f9854c8537dd4ae4169048294aa92de21c2afe42c947a9eabc4248"
+  },
+  "native_fit": {
+    "completed_epochs": 2,
+    "full_training_terminated": false,
+    "optimizer_executions": 4,
+    "resume_start_exact": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "scope": "cpu_engineering",
+    "train_samples_per_epoch": [
+      4,
+      4
+    ],
+    "val_samples_per_epoch": [
+      4,
+      4
+    ]
+  },
+  "native_use_reentrant": false,
+  "opposite_switch_resume_rejected": true,
+  "policy": {
+    "activation_checkpoint_use_reentrant": false,
+    "activation_checkpointing": true,
+    "batch_size_by_role": {
+      "test": 2,
+      "train": 2,
+      "val": 2
+    },
+    "bitwise_training_trajectory_guaranteed": false,
+    "engineering_train_samples": 4,
+    "format": "original_vision_fit_policy_v1",
+    "full_paper_complete": false,
+    "gradient_clip_val": 1,
+    "max_epochs": 2,
+    "monitor": "val_mae",
+    "monitor_mode": "min",
+    "native_global_loader_rng": true,
+    "num_sanity_val_steps": 0,
+    "patience": 30,
+    "performance_is_paper_gpu_hours": false,
+    "precision": "32-true",
+    "protocol_sha256": "40e75a55ea914f360c4d15a218da6b2712898a4fab242f90870a767c0befb072",
+    "save_last": true,
+    "save_top_k": 3,
+    "scheduler_T_max": 150,
+    "scheduler_eta_min": 1e-05,
+    "scientific_eligible": false,
+    "scope": "cpu_engineering",
+    "sha256": "d477609a400091c196a4cc2e73b1c0c5951ebf067f5e76e302046abc99226108",
+    "single_rank": true,
+    "variant": "vit_small",
+    "workers": 0
+  },
+  "public_report_discloses_policy": true,
+  "scientific_eligible": false,
+  "scope": "real DINO-S CPU engineering only; explicit timm native activation checkpointing; actual L GPU qualification and full fit still required",
+  "scope_incomplete_run_not_counted": {
+    "actual_exit_code": 143,
+    "reason": "missing EGOEMG_UPSTREAM launch environment; stopped only owned test processgroup and re-ran correct complete scope",
+    "successful": false
+  },
+  "source_manifest_sha256": "fd6952fec2a7d8e5730745f175ac44897863fe0929aec990a016c3658390db1c",
+  "source_members": 97,
+  "sources_sha256": {
+    "egoemg_repro/vision_literal_cohort.py": "997cb2f7975f49b45b6313294b0dc3f20150f775bbfe65aa1c02857ace89b977",
+    "egoemg_repro/vision_literal_eval.py": "63553900476855dc0cf9ecc2f97f841e33225470488066de39af23465565c581",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7",
+    "tests/test_vision_activation_checkpointing.py": "be8365675b1243ae160ee2525e6230f7ef3dacf9886a4b5655975042af68907d"
+  },
+  "status": "CPU_implementation_verified_actual_L_GPU_qualification_pending",
+  "supplement_local_memory_skip": {
+    "actual_exit_code": 0,
+    "available_bytes_before": 944982724608,
+    "cuda_initialized": false,
+    "log_sha256": "50dd1d699d1bcd35a67244a624b2e2ed88bdf9742a4ef6d334fdcc4736699f50",
+    "passed": true,
+    "result": {
+      "class": "VisionViTPose",
+      "depth": 24,
+      "dim": 1024,
+      "image_size": [
+        256,
+        256
+      ],
+      "initialization": "random",
+      "output_dim": 22,
+      "parameters": 303833622,
+      "qkv": [
+        3072,
+        1024
+      ]
+    },
+    "scope": "supplement actual optional legacy ViT-L CPU constructor/schema skipped locally for memory; not pretrained or fulltraining",
+    "source_test_sha256": "1194f7627738d877194d5cf16fc632aecc495cba6b8ae3c560b633dc45b6d371"
+  }
+}

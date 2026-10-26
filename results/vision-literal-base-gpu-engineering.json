@@ -1,0 +1,163 @@
+{
+  "code_git_commit": "e7c20b9916efbdc7ecb4ce1385d311692a17e0bd",
+  "fit": {
+    "completed_epochs": 2,
+    "full_training_terminated": false,
+    "optimizer_executions": 4,
+    "resume_start_exact": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "scope": "cuda_engineering",
+    "sha256": "75dc8bd4f8f68c8e691938209fa95b41df6d23f7ed6f8faedbc509ee2a850371",
+    "stage_complete": true,
+    "train_samples_per_epoch": [
+      720,
+      720
+    ],
+    "val_samples_per_epoch": [
+      3152,
+      3152
+    ]
+  },
+  "format": "original_vision_actual_GPU_engineering_evidence_v1",
+  "full_fit_snapshot": {
+    "completed_epochs": 0,
+    "controller_and_child_PID_start_verified_live": true,
+    "final_test_performed": false,
+    "max_epochs": 150,
+    "optimizer_executions_at_last_complete_epoch": null,
+    "patience": 30,
+    "status": "full-fit",
+    "train_consumptions_per_epoch": 202020,
+    "val_consumptions_per_epoch": 3152
+  },
+  "full_paper_complete": false,
+  "limitations": [
+    "Available legacy EgoEMG only, not current physically merged EgoEMG/ShowEE/Incre corpus.",
+    "One A800 and workers0 are explicit adaptations, not six-rank equivalence.",
+    "Device minimum free memory is a global observation, not owned peak memory or paper GPU hours.",
+    "No bitwise resumed versus uninterrupted training trajectory guarantee.",
+    "Engineering validation is not a final model performance score."
+  ],
+  "observed_utc": "2026-10-26T23:02:47.783965+00:00",
+  "policy": {
+    "batch_size_by_role": {
+      "test": 360,
+      "train": 360,
+      "val": 360
+    },
+    "bitwise_training_trajectory_guaranteed": false,
+    "engineering_train_samples": 720,
+    "format": "original_vision_fit_policy_v1",
+    "full_paper_complete": false,
+    "gradient_clip_val": 1,
+    "max_epochs": 2,
+    "monitor": "val_mae",
+    "monitor_mode": "min",
+    "native_global_loader_rng": true,
+    "num_sanity_val_steps": 0,
+    "patience": 30,
+    "performance_is_paper_gpu_hours": false,
+    "precision": "bf16-mixed",
+    "protocol_sha256": "d3c05870f8a2bde7b3f272091bb72a1a40c3d69f0635ce8e0a0eddb0183dd068",
+    "save_last": true,
+    "save_top_k": 3,
+    "scheduler_T_max": 150,
+    "scheduler_eta_min": 1e-05,
+    "scientific_eligible": false,
+    "scope": "cuda_engineering",
+    "sha256": "2fd61956dd09e9fe889f8e45c740f28f8e21c0b1eaea9741c2513a716a824ba0",
+    "single_rank": true,
+    "variant": "vit_base",
+    "workers": 0
+  },
+  "production_ready": false,
+  "runtime": {
+    "accelerator": "gpu",
+    "cuda_runtime": "11.8",
+    "cudnn": 8700,
+    "name": "NVIDIA A800-SXM4-80GB",
+    "total_memory": 85094825984
+  },
+  "scientific_eligible": false,
+  "scope": "actual DINO-B original360/bf16 short GPU fit, fresh native restoration and complete validation replay; separate full fit still running",
+  "source_manifest_sha256": "fee2e9b7d06861cce6a1e4fd5c49fd6a8e086c829e2f4ee7ab6fbca88e2a2e45",
+  "stages": [
+    {
+      "elapsed_seconds": 109.92559656314552,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 36942381056,
+      "name": "capacity-prefix",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 117.00443464098498,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 37267439616,
+      "name": "capacity-resume",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 7.2148918360471725,
+      "exit_code": 0,
+      "minimum_device_free_bytes": null,
+      "name": "capacity-verify",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 106.64736452233046,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 79936094208,
+      "name": "capacity-val-native",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 120.8601617058739,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 79940288512,
+      "name": "capacity-val-replay",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 41.9810820617713,
+      "exit_code": 0,
+      "minimum_device_free_bytes": null,
+      "name": "capacity-freeze",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 48.87686742795631,
+      "exit_code": 0,
+      "minimum_device_free_bytes": null,
+      "name": "capacity-gate",
+      "status": "success"
+    }
+  ],
+  "validation": {
+    "batch_size": 360,
+    "consumed_samples": 3152,
+    "duplicate_consumptions": 1576,
+    "fixed_agreement_policy": {
+      "native_aggregation": "sample-count weighted original per-batch masked L1, float32 accumulation",
+      "native_mae_atol_rad": 2e-06,
+      "native_mae_rtol": 2e-06,
+      "pooled_aggregation": "float64 absolute-error sum / exact valid-angle count",
+      "prediction": "exact typed prediction/target/mask/input replay",
+      "scope": "fixed before validation; no test-driven tolerance or checkpoint changes"
+    },
+    "fresh_prediction_replay_exact": true,
+    "model_unchanged": true,
+    "native_aggregation_agrees": true,
+    "prediction_sha256": "09e21c56331a8fcbc03ae9a39d8de860d6c85cdb0cc4fcd654c8972c441cc57c",
+    "profile_sha256": "5823c64fba6183a83b98349d05e5c0e049c1b0bbdc073fe01f2368fe7f099e5d",
+    "reference_sha256": "fc9ff64d0b88e343f272a17b9db072a4c74073b9558494a0caa4e287e8f58f28",
+    "replay_sha256": "3dd309ed25955bd712bb63810d901882f05e36f4981f25150e96b542558c94d4",
+    "unique_samples": 1576
+  },
+  "variant": "vit_base"
+}

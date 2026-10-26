@@ -353,7 +353,8 @@ def build_vision_report(recompute):
         scope='available legacy cohort; single rank/workers0; original vision semantics; independent train-only validation',
         paper_numerical_equivalence_established=False,variant=identity['policy']['variant'],
         training=dict(scope=fit['scope'],completed_epochs=fit['completed_epochs'],optimizer_executions=fit['optimizer_executions'],
-            full_training_terminated=fit['full_training_terminated'],selected_best=fit['selected_best'],fit_result_sha256=fit['sha256']),
+            full_training_terminated=fit['full_training_terminated'],selected_best=fit['selected_best'],fit_result_sha256=fit['sha256'],
+            execution_policy=copy.deepcopy(identity['policy'])),
         test=statistics,population=copy.deepcopy(replay['population']),native_metrics={k:v for k,v in native['native_metrics'].items() if k in PUBLIC_NATIVE_METRICS},
         fixed_agreement_policy=copy.deepcopy(POLICY),cohort_sha256=replay['cohort_sha256'],
         validation_profile_sha256=replay['profile_sha256'],native_test_sha256=native['sha256'],independent_test_sha256=replay['sha256'],
@@ -364,6 +365,7 @@ def render_vision_report(report):
     training=report['training'];test=report['test'];scope='完整训练实验' if report['scientific_eligible'] else '工程验证；未完成正式完整训练'
     lines=['# DINOv2 视觉中心评价','',scope,'',
         f"模型：{report['variant']}；训练完成 {training['completed_epochs']} 轮，实际更新 {training['optimizer_executions']} 次。",'',
+        '激活重计算：'+('开启（显式适配）' if training['execution_policy']['activation_checkpointing'] else '关闭')+'。','',
         f"验证选择：{training['selected_best']['file']}；不以最后一轮替代验证最优。",'',
         f"测试消费 {test['consumed_samples']} 手样本，唯一 {test['unique_samples']}，重复消费 {test['duplicate_consumptions']}。",'',
         '| 统计人口 | MAE (°) | 有效角度数 | 弧度绝对误差和 |','| --- | ---: | ---: | ---: |']

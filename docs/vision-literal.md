@@ -116,3 +116,9 @@ python -m egoemg_repro.vision_literal_eval verify --recompute "$TEST_REPLAY" --o
 当前完整实现已做一次独立审查，并完成两项Important根修正及证据措辞修正。15项内容receipt／自然终止边界和28项真实原生fit／恢复／评价／发布检查通过；96成员整体实际1,563 passed／4 skipped／106 warnings（694.08秒），轻量841 passed／679依赖skip（22.85秒）。三个skip需要真实CUDA，另一个legacy ViT-L随机CPU构造因本机可用内存不足跳过，不能记作已通过。此前95成员1,547／3属于修正前快照。实际服务器当前96代码再次完整校验输入75.22秒，仍匹配原冻结receipt；train／val／test metadata用户键36／36／41，User／Both与train各有1键交集。metadata键计数不证明自然人数，留出验证与train共享用户是本设计的独立时间／数据划分，不是严格未见用户验证。实际GPU及完整训练仍为下一阶段。
 
 本机跳过的legacy ViT-L随机CPU构造已在同96源码服务器目录按同一测试脚本补做并通过：303,833,622参数、1024维、24层、256输入和22角输出。初始化明确为random，这只补齐构造／schema检查，不代表真实预训练或完整训练；原本机整套记录仍为1,563／4，不改写skip。
+
+2026-10-27新增实际GPU进展：[S七阶段验收](../results/vision-literal-gpu-engineering.json)已通过并进入全量训练；B也随后独立通过同类七阶段，进入自己的全量训练。L的原batch360首轮触发8GiB设备空闲余量门槛，原失败保留，不能报告为成功。完整训练和最终测试的状态以[运行记录](run-status.md)对应时间为准。
+
+已新增`--activation-checkpointing`显式资源适配，默认关闭：调用固定timm1.0.15的原生`VisionTransformer.set_grad_checkpointing(True)`，在反向时重新计算各Transformer块的激活。它不缩小原batch360、不增加梯度累积、不修改原生模型／损失／优化器或验证选模；代价是额外计算，不能当作论文GPU时间或作者原配方执行。开关及原生`use_reentrant`选择进入训练身份，相关timm／Torch源码进入恢复绑定；更换开关的续训必须拒绝，公开JSON与可读报告都披露完整执行策略。只在`fit`显式添加该参数；选中检查点的独立评价仍使用原模型正常前向。
+
+[实际CPU证据](../results/vision-literal-activation-checkpoint-cpu.json)记录DINO-S真实前向／反向的参数、预测、全部梯度和反向后RNG一致，genuine预训练S的新进程恢复六项一致。38项原生fit／评价检查通过；独立实现审查没有发现问题。97成员完整检查实际1,573 passed／4 skipped／106warnings（767.49s），轻量841／689依赖skip（25.50s）。三项skip需要实际CUDA，另一项ViT-L随机构造因本机内存不足跳过，已在同97源码服务器按同一测试脚本补做并通过；原整套1573／4记录保留。该CPU证明不构成L的GPU容量或科学结果，仍须完成新的L原360／bf16容量、完整验证和精确复推后才能另起full。

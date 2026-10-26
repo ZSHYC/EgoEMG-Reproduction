@@ -6,7 +6,7 @@
 
 ## 当前实际完成到哪里
 
-- **DINO-S实际GPU验收已通过并进入全量训练，B/L各自执行容量准入：** [实际S证据](../results/vision-literal-gpu-engineering.json)为原360／bf16两轮、4次实际更新，每轮完整3,152手验证；六项原生恢复一致，完整验证预测跨进程精确复推，七阶段exit0。独立S full快照完成2轮／1,124更新，原150上限／patience30，尚无最终测试成绩。B第一轮短训通过、恢复检查中；L原360首轮因8GiB设备空闲余量门槛失败，失败保留、未自动降批量或重试。匹配e7c20b9[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40412185942)为1,564／3实际CUDA skip及841／679依赖skip。下文CPU阶段“GPU尚欠”为历史记录，不覆盖此新快照。
+- **DINO-S/B实际GPU验收已通过并进入各自全量训练，L显存准入失败：** [实际S证据](../results/vision-literal-gpu-engineering.json)与[实际B证据](../results/vision-literal-base-gpu-engineering.json)各为原360／bf16两轮、4次实际更新，每轮完整3,152手验证；六项原生恢复一致，完整验证预测跨进程精确复推，各七阶段exit0。独立S full快照完成2轮／1,124更新，原150上限／patience30；B随后另起full，两者尚无最终测试成绩。L原360首轮因8GiB设备空闲余量门槛失败，失败保留、未自动降批量或重试；显式原生激活重计算适配正在另行核验。匹配e7c20b9[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40412185942)为1,564／3实际CUDA skip及841／679依赖skip。下文CPU阶段“GPU尚欠”为历史记录，不覆盖此新快照。
 
 - **VEMG完整实验与最终核验已完成：** [实际公开报告](../results/original-classic/vemg2pose/README.md)记录62轮、10,535次实际更新，原patience50早停；原生最终测试、独立完整预测复算、统计复核和最后完成核验共12阶段实际exit0。新4,306测试手样本的轨迹／中心MAE为16.452932°／16.347705°，有效角度551,176,956／91,916。保留7,790点、原0.02损失及单rank适配，与旧七项12,000点legacy成绩分列；不是PDF等价或全文完成。
 

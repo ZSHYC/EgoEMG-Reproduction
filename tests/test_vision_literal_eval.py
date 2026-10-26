@@ -102,6 +102,10 @@ def test_public_engineering_report_is_sanitized_and_does_not_claim_full_training
     raw=json.dumps(report)
     assert report['scientific_eligible'] is False and report['full_paper_complete'] is False
     assert report['test']['unique_samples']==6 and report['training']['completed_epochs']==2
+    assert report['training']['execution_policy']['activation_checkpointing'] is False
+    assert '激活重计算：关闭' in m.render_vision_report(report)
+    adapted=copy.deepcopy(report);adapted['training']['execution_policy']['activation_checkpointing']=True
+    assert '激活重计算：开启（显式适配）' in m.render_vision_report(adapted)
     assert 'private-person' not in raw and str(ROOT) not in raw and '/tmp/' not in raw
     assert list(report['test']['consumed']['all']['by_user'])==['user_000']
     assert report['population']['unique_subjects_by_role']==dict(train=1,val=1,test=1)
