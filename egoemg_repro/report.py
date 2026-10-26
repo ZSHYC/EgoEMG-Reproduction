@@ -117,7 +117,20 @@ def _kind(config):
     return kind
 
 
+def _vision_backbone(config):
+    if 'vision_backbone_type' not in config:
+        return None
+    backbone = config['vision_backbone_type']
+    if (_kind(config) != 'vision' or config.get('upstream_experiment') != 'fusion/vision_resnet18'
+            or not isinstance(backbone, str) or backbone not in ('resnet18', 'resnet50', 'resnet152')):
+        raise ReportError('vision_backbone_type requires a supported official ResNet vision model')
+    return backbone
+
+
 def _model_name(config):
+    backbone = _vision_backbone(config)
+    if backbone is not None:
+        return {'resnet18':'ResNet-18', 'resnet50':'ResNet-50', 'resnet152':'ResNet-152'}[backbone]
     known = {'emgformer/egoemg_emgformer_small':'EMGFormer-S',
              'emgformer/egoemg_emgformer_middle':'EMGFormer-M',
              'emgformer/egoemg_emgformer_large':'EMGFormer-L',
@@ -129,6 +142,9 @@ def _model_name(config):
 
 def _safe_config(config):
     result = {}
+    backbone = _vision_backbone(config)
+    if backbone is not None:
+        result['vision_backbone_type'] = backbone
     for key in ('seed', 'epochs', 'batch_size', 'official_batch_size', 'window_length',
                 'emg_window_length', 'lr', 'weight_decay', 'eta_min', 'gradient_clip',
                 'fingertip_weight', 'train_stride', 'eval_stride', 'val_fraction'):
@@ -522,6 +538,8 @@ def build_export(run, model_label, *, checkpoint_loader=None):
     if recipe.get('source_utf8','').encode('utf-8')!=recipe_bytes or _canonical(recipe.get('effective_config'))!=_canonical(config):
         raise ReportError('original/effective recipe evidence disagrees')
     kind=_kind(config)
+    if 'vision_backbone_type' in config and model_label!=_model_name(config):
+        raise ReportError('model label disagrees with configured vision backbone')
     trajectory_points=_trajectory_points(config)
     if _count(config.get('epochs'),'configured epochs')==0 or _count(config.get('batch_size'),'batch size')==0:
         raise ReportError('completed configuration requires positive epochs and batch size')

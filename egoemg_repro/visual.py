@@ -152,10 +152,20 @@ def build_visual_model(upstream, config, vision_checkpoint=None, emg_checkpoint=
     kind = config['model_kind']
     if kind not in ('vision', 'fusion'):
         raise ValueError('model_kind must be vision or fusion')
+    if 'vision_backbone_type' in config:
+        if kind != 'vision':
+            raise ValueError('vision_backbone_type is supported only for vision models')
+        backbone = config['vision_backbone_type']
+        if not isinstance(backbone, str) or backbone not in ('resnet18', 'resnet50', 'resnet152'):
+            raise ValueError('vision_backbone_type must be resnet18, resnet50 or resnet152')
+        if config['upstream_experiment'] != 'fusion/vision_resnet18':
+            raise ValueError('vision_backbone_type requires the official ResNet vision experiment')
     if kind == 'fusion' and resume_state is None and (vision_checkpoint is None or emg_checkpoint is None):
         raise ValueError('Clean fusion requires independent-validation vision and EMG initializers')
     overrides = ['experiment=' + config['upstream_experiment']]
     if kind == 'vision':
+        if 'vision_backbone_type' in config:
+            overrides += ['module.backbone_type=' + config['vision_backbone_type']]
         needs_pretrained = config.get('vision_pretrained', True) and resume_state is None and vision_checkpoint is None
         if needs_pretrained and os.environ.get('EGOEMG_NO_PRETRAINED_DOWNLOAD', '') not in ('', '0'):
             raise ValueError('Requested ImageNet initialization conflicts with EGOEMG_NO_PRETRAINED_DOWNLOAD; set vision_pretrained=false explicitly for random initialization')

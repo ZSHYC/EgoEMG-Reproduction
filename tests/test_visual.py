@@ -5,7 +5,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from egoemg_repro.visual import VisualDataset, align_visual_batch, build_visual_model, sparse16
+from egoemg_repro.visual import (VisualDataset, align_visual_batch, build_visual_model,
+                               pretrained_weight_identity, sparse16)
 from test_crops import add_video_indices, make_crops
 from test_data import make_store, window
 
@@ -187,3 +188,113 @@ def test_mocked_pretrained_identity_records_actual_backbone_url_and_version(monk
     assert restored.reproduction_initialization['restored_self_contained']
     retained = initialization_identity(config, {}, loaded={'provenance': {'initialization': original_identity}})
     assert retained['official_builder']['pretrained_weights'] == identity
+
+
+@pytest.mark.parametrize('backbone,parameters,enum,url', [
+    ('resnet50', 24568406, 'ResNet50_Weights',
+     'https://download.pytorch.org/models/resnet50-0676ba61.pth'),
+    ('resnet152', 59204182, 'ResNet152_Weights',
+     'https://download.pytorch.org/models/resnet152-394f9c45.pth'),
+])
+def test_larger_official_resnets_predict_backpropagate_and_strictly_resume(
+        monkeypatch, backbone, parameters, enum, url):
+    torch = pytest.importorskip('torch')
+    pytest.importorskip('hydra')
+    upstream = os.environ.get('EGOEMG_UPSTREAM')
+    if not upstream:
+        pytest.skip('set EGOEMG_UPSTREAM for fixed official-model integration')
+    torch.set_num_threads(2)
+    monkeypatch.setenv('EGOEMG_NO_PRETRAINED_DOWNLOAD', '1')
+    config = dict(json.loads(Path('configs/resnet18.json').read_text()),
+                  vision_backbone_type=backbone, vision_pretrained=False)
+    model = build_visual_model(upstream, config).eval()
+    assert model.backbone_type == backbone
+    assert model.reproduction_hydra_config['backbone_type'] == backbone
+    assert sum(parameter.numel() for parameter in model.parameters()) == parameters
+    assert (model.left_context, model.right_context) == (0, 0)
+    assert model.reproduction_initialization['vision_backbone'] == 'random'
+    assert 'pretrained_weights' not in model.reproduction_initialization
+    batch = dict(vision_img=torch.randn(2, 3, 32, 32),
+                 joint_angles=torch.ones(2, 22, 1),
+                 label_valid_mask=torch.ones(2, 1, dtype=torch.bool),
+                 angle_valid_mask=torch.ones(2, 22, 1, dtype=torch.bool))
+    batch['angle_valid_mask'][0, 20] = False
+    prediction, target, valid = align_visual_batch(model, batch)
+    assert prediction.shape == target.shape == valid.shape == (2, 22, 1)
+    assert not valid[0, 20, 0]
+    (prediction[valid] - target[valid]).abs().mean().backward()
+    assert model.head[-1].weight.grad is not None
+    assert model.backbone[0].weight.grad is not None
+    assert torch.isfinite(model.backbone[0].weight.grad).all()
+    identity = pretrained_weight_identity(model)
+    assert identity['enum'] == 'torchvision.models.' + enum + '.IMAGENET1K_V1'
+    assert identity['source_url'] == url
+    assert len(identity['backbone_tensor_sha256']) == 64
+    with torch.no_grad():
+        model.backbone[0].weight.add_(.01)
+        expected = align_visual_batch(model, batch)[0]
+    assert pretrained_weight_identity(model)['backbone_tensor_sha256'] != identity['backbone_tensor_sha256']
+    # A resumed run can retain its original pretrained request without fetching
+    # weights again; architecture selection still comes from the recipe.
+    resumed = build_visual_model(upstream, dict(config, vision_pretrained=True),
+                                 resume_state=model.state_dict()).eval()
+    with torch.no_grad():
+        actual = align_visual_batch(resumed, batch)[0]
+    torch.testing.assert_close(actual, expected, atol=0, rtol=0)
+    assert resumed.reproduction_initialization['restored_self_contained'] is True
+    del resumed
+    broken = dict(model.state_dict())
+    broken['head.0.weight'] = broken['head.0.weight'][:, :1]
+    with pytest.raises(RuntimeError, match='size mismatch'):
+        build_visual_model(upstream, config, resume_state=broken)
+
+
+@pytest.mark.parametrize('backbone', ['resnet34', 'vit_small', '', None, 50, ['resnet50']])
+def test_backbone_override_rejects_invalid_types_before_hydra_composition(tmp_path, monkeypatch, backbone):
+    pytest.importorskip('torch')
+    hydra = pytest.importorskip('hydra')
+    def forbidden_compose(*args, **kwargs):
+        pytest.fail('invalid backbone override reached Hydra composition')
+    monkeypatch.setattr(hydra, 'compose', forbidden_compose)
+    config = dict(json.loads(Path('configs/resnet18.json').read_text()),
+                  vision_backbone_type=backbone, vision_pretrained=False)
+    with pytest.raises(ValueError, match='vision_backbone_type'):
+        build_visual_model(tmp_path, config)
+
+
+def test_backbone_override_rejects_fusion_before_clean_initializer_loading(tmp_path):
+    pytest.importorskip('torch')
+    pytest.importorskip('hydra')
+    config = dict(json.loads(Path('configs/fusion_rn18_s.json').read_text()),
+                  vision_backbone_type='resnet50', vision_pretrained=False)
+    with pytest.raises(ValueError, match='vision_backbone_type.*vision'):
+        build_visual_model(tmp_path, config)
+
+
+def test_backbone_override_rejects_other_vision_family_before_instantiation(tmp_path):
+    pytest.importorskip('torch')
+    pytest.importorskip('hydra')
+    config = dict(json.loads(Path('configs/resnet18.json').read_text()),
+                  upstream_experiment='fusion/vision_vit_small',
+                  vision_backbone_type='resnet50', vision_pretrained=False)
+    with pytest.raises(ValueError, match='vision_backbone_type.*ResNet'):
+        build_visual_model(tmp_path, config)
+
+
+@pytest.mark.parametrize('name,batch_size', [('resnet50', 400), ('resnet152', 180)])
+def test_larger_resnet_recipes_keep_shared_legacy_protocol_and_explicit_architecture(name, batch_size):
+    config = json.loads(Path('configs', name + '.json').read_text())
+    assert config['vision_backbone_type'] == name
+    assert config['upstream_experiment'] == 'fusion/vision_resnet18'
+    assert config['vision_pretrained'] is True
+    assert config['batch_size'] == config['official_batch_size'] == batch_size
+    assert {key: config[key] for key in (
+        'seed', 'model_kind', 'window_length', 'train_stride', 'eval_stride', 'val_fraction',
+        'epochs', 'optimizer_class', 'lr', 'weight_decay', 'eta_min', 'precision', 'gradient_clip',
+        'fingertip_weight', 'augmentation', 'evaluation')} == {
+        'seed': 42, 'model_kind': 'vision', 'window_length': 12000,
+        'train_stride': 1200, 'eval_stride': 12000, 'val_fraction': .12,
+        'epochs': 150, 'optimizer_class': 'AdamW', 'lr': .0001, 'weight_decay': .01,
+        'eta_min': .00001, 'precision': 'bfloat16', 'gradient_clip': 1.,
+        'fingertip_weight': .01, 'augmentation': 'none',
+        'evaluation': 'fixed_center_all_labels_with_separate_crop_valid_population'}

@@ -67,7 +67,7 @@ def read_checkpoint(path):
     return pickle.loads(Path(path).read_bytes())
 
 
-def complete_run(root, kind='emg', recipe_config=None):
+def complete_run(root, kind='emg', recipe_config=None, initialization=None):
     root.mkdir()
     config = {'model_kind': kind, 'seed': 42, 'epochs': 2, 'batch_size': 2,
               'upstream_experiment': 'emgformer/egoemg_emgformer_small',
@@ -96,7 +96,7 @@ def complete_run(root, kind='emg', recipe_config=None):
         'model_kind':kind,'data':{'sha256':'e'*64,'private_path':'/private/data'},
         'config_sha256':canonical(config), 'partition_sha256':canonical(manifest),
         'normalization_sha256':canonical(norm),
-        'initialization':{'policy':'random','seed_before_model':42},
+        'initialization':initialization or {'policy':'random','seed_before_model':42},
         'recipe':{'source_utf8':recipe,'effective_config':config}}
     test = evaluation(kind)
     summary = {'status':'training_complete','test_evaluated':True,'global_step':2,
@@ -414,3 +414,90 @@ def test_full_trajectory_accepts_masked_angles_without_shortening_coverage(tmp_p
     if stage == 'test':
         assert report['test']['sampling']['trajectory']['invalid_angle_count'] == 88
         assert report['test']['sampling']['trajectory']['time_points_per_window'] == 11490
+
+
+@pytest.mark.parametrize('backbone,label', [('resnet18', 'ResNet-18'),
+                                          ('resnet50', 'ResNet-50'),
+                                          ('resnet152', 'ResNet-152')])
+def test_vision_reports_name_and_preserve_actual_backbone_override(tmp_path, backbone, label):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={
+        'upstream_experiment': 'fusion/vision_resnet18',
+        'vision_backbone_type': backbone})
+    status = build_status(run)
+    assert status['model_label'] == label
+    assert status['configuration']['vision_backbone_type'] == backbone
+    report = build_export(run, label, checkpoint_loader=read_checkpoint)
+    assert report['configuration']['vision_backbone_type'] == backbone
+    assert report['model_label'] == label
+
+
+@pytest.mark.parametrize('backbone,label', [('resnet18', 'Legacy vision label'),
+                                          ('resnet50', 'ResNet-18'),
+                                          ('resnet152', 'ResNet-18')])
+def test_export_rejects_model_label_conflicting_with_explicit_backbone(tmp_path, backbone, label):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={
+        'upstream_experiment': 'fusion/vision_resnet18',
+        'vision_backbone_type': backbone})
+    with pytest.raises(ReportError, match='model label.*backbone'):
+        build_export(run, label, checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('kind,experiment', [
+    ('vision', 'fusion/vision_resnet18'),
+    ('emg', 'emgformer/egoemg_emgformer_small'),
+])
+def test_export_keeps_custom_label_for_legacy_config_without_backbone_override(tmp_path, kind, experiment):
+    run = tmp_path/'run'
+    complete_run(run, kind, recipe_config={'upstream_experiment': experiment})
+    report = build_export(run, 'Legacy custom label', checkpoint_loader=read_checkpoint)
+    assert report['benchmark_eligible'] is True
+    assert report['model_label'] == 'Legacy custom label'
+
+
+@pytest.mark.parametrize('backbone', ['/private/participant-Alice/resnet50', None, 50, ['resnet50']])
+def test_status_rejects_unsafe_backbone_override_instead_of_naming_resnet18(tmp_path, backbone):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={
+        'upstream_experiment': 'fusion/vision_resnet18',
+        'vision_backbone_type': backbone})
+    with pytest.raises(ReportError, match='vision_backbone_type'):
+        build_status(run)
+
+
+@pytest.mark.parametrize('kind,experiment', [
+    ('fusion', 'fusion/fusion_rn18_s_center_8ch'),
+    ('emg', 'emgformer/egoemg_emgformer_small'),
+    ('vision', 'fusion/vision_vit_small'),
+])
+def test_report_rejects_backbone_override_for_another_model_family(tmp_path, kind, experiment):
+    run = tmp_path/'run'
+    complete_run(run, kind, recipe_config={
+        'upstream_experiment': experiment, 'vision_backbone_type': 'resnet50'})
+    with pytest.raises(ReportError, match='vision_backbone_type'):
+        build_status(run)
+
+
+@pytest.mark.parametrize('enum,url', [
+    ('ResNet50_Weights', 'https://download.pytorch.org/models/resnet50-0676ba61.pth'),
+    ('ResNet152_Weights', 'https://download.pytorch.org/models/resnet152-394f9c45.pth'),
+])
+def test_larger_resnet_export_keeps_exact_public_pretrained_identity(tmp_path, enum, url):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_resnet18'},
+                 initialization={
+                     'policy': 'ImageNet1K_V1 backbone', 'seed_before_model': 42,
+                     'official_builder': {'pretrained_weights': {
+                         'enum': 'torchvision.models.' + enum + '.IMAGENET1K_V1',
+                         'source_url': url, 'torchvision_version': '0.17.2+cu118',
+                         'backbone_tensor_sha256': 'f'*64,
+                         'private_path': '/private/participant-Alice/weights'}}})
+    report = build_export(run, 'ResNet', checkpoint_loader=read_checkpoint)
+    initialization = report['identities']['initialization']
+    assert initialization['pretrained_enum'] == 'torchvision.models.' + enum + '.IMAGENET1K_V1'
+    assert initialization['pretrained_source_url'] == url
+    assert initialization['pretrained_backbone_tensor_sha256'] == 'f'*64
+    assert initialization['torchvision_version'] == '0.17.2+cu118'
+    assert initialization['policy'] == 'ImageNet1K_V1 backbone'
+    assert 'participant' not in json.dumps(report) and '/private/' not in json.dumps(report)
