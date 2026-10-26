@@ -32,17 +32,17 @@
 
 **Interfaces:** `vision_fit_policy(..., activation_checkpointing=False)` and `fit_vision(..., activation_checkpointing=False)`; CLI `--activation-checkpointing`; `_configure_activation_checkpointing(prepared, enabled)` uses the actual timm class. Existing identities remain available by their original frozen source commit.
 
-- [ ] RED policy boolean/type/default/hash tests, real native DINO forward/backward tensor+gradient+RNG test, and real two-process native checkpointed fit/resume including opposite-switch rejection.
-- [ ] Run focused tests and observe missing-API failures before editing production code.
-- [ ] Implement the minimal opt-in setter, policy/source binding, batch guard and CLI; no alternate checkpoint implementation.
-- [ ] GREEN focused tests plus existing native fit/eval checks; complete full/light integration against a frozen source snapshot. Inspect every result and run one focused independent review, fixing any Important findings by RED→GREEN.
-- [ ] Commit and publish explicit usage, scope and actual verification evidence.
+- [x] RED policy boolean/type/default/hash tests, real native DINO forward/backward tensor+gradient+RNG test, and real two-process native checkpointed fit/resume including opposite-switch rejection.
+- [x] Run focused tests and observe missing-API failures before editing production code.
+- [x] Implement the minimal opt-in setter, policy/source binding, batch guard and CLI; no alternate checkpoint implementation.
+- [x] GREEN focused tests plus existing native fit/eval checks; complete full/light integration against a frozen source snapshot. Inspect every result and run one focused independent review, fixing any Important findings by RED→GREEN.
+- [x] Commit and publish explicit usage, scope and actual verification evidence.
 
 ### Task 2: separate actual-L capacity and full experiment
 
 **Files:** new private source stage, manifest/output and public engineering evidence; preserve original failed-L directory.
 
-- [ ] Rehash unchanged complete inputs and pretrained L asset, bind the new reviewed source and frozen CPU evidence, select a freshly checked free A800.
+- [x] Rehash unchanged complete inputs and pretrained L asset, bind the new reviewed source and frozen CPU evidence, select a freshly checked free A800.
 - [ ] Execute original360/bf16 short fit, fresh native restore, complete3152val and exact prediction replay with unchanged tolerances.
 - [ ] Only a successful actual capacity chain can precede a fresh full150/patience30 fit. A further resource failure remains failed; diagnose without silently changing the protocol.
 - [ ] Final scientific completion requires natural full termination, validation-best selection, complete native test, independent replay and verified report. Keep full-paper goal active meanwhile.

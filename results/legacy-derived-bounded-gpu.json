@@ -1,0 +1,100 @@
+{
+  "all_13_server_receipt_bytes_match_archive": true,
+  "benchmark_eligible": false,
+  "controller_sha256": "4070edef77f353714bda51633c1933786f42cfd4e5bdd3a93ea7000ab62fcb7b",
+  "finished_utc": "2026-10-26T13:00:09.378995+00:00",
+  "format": "legacy_derived_actual_bounded_GPU_evidence_v1",
+  "full_paper_complete": false,
+  "launch_manifest_sha256": "ddf4696dd38f8b6d44b8bdd7e84d7aae805e85b8333c6e1363586795376e6b50",
+  "limitations": [
+    "Configured original loader batching does not establish full-batch capacity: each actual pass consumed only the final four-hand engineering batch.",
+    "No full2792hand derived evaluation, no full gesture table/scatter, no Table12/14/15 or Fig7/12 completion.",
+    "Legacy0.01 loss/12000point input and original selected checkpoint/source identities preserved.",
+    "Device memory observations and runtime are not paper GPU hours."
+  ],
+  "models": {
+    "fusion": {
+      "engineering_partial_batch": true,
+      "full_cohort": false,
+      "full_payload_rehashed": false,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "new_full_evaluation_passes": 0,
+      "precision": "bfloat16",
+      "result_file_sha256": "57f5d9c5f631842ecf597fc04ee80af87f8b183590cd63f3bf8c671a86ca482c",
+      "samples": 4,
+      "scientific_eligible": false,
+      "status": "bounded_engineering_only",
+      "typed_selected_state_sha256": "e87ab8c56c76aba18636e17ee9c25dab53978fadd9c63eda527dd5b284e36535"
+    },
+    "m": {
+      "engineering_partial_batch": true,
+      "full_cohort": false,
+      "full_payload_rehashed": false,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "new_full_evaluation_passes": 0,
+      "precision": "bfloat16",
+      "result_file_sha256": "54643cb15382ee26cf21335697d4eb8803da7ee1755cefa8e95f2546daf4c5cc",
+      "samples": 4,
+      "scientific_eligible": false,
+      "status": "bounded_engineering_only",
+      "typed_selected_state_sha256": "dfedf329e6d9ba006f81095fd8ac8450a9a7ab77c6d4769af242a60e2e87a079"
+    },
+    "rn18": {
+      "engineering_partial_batch": true,
+      "full_cohort": false,
+      "full_payload_rehashed": false,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "new_full_evaluation_passes": 0,
+      "precision": "bfloat16",
+      "result_file_sha256": "abc9adfa8764c9c0f93f2b48b998c8f5a864dca0173ad53eb4ed380ef0018a12",
+      "samples": 4,
+      "scientific_eligible": false,
+      "status": "bounded_engineering_only",
+      "typed_selected_state_sha256": "910cbe5801d9a11c4847cde0c277dd20a626c38a95a216519943cc0db0e06f88"
+    },
+    "s": {
+      "engineering_partial_batch": true,
+      "full_cohort": false,
+      "full_payload_rehashed": false,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "new_full_evaluation_passes": 0,
+      "precision": "bfloat16",
+      "result_file_sha256": "07fce9d120a0601d41d123ec875d586fdbe6d90b7dc228ec027551b75a0fd4e6",
+      "samples": 4,
+      "scientific_eligible": false,
+      "status": "bounded_engineering_only",
+      "typed_selected_state_sha256": "c1872a70237430b2df2162e198805dd4a25f6728cae7f47f676dea0527540347"
+    }
+  },
+  "private_receipt_archive_sha256": "103ab80e539dbb752cbfeac9a6a3853773c6cd39ad676c796b4bd4a5082e7f56",
+  "scientific_eligible": false,
+  "scope": "four legacy selected-best models, two frozen windows/four hand centers each; engineering only",
+  "stages": [
+    {
+      "elapsed_seconds": 6.628083739895374,
+      "exit_code": 0,
+      "model": "s",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 7.5869329739362,
+      "exit_code": 0,
+      "model": "m",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 9.077842804137617,
+      "exit_code": 0,
+      "model": "rn18",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 11.19125802302733,
+      "exit_code": 0,
+      "model": "fusion",
+      "status": "success"
+    }
+  ],
+  "started_utc": "2026-10-26T12:59:34.075152+00:00",
+  "worker_sha256": "d3b3e9a0b0867de2656d5eb2e9769938b6ba5ee15efa103dc12fdfb9b73f4c01"
+}
