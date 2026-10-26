@@ -19,6 +19,14 @@ def module():
     return importlib.import_module('egoemg_repro.emg2pose_data')
 
 
+@pytest.fixture(autouse=True)
+def sufficient_fixture_storage(monkeypatch):
+    # Tiny data fixtures should not depend on the runner's physical free space.
+    # Capacity cases override this patch inside their test, after fixture setup.
+    monkeypatch.setattr(module().shutil, 'disk_usage', lambda path: SimpleNamespace(
+        total=128 * 1024**3, used=64 * 1024**3, free=64 * 1024**3))
+
+
 def fixture(root, *, explicit_ik=False):
     source = root / 'private-source'
     source.mkdir()
