@@ -40,7 +40,11 @@ Task3的[官方模型入口与真实mini CPU证据](../results/emg2pose-mini-run
 
 上述semantic/classic contract已公开为`a203fa6dca67c0cb3eac879e8e406e0cb2ffd3a4`，[对应CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40270328170)两项实际成功：官方CPU **519 passed、无skip**（85.55秒），轻量433 passed/86可选依赖skip（14.09秒），pip check及shell检查通过。这是该来源的托管结果，不替换本机内存skip，也不包含之后的Task4。
 
-Task4的[两步优化/全窗口重载入口](../egoemg_repro/emg2pose_check.py)已修正独立审查发现的容量和失败终态问题，并复审通过。实际小H5夹具完成2次更新、3窗口×2次完整评价/严格恢复一致；真实526窗口mini的S/M/L验收尚未执行。加入修后模块的55文件快照，本机整体**550 passed、1个既有ViT-L内存skip**（85.29秒），轻量440 passed/111个可选依赖skip（16.59秒）；当前未纳入后续classic数据loader任务。详细范围与准确命令见[训练指南](training.md#7-emg2pose-mini-两步工程检查)，夹具及绿测试均不是论文训练结果。
+Task4的[两步优化/全窗口重载入口](../egoemg_repro/emg2pose_check.py)已修正独立审查发现的容量和失败终态问题，并复审通过。此前小H5夹具完成2更新/3窗×2；随后真实mini的S/M/L各完成**2次实际更新、全部526窗×2检查、严格模型/AdamW/cosine/RNG恢复一致**，见[独立核验的聚合证据](../results/emg2pose-mini-optimization.md)。各pass有3,263,464有效帧，输入/目标/预测/mask/顺序/实际指标的流式hash前后均一致。全部mini是原val，优化后在同split检查不构成独立验证，未选best、无GPU或科研完整训练结论。
+
+运行源`07019609583640d685f724041b022d10b4831e61`的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40271080945)为官方CPU **551 passed、无skip**（80.63秒），轻量440 passed/111可选依赖skip（16.79秒），pip check/shell检查通过。该源本机历史550 passed/1个ViT-L内存skip仍保留，与后来的托管结果区分。
+
+后续classic数据入口与冻结中心审计实现也分别通过独立Spec/Quality审查。classic真实完整reader/Compose/RNG对照已通过，原modality缺legacy filtered字段的KeyError及显式字段裁决均保留；新源整体本机**637 passed、1个既有内存skip**（105.07秒），轻量480 passed/158可选依赖skip（17.59秒）。中心审计仅计划点读冻结33,508窗口的中心与mask，尚未执行服务器读取；不得将代码通过当作实际中心统计。
 
 新增[损失与选模审计](../results/official-loss-audit.md)：实际Hydra合成、未改官方Lightning归约AST和独立复核发现，EgoEMG S/M/L、RN18、RN18+S、DINO-S及classic两项的两个指尖别名合计系数0.02；既有复现层实际为0.01。旧四结果和当前L/RN50/RN152源身份不改，继续明确为该legacy配方；不得把完成记录升级为官方字面协议等价。classic实际监控val_loss并有patience50，RN18/DINO-S有patience30；今后须保留真实回调行为。EMG2Pose三项仅有base指尖项0.01，不受该叠加影响。
 
@@ -108,7 +112,7 @@ DINOv2-S已从匿名HF实际取得88,240,510 bytes预训练文件，实际文件
 
 独立 sidecar 保留固定 episode 网格上的官方测试中心，并按真实 `frame_split_id` 名称解析 User / Gesture / Both。验证区间从足够长的官方训练连续区间尾部确定性留出；训练窗口必须完整落在保留区间，短区间不会被强行切成不可用验证集。双手共享该 sidecar。
 
-新训练按最终训练窗口覆盖的唯一行计算归一化，并用独立验证选择检查点。检查点包含继续训练状态与所选最佳状态；有界验证结果不能直接参加完整验证的选模竞争。训练会记录配置、源码、数据 receipt、划分和归一化身份，避免在恢复时默默改变输入。
+既有legacy实验按最终训练窗口覆盖的唯一行计算归一化，并用独立验证选择检查点；新classic/EMG2Pose采用各自已声明的固定官方norm资产，不能套用此前的train-only表述。检查点包含继续训练状态与所选最佳状态；有界验证结果不能直接参加完整验证的选模竞争。训练会记录配置、源码、数据receipt、划分和归一化身份，避免在恢复时默默改变输入。
 
 ## 尚未解决的科学边界
 

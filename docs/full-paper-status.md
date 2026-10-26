@@ -13,9 +13,9 @@
 - **DINOv2-S 真实预训练已取得并通过CPU验收：** [下载身份与验收](../results/dinov2-small-pretrained.md)记录匿名HF真实权重、加载后主干tensor摘要、官方位置嵌入插值及合成256px前向/严格离线重载。尚未进行真实cohort优化、GPU容量准入或完整训练；B/L仍只完成实际CPU构造/schema。
 - **手形统计与聚合图已生成并独立核验：** [实际统计与分布图](../results/dataset-statistics/shape-statistics.md)覆盖 41 个引用 beta 行/82 手，50 项官方 float32/ddof0/range 重算误差为零。PDF Table5 在三位小数有 48/50 项吻合，两处微差保留；真正 P5/P95 单列。聚合箱线图的展示适配、独立参与者计数限制均明示。校准为 3840×3360，包含 rational_polynomial 与 fisheye 模型，与 PDF 720p 的关系尚待核验。
 - **60类词表、22角语义和真实帧覆盖已核验：** [手势定义](../results/dataset-semantics/gesture-vocabulary.md)、[关节语义](../results/dataset-semantics/joint-angle-semantics.md)及[帧覆盖](../results/dataset-semantics/coverage.md)分别记录定义与观测。实际66,161,725个共享同步帧中观测到全部60类，raw50保留；这不是双手样本数、窗口中心、有效角度或Table14/15误差人口。窗口/中心/有效性统计仍未计算。
-- **classic官方模型接口已核验，尚未训练：** [独立入口](../egoemg_repro/classic_emg.py)保留原始tuple/2D mask，实际VEMG为8ch、22角、1790/0上下文，NeuroPose为16槽、22角、0/0上下文。VEMG的16槽配置与8ch卷积矛盾已明确裁决为目标手8ch；固定归一化、真实数据loader、FP16与完整训练仍待后续验收。
-- **EMG2Pose metadata、mini及官方模型CPU入口已核验。** [数据证据](../results/emg2pose-mini-data.md)记录30文件、4,218,756行的全字段/原mask位级复核及360窗口检查；[模型证据](../results/emg2pose-mini-runtime.md)记录真实S/M/L单窗口前向、20D/7280对齐与严格离线重载。全部mini仍为原val，没有优化模型或完整评价；Table 11 / 13仍需完整数据与三个完整训练。用户无法下载百度发布，不以此阻断现有数据与公开S3路线。
-- **EMG2Pose两步工程入口已实现并复审通过，真实mini尚待执行。** [入口](../egoemg_repro/emg2pose_check.py)直接用原Lightning训练链、固定两次更新及全部可用窗口前后重载比较，补有实际checkpoint预算/15GiB容量/原子写和失败终态保护。小H5夹具完成2更新及3窗×2，整体本机550 passed/1个既有内存skip、轻量440 passed/111可选依赖skip；均未包含后续classic数据任务，不证明真实mini526窗口或完整科研训练完成。
+- **classic官方模型和数据接口已核验，尚未训练：** [模型入口](../egoemg_repro/classic_emg.py)保留原始tuple/2D mask；[数据入口](../egoemg_repro/classic_emg_data.py)明确采用官方literal mask、固定scalar归一化和新7790网格。完整官方reader/Compose/RNG的72对小样本逐位对照通过。VEMG配置16槽/卷积8ch及legacy filtered字段漏选两项兼容裁决均入身份；真实cohort准入、FP16与完整训练尚欠。
+- **EMG2Pose metadata、mini与S/M/L真实CPU优化/全窗口重载已核验。** [数据证据](../results/emg2pose-mini-data.md)记录30文件、4,218,756行全字段/原mask位级复核；[早期模型证据](../results/emg2pose-mini-runtime.md)为各单窗口随机初始化检查，[新增真实mini证据](../results/emg2pose-mini-optimization.md)为各2次更新、526窗口×2完整工程评价和严格恢复一致。mini全部原val，优化与工程检查复用它，不能视作独立验证或论文性能；Table11/13仍需完整数据及三个完整训练。
+- **新增工程实现已独立审查与整体检查。** Task4已公开来源`0701960`的[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40271080945)为官方CPU551 passed/无skip、轻量440 passed/111可选运行时skip。加入后续classic数据/中心审计实现，本机637 passed/1个既有ViT-L内存skip、轻量480 passed/158依赖skip；这是新源码快照的本机证据，不能代替后续提交的托管CI。中心审计实现已审查，真实服务器点读尚待执行。
 - **扩展代码已公开，指定提交的托管工程检查已通过。** [全论文分支](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)保留原训练提交身份；Task3来源`79153e1`的[实际CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40268110037)为官方CPU **446 passed、无skip**，轻量379 passed/67可选运行时skip。加入上述semantic/classic接口后，本机整体检查518 passed/1个既有ViT-L内存skip，无Torch层433 passed/86个可选运行时skip；两者均排除未完成的Task4，不充作后续提交的托管CI。完整数据接收仍未完成；通过测试不改变各实验的实际完成状态。
 
 EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 另有 S/M/L 三项，markers2mano 还需独立训练与质量验证。现有四项只是这份清单中的 legacy 实验子集，不能写成“原表已复现 4/17”。全文还包括数据统计、预处理和标注重生成、派生评价及全部定性图。
@@ -50,8 +50,8 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **完整运行、已核验（legacy）**，见 E1/E2；原表精确等价未证明 |
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
 | EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **工程验证；完整训练进行中**，见 E6；12,000 点输入的轨迹对齐长度 11,490，尚欠完整结束与最终审计 |
-| EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **受限合成/真实CPU接口已核验，未完整训练**；VEMG明确采用目标手8ch而不改卷积，WL7790输出6000点。loader/norm/mask协议、FP16及完整训练尚未验收 |
-| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **受限合成/真实CPU接口已核验，未完整训练**；WL7790输出7790点。目标手8通道放入16槽并非拼双手；需真实数据归一化、FP16、禁用裁剪语义及完整训练 |
+| EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **CPU模型与数据合同已核验，未完整训练**；VEMG采用目标手8ch而不改卷积，WL7790输出6000点。固定scalar/literal mask及explicit filtered字段适配已实现；真实cohort分区准入、FP16与完整训练仍欠 |
+| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **CPU模型与数据合同已核验，未完整训练**；WL7790输出7790点；目标手8ch先zero-fill16槽再归一化/完整槽旋转，非拼双手。需真实cohort准入、FP16、clip0禁用语义与完整训练 |
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **真实数据工程验证；150 epochs 正式训练中**；ImageNet来源、batch400容量、两步优化及完整验证重载已核验；缺最终测试/审计，独立原始YAML仍未发布 |
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **真实数据工程验证；150 epochs 正式训练中**；ImageNet来源、batch180容量、两步优化及完整验证重载已核验；尚无完整最终结果 |
@@ -61,9 +61,9 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实 22 角类及 module YAML；无独立 fusion/vision_wilor YAML | **未实现完整接入、外部依赖**；缺固定专用源码/配置/权重/许可与独立角度训练配方。缺权重时官方类可能保留随机主干，构造成功不证明预训练成功；MANO 监督文档不是同一 22 角任务 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16 通道、20 角、独立数据协议 | **官方工厂与真实mini CPU前向/严格重载已核验，未优化/完整训练**；[单窗口证据](../results/emg2pose-mini-runtime.md)，全量仍在接收 |
-| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **真实mini CPU单窗口/严格重载已核验**；尚须真实优化、完整独立训练/验证/测试 |
-| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **真实mini CPU单窗口/严格重载已核验**；尚无完整科研运行，不能用EgoEMG-L或mini结果填表 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini CPU两次优化、526窗×2与严格完整状态恢复已核验**，见[新增证据](../results/emg2pose-mini-optimization.md)；无独立选模/正式测试，全量仍在接收 |
+| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成2次真实更新、526窗×2工程检查**；完整独立训练/验证/测试仍未完成 |
+| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成2次真实更新、526窗×2工程检查**；没有完整科研结果，不能用EgoEMG-L或mini数值填表 |
 
 classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实现检查：现有复现训练器只为 bfloat16 启用 autocast，裁剪值直接设 0 会清零非零梯度，不能照搬数值宣称忠实训练。两类模型 tuple 已对齐，不能重复裁剪。RN50/152、ViT-B/L/WiLoR 缺独立 YAML 是固定提交内的已核验发布缺口，不是模型类不存在；新增派生配方必须明确其来源和差异。[官方配置说明][config-readme]也将配置定位为研究记录。
 

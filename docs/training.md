@@ -171,7 +171,15 @@ RN18 默认 ImageNet 预训练 backbone，首次运行可能需要获取对应�
 
 M/L使用`--size middle`/`large`及各自新目录。入口保留原模型、原Lightning训练step/loss/AdamW/cosine；只做两次更新，batch1、workers0、原val窗口和val transforms，CPU为float32。随后遍历全部可用窗口两次，中间严格恢复模型、optimizer、scheduler、RNG及身份，并逐项比较输入/目标/mask/预测/顺序/指标摘要。没有窗口上限参数。完整checkpoint与JSON写入保留15GiB，checkpoint另以实际tensor预算准入、逐写容量检查、同步及原子提交；`completion.json`最后提交，失败不会留下本次成功标记。
 
-mini全部来自原val，工程优化和重载检查复用它，因而不是独立验证、选定best或论文成绩。当前实现及小H5夹具已通过检查；真实mini526窗口的S/M/L完整工程执行仍待记录，不能从夹具通过推断该验收已经完成。此入口拒绝完整科研训练；完整数据、独立train/val/test与250轮流程属于后续任务。
+mini全部来自原val，工程优化和重载检查复用它，因而不是独立验证、选定best或论文成绩。实际S/M/L已各完成2次更新及两遍全部526窗口，[真实执行证据](../results/emg2pose-mini-optimization.md)保留来源/数据/检查点/流式摘要，并已独立核验。此入口拒绝完整科研训练；完整数据、独立train/val/test与250轮流程属于后续任务。
+
+## 8. classic 数据适配的已验收范围
+
+`classic_emg.py`与`classic_emg_data.py`保留原模型及literal generated 2D mask，使用[两份新配置](../configs/vemg2pose.json)中的固定scalar归一化、7790窗口、780/7790 stride及独立holdout。VEMG保留8ch卷积、改为目标手8ch数据布局；NeuroPose先将目标手8ch零填16槽，再用mean0.000832/std8.6551/epsilon1e-6归一化，之后执行原完整train transforms。默认rotation与with_aug的完整链已用真实官方reader、两手及多个seed逐位核对，后续NumPy/Torch RNG也一致。
+
+固定官方普通reader的EMG modality未列legacy `*_filtered`字段，原配置在该数据路径实际KeyError；外围显式指定左右filtered字段，记录declared/effective选择，不改上游。literal采样保留原非有限值，单独admission会明确拒绝；不能将legacy的清零/20+2 mask静默当官方行为。两配置、norm资产、数据/分区/实际源身份均核验，重hash后的重叠分区也拒绝。
+
+这是模型/数据入口验收，不是完整训练。真实cohort的新分区、FP16/GradScaler、clip0、原val_loss选模/早停和严格epoch恢复仍待独立实现。完整reader参考比较需要模型/vision运行时再加`official-reader` extra；该extra固定OpenCV headless4.10.0.84，不用于替换官方reader。现有legacy训练入口和旧配置保持原实验身份。
 
 ## 解释结果前的边界
 
