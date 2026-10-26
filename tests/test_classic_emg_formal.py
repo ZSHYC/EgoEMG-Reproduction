@@ -194,6 +194,25 @@ def test_missing_final_source_acceptance_cannot_be_promoted_from_an_engineering_
     with pytest.raises((ValueError,FileNotFoundError)):api().verify_formal_acceptance(tmp_path/'result.json')
 
 
+@pytest.mark.parametrize('variant',['vemg2pose','neuropose'])
+def test_original_model_contract_json_roundtrip_is_not_a_different_model(variant):
+    import json,os
+    pytest.importorskip('torch');pytest.importorskip('hydra')
+    upstream=os.environ.get('EGOEMG_UPSTREAM')
+    if not upstream:pytest.skip('actual pinned official model metadata required')
+    r=api();cfg=r.cuda.models.compose_classic(Path(upstream),variant)
+    actual=r.cuda.models.resolved_classic_identity(cfg,r.cuda.models.classic_contract(variant))
+    recorded=json.loads(json.dumps(actual))
+    assert isinstance(actual['contract']['channel_indices'],tuple)
+    assert isinstance(recorded['contract']['channel_indices'],list)
+    assert r._model_contract_matches(recorded,actual)
+    for field,value in [('parameters',1),('left_context',1),('input_channels',1),('channel_indices',[0])]:
+        changed=copy.deepcopy(recorded);changed['contract'][field]=value
+        assert not r._model_contract_matches(changed,actual)
+    changed=copy.deepcopy(recorded);changed['raw_config_sha256']='0'*64
+    assert not r._model_contract_matches(changed,actual)
+
+
 def test_engineering_diagnostic_never_forwards_the_training_model_or_changes_rng(tmp_path):
     torch=pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     from contextlib import nullcontext

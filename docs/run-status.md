@@ -4,6 +4,10 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
+**最新结果：WiLoR真实预训练与禁网CPU检查已完成**，见[完整证据](../results/wilor-pretrained-cpu.md)。原下载终止后，新独立attempt保留并复制原片段，以精确16MiB Range/ETag和整文件SHA完成2,564,989,533-byte官方权重。随后原WiLoRViTPose两次真实构造各404个主干tensor匹配；实测631,631,657总参数、52,499冻结，原高度裁剪192×256、1×1280×12×16特征和1×22×1有限输出、严格模型重载预测逐位一致。网络尝试0、CUDA未初始化；这是合成CPU接入，尚无WiLoR完整训练。
+
+classic最新6adc三条VEMG路径（连续两轮、prefix单轮、fresh恢复）实际全部成功；汇总因模型tuple/JSON-list metadata比较失败。该窄修及原生恢复后未选新best时current_score=None的合法last保存回归，完整77文件1125 passed/3实际GPU skip（281.02s），轻量739 passed/389依赖skip（21.79s），原结果和源hash核对一致。只读后续诊断另揭示浮点轨迹不逐位相同、train-loader base-seed多一次draw；当前验收仍拒绝，尚无最终GPU资格或完整classic训练。原全局RNG/采样器状态及scheduler/scaler计数相同，差异与下一步工作详见[classic范围](classic-emg.md)。
+
 最新回调恢复修正：原生CPU Trainer的checkpoint→fresh Trainer在首次恢复forward前真实表明，ModelCheckpoint.current_score虽保存却不恢复，旧完整callback digest因此拒绝；actual GPU prefix为非空tensor，原失败保留。仅在比较副本规范这一非恢复字段，原checkpoint/保存校验和其他可恢复字段不变。新增回归真实RED→GREEN、定向155 passed/1实际GPU skip；77文件冻结组完整1119 passed/3实际GPU skip（263.56s），轻量739 passed/383依赖skip（20.74s），所有冻结hash再核一致。新6adc源码已在独立目录暂存并重验55个输入pin，GPU验收已再次启动；完整训练尚未开放。
 
 `4925caada9b13acacc38cf347185f8eaf7be1f17`已正常公开，[实际CI40319331373](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40319331373)两项成功：官方CPU1118 passed/3真实CUDA skip（277.90s），轻量739 passed/382依赖skip（19.72s），pip check通过。它覆盖上一artifact/evaluator组，不覆盖此后6adc回调比较修正。

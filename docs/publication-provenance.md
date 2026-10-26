@@ -2,6 +2,10 @@
 
 本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。本次新增组发布前，已正常快进至`ae3031cb10d0f6d154b539db96a75c863f5e6455`；RN152产物继续绑定原训练来源a357423，新增L仍绑定7b805，实际CI按提交分别列出。推送保留原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
 
+后续已正常公开至`3733950ee9a70ffa47ddbb7304558d1ee259cd09`，其[实际CI40321533399](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40321533399)两项success：官方CPU1119 passed/3实际CUDA skip（224.61s）、轻量739 passed/383依赖skip（23.36s），pip check通过。此次模型JSON metadata及原生恢复后last score窄修的77文件快照SHA为`a77c4a0680d8474fbbd5d49af191c63a9be9118b275bf0b6d322e59266abdb30`：本机完整1125 passed/3实际CUDA skip（281.02s），轻量739 passed/389依赖skip（21.79s）。四个源/测试hash再核不变，七项旧结果不变；这不是新的GPU验收通过。
+
+WiLoR的[新CPU聚合证据](../results/wilor-pretrained-cpu.json)绑定独立实际执行helper、完整权重、固定外部源码和原EgoEMG wrapper摘要，先实际取得完整资产再执行真实原类/严格重载。没有使用本文档发布HEAD取代执行身份，没有公开实际模型文件，也没有将CPU检查当完整训练成绩。
+
 ## 已冻结的来源
 
 Git commit 标识包含文件树、父提交、作者和时间等信息。即使两个提交的文件树完全相同，提交标识仍可能不同。训练环境记录的实际执行提交必须保留，不得改写为稍后发布的镜像提交。

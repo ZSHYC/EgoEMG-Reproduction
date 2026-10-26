@@ -509,8 +509,8 @@ def test_older_selected_best_is_not_replaced_by_last_weights(tmp_path):
     finally:io.close();j.close()
 
 
-@pytest.fixture(scope='module')
-def stock_top1_best_then_nonimproving(tmp_path_factory):
+@pytest.fixture(scope='module',params=['uninterrupted','native_resumed'])
+def stock_top1_best_then_nonimproving(tmp_path_factory,request):
     """Actual stock PL CPU callback states, independent of artifact admission."""
     torch=pytest.importorskip('torch');pl=pytest.importorskip('pytorch_lightning')
     class Tiny(pl.LightningModule):
@@ -521,25 +521,35 @@ def stock_top1_best_then_nonimproving(tmp_path_factory):
                      on_step=False,on_epoch=True,batch_size=1)
         def configure_optimizers(self):return torch.optim.SGD(self.parameters(),lr=.1)
     directory=tmp_path_factory.mktemp('stock-top1')
-    monitor=pl.callbacks.ModelCheckpoint(dirpath=directory,monitor='val_loss',mode='min',save_top_k=1,
-        save_last=True,save_on_train_epoch_end=True,filename='best-epoch{epoch}',auto_insert_metric_name=False)
-    early=pl.callbacks.EarlyStopping(monitor='val_loss',mode='min',patience=50)
-    trainer=pl.Trainer(accelerator='cpu',devices=1,precision='32-true',max_epochs=2,callbacks=[early,monitor],
-        logger=False,num_sanity_val_steps=0,enable_progress_bar=False,enable_model_summary=False,
-        default_root_dir=directory)
+    def setup(epochs):
+        monitor=pl.callbacks.ModelCheckpoint(dirpath=directory,monitor='val_loss',mode='min',save_top_k=1,
+            save_last=True,save_on_train_epoch_end=True,filename='best-epoch{epoch}',auto_insert_metric_name=False)
+        early=pl.callbacks.EarlyStopping(monitor='val_loss',mode='min',patience=50)
+        trainer=pl.Trainer(accelerator='cpu',devices=1,precision='32-true',max_epochs=epochs,callbacks=[early,monitor],
+            logger=False,num_sanity_val_steps=0,enable_progress_bar=False,enable_model_summary=False,
+            default_root_dir=directory)
+        return trainer,monitor,early
     loader=torch.utils.data.DataLoader(torch.ones(1,1),batch_size=1,generator=torch.Generator().manual_seed(42))
-    trainer.fit(Tiny(),train_dataloaders=loader,val_dataloaders=loader)
+    if request.param=='native_resumed':
+        first,_,_=setup(1);first.fit(Tiny(),train_dataloaders=loader,val_dataloaders=loader)
+        trainer,monitor,early=setup(2)
+        trainer.fit(Tiny(),train_dataloaders=loader,val_dataloaders=loader,ckpt_path=str(directory/'last.ckpt'))
+    else:
+        trainer,monitor,early=setup(2);trainer.fit(Tiny(),train_dataloaders=loader,val_dataloaders=loader)
     best=torch.load(monitor.best_model_path,map_location='cpu',weights_only=False)
     last=torch.load(monitor.last_model_path,map_location='cpu',weights_only=False)
     native=last['callbacks'][monitor.state_key]
     assert type(monitor) is pl.callbacks.ModelCheckpoint
     assert best['epoch']==0 and last['epoch']==1
     assert float(best['callbacks'][monitor.state_key]['current_score'])==1.
-    assert float(native['current_score'])==float(native['best_model_score'])==float(monitor.current_score)==1.
+    assert float(native['best_model_score'])==1.
+    if request.param=='native_resumed':assert native['current_score'] is None and monitor.current_score is None
+    else:assert float(native['current_score'])==float(monitor.current_score)==1.
     assert float(trainer.callback_metrics['val_loss'])==2.
     print(json.dumps(dict(native_callback=type(monitor).__module__+'.'+type(monitor).__qualname__,
         lightning=pl.__version__,torch=str(torch.__version__),best_epoch=best['epoch'],last_epoch=last['epoch'],
-        native_current_score=float(native['current_score']),latest_val_loss=float(trainer.callback_metrics['val_loss']))))
+        native_current_score=None if native['current_score'] is None else float(native['current_score']),
+        latest_val_loss=float(trainer.callback_metrics['val_loss']))))
     return best,last,monitor.state_key,early.state_key
 
 
@@ -588,11 +598,27 @@ def test_artifact_current_score_obeys_stock_top1_state(tmp_path,stock_top1_best_
             io.save_checkpoint(later,directory/'last.ckpt')
             admitted=r.read_formal_last(directory/'last.ckpt',ident)
             saved=admitted['callbacks'][monitor_key]
-            assert float(saved['current_score'])==1. and admitted['formal']['journal_prefix']['epoch_summaries'][-1]['val_loss']==2.
+            if native_last['callbacks'][monitor_key]['current_score'] is None:assert saved['current_score'] is None
+            else:assert float(saved['current_score'])==1.
+            assert admitted['formal']['journal_prefix']['epoch_summaries'][-1]['val_loss']==2.
             assert storage_digest(saved)==storage_digest(monitor)
             assert storage_digest(admitted['callbacks'][early_key])==storage_digest(native_last['callbacks'][early_key])
             assert r.read_selected_best(directory/'last.ckpt',ident)['formal']['completed_epochs']==1
-        assert float(native_last['callbacks'][monitor_key]['current_score'])==1.
+        native_score=native_last['callbacks'][monitor_key]['current_score']
+        assert native_score is None or float(native_score)==1.
+    finally:io.close();j.close()
+
+
+@pytest.mark.parametrize('role',['best','last'])
+def test_newly_selected_checkpoint_cannot_omit_native_current_score(tmp_path,role):
+    r,ident,j,io,value,directory=prepared(tmp_path)
+    try:
+        if role=='last':io.save_checkpoint(copy.deepcopy(value),directory/'best-epoch0.ckpt')
+        monitor=next(v for k,v in value['callbacks'].items() if k.startswith('ModelCheckpoint{'))
+        monitor['current_score']=None
+        path=directory/('best-epoch0.ckpt' if role=='best' else 'last.ckpt')
+        with pytest.raises(ValueError,match='ModelCheckpoint'):io.save_checkpoint(value,path)
+        assert not path.exists()
     finally:io.close();j.close()
 
 

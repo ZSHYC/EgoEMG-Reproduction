@@ -619,7 +619,10 @@ def _checkpoint(value,identity,role,carry,*,nested=False):
                 raise ValueError('callback path outside original run')
         if (set(monitor['best_k_models'])!={str(best)} or not _score(monitor['best_model_score'],minimum) or
             not _score(monitor['best_k_models'][str(best)],minimum) or not _score(monitor['kth_value'],minimum) or
-            not _score(monitor['current_score'],minimum)):
+            not (_score(monitor['current_score'],minimum) or
+                 (role=='last' and best_epoch<epochs-1 and monitor['current_score'] is None))):
+            # Native PL does not restore current_score. A resumed run without a
+            # new best may therefore save None; selected-best fields stay strict.
             raise ValueError('ModelCheckpoint full-validation best score differs')
         if value.get('formal_seal') is not None and value['formal_seal']!=_seal(value): raise ValueError('checkpoint typed state integrity differs')
         if role=='best':

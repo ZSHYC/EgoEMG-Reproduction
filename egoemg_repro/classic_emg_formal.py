@@ -725,6 +725,11 @@ def _compare_witness(left,right):
     return measurements
 
 
+def _model_contract_matches(recorded,resolved):
+    """Contract metadata crosses JSON; this is not a typed checkpoint digest."""
+    return artifacts.json_hash(recorded)==artifacts.json_hash(resolved)
+
+
 def _acceptance(uninterrupted,prefix,resumed):
     directories=[artifacts._safe(x) for x in (uninterrupted,prefix,resumed)]
     guard=cohort._StatGuard([directory/name for directory in directories for name in
@@ -756,7 +761,7 @@ def _acceptance(uninterrupted,prefix,resumed):
     expected_binding=artifacts.json_hash(dict(numeric=numeric_verified,capacity=actual_capacity,sources=a['sources'],
         acceptance=None,scope='formal_engineering_acceptance'))
     if (actual_capacity!=a['capacity'] or a['cohort_sha256']!=cpu['sha256'] or
-        numeric_identity['model']!=actual_model or a['state_identity']['runtime']!=numeric_identity['runtime'] or
+        not _model_contract_matches(numeric_identity['model'],actual_model) or a['state_identity']['runtime']!=numeric_identity['runtime'] or
         a['state_identity']['recipe']!=numeric_identity['recipe'] or
         a['state_identity']['bindings']!=dict(cohort_receipt_sha256=file_sha256(provenance['cohort_receipt']),
             data_sha256=cpu['data_identity']['sha256'],partition_sha256=storage._json_hash(_json(provenance['partitions'],limit=256*1024**2)),

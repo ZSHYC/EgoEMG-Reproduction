@@ -72,7 +72,7 @@
 | EMGFormer-L | 同上 | 扩展；固定源码有对应配置，但尚无本项目完整训练/测试 |
 | vemg2pose、NeuroPose | Table 2，p.8 | 扩展；需逐一核验模型、训练预算、同队列/独立选模与真实结果 |
 | RN18 与 RN18+S | Table 3，p.8 | E2/E3；不是其他视觉/融合模型的代替结果 |
-| RN50、RN152、ViT-S/B/L、WiLoR | Tables 3/8，pp.8、22 | 扩展；需各自初始化权重与授权、配方、资源与完整测试；WiLoR 专门预训练不能省略来源 |
+| RN50、RN152、ViT-S/B/L、WiLoR | Tables 3/8，pp.8、22 | RN50/152完整legacy结果已核验；ViT-S/B/L和[WiLoR](../results/wilor-pretrained-cpu.md)真实预训练/CPU接入均完成，后四项仍欠cohort优化、GPU容量及完整训练；独立派生配方与许可保持明确 |
 | ViT-S+S 融合 | Table 3，p.8 | 扩展；需独立训练视觉支路和融合、同中心配对评估 |
 | 逐手及中心帧 EMG | Tables 9/10，p.23 | 本项目统计接口覆盖逐手和中心；E1/E4 训练器最终结果、严格导出及独立复算已通过，见[完整产物](../results/completed/README.md)；不能声称已重现表格全部方法 |
 | EMG2Pose 的 S/M/L | Table 11，p.24 | 扩展；另一数据集、20 维与另一 split 协议；需数据获取、来源、独立验证和完整训练。不是 EgoEMG→EMG2Pose 迁移 |
