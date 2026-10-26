@@ -4,17 +4,23 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-截至北京时间 2026-10-26 13:27 的实际观察：
+截至北京时间 2026-10-26 13:51 的实际观察：
 
 | 新实验 | 已通过的真实门槛 | 当前阶段 | 冻结运行代码 |
 | --- | --- | --- | --- |
 | EMGFormer-L | batch500 两次真实优化；严格重载；两次各 1,052 样本完整验证一致 | 独立 200 epochs 正式训练中，尚无最终测试或完成验收 | `7b805d428957e62cc93ff48f34e954c64159691e` |
-| ResNet-50 | 真实 ImageNet1K_V1 权重及哈希；batch400 两次真实 crop 优化；两次完整验证重载 | 独立 150 epochs 正式训练中，尚无最终结果 | `a357423b722b8df3e15b78b88b897c6087a04884` |
+| ResNet-50 | 真实 ImageNet1K_V1 权重及哈希；batch400 两次真实 crop 优化；两次完整验证重载 | **150 epochs/23,700更新/150次full val已完成**；最终测试、严格导出、锁定复算均成功，[结果](../results/completed/resnet50/README.md) | `a357423b722b8df3e15b78b88b897c6087a04884` |
 | ResNet-152 | 真实 ImageNet1K_V1 权重及哈希；batch180 两次真实 crop 优化；两次完整验证重载 | 独立 150 epochs 正式训练中，尚无最终结果 | `a357423b722b8df3e15b78b88b897c6087a04884` |
 
-三项使用独立目录与不同 A800；均保留原四基线的 legacy 队列作为这一实验族。RN50/152 的独立作者 YAML 未随固定代码发布，本项目显式组合官方 RN18 experiment 并覆盖 backbone；批量来自 PDF Table8，其余优化/数据配方继承已声明的官方 RN18 和 legacy 适配，不能称作者完整原始配方。每个单次控制流程只有短验收通过后才开启正式训练，正式训练结束后才导出并做一次锁定中心审计；当前不能预先将这些后续阶段算完成。
+三项使用独立目录与不同 A800；均保留原四基线的 legacy 队列作为这一实验族。RN50/152 的独立作者 YAML 未随固定代码发布，本项目显式组合官方 RN18 experiment 并覆盖 backbone；批量来自 PDF Table8，其余优化/数据配方继承已声明的官方 RN18 和 legacy 适配，不能称作者完整原始配方。每个单次控制流程只有短验收通过后才开启正式训练，正式训练结束后才导出并做一次锁定中心审计；L/RN152的后续阶段仍未完成。
 
-本次读取三项生产进度分别处于零起始epoch 89/200、131/150、69/150，step为11,349/20,806/24,371，实际controller和child PID/starttime均与原记录一致；这是当时的进度快照，不是结束或最终成绩。三项仍是已声明的legacy 0.01损失协议，见后文新审计。
+历史13:27读取三项生产进度分别处于零起始epoch 89/200、131/150、69/150，step为11,349/20,806/24,371；原controller/child身份均匹配。随后13:51的实际读取：RN50的controller已在13:48:16成功完成，完整训练、严格导出与锁定复算三个阶段均exit0；L/RN152仍由相同controller/child运行，零起始epoch100/200与80/150、step12,783与28,297。三项仍是已声明的legacy 0.01损失协议，不能据完成状态升级成官方0.02等价。
+
+RN50的best由完整独立验证选出第19,118步（第121轮）；全部中心MAE6.640058°、有图子集6.535572°。2,792请求/59,572有效角与原冻结测试人口一致，独立审计14个分组在0.0001°/计数精确一致的门槛内通过，有图子集也一致。原JSON/MD/audit保持字节哈希，另由同一metrics生成曲线与[独立发布清单](../results/completed/resnet50/publication-manifest.json)，不改写旧四模型清单。该成绩保留数据/标签/窗口/损失/单卡训练适配的边界。
+
+新增[classic CPU训练/恢复](classic-emg.md)已提交`ec2d5b127828578dd3c125c44d7293dfab105c4c`并正常公开推送。两原模型真实小夹具连续运行与只携last的离线epoch恢复一致；原clip0、batch加权val_loss/min、双别名0.02、T_max100与patience50均有CPU执行证据。整体本机672 passed/1既有ViT-L内存skip（215.40s），无Torch层490 passed/183依赖skip（16.72s）；这是57文件冻结快照，不含后续实现，托管CI需另读。整个classic Task3尚欠实际CUDA/GradScaler和正式full train/val-best/test，Task4仍未完成。
+
+服务器classic依赖已在新独立目录真实安装并导入PL2.5.0.post0、torchmetrics1.4.3、utilities0.11.9、pandas2.2.3和joblib1.5.2；共享Torch2.2.2+cu118/NumPy1.26.4未改变。ec2d5b1的Git归档34个源码/配置文件已核SHA并独立暂存、两配方实际合成成功；没有据此声称GPU验收或正式classic训练已开启。
 
 新[手形统计](../results/dataset-statistics/shape-statistics.md)已从实际左右 beta 重算并独立核验，41 个引用行、82 手，官方 float32/ddof0/range 的 50 个统计重算误差为零。与 PDF Table5 的 50 个显示数比较，48 个按三位小数吻合；beta6 range 和 beta10 mean 两个微差照实保留。官方 range 与论文列名 P95−P5 不同，实际线性分位差另列；箱线图是聚合展示适配，不冒称官方逐 episode 柱状图。
 

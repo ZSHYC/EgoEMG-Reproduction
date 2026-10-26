@@ -32,6 +32,8 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 
 ## 后续更新验收
 
+`ec2d5b127828578dd3c125c44d7293dfab105c4c`已正常快进公开classic CPU工程训练与严格epoch恢复；对应本机57文件快照为672 passed/1既有内存skip，轻量490 passed/183依赖skip。其[托管CI40276917815](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40276917815)实际官方CPU为672 passed/1 failed：旧视觉迁移恢复测试写检查点失败，并非新增classic行为断言失败；轻量job成功。CI没有当时的磁盘快照，不能把具体原因写成已证实。独立测量本机整轮保留5.318GiB临时文件，其中新classic夹具占3.919GiB，与空间耗尽相容。后续仅将CPU CI设为pytest原生`tmp_path_retention_policy=failed`，每个成功case结束即释放其自有scratch、失败case保留，并新增always磁盘记录；生产代码/测试断言/容量guard不改，不跳过用例，后续CI另验。该提交只开放CPU工程入口，正式CUDA与科研训练仍待完成。新[RN50完整结果](../results/completed/resnet50/README.md)另保留原运行`a357423`来源、原严格导出字节和独立发布清单；发布结果的后续文档头不能代替训练来源。
+
 当前公开来源和本地来源是同一组原始提交，无须建立镜像映射。后续报告继续保留各训练环境记录的真实执行提交、文件与数据摘要；文档更新后的分支头不能取代训练来源。
 
 继续使用扩展分支，不修改 `main`；更新前核对远端旧提交，只允许预期的正常快进，遇到不符先检查远端变化。草稿 PR 与该公开提交的实际 CI 状态另行核验。本地测试、统计复算和训练进度不等同于托管 CI 通过，也不等同于[全论文复现](full-paper-status.md)完成。

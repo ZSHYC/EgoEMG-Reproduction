@@ -1,0 +1,139 @@
+{
+  "audit_baseline_tolerance": {
+    "absolute_tolerance_deg": 0.0001,
+    "agreement": true,
+    "checked_groups": [
+      "overall",
+      "by_hand/left",
+      "by_hand/right",
+      "by_split/both",
+      "by_split/gesture",
+      "by_split/user",
+      "by_component/fingers",
+      "by_component/wrist",
+      "by_hand_split/left/both",
+      "by_hand_split/left/gesture",
+      "by_hand_split/left/user",
+      "by_hand_split/right/both",
+      "by_hand_split/right/gesture",
+      "by_hand_split/right/user"
+    ],
+    "count_tolerance": 0,
+    "error_sum_tolerance_rad": "valid_angle_count * radians(absolute_tolerance_deg)",
+    "saved_crop_present_agreement": true
+  },
+  "completed_full_validations": 150,
+  "configured_epochs": 150,
+  "configured_loss_fingertip_weight": 0.01,
+  "controller_receipt_sha256": "a0f9d93d7a6c1f396c2555ab14f796d827d8f0c40ba05a3e009b9d4c544482d0",
+  "environment": {
+    "cuda_runtime": "11.8",
+    "cudnn": 8700,
+    "gpu_name": "NVIDIA A800-SXM4-80GB",
+    "matmul_precision": "high",
+    "numpy": "1.26.4",
+    "precision": "bfloat16",
+    "python": "3.11.12",
+    "torch": "2.2.2+cu118"
+  },
+  "environment_file_sha256": "c124700b388b12711c7822f68236d344dbce1ca955f7c701996be5962b870d17",
+  "files": {
+    "audit.json": {
+      "bytes": 376092,
+      "sha256": "d5152dce978bab256a20ef63e9d004af47992a9db6107a24e5a8ba9a5b3e0292"
+    },
+    "metrics.json": {
+      "bytes": 5994880,
+      "sha256": "2d31bf8f64adbf201ee05972efd637acb0dd9839b571c7a324536e896e679541"
+    },
+    "metrics.md": {
+      "bytes": 1618,
+      "sha256": "4e1dc5a14da2a0a354aaecf582ef2c84465f064fa686fbc6fee6e6299801c7c8"
+    },
+    "training-curves.png": {
+      "bytes": 91680,
+      "sha256": "ad3cca0871993167be918f73bfdce35f50dcc26cd6bf605ead1a0cac1c29b2c6"
+    },
+    "training-curves.svg": {
+      "bytes": 219226,
+      "sha256": "3a037987d4491736d5d8be33bcda1427abca3c1f9de51818375565bdd359422b"
+    }
+  },
+  "full_training_wall_seconds": 13957.169732,
+  "initialization": {
+    "policy": "ImageNet1K_V1 backbone",
+    "pretrained_backbone_tensor_sha256": "59f1d3ed5c18d7feb94e45c87d1db718ad335f406a6f37ac340dd996950cdf48",
+    "pretrained_enum": "torchvision.models.ResNet50_Weights.IMAGENET1K_V1",
+    "pretrained_source_url": "https://download.pytorch.org/models/resnet50-0676ba61.pth",
+    "seed": 42,
+    "torchvision_version": "0.17.2+cu118"
+  },
+  "limitations": [
+    "legacy dataset, labels and whole-episode prefilter differ from PDF; test User/Both labels each overlap training by one user",
+    "12000-point legacy grid, not PDF 7790; 2792 test hand centers, not paper 4278",
+    "official RN50 independent YAML absent; explicit RN18-derived backbone recipe, single-process batch400/bfloat16/legacy runner, no claim of original multi-rank or callback equivalence",
+    "legacy fingertip .01 differs from resolved official alias sum .02; existing run source and results are preserved",
+    "single seed42; no cross-seed conclusion",
+    "locked audit recomputed centers only; vision model has no trajectory output"
+  ],
+  "official_literal_loss_equivalent": false,
+  "official_resolved_effective_fingertip_weight": 0.02,
+  "optimizer_updates": 23700,
+  "paper_table_equivalence_proven": false,
+  "population": {
+    "all_sha256": "7b67b0d42fc1edc339dc4d9477025a5964d1830ae06519384f5666838d227082",
+    "crop_present_centers": 2688,
+    "crop_present_sha256": "06cdac31d8dbab511e9c076593c09b46728872c9275c5f969386dc0ea8b14279",
+    "missing_crop_centers": 104,
+    "missing_sha256": "ba8015fd90930defad29bfb9255bdc48b0344f1e244e88714cc26c4bbabb7f35",
+    "requested_centers": 2792
+  },
+  "privacy": "public aggregates, anonymous ordinal user labels and content hashes only; private protocol files, subject labels and mapping, source data, checkpoint bytes, machine paths and process IDs excluded",
+  "runtime_sha256": "adf649c181affd26b4cbb81c0be890fdcb1a2ca743badccb8ca772651cc37ca5",
+  "schema_version": 1,
+  "scope": "ResNet-50 independently completed legacy experiment; original four-model publication manifest unchanged",
+  "selected_checkpoint_step": 19118,
+  "selection": "minimum complete independent-validation center MAE, all-label population",
+  "source_commit": "a357423b722b8df3e15b78b88b897c6087a04884",
+  "stages": [
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T01:55:16.987667+00:00",
+      "stage": "rn50-real-bounded",
+      "started": "2026-10-26T01:53:15.847021+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T01:55:27.115838+00:00",
+      "stage": "rn50-full-validation-reload",
+      "started": "2026-10-26T01:55:16.988313+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T05:48:04.286082+00:00",
+      "stage": "rn50-full-training",
+      "started": "2026-10-26T01:55:27.116350+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T05:48:07.994785+00:00",
+      "stage": "rn50-strict-export",
+      "started": "2026-10-26T05:48:04.287460+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T05:48:16.598767+00:00",
+      "stage": "rn50-locked-center-audit",
+      "started": "2026-10-26T05:48:07.996074+00:00",
+      "status": "success"
+    }
+  ],
+  "summary_sha256": "71cc3e136313bc24476eaa43ab564e9d832d261b52b1b7ec3a2fb88c4f739575",
+  "training_complete": true,
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "wall_time_scope": "controller full-training subprocess start to successful exit, including its validation/checkpoint/final test; excludes setup, bounded qualification, export and separate audit; not GPU kernel time or claimed paper GPU-hours"
+}

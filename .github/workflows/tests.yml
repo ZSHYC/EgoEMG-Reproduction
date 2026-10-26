@@ -41,5 +41,18 @@ jobs:
         run: bash scripts/bootstrap_upstream.sh "$EGOEMG_UPSTREAM"
       # Engineering fixtures run without weight/data downloads. GPU and real-data
       # acceptance remain separately recorded experimental evidence.
-      - run: python -m pytest -q -ra
+      # Genuine checkpoint fixtures are large. Release each passing test's own
+      # scratch directory at teardown; retain failed cases for diagnosis.
+      - run: python -m pytest -q -ra -o tmp_path_retention_policy=failed
+      - name: Report disk and retained test scratch usage
+        if: always()
+        run: |
+          df -h / /tmp
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          roots = [str(p) for p in Path('/tmp').glob('pytest-of-*') if p.is_dir()]
+          if roots:
+              subprocess.run(['du', '-sh', *roots], check=False)
+          PY
       - run: bash -n scripts/*.sh
