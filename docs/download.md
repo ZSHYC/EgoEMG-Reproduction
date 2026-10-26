@@ -1,4 +1,27 @@
-# Selective legacy acquisition
+# 数据下载与版本管理
+
+## 当前官方百度发布
+
+全文复现还需要当前官方数据和公开 checkpoint；此前下载的 legacy 版本保留，不覆盖或混合。官方 [ASSET_SETUP](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/docs/ASSET_SETUP.md)提供[百度网盘](https://pan.baidu.com/s/1aG2e-mHJkmP4KiYtYRcReA)，提取码 **8059**，根目录 `EgoEMG_release`。
+
+登录网盘后使用客户端下载，保留整个目录及其 manifest、metadata 和 checksum 文件。按优先顺序获取：
+
+| 网盘原目录 | 本地官方规范名 | 用途 |
+| --- | --- | --- |
+| `checkpoints` | `checkpoints` | 官方模型与初始化/评估权重，优先获取 |
+| `dataset_egoemg_preview` | 同名目录 | 3 episode 的 v3 格式检查；不能替代完整实验 |
+| `dataset_egoemg_unified` | `EgoEMG_full_memmap` | 当前完整 EgoEMG 数据；实际来源/队列仍须核验 |
+| `dataset_egoemg_crops` | `EgoEMG_crops` | 与当前发布配套的视觉裁剪 |
+| `dataset_egoemg_videos` | `EgoEMG_videos` | 原帧、同步与定性可视化 |
+| `dataset_emg2pose_benchmark` | `emg2pose_memmap` | EMG2Pose 完整基准；不能以 mini 替代 |
+
+名称映射由官方 [organize_downloads.sh](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/download/organize_downloads.sh)给出。先保留网盘原名，后续整理到新的 asset root，避免该脚本的 `mv` 影响已有数据。
+
+EMG2Pose 官方 [assemble_emg2pose_parts.sh](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/download/assemble_emg2pose_parts.sh)说明 EMG 与角度主数组约181GB和227GB，按100GB `.part_XX` 分块分发；另有其他字段。**两个主数组已超过400GB，当前本机约389GiB空闲不足完整落盘。** 全部分片要保留，合并还需要额外输出空间，不要在空间不足的分区自行合并。完整目录实际大小须以网盘清单和下载后manifest为准；这里只证明已知最低容量，不推断全部发布大小。
+
+本机下载位置可使用 `下载/EgoEMG_release/` 下的独立目录；传输、拼接、SHA256/schema 验证完成前不计为已获取数据。官方完整发布与旧版人数、标签和输入协议的等价性需另行核验。
+
+## 历史 legacy 选择性获取
 
 From the installed source checkout, run:
 
