@@ -156,6 +156,23 @@ RN18 默认 ImageNet 预训练 backbone，首次运行可能需要获取对应�
 
 指标保存弧度误差和与有效角度计数，并在序列化时只转换一次为度。报告包括手、split、用户、手指/手腕分项，池化均值从误差总和与有效计数重算，用户均值及标准差单独报告。缺失标签、图像和样本的数量必须与结果一并解释。
 
+## 7. EMG2Pose mini 两步工程检查
+
+这是单独的官方20角、16通道入口，使用已完整转换的mini及其**原始获取inventory**；不能以目录内换行不同的inventory副本代替原收据。依赖为`emg2pose-runtime` extra，固定官方版本与全部转换产物须先通过严格核验。输出父目录应存在，单次输出目录必须不存在；每个模型使用独立目录。
+
+```bash
+"$PY" -m egoemg_repro.emg2pose_check \
+  --upstream upstream --data data/emg2pose/mini-memmap-fixed \
+  --source-receipt data/emg2pose/mini-source-inventory-fixed.json \
+  --metadata-csv data/emg2pose/emg2pose_metadata.csv \
+  --output runs/emg2pose-mini-small-check --size small \
+  --device cpu --source-split val --updates 2
+```
+
+M/L使用`--size middle`/`large`及各自新目录。入口保留原模型、原Lightning训练step/loss/AdamW/cosine；只做两次更新，batch1、workers0、原val窗口和val transforms，CPU为float32。随后遍历全部可用窗口两次，中间严格恢复模型、optimizer、scheduler、RNG及身份，并逐项比较输入/目标/mask/预测/顺序/指标摘要。没有窗口上限参数。完整checkpoint与JSON写入保留15GiB，checkpoint另以实际tensor预算准入、逐写容量检查、同步及原子提交；`completion.json`最后提交，失败不会留下本次成功标记。
+
+mini全部来自原val，工程优化和重载检查复用它，因而不是独立验证、选定best或论文成绩。当前实现及小H5夹具已通过检查；真实mini526窗口的S/M/L完整工程执行仍待记录，不能从夹具通过推断该验收已经完成。此入口拒绝完整科研训练；完整数据、独立train/val/test与250轮流程属于后续任务。
+
 ## 解释结果前的边界
 
 默认使用的公开生成标签未证明与论文标签完全一致；官方整 episode FFT 预过滤也带来跨时间分区依赖。当前划分只保证窗口行足迹隔离，不能称作严格原始预处理隔离。发布检查点验证和新训练独立验证属于不同轨道。只有真实完整训练、验证选模、重载核验和最终测试均完成后，才可发布相应 legacy 基线的定量结果。
