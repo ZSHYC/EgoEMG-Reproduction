@@ -28,6 +28,7 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 - 后续`128acf1`已公开官方损失合成与旧legacy差异审计，`79153e1e3895af2f216cebcc927528cff8e0b1a4`已公开Task3官方EMG2Pose入口/真实mini工程证据。后者[Actions运行40268110037](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40268110037)实读success：官方CPU446 passed、无skip，轻量379 passed/67依赖skip。新工程检查不证明mini优化或完整训练，旧训练来源身份未替换。
 - `a203fa6dca67c0cb3eac879e8e406e0cb2ffd3a4`公开semantic定义/帧统计及classic模型接口，[CI40270328170](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40270328170)实际官方CPU519 passed/无skip、轻量433 passed/86依赖skip。
 - `07019609583640d685f724041b022d10b4831e61`公开两步优化/全窗口重载入口，[CI40271080945](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40271080945)实际官方CPU551 passed/无skip、轻量440 passed/111依赖skip；随后真实mini S/M/L各2更新/526窗×2来自这一实际来源，[聚合证据](../results/emg2pose-mini-optimization.md)保持原source SHA，不用后来的文档头替换。新classic数据/中心审计实现的本机637 passed/1既有内存skip、轻量480 passed/158依赖skip只对相应文件快照成立；后续托管CI待对应提交实读。
+- `f6c293d6308dc0ead082b7afd2c70936901d31dd`的[CI40273189915](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40273189915)已实读成功：官方CPU638 passed/无skip、轻量480 passed/158依赖skip，新reader参考依赖实际安装且pip check通过。[真实中心点读](../results/dataset-semantics/center-coverage.md)亦执行该源的Git归档，源包SHA44437a902e284bf7993ecc37c70c922df14e56f6e2ac0dc57332bfa4f32284c5；实际审计与公开聚合有独立核验。中心文案stride误写2000已据原RED修正1200，计算/JSON未改；原审查历史保留。
 
 ## 后续更新验收
 

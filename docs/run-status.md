@@ -4,7 +4,7 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-截至北京时间 2026-10-26 12:43 的实际观察：
+截至北京时间 2026-10-26 13:27 的实际观察：
 
 | 新实验 | 已通过的真实门槛 | 当前阶段 | 冻结运行代码 |
 | --- | --- | --- | --- |
@@ -14,7 +14,7 @@
 
 三项使用独立目录与不同 A800；均保留原四基线的 legacy 队列作为这一实验族。RN50/152 的独立作者 YAML 未随固定代码发布，本项目显式组合官方 RN18 experiment 并覆盖 backbone；批量来自 PDF Table8，其余优化/数据配方继承已声明的官方 RN18 和 legacy 适配，不能称作者完整原始配方。每个单次控制流程只有短验收通过后才开启正式训练，正式训练结束后才导出并做一次锁定中心审计；当前不能预先将这些后续阶段算完成。
 
-本次读取三项生产进度分别处于零起始epoch 68/200、92/150、48/150，step为8,708/14,614/17,150，实际controller和child PID/starttime均与原记录一致；这是当时的进度快照，不是结束或最终成绩。三项仍是已声明的legacy 0.01损失协议，见后文新审计。
+本次读取三项生产进度分别处于零起始epoch 89/200、131/150、69/150，step为11,349/20,806/24,371，实际controller和child PID/starttime均与原记录一致；这是当时的进度快照，不是结束或最终成绩。三项仍是已声明的legacy 0.01损失协议，见后文新审计。
 
 新[手形统计](../results/dataset-statistics/shape-statistics.md)已从实际左右 beta 重算并独立核验，41 个引用行、82 手，官方 float32/ddof0/range 的 50 个统计重算误差为零。与 PDF Table5 的 50 个显示数比较，48 个按三位小数吻合；beta6 range 和 beta10 mean 两个微差照实保留。官方 range 与论文列名 P95−P5 不同，实际线性分位差另列；箱线图是聚合展示适配，不冒称官方逐 episode 柱状图。
 
@@ -36,7 +36,7 @@ Task3的[官方模型入口与真实mini CPU证据](../results/emg2pose-mini-run
 
 [classic模型入口](../egoemg_repro/classic_emg.py)也已独立审核通过：四个基础/with_aug配置严格白名单，原始双loss key、原模型tuple及2D mask保留；VEMG明确8ch/WL7790→6000、NeuroPose16槽/WL7790→7790，真实参数和错误布局负例通过。仅为模型接口工程验收，未进行优化或完整训练，loader/mask/固定scalar归一化与FP16仍待实现。
 
-新增上述模块后的同一53文件快照，本机CPU整体检查为**518 passed、1个既有ViT-L内存skip**（66.09秒）；无Torch层为**433 passed、86个可选依赖skip**（15.92秒），采用与轻量CI相同的不设置EGOEMG_UPSTREAM方式。两项均明确排除尚未完成的Task4；尚无本次新增代码的托管CI结论，旧Task3成功不能代替它。
+当时新增上述模块的53文件快照，本机CPU整体检查为**518 passed、1个既有ViT-L内存skip**（66.09秒）；无Torch层为**433 passed、86个可选依赖skip**（15.92秒），采用与轻量CI相同的不设置EGOEMG_UPSTREAM方式。两项均排除当时未完成的Task4；后来的托管结论另列如下，旧Task3成功不代替新来源。
 
 上述semantic/classic contract已公开为`a203fa6dca67c0cb3eac879e8e406e0cb2ffd3a4`，[对应CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40270328170)两项实际成功：官方CPU **519 passed、无skip**（85.55秒），轻量433 passed/86可选依赖skip（14.09秒），pip check及shell检查通过。这是该来源的托管结果，不替换本机内存skip，也不包含之后的Task4。
 
@@ -44,7 +44,9 @@ Task4的[两步优化/全窗口重载入口](../egoemg_repro/emg2pose_check.py)�
 
 运行源`07019609583640d685f724041b022d10b4831e61`的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40271080945)为官方CPU **551 passed、无skip**（80.63秒），轻量440 passed/111可选依赖skip（16.79秒），pip check/shell检查通过。该源本机历史550 passed/1个ViT-L内存skip仍保留，与后来的托管结果区分。
 
-后续classic数据入口与冻结中心审计实现也分别通过独立Spec/Quality审查。classic真实完整reader/Compose/RNG对照已通过，原modality缺legacy filtered字段的KeyError及显式字段裁决均保留；新源整体本机**637 passed、1个既有内存skip**（105.07秒），轻量480 passed/158可选依赖skip（17.59秒）。中心审计仅计划点读冻结33,508窗口的中心与mask，尚未执行服务器读取；不得将代码通过当作实际中心统计。
+后续classic数据入口与冻结中心审计实现也分别通过独立Spec/Quality审查。classic完整reader/Compose/RNG对照已通过，原modality缺legacy filtered字段的KeyError及显式字段裁决均保留；来源`f6c293d6308dc0ead082b7afd2c70936901d31dd`的[实际CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40273189915)为官方CPU **638 passed、无skip**（144.22秒），轻量480 passed/158可选依赖skip（19.77秒），新OpenCV参考依赖、pip check与shell检查通过。本机637 passed/1个内存skip是另一实际执行，不改写。
+
+随后已从同一冻结来源实读[全部保存中心](../results/dataset-semantics/center-coverage.md)：33,508窗口/67,016手中心，1,474,352可能角/1,420,084有效角。测试1396窗口/2792手中心/59,572有效角；train/val/test实际手势覆盖51/32/59，整体60。raw50有66窗口，未知-1有241窗口；59类定义视图为33,201窗口，不能把二者混为raw。仅12字段中心点读6,232,488bytes，本次未全payload重hash，也没有模型误差。原legacy窗口为12000、训练stride1200；公开MD的2000笔误经独立RED发现并修为1200，JSON与实际计算始终是正确冻结值，未重生成或修改分区。
 
 新增[损失与选模审计](../results/official-loss-audit.md)：实际Hydra合成、未改官方Lightning归约AST和独立复核发现，EgoEMG S/M/L、RN18、RN18+S、DINO-S及classic两项的两个指尖别名合计系数0.02；既有复现层实际为0.01。旧四结果和当前L/RN50/RN152源身份不改，继续明确为该legacy配方；不得把完成记录升级为官方字面协议等价。classic实际监控val_loss并有patience50，RN18/DINO-S有patience30；今后须保留真实回调行为。EMG2Pose三项仅有base指尖项0.01，不受该叠加影响。
 
