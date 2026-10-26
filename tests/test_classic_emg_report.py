@@ -258,7 +258,7 @@ def test_fake_profile_file_does_not_reach_any_factory(tmp_path,monkeypatch):
     with pytest.raises(ValueError):r.verify_validation_profile(p)
 
 
-def raw_prediction_pair(tmp_path,monkeypatch):
+def raw_prediction_pair(tmp_path,monkeypatch,*,role='val'):
     """JSON reader mechanics only: termination authority is stubbed, never GPU qualification."""
     pytest.importorskip('torch');pytest.importorskip('pytorch_lightning');r=api();e=r._evaluation()
     run=tmp_path/'trained';run.mkdir();(run/'result.json').write_text('{}')
@@ -273,9 +273,9 @@ def raw_prediction_pair(tmp_path,monkeypatch):
     monkeypatch.setattr(r,'_terminated_context',context)
     def forbidden(*args,**kwargs):raise AssertionError('raw/profile reader must not construct a model')
     monkeypatch.setattr(e.cuda,'_factory',forbidden)
-    identity=r._identity_record(run,manifest,selection,'val')
+    identity=r._identity_record(run,manifest,selection,role)
     policy=identity['policy'];n=policy['samples'];batch=policy['batch_size']
-    coverage=completed_ledger();coverage.update(role='val',samples=n,
+    coverage=completed_ledger();coverage.update(role=role,samples=n,
         batch_sizes=[min(batch,n-i) for i in range(0,n,batch)],predictions=[])
     digest=hashlib.sha256()
     for i in range(n):digest.update(i.to_bytes(8,'big'))
@@ -296,7 +296,7 @@ def raw_prediction_pair(tmp_path,monkeypatch):
             scaler_before_sha256=e.storage.state_digest(best['MixedPrecision']),
             scaler_after_sha256=e.storage.state_digest(best['MixedPrecision']),format=r.PASS_FORMAT,
             scope=policy['scope'],scientific_eligible=False,production_ready=False,identity_sha256=identity['sha256'],
-            process=dict(pid=100+i,start_ticks=1000+i,phase='classic-val-'+kind),pass_kind=kind,
+            process=dict(pid=100+i,start_ticks=1000+i,phase='classic-'+role+'-'+kind),pass_kind=kind,
             reference=None if i==0 else dict(directory=str(paths[0]),result_sha256=e.file_sha256(paths[0]/'result.json')))
         (directory/'identity.json').write_text(json.dumps(identity))
         (directory/'result.json').write_text(json.dumps(result))
@@ -955,3 +955,501 @@ def test_review_failed_publication_preserves_foreign_file_and_invalidates_moved_
     finally:
         for directory in (owned,rescue,backup):close(directory)
         r._discard_publications(publications)
+
+
+@pytest.mark.parametrize('damage',[None,'target','mask','sample','grouping','count','variant'])
+def test_test_prediction_must_match_the_complete_consumed_native_inputs(tmp_path,monkeypatch,damage):
+    r,e,paths=raw_prediction_pair(tmp_path,monkeypatch,role='test')
+    coverage=json.loads((paths[0]/'result.json').read_text())['coverage']
+    keys=('samples','batch_sizes','coverage_sha256','target_sha256','mask_sha256','sample_sha256','fingerprint_encoding','fingerprint_scope')
+    native={k:copy.deepcopy(coverage[k]) for k in keys};native.update(batch_weighted_loss=1.25,test_loss=1.25)
+    if damage in ('target','mask','sample'):native[damage+'_sha256']='0'*64
+    elif damage=='grouping':native['batch_sizes']=[1]*4306
+    elif damage=='count':native['samples']=4305
+    assert callable(getattr(r,'compare_native_prediction',None)),'native-to-prediction full input comparison missing'
+    if damage:
+        with pytest.raises(ValueError):r.compare_native_prediction(native,coverage,variant='neuropose' if damage=='variant' else 'vemg2pose')
+    else:
+        value=r.compare_native_prediction(native,coverage,variant='vemg2pose')
+        assert value['samples']==4306 and value['native_target_mask_sample_equal'] is True
+        assert value['native_prediction_hash_available'] is False
+
+
+@pytest.mark.parametrize('kind',['reference','replay'])
+def test_test_prediction_raw_reader_rejects_ungated_validation_shaped_artifacts(tmp_path,monkeypatch,kind):
+    r,e,paths=raw_prediction_pair(tmp_path,monkeypatch,role='test')
+    directory=paths[0 if kind=='reference' else 1]
+    with pytest.raises(ValueError):r._read_prediction_pass(directory,role='test',expected_kind=kind)
+
+
+@pytest.mark.parametrize('profile',[{'passed':True},None,True])
+def test_test_prediction_requires_real_completed_native_bundle_before_model_preparation(tmp_path,monkeypatch,profile):
+    r=api();assert callable(getattr(r,'run_test_prediction',None)),'gated test prediction entry missing'
+    def forbidden(*args,**kwargs):raise AssertionError('no evaluation runtime before typed native bundle path')
+    monkeypatch.setattr(r,'_evaluation',forbidden)
+    with pytest.raises(ValueError):r.run_test_prediction(tmp_path/'run',output=tmp_path/'prediction',evaluation_profile=profile)
+
+
+def test_independent_recompute_requires_an_explicit_completed_prediction_reference(tmp_path):
+    r=api();assert callable(getattr(r,'recompute_selected_best',None)),'independent test prediction recomputation entry missing'
+    with pytest.raises((TypeError,ValueError)):
+        r.recompute_selected_best(tmp_path/'run',device='cuda:0',output=tmp_path/'recompute',evaluation_profile=tmp_path/'launch')
+
+
+def original_test_statistics_fixture(variant='vemg2pose'):
+    """Coherent synthetic statistics schema, never inference or actual cohort evidence."""
+    length,center=(6000,2105) if variant=='vemg2pose' else (7790,3895)
+    r=api();report=r.ClassicAngleReport(variant);p=np.ones((22,length),np.float16)
+    target=np.zeros((22,length),np.float32);mask=np.zeros(length,bool);mask[center]=True
+    for hand in ('left','right'):report.update(p,target,mask,hand=hand,split='user',user='fixture-private-user')
+    value=report.report();value['samples']=4306;scale=2153
+    for mode in ('trajectory','center'):
+        m=value[mode];m['invalid_angle_count']*=scale
+        records=[m['overall'],*m['by_joint']]
+        for key in ('by_hand','by_split','by_user','by_component','by_finger','by_pd_group'):records.extend(m[key].values())
+        records.extend(record for splits in m['by_hand_split'].values() for record in splits.values())
+        for record in records:
+            record['absolute_error_sum_rad']*=scale;record['valid_angle_count']*=scale
+        empty={'absolute_error_sum_rad':0.,'valid_angle_count':0,'mae_deg':None}
+        for split in ('gesture','both'):
+            m['by_split'][split]=empty.copy()
+            for hand in ('left','right'):m['by_hand_split'][hand][split]=empty.copy()
+    return value
+
+
+@pytest.mark.parametrize('damage',[None,'samples','alignment','alignment_bool','sum','count_bool','mean','nonfinite','invalid_count',
+    'hand_split','component','joint','finger','pd','user_dispersion','missing_statistics'])
+def test_saved_test_statistics_require_original_alignment_typed_sums_counts_and_conservation(damage):
+    r=api();value=original_test_statistics_fixture()
+    if damage=='samples':value['samples']=4305
+    elif damage=='alignment':value['alignment']['output_center']=3000
+    elif damage=='alignment_bool':value['alignment']['right_context']=False
+    elif damage=='sum':value['center']['overall']['absolute_error_sum_rad']+=1.
+    elif damage=='count_bool':value['center']['overall']['valid_angle_count']=True
+    elif damage=='mean':value['center']['overall']['mae_deg']+=1.
+    elif damage=='nonfinite':value['trajectory']['by_user']['fixture-private-user']['absolute_error_sum_rad']=float('nan')
+    elif damage=='invalid_count':value['trajectory']['invalid_angle_count']-=1
+    elif damage=='hand_split':value['center']['by_hand_split']['left']['user']['valid_angle_count']-=22
+    elif damage=='component':value['center']['by_component']['wrist']['valid_angle_count']-=2
+    elif damage=='joint':value['center']['by_joint'][0]['name']='wrist_yaw'
+    elif damage=='finger':value['trajectory']['by_finger']['thumb']['absolute_error_sum_rad']+=1.
+    elif damage=='pd':value['trajectory']['by_pd_group']['mid']['valid_angle_count']-=1
+    elif damage=='user_dispersion':value['center']['user_summary']['std_mae_deg']=1.
+    elif damage=='missing_statistics':value=None
+    assert callable(getattr(r,'validate_test_statistics',None)),'complete original report statistics reader missing'
+    if damage:
+        with pytest.raises(ValueError):r.validate_test_statistics(value,variant='vemg2pose')
+    else:
+        r.validate_test_statistics(value,variant='vemg2pose')
+        assert value['center']['overall']['valid_angle_count']==94732
+        assert value['trajectory']['overall']['absolute_error_sum_rad']==94732.
+
+
+def raw_test_prediction_pair(tmp_path,monkeypatch):
+    """Raw test-report reader fixture; no true termination/checkpoint/CUDA authority."""
+    r,e,path,native,launch,admission,parent=completed_native_launch_fixture(tmp_path,monkeypatch)
+    run=tmp_path/'trained';context=r._terminated_context(run)
+    identity=r._identity_record(run,context['manifest'],context['selection'],'test');policy=identity['policy']
+    coverage=completed_ledger();n=4306;batch=600;coverage.update(role='test',samples=n,
+        batch_sizes=[min(batch,n-i) for i in range(0,n,batch)],predictions=[])
+    order=hashlib.sha256()
+    for i in range(n):order.update(i.to_bytes(8,'big'))
+    coverage['coverage_sha256']=order.hexdigest();chains={name:hashlib.sha256() for name in r.ReportInputLedger.CHAINS}
+    for sequence,size in enumerate(coverage['batch_sizes']):
+        record=dict(sequence=sequence,batch_size=size,dtype='torch.float16',shape=[size,22,6000])
+        for name,chain in chains.items():
+            digest=e.artifacts.json_hash([name,'test',sequence]);record[name+'_sha256']=digest
+            chain.update(bytes.fromhex(e.artifacts.json_hash(dict(sequence=sequence,batch_size=size,digest=digest))))
+        coverage['predictions'].append(record)
+    coverage.update({name+'_sha256':chain.hexdigest() for name,chain in chains.items()})
+    native_result=json.loads((native/'result.json').read_text())
+    for key in ('samples','batch_sizes','coverage_sha256','target_sha256','mask_sha256','sample_sha256','fingerprint_encoding','fingerprint_scope'):
+        native_result['coverage'][key]=copy.deepcopy(coverage[key])
+    (native/'result.json').write_text(json.dumps(native_result));status=json.loads((native/'status.json').read_text())
+    status['result_sha256']=e.file_sha256(native/'result.json');(native/'status.json').write_text(json.dumps(status))
+    parent['native_result_sha256']=e.file_sha256(native/'result.json');(path.parent/'result.json').write_text(json.dumps(parent))
+    status=json.loads((path.parent/'status.json').read_text());status['result_sha256']=e.file_sha256(path.parent/'result.json')
+    (path.parent/'status.json').write_text(json.dumps(status))
+    binding=dict(directory=str(path.parent),manifest_sha256=launch['sha256'],result_sha256=e.file_sha256(path.parent/'result.json'),
+        native_result_sha256=e.file_sha256(native/'result.json'));paths=[]
+    for i,kind in enumerate(('reference','replay')):
+        directory=tmp_path/('test-'+kind);directory.mkdir();paths.append(directory)
+        result=dict(coverage=copy.deepcopy(coverage),statistics=original_test_statistics_fixture(),
+            model_before_sha256=context['selection']['selected_model_sha256'],model_after_sha256=context['selection']['selected_model_sha256'],
+            scaler_before_sha256=e.storage.state_digest(context['best']['MixedPrecision']),scaler_after_sha256=e.storage.state_digest(context['best']['MixedPrecision']),
+            format=r.PASS_FORMAT,scope=policy['scope'],scientific_eligible=False,production_ready=False,identity_sha256=identity['sha256'],
+            process=dict(pid=10001+i,start_ticks=8001+i,phase='classic-test-'+kind),pass_kind=kind,evaluation_profile=copy.deepcopy(binding),
+            reference=None if i==0 else dict(directory=str(paths[0]),result_sha256=e.file_sha256(paths[0]/'result.json')))
+        (directory/'identity.json').write_text(json.dumps(identity));(directory/'result.json').write_text(json.dumps(result))
+        (directory/'status.json').write_text(json.dumps(dict(state='prediction_pass_finished',scope=r.PASS_FORMAT,
+            scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(directory/'result.json'))))
+    return r,e,paths,path,native,launch
+
+
+@pytest.mark.parametrize('damage',[None,'binding_hash','missing_binding','input_target','input_mask','input_sample',
+    'prediction','metadata','dtype','statistics','no_statistics','same_process','native_process','profile_file','native_snapshot'])
+def test_test_prediction_reader_reopens_native_and_reference_and_rejects_resealed_changes(tmp_path,monkeypatch,damage):
+    r,e,paths,path,native,launch=raw_test_prediction_pair(tmp_path,monkeypatch)
+    directory=paths[1];result=json.loads((directory/'result.json').read_text());coverage=result['coverage']
+    if damage=='binding_hash':result['evaluation_profile']['manifest_sha256']='f'*64
+    elif damage=='missing_binding':result.pop('evaluation_profile')
+    elif damage in ('input_target','input_mask','input_sample','prediction','metadata'):
+        key=damage.removeprefix('input_');coverage['predictions'][0][key+'_sha256']='f'*64
+        chain=hashlib.sha256()
+        for record in coverage['predictions']:
+            chain.update(bytes.fromhex(e.artifacts.json_hash(dict(sequence=record['sequence'],batch_size=record['batch_size'],digest=record[key+'_sha256']))))
+        coverage[key+'_sha256']=chain.hexdigest()
+    elif damage=='dtype':coverage['predictions'][0]['dtype']='torch.float32'
+    elif damage=='statistics':result['statistics']['center']['overall']['valid_angle_count']-=22
+    elif damage=='no_statistics':result['statistics']=None
+    elif damage=='same_process':result['process'].update(pid=10001,start_ticks=8001)
+    elif damage=='native_process':result['process'].update(pid=launch['child']['pid'],start_ticks=launch['child']['start_ticks'])
+    elif damage=='profile_file':(tmp_path/'validation-profile.json').write_text('{}')
+    elif damage=='native_snapshot':(native/'selected-best.ckpt').write_bytes(b'changed snapshot')
+    (directory/'result.json').write_text(json.dumps(result));status=json.loads((directory/'status.json').read_text())
+    status['result_sha256']=e.file_sha256(directory/'result.json');(directory/'status.json').write_text(json.dumps(status))
+    if damage:
+        with pytest.raises(ValueError):r._read_prediction_pass(directory,role='test',expected_kind='replay')
+    else:
+        identity,got,guard=r._read_prediction_pass(directory,role='test',expected_kind='replay');guard.check()
+        assert got['statistics']['center']['overall']['valid_angle_count']==94732
+        assert paths[0]/'result.json' in guard.paths and path.parent/'launch.json' in guard.paths
+        assert native/'selected-best.ckpt' in guard.paths
+
+
+def test_test_prediction_cli_cannot_use_a_validation_profile_as_completed_native_admission(tmp_path,monkeypatch):
+    r,e,path,native,launch,admission,parent=completed_native_launch_fixture(tmp_path,monkeypatch)
+    output=tmp_path/'not-created'
+    with pytest.raises((ValueError,FileNotFoundError,NotADirectoryError)):
+        r.main(['test-pass','--run',str(tmp_path/'trained'),'--evaluation-profile',str(tmp_path/'validation-profile.json'),
+            '--output',str(output)])
+    assert not output.exists()
+
+
+def test_verify_test_prediction_cli_reopens_raw_bound_evidence_and_keeps_engineering_flags(tmp_path,monkeypatch,capsys):
+    r,e,paths,path,native,launch=raw_test_prediction_pair(tmp_path,monkeypatch)
+    r.main(['verify-test-pass','--output',str(paths[1])]);value=json.loads(capsys.readouterr().out)
+    assert value==dict(format=r.PASS_FORMAT,verified=True,role='test',pass_kind='replay',samples=4306,scientific_eligible=False)
+
+
+def status_journal_fixture(tmp_path):
+    """Actual bounded journal IO with synthetic metadata; never optimizer or CUDA evidence."""
+    pytest.importorskip('pytorch_lightning');r=api();e=r._evaluation();run=tmp_path/'run';run.mkdir()
+    manifest=dict(format=e.formal.FORMAT,scope='formal_engineering_acceptance',scientific_eligible=False,
+        state_identity=dict(sha256='a'*64,counts=dict(train=1200,val=1576,test=4306)),
+        policy=e.formal.formal_policy(variant='vemg2pose',engineering=True),sources=e.formal._source_snapshot())
+    manifest['sha256']=e.artifacts.json_hash(manifest)
+    (run/'identity.json').write_text(json.dumps(manifest));(run/'status.json').write_text('{"state":"engineering_finished"}')
+    with e.artifacts.FormalJournal(run/'journal',identity_sha256='a'*64,train_samples=1200,batch_size=600) as journal:
+        journal.append_attempt(dict(epoch=0,batch=0,pl_step=1,optimizer_step_before=0,optimizer_step_after=1,
+            optimizer_executed=True,scale_before=65536.,scale_after=65536.,gradient_finite=True,gradient_abs_max=.125,loss=1.))
+        journal.append_attempt(dict(epoch=0,batch=1,pl_step=2,optimizer_step_before=1,optimizer_step_after=1,
+            optimizer_executed=False,scale_before=65536.,scale_after=32768.,gradient_finite=False,gradient_abs_max=None,loss=1.))
+        digest=hashlib.sha256()
+        for i in range(1576):digest.update(i.to_bytes(8,'big'))
+        journal.append_epoch(dict(epoch=0,full=True,samples=1576,expected_samples=1576,val_loss=1.25,
+            batch_weighted_loss=1.25,coverage_sha256=digest.hexdigest()))
+    return r,e,run,manifest
+
+
+@pytest.mark.parametrize('damage',[None,'partial_tail','chain','header','gap','source','validation_count'])
+def test_readonly_classic_status_replays_bounded_actual_journal_without_model_or_liveness_claim(tmp_path,monkeypatch,damage):
+    r,e,run,manifest=status_journal_fixture(tmp_path);segment=run/'journal'/'events-00000.jsonl'
+    if damage=='partial_tail':
+        with segment.open('ab') as f:f.write(b'{"uncommitted":')
+    elif damage=='chain':segment.write_bytes(segment.read_bytes().replace(b'"loss":1.0',b'"loss":2.0',1))
+    elif damage=='header':(run/'journal'/'journal.json').write_text('{}')
+    elif damage=='gap':segment.rename(run/'journal'/'events-00001.jsonl')
+    elif damage=='source':
+        manifest['sources']['egoemg_repro/classic_emg_formal.py']='0'*64
+        manifest['sha256']=e.artifacts.json_hash({k:v for k,v in manifest.items() if k!='sha256'})
+        (run/'identity.json').write_text(json.dumps(manifest))
+    elif damage=='validation_count':
+        manifest['state_identity']['counts']['val']=1575
+        manifest['sha256']=e.artifacts.json_hash({k:v for k,v in manifest.items() if k!='sha256'})
+        (run/'identity.json').write_text(json.dumps(manifest))
+    def forbidden(*args,**kwargs):raise AssertionError('readonly status must not construct a model, probe CUDA or evaluate')
+    monkeypatch.setattr(e.cuda,'_factory',forbidden);monkeypatch.setattr(e,'prepare_selected_best_evaluation',forbidden)
+    import torch
+    monkeypatch.setattr(torch.cuda,'is_available',forbidden);monkeypatch.setattr(torch.cuda,'init',forbidden)
+    before={str(p.relative_to(run)):hashlib.sha256(p.read_bytes()).hexdigest() for p in run.rglob('*') if p.is_file()}
+    assert callable(getattr(r,'build_classic_status',None)),'read-only journal status API missing'
+    if damage not in (None,'partial_tail'):
+        with pytest.raises(ValueError):r.build_classic_status(run)
+    else:
+        value=r.build_classic_status(run)
+        assert value['attempts']==2 and value['optimizer_executions']==1 and value['overflow_skips']==1
+        assert value['completed_validation_epochs']==1 and value['last_validation_loss']==1.25
+        assert value['partial_tail_ignored'] is (damage=='partial_tail')
+        assert value['reported_state']=='engineering_finished'
+        assert value['scientific_eligible'] is False and value['training_completion_verified'] is False
+        assert value['process_liveness_verified'] is False
+        assert str(run) not in json.dumps(value)
+    after={str(p.relative_to(run)):hashlib.sha256(p.read_bytes()).hexdigest() for p in run.rglob('*') if p.is_file()}
+    assert before==after
+
+
+def public_record_fixture():
+    """Formatter input only, not admitted training/GPU evidence."""
+    r=api();selection=dict(stop_reason='early-stopping',completed_epochs=52,best_epoch=1,best_val_loss=1.1,
+        selected_state_sha256='1'*64,selected_model_sha256='2'*64,selected_event_sha256='3'*64,last_checkpoint_sha256='4'*64)
+    recipe=dict(variant='vemg2pose',upstream_experiment='config/experiment/example.yaml',window_length=7790,
+        train_stride=780,eval_stride=7790,val_fraction=.12,seed=42,jitter=False,batch_size=600,num_workers=12,
+        max_epochs=100,lr=.0001,weight_decay=.01,eta_min=0.,gradient_clip=0,precision='16-mixed',
+        monitor='val_loss',monitor_mode='min',early_stopping_patience=50,augmentation='original_resolved_rotation',
+        layout=dict(declared='declared16',effective='target8',input_channels=8,channel_indices=list(range(8)),channel_interpolate=False,reason='fixture'),
+        normalization=dict(mean=0.,std=1.,epsilon=1e-8),mask_policy='official_literal_loader',
+        raw_loss_weights={'mae':1.,'landmark/fingertip':.01,'fingertip_distance':.01},
+        effective_loss_weights={'mae':1.,'landmark/fingertip':.02})
+    runtime=dict(runtime_profile='canonical_backend_nondeterministic_v1',versions={'torch':'2.2.2'},python='3.11.12',
+        torch_build='2.2.2+cu118',cuda_build='11.8',device_name='fixture device',matmul_precision='high',
+        precision_plugin='MixedPrecision',scaler_enabled=True,deterministic=False,cudnn_deterministic=False,cudnn_benchmark=False,
+        torch_config='/private/build/path',visible_uuid='PRIVATE-MACHINE-ID')
+    identity=dict(run='/private/training/path',sha256='5'*64,training_manifest_sha256='6'*64,training_result_sha256='7'*64,
+        selection=selection,policy=r.report_pass_policy(variant='vemg2pose',role='test'),runtime=runtime,
+        sources={'egoemg_repro/classic_emg_report.py':'8'*64},cohort_bindings=dict(data_sha256='9'*64,partition_sha256='a'*64,
+            normalization_sha256='b'*64,cohort_receipt_sha256='c'*64,numeric_qualification_artifact_sha256='d'*64,
+            private_hint_sha256='/private/binding-hint'))
+    manifest=dict(state_identity=dict(recipe=recipe,effective=dict(precision='16-mixed',batch_size=600,global_batch_size=600,
+        world_size=1,rank=0,num_workers=0,train_shuffle=True,seed=42,log_every_n_steps=50,max_epochs=100,clip_value=0),
+        counts=dict(train=101714,val=1576,test=4306)),adaptations=dict(declared_devices=[0,1,2,3,4,5],effective_devices=[0],
+            world_size=1,declared_per_rank_batch=600,effective_per_rank_batch=600,effective_global_batch=600,
+            declared_num_workers=12,effective_num_workers=0,private_path='/private/secret'))
+    training=dict(completed_epochs=52,attempts=8840,optimizer_executions=8838,natural_overflows=2,stop_reason='early-stopping',
+        interrupted=False,selection_scope='terminated-full-validation-loss',
+        runtime_profile='canonical_backend_nondeterministic_v1',trajectory_agreement_qualified=False,
+        bitwise_trajectory_guaranteed=False,process={'private':'must not copy'})
+    prediction=dict(statistics=original_test_statistics_fixture(),coverage={'samples':4306,'batch_sizes':[600]*7+[106],
+        **{name+'_sha256':'e'*64 for name in r.ReportInputLedger.CHAINS},'coverage_sha256':'f'*64},
+        reference={'directory':'/private/reference','result_sha256':'0'*64})
+    native={'metrics':{'test_loss':1.25,'test_mae':1.,'test_landmark/all':2.}}
+    binding={'directory':'/private/native-launch','manifest_sha256':'1'*64,'result_sha256':'2'*64,'native_result_sha256':'3'*64}
+    return dict(identity=identity,prediction=prediction,manifest=manifest,training=training,native=native,
+        subjects=['fixture-private-user','private-unused-user'],data_summary=dict(source_subject_count=2,test_subject_count=1,
+            train_test_subject_overlap=dict(user=1,gesture=0,both=0)),binding=binding,recompute_result_sha256='4'*64)
+
+
+def test_public_completed_formatter_keeps_counts_units_selection_and_excludes_private_identity():
+    r=api();assert callable(getattr(r,'_public_completed_record',None)),'sanitized classic result formatter missing'
+    value=r._public_completed_record(**public_record_fixture())
+    assert value['statistics']['center']['overall']['valid_angle_count']==94732
+    assert value['statistics']['center']['overall']['mae_deg']==pytest.approx(180/math.pi)
+    assert set(value['statistics']['center']['by_user'])=={'participant_001'}
+    assert value['selection']['best_epoch']==1 and value['training']['optimizer_executions']==8838
+    assert value['protocol']['recipe']['effective_loss_weights']['landmark/fingertip']==.02
+    assert value['protocol']['effective']['world_size']==1 and value['protocol']['adaptations']['declared_devices']==[0,1,2,3,4,5]
+    assert value['native_metrics']['values']['test_mae']==1. and value['native_metrics']['values']['test_landmark/all']==2.
+    assert value['full_paper_complete'] is False and value['completion_requires_owned_capsule'] is True
+    assert value['evidence']['recompute_result_sha256']=='4'*64
+    assert value['data']['train_test_subject_overlap']['user']==1
+    raw=json.dumps(value)
+    for private in ('/private/','fixture-private-user','private-unused-user','PRIVATE-MACHINE-ID','torch_config','visible_uuid'):
+        assert private not in raw
+    assert callable(getattr(r,'render_classic_completed',None)),'public metrics Markdown renderer missing'
+    markdown=r.render_classic_completed(value)
+    assert '94732' in markdown and 'THUMB_CMC_FE' in markdown and value['sha256'] in markdown
+    assert '/private/' not in markdown and 'fixture-private-user' not in markdown
+
+
+@pytest.mark.parametrize('variant,center,length',[('vemg2pose',2105,6000),('neuropose',3895,7790)])
+def test_completed_markdown_carries_the_same_unrounded_public_evidence_for_both_original_alignments(variant,center,length):
+    """Omitting any protocol/statistics/evidence field from Markdown must fail this contract."""
+    r=api();packet=public_record_fixture();batch=600 if variant=='vemg2pose' else 256
+    packet['identity']['policy']=r.report_pass_policy(variant=variant,role='test')
+    state=packet['manifest']['state_identity'];state['recipe'].update(variant=variant,batch_size=batch)
+    state['effective'].update(batch_size=batch,global_batch_size=batch)
+    packet['manifest']['adaptations'].update(declared_per_rank_batch=batch,effective_per_rank_batch=batch,effective_global_batch=batch)
+    packet['prediction']['statistics']=original_test_statistics_fixture(variant)
+    packet['prediction']['coverage']['batch_sizes']=[min(batch,4306-i) for i in range(0,4306,batch)]
+    report=r._public_completed_record(**packet);markdown=r.render_classic_completed(report)
+    assert '```json\n' in markdown,'Markdown must carry the complete public aggregate evidence'
+    evidence=json.loads(markdown.split('```json\n',1)[1].split('\n```',1)[0])
+    assert evidence==report
+    assert evidence['statistics']['alignment']['output_center']==center
+    assert evidence['statistics']['center']['overall']['valid_angle_count']==94732
+    assert evidence['statistics']['trajectory']['invalid_angle_count']==4306*22*(length-1)
+    assert evidence['statistics']['center']['by_hand_split']['left']['user']['valid_angle_count']==47366
+    assert evidence['statistics']['center']['user_summary']['std_mae_deg']==0.
+    assert evidence['training']['stop_reason']=='early-stopping'
+    assert evidence['protocol']['recipe']['effective_loss_weights']['landmark/fingertip']==.02
+    assert evidence['data']['train_test_subject_overlap']=={'user':1,'gesture':0,'both':0}
+    assert evidence['sources_sha256']=={'egoemg_repro/classic_emg_report.py':'8'*64}
+    assert evidence['native_metrics']['angular_units']=='radians'
+    assert '/private/' not in markdown and 'fixture-private-user' not in markdown
+
+
+@pytest.mark.parametrize('damage',['unknown_native','unknown_subject','forged_statistics'])
+def test_public_completed_formatter_does_not_silently_copy_unrecognized_private_or_statistical_fields(damage):
+    r=api();assert callable(getattr(r,'_public_completed_record',None)),'sanitized classic result formatter missing'
+    packet=public_record_fixture()
+    if damage=='unknown_native':packet['native']['metrics']['test_/private/identity']=1.
+    elif damage=='unknown_subject':packet['subjects']=['unrelated-private-user']
+    elif damage=='forged_statistics':packet['prediction']['statistics']['center']['by_joint'][0]['valid_angle_count']=False
+    with pytest.raises(ValueError):r._public_completed_record(**packet)
+
+
+@pytest.mark.parametrize('artifact',[{'passed':True},None,True])
+def test_completed_builder_cannot_accept_flags_instead_of_real_recompute_artifacts(tmp_path,monkeypatch,artifact):
+    r=api();assert callable(getattr(r,'build_classic_completed',None)),'raw-bound completed report builder missing'
+    def forbidden(*args,**kwargs):raise AssertionError('no runtime before real artifact paths')
+    monkeypatch.setattr(r,'_evaluation',forbidden)
+    with pytest.raises(ValueError):r.build_classic_completed(tmp_path/'run',artifact)
+
+
+@pytest.mark.parametrize('failure',[None,'first_close','last_close','source_change','foreign_status','foreign_report','whole_directory',
+    'foreign_capsule_after_publish','capsule_cleanup'])
+def test_completion_capsule_is_last_and_rollback_preserves_foreign_files(tmp_path,monkeypatch,failure):
+    """Real filesystem writer with stubbed evidence authority; never GPU/scientific qualification."""
+    pytest.importorskip('pytorch_lightning');r=api()
+    assert callable(getattr(r,'_public_completed_record',None)),'sanitized classic result formatter missing'
+    assert callable(getattr(r,'_finish_completed_publication',None)),'owned completed report publication missing'
+    e=r._evaluation();report=r._public_completed_record(**public_record_fixture());output=tmp_path/'public'
+    owned=e.artifacts._Directory(output,create=True);rescue=e.artifacts._Directory(output,create=False)
+    backup=r._retain_directory(rescue);publications={};close=e.artifacts._Directory.close;injected=[];order=[]
+    source=tmp_path/'immutable-source';source.write_text('unchanged')
+    def evidence(run,recompute):return report,e.cohort._StatGuard([source]),[]
+    monkeypatch.setattr(r,'_completed_evidence',evidence)
+    original=getattr(r,'_publish_profile_file');write=getattr(r,'_publish_bytes_file',None)
+    assert callable(write),'shared creation-owned byte writer missing'
+    def publish(directory,name,*args,**kwargs):
+        if name=='completion.json':
+            assert order==['owned_closed','rescue_closed']
+            assert (output/'metrics.json').exists() and (output/'metrics.md').exists()
+        value=original(directory,name,*args,**kwargs)
+        if name=='completion.json' and failure=='foreign_capsule_after_publish':
+            injected.append(True);(output/name).rename(output/('moved-'+name));(output/name).write_text('foreign bytes')
+        return value
+    monkeypatch.setattr(r,'_publish_profile_file',publish)
+    unlink=r.os.unlink
+    def cleanup(name,*args,**kwargs):
+        value=unlink(name,*args,**kwargs)
+        if failure=='capsule_cleanup' and str(name).startswith('.completion.json.') and str(name).endswith('.incomplete') and not injected:
+            injected.append(True);raise OSError('post-link capsule temporary cleanup')
+        return value
+    monkeypatch.setattr(r.os,'unlink',cleanup)
+    def fail(directory):
+        if directory is owned:
+            close(directory);order.append('owned_closed')
+            if failure=='first_close' and not injected:injected.append(True);raise OSError('first semantic close')
+            return
+        if directory is rescue and not injected:
+            close(directory);order.append('rescue_closed')
+            if failure and failure not in ('foreign_capsule_after_publish','capsule_cleanup'):
+                injected.append(True)
+                if failure=='last_close':raise OSError('last semantic close')
+                if failure=='source_change':source.write_text('changed')
+                if failure in ('foreign_status','foreign_report'):
+                    name='completion.json' if failure=='foreign_status' else 'metrics.json'
+                    if (output/name).exists():(output/name).rename(output/('moved-'+name))
+                    (output/name).write_text('foreign bytes')
+                if failure=='whole_directory':output.rename(tmp_path/'moved-output');output.mkdir();(output/'completion.json').write_text('foreign bytes')
+            return
+        return close(directory)
+    monkeypatch.setattr(e.artifacts._Directory,'close',fail)
+    try:
+        if failure:
+            with pytest.raises((OSError,ValueError)):r._finish_completed_publication(tmp_path/'run',tmp_path/'recompute',output,report,
+                e.cohort._StatGuard([source]),owned,rescue,backup,publications)
+            assert injected
+            if failure in ('foreign_status','foreign_report','whole_directory','foreign_capsule_after_publish'):
+                name='metrics.json' if failure=='foreign_report' else 'completion.json'
+                assert (output/name).read_text()=='foreign bytes'
+                moved=output/('moved-'+name)
+                if moved.exists():assert moved.read_bytes()==b''
+            else:assert not (output/'completion.json').exists()
+        else:
+            r._finish_completed_publication(tmp_path/'run',tmp_path/'recompute',output,report,
+                e.cohort._StatGuard([source]),owned,rescue,backup,publications)
+            assert order==['owned_closed','rescue_closed']
+            got,guard=r.verify_classic_completed(tmp_path/'run',tmp_path/'recompute',output);guard.check()
+            assert got==report
+            capsule=json.loads((output/'completion.json').read_text())
+            assert capsule['metrics_json_sha256']==e.file_sha256(output/'metrics.json')
+            assert capsule['metrics_md_sha256']==e.file_sha256(output/'metrics.md')
+    finally:
+        for directory in (owned,rescue,backup):close(directory)
+        r._discard_publications(publications)
+
+
+def test_status_cli_reads_actual_journal_without_evaluation(tmp_path,monkeypatch,capsys):
+    r,e,run,manifest=status_journal_fixture(tmp_path)
+    def forbidden(*args,**kwargs):raise AssertionError('status CLI must not prepare a selected model')
+    monkeypatch.setattr(e,'prepare_selected_best_evaluation',forbidden)
+    r.main(['status','--run',str(run)]);value=json.loads(capsys.readouterr().out)
+    assert value['optimizer_executions']==1 and value['overflow_skips']==1 and value['scientific_eligible'] is False
+
+
+def test_publish_cli_cannot_create_completion_without_raw_recompute_chain(tmp_path,monkeypatch):
+    pytest.importorskip('pytorch_lightning');r=api();e=r._evaluation();output=tmp_path/'not-created'
+    def forbidden(*args,**kwargs):raise AssertionError('public writer cannot construct models or probe CUDA')
+    monkeypatch.setattr(e.cuda,'_factory',forbidden)
+    import torch
+    monkeypatch.setattr(torch.cuda,'is_available',forbidden)
+    with pytest.raises((ValueError,FileNotFoundError)):
+        r.main(['publish-completed','--run',str(tmp_path/'missing-run'),'--recompute',str(tmp_path/'missing-recompute'),
+            '--output',str(output)])
+    assert not output.exists()
+
+
+@pytest.mark.parametrize('damage',[None,'metadata_subject','attempt_count','execution_count','overflow_count',
+    'counter_private','counter_float','epoch_float','runtime_private','bitwise_claim','trajectory_claim',
+    'interrupted_int','selection_scope','devices_private','devices_float','declared_workers_private',
+    'effective_batch','effective_devices','declared_batch'])
+def test_completed_builder_composes_raw_readers_with_real_metadata_roster_without_model_construction(tmp_path,monkeypatch,damage):
+    """End-to-end metadata composition; termination/checkpoint authorities remain explicitly stubbed."""
+    base=native_sidecar_fixture;packet=public_record_fixture();data=tmp_path/'source-data'
+    def extended(path,patch):
+        r,e,run,native,context,checkpoint=base(path,patch)
+        context['selection'].update({k:packet['identity']['selection'][k] for k in ('stop_reason','completed_epochs','best_epoch','best_val_loss')})
+        state=context['manifest']['state_identity'];state.update(copy.deepcopy(packet['manifest']['state_identity']))
+        state['runtime']=copy.deepcopy(packet['identity']['runtime'])
+        state['bindings'].update(normalization_sha256='b'*64,numeric_qualification_artifact_sha256='d'*64)
+        context['manifest'].update(adaptations=copy.deepcopy(packet['manifest']['adaptations']),provenance={'data':str(data)})
+        context['partitions']={'windows':[dict(episode=0,role='train',split='train'),dict(episode=0,role='test',split='user')]}
+        # The terminal authority is a fixture; its admitted checkpoint prefix stays
+        # unchanged while result metadata is changed BEFORE downstream calibration.
+        context['last']={'formal':{'completed_epochs':52,'journal_prefix':dict(epochs=52,attempts=8840,executions=8838,skips=2)}}
+        training=copy.deepcopy(packet['training']);adaptations=context['manifest']['adaptations']
+        forged_training={'attempt_count':('attempts',8841),'execution_count':('optimizer_executions',8837),
+            'overflow_count':('natural_overflows',3),'counter_private':('optimizer_executions',{'private_path':'/private/counter'}),
+            'counter_float':('optimizer_executions',8838.),'epoch_float':('completed_epochs',52.),
+            'runtime_private':('runtime_profile',{'private_path':'/private/runtime'}),'bitwise_claim':('bitwise_trajectory_guaranteed',True),
+            'trajectory_claim':('trajectory_agreement_qualified',True),'interrupted_int':('interrupted',0),
+            'selection_scope':('selection_scope','engineering')}
+        forged_adaptations={'devices_private':('declared_devices',[{'private_path':'/private/device'}]),
+            'devices_float':('declared_devices',[0.,1,2,3,4,5]),
+            'declared_workers_private':('declared_num_workers',{'private_path':'/private/workers'}),
+            'effective_batch':('effective_per_rank_batch',1),'effective_devices':('effective_devices',[1]),
+            'declared_batch':('declared_per_rank_batch',1)}
+        if damage in forged_training:
+            key,value=forged_training[damage];training[key]=value
+        if damage in forged_adaptations:
+            key,value=forged_adaptations[damage];adaptations[key]=value
+        (run/'result.json').write_text(json.dumps(training))
+        identity=r._native_identity_record(context);(native/'identity.json').write_text(json.dumps(identity))
+        result=json.loads((native/'result.json').read_text());result['identity_sha256']=identity['sha256']
+        (native/'result.json').write_text(json.dumps(result));status=json.loads((native/'status.json').read_text())
+        status['result_sha256']=e.file_sha256(native/'result.json');(native/'status.json').write_text(json.dumps(status))
+        return r,e,run,native,context,checkpoint
+    monkeypatch.setattr(sys.modules[__name__],'native_sidecar_fixture',extended)
+    data.mkdir();(data/'manifest.json').write_text(json.dumps(dict(total_rows=15580,
+        fields={'frame_split_id':{'shape':[15580]}},frame_split_labels=['train','user','gesture','both'])))
+    subjects=['fixture-private-user','private-unused-user']
+    if damage=='metadata_subject':subjects[0]='different-private-subject'
+    np.savez(data/'metadata.npz',episode_id=np.array(['private-episode-0','private-episode-1']),
+        episode_subject=np.array(subjects),episode_start_idx=np.array([0,7790]),episode_end_idx=np.array([7790,15580]))
+    r,e,paths,path,native,launch=raw_test_prediction_pair(tmp_path,monkeypatch)
+    def forbidden(*args,**kwargs):raise AssertionError('completed builder must not construct a model or probe CUDA')
+    monkeypatch.setattr(e,'prepare_selected_best_evaluation',forbidden)
+    import torch
+    monkeypatch.setattr(torch.cuda,'is_available',forbidden)
+    if damage:
+        with pytest.raises(ValueError):r.build_classic_completed(tmp_path/'trained',paths[1])
+    else:
+        value,guard,immutable=r._completed_evidence(tmp_path/'trained',paths[1]);guard.check()
+        assert value['data']['source_subject_count']==2 and value['data']['test_subject_count']==1
+        assert value['data']['train_test_subject_overlap']=={'user':1,'gesture':0,'both':0}
+        assert value['statistics']['center']['overall']['valid_angle_count']==94732
+        assert set(value['statistics']['center']['by_user'])=={'participant_001'}
+        assert data/'metadata.npz' in guard.paths and paths[0] in immutable and paths[1] in immutable
+        assert str(tmp_path) not in json.dumps(value)

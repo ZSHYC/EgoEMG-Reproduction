@@ -1,10 +1,10 @@
 """Original-alignment reports and profile-bound post-termination testing.
 
-Private sufficient statistics retain user keys. The validation commands admit
-only genuinely terminated formal training and never evaluate the held-out test.
-Native testing requires a durable actual-child/profile binding and inherited
-parent pipe release. Test prediction recomputation and sanitized scientific
-export remain unfinished; neither a validation profile nor native test is completion.
+Private sufficient statistics retain user keys. Validation admits only genuinely
+terminated formal training and never evaluates the held-out test. Native testing
+requires an actual-child/profile binding and inherited parent pipe release.
+Independent test replay and sanitized publication reopen the whole raw chain;
+only the last owned capsule commits one experiment, never the entire paper.
 """
 from __future__ import annotations
 
@@ -31,6 +31,8 @@ PASS_FORMAT='classic_original_prediction_pass_v1'
 PROFILE_FORMAT='classic_validation_exact_replay_profile_v1'
 AGREEMENT='exact_typed_prediction_replay_v1'
 NATIVE_LAUNCH_FORMAT='classic_native_test_launch_v1'
+COMPLETED_FORMAT='classic_original_22d_completed_report_v1'
+CAPSULE_FORMAT='classic_original_22d_completion_capsule_v1'
 GO_PROTOCOL='inherited_pipe_G_sha256_33bytes_EOF_v1'
 
 
@@ -43,6 +45,10 @@ JOINT_NAMES=(
     'wrist_pitch','wrist_yaw')
 FINGERS={name:tuple(range(4*i,4*i+4)) for i,name in enumerate(('thumb','index','middle','ring','pinky'))}
 PD_GROUPS=dict(proximal=(0,1,4,5,8,9,12,13,16,17),mid=(2,6,10,14,18),distal=(3,7,11,15,19))
+PUBLIC_NATIVE_METRICS=frozenset(('test_loss','test_mae','test_landmark/fingertip','test_landmark/all',
+    'test_mae_wrist/flexion','test_mae_wrist/deviation',
+    *('test_derivatives/'+name for name in ('vel','acc','jerk')),
+    *('test_mae_per_finger/'+name for name in FINGERS),*('test_mae_per_pd/'+name for name in PD_GROUPS)))
 
 
 def alignment(variant):
@@ -138,6 +144,71 @@ class ClassicAngleReport(_AngleStatistics):
             raise ValueError('original context-cropped prediction width differs')
         super().update(prediction,target,mask,hand=hand,split=split,user=user)
     def report(self):return dict(super().report(),alignment=self.alignment.copy())
+
+
+def validate_test_statistics(value,*,variant):
+    """Validate private sufficient statistics; no inference or cohort proof is inferred."""
+    a=alignment(variant);samples=4306
+    fields={'format','scientific_eligible','scope','samples','alignment','trajectory','center'}
+    if (type(value) is not dict or set(value)!=fields or value['format']!='classic_private_angle_statistics_v1' or
+        value['scientific_eligible'] is not False or
+        value['scope']!='arithmetic only; no inference, coverage, selected-best or calibration qualification' or
+        type(value['samples']) is not int or value['samples']!=samples or type(value['alignment']) is not dict or
+        set(value['alignment'])!=set(a) or any(type(value['alignment'][k]) is not int or value['alignment'][k]!=v for k,v in a.items())):
+        raise ValueError('complete original test statistic schema/alignment differs')
+    def same_number(actual,expected):
+        return (actual is None if expected is None else type(actual) is float and math.isfinite(actual) and
+            math.isclose(actual,expected,rel_tol=2e-12,abs_tol=1e-9))
+    def record(r,extra=()):
+        if type(r) is not dict or set(r)!={'absolute_error_sum_rad','valid_angle_count','mae_deg',*extra}:
+            raise ValueError('typed angular sufficient-statistic record required')
+        error,count=r['absolute_error_sum_rad'],r['valid_angle_count']
+        if (type(error) is not float or not math.isfinite(error) or error<0 or type(count) is not int or count<0 or
+            (not count and error!=0.) or not same_number(r['mae_deg'],error/count*180/math.pi if count else None)):
+            raise ValueError('angular sum/count/derived degree mean differs')
+    for mode,width in (('trajectory',a['output_length']),('center',1)):
+        m=value[mode];fields={'mode','overall','invalid_angle_count','by_hand_split','user_summary',
+            'by_hand','by_split','by_user','by_component','by_joint','by_finger','by_pd_group'}
+        if type(m) is not dict or set(m)!=fields or m['mode']!=mode:raise ValueError('original report mode schema differs')
+        record(m['overall']);total=m['overall'];count=total['valid_angle_count']
+        if (count%22 or count>samples*width*22 or type(m['invalid_angle_count']) is not int or
+            m['invalid_angle_count']!=samples*width*22-count):raise ValueError('original generated-mask denominator differs')
+        mappings={'by_hand':{'left','right'},'by_split':{'user','gesture','both'},'by_component':{'fingers','wrist'},
+            'by_finger':set(FINGERS),'by_pd_group':set(PD_GROUPS)}
+        for key,keys in mappings.items():
+            if type(m[key]) is not dict or set(m[key])!=keys:raise ValueError('complete report grouping differs: '+key)
+            for r in m[key].values():record(r)
+        users=m['by_user']
+        if (type(users) is not dict or not 1<=len(users)<=41 or
+            any(type(k) is not str or not k for k in users)):raise ValueError('private user grouping required')
+        for r in users.values():record(r)
+        for key in ('by_hand','by_split','by_user','by_component'):_conserves(list(m[key].values()),total)
+        cross=m['by_hand_split']
+        if type(cross) is not dict or set(cross)!={'left','right'}:raise ValueError('complete hand/split grouping required')
+        for hand,splits in cross.items():
+            if type(splits) is not dict or set(splits)!={'user','gesture','both'}:raise ValueError('complete hand/split cells required')
+            for r in splits.values():record(r)
+            _conserves(list(splits.values()),m['by_hand'][hand])
+        for split in ('user','gesture','both'):_conserves([cross[h][split] for h in ('left','right')],m['by_split'][split])
+        joints=m['by_joint']
+        if type(joints) is not list or len(joints)!=22:raise ValueError('all22 original joints required')
+        for i,r in enumerate(joints):
+            record(r,('index','name'))
+            if (type(r['index']) is not int or r['index']!=i or r['name']!=JOINT_NAMES[i] or
+                r['valid_angle_count']!=count//22):raise ValueError('original joint semantics/generated mask differs')
+        _conserves(joints,total)
+        for key,mapping in (('by_finger',FINGERS),('by_pd_group',PD_GROUPS),
+            ('by_component',{'fingers':tuple(range(20)),'wrist':(20,21)})):
+            for name,ids in mapping.items():_conserves([joints[i] for i in ids],m[key][name])
+        summary=m['user_summary'];observed=[r['mae_deg'] for r in users.values() if r['valid_angle_count']]
+        if (type(summary) is not dict or set(summary)!={'mean_mae_deg','std_mae_deg','user_count','aggregation'} or
+            type(summary['user_count']) is not int or summary['user_count']!=len(observed) or
+            summary['aggregation']!='unweighted per-user means; population standard deviation (ddof=0)' or
+            not same_number(summary['mean_mae_deg'],float(np.mean(observed)) if observed else None) or
+            not same_number(summary['std_mae_deg'],float(np.std(observed)) if observed else None)):
+            raise ValueError('original unweighted user dispersion differs')
+    if value['center']['overall']['valid_angle_count']>value['trajectory']['overall']['valid_angle_count']:
+        raise ValueError('original center cannot have more valid angles than complete trajectory')
 
 
 def _evaluation():
@@ -338,6 +409,17 @@ def _validate_native_coverage(value,*,variant):
     for name in ('target','mask','sample'):e.artifacts._hex(value[name+'_sha256'])
 
 
+def compare_native_prediction(native,prediction,*,variant):
+    """Exact Task5 consumed-input agreement; Task5 did not record predictions."""
+    e=_evaluation();_validate_native_coverage(native,variant=variant)
+    _validate_saved_coverage(prediction,report_pass_policy(variant=variant,role='test'))
+    keys=('samples','batch_sizes','coverage_sha256','target_sha256','mask_sha256','sample_sha256',
+        'fingerprint_encoding','fingerprint_scope')
+    if e.artifacts.json_hash({k:native[k] for k in keys})!=e.artifacts.json_hash({k:prediction[k] for k in keys}):
+        raise ValueError('prediction pass differs from actual native target/mask/sample/grouping')
+    return dict(samples=4306,native_target_mask_sample_equal=True,native_prediction_hash_available=False)
+
+
 def _merge_guard(guard,other):
     guard.check();other.check()
     if any(path in guard.paths and guard.paths[path]!=stamp for path,stamp in other.paths.items()):
@@ -457,7 +539,7 @@ def _terminated_context(run):
     framework_root=Path(e.storage.pl.__file__).resolve().parent
     for name in e.EVALUATION_FRAMEWORK_FILES:guard.add(framework_root/name)
     guard.check()
-    return dict(run=run,manifest=manifest,selection=selection,best=best,partitions=partitions,
+    return dict(run=run,manifest=manifest,selection=selection,last=last,best=best,partitions=partitions,
         original_best=original_best,guard=guard)
 
 
@@ -647,6 +729,86 @@ def verify_native_test_launch(directory):
         raise ValueError('incomplete profile-bound native launch artifact') from exc
 
 
+def _test_prediction_binding(run,evaluation_profile):
+    if any(not isinstance(p,(str,os.PathLike)) for p in (run,evaluation_profile)):
+        raise ValueError('actual run and completed native launch artifact paths required')
+    value,_,native,guard=verify_native_test_launch(evaluation_profile)
+    e=_evaluation();run=e.artifacts._safe(run);directory=e.artifacts._safe(evaluation_profile)
+    if run!=e.artifacts._safe(value['run']):raise ValueError('test prediction run differs from bound native test')
+    binding=dict(directory=str(directory),manifest_sha256=value['sha256'],
+        result_sha256=e.file_sha256(directory/'result.json'),native_result_sha256=e.file_sha256(Path(value['native_output'])/'result.json'))
+    profile=e.formal._json(value['validation_profile']['path'])
+    immutable=[run,directory,e.artifacts._safe(value['native_output']),
+        *(e.artifacts._safe(item['directory']) for item in profile['artifacts'])]
+    guard.check()
+    return dict(manifest=value,native=native,binding=binding,guard=guard,immutable=immutable)
+
+
+def build_classic_status(run):
+    """Read an append-only journal prefix; never infer live or scientifically complete."""
+    if not isinstance(run,(str,os.PathLike)):raise ValueError('actual formal run directory required')
+    e=_evaluation();run=e.artifacts._safe(run);directory=run/'journal'
+    guard=e.cohort._StatGuard([run/'identity.json',run/'status.json',directory/'journal.json'])
+    try:
+        manifest=e.formal._json(run/'identity.json');status=e.formal._json(run/'status.json')
+        state_identity=manifest['state_identity'];counts=state_identity['counts'];policy=manifest['policy']
+        scope=manifest['scope'];variant=policy['variant'];batch=600 if variant=='vemg2pose' else 256
+        expected_counts=dict(e.formal.FULL_COUNTS)
+        if scope=='formal_engineering_acceptance':expected_counts['train']=2*batch
+        if (manifest['format']!=e.formal.FORMAT or scope not in ('formal_training','formal_engineering_acceptance') or
+            manifest['sha256']!=e.artifacts.json_hash({k:v for k,v in manifest.items() if k!='sha256'}) or
+            manifest['sources']!=e.formal._source_snapshot() or variant not in ('vemg2pose','neuropose') or
+            type(policy['batch_size']) is not int or policy['batch_size']!=batch or
+            e.artifacts.json_hash(counts)!=e.artifacts.json_hash(expected_counts) or
+            status['state'] not in ('running','failed','engineering_finished','training_finished')):
+            raise ValueError('formal progress manifest/source/policy/status differs')
+        journal_policy=e.artifacts._journal_policy(state_identity['sha256'],counts['train'],batch)
+        header=e.formal._json(directory/'journal.json',limit=65536)
+        if e.artifacts.json_hash(header)!=e.artifacts.json_hash(dict(format='formal_journal_v1',**journal_policy)):
+            raise ValueError('progress journal header binding differs')
+        state=e.artifacts._empty();paths=sorted(directory.glob('events-*.jsonl'));total=0;partial=False
+        for index,path in enumerate(paths):
+            if path.name!=f'events-{index:05d}.jsonl':raise ValueError('progress journal segment gap/order differs')
+            fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC)
+            try:
+                before=os.fstat(fd)
+                if not stat.S_ISREG(before.st_mode) or not 0<before.st_size<=e.artifacts.MAX_SEGMENT_BYTES:
+                    raise ValueError('bounded regular progress journal segment required')
+                raw=b''
+                while len(raw)<before.st_size:
+                    block=os.read(fd,min(65536,before.st_size-len(raw)))
+                    if not block:raise ValueError('short progress journal read')
+                    raw+=block
+                after=os.fstat(fd);current=path.stat(follow_symlinks=False)
+                if ((after.st_dev,after.st_ino)!=(before.st_dev,before.st_ino) or after.st_size<before.st_size or
+                    (current.st_dev,current.st_ino)!=(before.st_dev,before.st_ino)):
+                    raise ValueError('progress journal changed identity or shrank during read')
+            finally:os.close(fd)
+            total+=len(raw)
+            if total>journal_policy['total_budget_bytes']:raise ValueError('progress journal exceeds bounded total budget')
+            lines=raw.splitlines(keepends=True)
+            if lines and not lines[-1].endswith(b'\n'):
+                if index!=len(paths)-1 or len(lines[-1])>e.artifacts.MAX_RECORD_BYTES:
+                    raise ValueError('partial progress tail outside final bounded record')
+                lines.pop();partial=True
+            for line in lines:
+                if len(line)>e.artifacts.MAX_RECORD_BYTES:raise ValueError('progress journal record exceeds bound')
+                envelope=json.loads(line);record=envelope['record']
+                if record.get('kind')=='epoch' and record.get('expected_samples')!=counts['val']:
+                    raise ValueError('progress full-validation population differs')
+                if line!=e.artifacts._line(record,state,journal_policy):raise ValueError('progress journal canonical chain differs')
+        guard.check()
+        if manifest['sources']!=e.formal._source_snapshot():raise ValueError('progress source changed during read')
+        return dict(format='classic_readonly_progress_v1',scope='observed_bounded_journal_prefix',
+            scientific_eligible=False,production_ready=False,training_completion_verified=False,process_liveness_verified=False,
+            reported_state=status['state'],training_scope=scope,variant=variant,manifest_sha256=manifest['sha256'],
+            attempts=state['attempts'],optimizer_executions=state['executions'],overflow_skips=state['skips'],
+            completed_validation_epochs=state['epochs'],last_validation_loss=state['epoch_summaries'][-1]['val_loss'] if state['epochs'] else None,
+            prefix_records=state['sequence'],prefix_sha256=state['chain_sha256'],partial_tail_ignored=partial)
+    except (KeyError,TypeError,AttributeError,UnicodeError,json.JSONDecodeError) as exc:
+        raise ValueError('invalid bounded formal progress artifacts') from exc
+
+
 def _read_prediction_pass(directory,*,role,expected_kind=None):
     """Reopen private raw sidecars and the actual terminated training artifacts."""
     if not isinstance(directory,(str,os.PathLike)):raise ValueError('raw prediction artifact path required')
@@ -667,6 +829,7 @@ def _read_prediction_pass(directory,*,role,expected_kind=None):
         fields={'coverage','statistics','model_before_sha256','model_after_sha256','scaler_before_sha256',
             'scaler_after_sha256','format','scope','scientific_eligible','production_ready','identity_sha256',
             'process','pass_kind','reference'}
+        if role=='test':fields.add('evaluation_profile')
         kind=result['pass_kind'];process=result['process'];_process_key(process)
         scaler=e.storage.state_digest(context['best']['MixedPrecision'])
         if (set(result)!=fields or kind not in ('reference','replay') or
@@ -680,6 +843,16 @@ def _read_prediction_pass(directory,*,role,expected_kind=None):
             (role=='val' and result['statistics'] is not None)):
             raise ValueError('original prediction process/state invariance or result schema differs')
         _validate_saved_coverage(result['coverage'],expected['policy'])
+        if role=='test':
+            binding=result['evaluation_profile']
+            if type(binding) is not dict or set(binding)!={'directory','manifest_sha256','result_sha256','native_result_sha256'}:
+                raise ValueError('completed native launch binding required for test prediction')
+            admitted=_test_prediction_binding(identity['run'],binding['directory']);_merge_guard(guard,admitted['guard'])
+            if (e.artifacts.json_hash(binding)!=e.artifacts.json_hash(admitted['binding']) or
+                _process_key(process) in (_process_key(admitted['manifest']['parent']),_process_key(admitted['native']['process']))):
+                raise ValueError('test prediction native binding or fresh process differs')
+            compare_native_prediction(admitted['native']['coverage'],result['coverage'],variant=expected['policy']['variant'])
+            validate_test_statistics(result['statistics'],variant=expected['policy']['variant'])
         if kind=='reference':
             if result['reference'] is not None:raise ValueError('reference pass cannot reuse another pass')
         else:
@@ -694,6 +867,9 @@ def _read_prediction_pass(directory,*,role,expected_kind=None):
             if first!=identity or _process_key(baseline['process'])==_process_key(process):
                 raise ValueError('same-selection prediction replay requires a fresh process')
             compare_prediction_replay(baseline['coverage'],result['coverage'])
+            if role=='test' and (e.artifacts.json_hash(baseline['evaluation_profile'])!=e.artifacts.json_hash(result['evaluation_profile']) or
+                e.artifacts.json_hash(baseline['statistics'])!=e.artifacts.json_hash(result['statistics'])):
+                raise ValueError('independent test report statistics/native binding differs')
         guard.check()
         return identity,result,guard
     except (KeyError,TypeError,IndexError,AttributeError) as exc:
@@ -770,9 +946,14 @@ def _check_profile_file(directory,name,publication):
 
 def _publish_profile_file(directory,name,value,publication):
     """Retain the new file's creation handle before publishing its first link."""
-    if Path(name).name!=name or name in ('','.','..'):raise ValueError('one profile filename required')
     raw=(json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False)+'\n').encode()
-    if len(raw)>8*1024**2:raise ValueError('bounded validation profile required')
+    _publish_bytes_file(directory,name,raw,publication)
+
+
+def _publish_bytes_file(directory,name,raw,publication):
+    """Creation-owned, bounded, fsynced first link; no replacement of public files."""
+    if Path(name).name!=name or name in ('','.','..'):raise ValueError('one publication filename required')
+    if type(raw) is not bytes or len(raw)>8*1024**2:raise ValueError('bounded report/profile bytes required')
     directory.check(len(raw)+4096)
     temp='.'+name+'.'+uuid.uuid4().hex+'.incomplete'
     fd=os.open(temp,os.O_RDWR|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW|os.O_CLOEXEC,0o600,dir_fd=directory.fd)
@@ -881,7 +1062,7 @@ def _finish_prediction_publication(prepared,output,identity,result,owned,rescue,
         owned.close()
         prepared.guard.check();rescue.check()
         if _report_sources()!=identity['sources']:raise ValueError('prediction sources changed before publication')
-        _,_,observed=_read_prediction_pass(output,role='val');_merge_guard(prepared.guard,observed)
+        _,_,observed=_read_prediction_pass(output,role=identity['policy']['role']);_merge_guard(prepared.guard,observed)
         rescue.close()
         prepared.guard.check();backup.check()
         if _report_sources()!=identity['sources']:raise ValueError('prediction sources changed during final close')
@@ -892,20 +1073,52 @@ def _finish_prediction_publication(prepared,output,identity,result,owned,rescue,
 
 def run_validation_prediction(run,*,output,reference=None,device='cuda:0'):
     """Full validation only, after actual formal termination; never evaluates test."""
-    if device!='cuda:0':raise ValueError('validation calibration requires actual CUDA cuda:0')
+    return _run_prediction(run,output=output,reference=reference,device=device,role='val')
+
+
+def run_test_prediction(run,*,evaluation_profile,output,reference=None,device='cuda:0'):
+    """Fresh original-forward test pass, only after the bound original native test."""
+    if device!='cuda:0':raise ValueError('test prediction requires actual CUDA cuda:0')
+    admitted=_test_prediction_binding(run,evaluation_profile)
+    return _run_prediction(run,output=output,reference=reference,device=device,role='test',admitted=admitted)
+
+
+def recompute_selected_best(run,*,device,output,evaluation_profile,reference):
+    if not isinstance(reference,(str,os.PathLike)):raise ValueError('actual independent test prediction reference path required')
+    return run_test_prediction(run,evaluation_profile=evaluation_profile,output=output,reference=reference,device=device)
+
+
+def _run_prediction(run,*,output,reference,device,role,admitted=None):
+    if device!='cuda:0' or role not in ('val','test') or (role=='test')!=(admitted is not None):
+        raise ValueError('canonical CUDA validation or native-bound test required')
     e=_evaluation();output=e._sidecar_output(run,output)
-    original=_read_prediction_pass(reference,role='val') if reference is not None else None
+    original=_read_prediction_pass(reference,role=role,expected_kind='reference') if reference is not None else None
+    immutable=[e.artifacts._safe(run)]
+    if reference is not None:immutable.append(e.artifacts._safe(reference))
+    if admitted is not None:immutable.extend(admitted['immutable'])
+    if any(output==parent or parent in output.parents for parent in immutable):
+        raise ValueError('prediction output must be separate from immutable source/reference/native/calibration directories')
     prepared=e.prepare_selected_best_evaluation(run,device=device)
-    identity=_prediction_identity(prepared,'val');torch=e.storage._runtime()
+    identity=_prediction_identity(prepared,role);torch=e.storage._runtime()
     if (not torch.cuda.is_available() or type(prepared.precision).__name__!='MixedPrecision' or
         not prepared.precision.scaler.is_enabled()):raise ValueError('genuine canonical CUDA MixedPrecision required')
-    if original is not None and original[0]!=identity:raise ValueError('validation replay source/selection/runtime differs')
+    if original is not None and original[0]!=identity:raise ValueError('prediction replay source/selection/runtime differs')
     if original is not None:_merge_guard(prepared.guard,original[2])
-    policy=identity['policy'];windows=[w for w in prepared.partitions['windows'] if w['role']=='val']
-    dataset=prepared.datasets['val'];subjects={w['episode']:str(dataset.store.episodes[w['episode']]['subject']) for w in windows}
-    ledger=ReportInputLedger(windows,variant=policy['variant'],batch_size=policy['batch_size'],role='val',subjects=subjects)
-    if len(dataset)!=1576 or ledger.samples!=1576:raise ValueError('complete1576-hand validation required')
-    used=e.formal._Dataset(dataset,prepared,1576)
+    policy=identity['policy'];kind='replay' if original is not None else 'reference'
+    process=e.cuda._process_identity('classic-'+role+'-'+kind)
+    if original is not None and _process_key(original[1]['process'])==_process_key(process):
+        raise ValueError('prediction replay requires a fresh process')
+    if admitted is not None:
+        _merge_guard(prepared.guard,admitted['guard'])
+        if (e.artifacts.json_hash(policy)!=e.artifacts.json_hash(admitted['manifest']['test_policy']) or
+            _process_key(process) in (_process_key(admitted['manifest']['parent']),_process_key(admitted['native']['process'])) or
+            (original is not None and e.artifacts.json_hash(original[1]['evaluation_profile'])!=e.artifacts.json_hash(admitted['binding']))):
+            raise ValueError('test prediction profile/policy/native process differs')
+    windows=[w for w in prepared.partitions['windows'] if w['role']==role]
+    dataset=prepared.datasets[role];subjects={w['episode']:str(dataset.store.episodes[w['episode']]['subject']) for w in windows}
+    ledger=ReportInputLedger(windows,variant=policy['variant'],batch_size=policy['batch_size'],role=role,subjects=subjects)
+    if len(dataset)!=policy['samples'] or ledger.samples!=policy['samples']:raise ValueError('complete canonical prediction cohort required')
+    used=e.formal._Dataset(dataset,prepared,policy['samples'])
     loader=torch.utils.data.DataLoader(used,batch_size=policy['batch_size'],num_workers=0,shuffle=False,
         drop_last=False,generator=torch.Generator().manual_seed(policy['loader_seed']))
     owned=rescue=backup=None;created_identity=None;publications={}
@@ -917,12 +1130,16 @@ def run_validation_prediction(run,*,output,reference=None,device='cuda:0'):
         e.artifacts._write_json(owned,'identity.json',identity)
         e.artifacts._write_json(owned,'progress.json',dict(state='running',scope=PASS_FORMAT,scientific_eligible=False))
         result=_consume_prediction_batches(prepared,loader,ledger,device=device)
-        process=e.cuda._process_identity('classic-val-replay' if original is not None else 'classic-val-reference')
+        if admitted is not None:
+            compare_native_prediction(admitted['native']['coverage'],result['coverage'],variant=policy['variant'])
+            validate_test_statistics(result['statistics'],variant=policy['variant'])
+            result['evaluation_profile']=admitted['binding']
         if original is not None:
-            if _process_key(original[1]['process'])==_process_key(process):raise ValueError('validation replay requires a fresh process')
             compare_prediction_replay(original[1]['coverage'],result['coverage'])
+            if role=='test' and e.artifacts.json_hash(original[1]['statistics'])!=e.artifacts.json_hash(result['statistics']):
+                raise ValueError('independent exact-prediction report statistics differ')
         result.update(format=PASS_FORMAT,scope=policy['scope'],scientific_eligible=False,production_ready=False,
-            identity_sha256=identity['sha256'],process=process,pass_kind='replay' if original is not None else 'reference',
+            identity_sha256=identity['sha256'],process=process,pass_kind=kind,
             reference=dict(directory=str(e.artifacts._safe(reference)),result_sha256=e.file_sha256(Path(reference)/'result.json')) if original is not None else None)
         _finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup,publications)
         owned=rescue=None
@@ -1056,9 +1273,248 @@ def run_native_test(run,*,validation_profile,output,launch_output,device='cuda:0
                 _discard_publications(publications);_discard_directory(backup)
 
 
+def _public_hash(value):
+    return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+
+
+def _completed_training(context,training):
+    """Project counters from the already verified terminal LAST, never selected-best or result claims."""
+    prefix=context['last']['formal']['journal_prefix'];selection=context['selection']
+    expected=dict(completed_epochs=prefix['epochs'],attempts=prefix['attempts'],optimizer_executions=prefix['executions'],
+        natural_overflows=prefix['skips'],stop_reason=selection['stop_reason'],interrupted=False,
+        selection_scope='terminated-full-validation-loss',
+        runtime_profile=context['manifest']['state_identity']['runtime']['runtime_profile'],
+        trajectory_agreement_qualified=False,bitwise_trajectory_guaranteed=False)
+    if (type(training) is not dict or prefix['epochs']!=context['last']['formal']['completed_epochs'] or
+        prefix['epochs']!=selection['completed_epochs'] or
+        _public_hash({k:training.get(k) for k in expected})!=_public_hash(expected)):
+        raise ValueError('training counters, stop or runtime claims differ from verified terminal checkpoint/policy')
+    return expected
+
+
+def _public_completed_record(*,identity,prediction,manifest,training,native,subjects,data_summary,binding,recompute_result_sha256):
+    """Projection of already admitted evidence; this formatter does not qualify a GPU run."""
+    variant=identity['policy']['variant'];validate_test_statistics(prediction['statistics'],variant=variant)
+    roster=sorted(set(subjects))
+    if not roster or any(type(x) is not str or not x for x in roster):raise ValueError('private full-source subject roster required')
+    aliases={name:f'participant_{i+1:03d}' for i,name in enumerate(roster)}
+    statistics={key:copy.deepcopy(prediction['statistics'][key]) for key in ('samples','alignment','trajectory','center')}
+    users=set(statistics['trajectory']['by_user'])
+    if (not users<=set(aliases) or set(statistics['center']['by_user'])!=users or
+        data_summary['source_subject_count']!=len(roster) or data_summary['test_subject_count']!=len(users)):
+        raise ValueError('report users differ from full frozen metadata roster')
+    for mode in ('trajectory','center'):
+        statistics[mode]['by_user']={aliases[name]:record for name,record in statistics[mode]['by_user'].items()}
+    metrics=native['metrics']
+    if (type(metrics) is not dict or 'test_loss' not in metrics or not set(metrics)<=PUBLIC_NATIVE_METRICS or
+        any(type(v) is not float or not math.isfinite(v) for v in metrics.values())):
+        raise ValueError('public native metrics must use known original numeric names')
+    state=manifest['state_identity'];recipe=state['recipe'];runtime=identity['runtime'];coverage=prediction['coverage']
+    recipe_keys=('variant','upstream_experiment','window_length','train_stride','eval_stride','val_fraction','seed','jitter',
+        'batch_size','num_workers','max_epochs','lr','weight_decay','eta_min','gradient_clip','precision','monitor','monitor_mode',
+        'early_stopping_patience','augmentation','reader_field_selection','layout','normalization','mask_policy',
+        'raw_loss_weights','effective_loss_weights')
+    effective_keys=('precision','batch_size','global_batch_size','world_size','rank','num_workers','train_shuffle','seed',
+        'log_every_n_steps','max_epochs','clip_value')
+    # The pinned original VEMG/Neuro recipes both declare devices[0..5].
+    # Recipe/effective fields have an exact contract in the verified checkpoint;
+    # manifest adaptations alone were previously only self-hashed.
+    adaptations=dict(declared_devices=[0,1,2,3,4,5],effective_devices=[0],world_size=state['effective']['world_size'],
+        declared_per_rank_batch=recipe['batch_size'],effective_per_rank_batch=state['effective']['batch_size'],
+        effective_global_batch=state['effective']['global_batch_size'],declared_num_workers=recipe['num_workers'],
+        effective_num_workers=state['effective']['num_workers'])
+    if (type(manifest['adaptations']) is not dict or
+        _public_hash({k:manifest['adaptations'].get(k) for k in adaptations})!=_public_hash(adaptations)):
+        raise ValueError('public adaptations differ from pinned declared and verified effective policy')
+    runtime_keys=('runtime_profile','python','torch_build','cuda_build','cudnn','driver_version','device_name','capability',
+        'total_memory','deterministic','cudnn_benchmark','cudnn_deterministic','matmul_precision','allow_tf32_matmul',
+        'allow_tf32_cudnn','precision_plugin','scaler_enabled')
+    versions=('torch','torchvision','numpy','scipy','hydra-core','omegaconf','pytorch-lightning','torchmetrics',
+        'lightning-utilities','pandas','joblib')
+    public_runtime={k:copy.deepcopy(runtime[k]) for k in runtime_keys if k in runtime}
+    public_runtime['versions']={k:runtime['versions'][k] for k in versions if k in runtime['versions']}
+    public_runtime['identity_sha256']=_public_hash(runtime)
+    selection_keys=('stop_reason','completed_epochs','best_epoch','best_val_loss','selected_state_sha256',
+        'selected_model_sha256','selected_event_sha256','last_checkpoint_sha256')
+    training_keys=('completed_epochs','attempts','optimizer_executions','natural_overflows','stop_reason','interrupted','selection_scope',
+        'runtime_profile','trajectory_agreement_qualified','bitwise_trajectory_guaranteed')
+    sources=identity['sources']
+    if any(Path(k).is_absolute() or '..' in Path(k).parts for k in sources):raise ValueError('repository-relative public source names required')
+    record=dict(format=COMPLETED_FORMAT,scope='one_original_classic_experiment_on_released_legacy_data',
+        scientific_eligible=True,production_ready=False,full_paper_complete=False,completion_requires_owned_capsule=True,
+        variant=variant,selection={k:copy.deepcopy(identity['selection'][k]) for k in selection_keys},
+        training={k:copy.deepcopy(training[k]) for k in training_keys},
+        protocol=dict(recipe={k:copy.deepcopy(recipe[k]) for k in recipe_keys if k in recipe},
+            effective={k:copy.deepcopy(state['effective'][k]) for k in effective_keys},
+            adaptations=adaptations,
+            test=copy.deepcopy(identity['policy']),validation_prediction_passes=2,test_traversals=3,
+            selected_epoch_indexing='zero-based original checkpoint epoch',prediction_agreement=AGREEMENT),
+        data=dict(copy.deepcopy(data_summary),hand_samples=copy.deepcopy(state['counts']),
+            participant_labels='sorted unique full-source subject keys; mapping private; natural-person uniqueness not proven'),
+        statistics=statistics,native_metrics=dict(values=copy.deepcopy(metrics),aggregation='unchanged original batch-weighted Trainer.test',
+            angular_units='radians',landmark_units='original upstream coordinate units; not converted',
+            derivative_units='original upstream sample-rate scaling; not reinterpreted'),
+        runtime=public_runtime,sources_sha256=copy.deepcopy(sources),
+        evidence=dict(training_manifest_sha256=identity['training_manifest_sha256'],training_result_sha256=identity['training_result_sha256'],
+            test_prediction_identity_sha256=identity['sha256'],native_launch_manifest_sha256=binding['manifest_sha256'],
+            native_launch_result_sha256=binding['result_sha256'],native_test_result_sha256=binding['native_result_sha256'],
+            reference_result_sha256=prediction['reference']['result_sha256'],recompute_result_sha256=recompute_result_sha256,
+            cohort_bindings={k:identity['cohort_bindings'][k] for k in ('cohort_receipt_sha256','data_sha256','partition_sha256',
+                'normalization_sha256','numeric_qualification_artifact_sha256')},
+            aggregate_test_fingerprints={k:copy.deepcopy(coverage[k]) for k in ('samples','batch_sizes','coverage_sha256',
+                *(name+'_sha256' for name in ReportInputLedger.CHAINS))}),
+        limitations=['Released legacy data/labels are not proven equivalent to PDF/current full release.',
+            'Single rank and workers0 do not reproduce the original six-rank global batch or NeuroPose BatchNorm.',
+            'Generated 2D label validity applies to all22 angles; raw marker/label regeneration is separate unfinished work.',
+            'One seed42; no multi-seed or universal deterministic training trajectory claim.',
+            'Exact prediction replay is observed under the frozen validation profile and this test pair only.',
+            'Original FK remains batch dependent; native canonical batch is preserved.',
+            'Subject overlap is counted from actual frozen windows; released condition names do not establish unseen-subject independence.'])
+    record['sha256']=_public_hash(record)
+    return record
+
+
+def _completed_evidence(run,recompute):
+    if any(not isinstance(p,(str,os.PathLike)) for p in (run,recompute)):
+        raise ValueError('real terminated run and independent test recomputation artifact paths required')
+    e=_evaluation();run=e.artifacts._safe(run);recompute=e.artifacts._safe(recompute)
+    identity,prediction,guard=_read_prediction_pass(recompute,role='test',expected_kind='replay')
+    if run!=e.artifacts._safe(identity['run']):raise ValueError('completed report run differs from actual test recomputation')
+    admitted=_test_prediction_binding(run,prediction['evaluation_profile']['directory']);_merge_guard(guard,admitted['guard'])
+    context=_terminated_context(run);_merge_guard(guard,context['guard'])
+    manifest=context['manifest'];training=_completed_training(context,e.formal._json(run/'result.json'))
+    data=e.artifacts._safe(manifest['provenance']['data'])
+    guard.add(data/'manifest.json');guard.add(data/'metadata.npz')
+    store=e.cuda.datasets.LegacyStore(data);subjects=sorted({str(item['subject']) for item in store.episodes})
+    train=set();tests={name:set() for name in ('user','gesture','both')}
+    for window in context['partitions']['windows']:
+        subject=str(store.episodes[window['episode']]['subject'])
+        if window['role']=='train':train.add(subject)
+        elif window['role']=='test':tests[window['split']].add(subject)
+    expected=set().union(*tests.values())
+    if (set(prediction['statistics']['trajectory']['by_user'])!=expected or
+        set(prediction['statistics']['center']['by_user'])!=expected):raise ValueError('actual test subject roster differs from report')
+    summary=dict(source_subject_count=len(subjects),test_subject_count=len(expected),
+        train_test_subject_overlap={name:len(users&train) for name,users in tests.items()})
+    report=_public_completed_record(identity=identity,prediction=prediction,manifest=manifest,training=training,
+        native=admitted['native'],subjects=subjects,data_summary=summary,binding=admitted['binding'],
+        recompute_result_sha256=e.file_sha256(recompute/'result.json'))
+    immutable=[*admitted['immutable'],recompute,e.artifacts._safe(prediction['reference']['directory'])]
+    guard.check()
+    return report,guard,immutable
+
+
+def build_classic_completed(run,recompute):
+    """Rebuild the public mapping; only a separate owned capsule commits publication."""
+    report,guard,_=_completed_evidence(run,recompute);guard.check();return report
+
+
+def render_classic_completed(report):
+    lines=['# Classic selected-best experiment',
+        '',f"Variant: **{report['variant']}**. This is one legacy-release experiment; the full paper remains incomplete.",
+        '',f"Report SHA256: `{report['sha256']}`. Completion requires its bound `completion.json`.",
+        '',f"Selection: original val_loss/min; epoch {report['selection']['best_epoch']} (zero-based); "
+        f"{report['training']['completed_epochs']} completed epochs, {report['training']['optimizer_executions']} optimizer executions, "
+        f"{report['training']['natural_overflows']} overflow skips.",
+        '', 'Angular sums are radians; MAE is degrees. Aggregate sums/counts before division. Native metrics retain their own original aggregation.',
+        '', '| Mode / group | Error sum (rad) | Valid angles | MAE (degrees) |','| --- | ---: | ---: | ---: |']
+    def row(label,value):
+        mean='n/a' if value['mae_deg'] is None else f"{value['mae_deg']:.9f}"
+        lines.append(f"| {label} | {value['absolute_error_sum_rad']:.12g} | {value['valid_angle_count']} | {mean} |")
+    for mode in ('trajectory','center'):
+        statistics=report['statistics'][mode];row(mode+' / overall',statistics['overall'])
+        for grouping in ('by_hand','by_split','by_component','by_finger','by_pd_group','by_user'):
+            for name,value in statistics[grouping].items():row(mode+' / '+grouping+' / '+name,value)
+        for value in statistics['by_joint']:row(mode+' / '+value['name'],value)
+    lines.extend(['','Native original metrics (unchanged units; FK batch dependent):','','| Metric | Value |','| --- | ---: |'])
+    for name,value in sorted(report['native_metrics']['values'].items()):lines.append(f'| {name} | {value:.12g} |')
+    lines.extend(['','Limitations:','',*('- '+item for item in report['limitations']),
+        '', 'Complete public aggregate evidence (unrounded JSON; same content as metrics.json):',
+        '', '```json',json.dumps(report,sort_keys=True,indent=2,allow_nan=False),'```',''])
+    return '\n'.join(lines)
+
+
+def _completion_record(output,report):
+    e=_evaluation()
+    return dict(format=CAPSULE_FORMAT,scope=report['scope'],scientific_eligible=True,production_ready=False,
+        full_paper_complete=False,report_sha256=report['sha256'],metrics_json_sha256=e.file_sha256(output/'metrics.json'),
+        metrics_md_sha256=e.file_sha256(output/'metrics.md'),selected_state_sha256=report['selection']['selected_state_sha256'],
+        recompute_result_sha256=report['evidence']['recompute_result_sha256'])
+
+
+def verify_classic_completed(run,recompute,output):
+    if not isinstance(output,(str,os.PathLike)):raise ValueError('actual completed publication directory required')
+    report,guard,_=_completed_evidence(run,recompute);e=_evaluation();output=e.artifacts._safe(output)
+    observed=e.cohort._StatGuard([output/name for name in ('metrics.json','metrics.md','completion.json')]);_merge_guard(guard,observed)
+    if (e.artifacts.json_hash(e.formal._json(output/'metrics.json'))!=e.artifacts.json_hash(report) or
+        (output/'metrics.md').read_bytes()!=render_classic_completed(report).encode() or
+        e.artifacts.json_hash(e.formal._json(output/'completion.json'))!=e.artifacts.json_hash(_completion_record(output,report))):
+        raise ValueError('public report/Markdown/completion differs from actual reopened evidence')
+    guard.check();return report,guard
+
+
+def _finish_completed_publication(run,recompute,output,report,guard,owned,rescue,backup,publications):
+    """Filesystem commit only; the outer builder admits the genuine scientific evidence."""
+    e=_evaluation()
+    try:
+        guard.check();owned.check()
+        _publish_profile_file(owned,'metrics.json',report,publications.setdefault('metrics.json',{}))
+        _publish_bytes_file(owned,'metrics.md',render_classic_completed(report).encode(),publications.setdefault('metrics.md',{}))
+        rebuilt,other,_=_completed_evidence(run,recompute);_merge_guard(guard,other)
+        if (e.artifacts.json_hash(rebuilt)!=e.artifacts.json_hash(report) or
+            e.artifacts.json_hash(e.formal._json(output/'metrics.json'))!=e.artifacts.json_hash(report) or
+            (output/'metrics.md').read_bytes()!=render_classic_completed(report).encode()):
+            raise ValueError('public report readback or independent rebuild differs')
+        guard.add(output/'metrics.json');guard.add(output/'metrics.md')
+        owned.close();guard.check();rescue.check()
+        rescue.close();guard.check();backup.check()
+        # Both fallible semantic directory closes and the full evidence rebuild
+        # precede the final capsule. Last raw FD disposal is nonthrowing cleanup.
+        capsule=_completion_record(output,report)
+        _publish_profile_file(backup,'completion.json',capsule,publications.setdefault('completion.json',{}))
+        if e.artifacts.json_hash(e.formal._json(output/'completion.json'))!=e.artifacts.json_hash(capsule):
+            raise ValueError('completion capsule readback differs')
+        guard.add(output/'completion.json');guard.check();backup.check()
+        for name,publication in publications.items():_check_profile_file(backup,name,publication)
+        return report
+    except BaseException as exc:
+        _revoke_prediction_status(output,backup,owned.owner.identity,exc,publications,scope=COMPLETED_FORMAT);raise
+
+
+def publish_classic_completed(run,recompute,*,output):
+    """Publish sanitized JSON/Markdown, then its owned completion capsule last."""
+    report,guard,immutable=_completed_evidence(run,recompute);e=_evaluation();output=e._sidecar_output(run,output)
+    if any(output==parent or parent in output.parents for parent in immutable):
+        raise ValueError('public report must be separate from immutable training/calibration/test sidecars')
+    owned=rescue=backup=None;created=None;publications={}
+    try:
+        owned=e.artifacts._Directory(output,create=True);created=owned.owner.identity
+        rescue=e.artifacts._Directory(output,create=False)
+        if rescue.owner.identity!=created:raise ValueError('public report output acquisition changed')
+        backup=_retain_directory(rescue)
+        value=_finish_completed_publication(run,recompute,output,report,guard,owned,rescue,backup,publications)
+        owned=rescue=None;return value
+    except BaseException as exc:
+        _revoke_prediction_status(output,backup or rescue,created,exc,publications,scope=COMPLETED_FORMAT);raise
+    finally:
+        try:
+            if owned is not None:owned.close()
+        except BaseException as exc:
+            _revoke_prediction_status(output,backup or rescue,created,exc,publications,scope=COMPLETED_FORMAT);raise
+        finally:
+            try:
+                if rescue is not None:rescue.close()
+            except BaseException as exc:
+                _revoke_prediction_status(output,backup or rescue,created,exc,publications,scope=COMPLETED_FORMAT);raise
+            finally:
+                _discard_publications(publications);_discard_directory(backup)
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     commands=parser.add_subparsers(dest='command',required=True)
+    status=commands.add_parser('status',help='read a bounded progress journal without constructing a model or claiming completion')
+    status.add_argument('--run',type=Path,required=True)
     validation=commands.add_parser('validation-pass',help='one complete selected-best validation prediction pass')
     validation.add_argument('--run',type=Path,required=True);validation.add_argument('--output',type=Path,required=True)
     validation.add_argument('--reference',type=Path);validation.add_argument('--device',default='cuda:0')
@@ -1073,10 +1529,23 @@ def main(argv=None):
     native.add_argument('--device',default='cuda:0')
     verify_native=commands.add_parser('verify-native-test',help='reopen the completed parent/child/profile/native evidence chain')
     verify_native.add_argument('--launch-output',type=Path,required=True)
+    test_pass=commands.add_parser('test-pass',help='one full original-forward test prediction pass after bound native testing')
+    test_pass.add_argument('--run',type=Path,required=True);test_pass.add_argument('--evaluation-profile',type=Path,required=True)
+    test_pass.add_argument('--output',type=Path,required=True);test_pass.add_argument('--reference',type=Path)
+    test_pass.add_argument('--device',default='cuda:0')
+    verify_test=commands.add_parser('verify-test-pass',help='reopen a test prediction pass and its complete native/reference chain')
+    verify_test.add_argument('--output',type=Path,required=True)
+    publish=commands.add_parser('publish-completed',help='reopen all evidence and publish sanitized metrics plus completion capsule last')
+    publish.add_argument('--run',type=Path,required=True);publish.add_argument('--recompute',type=Path,required=True)
+    publish.add_argument('--output',type=Path,required=True)
+    verify_completed=commands.add_parser('verify-completed',help='compare public files/capsule with the actual private evidence chain')
+    verify_completed.add_argument('--run',type=Path,required=True);verify_completed.add_argument('--recompute',type=Path,required=True)
+    verify_completed.add_argument('--output',type=Path,required=True)
     child=commands.add_parser('_native-child',help='internal inherited-pipe child; cannot evaluate without parent release')
     child.add_argument('--launch',type=Path,required=True);child.add_argument('--go-fd',type=int,required=True)
     args=parser.parse_args(argv)
-    if args.command=='validation-pass':
+    if args.command=='status':result=build_classic_status(args.run)
+    elif args.command=='validation-pass':
         result=run_validation_prediction(args.run,output=args.output,reference=args.reference,device=args.device)
     elif args.command=='freeze-validation':
         result=freeze_validation_profile(args.reference,args.replay,output=args.output)
@@ -1089,6 +1558,17 @@ def main(argv=None):
     elif args.command=='verify-native-test':
         manifest,_,_,_=verify_native_test_launch(args.launch_output)
         result=dict(format=NATIVE_LAUNCH_FORMAT,sha256=manifest['sha256'],verified=True)
+    elif args.command=='test-pass':
+        result=run_test_prediction(args.run,evaluation_profile=args.evaluation_profile,output=args.output,
+            reference=args.reference,device=args.device)
+    elif args.command=='verify-test-pass':
+        _,value,_=_read_prediction_pass(args.output,role='test')
+        result=dict(format=PASS_FORMAT,verified=True,role='test',pass_kind=value['pass_kind'],
+            samples=value['coverage']['samples'],scientific_eligible=False)
+    elif args.command=='publish-completed':result=publish_classic_completed(args.run,args.recompute,output=args.output)
+    elif args.command=='verify-completed':
+        report,_=verify_classic_completed(args.run,args.recompute,args.output)
+        result=dict(format=COMPLETED_FORMAT,sha256=report['sha256'],verified=True,scientific_eligible=True,full_paper_complete=False)
     else:result=_native_test_child(args.launch,args.go_fd)
     print(json.dumps(result,sort_keys=True,allow_nan=False))
 

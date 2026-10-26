@@ -1,0 +1,102 @@
+{
+  "actual_gpu_validation_profile_created": false,
+  "actual_native_test_executed": false,
+  "actual_server_preparation": {
+    "frozen_source_files_verified": 80,
+    "independent_stage": true,
+    "live_training_source_changed": false,
+    "readonly_api_executed": true,
+    "readonly_cuda_initialized_after": false,
+    "readonly_cuda_initialized_before": false,
+    "readonly_full_validation_events": 38,
+    "readonly_prefix_attempts": 6615,
+    "readonly_prefix_executions": 6613,
+    "readonly_prefix_overflow_skips": 2,
+    "readonly_scope": "observed prefix only; does not establish process liveness or training completion"
+  },
+  "actual_test_prediction_recomputed": false,
+  "base_commit": "82109cdcaeb593fb21121005de76a839a89865b9",
+  "checks": {
+    "all_frozen_source_hashes_match": true,
+    "complete_cpu": {
+      "log_sha256": "7c8568a14bc71bec679a0c8899826e993bfd7aabbf6efa2e5d47702ba04af457",
+      "passed": 1443,
+      "seconds": 284.78,
+      "skipped": 3,
+      "warnings": 106
+    },
+    "optional_runtime_cpu": {
+      "log_sha256": "71d552f4bede57a36c92129ff2f396301b538bd0ccc3a93894249cb0060959f0",
+      "passed": 835,
+      "seconds": 22.74,
+      "skipped": 564,
+      "warnings": 1
+    },
+    "seven_completed_legacy_results_unchanged": true,
+    "targeted": {
+      "log_sha256": "a30d432c0053e0186c3ddabc00cd6f821c843efd0d6f8f2b7ae9ba471255b573",
+      "passed": 303,
+      "seconds": 12.95,
+      "warnings": 2
+    }
+  },
+  "fixture_limitations": "Raw-reader positives explicitly stub termination/checkpoint authorities. Arithmetic, filesystem and process fixtures never qualify a GPU/scientific result.",
+  "format": "classic_complete_report_cpu_evidence_v1",
+  "frozen_source_members": 80,
+  "frozen_source_snapshot_sha256": "c7a6b205321306d00da122fd55ef4f6acf58f31d1ef4d9bc59ed886978c4cbae",
+  "full_paper_complete": false,
+  "hosted_ci_for_this_source": "not observed",
+  "implemented": [
+    "gated full4306-hand prediction reference and process-distinct exact replay",
+    "typed original22D trajectory/center/joint/group statistics with conservation checks",
+    "read-only canonical bounded journal replay without model/CUDA/checkpoint construction",
+    "full-source metadata pseudonyms and actual frozen train/test subject overlap",
+    "raw-bound public JSON and Markdown with creation-owned final completion capsule and independent reopening"
+  ],
+  "observed_utc": "2026-10-26T17:10:47.945834+00:00",
+  "previous_source_hosted_ci": {
+    "commit": "82109cdcaeb593fb21121005de76a839a89865b9",
+    "conclusion": "success",
+    "light_dependency_skips": 501,
+    "light_passed": 806,
+    "official_cuda_skips": 3,
+    "official_passed": 1351,
+    "run": 40356183999
+  },
+  "production_ready": false,
+  "remaining": [
+    "genuine full-training termination and validation-selected best",
+    "two actual full-validation passes and prospective exact profile",
+    "actual profile-bound native test",
+    "actual test prediction reference and independent fresh recomputation",
+    "actual sanitized scientific capsule publication",
+    "all other required full-paper experiments, tables, figures and annotation chain"
+  ],
+  "review": {
+    "findings": [
+      "unchecked training counters/runtime claims and nested adaptation values",
+      "Markdown omitted required public aggregate/protocol/evidence fields"
+    ],
+    "fixes": [
+      "compare typed result claims to verified terminal last journal and runtime policy; project exact declared/effective adaptations",
+      "append complete unrounded sanitized mapping in Markdown; both original alignment variants checked"
+    ],
+    "important_findings": 2,
+    "independent_readonly_review": true,
+    "initial_assessment": "with fixes",
+    "observed_red_failures": 19,
+    "root_fix_passes": 1,
+    "second_review_performed": false
+  },
+  "scientific_completion_published": false,
+  "scientific_eligible": false,
+  "sources_sha256": {
+    "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+    "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "tests/test_classic_emg_report.py": "8ac6b781ad3fda355726032e32dc2039eb85ca7823f12d6e0c9c91ab632202fd"
+  },
+  "status": "cpu_engineering_only"
+}
