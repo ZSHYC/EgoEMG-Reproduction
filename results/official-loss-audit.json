@@ -1,0 +1,290 @@
+{
+  "example_metrics": {
+    "dtype": "torch.float32",
+    "landmark/fingertip": 3.0,
+    "mae": 2.0
+  },
+  "experiments": [
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 200,
+          "verbose": true
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "experiment": "emgformer/egoemg_emgformer_small",
+      "max_epochs": 200,
+      "monitor_metric": "val_mae",
+      "name": "EgoEMG-S",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 200,
+          "verbose": true
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "experiment": "emgformer/egoemg_emgformer_middle",
+      "max_epochs": 200,
+      "monitor_metric": "val_mae",
+      "name": "EgoEMG-M",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 200,
+          "verbose": true
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "experiment": "emgformer/egoemg_emgformer_large",
+      "max_epochs": 200,
+      "monitor_metric": "val_mae",
+      "name": "EgoEMG-L",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 30
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "experiment": "fusion/vision_resnet18",
+      "max_epochs": 150,
+      "monitor_metric": "val_mae",
+      "name": "RN18",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [],
+      "effective_loss_weights": {
+        "delta_reg": 0.0,
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "experiment": "fusion/fusion_rn18_s_center_8ch",
+      "max_epochs": 150,
+      "monitor_metric": "val_mae",
+      "name": "RN18+S",
+      "raw_resolved_loss_weights": {
+        "delta_reg": 0.0,
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 30
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "experiment": "fusion/vision_vit_small",
+      "max_epochs": 150,
+      "monitor_metric": "val_mae",
+      "name": "DINOv2-S",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_loss",
+          "patience": 50,
+          "verbose": true
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1
+      },
+      "experiment": "emg2pose/regression_vemg2pose_egoemg",
+      "max_epochs": 100,
+      "monitor_metric": "val_loss",
+      "name": "vemg2pose",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.059999942779541,
+      "early_stopping": [
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_loss",
+          "patience": 50,
+          "verbose": true
+        }
+      ],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1
+      },
+      "experiment": "emg2pose/regression_neuropose_egoemg",
+      "max_epochs": 100,
+      "monitor_metric": "val_loss",
+      "name": "NeuroPose",
+      "raw_resolved_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.0299999713897705,
+      "early_stopping": [],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      },
+      "experiment": "emgformer/emg2pose_emgformer_small",
+      "max_epochs": 250,
+      "monitor_metric": "val_mae",
+      "name": "EMG2Pose-small",
+      "raw_resolved_loss_weights": {
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.0299999713897705,
+      "early_stopping": [],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      },
+      "experiment": "emgformer/emg2pose_emgformer_middle",
+      "max_epochs": 250,
+      "monitor_metric": "val_mae",
+      "name": "EMG2Pose-middle",
+      "raw_resolved_loss_weights": {
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      }
+    },
+    {
+      "actual_ast_example_loss": 2.0299999713897705,
+      "early_stopping": [],
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      },
+      "experiment": "emgformer/emg2pose_emgformer_large",
+      "max_epochs": 250,
+      "monitor_metric": "val_mae",
+      "name": "EMG2Pose-large",
+      "raw_resolved_loss_weights": {
+        "landmark/fingertip": 0.01,
+        "mae": 1
+      }
+    }
+  ],
+  "format": "official_resolved_loss_audit_v1",
+  "hydra_version": "1.3.2",
+  "legacy_reproduction": {
+    "config_sha256": {
+      "emgformer_l.json": "ca857e5123fd8c622c018165c4868f4e2503f243d7a9acde4e445efbb6775449",
+      "emgformer_m.json": "2af1ea564a946d814866d09f836727fe655639107bce0194384677a1cb676a6c",
+      "emgformer_s.json": "5bf43671557bac3d0f1be27e49d812de61bd6d5e9d8fa62507507e573cfad6a9",
+      "fusion_rn18_s.json": "e6b2cc78742caae64bac8b4698467bfcf2ebad02d20c20ebe12db399ad5a0a74",
+      "resnet152.json": "dc3fca7b9ce9230683edccfebe24fec0ef0daecc7da4e13dd55ecdcc070ea40f",
+      "resnet18.json": "ad3d43fd4757408f8357cb15769fe314ec1ef41913e03fdc3c1566b5a2ebf33c",
+      "resnet50.json": "36da3c56e2e4041e1ff1c0353b3d2ee5d9617c863d380f4d544b518e7da6bff9",
+      "vit_base.json": "74bca85f5a370f0ce940612b7127b4acdf1b8ef52ad45e8557264629828c728d",
+      "vit_large.json": "db018757d8b3c1c0d18e1b004b1f607840e280bc13ae91828c36ca562045bc2f",
+      "vit_small.json": "7f88f77a487f9dcb24fe5775322611cc53c7171a2ef1b476b31b1de4f5efd582"
+    },
+    "effective_fingertip_weight": 0.01,
+    "equivalent_to_official_resolved_loss": false,
+    "raw_fingertip_weight": 0.01,
+    "source": "egoemg_repro/train.py OfficialLoss + frozen config",
+    "trainer_sha256": "10696073b661823a9bf47ddda26b4c3b27324b00c9b62e3841a670409e872b6a"
+  },
+  "loss_reduction_ast_sha256": "cb135aeb1e67289306926f3d97b477a31623ec4a598c3eec7f39ab8b8f134b50",
+  "method": "Actual Hydra composition and unmodified official alias/reduction AST execution; no model training",
+  "official_lightning_sha256": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+  "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "official_source_identity": {
+    "file_count": 392,
+    "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "scope": "official Python, Hydra YAML and UmeTrack JSON contents",
+    "sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+    "source_policy": "required approved revision; clean egoemg/ and config/ trees"
+  },
+  "reproduction_source_commit": "c7fc1be56219f64fdf0761e1f10ddba99414700b",
+  "scope": "Source-level training objective audit; does not establish what objective trained unseen author checkpoints or paper results"
+}

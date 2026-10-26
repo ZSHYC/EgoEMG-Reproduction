@@ -111,6 +111,8 @@ S/M 前端形状为 `(B,256,T′)`。总时间 stride 为 50，名义步距对�
 
 **损失。** 论文写 L1 角度损失加权重 0.01 的 fingertip-distance；本项目按有效角度 mask 计算**弧度** L1，并调用固定官方 UmeTrack 前向运动学的手指距离项。只把前 20 个手指角传入该 FK，腕角的有效性仍独立参与角度 L1。损失是训练目标，不能把它的数值直接写成角度 MAE。官方距离实现还对时间索引作抽样；这不是每个 2 kHz 时刻都计算几何损失的承诺。来源：[C.1/C.2，pp.21–22](https://arxiv.org/pdf/2605.05712v1#page=21)、[官方 metrics][up-metrics]、[OfficialLoss](../egoemg_repro/train.py)。
 
+**2026-10-26补充核验：** 上述legacy训练器的指尖项实际系数为0.01；固定官方EgoEMG experiment经Hydra合成保留两个指尖别名，Lightning将它们累加为0.02。此前漏核了合成后的这一行为，不能把单份YAML的0.01当成当前官方实际目标。EMG2Pose三项没有该叠加。完整来源、11份合成配置和实际归约见[损失审计](../results/official-loss-audit.md)；作者原checkpoint训练历史仍未据此证明。
+
 | 设置 | 论文 v1 | 本项目已选配方 |
 | --- | --- | --- |
 | EMG 窗口 | 7,790 点；8/16 通道描述冲突 | 12,000 点、目标手 8 通道 |
