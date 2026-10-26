@@ -1,0 +1,31 @@
+{
+  "commit": "e7c20b9916efbdc7ecb4ce1385d311692a17e0bd",
+  "format": "original_vision_actual_hosted_CI_evidence_v1",
+  "full_paper_complete": false,
+  "jobs": [
+    {
+      "conclusion": "success",
+      "decoded_log_sha256": "660dee3f3be7c9969f600c1a9351a553fb574cdcb81dd0970a6b8147dac43cc4",
+      "elapsed_seconds": 873.77,
+      "id": 121885404973,
+      "passed": 1564,
+      "pip_check_passed": true,
+      "skipped": 3,
+      "status": "completed",
+      "warnings": 104
+    },
+    {
+      "conclusion": "success",
+      "decoded_log_sha256": "84d389e3cbd090d116499bb928c230197399bfb931846eb427c3e788ffd62e6d",
+      "dependency_skipped": 679,
+      "elapsed_seconds": 26.8,
+      "id": 121885404955,
+      "passed": 841,
+      "status": "completed",
+      "warnings": 1
+    }
+  ],
+  "run_id": 40412185942,
+  "run_url": "https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40412185942",
+  "scope": "matching e7 CPU implementation checks; not GPU or full model performance"
+}
