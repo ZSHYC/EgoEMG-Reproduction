@@ -4,7 +4,7 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-截至北京时间 2026-10-26 10:00 的实际观察：
+截至北京时间 2026-10-26 10:35 的实际观察：
 
 | 新实验 | 已通过的真实门槛 | 当前阶段 | 冻结运行代码 |
 | --- | --- | --- | --- |
@@ -16,9 +16,13 @@
 
 新[手形统计](../results/dataset-statistics/shape-statistics.md)已从实际左右 beta 重算并独立核验，41 个引用行、82 手，官方 float32/ddof0/range 的 50 个统计重算误差为零。与 PDF Table5 的 50 个显示数比较，48 个按三位小数吻合；beta6 range 和 beta10 mean 两个微差照实保留。官方 range 与论文列名 P95−P5 不同，实际线性分位差另列；箱线图是聚合展示适配，不冒称官方逐 episode 柱状图。
 
-数据获取：额外 beta/校准共 4,646 bytes 已校验；EMG2Pose metadata 已下载并核验大小、25,253 行与分组，mini 获取中，只作工程验证。legacy raw/几何补充传输尚未完成；两个 MANO pose 文件收到明确 Google Drive quota HTML，已由大小门槛拒绝，未计为数据。用户将手动获取当前百度发布，目录与容量说明见[下载指南](download.md)。用户确认手头没有缺失的 markers2mano 包/训练资源；继续查找公开实现与明确缺失规格，不以未训练替身验收。
+数据获取：额外 beta/校准共 4,646 bytes 已校验；EMG2Pose metadata 已下载并核验大小、25,253 行与分组。官方公开 S3 mini 已完整取得，647,198,208 bytes、30 个 HDF5 全为原 val；已核验 tar 与各成员哈希并安全提取，只作工程验证，转换入口正在实现。legacy raw/几何补充传输尚未完成；两个 MANO pose 与相机 transform 收到明确 Google Drive quota HTML，已由大小门槛拒绝，未计为数组数据。用户无法下载百度当前发布，现阶段使用已有数据与公开 S3 推进，不等待该手动步骤，见[下载指南](download.md)。用户确认手头没有缺失的 markers2mano 包/训练资源；继续查找公开实现与明确缺失规格，不以未训练替身验收。
 
-本阶段组合代码的本机完整测试记录为 238 passed、17 个既有依赖警告；RN 和统计实现均有独立复核。该记录不代替当前提交的托管 CI，也不代替三项在训实验的最终测试。
+新增代码已通过用户为该仓库配置的专用 SSH 写入身份正常推送到[全论文分支](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，冻结训练提交保持原始身份，见[发布来源](publication-provenance.md)。推送成功不等于草稿 PR 已创建或托管 CI 已通过；两项均需分别核验。
+
+此前 RN/统计组合记录为238 passed。后续已接入 DINOv2 S/B/L、完成mini数据转换与可恢复xz归档，各任务独立审阅通过；当前源码快照的统一测试为397 passed、1个ViT-L内存准入skip、17个既有警告。该ViT-L用例在独立新进程单独执行通过；不把skip改记为统一运行通过。无Torch的真实轻量环境为350 passed、48个可选运行时skip。首轮公开CI的official-cpu通过、unit-light因未检出官方源码失败45项；已补源码检出和绘图依赖并通过本地轻量复核，修复后托管CI须按新提交另验。
+
+新增mini数据[工程报告](../results/emg2pose-mini-data.md)记录修后独立目录的30文件、4,218,756行、645,469,668字段字节、1,015 valid blocks以及360官方reader窗口位级核验。旧转换来源与新来源分开保留；没有优化模型、没有独立val性能、没有完整EMG2Pose实验。DINOv2当前仅CPU工程检查，真实预训练权重尚未获取；B/L仅实际构造/schema，不能据此预填完整实验成绩。
 
 ## 2026-10-25：四基线历史完成记录
 

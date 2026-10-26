@@ -1,8 +1,22 @@
 # 数据下载与版本管理
 
+## 无需用户下载百度网盘的继续路线
+
+用户无法下载百度网盘，当前不再等待该手动步骤。已有 legacy 数据支持现有实验族，EMGFormer-L、ResNet-50/152 已进入正式训练；对应数据版本与作者当前发布的等价性仍待核验。
+
+EMG2Pose 另有 [Meta 官方公开数据源](https://github.com/facebookresearch/emg2pose)，无需百度账号：
+
+| 资产 | 官方链接 | 已核验字节数 / 当前用途 |
+| --- | --- | --- |
+| 完整原始 tar | [emg2pose_dataset.tar](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset.tar) | 462,824,048,640；完整三模型实验所需，尚未完整获取 |
+| mini tar | [emg2pose_dataset_mini.tar](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset_mini.tar) | 647,198,208；已完整下载、逐成员校验并安全提取，30 个 HDF5 均为原 val，只用于工程验收 |
+| 完整元数据 CSV | [emg2pose_metadata.csv](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_metadata.csv) | 5,674,462；已校验，25,253 个唯一 filename |
+
+mini tar 的本次接收 SHA256 为 `d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d`，这是本次传输身份，不是作者提供的校验和。完整裸包约 431 GiB，不能直接按当前本机空间保存全 tar 与多份转换中间文件；可恢复的分块无损存储与直接转换正在独立实现。尚未宣称全量容量、获取或训练完成。
+
 ## 当前官方百度发布
 
-全文复现还需要当前官方数据和公开 checkpoint；此前下载的 legacy 版本保留，不覆盖或混合。官方 [ASSET_SETUP](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/docs/ASSET_SETUP.md)提供[百度网盘](https://pan.baidu.com/s/1aG2e-mHJkmP4KiYtYRcReA)，提取码 **8059**，根目录 `EgoEMG_release`。
+要核验作者当前数据与发布 checkpoint，需要取得对应版本的资产；此前下载的 legacy 版本保留，不覆盖或混合。官方 [ASSET_SETUP](https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/docs/ASSET_SETUP.md)提供[百度网盘](https://pan.baidu.com/s/1aG2e-mHJkmP4KiYtYRcReA)，提取码 **8059**，根目录 `EgoEMG_release`。以下为该来源可用时的参考步骤，当前不要求用户继续尝试下载。
 
 登录网盘后使用客户端下载，保留整个目录及其 manifest、metadata 和 checksum 文件。按优先顺序获取：
 

@@ -10,7 +10,7 @@
 - **EMGFormer-L 正在完整训练：** 两步真实 GPU 优化、两次各 1,052 样本的完整验证和严格重载已通过，独立 200 epoch 生产训练已启动。它尚无完整训练结束、最终测试、严格结果导出或锁定复算结论；短验收目录与生产目录独立。运行时复现代码为 7b805d4，后续文档提交不能替换该身份。最新进展以[运行状态](run-status.md)为准。
 - **RN50/152 正在完整训练：** 官方类适配、ImageNet 权重获取、真实 crop 两步优化与两次完整验证重载均通过，独立 150 epoch 训练已启动，运行时复现代码为 a357423。固定官方版本缺两份独立 YAML，当前是明确声明的派生 legacy 对照，尚无最终结果。
 - **手形统计与聚合图已生成并独立核验：** [实际统计与分布图](../results/dataset-statistics/shape-statistics.md)覆盖 41 个引用 beta 行/82 手，50 项官方 float32/ddof0/range 重算误差为零。PDF Table5 在三位小数有 48/50 项吻合，两处微差保留；真正 P5/P95 单列。聚合箱线图的展示适配、独立参与者计数限制均明示。校准为 3840×3360，包含 rational_polynomial 与 fisheye 模型，与 PDF 720p 的关系尚待核验。
-- **EMG2Pose metadata 已下载并核验 5,674,462 bytes，mini 正在获取，数据接口尚未验收。** mini 只用于读数、训练、恢复等工程检查；Table 11 / 13 需要完整数据与三个完整训练，不能用 mini 替代。
+- **EMG2Pose metadata 与 mini 已完整取得，数据转换和官方 reader 工程验收已通过。** [脱敏证据](../results/emg2pose-mini-data.md)记录30文件、4,218,756行的全字段/原mask位级复核及360窗口检查；全部仍为原val。尚未进行模型优化或性能评价，Table 11 / 13 仍需完整数据与三个完整训练。用户无法下载百度发布，不以此阻断现有数据与公开 S3 路线。
 
 EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 另有 S/M/L 三项，markers2mano 还需独立训练与质量验证。现有四项只是这份清单中的 legacy 实验子集，不能写成“原表已复现 4/17”。全文还包括数据统计、预处理和标注重生成、派生评价及全部定性图。
 
@@ -48,15 +48,15 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **真实数据工程验证；150 epochs 正式训练中**；ImageNet来源、batch400容量、两步优化及完整验证重载已核验；缺最终测试/审计，独立原始YAML仍未发布 |
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **真实数据工程验证；150 epochs 正式训练中**；ImageNet来源、batch180容量、两步优化及完整验证重载已核验；尚无完整最终结果 |
-| EgoEMG ViT-S/14 | [官方独立配置][vits]、[DINOv2 实现][vit]；随机 CPU 构造已检查 | **工程验证仅限构造；未完整运行**；现有预训练来源记录按 ResNet 写死，须分派并记录实际 DINOv2 载入身份 |
-| EgoEMG ViT-B/14 | 真实 DINOv2 类支持 | **未完整运行**；缺 fusion/vision_vit_base 独立 YAML，不能以 S 配方派生冒充作者已发布原配方 |
-| EgoEMG ViT-L/14 | 真实 DINOv2 类支持 | **未完整运行**；缺 fusion/vision_vit_large 独立 YAML，另需真实显存、优化器状态与检查点容量验收 |
+| EgoEMG ViT-S/14 | [官方独立配置][vits]、[DINOv2 实现][vit]；[本项目配方](../configs/vit_small.json)与严格来源记录/安全导出 | **CPU工程验收、未完整运行**；真实256px前后向、AdamW与严格离线恢复通过；HF/URL运输夹具验证来源分派，不代表真实预训练权重已经下载 |
+| EgoEMG ViT-B/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_base.json)，实际86,182,166总参数 | **CPU构造/schema已核验、未完整运行**；独立作者YAML未发布，真实预训练、GPU容量/反传及完整训练仍未完成 |
+| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **独立CPU进程构造/schema已核验、未完整运行**；独立作者YAML未发布，真实权重、GPU/优化器/检查点容量仍待验收 |
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实 22 角类及 module YAML；无独立 fusion/vision_wilor YAML | **未实现完整接入、外部依赖**；缺固定专用源码/配置/权重/许可与独立角度训练配方。缺权重时官方类可能保留随机主干，构造成功不证明预训练成功；MANO 监督文档不是同一 22 角任务 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16 通道、20 角、独立数据协议 | **未完整运行、外部存储依赖**；metadata 已取、mini 获取中不计该项完成 |
-| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **未完整运行、外部存储依赖**；须完整独立训练/验证/测试 |
-| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **未完整运行、外部存储依赖**；不能用 EgoEMG-L 或 mini 结果填表 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16 通道、20 角、独立数据协议 | **工程接入中、未完整运行**；metadata/mini 已取，全量获取与可核验无损存储尚未完成 |
+| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **工程接入中、未完整运行**；须完整独立训练/验证/测试 |
+| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **工程接入中、未完整运行**；不能用 EgoEMG-L 或 mini 结果填表 |
 
 classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实现检查：现有复现训练器只为 bfloat16 启用 autocast，裁剪值直接设 0 会清零非零梯度，不能照搬数值宣称忠实训练。两类模型 tuple 已对齐，不能重复裁剪。RN50/152、ViT-B/L/WiLoR 缺独立 YAML 是固定提交内的已核验发布缺口，不是模型类不存在；新增派生配方必须明确其来源和差异。[官方配置说明][config-readme]也将配置定位为研究记录。
 
@@ -74,7 +74,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **RN18 部分已核验；其余配方/初始化未闭合**；上表及[模型源码][resnet] | 每种实际 resolved 配置、256 输入/patch 策略、回归头、冻结状态、权重身份及参数量；PDF 超参和缺失独立 YAML 必须分栏 |
 | Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M 细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
 | Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M 中心结果已核验（legacy）**，E1/E2/E3；L 尚无最终结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
-| Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；公开数据来源见下节，mini 获取中 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
+| Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；公开数据来源见下节，完整 mini 仅用于工程接入 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
 | Table 12，D.4 p.24 | EgoEMG S/M/L 的 10 个逐指/关节组派生误差 | **未生成**；E5 只有整体 fingers/wrist；[官方分组][constants]存在 | 累积逐角误差和/分母后生成重叠的 proximal/mid/distal、五指、腕 FE/RU 组，按主轨迹协议聚合；现有汇总不能逆推出这 10 组 |
 | Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **未实现，依赖 Table 11** | 三个完整模型与标准三 split 的逐角计数、同官方组映射；无需为该表再训练三遍 |
 | Table 14，D.5 p.25 | RN18、S、RN18+S 在 59 类的 3 族群同中心比较 | **已有三个 checkpoint 与匹配人口，分析未实现**，E1/E2；[评价][gesture-eval]与[聚合][gesture-paper]源码存在 | 逐样本键、gesture/active/split/hand/crop/mask、三误差及 raw 排除记录；本项目 2,792 中心不能冒称原表 4,278 样本 |
@@ -136,7 +136,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | raw 与 markers | 官方 legacy 公共目录已定位；双手 raw 约 4.234GB，双手 marker+valid 约 36.124GB | 本次清单未确认这些大数组已下载；需实际 receipt/hash/读取，不能以 HEAD 成功代替 |
 | 遮挡几何 | 必要 pose、world/camera 变换、tracked、marker-valid、β 约 37.778GB，再加校准与尺寸证据 | 未获取完整必要字段；需合法 MANO 模型和 legacy webcam→current head 字段映射，不能静默 β=0 或尺寸 fallback |
 | current v3 | [ASSET_SETUP][asset-setup]写当前百度路径与 preview/checksums；[LICENSE][official-license]仍写完整 current release 未发布 | 当前目录实物、完整 manifest/checksums 与 v1 队列未闭合。官方 CLI 路线需百度登录，不将“链接可打开”写成“全量已匿名下载” |
-| EMG2Pose | [Meta 官方数据与代码][emg2pose]给匿名 S3；完整包 462,824,048,640 bytes（约431GiB），mini 约647MB、metadata 约5.67MB；metadata 已取并核验大小，mini 获取中 | 完整数据尚未取得。官方 HDF5→Zarr→memmap 路线最终 memmap 约465GB，保留 tar/HDF5/中间文件可需约1–1.5TB 工作空间；完整训练需新增存储或可核验无损方案 |
+| EMG2Pose | [Meta 官方数据与代码][emg2pose]给匿名 S3；完整包 462,824,048,640 bytes（约431GiB），metadata 与30文件 mini 已完整取得并校验 | 完整数据尚未取得。[直接转换](../egoemg_repro/emg2pose_data.py)已通过mini全字段验收；[分块xz归档](../egoemg_repro/emg2pose_archive.py)已验证中断恢复/完整性与唯一16MiB真实首块，仍明确incomplete；该块压缩比0.70702不保证全量容量。不能同时保存全tar/H5/Zarr/memmap |
 | EMG2Pose 发布权重 | Meta 参考权重对应其 classic 模型；EgoEMG 作者 EMGFormer 权重是另一资产 | 当前代码 val/test 已修复不追溯清洗旧选模史；不得以旧 released checkpoint 或 mini 替代三个新完整实验 |
 | MANO | 限定项目范围查找已发现左右 MANO 模型文件；[官方许可][mano]与具体格式兼容性尚待核验；安装 smplx 不等于完成资产验收 | 不能继续称模型完全不存在或必须重新下载；须核验现有文件的格式、版本、许可与 WiLoR/标注/遮挡接口，不再分发模型或公开私有位置 |
 | markers2mano | [推理/模型加载入口][m2m]与[质量评价入口][m2m-eval]已发布，.gitignore 排除 markers2mano；默认 checkpoint 为作者私有运行 | 缺模型包、11 源训练预处理/采样清单、训练入口/配置/增强、train/val 来源划分、v51 权重公开来源。MANO→UmeTrack mapper 训练不能补这个缺口 |
