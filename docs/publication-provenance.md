@@ -1,6 +1,6 @@
 # 全论文扩展的发布来源
 
-截至 **2026-10-26 02:33 UTC**，本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。推送保留了原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`。源码发布不等同于托管 CI 通过或全论文复现完成；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
+本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。截至 **2026-10-26 03:30 UTC** 已正常快进至 `2a779dfccb0efec952c28c014d23c8aedc325826`，该提交的实际 CI 成绩见下文。推送保留原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
 
 ## 已冻结的来源
 
@@ -23,6 +23,8 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 - 用户随后为本仓库添加带写权限的专用 deploy key。验证其公开指纹后，仅使用这把 key、禁用 SSH agent 并保留严格主机校验，正常推送成功。
 - 推送前远端扩展分支不存在，成功创建后指向精确的本地 `7295891`；`main` 未改变。没有强制推送，也没有把其他未提交的模型开发内容加入发布。
 - PR 创建与托管 CI 成绩须分别读取 GitHub 的实际状态，不能由 SSH 推送成功推断。
+- 后续正常快进已公开至 `2a779dfccb0efec952c28c014d23c8aedc325826`。对应[Actions运行40264031015](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40264031015)实读为 success：官方CPU job 398 passed、无skip，轻量job 350 passed/48可选运行时skip，shell语法检查均通过。之前失败保留为历史；该成绩不延伸为其他提交或完整实验成绩。
+- GitHub连接创建PR的请求仍返回403，SSH deploy key的Git推送权限不等同于PR API权限；当前代码已公开，尚无PR。
 
 ## 后续更新验收
 

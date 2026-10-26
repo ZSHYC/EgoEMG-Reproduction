@@ -4,7 +4,7 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-截至北京时间 2026-10-26 10:35 的实际观察：
+截至北京时间 2026-10-26 11:30 的实际观察：
 
 | 新实验 | 已通过的真实门槛 | 当前阶段 | 冻结运行代码 |
 | --- | --- | --- | --- |
@@ -14,15 +14,21 @@
 
 三项使用独立目录与不同 A800；均保留原四基线的 legacy 队列作为这一实验族。RN50/152 的独立作者 YAML 未随固定代码发布，本项目显式组合官方 RN18 experiment 并覆盖 backbone；批量来自 PDF Table8，其余优化/数据配方继承已声明的官方 RN18 和 legacy 适配，不能称作者完整原始配方。每个单次控制流程只有短验收通过后才开启正式训练，正式训练结束后才导出并做一次锁定中心审计；当前不能预先将这些后续阶段算完成。
 
+本次读取三项生产进度分别处于零起始 epoch 41/200、43/150、22/150，训练子进程均仍存活；这是当时的进度快照，不是结束或最终成绩。
+
 新[手形统计](../results/dataset-statistics/shape-statistics.md)已从实际左右 beta 重算并独立核验，41 个引用行、82 手，官方 float32/ddof0/range 的 50 个统计重算误差为零。与 PDF Table5 的 50 个显示数比较，48 个按三位小数吻合；beta6 range 和 beta10 mean 两个微差照实保留。官方 range 与论文列名 P95−P5 不同，实际线性分位差另列；箱线图是聚合展示适配，不冒称官方逐 episode 柱状图。
 
-数据获取：额外 beta/校准共 4,646 bytes 已校验；EMG2Pose metadata 已下载并核验大小、25,253 行与分组。官方公开 S3 mini 已完整取得，647,198,208 bytes、30 个 HDF5 全为原 val；已核验 tar 与各成员哈希并安全提取，只作工程验证，转换入口正在实现。legacy raw/几何补充传输尚未完成；两个 MANO pose 与相机 transform 收到明确 Google Drive quota HTML，已由大小门槛拒绝，未计为数组数据。用户无法下载百度当前发布，现阶段使用已有数据与公开 S3 推进，不等待该手动步骤，见[下载指南](download.md)。用户确认手头没有缺失的 markers2mano 包/训练资源；继续查找公开实现与明确缺失规格，不以未训练替身验收。
+数据获取：额外 beta/校准共 4,646 bytes 已校验；EMG2Pose metadata 已下载并核验大小、25,253 行与分组。官方公开 S3 mini 已完整取得，647,198,208 bytes、30 个 HDF5 全为原 val；已核验 tar 与各成员哈希并安全提取，只作工程验证，直接转换与官方 reader 核验已完成。完整 S3 tar 的无损分块接收已启动，使用显式 SSH 路由、逐块 SHA256 与严格 Range/源身份校验，独立存储预算340 GiB、动态空闲空间保留15 GiB；已观察到首块之后的新块成功提交，仍为 incomplete。legacy raw/几何补充传输尚未完成；两个 MANO pose 与相机 transform 收到明确 Google Drive quota HTML，已由大小门槛拒绝，未计为数组数据。用户无法下载百度当前发布，现阶段使用已有数据与公开 S3 推进，不等待该手动步骤，见[下载指南](download.md)。用户确认手头没有缺失的 markers2mano 包/训练资源；继续查找公开实现与明确缺失规格，不以未训练替身验收。
 
-新增代码已通过用户为该仓库配置的专用 SSH 写入身份正常推送到[全论文分支](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，冻结训练提交保持原始身份，见[发布来源](publication-provenance.md)。推送成功不等于草稿 PR 已创建或托管 CI 已通过；两项均需分别核验。
+legacy raw的直连下载因TLS握手中断退出。随后通过显式SSH路由单次恢复，左右已有前缀末尾各1 MiB与远端严格206响应逐位一致，left新增两个完整16 MiB块后再次TLS中断并停止，未连续重试。当前left/right保留956,301,312/368,050,176 bytes，均没有完整获取receipt；不影响独立进行的S3全量接收或已有训练。
 
-此前 RN/统计组合记录为238 passed。后续已接入 DINOv2 S/B/L、完成mini数据转换与可恢复xz归档，各任务独立审阅通过；当前源码快照的统一测试为397 passed、1个ViT-L内存准入skip、17个既有警告。该ViT-L用例在独立新进程单独执行通过；不把skip改记为统一运行通过。无Torch的真实轻量环境为350 passed、48个可选运行时skip。首轮公开CI的official-cpu通过、unit-light因未检出官方源码失败45项；已补源码检出和绘图依赖并通过本地轻量复核，修复后托管CI须按新提交另验。
+新增代码已通过用户为该仓库配置的专用 SSH 写入身份正常推送到[全论文分支](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，冻结训练提交保持原始身份，见[发布来源](publication-provenance.md)。`2a779dfccb0efec952c28c014d23c8aedc325826` 的[实际托管 CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40264031015)两项均成功；草稿 PR 尚未创建。
 
-新增mini数据[工程报告](../results/emg2pose-mini-data.md)记录修后独立目录的30文件、4,218,756行、645,469,668字段字节、1,015 valid blocks以及360官方reader窗口位级核验。旧转换来源与新来源分开保留；没有优化模型、没有独立val性能、没有完整EMG2Pose实验。DINOv2当前仅CPU工程检查，真实预训练权重尚未获取；B/L仅实际构造/schema，不能据此预填完整实验成绩。
+此前 RN/统计组合记录为238 passed。后续已接入 DINOv2 S/B/L、完成mini数据转换与可恢复xz归档，各任务独立审阅通过。统一本地运行曾为397 passed、1个ViT-L内存准入skip，随后该ViT-L用例在独立新进程通过；历史skip不改写。公开CI先暴露轻量环境缺官方源码/绘图依赖，再暴露测试fixture依赖runner实际空闲空间，均已修复。最新实测 `2a779df` 的官方 CPU job **398 passed、无skip**，无Torch轻量 job **350 passed、48个可选运行时skip**，两项shell语法检查均通过。容量fixture只固定测试磁盘快照，生产15 GiB reserve及低/变化容量测试未削弱。该CI成绩只证明对应提交的工程检查，不证明完整训练或论文数值。
+
+新增mini数据[工程报告](../results/emg2pose-mini-data.md)记录修后独立目录的30文件、4,218,756行、645,469,668字段字节、1,015 valid blocks以及360官方reader窗口位级核验。旧转换来源与新来源分开保留；没有优化模型、没有独立val性能、没有完整EMG2Pose实验。
+
+DINOv2-S已从匿名HF实际取得88,240,510 bytes预训练文件，实际文件与主干tensor摘要、官方位置嵌入重采样、合成256px前向和严格离线重载逐位相同均记录于[独立工程报告](../results/dinov2-small-pretrained.md)。该验收使用冻结`8dabdaf`、隔离小型依赖且禁用CUDA，不涉及真实cohort优化/性能。B/L仍仅实际CPU构造/schema，真实预训练资产、GPU与完整预算实验仍未完成。
 
 ## 2026-10-25：四基线历史完成记录
 

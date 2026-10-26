@@ -12,7 +12,7 @@ EMG2Pose 另有 [Meta 官方公开数据源](https://github.com/facebookresearch
 | mini tar | [emg2pose_dataset_mini.tar](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset_mini.tar) | 647,198,208；已完整下载、逐成员校验并安全提取，30 个 HDF5 均为原 val，只用于工程验收 |
 | 完整元数据 CSV | [emg2pose_metadata.csv](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_metadata.csv) | 5,674,462；已校验，25,253 个唯一 filename |
 
-mini tar 的本次接收 SHA256 为 `d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d`，这是本次传输身份，不是作者提供的校验和。完整裸包约 431 GiB，不能直接按当前本机空间保存全 tar 与多份转换中间文件；可恢复的分块无损存储与直接转换正在独立实现。尚未宣称全量容量、获取或训练完成。
+mini tar 的本次接收 SHA256 为 `d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d`，这是本次传输身份，不是作者提供的校验和。完整裸包约 431 GiB，不能直接按当前本机空间保存全 tar 与多份转换中间文件。[分块xz无损归档](../egoemg_repro/emg2pose_archive.py)已实现并通过独立审阅；全量接收已于2026-10-26启动，逐块验证原始/压缩SHA256、精确Range和源身份，已有首块之后的新块提交，仍为 incomplete。当前接收设置340 GiB归档预算与15 GiB动态空闲余量；预算或可用容量不足时停止并保留可恢复进度，不减少全量成员。mini的[直接转换和官方reader验收](../results/emg2pose-mini-data.md)已经完成；尚未宣称全量容量、获取或训练完成。
 
 ## 当前官方百度发布
 

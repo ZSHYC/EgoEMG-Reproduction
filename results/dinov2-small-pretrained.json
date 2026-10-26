@@ -1,0 +1,158 @@
+{
+  "completed_training": false,
+  "completed_utc": "2026-10-26T03:30:17.892807+00:00",
+  "cpu_acceptance": {
+    "backbone_parameters": 21654912,
+    "finite": true,
+    "offline_reload_pretrained_flag": false,
+    "output_shape": [
+      1,
+      22,
+      1
+    ],
+    "prediction_sha256": "c2a6b04ee07dc6cf69644ef2a81e7019405c8d00dad4c5407f754ff052e3a8df",
+    "strict_serialized_offline_reload_bitwise_equal": true,
+    "synthetic_shape": [
+      1,
+      3,
+      256,
+      256
+    ],
+    "total_parameters": 21863318
+  },
+  "engineering_only": true,
+  "environment": {
+    "anonymous_hf": true,
+    "dependency_policy": "pinned isolated Hugging Face and safetensors overlay; shared environment unchanged by this acceptance task",
+    "device": "cpu",
+    "hf_implicit_token_disabled": true,
+    "python": "3.11.12",
+    "threads": 2,
+    "versions": {
+      "huggingface_hub": "0.28.1",
+      "numpy": "1.26.4",
+      "safetensors": "0.5.2",
+      "timm": "1.0.15",
+      "torch": "2.2.2+cu118",
+      "torchvision": "0.17.2+cu118"
+    }
+  },
+  "format": "egoemg_dinov2_small_pretrained_engineering_v1",
+  "gpu_training_started": false,
+  "independent_review": {
+    "actual_constructor_pretrained_flag": false,
+    "actual_source_asset_and_checkpoint_rehashed": true,
+    "all_174_backbone_tensors_equal_actual_pretrained_after_official_filter": true,
+    "full_restored_state_bitwise_equal": true,
+    "independent_input_prediction_sha256": "48b1a08fb324ee9e81e8b4d7c523fc4625173f4780d4f2d192898946f468d401",
+    "network_calls_under_guard": 0,
+    "new_deterministic_input_repeat_output_bitwise_equal": true,
+    "original_input_persisted": false,
+    "prediction_hash_scope": "original receipt and independent check used different synthetic inputs; hashes are not interchangeable",
+    "status": "pass"
+  },
+  "limitations": [
+    "Synthetic batch1 CPU forward and exact serialized reload only",
+    "No real-crop optimization or full validation",
+    "No GPU capacity admission or complete training",
+    "DINOv2-B/L pretrained assets not obtained by this check"
+  ],
+  "position_embedding": {
+    "antialias": true,
+    "grid_size": [
+      18,
+      18
+    ],
+    "implementation": "timm checkpoint_filter_fn -> resample_abs_pos_embed; unchanged",
+    "interpolation": "bicubic",
+    "loaded_shape": [
+      1,
+      325,
+      384
+    ],
+    "official_timm_resample_bitwise_equal": true,
+    "runtime_image_size": [
+      256,
+      256
+    ],
+    "source_shape": [
+      1,
+      1370,
+      384
+    ]
+  },
+  "pretrained_identity": {
+    "backbone_tensor_sha256": "5c4855875758cfa0c403fb607e23f3933ddbdbdb9455c599f5555932ecb42757",
+    "digest_format": "length-prefixed canonical JSON header + raw tensor bytes, v1",
+    "digest_scope": "sorted backbone state_dict names/dtypes/shapes and raw contiguous CPU bytes; excludes pose head and unused ImageNet FC",
+    "family": "DINOv2",
+    "resolved_pretrained_cfg": {
+      "architecture": "vit_small_patch14_dinov2",
+      "classifier": "head",
+      "crop_mode": "center",
+      "crop_pct": 1.0,
+      "custom_load": false,
+      "first_conv": "patch_embed.proj",
+      "fixed_input_size": true,
+      "hf_hub_id": "timm/vit_small_patch14_dinov2.lvd142m",
+      "input_size": [
+        3,
+        518,
+        518
+      ],
+      "interpolation": "bicubic",
+      "license": "apache-2.0",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "num_classes": 0,
+      "pool_size": null,
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "tag": "lvd142m",
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth"
+    },
+    "source_location": "timm/vit_small_patch14_dinov2.lvd142m",
+    "source_type": "hf-hub",
+    "timm_model": "vit_small_patch14_dinov2",
+    "timm_version": "1.0.15"
+  },
+  "scope": "Real pretrained DINOv2-S download and synthetic CPU correctness; no cohort performance or training result",
+  "self_contained_checkpoint": {
+    "bytes": 87526150,
+    "sha256": "3fc30048745afdb4ec5aa68e4b07dafb8b416be48feb9826406b4449c7879c4d"
+  },
+  "source": {
+    "acceptance_script_sha256": "f5414cc829b57885c8d658f54040878c0db53317e34f003f20ebfe146ec5cdf5",
+    "official_content_sha256": "46446093fff601875f3b7f76f9fe9ef3d898c555f1e5cc10a3bf0df6ddd3ff69",
+    "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "reproduction_commit": "8dabdaf3a16229c2dafaf29d471fcd4e63db0a61",
+    "runtime_files_sha256": {
+      "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+      "egoemg_repro/crops.py": "1aa0871d6ede77d93988d455d0930e1f42470c1a92a47cfc8e49252bbfc0695e",
+      "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+      "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+      "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+      "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+      "egoemg_repro/train.py": "10696073b661823a9bf47ddda26b4c3b27324b00c9b62e3841a670409e872b6a",
+      "egoemg_repro/visual.py": "b8c390c0291abd67ee58a6f46caddce38296f2013b9f19088c330792b3d76cdb"
+    },
+    "runtime_sha256": "b5aeb39d2083b5fa691407331b7634d64f4cad7d4f93077335bb6295efed6734",
+    "selected_recipe_sha256": "7f88f77a487f9dcb24fe5775322611cc53c7171a2ef1b476b31b1de4f5efd582"
+  },
+  "source_asset": {
+    "bytes": 88240510,
+    "checksum_basis": "independently rehashed actual local download; not a publisher-provided checksum",
+    "filename": "model.safetensors",
+    "repository": "timm/vit_small_patch14_dinov2.lvd142m",
+    "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+    "snapshot_revision": "4610ca143709d58a633b6397a74412c2c3842454",
+    "source_type": "hf-hub"
+  },
+  "status": "cpu_acceptance_passed"
+}
