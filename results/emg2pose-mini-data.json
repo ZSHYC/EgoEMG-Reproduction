@@ -1,0 +1,90 @@
+{
+  "counts": {
+    "field_bytes": 645469668,
+    "hdf5_files": 30,
+    "raw_valid_rows": 3559584,
+    "rows": 4218756,
+    "source_generalization_files": {
+      "user": 22,
+      "user_stage": 8
+    },
+    "source_side_files": {
+      "left": 15,
+      "right": 15
+    },
+    "source_split_files": {
+      "val": 30
+    },
+    "valid_block_windows_7790": 230,
+    "valid_blocks": 1015
+  },
+  "engineering_only": true,
+  "environment": {
+    "device": "cpu",
+    "h5py": "3.11.0",
+    "joblib": "1.5.2",
+    "numpy": "1.26.4",
+    "torch": "2.2.2+cpu"
+  },
+  "format": "emg2pose_mini_data_engineering_v1",
+  "full_corpus_complete": false,
+  "method": {
+    "all_false_window_behavior": "unchanged official reader converts an all-False window mask to all-True at sample time",
+    "angle_dimensions": 20,
+    "emg_dtype": "float32",
+    "input_channels": 16,
+    "joint_angles_dtype": "float32",
+    "normalization": "official float32 (emg - 0) / (18.49 + 1e-6), applied by unchanged reader",
+    "selection_boundary": "session IDs are preserved; different physical filenames may share one session ID and require explicit partition auditing",
+    "time_dtype": "float64",
+    "valid_mask": "official IK-success mask AND all finite joint angles; raw EMG/time bits preserved",
+    "valid_mask_dtype": "bool"
+  },
+  "model_optimization_performed": false,
+  "performance_result": false,
+  "scope": "Complete official mini data conversion and reader verification only",
+  "source": {
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "archive_url": "https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset_mini.tar",
+    "checksum_basis": "local_transfer_with_official_content_length; no publisher checksum supplied",
+    "converter_sha256": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "full_metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+    "private_completion_sha256": "5b1d8a08daf2323f32c9a09661296f59f5ea77c4dd8c2f34e7d43894ecff5623",
+    "private_inventory_sha256": "cd806295ea323fb58c0a1c2d088124bbe6c94e12464c9e4a8bc65d9f9914e329"
+  },
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "verification": {
+    "all_raw_valid_masks_all_rows_bitwise": true,
+    "all_source_fields_all_rows_bitwise": true,
+    "field_hashes": {
+      "emg": "2f6efe2e0f6b01438017f491975e2b65050fc26e4c31d4067951d7b8ef3153fd",
+      "joint_angles": "335560bcce440b46f2354ccaa6047fde84e0f9712eb3c8f137d129de3b6c6e24",
+      "time": "0baee45098397606ee2ea5ec635e7fd709263453429b1dd0777cd255707efb57",
+      "valid_mask": "9839fba27fdce689a5f508085ef925ce9666c23061b87ca62d42c9fc7236ea4d"
+    },
+    "official_reader": [
+      {
+        "all_30_sessions_checked": true,
+        "checked_windows": 120,
+        "normalized_emg_labels_masks_indices_bitwise": true,
+        "stride": 780,
+        "windows": 5128
+      },
+      {
+        "all_30_sessions_checked": true,
+        "checked_windows": 120,
+        "normalized_emg_labels_masks_indices_bitwise": true,
+        "stride": 3900,
+        "windows": 1040
+      },
+      {
+        "all_30_sessions_checked": true,
+        "checked_windows": 120,
+        "normalized_emg_labels_masks_indices_bitwise": true,
+        "stride": 7790,
+        "windows": 526
+      }
+    ]
+  }
+}
