@@ -1,6 +1,6 @@
 # DINOv2：官方执行语义与可用数据读取层
 
-目前实现了配置契约和数据读取层，**尚未构造这套原生Lightning训练模块、执行真实cohort优化或完整训练**。已有DINOv2预训练权重／合成CPU检查仍保留原证据，不能代替本入口的实际训练。[执行计划](superpowers/plans/2026-10-27-literal-vision.md)继续覆盖原生模块、优化／重载、完整训练、测试和报告；这不是全文完成声明。
+目前已实现配置、数据、真实预训练原生模块、完整训练入口及验证选模后的原生评价／独立复算。真实旧版队列的S模型CPU短训和恢复已完成，52个实际输入文件也已完整内容校验；**新DINO的GPU容量验收和完整训练尚未执行，没有新的模型性能成绩**。[执行计划](superpowers/plans/2026-10-27-literal-vision.md)继续覆盖完整实现审查与真实运行。下文保留各阶段的证据范围，早期“尚欠”描述不覆盖后续已记录的进展。
 
 ## 固定源码裁决
 
@@ -78,4 +78,41 @@ CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 HF_HUB_CACHE="$CACHE" \
   --data "$DATA" --crops "$CROPS" --upstream "$UPSTREAM" --output "$NEW_OUTPUT" --device cpu
 ```
 
-缓存中的原生`main`引用须解析到已核验的固定权重提交；禁止在模型构造期间补下载。输出是私有工程产物，包含可信本地checkpoint和运行信息，不应整目录公开。完整runner、最终审查、GPU容量和完整训练仍未完成。官方单rank/global batch和六rank差异、独立验证与缺失合并数据均须保留；没有新DINO性能成绩，全文继续按[清单](full-paper-status.md)验收。
+缓存中的原生`main`引用须解析到已核验的固定权重提交；禁止在模型构造期间补下载。输出是私有工程产物，包含可信本地checkpoint和运行信息，不应整目录公开。官方单rank/global batch和六rank差异、独立验证与缺失合并数据均须保留；没有新DINO性能成绩，全文继续按[清单](full-paper-status.md)验收。
+
+## 完整输入、训练与独立评价
+
+`vision_literal_cohort`完整重哈希实际点读取器消费的52个metadata／目标／帧映射／crop文件，扫描全部可能抖动中心的原始22角目标，并在训练和评价期间核对输入stat。未读取的raw EMG声明不成为纯视觉输入；已知metadata匹配只识别发布布局，不证明发布者真实性。实际服务器完整准入已成功，原生loader为train202,020／562批、val3,152／9批、test8,612／24批，三者batch360、workers0，train使用原全局RNG的RandomSampler，val/test顺序消费。桥接已经repeat2，不再重复扩展。
+
+`vision_literal_train`的full模式保留150轮上限、patience30、top3/last、bf16、clip1、原head/backbone AdamW和cosine150。启动前必须传入事先冻结的完整内容receipt，并重新读取全部实际输入与其比较；API和CLI都执行这一要求，变化的目标／帧映射／crop不能被自动接纳成新身份。每轮在线检查完整样本／抖动／左右手／重复身份及全部独立验证，保存汇总计数、验证预测摘要、真实优化器计数与原生epoch检查点携带记录，不保存逐样本抖动轨迹。只有达到原最大轮数或真实patience早停才是完整训练；last不能替代原生验证最优。CPU和CUDA工程模式明确限制训练人口与轮数，不能作为full结果。
+
+恢复使用原生Lightning，核对模型、优化器、调度器、可恢复callback、loop和全局RNG在原`restore_training_state`结束处一致。PL2.5恢复进入下一轮时会额外构造训练迭代器，推进原全局随机流；保留此原生行为，不补偿随机数，也不承诺恢复后的完整训练轨迹与不中断训练逐位一致。
+
+`vision_literal_eval`在完整训练终止后只加载验证最优检查点。先完整原生验证，再由新进程独立前向复推，固定规则要求输入摘要、typed prediction／target／生成mask精确相同。独立验证来自原train，保留split=train；不重命名成未见用户测试。规则在测试之前冻结，测试不得重选checkpoint或放宽容差。原生按样本数加权的批量masked MAE用预定2e-6 rad绝对／2e-6相对门槛核对；另以float64误差和与有效角度数报告pooled MAE，两者分列。
+
+测试完成后由另一进程复推完整原队列，重新累计全部／有图、重复消费／唯一首遍、左右手、split、匿名用户、逐角、五指和近中远端组。公开报告同时保留逐条件用户均值／ddof0标准差、实际metadata用户交集、有效分母及来源摘要。缺图不清除原标签mask；唯一首遍统计不冒充原生repeat2统计。`report`只发布脱敏汇总和Markdown，最后写完成标记；`verify`重新打开训练、验证、测试和预测证据，不仅检查外层seal。
+
+在实际完成整段代码审查及GPU容量／完整验证／恢复验收后，可在已固定环境中按以下顺序执行。所有输出均须是新目录，原始私有产物不可整目录上传：
+
+```bash
+python -m egoemg_repro.vision_literal_train fit --data "$DATA" --crops "$CROPS" \
+  --upstream "$UPSTREAM" --output "$FIT" --scope full --cohort-receipt "$FROZEN_COHORT_JSON"
+python -m egoemg_repro.vision_literal_eval pass --data "$DATA" --crops "$CROPS" \
+  --upstream "$UPSTREAM" --fit "$FIT" --role val --kind native --output "$VAL_NATIVE"
+python -m egoemg_repro.vision_literal_eval pass --data "$DATA" --crops "$CROPS" \
+  --upstream "$UPSTREAM" --fit "$FIT" --role val --kind replay --reference "$VAL_NATIVE" --output "$VAL_REPLAY"
+python -m egoemg_repro.vision_literal_eval freeze --reference "$VAL_NATIVE" --replay "$VAL_REPLAY" --output "$PROFILE"
+python -m egoemg_repro.vision_literal_eval pass --data "$DATA" --crops "$CROPS" \
+  --upstream "$UPSTREAM" --fit "$FIT" --role test --kind native --profile "$PROFILE" --output "$TEST_NATIVE"
+python -m egoemg_repro.vision_literal_eval pass --data "$DATA" --crops "$CROPS" \
+  --upstream "$UPSTREAM" --fit "$FIT" --role test --kind replay --profile "$PROFILE" \
+  --reference "$TEST_NATIVE" --output "$TEST_REPLAY"
+python -m egoemg_repro.vision_literal_eval report --recompute "$TEST_REPLAY" --output "$PUBLIC_REPORT"
+python -m egoemg_repro.vision_literal_eval verify --recompute "$TEST_REPLAY" --output "$PUBLIC_REPORT"
+```
+
+上述命令默认拒绝工程fit。工程评价必须显式传`--engineering`，其报告继续标记未完成正式完整训练。B/L还须在训练和每次pass中传对应`--variant vit_base`／`vit_large`，并通过各自GPU验收；不能用S的容量检查替代。
+
+当前完整实现已做一次独立审查，并完成两项Important根修正及证据措辞修正。15项内容receipt／自然终止边界和28项真实原生fit／恢复／评价／发布检查通过；96成员整体实际1,563 passed／4 skipped／106 warnings（694.08秒），轻量841 passed／679依赖skip（22.85秒）。三个skip需要真实CUDA，另一个legacy ViT-L随机CPU构造因本机可用内存不足跳过，不能记作已通过。此前95成员1,547／3属于修正前快照。实际服务器当前96代码再次完整校验输入75.22秒，仍匹配原冻结receipt；train／val／test metadata用户键36／36／41，User／Both与train各有1键交集。metadata键计数不证明自然人数，留出验证与train共享用户是本设计的独立时间／数据划分，不是严格未见用户验证。实际GPU及完整训练仍为下一阶段。
+
+本机跳过的legacy ViT-L随机CPU构造已在同96源码服务器目录按同一测试脚本补做并通过：303,833,622参数、1024维、24层、256输入和22角输出。初始化明确为random，这只补齐构造／schema检查，不代表真实预训练或完整训练；原本机整套记录仍为1,563／4，不改写skip。

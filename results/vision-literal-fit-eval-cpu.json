@@ -1,0 +1,168 @@
+{
+  "cuda_initialized": false,
+  "fit": {
+    "bitwise_training_trajectory_guaranteed": false,
+    "completed_epochs": 2,
+    "full_training_terminated": false,
+    "last_fallback_used": false,
+    "optimizer_executions": 4,
+    "resume_start_exact": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "selected_best_validated": true,
+    "train_samples_per_epoch": [
+      4,
+      4
+    ],
+    "val_samples_per_epoch": [
+      4,
+      4
+    ]
+  },
+  "fixed_agreement_policy": {
+    "native_aggregation": "sample-count weighted original per-batch masked L1, float32 accumulation",
+    "native_mae_atol_rad": 2e-06,
+    "native_mae_rtol": 2e-06,
+    "pooled_aggregation": "float64 absolute-error sum / exact valid-angle count",
+    "prediction": "exact typed prediction/target/mask/input replay",
+    "scope": "fixed before validation; no test-driven tolerance or checkpoint changes"
+  },
+  "format": "original_vision_fit_evaluation_cpu_evidence_v1",
+  "full_integration": {
+    "full": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 694.08,
+      "log_sha256": "2434175cad965b2545aa407f759bb0bbf358df3d174f7def23dc69056fa7163c",
+      "passed": 1563,
+      "skipped": 4,
+      "skips": [
+        "2 actualCUDA numeric acceptance positives",
+        "1 actualthreeprocessCUDAformal acceptance positive",
+        "1 optional legacy ViT-L CPU construction: MemAvailable2793664512 below2967539888 reserve"
+      ],
+      "warnings": 106
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "dependency_skipped": 679,
+      "elapsed_seconds": 22.85,
+      "log_sha256": "3b4a1d50dbd3188988e78ad4eb254e3a77a0a0b2a39dafe82f80157ebad27a7a",
+      "passed": 841,
+      "warnings": 1
+    },
+    "source_manifest_sha256": "fee2e9b7d06861cce6a1e4fd5c49fd6a8e086c829e2f4ee7ab6fbca88e2a2e45",
+    "source_members": 96,
+    "supplement_local_memory_skip": {
+      "cuda_execution": false,
+      "log_sha256": "2a6aa43dc945344b0c27af93d674dad5f7b37896d38e00f476cbc3165ee4fa52",
+      "passed": true,
+      "result": {
+        "class": "VisionViTPose",
+        "depth": 24,
+        "dim": 1024,
+        "image_size": [
+          256,
+          256
+        ],
+        "initialization": "random",
+        "output_dim": 22,
+        "parameters": 303833622,
+        "qkv": [
+          3072,
+          1024
+        ]
+      },
+      "scope": "supplement actual CPU constructor/schema test skipped locally for low memory; not genuine pretrained or full training",
+      "source_test_sha256": "1194f7627738d877194d5cf16fc632aecc495cba6b8ae3c560b633dc45b6d371"
+    }
+  },
+  "full_paper_complete": false,
+  "genuine_construction": {
+    "asset": {
+      "bytes": 88240510,
+      "filename": "model.safetensors",
+      "repo": "timm/vit_small_patch14_dinov2.lvd142m",
+      "revision": "4610ca143709d58a633b6397a74412c2c3842454",
+      "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081"
+    },
+    "parameter_count": 21863318,
+    "retained_backbone_tensors": 174
+  },
+  "gpu_and_full_fit": "not performed; actual original360/bf16 GPU acceptance and full fit still required",
+  "independent_review": {
+    "doc_correction": "per-sample provenance checked online; epoch aggregates and validation digests persisted, no saved full jitter trace",
+    "guards": [
+      "prior frozen complete actual-input receipt required by full callable and CLI before device/model/output",
+      "native/replay model claim matched to actual raw selected checkpoint"
+    ],
+    "important_findings": 2,
+    "important_findings_fixed": 2,
+    "root_single_fix_pass": true,
+    "second_review": false,
+    "whole_vision_review_complete": true
+  },
+  "production_ready": false,
+  "public_population": {
+    "counts_describe": "released metadata subject keys, not independently verified natural-person identities",
+    "cross_role_user_intersection_counts": {
+      "train_test": 1,
+      "train_val": 1,
+      "val_test": 1
+    },
+    "episode_records": 1,
+    "train_test_user_intersection_by_split": {
+      "both": 1,
+      "gesture": 1,
+      "user": 1
+    },
+    "unique_subjects_by_role": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    }
+  },
+  "scientific_eligible": false,
+  "scope": "genuine native DINO-S on small synthetic memmap/JPEG fixtures; not real-corpus optimization or model performance",
+  "sources_sha256": {
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/vision_literal_eval.py": "329f6e74aa2424082abcdd9d983da879a54d09d1ad341d1d40d1f2e9941c18d8",
+    "egoemg_repro/vision_literal_train.py": "e44dc947111bec3aa858fb5fc36493650cda24f2093915bcd133a2d090d070da"
+  },
+  "targeted_pytest": [
+    {
+      "elapsed_seconds": 16.82,
+      "log_sha256": "7fdce311953f7c56240dcebe28d577cd8806fbe71d1cd3da9ad67aefc610784f",
+      "passed": 15,
+      "scope": "receipt/API/CLI and natural full termination boundaries",
+      "warnings": 14
+    },
+    {
+      "elapsed_seconds": 306.52,
+      "log_sha256": "39bda0499c878fc4bcf1856fd01556c1ffc66613d00c2193c55c808890a9d4ff",
+      "passed": 28,
+      "scope": "real native fit/resume and selected-best val/test/replay/publication including raw-model binding regressions",
+      "warnings": 14
+    }
+  ],
+  "test": {
+    "consumed_samples": 12,
+    "duplicate_consumptions": 6,
+    "fresh_process_prediction_replay_exact": true,
+    "model_unchanged": true,
+    "native_aggregation_agrees": true,
+    "prediction_sha256": "a825ceaf5f5248031aa769390036d57cdb2c1af4af5c363859da4a448810d81c",
+    "unique_samples": 6
+  },
+  "validation": {
+    "fresh_process_replay_exact": true,
+    "pretest_policy_frozen": true,
+    "profile_sha256": "f7be0f99b3fd7d191e677183f5b91acd59452d32ecc805802b2f8805898738cd",
+    "samples": 4
+  }
+}

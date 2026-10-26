@@ -1,0 +1,110 @@
+{
+  "available_corpus": "released legacy EgoEMG only; not declared physically merged EgoEMG/ShowEE/Incre",
+  "counts": {
+    "test": 8612,
+    "train": 202020,
+    "val": 3152
+  },
+  "cuda_initialized": false,
+  "current96_stage_readmission": {
+    "cuda_initialized": false,
+    "elapsed_seconds": 75.21919020172209,
+    "identity_sha256": "4580be4fcf98e1f5e683477db12bd2d2020a61cfd0a79755a2cea1171b2cecab",
+    "model_constructed": false,
+    "population": {
+      "counts_describe": "released metadata subject keys, not independently verified natural-person identities",
+      "cross_role_user_intersection_counts": {
+        "train_test": 36,
+        "train_val": 36,
+        "val_test": 36
+      },
+      "episode_records": 41,
+      "train_test_user_intersection_by_split": {
+        "both": 1,
+        "gesture": 36,
+        "user": 1
+      },
+      "unique_subjects_by_role": {
+        "test": 41,
+        "train": 36,
+        "val": 36
+      }
+    },
+    "receipt_file_sha256": "011196848befc7a6f120937719464413ba12ec490a544f939064c04f65a26b36",
+    "script_sha256": "16c1b98e1840f922149e0013979767331a006ad42ef6f6e330dd5d9451f0539c",
+    "source_manifest_sha256": "fee2e9b7d06861cce6a1e4fd5c49fd6a8e086c829e2f4ee7ab6fbca88e2a2e45",
+    "versions": {
+      "huggingface-hub": "0.28.1",
+      "pytorch-lightning": "2.5.0.post0",
+      "safetensors": "0.5.2",
+      "timm": "1.0.15",
+      "torch": "2.2.2+cu118",
+      "torchvision": "0.17.2+cu118"
+    }
+  },
+  "elapsed_seconds": 76.64626807486638,
+  "finite_centers": {
+    "test": {
+      "possible_center_label_true_hand_rows": 4178,
+      "possible_center_rows": 2153,
+      "possible_center_target_nonfinite_entries": 0
+    },
+    "train": {
+      "possible_center_label_true_hand_rows": 75864821,
+      "possible_center_rows": 39393900,
+      "possible_center_target_nonfinite_entries": 0
+    },
+    "val": {
+      "possible_center_label_true_hand_rows": 1505,
+      "possible_center_rows": 788,
+      "possible_center_target_nonfinite_entries": 0
+    }
+  },
+  "format": "original_vision_complete_input_cpu_evidence_v1",
+  "full_paper_complete": false,
+  "full_payload_content_hashed": true,
+  "identity_sha256": "4580be4fcf98e1f5e683477db12bd2d2020a61cfd0a79755a2cea1171b2cecab",
+  "loaders": {
+    "test": {
+      "batch_size": 360,
+      "batches": 24,
+      "generator_is_none": true,
+      "sampler": "SequentialSampler",
+      "samples": 8612,
+      "workers": 0
+    },
+    "train": {
+      "batch_size": 360,
+      "batches": 562,
+      "generator_is_none": true,
+      "sampler": "RandomSampler",
+      "samples": 202020,
+      "workers": 0
+    },
+    "val": {
+      "batch_size": 360,
+      "batches": 9,
+      "generator_is_none": true,
+      "sampler": "SequentialSampler",
+      "samples": 3152,
+      "workers": 0
+    }
+  },
+  "metadata_match_is_publisher_authentication": false,
+  "metadata_matches_registered_legacy_release": true,
+  "model_constructed": false,
+  "payload_file_count": 52,
+  "repeat_by_role": {
+    "test": 2,
+    "train": 2,
+    "val": 2
+  },
+  "scientific_eligible": false,
+  "scope": "actual available legacy input hashes and native loader population only",
+  "source_cohort_sha256": "997cb2f7975f49b45b6313294b0dc3f20150f775bbfe65aa1c02857ace89b977",
+  "unique_counts": {
+    "test": 4306,
+    "train": 101010,
+    "val": 1576
+  }
+}

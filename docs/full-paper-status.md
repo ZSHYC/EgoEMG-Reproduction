@@ -6,9 +6,9 @@
 
 ## 当前实际完成到哪里
 
-- **VEMG训练已结束，最终评估进行中：** 真实终态为62轮、10,535次实际更新，原patience50触发早停。四项终态文件及82项报告源码已重新核对；完整验证的参考／重复推理、预测试一致性策略冻结和复核已通过，原生最终测试正在运行。最终测试、独立测试复算及完整公开报告仍未全部完成，尚无可发布的新最终MAE。
+- **VEMG完整实验与最终核验已完成：** [实际公开报告](../results/original-classic/vemg2pose/README.md)记录62轮、10,535次实际更新，原patience50早停；原生最终测试、独立完整预测复算、统计复核和最后完成核验共12阶段实际exit0。新4,306测试手样本的轨迹／中心MAE为16.452932°／16.347705°，有效角度551,176,956／91,916。保留7,790点、原0.02损失及单rank适配，与旧七项12,000点legacy成绩分列；不是PDF等价或全文完成。
 
-- **DINO原生模块与真实队列CPU优化／新进程恢复已完成工程检查：** [入口与边界](vision-literal.md)保留真实预训练来源、原factory、174项主干保留与178项模块严格恢复、原生0.02损失和component AdamW/cosine。62项定向通过后，真实队列预检发现身份错误要求未读取的缺失raw EMG，已用回归复现并修正为绑定实际点读文件；新89成员1,506／3实际CUDA skip、轻量841／621依赖skip，以及S真实旧版队列两次更新、完整3,152手验证、新进程完整重推与再更新一次后的完整验证均通过。[实际CPU证据](../results/vision-literal-native-cpu.json)保留全部边界；B/L也已通过原生构造／重载，但尚无其cohort优化。完整runner、最终分支审查和新DINO GPU／完整训练尚欠，不产生新模型性能结论。
+- **DINO原生模块与真实队列CPU优化／新进程恢复已完成工程检查：** [入口与边界](vision-literal.md)保留真实预训练来源、原factory、174项主干保留与178项模块严格恢复、原生0.02损失和component AdamW/cosine。62项定向通过后，真实队列预检发现身份错误要求未读取的缺失raw EMG，已用回归复现并修正为绑定实际点读文件；新89成员1,506／3实际CUDA skip、轻量841／621依赖skip，以及S真实旧版队列两次更新、完整3,152手验证、新进程完整重推与再更新一次后的完整验证均通过。[实际CPU证据](../results/vision-literal-native-cpu.json)保留全部边界；B/L也已通过原生构造／重载，但尚无其cohort优化。完整输入准入和原生fit／验证选模／原生评价及独立复算代码已实现；一次完整实现审查的两项Important已RED→GREEN修正，43定向、96成员整体1,563／4 skip及轻量841／679通过。第四项skip为本机ViT-L随机构造内存不足，另外三项需实际CUDA；新DINO GPU／完整训练尚欠，不产生新模型性能结论。
 
 以下保留此前各阶段的工程快照；其中“尚欠／未完成”是各自记录时的状态，当前执行进展以上文与[运行状态](run-status.md)为准。
 
@@ -66,7 +66,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **完整运行、已核验（legacy）**，见 E1/E2；原表精确等价未证明 |
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
 | EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
-| EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **最终源码GPU限定验收通过，正式完整训练运行中**；目标手8ch/WL7790输出6000；固定scalar/literal mask及filtered适配已实现。原批量600容量、完整工程输入及精确恢复已核验；full训练正常终止、正式选模/test/报告仍欠 |
+| EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **完整运行、已核验（原生配方／旧版数据单rank适配）**；[实际结果](../results/original-classic/vemg2pose/README.md)为62轮早停、10,535更新、4,306测试手样本，轨迹／中心16.452932°／16.347705°。目标手8ch/WL7790输出6000；原批量600、完整验证选模、原生test和独立复算／报告完成。六rank、原表数据和标注等价未证明 |
 | EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **CPU训练/epoch恢复已核验，未正式完整训练**；WL7790输出7790；先原零填16槽再归一化/全槽旋转。原Lightning clip0与val_loss语义已有真实CPU证明，真实cohort及batch1 CUDA/scaler限定检查已完成，原批量256容量已通过，正式完整训练仍欠 |
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **150 epochs完整legacy实验与锁定复算完成**；23,700更新/150次full val，best第19,118步，全部中心6.640058°。独立YAML未发布，损失/队列/单卡配方与官方字面/PDF等价仍未证明，见[结果](../results/completed/resnet50/README.md) |
