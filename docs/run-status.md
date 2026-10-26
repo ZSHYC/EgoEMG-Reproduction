@@ -1,5 +1,13 @@
 # 运行状态
 
+## 2026-10-27：原生测试绑定的CPU实现与CI修复实读
+
+**原生测试父子进程／profile／pipe绑定及raw读取已实现，实际GPU测试尚未执行。** [入口](classic-report.md)与[CPU证据](../results/classic-report-native-gate-cpu.md)记录实际child身份在GO前持久化、child独立准入、原五份测试产物／role-best快照和4,306手覆盖读取。独立审查的1项Important通过4个真实文件替换RED回归修复；最终result／status保留创建时FD／inode，失败时撤销本次文件并保护外来替换文件。修后固定80成员完整1,351 passed／3真实CUDA skip（283.35s），轻量806 passed／501依赖skip（26.97s），定向211 passed；没有第二次独立审查。实际pipe探针不执行Torch，父进程故障探针刻意exit17，不当成CUDA正例。
+
+**b4608f8的实际托管CI两项成功：** [40347752496](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40347752496)官方CPU1,250 passed／3实际CUDA skip（257.27s）、轻量762 passed／444依赖skip（24.56s），pip check通过。仅移动pytest临时目录解决原tmpfs容量问题，生产15GiB门槛未改；下文586失败仍为原始历史。该CI不覆盖上述原生绑定新源码，新源码托管结果尚未观察。
+
+VEMG于2026-10-26T16:02:14UTC（北京时间10月27日00:02）实读4,469次真实更新、26次完整1,576手验证，相同PID/start仍存活，controller仍为training；尚未完成训练或最终测试。测试预测参考／独立复算、只读状态API、脱敏科学导出及实际GPU校准仍欠。七项legacy成绩不变，全文目标继续进行。
+
 ## 2026-10-26：全论文目标继续执行
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。

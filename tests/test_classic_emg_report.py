@@ -4,7 +4,10 @@ import math
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
@@ -468,9 +471,9 @@ def test_review_prediction_publication_filesystem_mechanics_revoke_on_rescue_clo
     r,e,paths=raw_prediction_pair(tmp_path,monkeypatch);output=tmp_path/'new-reference'
     identity=json.loads((paths[0]/'identity.json').read_text());result=json.loads((paths[0]/'result.json').read_text())
     owned=e.artifacts._Directory(output,create=True);rescue=e.artifacts._Directory(output,create=False)
-    backup=None;close=e.artifacts._Directory.close;injected=[]
+    backup=None;close=e.artifacts._Directory.close;injected=[];publications={}
     e.artifacts._write_json(owned,'identity.json',identity)
-    e.artifacts._write_json(owned,'status.json',{'state':'running'})
+    e.artifacts._write_json(owned,'progress.json',{'state':'running'})
     def fail(directory):
         if directory is rescue and failure and not injected:
             injected.append(True)
@@ -482,12 +485,473 @@ def test_review_prediction_publication_filesystem_mechanics_revoke_on_rescue_clo
     try:
         backup=r._retain_directory(rescue)
         if failure:
-            with pytest.raises(OSError):r._finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup)
+            with pytest.raises(OSError):r._finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup,publications)
             assert injected and json.loads((output/'status.json').read_text())['state']=='failed'
-            with pytest.raises(ValueError):r._read_prediction_pass(output,role='val')
+            with pytest.raises((ValueError,FileNotFoundError)):r._read_prediction_pass(output,role='val')
         else:
-            assert r._finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup)==result
+            assert r._finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup,publications)==result
             assert r._read_prediction_pass(output,role='val')[1]==result
     finally:
         for directory in (owned,rescue,backup):
             if directory is not None:close(directory)
+        r._discard_publications(publications)
+
+
+def native_coverage_fixture(variant='vemg2pose'):
+    r=api();batch=600 if variant=='vemg2pose' else 256;n=4306;digest=hashlib.sha256()
+    for i in range(n):digest.update(i.to_bytes(8,'big'))
+    return dict(samples=n,batch_sizes=[min(batch,n-i) for i in range(0,n,batch)],coverage_sha256=digest.hexdigest(),
+        batch_weighted_loss=1.25,test_loss=1.25,target_sha256='1'*64,mask_sha256='2'*64,sample_sha256='3'*64,
+        fingerprint_encoding='ordered chain of typed canonical-batch target/mask and frozen-sample receipts v1',
+        fingerprint_scope='consumed original input target span and generated 2D mask; no train-step prediction-hook claim')
+
+
+@pytest.mark.parametrize('variant',['vemg2pose','neuropose'])
+@pytest.mark.parametrize('damage',[None,'count','grouping','order','loss','nonfinite','loss_type','hash','scope','extra'])
+def test_original_native_test_coverage_requires_complete_grouping_and_finite_native_loss(variant,damage):
+    value=native_coverage_fixture(variant);r=api()
+    if damage=='count':value['samples']-=1
+    elif damage=='grouping':value['batch_sizes'][-1]-=1
+    elif damage=='order':value['coverage_sha256']='0'*64
+    elif damage=='loss':value['test_loss']=2.
+    elif damage=='nonfinite':value['batch_weighted_loss']=float('nan')
+    elif damage=='loss_type':value['test_loss']=True
+    elif damage=='hash':value['sample_sha256']='bad'
+    elif damage=='scope':value['fingerprint_scope']='prediction hook'
+    elif damage=='extra':value['prediction_sha256']='1'*64
+    if damage:
+        with pytest.raises(ValueError):r._validate_native_coverage(value,variant=variant)
+    else:r._validate_native_coverage(value,variant=variant)
+
+
+def test_actual_process_identity_is_read_from_proc_without_constructing_any_model():
+    value=api()._pid_identity(os.getpid(),phase='unit-file-mechanics')
+    assert value['pid']==os.getpid() and type(value['start_ticks']) is int and value['start_ticks']>0
+    assert value['phase']=='unit-file-mechanics'
+
+
+@pytest.mark.parametrize('pid',[True,0,-1,'123'])
+def test_invalid_process_values_are_not_real_process_receipts(pid):
+    with pytest.raises(ValueError):api()._pid_identity(pid,phase='unit-file-mechanics')
+
+
+@pytest.mark.parametrize('payload',[b'',b'G',b'X'+bytes(32),b'G'+bytes(31),b'G'+bytes(33)])
+def test_native_go_pipe_rejects_eof_partial_wrong_or_trailing_payload(payload):
+    read,write=os.pipe();os.write(write,payload);os.close(write)
+    try:
+        with pytest.raises(ValueError):api()._receive_launch_go(read)
+    finally:
+        try:os.close(read)
+        except OSError:pass
+
+
+def test_native_go_pipe_rejects_regular_file_and_never_treats_it_as_parent_release(tmp_path):
+    path=tmp_path/'fake-go';path.write_bytes(b'G'+bytes(32));fd=os.open(path,os.O_RDONLY)
+    try:
+        with pytest.raises(ValueError):api()._receive_launch_go(fd)
+    finally:
+        try:os.close(fd)
+        except OSError:pass
+
+
+def test_real_child_waits_for_parent_pipe_release_before_any_runtime_import(tmp_path):
+    """Real OS process/pipe mechanics; no native test or GPU qualification."""
+    r=api();assert callable(getattr(r,'_receive_launch_go',None))
+    marker=tmp_path/'released';read,write=os.pipe();code='''
+import json,sys
+from pathlib import Path
+from egoemg_repro.classic_emg_report import _receive_launch_go,_pid_identity
+print('ready',flush=True)
+digest,channel=_receive_launch_go(int(sys.argv[1]))
+Path(sys.argv[2]).write_text('released')
+print(json.dumps(dict(digest=digest,channel=channel,process=_pid_identity(__import__('os').getpid(),phase='pipe-fixture'),torch_imported='torch' in sys.modules)),flush=True)
+'''
+    process=None
+    try:
+        process=subprocess.Popen([sys.executable,'-B','-c',code,str(read),str(marker)],pass_fds=(read,),
+            stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        os.close(read);read=None
+        assert process.stdout.readline().strip()=='ready'
+        assert process.poll() is None and not marker.exists()
+        channel=os.fstat(write);digest='1'*64;os.write(write,b'G'+bytes.fromhex(digest));os.close(write);write=None
+        stdout,stderr=process.communicate(timeout=10)
+        assert process.returncode==0,stderr
+        value=json.loads(stdout);assert value['digest']==digest and value['torch_imported'] is False
+        assert value['channel']['inode']==channel.st_ino and value['process']['pid']==process.pid and marker.exists()
+    finally:
+        for fd in (read,write):
+            if fd is not None:os.close(fd)
+        if process is not None and process.poll() is None:process.kill();process.wait(timeout=10)
+
+
+@pytest.mark.parametrize('profile',[{'passed':True},True,None])
+def test_native_launch_cannot_spawn_from_caller_pass_flags(tmp_path,monkeypatch,profile):
+    r=api()
+    def forbidden(*args,**kwargs):raise AssertionError('spawn reached before actual calibration/termination')
+    monkeypatch.setattr(subprocess,'Popen',forbidden)
+    with pytest.raises(ValueError):r.run_native_test(tmp_path/'run',validation_profile=profile,
+        output=tmp_path/'native',launch_output=tmp_path/'launch')
+    assert not (tmp_path/'native').exists() and not (tmp_path/'launch').exists()
+
+
+def native_sidecar_fixture(tmp_path,monkeypatch):
+    """Raw-reader fixture: termination and checkpoint-role authority are stubbed, never CUDA."""
+    torch=pytest.importorskip('torch');r,e,paths=raw_prediction_pair(tmp_path,monkeypatch)
+    run=tmp_path/'trained';context=r._terminated_context(run);checkpoint={'state_dict':{'fixture':torch.tensor([1.])},
+        'MixedPrecision':{'scale':65536.},'epoch':0}
+    (run/'checkpoints').mkdir();(run/'checkpoints'/'last.ckpt').write_bytes(b'fixture last not a formal checkpoint')
+    context['selection'].update(selected_state_sha256=e.artifacts._seal(checkpoint),
+        selected_model_sha256=e.storage.state_digest(checkpoint['state_dict']),selected_event_sha256='4'*64,
+        last_checkpoint_sha256=e.file_sha256(run/'checkpoints'/'last.ckpt'))
+    context['manifest']['cohort_sha256']='5'*64
+    context['manifest']['state_identity']['bindings'].update(cohort_receipt_sha256='6'*64,data_sha256='7'*64,partition_sha256='8'*64)
+    context.update(best=checkpoint,original_best=dict(path=str(run/'checkpoints'/'best.ckpt'),present=False,file_sha256=None))
+    def read_context(path):
+        assert Path(path)==run
+        return dict(context,guard=e.cohort._StatGuard([run/'result.json',run/'checkpoints'/'last.ckpt']))
+    monkeypatch.setattr(r,'_terminated_context',read_context)
+    directory=tmp_path/'native';directory.mkdir();selected=directory/'selected-best.ckpt';selected.write_bytes(b'fixture selected snapshot')
+    def read_role(path,identity,role):
+        assert Path(path)==selected and role=='best'
+        return copy.deepcopy(checkpoint)
+    monkeypatch.setattr(e.artifacts,'_read',read_role)
+    identity=r._native_identity_record(context)
+    reference=dict(format=e.FORMAT,scope='immutable_selected_best_reference',scientific_eligible=False,
+        training_manifest_sha256=context['manifest']['sha256'],
+        **{key:context['selection'][key] for key in ('selected_state_sha256','selected_model_sha256','selected_event_sha256')},
+        checkpoint_name=selected.name,checkpoint_sha256=e.file_sha256(selected),original_best=context['original_best'])
+    result=dict(format=e.FORMAT,scope=e.SCOPE,scientific_eligible=False,production_ready=False,
+        identity_sha256=identity['sha256'],selection=reference,metrics={'test_loss':1.25},coverage=native_coverage_fixture(),
+        original_test_step=True,optimizer_executions=0,model_state_unchanged=True,scaler_state_unchanged=True,
+        prediction_pass='not executed; subsequent report pass remains separate',
+        process=dict(pid=100,start_ticks=1000,phase='selected-best-test'))
+    for name,value in [('identity',identity),('selected-best',reference),('result',result)]:
+        (directory/(name+'.json')).write_text(json.dumps(value))
+    status=dict(state='selected_best_test_finished',scope=e.SCOPE,scientific_eligible=False,production_ready=False,
+        result_sha256=e.file_sha256(directory/'result.json'))
+    (directory/'status.json').write_text(json.dumps(status))
+    return r,e,run,directory,context,checkpoint
+
+
+@pytest.mark.parametrize('damage',[None,'missing_snapshot','wrong_snapshot','last_snapshot','snapshot_state','snapshot_scaler',
+    'selection','identity','counter','fake_bool','coverage','metric','status','process'])
+def test_native_reader_requires_actual_selected_snapshot_and_resealed_complete_native_records(tmp_path,monkeypatch,damage):
+    r,e,run,directory,context,checkpoint=native_sidecar_fixture(tmp_path,monkeypatch)
+    result=json.loads((directory/'result.json').read_text());status=json.loads((directory/'status.json').read_text())
+    if damage=='missing_snapshot':(directory/'selected-best.ckpt').unlink()
+    elif damage=='wrong_snapshot':(directory/'selected-best.ckpt').write_bytes(b'changed')
+    elif damage=='last_snapshot':
+        result['selection']['checkpoint_name']='last.ckpt';(directory/'selected-best.json').write_text(json.dumps(result['selection']))
+    elif damage=='snapshot_state':checkpoint['state_dict']['fixture']+=1
+    elif damage=='snapshot_scaler':checkpoint['MixedPrecision']['scale']=32768.
+    elif damage=='selection':
+        result['selection']['selected_event_sha256']='9'*64;(directory/'selected-best.json').write_text(json.dumps(result['selection']))
+    elif damage=='identity':
+        identity=json.loads((directory/'identity.json').read_text());identity['policy']['batch_size']=1
+        identity['sha256']=e.artifacts.json_hash({k:v for k,v in identity.items() if k!='sha256'})
+        (directory/'identity.json').write_text(json.dumps(identity));result['identity_sha256']=identity['sha256']
+    elif damage=='counter':result['optimizer_executions']=1
+    elif damage=='fake_bool':result['model_state_unchanged']=1
+    elif damage=='coverage':result['coverage']['samples']-=1
+    elif damage=='metric':result['metrics']['test_loss']=float('inf')
+    elif damage=='status':status['scientific_eligible']=0
+    elif damage=='process':result['process']['phase']='unbound-test'
+    (directory/'result.json').write_text(json.dumps(result));status['result_sha256']=e.file_sha256(directory/'result.json')
+    (directory/'status.json').write_text(json.dumps(status))
+    if damage:
+        with pytest.raises((ValueError,FileNotFoundError)):r._read_native_test(run,directory)
+    else:
+        identity,value,guard=r._read_native_test(run,directory);guard.check()
+        assert value==result and identity['policy']['test_samples']==4306
+        assert directory/'selected-best.ckpt' in guard.paths
+
+
+@pytest.mark.parametrize('artifact',[{'passed':True},True,None])
+def test_native_reader_cannot_use_success_flags_as_immutable_native_sidecars(tmp_path,artifact):
+    with pytest.raises(ValueError):api()._read_native_test(tmp_path/'run',artifact)
+
+
+def native_launch_fixture(tmp_path,monkeypatch):
+    """Binding schema fixture with stubbed training authority, not actual pre-test/GPU qualification."""
+    r,e,run,native,context,checkpoint=native_sidecar_fixture(tmp_path,monkeypatch)
+    identity=r._identity_record(run,context['manifest'],context['selection'],'val')
+    first=tmp_path/'reference';second=tmp_path/'replay'
+    for directory in (first,second):
+        result=json.loads((directory/'result.json').read_text())
+        result.update(identity_sha256=identity['sha256'],
+            model_before_sha256=context['selection']['selected_model_sha256'],model_after_sha256=context['selection']['selected_model_sha256'],
+            scaler_before_sha256=e.storage.state_digest(checkpoint['MixedPrecision']),scaler_after_sha256=e.storage.state_digest(checkpoint['MixedPrecision']))
+        if directory==second:result['reference']['result_sha256']=e.file_sha256(first/'result.json')
+        (directory/'identity.json').write_text(json.dumps(identity));(directory/'result.json').write_text(json.dumps(result))
+        status=json.loads((directory/'status.json').read_text());status['result_sha256']=e.file_sha256(directory/'result.json')
+        (directory/'status.json').write_text(json.dumps(status))
+    profile,_=r._build_validation_profile(first,second);profile_path=tmp_path/'validation-profile.json'
+    profile_path.write_text(json.dumps(profile));launch=tmp_path/'launch';launch.mkdir();manifest_path=launch/'launch.json'
+    read,write=os.pipe()
+    try:channel=r._pipe_identity(read)
+    finally:os.close(read);os.close(write)
+    parent=r._pid_identity(os.getppid(),phase='classic-native-test-parent')
+    child=r._pid_identity(os.getpid(),phase='selected-best-test');directory_stat=launch.stat()
+    command=[sys.executable,'-B','-m','egoemg_repro.classic_emg_report','_native-child','--launch',str(manifest_path),'--go-fd',str(channel['read_fd'])]
+    value=dict(format=r.NATIVE_LAUNCH_FORMAT,scope='pre_test_process_profile_binding',scientific_eligible=False,production_ready=False,
+        run=str(run),native_output=str(native),validation_profile=dict(path=str(profile_path),file_sha256=e.file_sha256(profile_path),sha256=profile['sha256']),
+        identity_sha256=identity['sha256'],selection=context['selection'],sources=identity['sources'],runtime=identity['runtime'],
+        test_policy=profile['test_policy'],directory_identity=[directory_stat.st_dev,directory_stat.st_ino],
+        parent=parent,child=child,pipe=channel,command=command)
+    value['sha256']=e.artifacts.json_hash(value);manifest_path.write_text(json.dumps(value))
+    return r,e,run,native,manifest_path,value,channel
+
+
+@pytest.mark.parametrize('damage',[None,'profile_hash','manifest_hash','identity','selection','sources','runtime','batch','directory',
+    'same_process','parent_phase','child_phase','pipe','command','nested','science_flag'])
+def test_pretest_manifest_reopens_profile_context_and_rejects_resealed_binding_corruption(tmp_path,monkeypatch,damage):
+    r,e,run,native,path,value,channel=native_launch_fixture(tmp_path,monkeypatch)
+    if damage=='profile_hash':value['validation_profile']['file_sha256']='0'*64
+    elif damage=='identity':value['identity_sha256']='0'*64
+    elif damage=='selection':value['selection']=dict(value['selection'],selected_event_sha256='0'*64)
+    elif damage=='sources':value['sources']=dict(value['sources'],extra='0'*64)
+    elif damage=='runtime':value['runtime']={'changed':True}
+    elif damage=='batch':value['test_policy']=dict(value['test_policy'],batch_size=1)
+    elif damage=='directory':value['directory_identity'][1]+=1
+    elif damage=='same_process':value['child'].update(pid=value['parent']['pid'],start_ticks=value['parent']['start_ticks'])
+    elif damage=='parent_phase':value['parent']['phase']='unbound'
+    elif damage=='child_phase':value['child']['phase']='unbound'
+    elif damage=='pipe':value['pipe']['protocol']='ordinary file'
+    elif damage=='command':value['command'][4]='unqualified-entry'
+    elif damage=='nested':value['native_output']=str(run/'test')
+    elif damage=='science_flag':value['scientific_eligible']=0
+    value['sha256']=e.artifacts.json_hash({k:v for k,v in value.items() if k!='sha256'})
+    if damage=='manifest_hash':value['sha256']='0'*64
+    path.write_text(json.dumps(value))
+    if damage:
+        with pytest.raises(ValueError):r._read_launch_manifest(path)
+    else:
+        got,profile,context,guard=r._read_launch_manifest(path);guard.check()
+        assert got==value and profile['observed_exact_replay'] is True and context['run']==run
+        assert path in guard.paths and tmp_path/'validation-profile.json' in guard.paths
+
+
+@pytest.mark.parametrize('damage',[None,'go_hash','pipe','self','parent','argv'])
+def test_child_binding_admission_checks_live_self_parent_argv_and_actual_pipe_before_any_native_call(tmp_path,monkeypatch,damage):
+    """Metadata-only admission fixture; argv/training authorities stubbed, no CUDA or native forward."""
+    r,e,run,native,path,value,channel=native_launch_fixture(tmp_path,monkeypatch)
+    monkeypatch.setattr(sys,'orig_argv',value['command'].copy())
+    go=value['sha256'];received=channel.copy()
+    if damage=='go_hash':go='0'*64
+    elif damage=='pipe':received['inode']+=1
+    elif damage=='self':value['child']['start_ticks']+=1
+    elif damage=='parent':value['parent']['start_ticks']+=1
+    elif damage=='argv':monkeypatch.setattr(sys,'orig_argv',['python','other-entry'])
+    if damage in ('self','parent'):
+        value['sha256']=e.artifacts.json_hash({k:v for k,v in value.items() if k!='sha256'});go=value['sha256'];path.write_text(json.dumps(value))
+    if damage:
+        with pytest.raises(ValueError):r._admit_native_child(path,go,received)
+    else:
+        manifest,admission,guard=r._admit_native_child(path,go,received);guard.check()
+        assert manifest==value and admission['process']['pid']==os.getpid()
+        assert admission['manifest_sha256']==go and admission['scientific_eligible'] is False
+
+
+def completed_native_launch_fixture(tmp_path,monkeypatch):
+    """Historical receipt reader mechanics only; no native forward or CUDA qualification."""
+    r,e,run,native,path,value,channel=native_launch_fixture(tmp_path,monkeypatch)
+    monkeypatch.setattr(sys,'orig_argv',value['command'].copy())
+    _,admission,_=r._admit_native_child(path,value['sha256'],channel)
+    (path.parent/'child-admission.json').write_text(json.dumps(admission))
+    native_result=json.loads((native/'result.json').read_text());native_result['process']=value['child']
+    (native/'result.json').write_text(json.dumps(native_result))
+    native_status=json.loads((native/'status.json').read_text());native_status['result_sha256']=e.file_sha256(native/'result.json')
+    (native/'status.json').write_text(json.dumps(native_status))
+    identity=json.loads((native/'identity.json').read_text())
+    result=dict(format=r.NATIVE_LAUNCH_FORMAT,scope='profile_bound_original_native_test_finished',scientific_eligible=False,production_ready=False,
+        manifest_sha256=value['sha256'],manifest_file_sha256=e.file_sha256(path),
+        admission_file_sha256=e.file_sha256(path.parent/'child-admission.json'),native_identity_sha256=identity['sha256'],
+        native_result_sha256=e.file_sha256(native/'result.json'),native_selected_checkpoint_sha256=e.file_sha256(native/'selected-best.ckpt'),
+        parent=value['parent'],child=value['child'],child_exit_code=0,test_prediction_pass_executed=False)
+    (path.parent/'result.json').write_text(json.dumps(result))
+    (path.parent/'status.json').write_text(json.dumps(dict(state='profile_bound_native_test_finished',scope=r.NATIVE_LAUNCH_FORMAT,
+        scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(path.parent/'result.json'))))
+    return r,e,path,native,value,admission,result
+
+
+@pytest.mark.parametrize('damage',[None,'missing_admission','admission','native_process','native_hash','snapshot_hash','exit_type','scope','status','parent'])
+def test_finished_native_launch_reopens_admission_native_snapshot_and_exact_child_result(tmp_path,monkeypatch,damage):
+    r,e,path,native,value,admission,result=completed_native_launch_fixture(tmp_path,monkeypatch)
+    if damage=='missing_admission':(path.parent/'child-admission.json').unlink()
+    elif damage=='admission':
+        admission['process']['start_ticks']+=1
+        admission['sha256']=e.artifacts.json_hash({k:v for k,v in admission.items() if k!='sha256'})
+        (path.parent/'child-admission.json').write_text(json.dumps(admission));result['admission_file_sha256']=e.file_sha256(path.parent/'child-admission.json')
+    elif damage=='native_process':
+        record=json.loads((native/'result.json').read_text());record['process']['start_ticks']+=1
+        (native/'result.json').write_text(json.dumps(record));status=json.loads((native/'status.json').read_text())
+        status['result_sha256']=e.file_sha256(native/'result.json');(native/'status.json').write_text(json.dumps(status))
+        result['native_result_sha256']=e.file_sha256(native/'result.json')
+    elif damage=='native_hash':result['native_result_sha256']='0'*64
+    elif damage=='snapshot_hash':result['native_selected_checkpoint_sha256']='0'*64
+    elif damage=='exit_type':result['child_exit_code']=False
+    elif damage=='scope':result['scientific_eligible']=0
+    elif damage=='parent':result['parent']=dict(result['parent'],start_ticks=result['parent']['start_ticks']+1)
+    (path.parent/'result.json').write_text(json.dumps(result));status=json.loads((path.parent/'status.json').read_text())
+    status['result_sha256']=e.file_sha256(path.parent/'result.json')
+    if damage=='status':status['state']='failed'
+    (path.parent/'status.json').write_text(json.dumps(status))
+    if damage:
+        with pytest.raises((ValueError,FileNotFoundError)):r.verify_native_test_launch(path.parent)
+    else:
+        manifest,identity,record,guard=r.verify_native_test_launch(path.parent);guard.check()
+        assert manifest==value and record['process']==value['child']
+        assert native/'selected-best.ckpt' in guard.paths and path.parent/'child-admission.json' in guard.paths
+
+
+@pytest.mark.parametrize('device',['cpu','cuda:1','bf16'])
+def test_native_launch_rejects_wrong_device_before_any_directory_or_spawn(tmp_path,monkeypatch,device):
+    r=api()
+    def forbidden(*args,**kwargs):raise AssertionError('wrong-device launch reached a process')
+    monkeypatch.setattr(subprocess,'Popen',forbidden)
+    with pytest.raises(ValueError):r.run_native_test(tmp_path/'missing',validation_profile=tmp_path/'missing-profile',
+        output=tmp_path/'native',launch_output=tmp_path/'launch',device=device)
+    assert not (tmp_path/'native').exists() and not (tmp_path/'launch').exists()
+
+
+@pytest.mark.parametrize('fail_before_go',[False,True])
+def test_real_parent_publishes_actual_child_binding_before_go_and_revokes_failed_probe(tmp_path,monkeypatch,fail_before_go):
+    """Real process/pipe failure probe only: worker exits17 and never calls native/CUDA."""
+    r,e,run,native,old_launch,value,channel=native_launch_fixture(tmp_path,monkeypatch)
+    native.rename(tmp_path/'saved-native');launch=tmp_path/'new-launch';marker=tmp_path/'probe-observed.json'
+    profile=tmp_path/'validation-profile.json';processes=[];released=[]
+    spawn=subprocess.Popen;write=e.artifacts._write_json;os_write=os.write;read_manifest=r._read_launch_manifest
+    code='''
+import hashlib,json,os,sys
+from pathlib import Path
+from egoemg_repro.classic_emg_report import _receive_launch_go,_pid_identity
+go,channel=_receive_launch_go(int(sys.argv[2]))
+manifest=json.loads(Path(sys.argv[1]).read_text())
+actual=hashlib.sha256(json.dumps({k:v for k,v in manifest.items() if k!='sha256'},sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+assert actual==go==manifest['sha256']
+assert manifest['child']==_pid_identity(os.getpid(),phase='selected-best-test')
+assert manifest['pipe']==channel
+Path(sys.argv[3]).write_text(json.dumps(dict(go=go,child=manifest['child'],profile=manifest['validation_profile'],torch_imported='torch' in sys.modules)))
+sys.exit(17)
+'''
+    monkeypatch.setattr(r,'_native_command',lambda path,fd:[sys.executable,'-B','-c',code,str(path),str(fd),str(marker)])
+    def capture(*args,**kwargs):
+        process=spawn(*args,**kwargs);processes.append(process);return process
+    def observe(fd,raw):
+        if len(raw)==33 and raw[:1]==b'G':released.append(raw)
+        return os_write(fd,raw)
+    def manifest_after_go(path,*args,**kwargs):
+        assert released,'Full-cohort verification belongs before spawn or after GO, not in the bounded child wait'
+        return read_manifest(path,*args,**kwargs)
+    def fail_write(directory,name,*args,**kwargs):
+        if fail_before_go and directory.path==launch and name=='launch.json':raise OSError('injected before-GO publication failure')
+        return write(directory,name,*args,**kwargs)
+    monkeypatch.setattr(subprocess,'Popen',capture);monkeypatch.setattr(r.os,'write',observe)
+    monkeypatch.setattr(r,'_read_launch_manifest',manifest_after_go);monkeypatch.setattr(e.artifacts,'_write_json',fail_write)
+    try:
+        with pytest.raises(OSError if fail_before_go else RuntimeError):
+            r.run_native_test(run,validation_profile=profile,output=native,launch_output=launch)
+        assert len(processes)==1 and processes[0].poll() is not None
+        assert json.loads((launch/'status.json').read_text())['state']=='failed' and not native.exists()
+        if fail_before_go:assert not marker.exists() and not released
+        else:
+            observed=json.loads(marker.read_text());assert observed['torch_imported'] is False
+            assert observed['child']['pid']==processes[0].pid and len(released)==1
+            assert observed['profile']['file_sha256']==e.file_sha256(profile)
+    finally:
+        for process in processes:
+            if process.poll() is None:process.kill();process.wait(timeout=10)
+
+
+@pytest.mark.parametrize('command',['native-test','verify-native-test','_native-child'])
+def test_native_cli_dispatches_only_the_explicit_bound_entry(monkeypatch,capsys,command):
+    r=api();calls=[]
+    def native(run,**kwargs):calls.append((run,kwargs));return {'kind':'native'}
+    def verify(directory):calls.append(directory);return ({'sha256':'1'*64},None,None,None)
+    def child(path,fd):calls.append((path,fd));return {'kind':'child'}
+    monkeypatch.setattr(r,'run_native_test',native);monkeypatch.setattr(r,'verify_native_test_launch',verify)
+    monkeypatch.setattr(r,'_native_test_child',child)
+    arguments={'native-test':['--run','trained','--validation-profile','profile.json','--output','native','--launch-output','launch'],
+        'verify-native-test':['--launch-output','launch'],'_native-child':['--launch','launch/launch.json','--go-fd','5']}
+    r.main([command,*arguments[command]]);value=json.loads(capsys.readouterr().out)
+    assert len(calls)==1
+    if command=='native-test':
+        assert calls[0]==(Path('trained'),dict(validation_profile=Path('profile.json'),output=Path('native'),launch_output=Path('launch'),device='cuda:0'))
+        assert value['kind']=='native'
+    elif command=='verify-native-test':assert value=={'format':r.NATIVE_LAUNCH_FORMAT,'sha256':'1'*64,'verified':True}
+    else:assert value['kind']=='child' and calls[0]==(Path('launch/launch.json'),5)
+
+
+@pytest.mark.parametrize('failure',[None,'before_rescue_close','after_rescue_close','late_source','renamed_directory'])
+def test_native_parent_publication_file_mechanics_keep_revocation_through_final_closes(tmp_path,monkeypatch,failure):
+    """Filesystem finalization with stubbed raw authorities; never native or CUDA qualification."""
+    r,e,path,native,value,admission,result=completed_native_launch_fixture(tmp_path,monkeypatch)
+    (path.parent/'result.json').unlink();(path.parent/'status.json').unlink()
+    (path.parent/'progress.json').write_text('{"state":"running"}')
+    owned=e.artifacts._Directory(path.parent,create=False);rescue=e.artifacts._Directory(path.parent,create=False)
+    backup=r._retain_directory(rescue);close=e.artifacts._Directory.close;injected=[];publications={}
+    identity=json.loads((native/'identity.json').read_text());guard=e.cohort._StatGuard([tmp_path/'trained'/'result.json'])
+    def fail(directory):
+        if directory is rescue and failure and not injected:
+            injected.append(True)
+            if failure=='before_rescue_close':raise OSError('injected native parent rescue close failure')
+            close(directory)
+            if failure=='after_rescue_close':raise OSError('injected native parent rescue close after actual release')
+            if failure=='late_source':(tmp_path/'trained'/'result.json').write_text('{"changed":true}')
+            if failure=='renamed_directory':
+                path.parent.rename(tmp_path/'moved-launch');path.parent.mkdir();(path.parent/'status.json').write_text('foreign status')
+            return
+        return close(directory)
+    monkeypatch.setattr(e.artifacts._Directory,'close',fail)
+    try:
+        if failure:
+            with pytest.raises((OSError,ValueError)):r._finish_native_publication(path,value,identity,guard,owned,rescue,backup,publications)
+            assert injected
+            if failure=='renamed_directory':
+                assert (path.parent/'status.json').read_text()=='foreign status'
+                assert not (tmp_path/'moved-launch'/'status.json').exists()
+            else:assert json.loads((path.parent/'status.json').read_text())['state']=='failed'
+        else:
+            assert r._finish_native_publication(path,value,identity,guard,owned,rescue,backup,publications)==result
+            assert r.verify_native_test_launch(path.parent)[2]['process']==value['child']
+    finally:
+        for directory in (owned,rescue,backup):close(directory)
+        r._discard_publications(publications)
+
+
+@pytest.mark.parametrize('kind',['native','prediction'])
+@pytest.mark.parametrize('replaced',['status.json','result.json'])
+def test_review_failed_publication_preserves_foreign_file_and_invalidates_moved_owned_inode(tmp_path,monkeypatch,kind,replaced):
+    """Real filesystem rollback; fixture authorities do not qualify CUDA or a scientific result."""
+    from types import SimpleNamespace as NS
+    if kind=='native':
+        r,e,path,native,value,admission,result=completed_native_launch_fixture(tmp_path,monkeypatch)
+        output=path.parent;identity=json.loads((native/'identity.json').read_text())
+        (output/'result.json').unlink();(output/'status.json').unlink()
+        (output/'progress.json').write_text('{"state":"running"}')
+    else:
+        r,e,paths=raw_prediction_pair(tmp_path,monkeypatch);output=tmp_path/'new-reference'
+        output.mkdir();identity=json.loads((paths[0]/'identity.json').read_text())
+        result=json.loads((paths[0]/'result.json').read_text())
+        (output/'identity.json').write_text(json.dumps(identity));(output/'progress.json').write_text('{"state":"running"}')
+    owned=e.artifacts._Directory(output,create=False);rescue=e.artifacts._Directory(output,create=False)
+    backup=r._retain_directory(rescue);close=e.artifacts._Directory.close;injected=[];publications={}
+    guard=e.cohort._StatGuard([tmp_path/'trained'/'result.json']);moved=output/('moved-'+replaced)
+    def substitute(directory):
+        close(directory)
+        if directory is rescue and not injected:
+            injected.append(True);(output/replaced).rename(moved);(output/replaced).write_text('foreign replacement bytes')
+    monkeypatch.setattr(e.artifacts._Directory,'close',substitute)
+    try:
+        with pytest.raises(ValueError):
+            if kind=='native':r._finish_native_publication(path,value,identity,guard,owned,rescue,backup,publications)
+            else:r._finish_prediction_publication(NS(guard=guard),output,identity,result,owned,rescue,backup,publications)
+        assert injected
+        assert (output/replaced).read_text()=='foreign replacement bytes'
+        assert moved.read_bytes()==b''
+        with pytest.raises((ValueError,FileNotFoundError)):
+            if kind=='native':r.verify_native_test_launch(output)
+            else:r._read_prediction_pass(output,role='val')
+    finally:
+        for directory in (owned,rescue,backup):close(directory)
+        r._discard_publications(publications)

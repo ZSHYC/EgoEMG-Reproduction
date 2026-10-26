@@ -1,9 +1,10 @@
-"""Original-alignment reports and post-termination validation calibration.
+"""Original-alignment reports and profile-bound post-termination testing.
 
 Private sufficient statistics retain user keys. The validation commands admit
 only genuinely terminated formal training and never evaluate the held-out test.
-Native-test launch binding, test recomputation and sanitized scientific export
-remain separate, unfinished stages; a validation profile is not completion.
+Native testing requires a durable actual-child/profile binding and inherited
+parent pipe release. Test prediction recomputation and sanitized scientific
+export remain unfinished; neither a validation profile nor native test is completion.
 """
 from __future__ import annotations
 
@@ -14,6 +15,11 @@ import json
 import math
 import os
 from pathlib import Path
+import select
+import stat
+import subprocess
+import sys
+import time
 import uuid
 
 import numpy as np
@@ -24,6 +30,8 @@ IMPORTED_REPORT_SHA256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 PASS_FORMAT='classic_original_prediction_pass_v1'
 PROFILE_FORMAT='classic_validation_exact_replay_profile_v1'
 AGREEMENT='exact_typed_prediction_replay_v1'
+NATIVE_LAUNCH_FORMAT='classic_native_test_launch_v1'
+GO_PROTOCOL='inherited_pipe_G_sha256_33bytes_EOF_v1'
 
 
 JOINT_NAMES=(
@@ -277,6 +285,59 @@ def _process_key(value):
     return value['pid'],value['start_ticks']
 
 
+def _pid_identity(pid,*,phase):
+    if type(pid) is not int or pid<=0 or not isinstance(phase,str) or not phase:
+        raise ValueError('positive actual PID and process phase required')
+    try:
+        fields=Path('/proc',str(pid),'stat').read_text().rsplit(')',1)[1].split()
+        value=dict(pid=pid,start_ticks=int(fields[19]),phase=phase);_process_key(value)
+        return value
+    except (OSError,IndexError,TypeError) as exc:
+        raise ValueError('actual process identity unavailable') from exc
+
+
+def _pipe_identity(fd):
+    if type(fd) is not int or fd<=2:raise ValueError('dedicated inherited pipe descriptor required')
+    value=os.fstat(fd)
+    if not stat.S_ISFIFO(value.st_mode):raise ValueError('parent release must use an actual pipe')
+    return dict(read_fd=fd,device=value.st_dev,inode=value.st_ino,protocol=GO_PROTOCOL)
+
+
+def _receive_launch_go(fd):
+    """Pure OS handshake: no model/runtime import before the exact parent release."""
+    if type(fd) is not int or fd<=2:raise ValueError('dedicated inherited pipe descriptor required')
+    try:
+        channel=_pipe_identity(fd);deadline=time.monotonic()+60.;payload=b''
+        while True:
+            remaining=deadline-time.monotonic()
+            if remaining<=0 or not select.select([fd],[],[],remaining)[0]:raise TimeoutError('parent release timed out')
+            block=os.read(fd,34-len(payload))
+            if not block:break
+            payload+=block
+            if len(payload)>33:raise ValueError('trailing parent release payload')
+        if len(payload)!=33 or payload[:1]!=b'G':raise ValueError('missing or malformed parent release')
+        return payload[1:].hex(),channel
+    finally:os.close(fd)
+
+
+def _validate_native_coverage(value,*,variant):
+    """Validate original native test aggregation, without inventing predictions."""
+    e=_evaluation();policy=report_pass_policy(variant=variant,role='test')
+    fields={'samples','batch_sizes','coverage_sha256','batch_weighted_loss','test_loss',
+        'target_sha256','mask_sha256','sample_sha256','fingerprint_encoding','fingerprint_scope'}
+    samples=policy['samples'];batch=policy['batch_size'];digest=hashlib.sha256()
+    for i in range(samples):digest.update(i.to_bytes(8,'big'))
+    if (type(value) is not dict or set(value)!=fields or type(value['samples']) is not int or
+        value['samples']!=samples or value['batch_sizes']!=[min(batch,samples-i) for i in range(0,samples,batch)] or
+        any(type(x) is not int for x in value['batch_sizes']) or value['coverage_sha256']!=digest.hexdigest() or
+        value['fingerprint_encoding']!='ordered chain of typed canonical-batch target/mask and frozen-sample receipts v1' or
+        value['fingerprint_scope']!=e.FINGERPRINT_SCOPE or
+        any(type(value[k]) is not float or not math.isfinite(value[k]) for k in ('batch_weighted_loss','test_loss')) or
+        not math.isclose(value['test_loss'],value['batch_weighted_loss'],rel_tol=2e-6,abs_tol=1e-7)):
+        raise ValueError('complete original native test coverage/loss differs')
+    for name in ('target','mask','sample'):e.artifacts._hex(value[name+'_sha256'])
+
+
 def _merge_guard(guard,other):
     guard.check();other.check()
     if any(path in guard.paths and guard.paths[path]!=stamp for path,stamp in other.paths.items()):
@@ -370,6 +431,16 @@ def _terminated_context(run):
     manifest=e.formal._json(run/'identity.json');state=manifest['state_identity']
     last=e.artifacts.read_formal_last(run/'checkpoints/last.ckpt',state)
     best=e._selected_core(last,selection)
+    monitor=next(value for key,value in last['callbacks'].items() if key.startswith('ModelCheckpoint{'))
+    original_path=e.artifacts._safe(monitor['best_model_path'])
+    if original_path.name=='last.ckpt':raise ValueError('last cannot substitute for selected best')
+    original_best=dict(path=str(original_path),present=False,file_sha256=None)
+    if original_path.exists():
+        guard.add(original_path)
+        original=e.artifacts._read(original_path,state,'best')
+        if e.artifacts._seal(original)!=selection['selected_state_sha256']:
+            raise ValueError('original best differs from verified carried selection')
+        original_best.update(present=True,file_sha256=e.file_sha256(original_path))
     provenance=manifest['provenance']
     if not provenance['partitions']:raise ValueError('actual frozen partition provenance required')
     complete=e.formal._cohort_guard(provenance['data'],provenance['partitions'],upstream=provenance['upstream'],
@@ -386,7 +457,194 @@ def _terminated_context(run):
     framework_root=Path(e.storage.pl.__file__).resolve().parent
     for name in e.EVALUATION_FRAMEWORK_FILES:guard.add(framework_root/name)
     guard.check()
-    return dict(run=run,manifest=manifest,selection=selection,best=best,partitions=partitions,guard=guard)
+    return dict(run=run,manifest=manifest,selection=selection,best=best,partitions=partitions,
+        original_best=original_best,guard=guard)
+
+
+def _native_identity_record(context):
+    """Reconstruct unchanged Task5 identity from actual terminated evidence, without a factory."""
+    e=_evaluation();run=context['run'];manifest=context['manifest'];selection=context['selection']
+    state=manifest['state_identity'];bindings=state['bindings']
+    value=dict(format=e.FORMAT,scope=e.SCOPE,scientific_eligible=False,production_ready=False,
+        training_manifest_sha256=manifest['sha256'],training_result_sha256=e.file_sha256(run/'result.json'),
+        last_checkpoint_sha256=e.file_sha256(run/'checkpoints/last.ckpt'),selection=selection,
+        original_best=context['original_best'],policy=e.evaluation_policy(variant=manifest['policy']['variant']),
+        runtime=state['runtime'],source_files_sha256=e._sources(),evaluation_framework_files_sha256=e._framework(),
+        cohort_receipt_sha256=bindings['cohort_receipt_sha256'],cohort_sha256=manifest['cohort_sha256'],
+        data_sha256=bindings['data_sha256'],partition_sha256=bindings['partition_sha256'],
+        fingerprint_scope=e.FINGERPRINT_SCOPE,
+        prediction_pass='not executed here; later post-termination report/recomputation stage')
+    value['sha256']=e.artifacts.json_hash(value)
+    return value
+
+
+def _read_native_test(run,directory):
+    """Reopen the actual Task5 snapshot, selection, full-input coverage and native metrics."""
+    if any(not isinstance(p,(str,os.PathLike)) for p in (run,directory)):
+        raise ValueError('real terminated run and immutable native sidecar paths required')
+    e=_evaluation();run=e.artifacts._safe(run);directory=e.artifacts._safe(directory)
+    guard=e.cohort._StatGuard([directory/name for name in
+        ('identity.json','result.json','status.json','selected-best.json','selected-best.ckpt')])
+    try:
+        context=_terminated_context(run);_merge_guard(guard,context['guard'])
+        identity=e.formal._json(directory/'identity.json');expected=_native_identity_record(context)
+        if e.artifacts.json_hash(identity)!=e.artifacts.json_hash(expected):
+            raise ValueError('native selected-best source/runtime/data/selection identity differs')
+        result=e.formal._json(directory/'result.json');status=e.formal._json(directory/'status.json')
+        reference=e.formal._json(directory/'selected-best.json');path=directory/'selected-best.ckpt'
+        selected=e.artifacts._read(path,context['manifest']['state_identity'],'best')
+        selection=context['selection']
+        if (e.artifacts._seal(selected)!=selection['selected_state_sha256'] or
+            e.storage.state_digest(selected['state_dict'])!=selection['selected_model_sha256'] or
+            e.storage.state_digest(selected['MixedPrecision'])!=e.storage.state_digest(context['best']['MixedPrecision'])):
+            raise ValueError('native immutable selected snapshot differs; no last fallback allowed')
+        expected_reference=dict(format=e.FORMAT,scope='immutable_selected_best_reference',scientific_eligible=False,
+            training_manifest_sha256=context['manifest']['sha256'],
+            **{key:selection[key] for key in ('selected_state_sha256','selected_model_sha256','selected_event_sha256')},
+            checkpoint_name=path.name,checkpoint_sha256=e.file_sha256(path),original_best=context['original_best'])
+        if (e.artifacts.json_hash(reference)!=e.artifacts.json_hash(expected_reference) or
+            e.artifacts.json_hash(status)!=e.artifacts.json_hash(dict(state='selected_best_test_finished',scope=e.SCOPE,
+                scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(directory/'result.json')))):
+            raise ValueError('native selected snapshot or finished status binding differs')
+        fields={'format','scope','scientific_eligible','production_ready','identity_sha256','selection','metrics','coverage',
+            'original_test_step','optimizer_executions','model_state_unchanged','scaler_state_unchanged','prediction_pass','process'}
+        if (set(result)!=fields or result['format']!=e.FORMAT or result['scope']!=e.SCOPE or
+            result['scientific_eligible'] is not False or result['production_ready'] is not False or
+            result['identity_sha256']!=identity['sha256'] or
+            e.artifacts.json_hash(result['selection'])!=e.artifacts.json_hash(reference) or
+            result['original_test_step'] is not True or type(result['optimizer_executions']) is not int or
+            result['optimizer_executions']!=0 or result['model_state_unchanged'] is not True or
+            result['scaler_state_unchanged'] is not True or
+            result['prediction_pass']!='not executed; subsequent report pass remains separate'):
+            raise ValueError('native original test/invariance/result schema differs')
+        _process_key(result['process'])
+        if result['process']['phase']!='selected-best-test':raise ValueError('actual native test process phase differs')
+        _validate_native_coverage(result['coverage'],variant=context['manifest']['policy']['variant'])
+        metrics=result['metrics']
+        if (type(metrics) is not dict or 'test_loss' not in metrics or
+            any(type(k) is not str or type(v) is not float or not math.isfinite(v) for k,v in metrics.items()) or
+            not math.isclose(metrics['test_loss'],result['coverage']['test_loss'],rel_tol=2e-6,abs_tol=1e-7)):
+            raise ValueError('finite original native test metrics differ from consumed full-test loss')
+        guard.check()
+        return identity,result,guard
+    except (KeyError,TypeError,IndexError,AttributeError,StopIteration) as exc:
+        raise ValueError('incomplete original native test sidecar') from exc
+
+
+def _native_command(path,fd):
+    return [sys.executable,'-B','-m','egoemg_repro.classic_emg_report','_native-child',
+        '--launch',str(path),'--go-fd',str(fd)]
+
+
+def _native_namespaces(run,native,launch,profile):
+    e=_evaluation();run=e.artifacts._safe(run);native=e.artifacts._safe(native);launch=e.artifacts._safe(launch)
+    immutable=[run,*(e.artifacts._safe(item['directory']) for item in profile['artifacts'])]
+    if (native==launch or native in launch.parents or launch in native.parents or
+        any(path==root or root in path.parents for root in immutable for path in (native,launch))):
+        raise ValueError('native and launch outputs must be separate from immutable training/calibration and one another')
+    return run,native,launch
+
+
+def _read_launch_manifest(path):
+    """Validate the immutable before-GO manifest; no test or child completion is inferred."""
+    if not isinstance(path,(str,os.PathLike)):raise ValueError('real pre-test launch manifest required')
+    e=_evaluation();path=e.artifacts._safe(path)
+    if path.name!='launch.json':raise ValueError('original launch.json artifact required')
+    guard=e.cohort._StatGuard([path])
+    try:
+        value=e.formal._json(path)
+        fields={'format','scope','scientific_eligible','production_ready','run','native_output','validation_profile',
+            'identity_sha256','selection','sources','runtime','test_policy','directory_identity','parent','child','pipe','command','sha256'}
+        if (set(value)!=fields or value['format']!=NATIVE_LAUNCH_FORMAT or value['scope']!='pre_test_process_profile_binding' or
+            value['scientific_eligible'] is not False or value['production_ready'] is not False or
+            value['sha256']!=e.artifacts.json_hash({k:v for k,v in value.items() if k!='sha256'})):
+            raise ValueError('immutable pre-test manifest schema/seal differs')
+        descriptor=value['validation_profile']
+        if type(descriptor) is not dict or set(descriptor)!={'path','file_sha256','sha256'}:
+            raise ValueError('actual frozen validation profile path and hashes required')
+        profile_path=e.artifacts._safe(descriptor['path'])
+        if descriptor['file_sha256']!=e.file_sha256(profile_path):raise ValueError('pre-test validation profile file differs')
+        profile,other=verify_validation_profile(profile_path);_merge_guard(guard,other)
+        context=_terminated_context(value['run']);_merge_guard(guard,context['guard'])
+        expected=_identity_record(context['run'],context['manifest'],context['selection'],'val')
+        if (descriptor['sha256']!=profile['sha256'] or
+            e.artifacts.json_hash(profile['identity'])!=e.artifacts.json_hash(expected) or
+            value['identity_sha256']!=expected['sha256'] or
+            any(e.artifacts.json_hash(value[key])!=e.artifacts.json_hash(expected[key]) for key in ('selection','sources','runtime')) or
+            e.artifacts.json_hash(value['test_policy'])!=e.artifacts.json_hash(profile['test_policy'])):
+            raise ValueError('pre-test source/selected-best/runtime/profile binding differs')
+        _native_namespaces(context['run'],value['native_output'],path.parent,profile)
+        directory=value['directory_identity'];current=path.parent.stat()
+        if (type(directory) is not list or len(directory)!=2 or any(type(x) is not int or x<0 for x in directory) or
+            directory!=[current.st_dev,current.st_ino]):raise ValueError('launch directory creation identity differs')
+        parent=value['parent'];child=value['child'];_process_key(parent);_process_key(child)
+        channel=value['pipe']
+        if (parent['phase']!='classic-native-test-parent' or child['phase']!='selected-best-test' or
+            _process_key(parent)==_process_key(child) or type(channel) is not dict or
+            set(channel)!={'read_fd','device','inode','protocol'} or
+            any(type(channel[k]) is not int for k in ('read_fd','device','inode')) or
+            channel['read_fd']<=2 or channel['device']<0 or channel['inode']<=0 or channel['protocol']!=GO_PROTOCOL or
+            value['command']!=_native_command(path,channel['read_fd'])):
+            raise ValueError('actual parent/child, inherited pipe or original child command binding differs')
+        guard.check()
+        return value,profile,context,guard
+    except (KeyError,TypeError,IndexError,AttributeError) as exc:
+        raise ValueError('incomplete immutable pre-test launch manifest') from exc
+
+
+def _admit_native_child(path,go_sha256,channel):
+    """Require actual self, live parent and argv after the inherited parent pipe release."""
+    e=_evaluation();value,profile,context,guard=_read_launch_manifest(path)
+    actual=_pid_identity(os.getpid(),phase='selected-best-test')
+    parent=_pid_identity(os.getppid(),phase='classic-native-test-parent')
+    if (go_sha256!=value['sha256'] or e.artifacts.json_hash(channel)!=e.artifacts.json_hash(value['pipe']) or
+        actual!=value['child'] or parent!=value['parent'] or getattr(sys,'orig_argv',None)!=value['command']):
+        raise ValueError('child did not receive its exact parent/manifest/pipe/argv admission')
+    admission=_native_admission_record(path,value);guard.check()
+    return value,admission,guard
+
+
+def _native_admission_record(path,value):
+    e=_evaluation()
+    admission=dict(format=NATIVE_LAUNCH_FORMAT,scope='actual_child_admitted_frozen_profile_before_native_test',
+        scientific_eligible=False,production_ready=False,manifest_sha256=value['sha256'],
+        manifest_file_sha256=e.file_sha256(path),validation_profile_file_sha256=value['validation_profile']['file_sha256'],
+        identity_sha256=value['identity_sha256'],process=value['child'],parent=value['parent'],pipe=value['pipe'],command=value['command'])
+    admission['sha256']=e.artifacts.json_hash(admission)
+    return admission
+
+
+def _native_launch_result(path,value,identity):
+    e=_evaluation();native=e.artifacts._safe(value['native_output'])
+    return dict(format=NATIVE_LAUNCH_FORMAT,scope='profile_bound_original_native_test_finished',scientific_eligible=False,
+        production_ready=False,manifest_sha256=value['sha256'],manifest_file_sha256=e.file_sha256(path),
+        admission_file_sha256=e.file_sha256(path.parent/'child-admission.json'),native_identity_sha256=identity['sha256'],
+        native_result_sha256=e.file_sha256(native/'result.json'),native_selected_checkpoint_sha256=e.file_sha256(native/'selected-best.ckpt'),
+        parent=value['parent'],child=value['child'],child_exit_code=0,test_prediction_pass_executed=False)
+
+
+def verify_native_test_launch(directory):
+    """Reopen the complete parent/admission/native chain, without running any test."""
+    if not isinstance(directory,(str,os.PathLike)):raise ValueError('real completed native launch artifact path required')
+    e=_evaluation();directory=e.artifacts._safe(directory);path=directory/'launch.json'
+    guard=e.cohort._StatGuard([directory/name for name in ('launch.json','child-admission.json','result.json','status.json')])
+    try:
+        value,profile,context,other=_read_launch_manifest(path);_merge_guard(guard,other)
+        admission=e.formal._json(directory/'child-admission.json')
+        if e.artifacts.json_hash(admission)!=e.artifacts.json_hash(_native_admission_record(path,value)):
+            raise ValueError('actual child admission differs from before-GO process/profile/pipe binding')
+        identity,native,other=_read_native_test(value['run'],value['native_output']);_merge_guard(guard,other)
+        if e.artifacts.json_hash(native['process'])!=e.artifacts.json_hash(value['child']):
+            raise ValueError('native test ran in a different child process than the before-GO binding')
+        result=e.formal._json(directory/'result.json');status=e.formal._json(directory/'status.json')
+        if (e.artifacts.json_hash(result)!=e.artifacts.json_hash(_native_launch_result(path,value,identity)) or
+            e.artifacts.json_hash(status)!=e.artifacts.json_hash(dict(state='profile_bound_native_test_finished',scope=NATIVE_LAUNCH_FORMAT,
+                scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(directory/'result.json')))):
+            raise ValueError('parent/native finished result or status binding differs')
+        guard.check()
+        return value,identity,native,guard
+    except (KeyError,TypeError,IndexError,AttributeError) as exc:
+        raise ValueError('incomplete profile-bound native launch artifact') from exc
 
 
 def _read_prediction_pass(directory,*,role,expected_kind=None):
@@ -591,29 +849,33 @@ def freeze_validation_profile(reference,replay,*,output):
                 _discard_fd(publication.pop('fd',None));_discard_directory(backup)
 
 
-def _revoke_prediction_status(output,rescue,created_identity,exc):
-    """A retained creation inode can revoke a moved owned directory's marker."""
+def _discard_publications(publications):
+    for publication in publications.values():_discard_fd(publication.pop('fd',None))
+
+
+def _revoke_prediction_status(output,rescue,created_identity,exc,publications,*,scope=PASS_FORMAT):
+    """Invalidate only creation-owned result/status inodes, including moved files."""
+    for name,publication in publications.items():_revoke_profile(rescue,name,publication)
     if rescue is None:return
     try:
         held=os.fstat(rescue.fd)
         if (held.st_dev,held.st_ino)!=created_identity:return
-        try:os.unlink('status.json',dir_fd=rescue.fd)
-        except FileNotFoundError:pass
-        os.fsync(rescue.fd)
         if rescue.owner.is_current(output):
-            _evaluation().artifacts._write_json(rescue,'status.json',dict(state='failed',scope=PASS_FORMAT,
+            # NOREPLACE preserves any foreign status, even within our directory.
+            _evaluation().artifacts._write_json(rescue,'status.json',dict(state='failed',scope=scope,
                 scientific_eligible=False,production_ready=False,error_type=type(exc).__name__,error=str(exc)))
     except (OSError,ValueError):pass
 
 
-def _finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup):
+def _finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup,publications):
     """Filesystem finalization only; genuine CUDA admission belongs to the outer runner."""
     e=_evaluation()
     try:
         prepared.guard.check();owned.check()
-        e.artifacts._write_json(owned,'result.json',result)
-        e.artifacts._write_json(owned,'status.json',dict(state='prediction_pass_finished',scope=PASS_FORMAT,
-            scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(output/'result.json')),replace=True)
+        _publish_profile_file(owned,'result.json',result,publications.setdefault('result.json',{}))
+        _publish_profile_file(owned,'status.json',dict(state='prediction_pass_finished',scope=PASS_FORMAT,
+            scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(output/'result.json')),
+            publications.setdefault('status.json',{}))
         if e.artifacts.json_hash(e.formal._json(output/'result.json'))!=e.artifacts.json_hash(result):
             raise ValueError('prediction result readback differs')
         owned.close()
@@ -625,7 +887,7 @@ def _finish_prediction_publication(prepared,output,identity,result,owned,rescue,
         if _report_sources()!=identity['sources']:raise ValueError('prediction sources changed during final close')
         return result
     except BaseException as exc:
-        _revoke_prediction_status(output,backup,owned.owner.identity,exc);raise
+        _revoke_prediction_status(output,backup,owned.owner.identity,exc,publications);raise
 
 
 def run_validation_prediction(run,*,output,reference=None,device='cuda:0'):
@@ -646,14 +908,14 @@ def run_validation_prediction(run,*,output,reference=None,device='cuda:0'):
     used=e.formal._Dataset(dataset,prepared,1576)
     loader=torch.utils.data.DataLoader(used,batch_size=policy['batch_size'],num_workers=0,shuffle=False,
         drop_last=False,generator=torch.Generator().manual_seed(policy['loader_seed']))
-    owned=rescue=backup=None;created_identity=None
+    owned=rescue=backup=None;created_identity=None;publications={}
     try:
         owned=e.artifacts._Directory(output,create=True);created_identity=owned.owner.identity
         rescue=e.artifacts._Directory(output,create=False)
         if rescue.owner.identity!=created_identity:raise ValueError('prediction sidecar acquisition changed')
         backup=_retain_directory(rescue)
         e.artifacts._write_json(owned,'identity.json',identity)
-        e.artifacts._write_json(owned,'status.json',dict(state='running',scope=PASS_FORMAT,scientific_eligible=False))
+        e.artifacts._write_json(owned,'progress.json',dict(state='running',scope=PASS_FORMAT,scientific_eligible=False))
         result=_consume_prediction_batches(prepared,loader,ledger,device=device)
         process=e.cuda._process_identity('classic-val-replay' if original is not None else 'classic-val-reference')
         if original is not None:
@@ -662,22 +924,136 @@ def run_validation_prediction(run,*,output,reference=None,device='cuda:0'):
         result.update(format=PASS_FORMAT,scope=policy['scope'],scientific_eligible=False,production_ready=False,
             identity_sha256=identity['sha256'],process=process,pass_kind='replay' if original is not None else 'reference',
             reference=dict(directory=str(e.artifacts._safe(reference)),result_sha256=e.file_sha256(Path(reference)/'result.json')) if original is not None else None)
-        _finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup)
+        _finish_prediction_publication(prepared,output,identity,result,owned,rescue,backup,publications)
         owned=rescue=None
         return result
     except BaseException as exc:
-        _revoke_prediction_status(output,backup or rescue,created_identity,exc);raise
+        _revoke_prediction_status(output,backup or rescue,created_identity,exc,publications);raise
     finally:
         try:
             if owned is not None:owned.close()
         except BaseException as exc:
-            _revoke_prediction_status(output,backup or rescue,created_identity,exc);raise
+            _revoke_prediction_status(output,backup or rescue,created_identity,exc,publications);raise
         finally:
             try:
                 if rescue is not None:rescue.close()
             except BaseException as exc:
-                _revoke_prediction_status(output,backup or rescue,created_identity,exc);raise
-            finally:_discard_directory(backup)
+                _revoke_prediction_status(output,backup or rescue,created_identity,exc,publications);raise
+            finally:
+                _discard_publications(publications);_discard_directory(backup)
+
+
+def _native_test_child(path,fd):
+    # The inherited pipe is consumed before importing the model runtime.
+    go,channel=_receive_launch_go(fd)
+    value,admission,guard=_admit_native_child(path,go,channel)
+    e=_evaluation();path=e.artifacts._safe(path);directory=e.artifacts._Directory(path.parent,create=False)
+    try:
+        if list(directory.owner.identity)!=value['directory_identity']:raise ValueError('child launch directory was replaced')
+        guard.check();e.artifacts._write_json(directory,'child-admission.json',admission)
+        guard.add(path.parent/'child-admission.json')
+        if e.artifacts.json_hash(e.formal._json(path.parent/'child-admission.json'))!=e.artifacts.json_hash(admission):
+            raise ValueError('durable child admission readback differs')
+        directory.check();guard.check()
+    finally:directory.close()
+    guard.check()
+    result=e.run_selected_best_test(value['run'],output=value['native_output'],device='cuda:0')
+    if result['process']!=value['child']:raise ValueError('actual native test child identity differs')
+    guard.check()
+    return result
+
+
+def _stop_native_child(child):
+    """Only this Popen child is stopped; it shares its controller's process group."""
+    if child is None or child.poll() is not None:return
+    child.terminate()
+    try:child.wait(timeout=15)
+    except subprocess.TimeoutExpired:
+        child.kill();child.wait(timeout=15)
+
+
+def _finish_native_publication(path,value,identity,guard,owned,rescue,backup,publications):
+    """Filesystem finalization only; actual CUDA native test is admitted by the outer runner."""
+    e=_evaluation();result=_native_launch_result(path,value,identity)
+    try:
+        guard.check();owned.check()
+        _publish_profile_file(owned,'result.json',result,publications.setdefault('result.json',{}))
+        _publish_profile_file(owned,'status.json',dict(state='profile_bound_native_test_finished',scope=NATIVE_LAUNCH_FORMAT,
+            scientific_eligible=False,production_ready=False,result_sha256=e.file_sha256(path.parent/'result.json')),
+            publications.setdefault('status.json',{}))
+        _,_,_,other=verify_native_test_launch(path.parent);_merge_guard(guard,other)
+        owned.close();guard.check();rescue.check()
+        rescue.close();guard.check();backup.check()
+        return result
+    except BaseException as exc:
+        _revoke_prediction_status(path.parent,backup,owned.owner.identity,exc,publications,scope=NATIVE_LAUNCH_FORMAT);raise
+
+
+def run_native_test(run,*,validation_profile,output,launch_output,device='cuda:0'):
+    """Durably bind the frozen validation profile and actual child before releasing native test."""
+    if device!='cuda:0':raise ValueError('native test launch requires actual CUDA cuda:0')
+    profile,guard=verify_validation_profile(validation_profile)
+    context=_terminated_context(run);_merge_guard(guard,context['guard'])
+    e=_evaluation();expected=_identity_record(context['run'],context['manifest'],context['selection'],'val')
+    if e.artifacts.json_hash(profile['identity'])!=e.artifacts.json_hash(expected):
+        raise ValueError('native test run differs from actual calibrated selected best')
+    output=e._sidecar_output(run,output);launch=e._sidecar_output(run,launch_output)
+    run,output,launch=_native_namespaces(run,output,launch,profile)
+    owned=rescue=backup=child=None;read=write=None;created=None;publications={}
+    try:
+        owned=e.artifacts._Directory(launch,create=True);created=owned.owner.identity
+        rescue=e.artifacts._Directory(launch,create=False)
+        if rescue.owner.identity!=created:raise ValueError('native launch acquisition changed')
+        backup=_retain_directory(rescue)
+        e.artifacts._write_json(owned,'progress.json',dict(state='running',scope=NATIVE_LAUNCH_FORMAT,
+            scientific_eligible=False,production_ready=False))
+        read,write=os.pipe();channel=_pipe_identity(read);path=launch/'launch.json';command=_native_command(path,read)
+        child=subprocess.Popen(command,pass_fds=(read,),cwd=Path(__file__).resolve().parents[1],stdin=subprocess.DEVNULL)
+        os.close(read);read=None
+        process=_pid_identity(child.pid,phase='selected-best-test')
+        parent=_pid_identity(os.getpid(),phase='classic-native-test-parent')
+        value=dict(format=NATIVE_LAUNCH_FORMAT,scope='pre_test_process_profile_binding',scientific_eligible=False,production_ready=False,
+            run=str(run),native_output=str(output),validation_profile=dict(path=str(e.artifacts._safe(validation_profile)),
+                file_sha256=e.file_sha256(validation_profile),sha256=profile['sha256']),
+            identity_sha256=expected['sha256'],selection=expected['selection'],sources=expected['sources'],runtime=expected['runtime'],
+            test_policy=profile['test_policy'],directory_identity=list(created),parent=parent,child=process,pipe=channel,command=command)
+        value['sha256']=e.artifacts.json_hash(value)
+        guard.check();e.artifacts._write_json(owned,'launch.json',value);guard.add(path)
+        if e.artifacts.json_hash(e.formal._json(path))!=e.artifacts.json_hash(value):raise ValueError('before-GO launch readback differs')
+        # Full-cohort/profile verification finished before spawn. While the
+        # child waits, use those SAME held guards plus durable manifest readback;
+        # the child independently reopens everything after GO, before native test.
+        guard.check();owned.check()
+        if os.write(write,b'G'+bytes.fromhex(value['sha256']))!=33:raise OSError('short parent release write')
+        os.close(write);write=None
+        if child.wait(timeout=3600)!=0:raise RuntimeError('profile-bound native test child failed')
+        guard.add(launch/'child-admission.json')
+        admission=e.formal._json(launch/'child-admission.json')
+        if e.artifacts.json_hash(admission)!=e.artifacts.json_hash(_native_admission_record(path,value)):
+            raise ValueError('native child admission binding differs')
+        identity,native,other=_read_native_test(run,output);_merge_guard(guard,other)
+        if native['process']!=process:raise ValueError('native result does not belong to actual released child')
+        result=_finish_native_publication(path,value,identity,guard,owned,rescue,backup,publications)
+        owned=rescue=None
+        return result
+    except BaseException as exc:
+        _discard_fd(write);write=None;_discard_fd(read);read=None
+        try:_stop_native_child(child)
+        finally:_revoke_prediction_status(launch,backup or rescue,created,exc,publications,scope=NATIVE_LAUNCH_FORMAT)
+        raise
+    finally:
+        _discard_fd(write);_discard_fd(read)
+        try:
+            if owned is not None:owned.close()
+        except BaseException as exc:
+            _revoke_prediction_status(launch,backup or rescue,created,exc,publications,scope=NATIVE_LAUNCH_FORMAT);raise
+        finally:
+            try:
+                if rescue is not None:rescue.close()
+            except BaseException as exc:
+                _revoke_prediction_status(launch,backup or rescue,created,exc,publications,scope=NATIVE_LAUNCH_FORMAT);raise
+            finally:
+                _discard_publications(publications);_discard_directory(backup)
 
 
 def main(argv=None):
@@ -691,14 +1067,29 @@ def main(argv=None):
     freeze.add_argument('--output',type=Path,required=True)
     verify=commands.add_parser('verify-validation',help='reopen a frozen profile and all of its raw evidence')
     verify.add_argument('--profile',type=Path,required=True)
+    native=commands.add_parser('native-test',help='bind the frozen validation profile before launching original selected-best test')
+    native.add_argument('--run',type=Path,required=True);native.add_argument('--validation-profile',type=Path,required=True)
+    native.add_argument('--output',type=Path,required=True);native.add_argument('--launch-output',type=Path,required=True)
+    native.add_argument('--device',default='cuda:0')
+    verify_native=commands.add_parser('verify-native-test',help='reopen the completed parent/child/profile/native evidence chain')
+    verify_native.add_argument('--launch-output',type=Path,required=True)
+    child=commands.add_parser('_native-child',help='internal inherited-pipe child; cannot evaluate without parent release')
+    child.add_argument('--launch',type=Path,required=True);child.add_argument('--go-fd',type=int,required=True)
     args=parser.parse_args(argv)
     if args.command=='validation-pass':
         result=run_validation_prediction(args.run,output=args.output,reference=args.reference,device=args.device)
     elif args.command=='freeze-validation':
         result=freeze_validation_profile(args.reference,args.replay,output=args.output)
-    else:
+    elif args.command=='verify-validation':
         profile,_=verify_validation_profile(args.profile)
         result=dict(format=profile['format'],sha256=profile['sha256'],verified=True)
+    elif args.command=='native-test':
+        result=run_native_test(args.run,validation_profile=args.validation_profile,output=args.output,
+            launch_output=args.launch_output,device=args.device)
+    elif args.command=='verify-native-test':
+        manifest,_,_,_=verify_native_test_launch(args.launch_output)
+        result=dict(format=NATIVE_LAUNCH_FORMAT,sha256=manifest['sha256'],verified=True)
+    else:result=_native_test_child(args.launch,args.go_fd)
     print(json.dumps(result,sort_keys=True,allow_nan=False))
 
 

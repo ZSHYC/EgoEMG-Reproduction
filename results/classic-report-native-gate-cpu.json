@@ -1,0 +1,77 @@
+{
+  "actual_gpu_validation_profile_created": false,
+  "actual_native_test_executed": false,
+  "base_commit": "b4608f8dbbabb2d19d7a9c0aad898d70fd4d0d3f",
+  "checks": {
+    "all_frozen_source_hashes_match": true,
+    "complete_cpu": {
+      "log_sha256": "c7ec09e8b1b57d3d7241e634e652e50d047d724df64cc75360a4fde0f90b45c7",
+      "passed": 1351,
+      "seconds": 283.35,
+      "skipped": 3,
+      "warnings": 106
+    },
+    "optional_runtime_cpu": {
+      "log_sha256": "1a39375834dc88e752e7ffa2ef60769dfea7010ce921e58638ba84aa252ec75e",
+      "passed": 806,
+      "seconds": 26.97,
+      "skipped": 501,
+      "warnings": 1
+    },
+    "targeted": {
+      "passed": 211,
+      "seconds": 8.59,
+      "warnings": 2
+    }
+  },
+  "fixture_limitations": "Raw positive metadata readers explicitly stub termination/checkpoint authorities. No CPU fixture establishes GPU qualification.",
+  "format": "classic_native_test_gate_cpu_evidence_v1",
+  "frozen_source_members": 80,
+  "hosted_ci_for_this_source": "not observed; b4608f8 hosted1250/3 and762/444 belong to previous validation source",
+  "implemented": [
+    "actual parent/child PID and start-tick, inherited pipe and argv binding before original native test",
+    "raw validation profile, native best snapshot, source/runtime and complete 4306-hand sidecar verification",
+    "one-shot no-replace result/status publication with creation-owned inode revocation"
+  ],
+  "observed_utc": "2026-10-26T16:07:13.968057+00:00",
+  "production_ready": false,
+  "real_process_checks": {
+    "parent_probe": "actual parent releases only after durable manifest; probe deliberately exits17; no accepted native result",
+    "pipe_child": "actual OS pipe and subprocess, no Torch import"
+  },
+  "remaining": [
+    "genuine full-validation exact replay/profile",
+    "actual profile-bound original native test",
+    "test prediction reference and independent fresh recomputation",
+    "read-only status and sanitized scientific export"
+  ],
+  "review": {
+    "finding": "same-directory replacement status was deleted on rollback; owned moved marker retained valid bytes",
+    "fix": "retain creation-time FD/inode for result and status before public link; revoke owned moved inode and unlink only matching public inode; preserve foreign files; progress separate",
+    "important_findings": 1,
+    "independent_readonly_review": true,
+    "initial_assessment": "with fixes",
+    "regression": {
+      "observed_red_failures": 4,
+      "scope": "native and validation sidecar status/result replacement at final close"
+    },
+    "root_fix_passes": 1,
+    "second_review_performed": false
+  },
+  "scientific_completion_published": false,
+  "scientific_eligible": false,
+  "sources_sha256": {
+    "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+    "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_report.py": "98a5ac426c7866ac91378dd0da3bf7ee8366cc1dac928d6e61d9142a2e4dde7c",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "tests/test_classic_emg_report.py": "7794dafb54a7ae5007c438ee2ac91cb8cd189995c960e50aae293d32c54c062b"
+  },
+  "status": "cpu_engineering_only",
+  "test_prediction_recomputation_implemented": false,
+  "verification_notes": [
+    "Initial optional-runtime command incorrectly opted into EGOEMG_UPSTREAM without Torch: two old visual tests failed on missing Torch. Correct workflow-equivalent no-opt-in command passed; no test or runtime source changed to skip those failures.",
+    "Complete CPU skips require actual CUDA and a real three-process engineering bundle. Optional-runtime skips are unavailable dependencies."
+  ]
+}

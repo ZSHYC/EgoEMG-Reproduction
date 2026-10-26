@@ -1,12 +1,12 @@
 # 全论文复现状态与证据清单
 
-状态快照：2026-10-26（北京时间）。**当前目标是复现论文全文，仍在进行中。** 有歧义时优先采用固定官方源码，并公开说明与 PDF 的差异；七项legacy实验完成不构成全文完成。范围以[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)为准，动态进度见[运行状态](run-status.md)，阶段动作见[阶段计划](superpowers/plans/2026-10-26-full-paper-stage1.md)。
+状态快照：2026-10-27（北京时间）。**当前目标是复现论文全文，仍在进行中。** 有歧义时优先采用固定官方源码，并公开说明与 PDF 的差异；七项legacy实验完成不构成全文完成。范围以[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)为准，动态进度见[运行状态](run-status.md)，阶段动作见[阶段计划](superpowers/plans/2026-10-26-full-paper-stage1.md)。
 
 原文为 [EgoEMG v1](https://arxiv.org/abs/2605.05712v1)，共 34 页。下文页码使用 PDF 印刷页码。官方源码固定为 [f7cbd048b7092139852270491d3859cd472e0311][official]；源码、resolved 配置、实际发布资产与运行证据分别核对，注释和文件名不能覆盖实际执行行为。本文不把论文数值填入本项目结果。
 
 ## 当前实际完成到哪里
 
-- **验证集报告准备已实现，实际GPU校准尚欠：** [使用与边界](classic-report.md)及[CPU证据](../results/classic-report-validation-cpu.md)记录原22角／中心对齐、全验证预测／精确复算与raw-bound profile。3项发布问题以7个RED回归修正后，定向110通过，80文件完整1250／3真实CUDA skip与轻量762／444依赖skip通过；托管CI待对应新源码。原生测试启动绑定、测试参考／独立复算、脱敏科学完成产物尚未实现或执行。VEMG14:51:54UTC快照为2213次真实更新、13轮完整验证，相同PID/start仍在运行，训练及测试均未完成。
+- **验证复算及原生测试启动绑定已实现，实际GPU校准／测试尚欠：** [使用与边界](classic-report.md)、[验证阶段证据](../results/classic-report-validation-cpu.md)及[原生绑定CPU证据](../results/classic-report-native-gate-cpu.md)记录原22角／中心对齐、完整验证精确复算profile、真实父子进程pipe准入及原五份测试产物／best快照读取。新阶段1项Important文件替换回滚问题以4项RED修正，定向211通过，80成员完整1351／3真实CUDA skip与轻量806／501依赖skip通过；未做第二次独立审查、新源码托管CI尚未观察。前一验证阶段b4608f8真实托管1250／3和762／444已通过。测试预测参考／独立复算、只读状态API、脱敏科学完成产物尚欠。VEMG2026-10-26T16:02:14UTC快照为4469次真实更新、26轮完整验证，相同PID/start仍在运行，训练及测试均未完成。
 
 - **VEMG已通过最终源码GPU限定验收并进入完整训练；NeuroPose未通过：** [实际证据](../results/classic-formal-gpu-engineering.md)记录全部工程输入一致及严格恢复，VEMG汇总与fresh复核成功，Neuro的8/171,380个预测元素超出固定门槛，失败保留。VEMG另起101,714手full训练、完整1,576手val、max100/patience50；13:52:31UTC快照为309次真实更新、1次完整验证，尚未完成或测试。78文件组本机CPU1173/3实际CUDA skip与轻量739/390依赖skip、匹配658d8c6托管CI成功，不替代真实GPU证据或报告校准。
 
