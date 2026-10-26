@@ -1,6 +1,6 @@
 # 全论文扩展的发布来源
 
-本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。截至 **2026-10-26 03:30 UTC** 已正常快进至 `2a779dfccb0efec952c28c014d23c8aedc325826`，该提交的实际 CI 成绩见下文。推送保留原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
+本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。截至本次结果发布前，已正常快进至 `9b5f4931d53db0d536e0ebe64e386e8048872ab8`，该提交的实际CI成绩见下文；新增RN152产物继续绑定原训练来源a357423。推送保留原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
 
 ## 已冻结的来源
 
@@ -41,3 +41,7 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 当前公开来源和本地来源是同一组原始提交，无须建立镜像映射。后续报告继续保留各训练环境记录的真实执行提交、文件与数据摘要；文档更新后的分支头不能取代训练来源。
 
 继续使用扩展分支，不修改 `main`；更新前核对远端旧提交，只允许预期的正常快进，遇到不符先检查远端变化。草稿 PR 与该公开提交的实际 CI 状态另行核验。本地测试、统计复算和训练进度不等同于托管 CI 通过，也不等同于[全论文复现](full-paper-status.md)完成。
+
+`9b5f4931d53db0d536e0ebe64e386e8048872ab8`已正常公开。[CI40292505908](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40292505908)实际success：官方CPU880 passed/2 skipped（208.53s，仅两项真实CUDA正例），轻量609 passed/273依赖skip（21.25s），pip check及shell检查通过。它覆盖66文件组中的cohort/CUDA限定入口/预取/派生TaskA，后续worker和formal artifact WIP不在其中。
+
+本次新增[RN152完整结果](../results/completed/resnet152/README.md)保留原a357423训练来源与原始metrics/audit字节。150轮、52,650更新、150次完整验证与独立复算已完成，全部/有图中心5.982738°/5.869706°；发布清单和曲线经独立数值、身份和展示检查。此结果与RN50一样属于明确声明的legacy派生配方，不改变原四模型/RN50发布清单，不由后续文档HEAD替换运行身份。
