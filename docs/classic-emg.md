@@ -27,16 +27,30 @@
 
 ## 实际完整队列检查
 
-[新队列CPU证据](../results/classic-cohort-cpu-engineering.md)已完成两配方实际准入及各自完整重算。train/val/test分别为50,857/788/2,153窗口，即101,714/1,576/4,306单手样本；12数组整文件身份覆盖66,161,725源行，finite扫描覆盖冻结足迹内65,046,370行。固定布局/归一化及22D单位转换均finite，个别空标签样本不删除；没有导入Torch或计算模型误差。这是CPU数据准入，CUDA和容量资格仍为false。
+[新队列CPU证据](../results/classic-cohort-cpu-engineering.md)已完成两配方实际准入及各自完整重算。train/val/test分别为50,857/788/2,153窗口，即101,714/1,576/4,306单手样本；12数组整文件身份覆盖66,161,725源行，finite扫描覆盖冻结足迹内65,046,370行。固定布局/归一化及22D单位转换均finite，个别空标签样本不删除；没有导入Torch或计算模型误差。这是CPU数据准入，其receipt的CUDA/容量字段保持false；后续实际GPU数值与容量证据独立发布，不追改该CPU身份。
 
-另新增独立[CUDA限定检查入口](../egoemg_repro/classic_emg_cuda_check.py)，只执行固定四个train手样本和两个val手样本的prefix/resume/verify，不开放正式训练。最初强确定性版本在真实NeuroPose反向中因Torch2.2.2+cu118的linear upsample不支持该模式而退出失败，原记录保留。后续固定canonical_backend_nondeterministic_v1，使用原算子、默认GradScaler和16-mixed，明确不保证位级轨迹一致；这份新源码的CPU拒绝/状态保护检查已通过独立审查，其真实GPU数值验收仍未完成。
+另新增独立[CUDA限定检查入口](../egoemg_repro/classic_emg_cuda_check.py)，只执行固定四个train手样本和两个val手样本的prefix/resume/verify，不开放正式训练。最初强确定性版本在真实NeuroPose反向中因Torch2.2.2+cu118的linear upsample不支持该模式而退出失败，原记录保留。后续固定canonical_backend_nondeterministic_v1，使用原算子、默认GradScaler和16-mixed，明确不保证位级轨迹一致；这份新源码已完成[实际GPU数值检查](../results/classic-cuda-numeric-engineering.md)：各8次尝试、7次真实optimizer执行及1次注入Inf跳步，默认scale65536→32768，新进程完整typed状态/RNG恢复一致；只证明batch1固定子集，未验证后续轨迹逐位一致。
 
 包含新数据准入、CUDA限定入口、预取和派生TaskA的66文件冻结组，本机统一检查为879 passed/3 skipped（284.01s），轻量层609 passed/273依赖skip（20.12s）。其范围排除仍在开发的正式artifact与派生worker，两个实际CUDA正例未由CPU执行；后续托管CI须按新提交另验。
 
+## 原批量真实容量已通过
+
+[六梯级实际检查](../results/classic-cuda-capacity-engineering.md)已完成：VEMG32→128→600、Neuro16→64→256，每个新进程两次真实更新和完整1,576手validation。无自然overflow，目标600/256的train与val峰reserved分别13.488/16.928GiB，均满足85%总量及至少4GiB剩余门槛。原train/val同B、原batch-union FK及最后partial batch保持；这是单卡/workers0短程工程容量，不是完整训练或原六rank等价。
+
+实际工具现按原字节公开为[tools/classic_capacity.py](../tools/classic_capacity.py)，SHA仍为b890de97c1ebafcb5ddb88dde91785a40a439dce904e919e433f82f8389f7d87；只改变发布位置，未重写当时执行身份。[公开定向测试](../tests/test_classic_emg_capacity.py)与私有17项语义一致。
+
+## 正式状态与日志契约
+
+新增[classic_emg_artifacts.py](../egoemg_repro/classic_emg_artifacts.py)实现有界追加journal、typed checkpoint/非递归carried-best、原optimizer/scheduler/callback/loop/scaler/RNG检查与独立selected-best读取。64项定向CPU契约测试和独立原故障回归通过；真实stockPL两轮改善→不改善证明ModelCheckpoint.current_score保留已选minimum，本模块按原语义校验，不刷新原生callback状态来迁就校验器。
+
+这些是状态/存储契约，尚无该最终formal入口真实GPU或科研训练结论。CPU RNG检查使用隔离Generator实际恢复，不改全局随机流；目录获取明确采用可信parent、私有随机staging和held-fd/NOREPLACE假设。最终文件与namespace检查是当时的准入见证，不承诺返回后不受同UID恶意修改。
+
+新增公开capacity工具、worker与原生callback语义修正后的72文件冻结组，源码快照SHA9f879422b483206c0133b1bd095ce405503d14f962b5b183abfec1ea9f1d005d，本机完整CPU **1025 passed/3 skipped**（271.86s，两个真实CUDA正例及一个既有ViT-L内存准入skip），轻量 **690 passed/338依赖skip**（23.83s）。最终文件SHA逐一复核不变；该组明确排除仍在实现的formal runner及其测试，托管CI待对应发布提交实读。
+
 ## 仍需完成
 
-- 实际 CUDA `16-mixed`、GradScaler overflow skip、scaler 恢复、真实 batch600/256 显存准入；CPU32 不能证明这些行为。
-- 真实CUDA逐batch数值检查、单卡/原六rank批量及NeuroPose BatchNorm差异记录；完整冻结队列的CPU固定数值准入已完成。
+- 新正式训练入口的最终源码实际GPU验收；已完成的batch1数值及600/256容量不能自动授权新增runner。
+- 新正式入口的状态恢复/下一步数值检查，以及单卡/原六rank全局批量和NeuroPose BatchNorm差异记录；不承诺尚未证明的位级轨迹。
 - 原 max100、patience50 的完整训练/每轮完整验证，以及按有限 val_loss 选定 best 后执行冻结 test。100 是上限，不能为了凑轮数删除早停。
 - 严格正式导出、逐关节/手/split/用户统计及独立复算。旧 legacy 的 0.01 目标不能改名为官方合成的 0.02。
 

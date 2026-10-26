@@ -1,6 +1,6 @@
 # 全论文扩展的发布来源
 
-本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。截至本次结果发布前，已正常快进至 `9b5f4931d53db0d536e0ebe64e386e8048872ab8`，该提交的实际CI成绩见下文；新增RN152产物继续绑定原训练来源a357423。推送保留原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
+本次扩展已通过专用 SSH deploy key 正常推送到公开分支 [codex/full-paper-reproduction](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)，首次发布头为 `7295891eed32bad84db4ccb28080e92cf6a24ddc`。本次新增组发布前，已正常快进至`ae3031cb10d0f6d154b539db96a75c863f5e6455`；RN152产物继续绑定原训练来源a357423，新增L仍绑定7b805，实际CI按提交分别列出。推送保留原始提交身份，没有使用 API 镜像。`main` 仍为 `4a583bea483b9f0a431cea6431577625139a025b`；[全论文覆盖状态](full-paper-status.md)记录了仍在进行的工作。
 
 ## 已冻结的来源
 
@@ -45,3 +45,11 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 `9b5f4931d53db0d536e0ebe64e386e8048872ab8`已正常公开。[CI40292505908](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40292505908)实际success：官方CPU880 passed/2 skipped（208.53s，仅两项真实CUDA正例），轻量609 passed/273依赖skip（21.25s），pip check及shell检查通过。它覆盖66文件组中的cohort/CUDA限定入口/预取/派生TaskA，后续worker和formal artifact WIP不在其中。
 
 本次新增[RN152完整结果](../results/completed/resnet152/README.md)保留原a357423训练来源与原始metrics/audit字节。150轮、52,650更新、150次完整验证与独立复算已完成，全部/有图中心5.982738°/5.869706°；发布清单和曲线经独立数值、身份和展示检查。此结果与RN50一样属于明确声明的legacy派生配方，不改变原四模型/RN50发布清单，不由后续文档HEAD替换运行身份。
+
+`ae3031cb10d0f6d154b539db96a75c863f5e6455`已正常公开RN152结果。[CI40298074155](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40298074155)实际success：官方CPU880 passed/2真实CUDA skip（222.86s），轻量609 passed/273依赖skip（22.15s），pip check与shell通过。它仍不覆盖之后的worker/artifact/capacity实现。
+
+本次新增[EMGFormer-L完整结果](../results/completed/emgformer-l/README.md)保持原7b805训练来源、原导出字节与中心审计边界；200轮/25,400更新，全部中心16.612111°，原测试轨迹16.591133°未独立重推。七项legacy结果均不冒称论文原表等价，原四模型/RN50/RN152产物保持。新增[DINOv2-B/L CPU证据](../results/dinov2-base-large-pretrained.md)、[classic真实CUDA数值](../results/classic-cuda-numeric-engineering.md)及[容量证据](../results/classic-cuda-capacity-engineering.md)分别绑定其实际源码/资产/范围，绿CPU检查不替代这些实际执行。
+
+容量工具原执行路径为私有tmp；现公开[tools/classic_capacity.py](../tools/classic_capacity.py)与实际b890源严格逐字节相同。它的公开位置不改写历史执行路径、base archive或模型运行身份。新formal-artifacts仅实现状态/日志契约，派生worker仅完成CPU与来源检查；正式runner仍未集成、未通过最终源码GPU验收，尚无新的classic科研完整训练结果。
+
+新增公开capacity工具、worker与原生callback语义修正后的72文件冻结组，源码快照SHA9f879422b483206c0133b1bd095ce405503d14f962b5b183abfec1ea9f1d005d，本机完整CPU **1025 passed/3 skipped**（271.86s，两个真实CUDA正例及一个既有ViT-L内存准入skip），轻量 **690 passed/338依赖skip**（23.83s）。最终文件SHA逐一复核不变；该组明确排除仍在实现的formal runner及其测试，托管CI待对应发布提交实读。

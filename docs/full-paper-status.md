@@ -1,24 +1,24 @@
 # 全论文复现状态与证据清单
 
-状态快照：2026-10-26（北京时间）。**当前目标是复现论文全文，仍在进行中。** 有歧义时优先采用固定官方源码，并公开说明与 PDF 的差异；六项legacy实验完成不构成全文完成。范围以[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)为准，动态进度见[运行状态](run-status.md)，阶段动作见[阶段计划](superpowers/plans/2026-10-26-full-paper-stage1.md)。
+状态快照：2026-10-26（北京时间）。**当前目标是复现论文全文，仍在进行中。** 有歧义时优先采用固定官方源码，并公开说明与 PDF 的差异；七项legacy实验完成不构成全文完成。范围以[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)为准，动态进度见[运行状态](run-status.md)，阶段动作见[阶段计划](superpowers/plans/2026-10-26-full-paper-stage1.md)。
 
 原文为 [EgoEMG v1](https://arxiv.org/abs/2605.05712v1)，共 34 页。下文页码使用 PDF 印刷页码。官方源码固定为 [f7cbd048b7092139852270491d3859cd472e0311][official]；源码、resolved 配置、实际发布资产与运行证据分别核对，注释和文件名不能覆盖实际执行行为。本文不把论文数值填入本项目结果。
 
 ## 当前实际完成到哪里
 
-- **六项 legacy 实验已完整运行并审计：** EMGFormer-S/M、ResNet-18、RN18+S及独立发布的RN50/RN152。原结果、配方、源码和初始化身份保留在[已完成实验](../results/completed/README.md)及[发布清单](../results/completed/publication-manifest.json)，不因新目标改写。它们与 PDF 原表的数据、标签、输入和训练协议仍有差异。
+- **七项 legacy 实验已完整运行并审计：** EMGFormer-S/M/L、ResNet-18、RN18+S及独立发布的RN50/RN152。原结果、配方、源码和初始化身份保留在[已完成实验](../results/completed/README.md)及[发布清单](../results/completed/publication-manifest.json)，不因新目标改写。它们与 PDF 原表的数据、标签、输入和训练协议仍有差异。
 - **新增损失合成差异已确认：** [11配置实际审计](../results/official-loss-audit.md)证明固定官方EgoEMG配置的两个指尖别名最终相加为0.02，既有legacy训练器/配方为0.01。此前漏核的差异现已明确；旧四实验及当前L/RN50/RN152仍只属于既定legacy协议，不是当前官方合成损失的等价复现。新官方字面实验须另行完成，不能由旧结果补算得到。EMG2Pose直接官方流程仍为0.01。
-- **EMGFormer-L 正在完整训练：** 两步真实 GPU 优化、两次各 1,052 样本的完整验证和严格重载已通过，独立 200 epoch 生产训练已启动。它尚无完整训练结束、最终测试、严格结果导出或锁定复算结论；短验收目录与生产目录独立。运行时复现代码为 7b805d4，后续文档提交不能替换该身份。最新进展以[运行状态](run-status.md)为准。
+- **EMGFormer-L已完整结束并审计：** [独立结果](../results/completed/emgformer-l/README.md)为200轮/25,400更新/200次完整轨迹验证，验证选择第508步（第4轮）。全部/有图中心16.612111°/16.571878°，最终测试、严格导出及独立中心复算成功；轨迹16.591133°仅来自原训练器测试，未额外重推。运行源码7b805d4与legacy限制保留，不用后续文档头替换。
 - **RN50与RN152均已完整完成：** [RN50独立结果](../results/completed/resnet50/README.md)完成150轮/23,700更新/150次完整独立验证，第19,118步best的全部中心MAE为6.640058°；最终测试、严格导出和锁定复算均成功。[RN152独立结果](../results/completed/resnet152/README.md)完成150轮/52,650更新/150次完整独立验证，验证最小值选择第52,650步，全部/有图中心MAE为5.982738°/5.869706°；最终测试、严格导出和锁定复算均成功。两者运行来源均为a357423，固定官方版本缺两份独立YAML，属于明确声明的legacy派生对照，保留0.01目标与全部数据限制。
-- **DINOv2-S 真实预训练已取得并通过CPU验收：** [下载身份与验收](../results/dinov2-small-pretrained.md)记录匿名HF真实权重、加载后主干tensor摘要、官方位置嵌入插值及合成256px前向/严格离线重载。尚未进行真实cohort优化、GPU容量准入或完整训练；B于17:11完成真实预训练加载、174个主干tensor字节对照及合成前向/严格离线恢复；L仍只完成实际CPU构造/schema。
+- **DINOv2-S/B/L真实预训练与CPU检查均通过：** [S证据](../results/dinov2-small-pretrained.md)和[B/L证据](../results/dinov2-base-large-pretrained.md)记录实际HF权重身份、主干tensor字节比较、官方位置插值、合成256px前向与严格禁网重载。尚未进行真实cohort优化、GPU容量准入或完整训练。
 - **手形统计与聚合图已生成并独立核验：** [实际统计与分布图](../results/dataset-statistics/shape-statistics.md)覆盖 41 个引用 beta 行/82 手，50 项官方 float32/ddof0/range 重算误差为零。PDF Table5 在三位小数有 48/50 项吻合，两处微差保留；真正 P5/P95 单列。聚合箱线图的展示适配、独立参与者计数限制均明示。校准为 3840×3360，包含 rational_polynomial 与 fisheye 模型，与 PDF 720p 的关系尚待核验。
 - **60类词表、22角语义、帧与冻结中心覆盖已核验：** [手势定义](../results/dataset-semantics/gesture-vocabulary.md)、[关节语义](../results/dataset-semantics/joint-angle-semantics.md)、[帧覆盖](../results/dataset-semantics/coverage.md)及[独立中心点读](../results/dataset-semantics/center-coverage.md)区分定义与各分母。66,161,725个共享同步帧有全部60类；已另实读33,508个冻结窗口/67,016手中心，1,420,084个有效角度。train/val/test中心分别观测51/32/59类；不能从词表或全帧覆盖推成每个角色60类。模型误差和全帧有效性仍未由此计算。
-- **classic官方模型、数据与CPU训练/恢复及完整队列数值准入已核验，未完成正式训练：** [当前范围](classic-emg.md)保留原tuple/2D mask、固定scalar与新7790网格。新增[真实CPU队列证据](../results/classic-cohort-cpu-engineering.md)对两配方各完整准入及重新hash/扫描一致，train/val/test为101,714/1,576/4,306手样本；finite覆盖冻结足迹65,046,370行。原双别名0.02、val_loss/min、clip0与patience50保留；兼容裁决入身份。独立CUDA限定入口已实现/CPU审查，最终cfbc源码真实16-mixed/scaler的batch1限定检查已完成，各8次尝试/7次实际更新/1次注入跳步及完整状态恢复一致；600/256容量、正式full train/val-best/test与Task4仍欠。
+- **classic官方模型、数据与CPU训练/恢复及完整队列数值准入已核验，未完成正式训练：** [当前范围](classic-emg.md)保留原tuple/2D mask、固定scalar与新7790网格。新增[真实CPU队列证据](../results/classic-cohort-cpu-engineering.md)对两配方各完整准入及重新hash/扫描一致，train/val/test为101,714/1,576/4,306手样本；finite覆盖冻结足迹65,046,370行。原双别名0.02、val_loss/min、clip0与patience50保留；兼容裁决入身份。独立CUDA限定入口已实现/CPU审查，最终cfbc源码真实16-mixed/scaler的batch1限定检查已完成，各8次尝试/7次实际更新/1次注入跳步及完整状态恢复一致；[原600/256容量](../results/classic-cuda-capacity-engineering.md)六个梯级也已通过，各2次真实更新及完整1576手val；正式full train/val-best/test与Task4仍欠。
 - **EMG2Pose metadata、mini与S/M/L真实CPU优化/全窗口重载已核验。** [数据证据](../results/emg2pose-mini-data.md)记录30文件、4,218,756行全字段/原mask位级复核；[早期模型证据](../results/emg2pose-mini-runtime.md)为各单窗口随机初始化检查，[新增真实mini证据](../results/emg2pose-mini-optimization.md)为各2次更新、526窗口×2完整工程评价和严格恢复一致。mini全部原val，优化与工程检查复用它，不能视作独立验证或论文性能；Table11/13仍需完整数据及三个完整训练。
-- **公开CPU工程实现已独立审查与整体检查。** `9b5f4931d53db0d536e0ebe64e386e8048872ab8`的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40292505908)为官方CPU **880 passed/2 skipped**（仅真实CUDA正例），轻量609 passed/273可选运行时skip，pip check通过。它覆盖classic cohort、canonical CUDA入口的CPU检查、预取及派生TaskA；不覆盖后续未集成worker/artifact、GPU容量或完整训练。历史源与实际执行身份继续保留。
+- **公开CPU工程实现已独立审查与整体检查。** `9b5f4931d53db0d536e0ebe64e386e8048872ab8`的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40292505908)为官方CPU **880 passed/2 skipped**（仅真实CUDA正例），轻量609 passed/273可选运行时skip，pip check通过。它覆盖classic cohort、canonical CUDA入口的CPU检查、预取及派生TaskA；不覆盖后续未集成worker/artifact、GPU容量或完整训练。随后72文件本机整合1025 passed/3 skipped、轻量690 passed/338依赖skip；不含仍在开发的formal runner，详见运行状态。历史源与实际执行身份继续保留。
 - **扩展代码与聚合证据已公开，原运行身份保留。** [全论文分支](https://github.com/ZSHYC/EgoEMG-Reproduction/tree/codex/full-paper-reproduction)保留各训练提交，阶段CI和CPU/实际数据证据分别记录在[发布来源](publication-provenance.md)与[运行状态](run-status.md)。完整数据接收和多个必需模型仍未完成；绿测试、mini或中心统计不改变正式实验的完成状态。
 
-EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 另有 S/M/L 三项，markers2mano 还需独立训练与质量验证。现有六项只是这份清单中的legacy协议实验子集，不能写成“原表已复现6/17”。全文还包括数据统计、预处理和标注重生成、派生评价及全部定性图。
+EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 另有 S/M/L 三项，markers2mano 还需独立训练与质量验证。现有七项只是这份清单中的legacy协议实验子集，不能写成“原表已复现7/17”。全文还包括数据统计、预处理和标注重生成、派生评价及全部定性图。
 
 ## 状态、证据与验收含义
 
@@ -50,15 +50,15 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | --- | --- | --- |
 | EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **完整运行、已核验（legacy）**，见 E1/E2；原表精确等价未证明 |
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
-| EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **工程验证；完整训练进行中**，见 E6；12,000 点输入的轨迹对齐长度 11,490，尚欠完整结束与最终审计 |
-| EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **CPU训练/epoch恢复已核验，未正式完整训练**；目标手8ch/WL7790输出6000；固定scalar/literal mask及filtered适配已实现。真实cohort与batch1 FP16/scaler限定检查已完成，原批量容量和正式选模/test仍欠 |
-| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **CPU训练/epoch恢复已核验，未正式完整训练**；WL7790输出7790；先原零填16槽再归一化/全槽旋转。原Lightning clip0与val_loss语义已有真实CPU证明，真实cohort及batch1 CUDA/scaler限定检查已完成，原批量容量和正式完整训练仍欠 |
+| EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
+| EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **CPU训练/epoch恢复已核验，未正式完整训练**；目标手8ch/WL7790输出6000；固定scalar/literal mask及filtered适配已实现。真实cohort与batch1 FP16/scaler限定检查已完成，原批量600容量已通过，正式选模/test仍欠 |
+| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **CPU训练/epoch恢复已核验，未正式完整训练**；WL7790输出7790；先原零填16槽再归一化/全槽旋转。原Lightning clip0与val_loss语义已有真实CPU证明，真实cohort及batch1 CUDA/scaler限定检查已完成，原批量256容量已通过，正式完整训练仍欠 |
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **150 epochs完整legacy实验与锁定复算完成**；23,700更新/150次full val，best第19,118步，全部中心6.640058°。独立YAML未发布，损失/队列/单卡配方与官方字面/PDF等价仍未证明，见[结果](../results/completed/resnet50/README.md) |
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **150 epochs完整legacy实验与锁定复算完成**；52,650更新/150次full val，验证选择第52,650步，全部/有图中心5.982738°/5.869706°。独立作者YAML未发布，保留损失/队列/派生配方限制，见[结果](../results/completed/resnet152/README.md) |
 | EgoEMG ViT-S/14 | [官方独立配置][vits]、[DINOv2 实现][vit]；[本项目配方](../configs/vit_small.json)与严格来源记录/安全导出 | **真实预训练与CPU工程验收、未完整运行**；[实际HF资产](../results/dinov2-small-pretrained.md)88,240,510 bytes及主干tensor身份、官方插值、合成256px前向和严格离线恢复均核验；另有随机初始化的实际AdamW工程测试。缺真实cohort优化、GPU容量验收和完整训练 |
 | EgoEMG ViT-B/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_base.json)，实际86,182,166总参数 | **真实预训练与合成CPU前向/严格离线恢复已核验、未完整运行**；独立作者YAML未发布，真实cohort优化、GPU容量/反传及完整训练仍未完成 |
-| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **独立CPU进程构造/schema已核验、未完整运行**；独立作者YAML未发布，真实权重、GPU/优化器/检查点容量仍待验收 |
+| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **真实预训练、合成CPU前向与严格离线恢复已核验、未完整运行**；独立作者YAML未发布，真实cohort优化、GPU/优化器/检查点容量仍待验收 |
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实 22 角类及 module YAML；无独立 fusion/vision_wilor YAML | **未实现完整接入、外部依赖**；缺固定专用源码/配置/权重/许可与独立角度训练配方。缺权重时官方类可能保留随机主干，构造成功不证明预训练成功；MANO 监督文档不是同一 22 角任务 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
@@ -73,15 +73,15 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | ID / PDF 位置 | 性质与必须产物 | 状态、实际证据 | 尚欠与验收条件 |
 | --- | --- | --- | --- |
 | Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **部分来源已核对，比较产物未实现**；E4 支持部分 legacy 字段；未找到官方独立生成脚本 | 逐列来源映射、EgoEMG 全模态实物盘点及机器可读比较表。无需把 Jarque-Bou/NinaPro/MyoKi/PiMForce/EMG2Pose 的原研究重新训练 |
-| Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M 部分完整运行（legacy）**，E1/E2；L 训练中，其余无完整运行 | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
-| Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7 视觉与 2 融合 | **RN18、RN50、RN18+S有完整legacy运行**，E1/E2/E3及[RN50](../results/completed/resnet50/README.md)；仍不等价于原表 | RN152、ViT-S/B/L、WiLoR、ViT-S+S尚无完整结果；所有模型逐条件用户SD、真实初始化/选择、匹配人口与官方字面配方仍须逐项核验 |
+| Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M/L部分完整运行（legacy）**，E1/E2及L独立结果；其余无完整运行 | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
+| Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7 视觉与 2 融合 | **RN18、RN50、RN152、RN18+S有完整legacy运行**，E1/E2/E3及[RN50](../results/completed/resnet50/README.md)；仍不等价于原表 | ViT-S/B/L、WiLoR、ViT-S+S尚无完整结果；所有模型逐条件用户SD、真实初始化/选择、匹配人口与官方字面配方仍须逐项核验 |
 | Table 4，A.1 p.15 | 60类完整词表与描述、30/18/12族群，数据定义 | **定义、实际帧与冻结中心覆盖已核验（legacy）**，E7/E8；完整词表保留raw50；中心有241未分配、66 raw，59类视图33,201窗口，与帧统计分开 | 全帧逐手mask统计仍欠；不同新grid须另报，中心标签统计不能填Table14/15模型误差N。PDF措辞差异单列 |
 | Table 5，A.2 p.16 | 作者82手、10维β统计 | **分析产物、已核验（legacy）**；[统计与来源](../results/dataset-statistics/shape-statistics.md)含50项官方重算和实际P5/P95，PDF显示48/50吻合 | 两个微小显示差异保留，原因未定；episode/beta行数不能独立证明人口身份。官方std(ddof0)和range优先，不能把range混称真正P95−P5 |
 | Table 6，B.3 p.20 | 22 DoF语义、单位、左右约定和有效性，数据定义 | **语义表与冻结中心逐角mask已核验**，E7/E8；0–19手指rad、20腕FE/21腕RU磁盘deg，模型统一rad；实际中心1,420,084/1,474,352角有效。原literal与legacy20+2分列，腕名义限位未知 | 全帧逐角有效性与标签重生成仍欠；语义相同不证明legacy轴角投影等价PDF landmark IK；不从通用模型末两项臆造腕限位 |
 | Table 7，C.1 p.21 | 作者 S/M/L 架构、参数与训练 GPU-hours | **部分构造/完整运行证据**；S/M E1，L E6；官方真实构造有参数计数 | 三模型统一总/可训练参数统计与实际完整训练用时、GPU 数/型号/精度/验证开销；A800 一步 profile 不能填原文 4090 GPU-hours |
-| Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **RN18/RN50部分已核验**；RN152已工程验收、DINO-S真实预训练已核验，其余配方/初始化未闭合；上表及[模型源码][resnet] | 每种实际 resolved 配置、256 输入/patch 策略、回归头、冻结状态、权重身份及参数量；PDF 超参和缺失独立 YAML 必须分栏 |
-| Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M 细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
-| Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M 中心结果已核验（legacy）**，E1/E2/E3；L 尚无最终结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
+| Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **RN18/RN50/RN152部分已核验**；DINO-S/B/L真实预训练与CPU检查已核验，其余配方/初始化未闭合；上表及[模型源码][resnet] | 每种实际 resolved 配置、256 输入/patch 策略、回归头、冻结状态、权重身份及参数量；PDF 超参和缺失独立 YAML 必须分栏 |
+| Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M/L细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
+| Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M/L中心结果已核验（legacy）**，E1/E2/E3及L独立结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
 | Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；公开数据来源见下节，完整 mini 仅用于工程接入 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
 | Table 12，D.4 p.24 | EgoEMG S/M/L 的 10 个逐指/关节组派生误差 | **未生成**；E5 只有整体 fingers/wrist；[官方分组][constants]存在 | 累积逐角误差和/分母后生成重叠的 proximal/mid/distal、五指、腕 FE/RU 组，按主轨迹协议聚合；现有汇总不能逆推出这 10 组 |
 | Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **未实现，依赖 Table 11** | 三个完整模型与标准三 split 的逐角计数、同官方组映射；无需为该表再训练三遍 |
@@ -129,8 +129,8 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D13，§3.3/A.2 | 每参与者左右各一β、82手统计 | **实际统计与聚合图已核验（legacy）**，见[产物](../results/dataset-statistics/shape-statistics.md)；metadata引用行去重，每行左右各一次。episode/参与者自然人身份的独立证明仍缺，不能将逐帧重复值当独立手 |
 | D14，§3.4/§4.2 Eq.1 | split、MAE、逐用户 SD、加权 Avg、轨迹/中心区别 | **legacy 部分已核验**，E1/E2/E3/E5；与 PDF 队列不等价；需所有新模型逐项复核。± 是跨用户 SD，不是多 seed 误差条 |
 | D15，§4.3/C.1 | 左右 remapping、dropout/frequency mask/noise/jitter 等 EMG 增强 | **现有仅声明的官方 rotation 适配**；不能称覆盖 PDF 全部增强。classic 默认/with_aug 与实际归一化由 resolved 配置裁决，缺真实新配方训练 |
-| D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M已核验，L工程验收通过**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
-| D17，§4.4/C.2 | 7 视觉模型的真实主干、初始化、角度头、损失和训练 | **RN18/RN50/RN152 legacy 完整，其余未完整运行**，见模型表；DINO-S仅真实预训练/CPU工程证据，DINO-B已通过真实预训练CPU检查，L与WiLoR尚欠真实权重闭环；缺失配方仍须声明 |
+| D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M/L legacy完整运行已核验**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
+| D17，§4.4/C.2 | 7 视觉模型的真实主干、初始化、角度头、损失和训练 | **RN18/RN50/RN152 legacy 完整，其余未完整运行**，见模型表；DINO-S/B/L仅真实预训练/CPU工程证据，WiLoR尚欠真实权重闭环；缺失配方仍须声明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy 已核验，ViT-S+S 未运行**；E1/E2。精确零是明确适配，官方极小正态与 PDF zero 的区别保留 |
 | D19，D.6 Eq.4 | camera-space 自遮挡 z-buffer、5×5邻域/5mm、三角面积加权 | **[官方算法][occlusion]存在，本项目未运行**；缺 GT pose/β/faces/world→camera/K/真实尺寸与 validity；不得以 crop 遮挡或 2D 框重叠替代 |
 | D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **未运行**，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
@@ -194,7 +194,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 
 ## 继续顺序与全文完成门槛
 
-1. 保持 L 独立完整训练，待真实结束后完成选定 best 的最终测试、严格导出、锁定复算；观察超时不重复启动。
+1. L已完整结束并完成中心审计；继续正式classic入口的最终源码GPU验收、完整训练与冻结测试，同时推进DINO真实cohort训练。保留现有七项legacy身份，另行对齐官方0.02与原回调；不追溯改写旧成绩。
 2. 已生成并核验β统计与聚合图、60类词表/22维语义及中心覆盖；继续补齐各模型逐手/中心子表和统一参数/实际用时统计。每项仍须保留协议、读取身份与实际计数。
 3. 从固定 selected-best 做一次足够细的派生评价，保存匿名 sample key、逐角 error/valid、gesture/hand/split/crop，可共同支持 Table12/14/15、Fig7/12；不能从旧总体均值逆推细分结果。
 4. 实施经典模型 tuple/context/16槽/精度适配，以及 ResNet/DINOv2 分派、真实初始化和明确派生配方；ViT-S完整结束后再以 clean 分支训练 ViT-S+S。WiLoR先闭合专用资产与22角配方。

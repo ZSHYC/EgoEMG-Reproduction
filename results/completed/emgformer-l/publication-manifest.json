@@ -1,0 +1,158 @@
+{
+  "audit_baseline_tolerance": {
+    "absolute_tolerance_deg": 0.0001,
+    "agreement": true,
+    "checked_groups": [
+      "overall",
+      "by_hand/left",
+      "by_hand/right",
+      "by_split/both",
+      "by_split/gesture",
+      "by_split/user",
+      "by_component/fingers",
+      "by_component/wrist",
+      "by_hand_split/left/both",
+      "by_hand_split/left/gesture",
+      "by_hand_split/left/user",
+      "by_hand_split/right/both",
+      "by_hand_split/right/gesture",
+      "by_hand_split/right/user"
+    ],
+    "count_tolerance": 0,
+    "error_sum_tolerance_rad": "valid_angle_count * radians(absolute_tolerance_deg)"
+  },
+  "completed_full_validations": 200,
+  "configured_epochs": 200,
+  "configured_loss_fingertip_weight": 0.01,
+  "controller_receipt_sha256": "4dd7829576eea433e10332c8c1721a8fdc1a6fddbfbd81c6d5e5c778c654804d",
+  "environment": {
+    "cuda_runtime": "11.8",
+    "cudnn": 8700,
+    "gpu_name": "NVIDIA A800-SXM4-80GB",
+    "matmul_precision": "high",
+    "numpy": "1.26.4",
+    "precision": "bfloat16",
+    "python": "3.11.12",
+    "torch": "2.2.2+cu118"
+  },
+  "environment_file_sha256": "4fc33923f2fa69d8e5d5f04065895e8b63207ca622e37d9d9878708b0ea61ec5",
+  "files": {
+    "audit.json": {
+      "bytes": 377346,
+      "sha256": "487f923a8c03168787e35f1a75ed4c9042dc4d18c5195feb13254b310f2818e6"
+    },
+    "metrics.json": {
+      "bytes": 6435516,
+      "sha256": "c4e6bf1a00141040e4a0db3e649fea1425ffa912269bb45d7f93cb81a92eb6ee"
+    },
+    "metrics.md": {
+      "bytes": 2433,
+      "sha256": "44f89b3de3474459a1db33ee0c4ebce37c4e4ff4071e62327b84b9c94b0159c2"
+    },
+    "training-curves.png": {
+      "bytes": 116939,
+      "sha256": "23eaa5fc1fa7ef006e15041ca8e93d378775c5df4e4eaeda9ed0912131fc8b9a"
+    },
+    "training-curves.svg": {
+      "bytes": 229031,
+      "sha256": "df0cb8856fb3d8b7d88ea427751815bca30677a56ae7dd1c3d4726ff2ace3906"
+    }
+  },
+  "full_training_wall_seconds": 28602.418367,
+  "initialization": {
+    "policy": "random",
+    "seed": 42,
+    "seed_before_model": 42
+  },
+  "limitations": [
+    "legacy dataset, generated labels and whole-episode prefilter differ from PDF; test User/Both labels each overlap training by one user",
+    "12000-point legacy grid, not PDF7790;2792 test hand centers, not paper4278",
+    "single-process batch500/bfloat16/workers6 legacy runner; no claim of original multi-rank or callback equivalence",
+    "legacy fingertip .01 differs from resolved official alias sum .02; actual source and results preserved",
+    "single seed42; no cross-seed conclusion; validation-selected early best, never final-weight substitution",
+    "locked audit recomputed centers only; trajectory MAE is original final-test output, not independently re-inferred"
+  ],
+  "metrics": {
+    "center_all": {
+      "absolute_error_sum_rad": 17272.069789027955,
+      "mae_deg": 16.612111434343586,
+      "valid_angle_count": 59572
+    },
+    "center_crop_present": {
+      "absolute_error_sum_rad": 17102.97485067653,
+      "mae_deg": 16.571877766051458,
+      "valid_angle_count": 59132
+    },
+    "trajectory": {
+      "absolute_error_sum_rad": 198272926.2586714,
+      "mae_deg": 16.59113259318461,
+      "valid_angle_count": 684715272
+    }
+  },
+  "official_literal_loss_equivalent": false,
+  "official_resolved_effective_fingertip_weight": 0.02,
+  "optimizer_updates": 25400,
+  "paper_table_equivalence_proven": false,
+  "population": {
+    "all_sha256": "7b67b0d42fc1edc339dc4d9477025a5964d1830ae06519384f5666838d227082",
+    "crop_present_centers": 2688,
+    "crop_present_sha256": "06cdac31d8dbab511e9c076593c09b46728872c9275c5f969386dc0ea8b14279",
+    "missing_crop_centers": 104,
+    "missing_sha256": "ba8015fd90930defad29bfb9255bdc48b0344f1e244e88714cc26c4bbabb7f35",
+    "requested_centers": 2792
+  },
+  "privacy": "public aggregates, anonymous ordinal user labels and content hashes only; private protocol files, subject labels and mapping, source data, checkpoint bytes, machine paths and process IDs excluded",
+  "runtime_sha256": "111614a69426562f124204582b905ecf458ffcd0590626b110d98bff70f37951",
+  "schema_version": 1,
+  "scope": "EMGFormer-L newly completed legacy experiment; original four-model, RN50 and RN152 publication manifests unchanged",
+  "selected_checkpoint_step": 508,
+  "selection": "minimum complete independent-validation trajectory MAE, all-label population",
+  "source_commit": "7b805d428957e62cc93ff48f34e954c64159691e",
+  "stages": [
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T01:24:44.268431+00:00",
+      "stage": "l-real-bounded",
+      "started": "2026-10-26T01:24:18.657387+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T01:25:00.727580+00:00",
+      "stage": "l-full-validation-reload",
+      "started": "2026-10-26T01:24:44.269175+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T09:21:43.146733+00:00",
+      "stage": "l-full-training",
+      "started": "2026-10-26T01:25:00.728366+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T09:21:46.298809+00:00",
+      "stage": "l-strict-export",
+      "started": "2026-10-26T09:21:43.147983+00:00",
+      "status": "success"
+    },
+    {
+      "exit_code": 0,
+      "finished": "2026-10-26T09:21:57.099219+00:00",
+      "stage": "l-locked-center-audit",
+      "started": "2026-10-26T09:21:46.300376+00:00",
+      "status": "success"
+    }
+  ],
+  "summary_sha256": "8bd547d3ffca571c65c27950c17fe6a1a6ea0480b468f16f3abc39bcbd8d9c54",
+  "training_complete": true,
+  "training_curves_renderer": {
+    "callable": "egoemg_repro.report._plot",
+    "input_metrics_sha256": "c4e6bf1a00141040e4a0db3e649fea1425ffa912269bb45d7f93cb81a92eb6ee",
+    "source_sha256": "88b835885d3f78705874b8d1e5d428c741dd3ffc02a7b2ea440f50a678ca892f"
+  },
+  "trajectory_source": "original trainer final test only; locked audit recomputed centers only; no independent full trajectory re-inference",
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "wall_time_scope": "controller full-training subprocess start to successful exit, including its validation/checkpoint/final test; excludes setup, bounded qualification, export and separate center audit; not GPU kernel time or claimed paper GPU-hours"
+}

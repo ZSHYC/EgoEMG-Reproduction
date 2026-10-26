@@ -1,0 +1,413 @@
+{
+  "bitwise_trajectory_guaranteed": false,
+  "cuda_numeric_passed": true,
+  "environment": {
+    "cublas_workspace_config": ":4096:8",
+    "cuda_build": "11.8",
+    "cudnn": 8700,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "default_scaler_state": {
+      "_growth_tracker": 0,
+      "backoff_factor": 0.5,
+      "growth_factor": 2.0,
+      "growth_interval": 2000,
+      "scale": 65536.0
+    },
+    "deterministic": false,
+    "device_name": "NVIDIA A800-SXM4-80GB",
+    "driver_version": "595.91.07",
+    "matmul_precision": "high",
+    "precision_plugin": "MixedPrecision",
+    "python": "3.11.12",
+    "runtime_profile": "canonical_backend_nondeterministic_v1",
+    "scaler_class": "torch.cuda.amp.grad_scaler.GradScaler",
+    "scaler_enabled": true,
+    "torch_build": "2.2.2+cu118",
+    "total_memory": 85094825984,
+    "trainer_deterministic": false,
+    "versions": {
+      "hydra-core": "1.3.2",
+      "joblib": "1.5.2",
+      "lightning-utilities": "0.11.9",
+      "numpy": "1.26.4",
+      "omegaconf": "2.3.1",
+      "pandas": "2.2.3",
+      "pytorch-lightning": "2.5.0.post0",
+      "scipy": "1.13.1",
+      "torch": "2.2.2+cu118",
+      "torchmetrics": "1.4.3",
+      "torchvision": "0.17.2+cu118"
+    }
+  },
+  "execution": {
+    "all_exit_codes_zero": true,
+    "controller_sha256": "ee972805b86d950e6956209779a7dd88a2f505e6ae58e79ca3c3606f2e969f85",
+    "finished_utc": "2026-10-26T08:33:18.085251+00:00",
+    "fresh_process_stages": 6,
+    "manifest_sha256": "668223b44dc73b102ba67605a51490c06161e379946be4cb4baba8fac7c76ca0",
+    "started_utc": "2026-10-26T08:31:56.977162+00:00"
+  },
+  "execution_source": {
+    "frozen_base_commit": "ec2d5b127828578dd3c125c44d7293dfab105c4c",
+    "note": "Executed a staged base archive plus pinned qualifier; the later published commit matches the listed runtime files and is not relabeled as the historical checkout.",
+    "published_matching_runtime_files_commit": "9b5f4931d53db0d536e0ebe64e386e8048872ab8",
+    "qualifier_file_sha256": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54"
+  },
+  "limitations": [
+    "Fixed tiny subset and batch1 only; not full-cohort optimization or complete validation.",
+    "No formal training, validation best selection, test score, target600/256 capacity or paper-table completion.",
+    "Full typed checkpoint and RNG restoration equality does not establish deterministic or bitwise-equal future trajectories.",
+    "Whole-cohort CPU finite/hash evidence is separately published and cannot be inferred from this numeric run.",
+    "Private source/checkpoint/participant paths, sample hashes, process IDs and device UUID are omitted; checkpoint bytes are retained privately."
+  ],
+  "models": {
+    "neuropose": {
+      "attempts": 8,
+      "checkpoint_sha256": {
+        "prefix": "53eb0498f8fc906c31c9f4dfc1380f65f0cf76f7366b679d00d7e1dbaa399e11",
+        "resumed": "47c86e832ae84385a70461305ddd58f209d2d581d8d8d93f24678b0eb14ba5fa"
+      },
+      "completed_engineering_epochs": 2,
+      "effective_fingertip_weight": 0.02,
+      "events": [
+        {
+          "batch": 0,
+          "epoch": 0,
+          "global_step": 1,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.6040534973144531,
+          "optimizer_executed": true,
+          "optimizer_step_after": 1,
+          "optimizer_step_before": 0,
+          "scale_after": 65536.0,
+          "scale_before": 65536.0
+        },
+        {
+          "batch": 1,
+          "epoch": 0,
+          "global_step": 2,
+          "gradient_finite": false,
+          "injected": true,
+          "loss": 1.41434907913208,
+          "optimizer_executed": false,
+          "optimizer_step_after": 1,
+          "optimizer_step_before": 1,
+          "scale_after": 32768.0,
+          "scale_before": 65536.0
+        },
+        {
+          "batch": 2,
+          "epoch": 0,
+          "global_step": 3,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.3849127292633057,
+          "optimizer_executed": true,
+          "optimizer_step_after": 2,
+          "optimizer_step_before": 1,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 3,
+          "epoch": 0,
+          "global_step": 4,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.350364327430725,
+          "optimizer_executed": true,
+          "optimizer_step_after": 3,
+          "optimizer_step_before": 2,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 0,
+          "epoch": 1,
+          "global_step": 5,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.268027424812317,
+          "optimizer_executed": true,
+          "optimizer_step_after": 4,
+          "optimizer_step_before": 3,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 1,
+          "epoch": 1,
+          "global_step": 6,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.2999804019927979,
+          "optimizer_executed": true,
+          "optimizer_step_after": 5,
+          "optimizer_step_before": 4,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 2,
+          "epoch": 1,
+          "global_step": 7,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.2780563831329346,
+          "optimizer_executed": true,
+          "optimizer_step_after": 6,
+          "optimizer_step_before": 5,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 3,
+          "epoch": 1,
+          "global_step": 8,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.1855568885803223,
+          "optimizer_executed": true,
+          "optimizer_step_after": 7,
+          "optimizer_step_before": 6,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        }
+      ],
+      "finite_loss_attempts": 8,
+      "fresh_process_resume": true,
+      "identity_sha256": "551cc3c0b2bb01a98cbfe7a8d141015315623a319cf2659116321500000f5aa8",
+      "injected_skips": 1,
+      "natural_overflow_skips": 0,
+      "optimizer_executions": 7,
+      "parameters": 6354969,
+      "phase_metadata_file_sha256": {
+        "neuropose-prefix/identity.json": "47c420dd15fafdee2c978dbb1de0dade8835237284b6126a51a587abf48d0f0e",
+        "neuropose-prefix/provenance.json": "b78983db9af0b3a5fa448f8c75c7f6e57c389b544073d42f11b6f0845db68d8f",
+        "neuropose-prefix/result.json": "fe3427ab362fdeffaf5883a167705a476160702efb5016058a663308480af7c5",
+        "neuropose-prefix/status.json": "e89f27f84055cfb6b43ed8a6b0d7be3ceb9665e2383f8b435175017dfc904ff0",
+        "neuropose-resumed/identity.json": "47c420dd15fafdee2c978dbb1de0dade8835237284b6126a51a587abf48d0f0e",
+        "neuropose-resumed/provenance.json": "b78983db9af0b3a5fa448f8c75c7f6e57c389b544073d42f11b6f0845db68d8f",
+        "neuropose-resumed/result.json": "1f91c91dc96413d397a801cd5e63910ad1519605e16e8dbaa5a439a6cd881ddf",
+        "neuropose-resumed/status.json": "5253cf6fea41a1057b49bebba6f2d91eae44da35087a3f82608a970de37251a3",
+        "neuropose-verify.log": "ad0a17d7aaffb6cb6266215f80ff79a39bd2aba305e1e03e11ebb7fb46463db4"
+      },
+      "resumed_phase_memory_bytes": {
+        "max_allocated": 235702272,
+        "max_reserved": 247463936
+      },
+      "runtime_files_sha256": {
+        "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+        "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+        "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+        "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+        "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+        "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+        "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678"
+      },
+      "tensor_witness": {
+        "mask_dtype": "torch.bool",
+        "mask_shape": [
+          1,
+          7790
+        ],
+        "prediction_dtype": "torch.float16",
+        "prediction_shape": [
+          1,
+          22,
+          7790
+        ],
+        "target_dtype": "torch.float32"
+      },
+      "typed_state_and_rng_restore_equal": true
+    },
+    "vemg2pose": {
+      "attempts": 8,
+      "checkpoint_sha256": {
+        "prefix": "61a05ebd4755e62e16276b0007801a15cb832301b9d301c2e141025e8a95c829",
+        "resumed": "8245eccd662629d3e16ca18ceef4fb0fd5292d6f1e52126e21aced8025c92eb7"
+      },
+      "completed_engineering_epochs": 2,
+      "effective_fingertip_weight": 0.02,
+      "events": [
+        {
+          "batch": 0,
+          "epoch": 0,
+          "global_step": 1,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.2239810228347778,
+          "optimizer_executed": true,
+          "optimizer_step_after": 1,
+          "optimizer_step_before": 0,
+          "scale_after": 65536.0,
+          "scale_before": 65536.0
+        },
+        {
+          "batch": 1,
+          "epoch": 0,
+          "global_step": 2,
+          "gradient_finite": false,
+          "injected": true,
+          "loss": 1.226943850517273,
+          "optimizer_executed": false,
+          "optimizer_step_after": 1,
+          "optimizer_step_before": 1,
+          "scale_after": 32768.0,
+          "scale_before": 65536.0
+        },
+        {
+          "batch": 2,
+          "epoch": 0,
+          "global_step": 3,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.2194819450378418,
+          "optimizer_executed": true,
+          "optimizer_step_after": 2,
+          "optimizer_step_before": 1,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 3,
+          "epoch": 0,
+          "global_step": 4,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.1269347667694092,
+          "optimizer_executed": true,
+          "optimizer_step_after": 3,
+          "optimizer_step_before": 2,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 0,
+          "epoch": 1,
+          "global_step": 5,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 0.9664050340652466,
+          "optimizer_executed": true,
+          "optimizer_step_after": 4,
+          "optimizer_step_before": 3,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 1,
+          "epoch": 1,
+          "global_step": 6,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 1.1374329328536987,
+          "optimizer_executed": true,
+          "optimizer_step_after": 5,
+          "optimizer_step_before": 4,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 2,
+          "epoch": 1,
+          "global_step": 7,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 0.9198266267776489,
+          "optimizer_executed": true,
+          "optimizer_step_after": 6,
+          "optimizer_step_before": 5,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        },
+        {
+          "batch": 3,
+          "epoch": 1,
+          "global_step": 8,
+          "gradient_finite": true,
+          "injected": false,
+          "loss": 0.8578975200653076,
+          "optimizer_executed": true,
+          "optimizer_step_after": 7,
+          "optimizer_step_before": 6,
+          "scale_after": 32768.0,
+          "scale_before": 32768.0
+        }
+      ],
+      "finite_loss_attempts": 8,
+      "fresh_process_resume": true,
+      "identity_sha256": "1154c5f00d4898a755526371a9eb188f7169ab46ac8f3bb2eba98e061396d236",
+      "injected_skips": 1,
+      "natural_overflow_skips": 0,
+      "optimizer_executions": 7,
+      "parameters": 5963948,
+      "phase_metadata_file_sha256": {
+        "vemg2pose-prefix/identity.json": "2f0c257e3d8e97442967b8cd292a479f131334d2999ac80f35c5399177585cfa",
+        "vemg2pose-prefix/provenance.json": "85f7d63d12f1abaeb95925a2f9fb4bf0721c2f7e0920c757b9202755e5e2d3ac",
+        "vemg2pose-prefix/result.json": "64c9a2b35e069f5a02565195aca5d1bc4f0b1249ffe3437c08a72d4734026a52",
+        "vemg2pose-prefix/status.json": "87c25b1e8d8effac72d3a358c92f1d7f6300a66e5c5feaca1e7c6d071cad9f1c",
+        "vemg2pose-resumed/identity.json": "2f0c257e3d8e97442967b8cd292a479f131334d2999ac80f35c5399177585cfa",
+        "vemg2pose-resumed/provenance.json": "85f7d63d12f1abaeb95925a2f9fb4bf0721c2f7e0920c757b9202755e5e2d3ac",
+        "vemg2pose-resumed/result.json": "2e68118c2f2ff6cae67c00fcc514a6a9b99026ad1b26b02eededbfcac3fdda54",
+        "vemg2pose-resumed/status.json": "4275e1efd201aeecfd45ef569e1076806202bc2cfe2c017424b403b80817b9ae",
+        "vemg2pose-verify.log": "ba414adcddf95c00de736715fd37eef2f6203f7b0de2df68ded0eab7cf7098b6"
+      },
+      "resumed_phase_memory_bytes": {
+        "max_allocated": 1235319808,
+        "max_reserved": 1258291200
+      },
+      "runtime_files_sha256": {
+        "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+        "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+        "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+        "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+        "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+        "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+        "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678"
+      },
+      "tensor_witness": {
+        "mask_dtype": "torch.bool",
+        "mask_shape": [
+          1,
+          6000
+        ],
+        "prediction_dtype": "torch.float16",
+        "prediction_shape": [
+          1,
+          22,
+          6000
+        ],
+        "target_dtype": "torch.float32"
+      },
+      "typed_state_and_rng_restore_equal": true
+    }
+  },
+  "policy": {
+    "batch_size": 1,
+    "engineering_epochs": 2,
+    "fault_injection": "one Inf gradient after first actual update; no loss change",
+    "gradient_clip": 0,
+    "num_workers": 0,
+    "precision": "16-mixed",
+    "seed_policy": "original setup_runtime before original model factory",
+    "selection": "first fixed train/validation hand samples, no replacement or filtering",
+    "train_hand_samples": 4,
+    "validation_hand_samples": 2
+  },
+  "previous_strict_attempt": {
+    "qualifier_file_sha256": "c8d6ce74ea9a60ba1a2b14ebf0d7f74da176eb08b2bbae6954f0a3b2de0e2484",
+    "reason": "actual torch strict deterministic mode rejected original linear interpolation CUDA backward; canonical profile is a separate explicit amendment",
+    "status": "failed_and_preserved"
+  },
+  "production_ready": false,
+  "schema_version": 1,
+  "scientific_eligible": false,
+  "scope": "bounded actual CUDA numeric and complete-state restoration engineering evidence; no scientific result",
+  "strict_state_restore": true,
+  "target_batch_capacity_qualified": false,
+  "trajectory_agreement_qualified": false,
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311"
+}

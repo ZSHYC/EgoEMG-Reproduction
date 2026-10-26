@@ -4,15 +4,15 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-截至北京时间 2026-10-26 17:06 的实际观察：
+截至北京时间2026-10-26 17:57的实际观察及完成记录：
 
 | 新实验 | 已通过的真实门槛 | 当前阶段 | 冻结运行代码 |
 | --- | --- | --- | --- |
-| EMGFormer-L | batch500 两次真实优化；严格重载；两次各 1,052 样本完整验证一致 | 独立200 epochs训练中，零起始epoch192/step24,511，原进程身份匹配；尚无最终测试或完成验收 | `7b805d428957e62cc93ff48f34e954c64159691e` |
+| EMGFormer-L | batch500 两次真实优化；严格重载；两次各 1,052 样本完整验证一致 | **200 epochs/25,400更新/200次完整轨迹验证已完成**；最终测试、严格导出与独立中心复算均成功，[结果](../results/completed/emgformer-l/README.md) | `7b805d428957e62cc93ff48f34e954c64159691e` |
 | ResNet-50 | 真实 ImageNet1K_V1 权重及哈希；batch400 两次真实 crop 优化；两次完整验证重载 | **150 epochs/23,700更新/150次full val已完成**；最终测试、严格导出、锁定复算均成功，[结果](../results/completed/resnet50/README.md) | `a357423b722b8df3e15b78b88b897c6087a04884` |
 | ResNet-152 | 真实 ImageNet1K_V1 权重及哈希；batch180 两次真实 crop 优化；两次完整验证重载 | **150 epochs/52,650更新/150次full val已完成**；最终测试、严格导出与锁定复算均成功，[结果](../results/completed/resnet152/README.md) | `a357423b722b8df3e15b78b88b897c6087a04884` |
 
-三项使用独立目录与不同 A800；均保留原四基线的 legacy 队列作为这一实验族。RN50/152 的独立作者 YAML 未随固定代码发布，本项目显式组合官方 RN18 experiment 并覆盖 backbone；批量来自 PDF Table8，其余优化/数据配方继承已声明的官方 RN18 和 legacy 适配，不能称作者完整原始配方。每个单次控制流程只有短验收通过后才开启正式训练，正式训练结束后才导出并做一次锁定中心审计；L的后续阶段仍未完成。
+三项使用独立目录与不同 A800；均保留原四基线的 legacy 队列作为这一实验族。RN50/152 的独立作者 YAML 未随固定代码发布，本项目显式组合官方 RN18 experiment 并覆盖 backbone；批量来自 PDF Table8，其余优化/数据配方继承已声明的官方 RN18 和 legacy 适配，不能称作者完整原始配方。每个单次控制流程只有短验收通过后才开启正式训练，正式训练结束后才导出并做一次锁定中心审计；三项后续阶段均已完成，仍不构成官方字面配方等价。
 
 历史13:27读取三项生产进度分别处于零起始epoch 89/200、131/150、69/150，step为11,349/20,806/24,371；原controller/child身份均匹配。随后13:51的实际读取：RN50的controller已在13:48:16成功完成，完整训练、严格导出与锁定复算三个阶段均exit0；L/RN152仍由相同controller/child运行，零起始epoch100/200与80/150、step12,783与28,297。三项仍是已声明的legacy 0.01损失协议，不能据完成状态升级成官方0.02等价。
 
@@ -75,6 +75,18 @@ DINOv2-S已从匿名HF实际取得88,240,510 bytes预训练文件，实际文件
 16:31–16:33的独立classic canonical CUDA限定运行已完成：两模型各8次训练尝试、7次真实optimizer执行、1次刻意注入Inf后的正确跳步/scale回退，无自然overflow；新进程完整状态/RNG恢复一致。实际检查源码为cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54，采用显式非确定性官方backend profile；保留此前严格确定性后向拒绝的失败。当前只验证batch1的固定小子集，不证明轨迹逐位一致、600/256容量、正式训练或科研成绩。17:06原EMG2Pose receiver仍为同一进程，已提交20,686,307,328原始字节（约4.47%），complete=false。
 
 17:11，DINOv2-B实际预训练CPU检查完成：匿名HF文件346,334,872 bytes、SHA55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b；174个过滤后主干tensor逐字节一致，位置嵌入1370→325与官方插值一致，256px合成输入输出1×22×1有限。冻结8dabdaf原builder下网络调用为0，完整模型与精确输入/预测严格离线恢复逐位一致；只支持CPU正确性，不是cohort优化、GPU容量或完整训练成绩。L尚未通过真实预训练检查。
+
+17:21:57，L控制流程五阶段均成功完成；验证最低15.245916°在第508步（第4轮），全部/有图中心16.612111°/16.571878°。200轮完整训练未消除验证曲线后期上升的过拟合迹象。原测试轨迹16.591133°仅由训练器计算，独立audit只复算中心；13份原导出/协议的remote/local SHA与size一致，发布草稿另经独立算术、人口、身份及曲线检查。实际source7b805不变。
+
+DINOv2-B/L的[实际预训练与CPU证据](../results/dinov2-base-large-pretrained.md)已完成；两者都在原builder内使用真实HF权重、官方位置插值，并通过合成256px前向与严格禁网恢复。此阶段没有cohort优化、GPU容量或完整训练。
+
+17:39–17:47，classic六个[原批量容量梯级](../results/classic-cuda-capacity-engineering.md)各两次实际更新及完整1576手val成功，12次实际执行无自然overflow。VEMG600/Neuro256峰reserved13.488/16.928GiB，train/val同B保持原FK归约。原工具b890按字节公开，所有层级仍scientific/production=false；正式入口、全训练与冻结test仍未完成。原controller/child都已成功退出，未因观察超时重启。
+
+独立修复后的worker和formal-artifacts在70文件冻结快照05e50aecf8af8c079020e85261fcfd951ed8cef8b1d97f346cb2dd30c58db78c下，本机完整CPU1006 passed/3 skipped（270.05s），轻量673 passed/336可选运行时skip（19.27s）。原长basetemp触发AF_UNIX路径长度的两次失败完整保留；仅缩短协调器临时目录，未改测试断言或源码。该快照不包含后来版本化的capacity工具、新发现native callback语义修正或仍在开发的正式runner；后续来源另验，不挪用旧绿结果。
+
+已发布RN152的ae3031c对应[实际CI40298074155](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40298074155)成功：官方CPU880 passed/2真实CUDA skip（222.86s），轻量609 passed/273依赖skip（22.15s），pip check与shell通过。新worker/artifact/capacity源码不由此CI覆盖。
+
+新增公开capacity工具、worker与原生callback语义修正后的72文件冻结组，源码快照SHA9f879422b483206c0133b1bd095ce405503d14f962b5b183abfec1ea9f1d005d，本机完整CPU **1025 passed/3 skipped**（271.86s，两个真实CUDA正例及一个既有ViT-L内存准入skip），轻量 **690 passed/338依赖skip**（23.83s）。最终文件SHA逐一复核不变；该组明确排除仍在实现的formal runner及其测试，托管CI待对应发布提交实读。
 
 ## 2026-10-25：四基线历史完成记录
 
