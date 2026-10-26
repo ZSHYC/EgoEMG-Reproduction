@@ -4,7 +4,7 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-截至北京时间 2026-10-26 13:51 的实际观察：
+截至北京时间 2026-10-26 15:11 的实际观察：
 
 | 新实验 | 已通过的真实门槛 | 当前阶段 | 冻结运行代码 |
 | --- | --- | --- | --- |
@@ -57,6 +57,16 @@ Task4的[两步优化/全窗口重载入口](../egoemg_repro/emg2pose_check.py)�
 新增[损失与选模审计](../results/official-loss-audit.md)：实际Hydra合成、未改官方Lightning归约AST和独立复核发现，EgoEMG S/M/L、RN18、RN18+S、DINO-S及classic两项的两个指尖别名合计系数0.02；既有复现层实际为0.01。旧四结果和当前L/RN50/RN152源身份不改，继续明确为该legacy配方；不得把完成记录升级为官方字面协议等价。classic实际监控val_loss并有patience50，RN18/DINO-S有patience30；今后须保留真实回调行为。EMG2Pose三项仅有base指尖项0.01，不受该叠加影响。
 
 DINOv2-S已从匿名HF实际取得88,240,510 bytes预训练文件，实际文件与主干tensor摘要、官方位置嵌入重采样、合成256px前向和严格离线重载逐位相同均记录于[独立工程报告](../results/dinov2-small-pretrained.md)。该验收使用冻结`8dabdaf`、隔离小型依赖且禁用CUDA，不涉及真实cohort优化/性能。B/L仍仅实际CPU构造/schema，真实预训练资产、GPU与完整预算实验仍未完成。
+
+15:11实际读取确认L/RN152的原controller及当前child身份仍匹配，零起始epoch分别138/200与118/150、step17,643与41,510。完整EMG2Pose归档原receiver/tunnel身份仍匹配，已提交14,445,182,976原始字节，压缩10,082,882,504字节；complete=false，不能据此开展完整数据实验。
+
+`8ef6aeec24d7f9f38bf67bb93db83b89187e0355`的[实际托管CI40278377967](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40278377967)成功：官方CPU **673 passed、无skip**（268.78s），轻量490 passed/183依赖skip（19.38s），pip check无损坏依赖。原生成功case临时目录清理后，runner的/tmp已用48MiB、可用7.8GiB，保留pytest目录92KiB；旧失败记录保留。这一成绩覆盖classic CPU实现，不包括随后新增的预取、派生或CUDA代码。
+
+可选[预取适配器](emg2pose-prefetch.md)的104项原归档+新适配器测试通过；真实两次32MiB检查字节/xz6记录一致，单/双worker分别约1.050/0.931MiB/s，没有显示提速，因此原完整接收器未切换。[派生评价工具](legacy-derived.md)目前只完成元数据预检与纯归约，新增模型推理、派生表和定性图仍欠。
+
+15:58的实际服务器观察：L仍在原controller/child下运行，零起始epoch160/200、step20,426；RN152为139/150、step49,140。随后新CUDA检查的前置门槛仍观察到目标GPU占用，未创建新attempt或启动模型；不会重复已失败的强确定性运行。
+
+新增[完整classic队列CPU检查](../results/classic-cohort-cpu-engineering.md)已真实完成，两配方各准入再完整重算一致，Torch导入被禁止。冻结足迹65,046,370行、test4,306手样本等边界独立复核通过；CUDA/容量/production资格均false。包含该实现、canonical CUDA限定入口、预取及派生TaskA的66文件快照SHA为6ca23e7191d33cafee1e21a02f1ac83854e8a6cf9ea3af283695af6ab93e1380，本机统一879 passed/3 skipped（284.01s），轻量609 passed/273依赖skip（20.12s）。明确排除派生worker和随后开始的正式artifact WIP；旧673托管成功不能代替此组新提交的CI。
 
 ## 2026-10-25：四基线历史完成记录
 

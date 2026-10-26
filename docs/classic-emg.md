@@ -25,11 +25,19 @@
 
 最终 CPU 源码 SHA256 为 `52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8`，测试为 `6ecc55104b24fdbcc8379e50897152f1b94a695da683d6ed80ba52a14c176875`。这些摘要绑定实际被测文件；后续文档提交不能替换真实执行身份。
 
+## 实际完整队列检查
+
+[新队列CPU证据](../results/classic-cohort-cpu-engineering.md)已完成两配方实际准入及各自完整重算。train/val/test分别为50,857/788/2,153窗口，即101,714/1,576/4,306单手样本；12数组整文件身份覆盖66,161,725源行，finite扫描覆盖冻结足迹内65,046,370行。固定布局/归一化及22D单位转换均finite，个别空标签样本不删除；没有导入Torch或计算模型误差。这是CPU数据准入，CUDA和容量资格仍为false。
+
+另新增独立[CUDA限定检查入口](../egoemg_repro/classic_emg_cuda_check.py)，只执行固定四个train手样本和两个val手样本的prefix/resume/verify，不开放正式训练。最初强确定性版本在真实NeuroPose反向中因Torch2.2.2+cu118的linear upsample不支持该模式而退出失败，原记录保留。后续固定canonical_backend_nondeterministic_v1，使用原算子、默认GradScaler和16-mixed，明确不保证位级轨迹一致；这份新源码的CPU拒绝/状态保护检查已通过独立审查，其真实GPU数值验收仍未完成。
+
+包含新数据准入、CUDA限定入口、预取和派生TaskA的66文件冻结组，本机统一检查为879 passed/3 skipped（284.01s），轻量层609 passed/273依赖skip（20.12s）。其范围排除仍在开发的正式artifact与派生worker，两个实际CUDA正例未由CPU执行；后续托管CI须按新提交另验。
+
 ## 仍需完成
 
 - 实际 CUDA `16-mixed`、GradScaler overflow skip、scaler 恢复、真实 batch600/256 显存准入；CPU32 不能证明这些行为。
-- 完整真实队列的非有限值准入、新分区与单卡/原六 rank 批量及 NeuroPose BatchNorm 差异记录。
+- 真实CUDA逐batch数值检查、单卡/原六rank批量及NeuroPose BatchNorm差异记录；完整冻结队列的CPU固定数值准入已完成。
 - 原 max100、patience50 的完整训练/每轮完整验证，以及按有限 val_loss 选定 best 后执行冻结 test。100 是上限，不能为了凑轮数删除早停。
 - 严格正式导出、逐关节/手/split/用户统计及独立复算。旧 legacy 的 0.01 目标不能改名为官方合成的 0.02。
 
-当前仅开放 `--engineering --device cpu`；正式入口会明确拒绝，不自动降级为 CPU。已验证的恢复范围为 workers0 的 epoch 边界，没有多 worker 或中途 batch 的位级续序承诺。容量保护、源码/配置/分区/数据/归一化/检查点身份检查继续生效。[实施计划](superpowers/plans/2026-10-26-classic-emg.md)中的整个 Task3 和 Task4 保持未完成。
+原训练入口只开放 `--engineering --device cpu`，独立CUDA入口仅供限定验收；正式入口会明确拒绝，不自动降级为CPU。已验证的恢复范围为 workers0 的 epoch 边界，没有多 worker 或中途 batch 的位级续序承诺。容量保护、源码/配置/分区/数据/归一化/检查点身份检查继续生效。[实施计划](superpowers/plans/2026-10-26-classic-emg.md)中的整个 Task3 和 Task4 保持未完成。
