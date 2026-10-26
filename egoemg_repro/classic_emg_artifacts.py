@@ -527,7 +527,8 @@ def _expected_loops(epochs,train,val):
 def _optimizer_scheduler_state(value,identity,epochs):
     """Check original raw AdamW/Cosine state against this actual Torch runtime."""
     torch=storage._runtime();recipe=identity['recipe']
-    reference=torch.optim.AdamW([torch.nn.Parameter(torch.empty(0))],lr=recipe['lr'],weight_decay=recipe['weight_decay'])
+    # Original Hydra betas retain native list semantics, not Torch's default tuple.
+    reference=torch.optim.AdamW([torch.nn.Parameter(torch.empty(0))],lr=recipe['lr'],weight_decay=recipe['weight_decay'],betas=[.9,.999])
     cosine=torch.optim.lr_scheduler.CosineAnnealingLR(reference,T_max=100,eta_min=recipe['eta_min'])
     expected=reference.state_dict()['param_groups'][0];group=value['optimizer_states'][0]['param_groups'][0]
     expected['params']=list(range(len(identity['parameter_names'])))

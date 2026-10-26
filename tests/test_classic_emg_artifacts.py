@@ -203,11 +203,20 @@ def test_formal_identity_is_exact_and_never_a_run_permit(damage):
     with pytest.raises(ValueError):r.validate_formal_identity(value,expected=expected)
 
 
+def native_optimizer_scheduler(parameter,variant):
+    """Use the pinned original Hydra path; do not hand-build a tuple-beta stand-in."""
+    pytest.importorskip('hydra');classic=importlib.import_module('egoemg_repro.classic_emg')
+    root=Path(__file__).parents[1]/'upstream';cfg=classic.compose_classic(root,variant)
+    classic._activate(root);utils=importlib.import_module('egoemg.utils')
+    assert Path(utils.__file__).resolve()==root/'egoemg/utils.py'
+    configured=utils.instantiate_optimizer_and_scheduler(iter([parameter]),cfg.optimizer,cfg.lr_scheduler)
+    return configured['optimizer'],configured['lr_scheduler']['scheduler']
+
+
 def state(r,ident,j,directory):
     torch=pytest.importorskip('torch');cuda=importlib.import_module('egoemg_repro.classic_emg_cuda_check')
     parameter=torch.nn.Parameter(torch.ones(2,2))
-    optimizer=torch.optim.AdamW([parameter],lr=ident['recipe']['lr'],weight_decay=ident['recipe']['weight_decay'])
-    scheduler=torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,T_max=100,eta_min=ident['recipe']['eta_min'])
+    optimizer,scheduler=native_optimizer_scheduler(parameter,ident['recipe']['variant'])
     for _ in range(j.prefix()['executions']):parameter.grad=torch.ones_like(parameter);optimizer.step()
     for _ in range(j.prefix()['epochs']):scheduler.step()
     # The CUDA field is a synthetic typed placeholder, never an actual CUDA state.
@@ -351,6 +360,9 @@ def test_last_carries_nonrecursive_best_and_offline_migratable_journal(tmp_path)
         assert last['formal']['selected_best']['checkpoint']['formal']['selected_best'] is None
         assert 'formal_carry' not in last['formal']['selected_best']['checkpoint']
         assert last['formal_carry']['segments']
+        assert type(last['optimizer_states'][0]['param_groups'][0]['betas']) is type(value['optimizer_states'][0]['param_groups'][0]['betas'])
+        assert storage_digest(last['optimizer_states'])==storage_digest(value['optimizer_states'])
+        assert storage_digest(last['lr_schedulers'])==storage_digest(value['lr_schedulers'])
         with pytest.raises(ValueError):r.read_formal_last(directory/'best-epoch0.ckpt',ident)
     finally:io.close();j.close()
 
@@ -377,7 +389,7 @@ def test_checkpoint_corruption_fails_before_publication(tmp_path,damage):
         elif damage=='selection_dtype':value['callbacks']['FormalProtocol']['selected_best']['epoch']=False
         elif damage=='callback_score_dtype':
             next(v for k,v in value['callbacks'].items() if k.startswith('EarlyStopping'))['best_score']=2.
-        elif damage=='optimizer_defaults':value['optimizer_states'][0]['param_groups'][0]['betas']=(.1,.2)
+        elif damage=='optimizer_defaults':value['optimizer_states'][0]['param_groups'][0]['betas'][0]=.1
         elif damage=='scheduler_fields':value['lr_schedulers'][0]['unknown']='not original scheduler state'
         elif damage=='recursive':value['formal']['selected_best']={'checkpoint':value,'state_sha256':'a'*64}
         elif damage=='partial':value['formal']['epoch_boundary']=False
@@ -581,4 +593,39 @@ def test_artifact_current_score_obeys_stock_top1_state(tmp_path,stock_top1_best_
             assert storage_digest(admitted['callbacks'][early_key])==storage_digest(native_last['callbacks'][early_key])
             assert r.read_selected_best(directory/'last.ckpt',ident)['formal']['completed_epochs']==1
         assert float(native_last['callbacks'][monitor_key]['current_score'])==1.
+    finally:io.close();j.close()
+
+
+@pytest.mark.parametrize('variant',['vemg2pose','neuropose'])
+def test_native_hydra_adamw_group_is_admitted_without_rewriting(variant):
+    torch=pytest.importorskip('torch');omega=pytest.importorskip('omegaconf');r=api()
+    recipe=json.loads((Path(__file__).parents[1]/'configs'/f'{variant}.json').read_text())
+    parameter=torch.nn.Parameter(torch.ones(2,2));optimizer,scheduler=native_optimizer_scheduler(parameter,variant)
+    for _ in range(2):parameter.grad=torch.ones_like(parameter);optimizer.step()
+    scheduler.step()
+    value=dict(optimizer_states=[optimizer.state_dict()],lr_schedulers=[scheduler.state_dict()])
+    group=value['optimizer_states'][0]['param_groups'][0]
+    assert isinstance(group['betas'],omega.ListConfig) and list(group['betas'])==[.9,.999]
+    assert value['lr_schedulers'][0]['last_epoch']==1
+    before=storage_digest(value)
+    r._optimizer_scheduler_state(value,dict(recipe=recipe,parameter_names=['model.weight']),1)
+    assert storage_digest(value)==before and isinstance(group['betas'],omega.ListConfig)
+
+
+@pytest.mark.parametrize('damage',['beta_values','beta_tuple','eps','group_extra',
+                                 'scheduler_last_epoch','scheduler_T_max','scheduler_extra'])
+def test_native_hydra_optimizer_scheduler_corruption_is_not_published(tmp_path,damage):
+    r,ident,j,io,value,directory=prepared(tmp_path)
+    try:
+        group=value['optimizer_states'][0]['param_groups'][0];scheduler=value['lr_schedulers'][0]
+        if damage=='beta_values':group['betas'][1]=.99
+        elif damage=='beta_tuple':group['betas']=(.9,.999)
+        elif damage=='eps':group['eps']=1e-6
+        elif damage=='group_extra':group['unknown']='not original AdamW state'
+        elif damage=='scheduler_last_epoch':scheduler['last_epoch']=0
+        elif damage=='scheduler_T_max':scheduler['T_max']=99
+        else:scheduler['unknown']='not original cosine state'
+        expected='cosine' if damage.startswith('scheduler_') else 'AdamW'
+        with pytest.raises(ValueError,match=expected):io.save_checkpoint(value,directory/'best-epoch0.ckpt')
+        assert not (directory/'best-epoch0.ckpt').exists()
     finally:io.close();j.close()

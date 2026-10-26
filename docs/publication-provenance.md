@@ -57,3 +57,7 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 该组公开为`6599e05da0edbec2adac570c9f75cc43f927c69b`后，[实际CI40306913437](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40306913437)失败，不能再记作等待或通过。官方CPU1013 passed/2 skipped/11 failed/2 errors，轻量678 passed/337 skipped/11 failed/2 errors；失败来自旧namespace夹具缺浅克隆历史对象及事务测试的临时磁盘前提。后续仅修复有界fetch和测试空间fixture，worker及生产15GiB门槛保持原字节，原失败记录保留。
 
 后续正式classic入口5285与CI修复的75文件快照SHA为`d9f8283741000a5dfe151c13ae463b2e964de7669e7c5d170f42c4689208ade4`。实际本机完整**1076 passed/3 skipped**（267.26s）、轻量**727 passed/352依赖skip**（21.59s）；ViT-L本次实际通过，三项skip为两CUDA限定正例及新formal入口缺实际GPUbundle。源码与独立复审范围分别保留；这些CPU结果不能授权未运行的正式GPU训练，也不覆盖后续评价模块。新发布头的托管结果仍须按其实际运行核验。
+
+该75文件组已公开为`2927aabfbe5a7a8e2f7003cc276ba729d0e24745`，[实际CI40310839399](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40310839399)成功：官方CPU1076 passed/3真实CUDA skip（300.14s），轻量727 passed/352依赖skip（17.34s），pip check及固定commit的有界fetch通过。旧6599失败不改写，此结果不覆盖后续artifact/evaluator修正。
+
+后续原生AdamW参考修正及selected-best独立测试入口的77文件快照SHA为`d93e3d3824293c6355c01b92d9ad9e684e445172356e4cabc7329b1858eb559f`，本机完整1118 passed/3真实CUDA skip（271.95s）、轻量739 passed/382依赖skip（21.40s）。四个新增/修改源码与测试均冻结并独立复审，原七项结果不变；修前真实GPU保存失败保留，修后的新源码GPU验收与本次发布头托管CI须另读。CPU检查及独立测试入口实现不构成完整训练或论文数值完成。

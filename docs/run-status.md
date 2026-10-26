@@ -4,6 +4,14 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
+最新修正组77文件实际完整CPU **1118 passed/3 skipped**（271.95s），轻量 **739 passed/382依赖skip**（21.40s）；三个完整环境skip仍为真实CUDA检查，七项已完成结果和所有冻结成员hash不变。新增selected-best独立测试入口已修复实际权重载入及目录移走后本次完成标记撤销问题，原探针与33项定向测试、独立复审通过；尚未做正常终止完整训练后的GPU测试或报告。
+
+此前5285正式入口的首次GPU工程运行真实到达两次训练尝试和完整1,576手val，随后首轮保存被原生AdamW校验拒绝：唯一差异为Hydra betas的ListConfig与临时期望参考默认tuple。原失败输出保留，未保存checkpoint、未进行后续阶段，也不是OOM。仅修正临时参考的列表语义后，两原配置真实helper、严格错误值拒绝与独立复审通过；新独立源码集合5285+187b逐一实读55个输入pin后再次实际GPU验收：VEMG连续两轮及单轮prefix均成功，第三个新进程在训练前的完整状态恢复核对失败，原输出与checkpoint保留。尚未执行Neuro阶段或完整训练；新的恢复差异另行诊断，不把前两阶段成功当整个验收通过。共享固定GPU每阶段启动需64GiB空闲、运行监测需8GiB，停止仅作用本次child；耗时不当作论文独占GPU-hours。
+
+上一公开头`2927aabfbe5a7a8e2f7003cc276ba729d0e24745`的[实际CI40310839399](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40310839399)已成功：官方CPU1076 passed/3真实CUDA skip（300.14s），轻量727 passed/352依赖skip（17.34s），pip check及固定旧commit有界fetch实际通过。该CI不覆盖随后这组artifact/evaluator修正。
+
+WiLoR另取得固定官方提交的26个源码/配置/许可文件，逐文件Git blob hash一致；隔离依赖与mean参数校验后，原get_config/backbones.vit在禁网、隐藏CUDA的新进程导入通过，无模型构造。大权重下载因ChunkedEncodingError已终止，93,323,264字节partial保留，尚未完整取得或加载，不能称预训练模型验收。完整EMG2Pose接收器原PID/start_ticks仍匹配，最近实读23,605,542,912原始字节（约5.1%），complete=false。
+
 2026-10-26 18:50新增核验：[classic正式训练入口](classic-emg.md)的5285源码完成独立复审及75文件统一CPU集成，**1076 passed/3 skipped**（267.26s），轻量**727 passed/352依赖skip**（21.59s）。此次ViT-L CPU构造实际通过；三个skip均为真实CUDA检查，不能当作GPU验收。训练收尾的两种真实故障已修复并保留原RED记录。服务器新独立目录的13个源文件、依赖、两配方原数值证据和各三梯级容量证据实读重验通过，CUDA未初始化；尚未运行最终源码三进程验收或完整classic训练。后终止selected-best完整测试和报告仍欠。
 
 公开提交`6599e05da0edbec2adac570c9f75cc43f927c69b`的[CI40306913437](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40306913437)实际失败：官方CPU1013 passed/2 skipped/11 failed/2 errors，轻量678 passed/337 skipped/11 failed/2 errors。原namespace夹具在浅checkout中缺少固定8dc提交，另有事务测试受小于15GiB的临时文件系统影响。新修复只给CI有界fetch该固定commit，并固定事务夹具的足够空间前提、补充真实低容量/下降容量拒绝用例；生产15GiB及worker源码不变。修复已独立复审并纳入上述本机集成，新提交托管结果仍须另读，旧6599失败不改写。
