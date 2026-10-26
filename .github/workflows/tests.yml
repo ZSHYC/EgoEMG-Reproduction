@@ -43,8 +43,31 @@ jobs:
           python -m pip check
       - name: Check out the approved official source
         run: bash scripts/bootstrap_upstream.sh "$EGOEMG_UPSTREAM"
-      # Engineering fixtures run without weight/data downloads. GPU and real-data
-      # acceptance remain separately recorded experimental evidence.
+      - name: Prefetch and verify the genuine DINO-S test prerequisite
+        run: |
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          from huggingface_hub import hf_hub_download, try_to_load_from_cache
+          cache = Path(os.environ['RUNNER_TEMP'])/'egoemg-dino-hf'
+          repo = 'timm/vit_small_patch14_dinov2.lvd142m'
+          revision = '4610ca143709d58a633b6397a74412c2c3842454'
+          path = Path(hf_hub_download(repo, 'model.safetensors', revision=revision, cache_dir=cache, token=False))
+          assert path.stat().st_size == 88240510
+          assert hashlib.sha256(path.read_bytes()).hexdigest() == '04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081'
+          # The unchanged native factory requests main. Bind only this owned
+          # isolated cache to the verified commit; do not reroute its transport.
+          ref = cache/('models--'+repo.replace('/', '--'))/'refs/main'
+          ref.parent.mkdir(parents=True, exist_ok=True)
+          ref.write_text(revision)
+          assert Path(try_to_load_from_cache(repo, 'model.safetensors', revision='main', cache_dir=cache)).resolve() == path.resolve()
+          with open(os.environ['GITHUB_ENV'], 'a') as out:
+              out.write('EGOEMG_VISION_TEST_HF_CACHE='+str(cache)+'\n')
+              out.write('EGOEMG_REQUIRE_VISION_PRETRAINED_TEST=1\n')
+          PY
+      # Runtime tests construct models offline after explicit asset preparation.
+      # GPU and real-data acceptance remain separate experimental evidence.
       # Genuine checkpoint fixtures are large. Release each passing test's own
       # scratch directory at teardown; retain failed cases for diagnosis.
       # Hosted /tmp can be an 8GiB tmpfs. Real artifact transactions retain the

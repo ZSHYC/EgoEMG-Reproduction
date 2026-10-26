@@ -30,7 +30,7 @@
 - A black missing crop must not acquire invented label filtering; Task1 preserves original output, Task2 exercises the real original loss with vision-invalid input.
 - Offline resume must strict-load actual pretrained-derived full state, never silently randomize; Task2 records true transport/tensor identity and rejects wrong schema/config/source. Task3 retains genuine stop and selected-best evidence without last fallback.
 
-## Task1: exact configuration and literal center-data family
+### Task 1: exact configuration and literal center-data family
 
 **Files:** create `egoemg_repro/vision_literal.py`, `egoemg_repro/vision_literal_data.py`, `tests/test_vision_literal.py`, `tests/test_vision_literal_data.py`, readonly `tools/vision_literal_census.py`; document `docs/vision-literal.md`.
 
@@ -41,18 +41,18 @@
 - [x] Write RED jitter/partition tests: original randint/RNG behavior, every possible augmented train span outside val/test, end-of-episode bounds and repeat2. Implement the smallest explicit legacy IO bridge around the unchanged native reader; no old-module changes. Empty roles remain length0 and reject indices before division.
 - [x] Run targeted checks, actual available-data cohort/source/crop census and deterministic original-reader comparisons. Do not call this full training. CPU evidence:37 targeted,1480/3 full and841/595 light. Actual52-file stat-guarded census and18 original point reads; whole payload hashes and full JPEG decode remain separate future admission. Commit the validated data foundation with remaining tasks explicit.
 
-## Task2: real native module and finite optimization/reload
+### Task 2: real native module and finite optimization/reload
 
 **Files:** create `egoemg_repro/vision_literal_runtime.py`, `tests/test_vision_literal_runtime.py`; extend guide.
 
 **Interfaces:** consume Task1 config/data; `build_vision_runtime(upstream, config, *, state=None, expected_initialization=None)` seeds with original setup before `make_lightning_module`; returns unchanged model/module plus actual source, initialization and optimizer identity. Engineering entry uses bounded explicit scope, actual original loss and complete independent-val population.
 
-- [ ] RED wrong configuration/state/backbone/pretrained fallback and source-mismatch checks before optimization. Characterize vision-invalid input through real original forward/loss rather than assuming comments enforce filtering.
-- [ ] Observe the existing timm transport without changing routing; obtain actual loaded backbone tensor SHA, 256px position interpolation and22D output. Strict reload may disable only redundant pretrained transport, then must restore every parameter/buffer.
-- [ ] Actual CPU engineering optimization, original component groups/AdamW/cosine and clip1; implement the server bf16 engineering entry and strict fresh-process resume. Actual GPU execution waits for Task3's final whole-tranche review. Engineering size/batch differences remain explicit and cannot qualify full training.
-- [ ] Complete appropriate CPU integration; preserve failures. One independent review of the complete vision runtime/training tranche occurs at Task3, followed by one root RED regression fix pass; do not introduce per-task reviewers.
+- [x] RED wrong configuration/state/backbone/pretrained fallback and source-mismatch checks before optimization. Characterize vision-invalid input through real original forward/loss rather than assuming comments enforce filtering.
+- [x] Observe the existing timm transport without changing routing; obtain actual loaded backbone tensor SHA, 256px position interpolation and22D output. Strict reload may disable only redundant pretrained transport, then must restore every parameter/buffer.
+- [x] Actual CPU engineering optimization, original component groups/AdamW/cosine and clip1; implement the server bf16 engineering entry and strict fresh-process resume. Actual GPU execution waits for Task3's final whole-tranche review. Engineering size/batch differences remain explicit and cannot qualify full training.
+- [x] Complete appropriate CPU integration; preserve failures. One independent review of the complete vision runtime/training tranche occurs at Task3, followed by one root RED regression fix pass; do not introduce per-task reviewers.
 
-## Task3: full training, native selected-best test and scientific reports
+### Task 3: full training, native selected-best test and scientific reports
 
 **Files:** create `egoemg_repro/vision_literal_train.py` and its tests; separate private resource controller/staging and public evidence.
 

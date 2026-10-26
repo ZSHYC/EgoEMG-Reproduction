@@ -1,5 +1,15 @@
 # 运行状态
 
+## 2026-10-27：VEMG训练结束，原生评估已启动；DINO原生模块与CPU短训
+
+VEMG正式训练已真实终止：62轮完整验证、10,540次尝试、10,535次实际优化器更新，5次自然overflow，原patience50触发early stopping。原训练PID/start已不存在；identity/result/status/last四项终态内容摘要与82项冻结报告源码重新核对。新报告流程已完成终态检查、两次完整验证推理及预测试一致性策略冻结／复核，正在运行原生最终测试。最终测试、独立复算和公开完成报告尚未全部结束；不把验证损失当作测试MAE。
+
+DINO原生构造／重载已实现：直接调用原setup_runtime和factory，实际174项主干张量与真实预训练权重经过原位置插值后的结果一致；完整178项状态严格重载和预测一致，原生head/backbone AdamW与cosine150保留。真实小memmap/JPEG上的两批原生CPU训练、新进程恢复后再更新一批已核对模型／优化器／调度器／callback／loop／RNG，完整小验证预测一致；这是工程证据，没有新DINO性能成绩。62项定向检查通过56.03秒；随后真实文件缺口回归1项RED→GREEN（2.64秒）。新89成员整体检查已通过1,506 passed／3实际CUDA skip／106 warnings（340.64秒）。真实旧版队列S先更新2次、完整验证3,152手，新进程完整重推一致后再更新1次并重新验证3,152手；六类状态恢复一致。B/L原生构造与严格重载也已完成，尚无其cohort优化。[脱敏CPU证据](../results/vision-literal-native-cpu.json)保持工程范围。
+
+首次真实队列CPU预检因错误要求清单中声明、纯视觉却不读取的缺失raw EMG而在构造前停止，原目录和失败记录保留。修正后文件身份取自实际点读取器已打开的memmap、split、metadata和crop；不补造不存在的文件。另一次整体检查为1,504 passed／3实际CUDA skip／1失败，原因是本次过长basetemp超过AF_UNIX地址长度，已修正调用路径；未修改旧IPC测试或冻结classic源码。新轻量层841 passed／621依赖skip／1 warning（22.57秒），新完整层已在短路径下重新通过。
+
+此前74e3f4d的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40376769468)已确认两项success：官方1,480 passed／3实际CUDA skip／104 warnings（314.74秒）、轻量841／595（25.44秒），pip check通过。该CI对应上一配置／数据基础提交，不覆盖当前原生模块。新完整vision runner、一次完整分支审查、GPU容量和完整训练仍欠；七项legacy结果保持原样。
+
 ## 2026-10-27：DINOv2官方配置与真实数据读取准备
 
 **新literal vision配置／数据层完成CPU集成和实际服务器只读扫描；尚无原生模块优化或新模型成绩。** [语义、分母和缺口](vision-literal.md)、[CPU证据](../results/vision-literal-foundation-cpu.json)及[原始脱敏数据扫描](../results/vision-literal-data-census.json)记录实际原生数据模块的三个重要行为：所有loader均用batch360，声明的val_batch_size256未读取；所有角色repeat2；当前lineage声明EgoEMG/ShowEE/Incre合并数据，不能把可用legacy EgoEMG视作该完整来源。S为原YAML，B/L只作明确S派生，尚无作者独立配方等价证明。

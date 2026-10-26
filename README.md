@@ -4,7 +4,7 @@
 
 > **当前目标 · 全论文复现进行中（2026-10-27）**
 >
-> 用户目标已扩展为论文全文；有歧义时优先固定官方代码。范围覆盖 **Tables 1–15、Figures 1–13、全部作者模型、EMG2Pose、标注与预处理、数据统计和派生分析**。原四项 legacy 基线是已完成的历史子集；新增 [ResNet-50](results/completed/resnet50/README.md)和[ResNet-152](results/completed/resnet152/README.md)均完成150轮、完整验证选模、最终测试与独立复算，全部中心 MAE 分别为6.640058°和5.982738°。新增[EMGFormer-L](results/completed/emgformer-l/README.md)也完成200轮、最终测试与独立中心复算，全部中心16.612111°。七项均保留legacy数据及0.01损失协议，不代表论文原表等价。[classic CPU训练与恢复](docs/classic-emg.md)、[短程CUDA数值/状态恢复](results/classic-cuda-numeric-engineering.md)和[原批量600/256容量检查](results/classic-cuda-capacity-engineering.md)已完成；VEMG已通过最终源码限定验收并进入完整训练，最终测试尚欠，NeuroPose验收失败保留。新增[测试复算与完整报告](docs/classic-report.md)已完成审查修正与CPU集成，实际GPU校准和报告链仍待训练终止后执行。[手形统计与聚合图](results/dataset-statistics/shape-statistics.md)已从真实82手数据生成并核验，PDF显示微差与统计列歧义照实保留。全文状态与真正缺口见[全论文证据清单](docs/full-paper-status.md)，动态进展见[运行状态](docs/run-status.md)，验收范围见[全文设计](docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md)。
+> 用户目标已扩展为论文全文；有歧义时优先固定官方代码。范围覆盖 **Tables 1–15、Figures 1–13、全部作者模型、EMG2Pose、标注与预处理、数据统计和派生分析**。原四项 legacy 基线是已完成的历史子集；新增 [ResNet-50](results/completed/resnet50/README.md)和[ResNet-152](results/completed/resnet152/README.md)均完成150轮、完整验证选模、最终测试与独立复算，全部中心 MAE 分别为6.640058°和5.982738°。新增[EMGFormer-L](results/completed/emgformer-l/README.md)也完成200轮、最终测试与独立中心复算，全部中心16.612111°。七项均保留legacy数据及0.01损失协议，不代表论文原表等价。[classic CPU训练与恢复](docs/classic-emg.md)、[短程CUDA数值/状态恢复](results/classic-cuda-numeric-engineering.md)和[原批量600/256容量检查](results/classic-cuda-capacity-engineering.md)已完成；VEMG已完成62轮早停训练并进入原生最终测试，NeuroPose验收失败保留。新增[测试复算与完整报告](docs/classic-report.md)已完成审查修正与CPU集成，实际验证校准已通过，原生最终测试与后续独立复算仍在进行。[手形统计与聚合图](results/dataset-statistics/shape-statistics.md)已从真实82手数据生成并核验，PDF显示微差与统计列歧义照实保留。全文状态与真正缺口见[全论文证据清单](docs/full-paper-status.md)，动态进展见[运行状态](docs/run-status.md)，验收范围见[全文设计](docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md)。
 
 > **新增协议审计：** 固定官方EgoEMG配置经Hydra合成与别名归约后，指尖项有效系数为0.02；既有legacy配方使用0.01。此前这一差异漏核，[实际11配置审计](results/official-loss-audit.md)已公开说明，旧结果与在跑legacy实验不能称为该官方损失的等价复现。EMG2Pose三项无此叠加，仍为0.01。
 
@@ -28,7 +28,7 @@
 
 [全论文状态](docs/full-paper-status.md) · [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
-> 新增[DINOv2官方执行与数据准备](docs/vision-literal.md)：已实际核验所有角色batch360／repeat2、原中心读取及jitter独立划分，完成服务器只读数据扫描；原生模块优化和完整训练尚欠。[CPU证据](results/vision-literal-foundation-cpu.json)不构成新模型成绩。
+> 新增[DINOv2原生模块与CPU工程检查](docs/vision-literal.md)：S/B/L真实权重经原factory保留并严格重载；S在真实旧版队列更新2次，新进程完整重推3,152手验证后再更新1次并完整验证。固定89源码CPU检查1,506 passed／3真实CUDA skip；[实际证据](results/vision-literal-native-cpu.json)保持工程范围。完整runner、最终审查、GPU容量与完整训练仍欠，没有新DINO性能成绩。
 
 ## 复现什么
 

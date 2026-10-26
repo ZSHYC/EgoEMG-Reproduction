@@ -1,0 +1,492 @@
+{
+  "actual_cpu_checks": {
+    "actual_file_regression": {
+      "green_passed": 1,
+      "green_seconds": 2.64,
+      "red_failed": 1
+    },
+    "full": {
+      "passed": 1506,
+      "seconds": 340.64,
+      "skip_reason": "requires actual root-selected CUDA qualification",
+      "skipped": 3,
+      "warnings": 106
+    },
+    "hosted_ci_for_this_source": "not yet observed",
+    "light": {
+      "passed": 841,
+      "seconds": 22.57,
+      "skip_reason": "optional runtime dependencies absent",
+      "skipped": 621,
+      "warnings": 1
+    },
+    "shell_and_workflow_syntax": true,
+    "targeted_before_final_file_fix": {
+      "passed": 62,
+      "seconds": 56.03
+    }
+  },
+  "executed_runtime_sources_sha256": {
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/vision_literal.py": "738a4e81e6988f08d39768991b1192dd0295b9da870a63d89a7461a927adc5a0",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/visual.py": "b8c390c0291abd67ee58a6f46caddce38296f2013b9f19088c330792b3d76cdb",
+    "runtime/huggingface_hub.file_download": "8777a021fa34eed002edf6d715f563d4644298a9faa935f2314a12621bb76d2a",
+    "runtime/timm.models._builder": "c6580096c6b73418afdfeb6566d4e535ae09224a5d670ca2d5ab9f63a0f5e99c",
+    "runtime/timm.models._hub": "95c0076606eea90a96b9d346131f270a7e46054b67a6442dfa2761c3bcb66f1f",
+    "runtime/timm.models.vision_transformer": "e2aef9233ffe42c86e71255b7cb1c5ed66a451ba4ac6ab513c5995129d94b34f",
+    "runtime/torch.optim.adamw": "520ecdefab1cf3c639e25a43402313da01c84be774c701ff48de783069b6d968",
+    "runtime/torch.optim.lr_scheduler": "094871b05b83f57fdecad4722b212c48ff1caf47a806629249b268744b90f70b",
+    "upstream/config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+    "upstream/config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+    "upstream/config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+    "upstream/config/experiment/fusion/vision_vit_small.yaml": "1c051a315dc074b186bf15482e394009bb3f2bec304b688e32c01bc2239aef02",
+    "upstream/config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+    "upstream/config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+    "upstream/config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+    "upstream/egoemg/_train_utils.py": "b510bbb938d5d82e03016c8009cb26e94f4e38a34995ec038ee89a2b576604f1",
+    "upstream/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+    "upstream/egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+    "upstream/egoemg/metrics.py": "85aac28fc2cac11e4714bf6a18a52b2faeccc488d6135202aae8a8e974e95309",
+    "upstream/egoemg/models/modules/_vision_constants.py": "5bec67a9503601368879f7a76aaa9637bd8bf6b917f33cb4a786671179853fbb",
+    "upstream/egoemg/models/modules/vit_vision.py": "aa93eb7a45534945cc596a188e571de19b8bee2ff57734823571dce79059058a",
+    "upstream/egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e",
+    "upstream/egoemg/utils.py": "d8faf33e037b4decec3b7febcb2d3db1576dc83e74d36a8f4b4739a8aa5241d2"
+  },
+  "format": "original_vision_native_cpu_engineering_v1",
+  "full_paper_complete": false,
+  "models": {
+    "vit_base": {
+      "cohort_optimization": false,
+      "construction_and_reload_seconds": 8.918507010210305,
+      "construction_identity_sha256": "dcf7f678a361693f748d38476b6ad99e29d4ddb5943122e290f8e4aa7779f4e1",
+      "full_state_tensor_count": 178,
+      "full_training_complete": false,
+      "initial_full_state_sha256": "cd3a8dd198305cefee917e374e6fe2158f79050bfb93a7ec368d7a1a29049f6b",
+      "initialization": {
+        "asset": {
+          "bytes": 346334872,
+          "filename": "model.safetensors",
+          "repo": "timm/vit_base_patch14_dinov2.lvd142m",
+          "revision": "4685c99dabffe5affac90bd99dbffd25801ae58d",
+          "sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+        },
+        "fresh_pretrained_verified": true,
+        "pretrained_identity": {
+          "backbone_tensor_sha256": "6cd087a8f25e64195a8fefaaa9972c9d733fcc37a1881199aa3dc1907a9a8845",
+          "digest_format": "length-prefixed canonical JSON header + raw tensor bytes, v1",
+          "digest_scope": "sorted backbone state_dict names/dtypes/shapes and raw contiguous CPU bytes; excludes pose head and unused ImageNet FC",
+          "family": "DINOv2",
+          "resolved_pretrained_cfg": {
+            "architecture": "vit_base_patch14_dinov2",
+            "classifier": "head",
+            "crop_mode": "center",
+            "crop_pct": 1.0,
+            "custom_load": false,
+            "first_conv": "patch_embed.proj",
+            "fixed_input_size": true,
+            "hf_hub_id": "timm/vit_base_patch14_dinov2.lvd142m",
+            "input_size": [
+              3,
+              518,
+              518
+            ],
+            "interpolation": "bicubic",
+            "license": "apache-2.0",
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "num_classes": 0,
+            "pool_size": null,
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "tag": "lvd142m",
+            "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth"
+          },
+          "source_location": "timm/vit_base_patch14_dinov2.lvd142m",
+          "source_type": "hf-hub",
+          "timm_model": "vit_base_patch14_dinov2",
+          "timm_version": "1.0.15"
+        },
+        "retained_tensor_count": 174
+      },
+      "parameters": 86182166,
+      "protocol_sha256": "d3c05870f8a2bde7b3f272091bb72a1a40c3d69f0635ce8e0a0eddb0183dd068",
+      "recipe_origin": "explicit_small_recipe_backbone_derivation",
+      "runtime_versions": {
+        "packages": {
+          "huggingface-hub": "0.28.1",
+          "hydra-core": "1.3.2",
+          "pytorch-lightning": "2.5.0.post0",
+          "safetensors": "0.5.2",
+          "timm": "1.0.15",
+          "torch": "2.2.2+cu118",
+          "torchvision": "0.17.2+cu118"
+        },
+        "python": "3.11.12"
+      },
+      "strict_restore_prediction_equal": true
+    },
+    "vit_large": {
+      "cohort_optimization": false,
+      "construction_and_reload_seconds": 20.487969680223614,
+      "construction_identity_sha256": "5baa247a8a3f59976b17c7f93033de35c67a22986bad2642d9d9aaa595976363",
+      "full_state_tensor_count": 346,
+      "full_training_complete": false,
+      "initial_full_state_sha256": "d5c47d35c82f6a4e4fc9c4824532e36eebc996da2b4a115f8bc878e0c2306d0f",
+      "initialization": {
+        "asset": {
+          "bytes": 1217502758,
+          "filename": "model.safetensors",
+          "repo": "timm/vit_large_patch14_dinov2.lvd142m",
+          "revision": "4741e1cafbf45415e77074bb0cb42dba76c8684a",
+          "sha256": "0424a5d1b515278cba3c6640ccbeaacc41de59d3a93df0dd5e494285eea2b355"
+        },
+        "fresh_pretrained_verified": true,
+        "pretrained_identity": {
+          "backbone_tensor_sha256": "747ae086b8ba1b2fea7734ef75cd7453177462ddf7ca3bf75d5f234eb77326cf",
+          "digest_format": "length-prefixed canonical JSON header + raw tensor bytes, v1",
+          "digest_scope": "sorted backbone state_dict names/dtypes/shapes and raw contiguous CPU bytes; excludes pose head and unused ImageNet FC",
+          "family": "DINOv2",
+          "resolved_pretrained_cfg": {
+            "architecture": "vit_large_patch14_dinov2",
+            "classifier": "head",
+            "crop_mode": "center",
+            "crop_pct": 1.0,
+            "custom_load": false,
+            "first_conv": "patch_embed.proj",
+            "fixed_input_size": true,
+            "hf_hub_id": "timm/vit_large_patch14_dinov2.lvd142m",
+            "input_size": [
+              3,
+              518,
+              518
+            ],
+            "interpolation": "bicubic",
+            "license": "apache-2.0",
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "num_classes": 0,
+            "pool_size": null,
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "tag": "lvd142m",
+            "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_pretrain.pth"
+          },
+          "source_location": "timm/vit_large_patch14_dinov2.lvd142m",
+          "source_type": "hf-hub",
+          "timm_model": "vit_large_patch14_dinov2",
+          "timm_version": "1.0.15"
+        },
+        "retained_tensor_count": 342
+      },
+      "parameters": 303833622,
+      "protocol_sha256": "3e96bba4df9b5876df38ad492b0dbaf2890aa784429327cb97d275a07fdb7332",
+      "recipe_origin": "explicit_small_recipe_backbone_derivation",
+      "runtime_versions": {
+        "packages": {
+          "huggingface-hub": "0.28.1",
+          "hydra-core": "1.3.2",
+          "pytorch-lightning": "2.5.0.post0",
+          "safetensors": "0.5.2",
+          "timm": "1.0.15",
+          "torch": "2.2.2+cu118",
+          "torchvision": "0.17.2+cu118"
+        },
+        "python": "3.11.12"
+      },
+      "strict_restore_prediction_equal": true
+    },
+    "vit_small": {
+      "cohort_optimization": true,
+      "construction_identity_sha256": "e20f74c3e9d7c350c06400ed1461749d79aca464dae2b228301586cdd3199def",
+      "full_state_tensor_count": 178,
+      "full_training_complete": false,
+      "initial_full_state_sha256": "154aa752d7b58d68cc99a934613a68c038ed04965deade9fbcec1f21d2c27eea",
+      "initialization": {
+        "asset": {
+          "bytes": 88240510,
+          "filename": "model.safetensors",
+          "repo": "timm/vit_small_patch14_dinov2.lvd142m",
+          "revision": "4610ca143709d58a633b6397a74412c2c3842454",
+          "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081"
+        },
+        "fresh_pretrained_verified": true,
+        "pretrained_identity": {
+          "backbone_tensor_sha256": "5c4855875758cfa0c403fb607e23f3933ddbdbdb9455c599f5555932ecb42757",
+          "digest_format": "length-prefixed canonical JSON header + raw tensor bytes, v1",
+          "digest_scope": "sorted backbone state_dict names/dtypes/shapes and raw contiguous CPU bytes; excludes pose head and unused ImageNet FC",
+          "family": "DINOv2",
+          "resolved_pretrained_cfg": {
+            "architecture": "vit_small_patch14_dinov2",
+            "classifier": "head",
+            "crop_mode": "center",
+            "crop_pct": 1.0,
+            "custom_load": false,
+            "first_conv": "patch_embed.proj",
+            "fixed_input_size": true,
+            "hf_hub_id": "timm/vit_small_patch14_dinov2.lvd142m",
+            "input_size": [
+              3,
+              518,
+              518
+            ],
+            "interpolation": "bicubic",
+            "license": "apache-2.0",
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "num_classes": 0,
+            "pool_size": null,
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "tag": "lvd142m",
+            "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth"
+          },
+          "source_location": "timm/vit_small_patch14_dinov2.lvd142m",
+          "source_type": "hf-hub",
+          "timm_model": "vit_small_patch14_dinov2",
+          "timm_version": "1.0.15"
+        },
+        "retained_tensor_count": 174
+      },
+      "parameters": 21863318,
+      "protocol_sha256": "40e75a55ea914f360c4d15a218da6b2712898a4fab242f90870a767c0befb072",
+      "recipe_origin": "pinned_author_small",
+      "runtime_versions": {
+        "packages": {
+          "huggingface-hub": "0.28.1",
+          "hydra-core": "1.3.2",
+          "pytorch-lightning": "2.5.0.post0",
+          "safetensors": "0.5.2",
+          "timm": "1.0.15",
+          "torch": "2.2.2+cu118",
+          "torchvision": "0.17.2+cu118"
+        },
+        "python": "3.11.12"
+      },
+      "strict_restore_prediction_equal": true
+    }
+  },
+  "new_final_model_scores": false,
+  "observed_utc": "2026-10-26T19:49:28.332000+00:00",
+  "preserved_failures": [
+    {
+      "cause": "incorrect identity required unused raw EMG declared in manifest",
+      "fixed_by": "bind actual opened point-reader memmaps and consumed crop files",
+      "result": "stopped before model construction",
+      "scope": "first real CPU prefix"
+    },
+    {
+      "cause": "explicit basetemp exceeded AF_UNIX address limit",
+      "failed": 1,
+      "fixed_by": "short disk-backed basetemp; unchanged IPC test",
+      "passed": 1504,
+      "scope": "first full local invocation",
+      "skipped": 3
+    }
+  ],
+  "production_ready": false,
+  "real_legacy_small": {
+    "batch_size": 2,
+    "callback_restore_policy": "all native saved fields except ModelCheckpoint.current_score, which PL2.5 never restores",
+    "cuda_initialized": false,
+    "dataset_population": {
+      "admission": "engineering stat/metadata binding only; full payload content admission remains required",
+      "consumed": {
+        "train": 202020,
+        "val": 3152
+      },
+      "file_count": 47,
+      "file_stat_sha256": "602369a91c6e14b0fd428ec748114b0692fcea76adb34f20e2c9ecebde811f17",
+      "manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+      "metadata_sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+      "partition_sha256": "43b573e8e8840431cdd064aa1b03d5a437ae0bdff19ead26c0d8677cb9538f8f",
+      "unique": {
+        "train": 101010,
+        "val": 1576
+      }
+    },
+    "full_payload_content_admission_complete": false,
+    "gradient_clip_val": 1,
+    "native_test_passes": 0,
+    "original_parameter_groups": [
+      {
+        "base_lr": 0.0001,
+        "name": "head",
+        "parameter_tensors": 4,
+        "weight_decay": 0.01
+      },
+      {
+        "base_lr": 0.0001,
+        "name": "backbone",
+        "parameter_tensors": 174,
+        "weight_decay": 0.01
+      }
+    ],
+    "original_scheduler": {
+      "T_max": 150,
+      "eta_min": 1e-05,
+      "prefix_last_epoch": 1,
+      "resume_last_epoch": 2
+    },
+    "precision": "32-true",
+    "prefix": {
+      "actual_optimizer_updates": 2,
+      "checkpoint_sha256": "6f22d44fc7bcb691c30d17b23a6d3fc62ed3325e77a7a0d0baef3a52845202d8",
+      "full_validation_samples": 3152,
+      "gradient_finite": true,
+      "reference_file_sha256": "eebd65dcfedefd4cc42625c029e49f3db0fd29ca5de710ebed6df1e62d666bb4",
+      "trained_weights_changed": true,
+      "training_hand_consumptions": 4,
+      "unique_validation_hands": 1576
+    },
+    "resume": {
+      "actual_cumulative_optimizer_updates": 3,
+      "checkpoint_sha256": "a83f3c43a9df50ed5d3ede1d733fc48e6b02fc2c267c4efd4d6096abd87dd193",
+      "exact_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_process_verified": true,
+      "full_validation_prediction_equal": true,
+      "full_validation_samples": 3152,
+      "gradient_finite": true,
+      "new_actual_updates": 1,
+      "new_training_hand_consumptions": 2
+    },
+    "rng_policy": "independent train_loader and val_loader generators seeded42; explicit bounded engineering adaptation, not original full-data order qualification",
+    "single_rank": true,
+    "validation_passes": {
+      "fresh_reload_replay": 3152,
+      "native_after_resume": 3152,
+      "native_prefix": 3152
+    },
+    "workers": 0
+  },
+  "remaining": [
+    "full native training runner",
+    "single final complete vision-tranche review",
+    "actual bf16 GPU/canonical360 capacity and full validation",
+    "full150/patience30 training and selected-best native test",
+    "independent final prediction/statistics audit",
+    "current merged dataset/PDF equivalence"
+  ],
+  "scientific_eligible": false,
+  "scope": "native construction and bounded CPU optimization/restoration only; no GPU or final model performance",
+  "source_bundle_base_head": "74e3f4d74c995dff6dc590efa7d810f540e12355",
+  "source_bundle_sha256": "3dec705311086180678075cdd38121692fb5d7cd55816af6800e6a6007030c8d",
+  "source_files_sha256": {
+    ".github/workflows/tests.yml": "ce776c3d6dc698953c8142984b3b392a38606ffa0d464a3487848e9dc68ff0c1",
+    "configs/emgformer_l.json": "ca857e5123fd8c622c018165c4868f4e2503f243d7a9acde4e445efbb6775449",
+    "configs/emgformer_m.json": "2af1ea564a946d814866d09f836727fe655639107bce0194384677a1cb676a6c",
+    "configs/emgformer_s.json": "5bf43671557bac3d0f1be27e49d812de61bd6d5e9d8fa62507507e573cfad6a9",
+    "configs/fusion_rn18_s.json": "e6b2cc78742caae64bac8b4698467bfcf2ebad02d20c20ebe12db399ad5a0a74",
+    "configs/neuropose.json": "a1a22af156d3fa1fe60bde71cce0ed63cacbe49049d622e49e714bda6e9800cb",
+    "configs/resnet152.json": "dc3fca7b9ce9230683edccfebe24fec0ef0daecc7da4e13dd55ecdcc070ea40f",
+    "configs/resnet18.json": "ad3d43fd4757408f8357cb15769fe314ec1ef41913e03fdc3c1566b5a2ebf33c",
+    "configs/resnet50.json": "36da3c56e2e4041e1ff1c0353b3d2ee5d9617c863d380f4d544b518e7da6bff9",
+    "configs/vemg2pose.json": "8d12a4ce68fc6f9f4e3a97777af08fd48fc2b48d5d16a54ecf56cc44dfd05c69",
+    "configs/vit_base.json": "74bca85f5a370f0ce940612b7127b4acdf1b8ef52ad45e8557264629828c728d",
+    "configs/vit_large.json": "db018757d8b3c1c0d18e1b004b1f607840e280bc13ae91828c36ca562045bc2f",
+    "configs/vit_small.json": "7f88f77a487f9dcb24fe5775322611cc53c7171a2ef1b476b31b1de4f5efd582",
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/audit.py": "86cf0c74086f2581f430ee88d8725df10c3389379535ef9036e2d7a892b27cdd",
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+    "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+    "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/crops.py": "1aa0871d6ede77d93988d455d0930e1f42470c1a92a47cfc8e49252bbfc0695e",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/dataset_statistics.py": "e61c383d8d7ea48717e8dca56c5506f8ab3c2fb1396707d506f0e570e8ee2d11",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "egoemg_repro/emg2pose_check.py": "7c633a98d7528ed0c4e414ebc56e65ba306b1655693489282da9f1dddab5b2cf",
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_prefetch.py": "074d640394f46c13bda57c442733fa4a709db3ade632b07fba46ca3b65bbd753",
+    "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "egoemg_repro/report.py": "88b835885d3f78705874b8d1e5d428c741dd3ffc02a7b2ea440f50a678ca892f",
+    "egoemg_repro/semantic_centers.py": "c8be5798a2c27bf9303482fdefe3b9de9eea04cf250f385e17e8a21c808b0e15",
+    "egoemg_repro/semantic_coverage.py": "0cd84bfae0398f158c5b46423f280571126ce12fa84e830c7df805d4a9064e9e",
+    "egoemg_repro/semantic_tables.py": "fe0e0e3a87888bcca763bd28e8ea894328316c36d60b2b9e3e1616c7b272d1ea",
+    "egoemg_repro/train.py": "10696073b661823a9bf47ddda26b4c3b27324b00c9b62e3841a670409e872b6a",
+    "egoemg_repro/vision_literal.py": "738a4e81e6988f08d39768991b1192dd0295b9da870a63d89a7461a927adc5a0",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/visual.py": "b8c390c0291abd67ee58a6f46caddce38296f2013b9f19088c330792b3d76cdb",
+    "tests/test_audit.py": "a6f9c8eff77d3c8073fdbcdcfbd3fb8d9dce8536a9a01fd89b4ea81ed2992222",
+    "tests/test_classic_emg.py": "c260ea91b1a346bb3b93b560592aa1b585ef9f4765f5c935fbaab43c841a2161",
+    "tests/test_classic_emg_artifacts.py": "d74cff5bd62aa1fd030c31a26b2a754302b4c4deef00e309e8c89e0398291667",
+    "tests/test_classic_emg_capacity.py": "9ff98803434831cc491992d32963ed63c3cd91383d678bcdec54eef58b44e335",
+    "tests/test_classic_emg_cohort.py": "f78304ff3f63da33b732c02d76f23de3cdffa87734371b9029a6c4fb2059f46d",
+    "tests/test_classic_emg_comparison.py": "c162523fb96de4ed627d0ce7a18839c93940c3abceb9d1432c133b954c908a38",
+    "tests/test_classic_emg_cuda_check.py": "997b62e6dcb1a88d544b599487ecadda2cf8547efe88e9ab07ddfeacd89b6dd7",
+    "tests/test_classic_emg_data.py": "08eb412a01663cdc21531eefecb0749a3a62b513038b8d1ba69dc1cb88168ead",
+    "tests/test_classic_emg_evaluate.py": "287caf577c84611f59a8248167205d89a36031217674962b98872888845736ff",
+    "tests/test_classic_emg_formal.py": "d02a4c2f49fe68eb5b30d68f9ef00e67ce95a363dfc72222ee53beb2f37ce3f6",
+    "tests/test_classic_emg_report.py": "8ac6b781ad3fda355726032e32dc2039eb85ca7823f12d6e0c9c91ab632202fd",
+    "tests/test_classic_emg_training.py": "6ecc55104b24fdbcc8379e50897152f1b94a695da683d6ed80ba52a14c176875",
+    "tests/test_crops.py": "c14c13743d8eab4a306c7f976725721816665a74b025a2d30a476f274a29d3b2",
+    "tests/test_data.py": "f21d7f5a5542c0bc96580d2b8db7e800ae4f12d3c80a64ef7df8c012b9052aea",
+    "tests/test_dataset_statistics.py": "96a3d87db9635eba92842aa3fbcb76e2e0e427750b6058eb5bb903afbdb8e9cf",
+    "tests/test_download.py": "2a73959c03d67280ae3a9abce7292458d64c3e8a35e25f8b091dec2794fd24c1",
+    "tests/test_emg2pose_archive.py": "685237ddd1abc5a0df8931984149746f7a801fef8d46865262221a1d1eb0882a",
+    "tests/test_emg2pose_check.py": "275474e1b5328633bbce01cfd8d7ce87ec27774e682846d4e56673515772c649",
+    "tests/test_emg2pose_data.py": "2df9b4f40ec3e3b70511a056482dc9c59886fa78277a81d45dd20b768ba73128",
+    "tests/test_emg2pose_prefetch.py": "54674cf8f19d9abec66c9ae2f8f23223428377d4283251e92313dc09ef43997c",
+    "tests/test_emg2pose_runtime.py": "22fbf73f27c8edcb2badfb2c1adc80198a8dc66c3b0a9a4c48eb459ddb1fe580",
+    "tests/test_legacy_derived.py": "b50c16484ff34fddf5e452d962cf85196c87b9a7720b8dc323a1846b6828aa1e",
+    "tests/test_legacy_derived_worker.py": "156a2ccabb9c48634d812f9b94c87149eacee5096d41c014a6032119b5101112",
+    "tests/test_metrics.py": "a7b3112170755032d91194bee64bb4e2d966b58f782617d9d4d6eafe4692c883",
+    "tests/test_partitions.py": "019489c7bc211d9bce863754d4503b1eb9e3bdd616fc6a8a5cef687eb693f8c6",
+    "tests/test_range_download.py": "58a7c77673be76e3436f2413362cbb28e7d1f04b0f7baa2af0a9378f72cba173",
+    "tests/test_report.py": "b255e8e50fb579a5aed2f13fae8a35c8dba82d1778064a82c821c12fbee49e6a",
+    "tests/test_semantic_centers.py": "0dd821079c3baa67b3c4f29a9d006df030156ed2d295bf2f915d7f6294d42dc2",
+    "tests/test_semantic_coverage.py": "6ef3442824bf7f378f7192a44f0043561fc2e2406d931555c36c2bd80f79917f",
+    "tests/test_semantic_tables.py": "a5a4dc9cb18f2da6adbacc529f65398e2f5b78501b8d491d0585f9b3b1952ad5",
+    "tests/test_training.py": "9a457516e97e7ff42e718c7d1a146c3388858f4c0fb42b78fb204b56169d43fd",
+    "tests/test_vision_literal.py": "dfb59f70a439e5f782ba0edc5cb35b5a98dc496b46e627cf79ca73dce2c48d72",
+    "tests/test_vision_literal_check.py": "92a132753b7b65705922c9d289cde6af1bf80e4b42a877bfa942019b38100190",
+    "tests/test_vision_literal_check_data.py": "80d8287be8a7c7bf8fe454887a3938e0c71bbeeefa5a66a0b8f8989b6516fea8",
+    "tests/test_vision_literal_data.py": "a833c2836b8bfef0c03fbbb38f649608f0f0ee94d77e5520c2c5b3af894e0220",
+    "tests/test_vision_literal_runtime.py": "73ef82f033c62adc7dd9317eb1a05eb6fed7053a936d7f4ef031dc836cc61837",
+    "tests/test_visual.py": "1194f7627738d877194d5cf16fc632aecc495cba6b8ae3c560b633dc45b6d371",
+    "tools/classic_capacity.py": "b890de97c1ebafcb5ddb88dde91785a40a439dce904e919e433f82f8389f7d87",
+    "tools/legacy_derived/__init__.py": "153e29991bb492ff673bfcbecb3b452de0a6dfc07c068ef56b59ce1eca2471f9",
+    "tools/legacy_derived/cli.py": "582851717efb4d6b6994f39a19c005c9bd1634333d1c2ed8341c05321aaef42e",
+    "tools/legacy_derived/preflight.py": "f5f7aee91eebfb7fcf77cb3a403c0808149d732a6f37084930f112acad2301d8",
+    "tools/legacy_derived/reducers.py": "4e8792d42cc8041440acb3d7737be2bd1bd69e16138c51e969000f701ba7b818",
+    "tools/legacy_derived/worker.py": "d3b3e9a0b0867de2656d5eb2e9769938b6ba5ee15efa103dc12fdfb9b73f4c01"
+  },
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+}

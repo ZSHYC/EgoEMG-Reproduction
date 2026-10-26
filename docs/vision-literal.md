@@ -53,4 +53,29 @@ PYTHONPATH=. python tools/vision_literal_census.py "$DATA" "$CROPS" "$UPSTREAM" 
 
 [结构化CPU证据](../results/vision-literal-foundation-cpu.json)记录配置22项缺模块RED和数据9项RED后实现。最终37项定向通过（12.21秒）；固定84成员完整1,480 passed／3真实CUDA skip／106 warnings（295.00秒），无Torch轻量841 passed／595依赖skip／1 warning（22.60秒）。此前80个源码成员和七项legacy结果保持原字节；完整vision训练分支的最终独立审查仍未进行，本次托管CI尚未观察。
 
-下一步使用真实官方Lightning factory核验预训练是否保留、原生损失／component optimizer及严格重载，再实现完整runner并在最终审查后做真实GPU容量与优化检查。原生bf16不能套用classic FP16 scaler契约；官方单rank/global batch和六rank差异、独立验证与缺失合并数据均须保留。没有新模型性能结果，论文表图和全文目标继续按[清单](full-paper-status.md)验收。
+## 原生模块与短训练
+
+新增`vision_literal_runtime`直接执行官方`setup_runtime`后调用原`make_lightning_module`。新建模型要求提前准备并校验真实HF资产，且在导入前启用离线模式。原生timm的加载路线保持，主干的每项张量与真实权重经过原位置插值后的结果比较；没有随机主干fallback。自包含恢复只关闭重复的预训练传输，随后严格加载整个原生Lightning模块状态。构造身份本身不证明完整训练。
+
+真实DINO-S的20项CPU检查已完成，包括174项主干张量、178项完整模块状态、seed42、22角输出、完整权重重载与预测一致。原生损失仍使用生成标签mask，不因缺图标记而清除；两个指尖别名按原顺序分别加入0.01。原生AdamW保留`head`／`backbone`两组，学习率均为1e-4、weight decay为0.01；余弦调度仍为150轮、最低1e-5。
+
+`vision_literal_check`执行原生Lightning的两批短训练、完整独立验证，再由另一个进程恢复并训练一批。CPU为明确的32-true工程适配，batch2、workers0；CUDA入口保留bf16-mixed且不创建FP16 GradScaler，实际GPU执行仍等待完整训练分支审查。测试用真实小memmap/JPEG文件，不能充当真实完整队列的优化结果。恢复核对模型、优化器、调度器、循环、RNG和原生可恢复callback状态；PL2.5保存但不恢复的`ModelCheckpoint.current_score`明确排除，其他选模／top-k字段保持逐项比较。两个阶段保留各自CSV日志，共用固定的自有检查点目录。
+
+[实际原生CPU证据](../results/vision-literal-native-cpu.json)现已包含真实旧版队列的完整工程运行：S先更新2次、消费4手训练样本并验证全部3,152手；不同PID/start的新进程完整重推该验证集合，预测／目标／mask／顺序一致，再实际更新1次并再次完整验证3,152手。恢复时模型、AdamW状态、余弦调度、native可恢复callback、loop和Python／NumPy／Torch及loader RNG一致。这里的3,152是1,576个唯一手样本的repeat2，训练数据集长度202,020不代表短训已消费全部样本。两个loader各用seed42的独立generator，是明确的工程适配，不冒充原完整数据顺序。
+
+实际文件身份绑定47个train/val所需文件，排除未读取、未提供的raw EMG声明；完整payload内容准入仍未完成。S两阶段均未初始化CUDA。B/L也通过本次原生factory、真实权重保留、原component optimizer、22角前向及严格禁传输重载；实际参数分别86,182,166／303,833,622，保留主干张量174／342项，尚未做真实cohort优化。
+
+固定89成员完整CPU检查为1,506 passed／3实际CUDA skip／106 warnings（340.64秒），轻量841 passed／621依赖skip／1 warning（22.57秒）；shell和workflow run块语法检查通过。本次托管CI尚未观察。首次真实队列缺失raw文件预检失败及过长basetemp导致IPC检查失败均保留，修正后重新完成整体检查。
+
+在提前配置好的真实权重缓存和数据环境中，可依次运行：
+
+```bash
+CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 HF_HUB_CACHE="$CACHE" \
+  python -m egoemg_repro.vision_literal_check prefix \
+  --data "$DATA" --crops "$CROPS" --upstream "$UPSTREAM" --output "$NEW_OUTPUT" --device cpu
+CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 HF_HUB_CACHE="$CACHE" \
+  python -m egoemg_repro.vision_literal_check resume \
+  --data "$DATA" --crops "$CROPS" --upstream "$UPSTREAM" --output "$NEW_OUTPUT" --device cpu
+```
+
+缓存中的原生`main`引用须解析到已核验的固定权重提交；禁止在模型构造期间补下载。输出是私有工程产物，包含可信本地checkpoint和运行信息，不应整目录公开。完整runner、最终审查、GPU容量和完整训练仍未完成。官方单rank/global batch和六rank差异、独立验证与缺失合并数据均须保留；没有新DINO性能成绩，全文继续按[清单](full-paper-status.md)验收。

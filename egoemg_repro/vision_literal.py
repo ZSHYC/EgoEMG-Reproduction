@@ -15,7 +15,7 @@ from .classic_emg import _activate, _approved_upstream, _file_hash, _hash
 VARIANTS=('vit_small','vit_base','vit_large')
 CONTEXT_KEY='_literal_vision'
 EXPERIMENT='fusion/vision_vit_small'
-SEED_POLICY='original setup_runtime before native factory; full runtime still unimplemented'
+SEED_POLICY='original setup_runtime before native factory; configuration metadata alone does not construct a runtime'
 SOURCE_FILES=('config/base.yaml','config/lineage/_base.yaml','config/lineage/fusion.yaml',
     'config/experiment/fusion/vision_vit_small.yaml','config/dataset/egoemg_unified_angle_regression.yaml',
     'config/datamodule/default.yaml','config/lr_scheduler/cosine.yaml','egoemg/datamodule.py',

@@ -6,7 +6,13 @@
 
 ## 当前实际完成到哪里
 
-- **DINOv2配置／literal数据准备已完成，原生优化和完整训练尚欠：** [使用与边界](vision-literal.md)、[实际只读扫描](../results/vision-literal-data-census.json)和[CPU证据](../results/vision-literal-foundation-cpu.json)新增原数据模块实读：所有角色batch360（val_batch_size256未消费）、repeat2、原lineage合并来源。保留原jitter且排除352个不安全锚点；可用legacy唯一／消费手样本为101,010／202,020、1,576／3,152、4,306／8,612。所有可能中心目标和crop key已扫描，18个真实点读，52文件stat稳定，无模型或CUDA。37定向、84成员完整1,480／3CUDA skip及轻量841／595依赖skip；新源码最终审查／托管CI仍欠。S/B/L真实cohort优化、完整训练及与缺失合并源/PDF等价仍未完成。
+- **VEMG训练已结束，最终评估进行中：** 真实终态为62轮、10,535次实际更新，原patience50触发早停。四项终态文件及82项报告源码已重新核对；完整验证的参考／重复推理、预测试一致性策略冻结和复核已通过，原生最终测试正在运行。最终测试、独立测试复算及完整公开报告仍未全部完成，尚无可发布的新最终MAE。
+
+- **DINO原生模块与真实队列CPU优化／新进程恢复已完成工程检查：** [入口与边界](vision-literal.md)保留真实预训练来源、原factory、174项主干保留与178项模块严格恢复、原生0.02损失和component AdamW/cosine。62项定向通过后，真实队列预检发现身份错误要求未读取的缺失raw EMG，已用回归复现并修正为绑定实际点读文件；新89成员1,506／3实际CUDA skip、轻量841／621依赖skip，以及S真实旧版队列两次更新、完整3,152手验证、新进程完整重推与再更新一次后的完整验证均通过。[实际CPU证据](../results/vision-literal-native-cpu.json)保留全部边界；B/L也已通过原生构造／重载，但尚无其cohort优化。完整runner、最终分支审查和新DINO GPU／完整训练尚欠，不产生新模型性能结论。
+
+以下保留此前各阶段的工程快照；其中“尚欠／未完成”是各自记录时的状态，当前执行进展以上文与[运行状态](run-status.md)为准。
+
+- **DINOv2配置／literal数据基础阶段：** [使用与边界](vision-literal.md)、[实际只读扫描](../results/vision-literal-data-census.json)和[CPU证据](../results/vision-literal-foundation-cpu.json)新增原数据模块实读：所有角色batch360（val_batch_size256未消费）、repeat2、原lineage合并来源。保留原jitter且排除352个不安全锚点；可用legacy唯一／消费手样本为101,010／202,020、1,576／3,152、4,306／8,612。所有可能中心目标和crop key已扫描，18个真实点读，52文件stat稳定，无模型或CUDA。37定向、84成员完整1,480／3CUDA skip及轻量841／595依赖skip；新源码最终审查／托管CI仍欠。S/B/L真实cohort优化、完整训练及与缺失合并源/PDF等价仍未完成。
 
 
 - **验证／原生绑定／测试独立复算／只读状态／完整报告已实现，实际GPU链尚欠：** [使用与边界](classic-report.md)和[新CPU证据](../results/classic-report-complete-cpu.md)记录真实原始证据重开、完整4,306手预测参考／新进程精确复算、原22角／中心统计、真实metadata匿名用户与交集及最后拥有的完成标记。独立审查2项Important以19项RED复现后一次修正：训练统计绑定终态last日志与固定运行时／适配策略；Markdown包含全部公开JSON证据。定向303通过，固定80成员完整1,443／3真实CUDA skip，轻量835／564依赖skip；没有第二次独立复审，本次托管CI尚未观察。上一82109cd真实托管1,351／3及806／501已通过。服务器新目录80文件核验一致，只读API实读6,613次执行／38次完整验证且未初始化CUDA。VEMG于2026-10-26T17:10:49UTC实读6,677次执行、39次完整验证，相同PID/start仍存活；训练终态、实际GPU校准／测试／复算及科学完成产物仍欠。
