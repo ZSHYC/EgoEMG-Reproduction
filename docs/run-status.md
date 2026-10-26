@@ -4,7 +4,7 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
-**当前新增：classic事先固定的限定比较已实现并审查，GPU重验待执行。** [规则与边界](classic-canonical-comparison.md)要求所有工程train/val批次typed输入精确一致，保留checkpoint-to-live严格恢复；独立运行最终浮点差异如实测量，首样本eval-copy采用固定对称逐元素门槛。原生loader例外仅为绑定完整runtime及五文件SHA的正向一次draw，不回退RNG。新78文件组本机完整1173 passed/3实际CUDA skip（281.44s），轻量739 passed/390依赖skip（23.50s）；独立源码审查无待修项，所有78成员和七项旧结果未变。新目录已暂存并核对55个source/input pin，但尚未启动此源码GPU验收；旧6adc失败及下文历史记录保留，完整classic训练仍欠。
+**当前新增：VEMG已通过最终源码GPU限定验收并进入完整训练；NeuroPose预测检查失败。** [实际证据](../results/classic-formal-gpu-engineering.md)记录六个GPU进程均成功，VEMG汇总与fresh复核成功，Neuro汇总在8/171,380个预测元素处超出[固定规则](classic-canonical-comparison.md)，原失败保留、门槛未放宽。两者所有工程train/val批次输入一致、checkpoint-to-live严格恢复，最终浮点状态与完整RNG不逐位一致。VEMG另起full cohort训练，train/val为101,714/1,576手、max100/patience50/原同B600；2026-10-26T13:52:31UTC实读309次attempt及真实执行、1次完整验证，原PID/start仍存活。这是运行快照，未完成训练或最终测试。匹配658d8c6源码[实际CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40330846529)为1173 passed/3实际CUDA skip及739 passed/390依赖skip；本机78成员及七项旧结果未变。下文历史检查不覆盖后续报告实现。
 
 **最新结果：WiLoR真实预训练与禁网CPU检查已完成**，见[完整证据](../results/wilor-pretrained-cpu.md)。原下载终止后，新独立attempt保留并复制原片段，以精确16MiB Range/ETag和整文件SHA完成2,564,989,533-byte官方权重。随后原WiLoRViTPose两次真实构造各404个主干tensor匹配；实测631,631,657总参数、52,499冻结，原高度裁剪192×256、1×1280×12×16特征和1×22×1有限输出、严格模型重载预测逐位一致。网络尝试0、CUDA未初始化；这是合成CPU接入，尚无WiLoR完整训练。
 

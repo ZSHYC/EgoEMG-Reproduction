@@ -2,7 +2,7 @@
 
 当前已接入固定官方模型、原始数据变换和真实 Lightning CPU 训练及 epoch 边界恢复。**正式 GPU 训练、完整验证选模后的冻结测试及科研结果导出尚未完成。** 这些工程检查不能填入论文性能表。
 
-新增[限定工程比较规则](classic-canonical-comparison.md)保留 checkpoint-to-live 精确恢复，逐条核对所有工程 train/val 输入批次，并如实测量独立 GPU 浮点轨迹差异。固定的首样本 eval-copy 门槛及原生 loader 正向一次 draw 例外已经源码审查，定向 CPU 209 passed/1实际GPU缺失skip；新源码仍须重新执行两模型三进程GPU验收。该规则不把旧6adc失败改成通过，也不代替正式测试前的完整validation报告校准。
+新增[限定工程比较规则](classic-canonical-comparison.md)保留 checkpoint-to-live 精确恢复，逐条核对所有工程 train/val 输入批次，并如实测量独立 GPU 浮点轨迹差异。固定的首样本 eval-copy 门槛及原生 loader 正向一次 draw 例外已经源码审查，定向 CPU 209 passed/1实际GPU缺失skip；随后[两模型真实GPU检查](../results/classic-formal-gpu-engineering.md)中VEMG汇总及fresh复核成功，Neuro在8个预测元素处超限失败。VEMG另起完整训练已实际更新；Neuro尚无最终资格。旧6adc失败保留，正式测试前的完整validation报告校准仍欠。
 
 最新状态：6adc源码的VEMG连续两轮、prefix单轮及fresh恢复三条GPU路径均成功，汇总验收失败保留。只读诊断确认模型配置身份的唯一表示差异是原tuple与JSON读回list，其他容量、队列、runtime、recipe及binding吻合；现改用完整JSON metadata摘要比较，原配置/通道顺序/参数数变化仍拒绝，typed checkpoint摘要不变。另原生恢复后若下一轮没有新best，ModelCheckpoint会保存current_score=None；新增真实stock Trainer恢复回归已复现，last仅在best来自早先完整epoch时允许此值，best及刚选中的last仍拒绝None，其他选择字段继续严格验证。
 

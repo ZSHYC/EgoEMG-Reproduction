@@ -1,0 +1,307 @@
+{
+  "benchmark_eligible": false,
+  "comparison_profile": {
+    "bitwise_trajectory_guaranteed": false,
+    "final_state_rule": "finite same-schema learned floats measured without a closeness promise; counters/groups/scheduler/scaler exact",
+    "input_rule": "all consumed engineering train/validation EMG,target,mask,IDs typed hashes and batch boundaries exact",
+    "loader_sources_sha256": {
+      "lightning/loops/fetchers.py": "c13c5a42d564fde68d08c45105112fb03c9366304c3111c446a9b5c9fc4be781",
+      "lightning/loops/fit_loop.py": "650e7fdf4f56649913603528e164f59f5eef00cbde3f2e97b482e87dfcec63d6",
+      "lightning/loops/training_epoch_loop.py": "7419239b387e1680fbdaf3a0a5dbfda51fe6c8fed11b45cc8107af6eb5dbd0b5",
+      "torch/utils/data/dataloader.py": "f9e77a4b0a0827cd318cff46c8e8f65eb718c80c8b6a5a7a4db386417610a4dc",
+      "torch/utils/data/sampler.py": "bdb6223aa2eb9c57f4b20772d118e5e7b86a3765bb6d3870bb79dba65620d358"
+    },
+    "name": "canonical_fp16_eval_copy_v1",
+    "num_workers": 0,
+    "prediction_dtype": "original float16 or float32; identical between runs",
+    "prediction_rule": "abs(x-y) <= 2**-10 + 2**-10 * max(abs(x),abs(y)); every element in float64 arithmetic",
+    "prediction_unit": "radians",
+    "restore_rule": "checkpoint-to-live typed state exact; native callback restoration semantics preserved",
+    "resume_scope": "exact typed full checkpoint and RNG state restoration only; no bitwise trajectory guarantee",
+    "rng_rule": "global/sampler/validation streams exact; fresh resumed dedicated train_loader precisely one int64 draw ahead",
+    "runtime_sha256": "a8e8a0fbdfbf36eda3109d05c92c9a704a4627e120b026cc6f430c497838dd8b",
+    "scope": "first one-sample independent eval/no_grad model copy before/after first actual full-batch update each engineering epoch",
+    "threshold_status": "chosen engineering threshold, not a derived error bound or full-validation report calibration",
+    "trajectory_agreement_qualified": false,
+    "world_size": 1
+  },
+  "environment": {
+    "cuda_build": "11.8",
+    "cudnn": 8700,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "deterministic": false,
+    "device_name": "NVIDIA A800-SXM4-80GB",
+    "matmul_precision": "high",
+    "precision_plugin": "MixedPrecision",
+    "python": "3.11.12",
+    "scaler_class": "torch.cuda.amp.grad_scaler.GradScaler",
+    "torch_build": "2.2.2+cu118",
+    "versions": {
+      "hydra-core": "1.3.2",
+      "joblib": "1.5.2",
+      "lightning-utilities": "0.11.9",
+      "numpy": "1.26.4",
+      "omegaconf": "2.3.1",
+      "pandas": "2.2.3",
+      "pytorch-lightning": "2.5.0.post0",
+      "scipy": "1.13.1",
+      "torch": "2.2.2+cu118",
+      "torchmetrics": "1.4.3",
+      "torchvision": "0.17.2+cu118"
+    }
+  },
+  "execution": {
+    "controller_sha256": "0b58a2f05bdf27f57947c29ce610633304fc1047b56494d351b84ab999536a4c",
+    "controller_status": "failed_at_neuropose_build_acceptance",
+    "failed_postprocesses": 1,
+    "finished_utc": "2026-10-26T13:42:24.576394+00:00",
+    "genuine_fresh_GPU_processes": 6,
+    "manifest_sha256": "3c0d7a26494920116e2965c955ce98a124e73dc88ad7adef208c42279c01ba88",
+    "started_utc": "2026-10-26T13:28:04.856449+00:00",
+    "successful_GPU_processes": 6,
+    "successful_postprocesses": 2
+  },
+  "execution_source": {
+    "matching_published_commit": "658d8c675261daa68836b2b24de0b5e4c57a202c",
+    "source_files_sha256": {
+      "configs/neuropose.json": "a1a22af156d3fa1fe60bde71cce0ed63cacbe49049d622e49e714bda6e9800cb",
+      "configs/vemg2pose.json": "8d12a4ce68fc6f9f4e3a97777af08fd48fc2b48d5d16a54ecf56cc44dfd05c69",
+      "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+      "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+      "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+      "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+      "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+      "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+      "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+      "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+      "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+      "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+      "tools/classic_capacity.py": "b890de97c1ebafcb5ddb88dde91785a40a439dce904e919e433f82f8389f7d87"
+    }
+  },
+  "format": "classic_formal_source_gpu_engineering_public_v1",
+  "limitations": [
+    "Two training batches per engineering epoch plus complete1576-hand validation; not full training.",
+    "VEMG passes chosen first-one-sample eval-copy rule; final learned float states and fullRNG differ.",
+    "NeuroPose failed8/171380prediction elements; no new acceptance or full training.",
+    "Single rank/workers0/canonical16mixed; not original six-rank global batches or equivalent BatchNorm.",
+    "Task6 full-validation calibration, termination-qualified final test and independent report remain required.",
+    "No private paths, participant IDs, sample predictions, GPU UUID, processIDs or weights published."
+  ],
+  "models": {
+    "neuropose": {
+      "acceptance_created": false,
+      "all_consumed_inputs_equal": true,
+      "attempts": [
+        4,
+        2,
+        4
+      ],
+      "batch_size": 256,
+      "completed_epochs": [
+        2,
+        1,
+        2
+      ],
+      "engineering_train_samples": 512,
+      "final_rng": {
+        "measured_full_rng_equal": false,
+        "other_streams_equal": true,
+        "resumed_train_loader_additional_int64_draws": 1
+      },
+      "final_states": {
+        "adamw_moments": {
+          "different_tensor_count": 172,
+          "elements": 12709938,
+          "max_abs_difference": 0.0002855248749256134,
+          "tensor_count": 172
+        },
+        "measured_final_states_equal": false,
+        "model": {
+          "different_tensor_count": 128,
+          "elements": 6363824,
+          "max_abs_difference": 0.04603993892669678,
+          "tensor_count": 149
+        },
+        "optimizer_parameter_groups_equal": true,
+        "optimizer_steps_equal": true,
+        "scaler_equal": true,
+        "scheduler_equal": true
+      },
+      "full_training_authorized_by_this_evidence": false,
+      "natural_overflows": [
+        0,
+        0,
+        0
+      ],
+      "optimizer_executions": [
+        4,
+        2,
+        4
+      ],
+      "predictions": {
+        "first_epoch": {
+          "after": {
+            "bad_elements": 0,
+            "dtype": "torch.float16",
+            "elements": 171380,
+            "exact_equal": false,
+            "max_abs_rad": 0.000213623046875,
+            "max_threshold_ratio": 0.21103456397574044,
+            "shape": [
+              1,
+              22,
+              7790
+            ],
+            "worst_difference": 0.000213623046875,
+            "worst_threshold": 0.001012265682220459
+          },
+          "before": {
+            "bad_elements": 0,
+            "dtype": "torch.float16",
+            "elements": 171380,
+            "exact_equal": true,
+            "max_abs_rad": 0.0,
+            "max_threshold_ratio": 0.0,
+            "shape": [
+              1,
+              22,
+              7790
+            ],
+            "worst_difference": 0.0,
+            "worst_threshold": 0.0011157989501953125
+          }
+        },
+        "second_epoch": {
+          "after": {
+            "bad_elements": 8,
+            "dtype": "torch.float16",
+            "elements": 171380,
+            "exact_equal": false,
+            "max_abs_rad": 0.0015869140625,
+            "max_threshold_ratio": 1.5092114959469418,
+            "shape": [
+              1,
+              22,
+              7790
+            ],
+            "worst_difference": 0.0015869140625,
+            "worst_threshold": 0.001051485538482666
+          },
+          "before": {
+            "bad_elements": 0,
+            "dtype": "torch.float16",
+            "elements": 171380,
+            "exact_equal": false,
+            "max_abs_rad": 0.000732421875,
+            "max_threshold_ratio": 0.6940412312905959,
+            "shape": [
+              1,
+              22,
+              7790
+            ],
+            "worst_difference": 0.000732421875,
+            "worst_threshold": 0.001055300235748291
+          }
+        }
+      },
+      "status": "failed_prediction_threshold",
+      "strict_restore_snapshot_equal": true,
+      "threshold_changed": false,
+      "train_batches_compared": 4,
+      "validation_batches_compared": 14,
+      "validation_samples": 1576
+    },
+    "vemg2pose": {
+      "all_consumed_inputs_equal": true,
+      "attempts": [
+        4,
+        2,
+        4
+      ],
+      "batch_size": 600,
+      "completed_epochs": [
+        2,
+        1,
+        2
+      ],
+      "engineering_train_samples": 1200,
+      "final_rng": {
+        "measured_full_rng_equal": false,
+        "other_streams_equal": true,
+        "resumed_train_loader_additional_int64_draws": 1
+      },
+      "final_states": {
+        "adamw_moments": {
+          "different_tensor_count": 136,
+          "elements": 11927896,
+          "max_abs_difference": 3.051944077014923e-06,
+          "tensor_count": 136
+        },
+        "measured_final_states_equal": false,
+        "model": {
+          "different_tensor_count": 68,
+          "elements": 5963948,
+          "max_abs_difference": 0.0016798805445432663,
+          "tensor_count": 68
+        },
+        "optimizer_parameter_groups_equal": true,
+        "optimizer_steps_equal": true,
+        "scaler_equal": true,
+        "scheduler_equal": true
+      },
+      "full_training_authorized_by_this_evidence": true,
+      "measured_first_step": {
+        "after": {
+          "max_threshold_ratio": 0.115922341087904,
+          "measured_equal": false,
+          "model_equal": false,
+          "optimizer_equal": false,
+          "prediction_max_abs_difference": 0.0001220703125
+        },
+        "before": {
+          "max_threshold_ratio": 0.0,
+          "measured_equal": true,
+          "model_equal": true,
+          "optimizer_equal": true,
+          "prediction_max_abs_difference": 0.0
+        }
+      },
+      "measured_next_step": {
+        "after": {
+          "max_threshold_ratio": 0.6629977338944643,
+          "measured_equal": false,
+          "model_equal": false,
+          "optimizer_equal": false,
+          "prediction_max_abs_difference": 0.0009765625
+        },
+        "before": {
+          "max_threshold_ratio": 0.27774764023000975,
+          "measured_equal": false,
+          "model_equal": false,
+          "optimizer_equal": false,
+          "prediction_max_abs_difference": 0.00030517578125
+        }
+      },
+      "natural_overflows": [
+        0,
+        0,
+        0
+      ],
+      "optimizer_executions": [
+        4,
+        2,
+        4
+      ],
+      "raw_acceptance_sha256": "5757f2edcee53a294e1d7bbd9e7bbd4d7d7c67650d03b24c1e2053ae6176063b",
+      "status": "accepted_bounded_engineering",
+      "strict_restore_snapshot_equal": true,
+      "train_batches_compared": 4,
+      "validation_batches_compared": 6,
+      "validation_samples": 1576
+    }
+  },
+  "scientific_eligible": false,
+  "scope": "bounded engineering, not completed training or test performance"
+}
