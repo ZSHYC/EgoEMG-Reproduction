@@ -1,0 +1,83 @@
+{
+  "actual_gpu_validation_calibration": false,
+  "base_commit": "565cb8f005a2b476e679aff32cf74f3a25ce9a93",
+  "format": "classic_validation_report_cpu_engineering_v1",
+  "frozen_source_group": {
+    "members": 80,
+    "sha256": "e7d1bf7e8339ace6a9616c0156a9d9811054ac40a2449de63ef1600d3f14e5aa"
+  },
+  "full_paper_complete": false,
+  "implemented": [
+    "original tuple22D arithmetic and centers2105/3895",
+    "exact typed target/mask/sample/EMG/metadata/prediction batch chains",
+    "genuine-termination-only validation reference/replay entry",
+    "raw original training/cohort/selection/source/framework revalidation",
+    "fresh PID/start_ticks and complete validation1576 canonical grouping",
+    "exact original-dtype prediction replay with no caller tolerance",
+    "immutable observed-agreement profile and validation-only CLI",
+    "creation-time owned file handle, moved-file invalidation and foreign replacement protection",
+    "retained revocation capability across fallible primary/rescue close"
+  ],
+  "limitations": [
+    "Positive JSON-reader fixture explicitly stubs termination authority; no mocked CUDA positive qualification.",
+    "Full80-file CPU group passes do not prove actual GPU calibration or selected-best test.",
+    "An observed-exact validation profile would not prove universal determinism or training trajectory equality.",
+    "Final retained raw descriptor disposal is nonthrowing cleanup; an OS close failure can retain a descriptor until process exit.",
+    "Live training/formal/evaluator/artifacts and seven existing legacy results were not modified."
+  ],
+  "native_test_launch_binding_implemented": false,
+  "production_ready": false,
+  "review": {
+    "critical": 0,
+    "important": 3,
+    "important_fixed_with_regression_tests": 3,
+    "mode": "independent read-only static review before one root fix pass",
+    "re_review_performed": false,
+    "regression_stage": {
+      "green_report_and_native_passed": 110,
+      "red_existing_passed": 70,
+      "red_failed": 7
+    },
+    "review_sha256": "7fa88305dc9bafde23e0c329e46634614cc3b29fa62577e38cfc42b7d8bbfc87"
+  },
+  "scientific_eligible": false,
+  "scientific_export_complete": false,
+  "scope": "original22D arithmetic, negative admission, raw JSON receipt/profile and file publication mechanics only",
+  "sha256": "e89e191cc4ef7c72427b0fb71936c0d5fbae9f1913f92672bf91157360b06f27",
+  "source_files_sha256": {
+    "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+    "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_report.py": "476f05155f949bfca9e2b4db0db3dcd9cc2624a99d1007ab1c54987306d24197",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "tests/test_classic_emg_report.py": "659ea4e21822cb92b92b676f2e85552f7ee9671ecb42ed51ca23f2110706e60d"
+  },
+  "test_reference_recomputation_complete": false,
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "verification": {
+    "actual_cli_help_exit_code": 0,
+    "full": {
+      "log_sha256": "22267c6e1bc9455c02438284a48d1a38beae36d2e86ce53626752e0e4ea34292",
+      "passed": 1250,
+      "seconds": 276.93,
+      "skipped": 3,
+      "skips": "two actual CUDA qualification cases and one actual formal CUDA bundle case",
+      "warnings": 106
+    },
+    "hosted_ci_for_this_source_group": "not observed",
+    "light": {
+      "log_sha256": "c53c88bfc8686ac99f29a16dec6b1fe2356506366affa329bc850d3dc1b79a61",
+      "passed": 762,
+      "seconds": 21.63,
+      "skipped": 444,
+      "skips": "optional runtime dependencies unavailable",
+      "warnings": 1
+    },
+    "targeted": {
+      "log_sha256": "ed85615a9557fd14aa00b27e40cadd76e1a1bf72772b7b813d4a61ba1ffdf243",
+      "passed": 110,
+      "seconds": 5.86,
+      "warnings": 2
+    }
+  }
+}

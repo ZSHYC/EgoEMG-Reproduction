@@ -2,6 +2,8 @@
 
 当前已接入固定官方模型、原始数据变换和真实 Lightning CPU 训练及 epoch 边界恢复。**正式 GPU 训练、完整验证选模后的冻结测试及科研结果导出尚未完成。** 这些工程检查不能填入论文性能表。
 
+最新VEMG最终源码已通过实际GPU限定验收，完整训练正在运行；NeuroPose仍未通过其固定预测门槛。新增[验证集预测复算与报告准备](classic-report.md)说明原始22角对齐、完整验证集双进程复算和冻结profile入口；真实训练终止后的GPU校准、测试启动绑定及科学报告尚未完成。下文保留各次历史修正和执行身份，当前训练状态以[运行状态](run-status.md)及[实际GPU证据](../results/classic-formal-gpu-engineering.md)为准。
+
 新增[限定工程比较规则](classic-canonical-comparison.md)保留 checkpoint-to-live 精确恢复，逐条核对所有工程 train/val 输入批次，并如实测量独立 GPU 浮点轨迹差异。固定的首样本 eval-copy 门槛及原生 loader 正向一次 draw 例外已经源码审查，定向 CPU 209 passed/1实际GPU缺失skip；随后[两模型真实GPU检查](../results/classic-formal-gpu-engineering.md)中VEMG汇总及fresh复核成功，Neuro在8个预测元素处超限失败。VEMG另起完整训练已实际更新；Neuro尚无最终资格。旧6adc失败保留，正式测试前的完整validation报告校准仍欠。
 
 最新状态：6adc源码的VEMG连续两轮、prefix单轮及fresh恢复三条GPU路径均成功，汇总验收失败保留。只读诊断确认模型配置身份的唯一表示差异是原tuple与JSON读回list，其他容量、队列、runtime、recipe及binding吻合；现改用完整JSON metadata摘要比较，原配置/通道顺序/参数数变化仍拒绝，typed checkpoint摘要不变。另原生恢复后若下一轮没有新best，ModelCheckpoint会保存current_score=None；新增真实stock Trainer恢复回归已复现，last仅在best来自早先完整epoch时允许此值，best及刚选中的last仍拒绝None，其他选择字段继续严格验证。
@@ -71,9 +73,9 @@
 
 ## 仍需完成
 
-- 新正式训练入口的最终源码实际GPU验收；已完成的batch1数值及600/256容量不能自动授权新增runner。
-- 新正式入口的状态恢复/下一步数值检查，以及单卡/原六rank全局批量和NeuroPose BatchNorm差异记录；不承诺尚未证明的位级轨迹。
+- NeuroPose最终源码的实际GPU验收仍未通过；VEMG已据独立验收启动完整训练。batch1数值及600/256容量本身不能自动授权新增runner。
+- NeuroPose浮点差异的前瞻验证，以及单卡/原六rank全局批量和BatchNorm差异记录；不承诺尚未证明的位级轨迹。
 - 原 max100、patience50 的完整训练/每轮完整验证，以及按有限 val_loss 选定 best 后执行冻结 test。100 是上限，不能为了凑轮数删除早停。
-- 严格正式导出、逐关节/手/split/用户统计及独立复算。旧 legacy 的 0.01 目标不能改名为官方合成的 0.02。
+- 完整验证集实际GPU复算、测试前profile与进程绑定、严格正式导出及逐关节/手/split/用户独立复算。新[报告准备入口](classic-report.md)及CPU机制检查不替代这些实际证据。旧legacy的0.01目标不能改名为官方合成的0.02。
 
-原训练入口只开放 `--engineering --device cpu`，独立CUDA入口仅供限定验收；正式入口会明确拒绝，不自动降级为CPU。已验证的恢复范围为 workers0 的 epoch 边界，没有多 worker 或中途 batch 的位级续序承诺。容量保护、源码/配置/分区/数据/归一化/检查点身份检查继续生效。[实施计划](superpowers/plans/2026-10-26-classic-emg.md)中的整个 Task3 和 Task4 保持未完成。
+旧CPU训练入口只开放 `--engineering --device cpu`，独立CUDA入口仅供限定验收；新formal入口另以真实数值、容量、队列及最终源码验收为前提，VEMG已据此进入完整训练，NeuroPose仍未获准，不自动降级为CPU。已验证的恢复范围为workers0的epoch边界，没有多worker或中途batch的位级续序承诺。容量保护、源码／配置／分区／数据／归一化／检查点身份检查继续生效。[实施计划](superpowers/plans/2026-10-26-classic-emg.md)中的整个Task3和Task4保持未完成。

@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **验证集报告准备已实现，实际GPU校准尚欠：** [使用与边界](classic-report.md)及[CPU证据](../results/classic-report-validation-cpu.md)记录原22角／中心对齐、全验证预测／精确复算与raw-bound profile。3项发布问题以7个RED回归修正后，定向110通过，80文件完整1250／3真实CUDA skip与轻量762／444依赖skip通过；托管CI待对应新源码。原生测试启动绑定、测试参考／独立复算、脱敏科学完成产物尚未实现或执行。VEMG14:51:54UTC快照为2213次真实更新、13轮完整验证，相同PID/start仍在运行，训练及测试均未完成。
+
 - **VEMG已通过最终源码GPU限定验收并进入完整训练；NeuroPose未通过：** [实际证据](../results/classic-formal-gpu-engineering.md)记录全部工程输入一致及严格恢复，VEMG汇总与fresh复核成功，Neuro的8/171,380个预测元素超出固定门槛，失败保留。VEMG另起101,714手full训练、完整1,576手val、max100/patience50；13:52:31UTC快照为309次真实更新、1次完整验证，尚未完成或测试。78文件组本机CPU1173/3实际CUDA skip与轻量739/390依赖skip、匹配658d8c6托管CI成功，不替代真实GPU证据或报告校准。
 
 - **七项 legacy 实验已完整运行并审计：** EMGFormer-S/M/L、ResNet-18、RN18+S及独立发布的RN50/RN152。原结果、配方、源码和初始化身份保留在[已完成实验](../results/completed/README.md)及[发布清单](../results/completed/publication-manifest.json)，不因新目标改写。它们与 PDF 原表的数据、标签、输入和训练协议仍有差异。
