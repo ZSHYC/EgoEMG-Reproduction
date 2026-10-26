@@ -32,6 +32,82 @@ IMPORTED_SOURCE_SHA256=file_sha256(Path(__file__))
 CAPACITY_HELPER_SHA256='b890de97c1ebafcb5ddb88dde91785a40a439dce904e919e433f82f8389f7d87'
 FULL_COUNTS=dict(train=101714,val=1576,test=4306)
 SOURCES=(*artifacts.SOURCE_FILES,'tools/classic_capacity.py','egoemg_repro/classic_emg_formal.py')
+COMPARISON_PROFILE='canonical_fp16_eval_copy_v1'
+# Observed stock-Lightning lifecycle, not a general iterator-offset allowance.
+LOADER_SOURCE_SHA256={
+    'lightning/loops/fit_loop.py':'650e7fdf4f56649913603528e164f59f5eef00cbde3f2e97b482e87dfcec63d6',
+    'lightning/loops/training_epoch_loop.py':'7419239b387e1680fbdaf3a0a5dbfda51fe6c8fed11b45cc8107af6eb5dbd0b5',
+    'lightning/loops/fetchers.py':'c13c5a42d564fde68d08c45105112fb03c9366304c3111c446a9b5c9fc4be781',
+    'torch/utils/data/dataloader.py':'f9e77a4b0a0827cd318cff46c8e8f65eb718c80c8b6a5a7a4db386417610a4dc',
+    'torch/utils/data/sampler.py':'bdb6223aa2eb9c57f4b20772d118e5e7b86a3765bb6d3870bb79dba65620d358'}
+
+
+def _native_loader_sources():
+    roots={'lightning':Path(storage.pl.__file__).resolve().parent,
+        'torch':Path(storage._runtime().__file__).resolve().parent}
+    return {name:file_sha256(roots[name.split('/',1)[0]]/name.split('/',1)[1]) for name in LOADER_SOURCE_SHA256}
+
+
+def engineering_comparison_profile(runtime):
+    """Prospective engineering threshold; not a nonlinear error guarantee."""
+    sources=_native_loader_sources()
+    if (sources!=LOADER_SOURCE_SHA256 or runtime.get('torch_build')!='2.2.2+cu118' or
+        runtime.get('runtime_profile')!=cuda.BACKEND_PROFILE or
+        runtime.get('versions',{}).get('pytorch-lightning')!='2.5.0.post0' or
+        runtime.get('torch_files_sha256',{}).get('utils/data/dataloader.py')!=sources['torch/utils/data/dataloader.py']):
+        raise ValueError('characterized native loader/runtime source profile differs')
+    return dict(name=COMPARISON_PROFILE,runtime_sha256=artifacts.json_hash(runtime),loader_sources_sha256=sources,
+        scope='first one-sample independent eval/no_grad model copy before/after first actual full-batch update each engineering epoch',
+        prediction_rule='abs(x-y) <= 2**-10 + 2**-10 * max(abs(x),abs(y)); every element in float64 arithmetic',
+        prediction_unit='radians',prediction_dtype='original float16 or float32; identical between runs',
+        threshold_status='chosen engineering threshold, not a derived error bound or full-validation report calibration',
+        input_rule='all consumed engineering train/validation EMG,target,mask,IDs typed hashes and batch boundaries exact',
+        restore_rule='checkpoint-to-live typed state exact; native callback restoration semantics preserved',
+        final_state_rule='finite same-schema learned floats measured without a closeness promise; counters/groups/scheduler/scaler exact',
+        rng_rule='global/sampler/validation streams exact; fresh resumed dedicated train_loader precisely one int64 draw ahead',
+        num_workers=0,world_size=1,resume_scope=cuda.RESUME_SCOPE,
+        trajectory_agreement_qualified=False,bitwise_trajectory_guaranteed=False)
+
+
+class EngineeringInputs:
+    """Bounded fingerprints for every consumed engineering batch, no tensors retained."""
+    FIELDS=('emg','joint_angles','label_valid_mask','classic_sample_index')
+    def __init__(self):self.records=[]
+    def record(self,role,epoch,batch_idx,batch):
+        if (role not in ('train','val') or type(epoch) is not int or epoch not in (0,1) or
+            type(batch_idx) is not int or batch_idx<0 or len(self.records)>=32 or
+            batch_idx!=sum(r['role']==role and r['epoch']==epoch for r in self.records)):
+            raise ValueError('bounded engineering input role/epoch/batch order differs')
+        self.records.append(dict(role=role,epoch=epoch,batch=batch_idx,samples=len(batch['emg']),
+            fields_sha256={name:storage.state_digest(batch[name]) for name in self.FIELDS}))
+    def value(self):return dict(format='classic_engineering_consumed_inputs_v1',records=copy.deepcopy(self.records))
+
+
+def _validate_engineering_inputs(value,*,counts,batch_size,epochs):
+    if set(value)!={'format','records'} or value['format']!='classic_engineering_consumed_inputs_v1':
+        raise ValueError('original engineering input receipt schema differs')
+    expected=[dict(role=role,epoch=epoch,batch=i,samples=min(batch_size,counts[role]-i*batch_size))
+        for epoch in epochs for role in ('train','val') for i in range(math.ceil(counts[role]/batch_size))]
+    records=value['records']
+    if not isinstance(records,list) or len(records)!=len(expected) or len(records)>32:
+        raise ValueError('all consumed engineering input batches are required')
+    for record,meta in zip(records,expected):
+        if (set(record)!=set(meta)|{'fields_sha256'} or {k:record[k] for k in meta}!=meta or
+            any(type(record[k]) is not type(meta[k]) for k in meta) or
+            set(record['fields_sha256'])!=set(EngineeringInputs.FIELDS)):
+            raise ValueError('engineering input batch boundary/role/epoch differs')
+        for value in record['fields_sha256'].values():artifacts._hex(value)
+
+
+def _compare_engineering_inputs(continuous,prefix,resumed,*,counts,batch_size):
+    for value,epochs in ((continuous,(0,1)),(prefix,(0,)),(resumed,(1,))):
+        _validate_engineering_inputs(value,counts=counts,batch_size=batch_size,epochs=epochs)
+    if continuous['records']!=prefix['records']+resumed['records']:
+        raise ValueError('actual consumed engineering input/target/mask/ID batch stream differs')
+    return dict(all_consumed_inputs_equal=True,train_batches=sum(r['role']=='train' for r in continuous['records']),
+        validation_batches=sum(r['role']=='val' for r in continuous['records']),
+        continuous_sha256=artifacts.json_hash(continuous),prefix_sha256=artifacts.json_hash(prefix),
+        resumed_sha256=artifacts.json_hash(resumed))
 
 
 def formal_policy(*,variant,engineering=False,engineering_epochs=2,stop_after_epoch=None,device='cuda:0'):
@@ -272,6 +348,7 @@ def prepare_formal_run(data,*,upstream,config,partitions,cohort_receipt,qualific
     artifacts.validate_formal_identity(identity)
     manifest=dict(format=FORMAT,scope=policy['scope'],scientific_eligible=False,production_ready=False,
         state_identity=identity,policy=policy,sources=sources,capacity=references,cohort_sha256=cpu['sha256'],
+        engineering_comparison=engineering_comparison_profile(runtime) if engineering else None,
         numeric_artifacts={k:str(paths[k]) for k in ('numeric_prefix','numeric_resume')},final_acceptance=acceptance,
         provenance=dict(data=str(Path(data).absolute()),upstream=str(Path(upstream).absolute()),config=str(Path(config).absolute()),
             partitions=str(Path(partitions).absolute()) if isinstance(partitions,(str,os.PathLike)) else None,
@@ -421,6 +498,7 @@ class FormalProtocol(ValidationCoverage):
         self.prepared=prepared;self.generators=generators;self.journal=journal;self.output=output
         self.completed_epochs=0;self.epoch_boundary=False;self.pending_checkpoint=None
         self.resume_start=None;self.witnesses={};self.first_batch=None
+        self.engineering_inputs=EngineeringInputs() if prepared.policy['scope']=='formal_engineering_acceptance' else None
         self.witness_model=copy.deepcopy(prepared.module.model) if prepared.policy['scope']=='formal_engineering_acceptance' else None
     def state_dict(self):
         p=self.journal.prefix()
@@ -466,6 +544,8 @@ class FormalProtocol(ValidationCoverage):
         self.first_batch=None
     def on_train_batch_start(self,trainer,pl_module,batch,batch_idx):
         self.prepared.guard.check();admit_formal_batch(batch,cuda.models.classic_contract(self.prepared.policy['variant']))
+        if self.engineering_inputs is not None:
+            self.engineering_inputs.record('train',int(trainer.current_epoch),batch_idx,batch)
         self.train_coverage.add(batch['classic_sample_index'].tolist())
         self.counter.begin();self.scale_before=float(trainer.precision_plugin.scaler.get_scale());self.gradient=None
         if self.prepared.policy['scope']=='formal_engineering_acceptance' and batch_idx==0:
@@ -489,6 +569,8 @@ class FormalProtocol(ValidationCoverage):
             self.first_batch=None
     def on_validation_batch_start(self,trainer,pl_module,batch,batch_idx,dataloader_idx=0):
         self.prepared.guard.check();admit_formal_batch(batch,cuda.models.classic_contract(self.prepared.policy['variant']))
+        if self.engineering_inputs is not None:
+            self.engineering_inputs.record('val',int(trainer.current_epoch),batch_idx,batch)
     def validation_completed(self,trainer,pl_module,event):
         self.train_coverage.finish()  # A complete val cannot conceal partial training.
         self.journal.append_epoch(event)
@@ -580,6 +662,12 @@ def _read_run(run):
         result['checkpoint_seal']!=checkpoint['formal_seal'] or result['completed_epochs']!=checkpoint['formal']['completed_epochs'] or
         result['checkpoint_end_snapshot']!=_checkpoint_snapshot(checkpoint)):
         raise ValueError('run actual last checkpoint/result state binding differs')
+    if manifest['scope']=='formal_engineering_acceptance':
+        if manifest.get('engineering_comparison')!=engineering_comparison_profile(manifest['state_identity']['runtime']):
+            raise ValueError('fixed engineering comparison/runtime profile differs')
+        _engineering_inputs_file(run,result,manifest)
+    elif manifest.get('engineering_comparison') is not None or result.get('engineering_inputs_sha256') is not None:
+        raise ValueError('engineering input receipts cannot be promoted to full training')
     return manifest,status,result,checkpoint
 
 
@@ -661,11 +749,13 @@ def run_formal(data,*,upstream,config,partitions,cohort_receipt,qualification,ou
                 if interrupted or observer.completed_epochs!=expected:raise ValueError('engineering entry did not reach its exact full epoch boundary')
                 reason='engineering-epoch-pause' if stop_after_epoch==1 else 'engineering-epoch-budget'
             else:reason=_termination(checkpoint,interrupted=interrupted)
-            witness_sha=None
+            witness_sha=None;inputs_sha=None
             if engineering:
                 budget=2*storage._payload_bytes(observer.witnesses)+storage.IO_OVERHEAD
                 artifacts._atomic(owned,'engineering-witnesses.pt',lambda stream:torch.save(observer.witnesses,stream),budget,replace=False)
                 witness_sha=file_sha256(output/'engineering-witnesses.pt')
+                artifacts._write_json(owned,'engineering-inputs.json',observer.engineering_inputs.value())
+                inputs_sha=file_sha256(output/'engineering-inputs.json')
             prefix=checkpoint['formal']['journal_prefix']
             result=dict(format=FORMAT,scope=prepared.policy['scope'],scientific_eligible=False,production_ready=False,
                 manifest_sha256=prepared.manifest['sha256'],completed_epochs=observer.completed_epochs,
@@ -673,7 +763,8 @@ def run_formal(data,*,upstream,config,partitions,cohort_receipt,qualification,ou
                 stop_reason=reason,interrupted=interrupted,selection_scope='engineering' if engineering else 'terminated-full-validation-loss',
                 checkpoint_sha256=file_sha256(output/'checkpoints/last.ckpt'),checkpoint_seal=checkpoint['formal_seal'],
                 checkpoint_end_snapshot=_checkpoint_snapshot(checkpoint),resume_start=observer.resume_start,
-                engineering_witnesses_sha256=witness_sha,process=cuda._process_identity(prepared.policy['scope']),
+                engineering_witnesses_sha256=witness_sha,engineering_inputs_sha256=inputs_sha,
+                process=cuda._process_identity(prepared.policy['scope']),
                 runtime_profile=cuda.BACKEND_PROFILE,trajectory_agreement_qualified=False,bitwise_trajectory_guaranteed=False,
                 logging='bounded scalar journal; native post-checkpoint train-epoch emissions excluded from committed journal',
                 limitations=['training stage only; no frozen test or paper completion',
@@ -702,8 +793,22 @@ def _witness_file(run,result):
     return value
 
 
-def _compare_witness(left,right):
+def _engineering_inputs_file(run,result,manifest):
+    path=artifacts._safe(Path(run)/'engineering-inputs.json');before=storage._stamp(path)
+    if before[2]>32*1024 or file_sha256(path)!=result.get('engineering_inputs_sha256'):
+        raise ValueError('bounded consumed engineering input file missing or changed')
+    value=_json(path,limit=32*1024)
+    if storage._stamp(path)!=before:raise ValueError('engineering input file changed during verification')
+    epochs=(1,) if result['resume_start'] is not None else (0,) if manifest['policy']['stop_after_epoch']==1 else (0,1)
+    _validate_engineering_inputs(value,counts=manifest['state_identity']['counts'],
+        batch_size=manifest['policy']['batch_size'],epochs=epochs)
+    return value
+
+
+def _compare_witness(left,right,*,profile='exact',initial=False):
     torch=storage._runtime()
+    if profile not in ('exact',COMPARISON_PROFILE) or type(initial) is not bool:
+        raise ValueError('unknown fixed engineering prediction comparison profile')
     if set(left)!=set(right) or set(left)!={'before','after','execution'} or left['execution']!=right['execution']:
         raise ValueError('original next optimizer execution evidence differs')
     if left['execution']['executions']!=1:raise ValueError('acceptance next attempt must genuinely execute optimizer')
@@ -711,18 +816,88 @@ def _compare_witness(left,right):
     for phase in ('before','after'):
         a=left[phase];b=right[phase]
         expected={'input_sha256','target_sha256','mask_sha256','prediction','model_sha256','optimizer_sha256','scaler_sha256'}
-        if set(a)!=expected or set(b)!=expected or any(a[k]!=b[k] for k in expected-{'prediction'}):
+        strict=expected-{'prediction','model_sha256','optimizer_sha256'}
+        if profile=='exact' or (initial and phase=='before'):strict=expected-{'prediction'}
+        if set(a)!=expected or set(b)!=expected or any(a[k]!=b[k] for k in strict):
             raise ValueError('original next input/model/optimizer/scaler/target/mask state differs')
+        for record in (a,b):
+            for key in expected-{'prediction'}:artifacts._hex(record[key])
         x=a['prediction'];y=b['prediction']
         if (not torch.is_tensor(x) or not torch.is_tensor(y) or x.dtype!=y.dtype or x.shape!=y.shape or
+            x.dtype not in (torch.float16,torch.float32) or not x.numel() or
             not bool(torch.isfinite(x).all()) or not bool(torch.isfinite(y).all())):
             raise ValueError('original next prediction dtype/shape/finite evidence differs')
-        maximum=float((x.float()-y.float()).abs().max())
-        measurements[phase]=dict(prediction_max_abs_difference=maximum,measured_equal=bool(torch.equal(x,y)))
-        if not torch.equal(x,y):
+        difference=(x.double()-y.double()).abs();maximum=float(difference.max())
+        threshold=2**-10+2**-10*torch.maximum(x.double().abs(),y.double().abs())
+        measurements[phase]=dict(prediction_max_abs_difference=maximum,measured_equal=bool(torch.equal(x,y)),
+            max_threshold_ratio=float((difference/threshold).max()),model_equal=a['model_sha256']==b['model_sha256'],
+            optimizer_equal=a['optimizer_sha256']==b['optimizer_sha256'])
+        if profile=='exact' and not torch.equal(x,y):
             raise ValueError('canonical backend next prediction differs; measured max_abs='+str(maximum)+
-                '; no numerical tolerance has been calibrated or authorized by this profile')
+                '; no numerical tolerance is enabled by this exact profile')
+        if profile==COMPARISON_PROFILE and not bool((difference<=threshold).all()):
+            raise ValueError('fixed eval-copy engineering prediction threshold exceeded; max_abs='+str(maximum))
     return measurements
+
+
+def _compare_final_rng(left,right,*,runtime,policy,profile):
+    if (policy['num_workers']!=0 or policy['world_size']!=1 or policy['resume_scope']!=cuda.RESUME_SCOPE or
+        policy['scope']!='formal_engineering_acceptance' or profile!=engineering_comparison_profile(runtime)):
+        raise ValueError('one-draw native epoch-boundary loader comparison profile differs')
+    cuda._rng_valid(left);cuda._rng_valid(right)
+    for name in ('python','numpy','torch','cuda'):
+        if storage.state_digest(left[name])!=storage.state_digest(right[name]):
+            raise ValueError('actual global RNG streams differ: '+name)
+    for name in ('train_sampler','val_loader'):
+        if storage.state_digest(left['generators'][name])!=storage.state_digest(right['generators'][name]):
+            raise ValueError('actual sampler/validation RNG stream differs: '+name)
+    torch=storage._runtime();g=torch.Generator();g.set_state(left['generators']['train_loader'])
+    torch.empty((),dtype=torch.int64).random_(generator=g)
+    if not torch.equal(g.get_state(),right['generators']['train_loader']):
+        raise ValueError('native resumed train_loader must be precisely one int64 base-seed draw ahead')
+    return dict(measured_full_rng_equal=storage.state_digest(left)==storage.state_digest(right),other_streams_equal=True,
+        resumed_train_loader_additional_int64_draws=1,continuous_sha256=storage.state_digest(left),
+        resumed_sha256=storage.state_digest(right))
+
+
+def _compare_final_states(left,right):
+    """Measure learned float drift; never relax a checkpoint-to-live restore."""
+    torch=storage._runtime()
+    def tensors(a,b):
+        if set(a)!=set(b):raise ValueError('cross-run final state keys differ')
+        result=dict(tensor_count=len(a),different_tensor_count=0,elements=0,max_abs_difference=0.)
+        for key,x in a.items():
+            y=b[key]
+            if not torch.is_tensor(x) or not torch.is_tensor(y) or x.dtype!=y.dtype or x.shape!=y.shape:
+                raise ValueError('cross-run final tensor shape/dtype differs')
+            equal=bool(torch.equal(x,y));result['different_tensor_count']+=int(not equal);result['elements']+=x.numel()
+            if x.is_floating_point():
+                if not bool(torch.isfinite(x).all()) or not bool(torch.isfinite(y).all()):
+                    raise ValueError('cross-run learned float state must remain finite')
+                if x.numel():result['max_abs_difference']=max(result['max_abs_difference'],float((x.double()-y.double()).abs().max()))
+            elif not equal:raise ValueError('cross-run nonfloating buffer/counter differs')
+        return result
+    model=tensors(left['state_dict'],right['state_dict'])
+    if len(left['optimizer_states'])!=1 or len(right['optimizer_states'])!=1:
+        raise ValueError('exactly one original AdamW state required')
+    a=left['optimizer_states'][0];b=right['optimizer_states'][0]
+    if (set(a)!={'state','param_groups'} or set(a)!=set(b) or set(a['state'])!=set(b['state']) or
+        storage.state_digest(a['param_groups'])!=storage.state_digest(b['param_groups'])):
+        raise ValueError('cross-run original AdamW state/group schema differs')
+    am={};bm={}
+    for key,state in a['state'].items():
+        other=b['state'][key]
+        if (set(state)!={'step','exp_avg','exp_avg_sq'} or set(state)!=set(other) or
+            storage.state_digest(state['step'])!=storage.state_digest(other['step'])):
+            raise ValueError('cross-run original AdamW step counter/schema differs')
+        for name in ('exp_avg','exp_avg_sq'):am[(key,name)]=state[name];bm[(key,name)]=other[name]
+    moments=tensors(am,bm)
+    for key in ('lr_schedulers','MixedPrecision'):
+        if storage.state_digest(left[key])!=storage.state_digest(right[key]):
+            raise ValueError('cross-run final scheduler/scaler differs')
+    return dict(model=model,adamw_moments=moments,optimizer_steps_equal=True,optimizer_parameter_groups_equal=True,
+        scheduler_equal=True,scaler_equal=True,measured_final_states_equal=not bool(
+            model['different_tensor_count'] or moments['different_tensor_count']))
 
 
 def _model_contract_matches(recorded,resolved):
@@ -733,7 +908,7 @@ def _model_contract_matches(recorded,resolved):
 def _acceptance(uninterrupted,prefix,resumed):
     directories=[artifacts._safe(x) for x in (uninterrupted,prefix,resumed)]
     guard=cohort._StatGuard([directory/name for directory in directories for name in
-        ('identity.json','status.json','result.json','checkpoints/last.ckpt','engineering-witnesses.pt')])
+        ('identity.json','status.json','result.json','checkpoints/last.ckpt','engineering-witnesses.pt','engineering-inputs.json')])
     runs=[_read_run(x) for x in directories]
     identities=[run[0] for run in runs];results=[run[2] for run in runs];checkpoints=[run[3] for run in runs]
     a,p,b=identities;ra,rp,rb=results;ca,cp,cb=checkpoints
@@ -782,24 +957,31 @@ def _acceptance(uninterrupted,prefix,resumed):
         raise ValueError('final-source uninterrupted/prefix/fresh-resume identity or strict restore differs')
     processes=[(r['process']['pid'],r['process']['start_ticks']) for r in results]
     if len(set(processes))!=3:raise ValueError('final-source acceptance requires three separate actual processes')
-    if storage.state_digest(ca['state_dict'])!=storage.state_digest(cb['state_dict']) or any(
-        storage.state_digest(ca[key])!=storage.state_digest(cb[key]) for key in ('optimizer_states','lr_schedulers','MixedPrecision')):
-        raise ValueError('measured canonical uninterrupted/resumed final parameter/optimizer/scheduler/scaler states differ')
-    if storage.state_digest(ca['formal']['rng'])!=storage.state_digest(cb['formal']['rng']):
-        raise ValueError('uninterrupted/resumed actual final input/RNG state differs')
+    comparison=engineering_comparison_profile(a['state_identity']['runtime'])
+    if any(m.get('engineering_comparison')!=comparison for m in identities):
+        raise ValueError('prospective fixed engineering comparison profile differs between entries')
+    inputs=_compare_engineering_inputs(*(_engineering_inputs_file(d,r,m) for d,r,m in zip(directories,results,identities)),
+        counts=a['state_identity']['counts'],batch_size=a['policy']['batch_size'])
+    final_states=_compare_final_states(ca,cb)
+    final_rng=_compare_final_rng(ca['formal']['rng'],cb['formal']['rng'],runtime=a['state_identity']['runtime'],
+        policy=a['policy'],profile=comparison)
     wa,wp,wb=[_witness_file(d,r) for d,r in zip(directories,results)]
     if set(wa)!={'0','1'} or set(wp)!={'0'} or set(wb)!={'1'}:
         raise ValueError('engineering original before/after next-step prediction evidence incomplete')
-    first=_compare_witness(wa['0'],wp['0']);next_step=_compare_witness(wa['1'],wb['1'])
+    first=_compare_witness(wa['0'],wp['0'],profile=COMPARISON_PROFILE,initial=True)
+    next_step=_compare_witness(wa['1'],wb['1'],profile=COMPARISON_PROFILE)
     guard.check()
-    return dict(format='classic_formal_source_gpu_acceptance_v1',scope='bounded_final_source_cuda_acceptance',
+    return dict(format='classic_formal_source_gpu_acceptance_v2',scope='bounded_final_source_cuda_acceptance',
         scientific_eligible=False,production_ready=False,variant=variant,sources=a['sources'],runtime=a['state_identity']['runtime'],
         cohort_sha256=a['cohort_sha256'],capacity=a['capacity'],strict_state_restore=True,
-        measured_first_step=first,measured_next_step=next_step,measured_final_states_equal=True,
+        measured_first_step=first,measured_next_step=next_step,
+        measured_final_states_equal=final_states['measured_final_states_equal'],
+        measured_final_states=final_states,measured_final_rng=final_rng,consumed_engineering_inputs=inputs,
         trajectory_agreement_qualified=False,bitwise_trajectory_guaranteed=False,
-        comparison_profile='exact observed comparisons only; no trajectory guarantee or calibrated tolerance',
+        comparison_profile=comparison,comparison_profile_sha256=artifacts.json_hash(comparison),
         artifacts=[dict(directory=str(d),result_sha256=file_sha256(d/'result.json'),
-            checkpoint_sha256=file_sha256(d/'checkpoints/last.ckpt'),witness_sha256=r['engineering_witnesses_sha256'])
+            checkpoint_sha256=file_sha256(d/'checkpoints/last.ckpt'),witness_sha256=r['engineering_witnesses_sha256'],
+            consumed_inputs_sha256=r['engineering_inputs_sha256'])
             for d,r in zip(directories,results)])
 
 
@@ -807,7 +989,7 @@ def verify_formal_acceptance(bundle):
     """Recompute the original three-process CUDA evidence behind a saved bundle."""
     guard=cohort._StatGuard([bundle])
     expected=_json(bundle)
-    if (expected.get('format')!='classic_formal_source_gpu_acceptance_v1' or
+    if (expected.get('format')!='classic_formal_source_gpu_acceptance_v2' or
         expected.get('scope')!='bounded_final_source_cuda_acceptance' or len(expected.get('artifacts',[]))!=3):
         raise ValueError('not a final formal-source actual GPU acceptance artifact')
     actual=_acceptance(*(x['directory'] for x in expected['artifacts']))

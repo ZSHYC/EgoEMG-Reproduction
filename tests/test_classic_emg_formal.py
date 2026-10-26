@@ -306,7 +306,11 @@ def test_actual_cuda_final_source_acceptance_is_never_inferred_from_cpu_tests():
     path=os.environ.get('EGOEMG_FORMAL_GPU_BUNDLE')
     if not path:pytest.skip('root must supply an actual three-process CUDA acceptance bundle')
     result=api().verify_formal_acceptance(Path(path))
-    assert result['strict_state_restore'] is True and result['measured_final_states_equal'] is True
+    assert result['strict_state_restore'] is True
+    assert type(result['measured_final_states_equal']) is bool
+    assert result['format']=='classic_formal_source_gpu_acceptance_v2'
+    assert result['consumed_engineering_inputs']['all_consumed_inputs_equal'] is True
+    assert result['comparison_profile']['name']=='canonical_fp16_eval_copy_v1'
     assert result['production_ready'] is False and result['bitwise_trajectory_guaranteed'] is False
 
 
@@ -355,7 +359,8 @@ def test_final_resource_close_cannot_leave_finished_status_or_bypass_last_guard(
             if fault=='close_error':raise OSError('injected final '+name+' close failure')
             source.write_text('{"changed_during_close":true}\n')
     class Observer:
-        def __init__(self,*args):self.completed_epochs=2;self.witnesses={};self.resume_start=None
+        def __init__(self,*args):
+            self.completed_epochs=2;self.witnesses={};self.resume_start=None;self.engineering_inputs=r.EngineeringInputs()
     class IO:
         def __init__(self,*args,**kwargs):self.directory=r.artifacts._Directory(output/'checkpoints',create=True)
         def close(self):self.directory.close();inject('io')

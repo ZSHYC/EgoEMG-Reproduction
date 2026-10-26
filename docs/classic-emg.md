@@ -2,9 +2,11 @@
 
 当前已接入固定官方模型、原始数据变换和真实 Lightning CPU 训练及 epoch 边界恢复。**正式 GPU 训练、完整验证选模后的冻结测试及科研结果导出尚未完成。** 这些工程检查不能填入论文性能表。
 
+新增[限定工程比较规则](classic-canonical-comparison.md)保留 checkpoint-to-live 精确恢复，逐条核对所有工程 train/val 输入批次，并如实测量独立 GPU 浮点轨迹差异。固定的首样本 eval-copy 门槛及原生 loader 正向一次 draw 例外已经源码审查，定向 CPU 209 passed/1实际GPU缺失skip；新源码仍须重新执行两模型三进程GPU验收。该规则不把旧6adc失败改成通过，也不代替正式测试前的完整validation报告校准。
+
 最新状态：6adc源码的VEMG连续两轮、prefix单轮及fresh恢复三条GPU路径均成功，汇总验收失败保留。只读诊断确认模型配置身份的唯一表示差异是原tuple与JSON读回list，其他容量、队列、runtime、recipe及binding吻合；现改用完整JSON metadata摘要比较，原配置/通道顺序/参数数变化仍拒绝，typed checkpoint摘要不变。另原生恢复后若下一轮没有新best，ModelCheckpoint会保存current_score=None；新增真实stock Trainer恢复回归已复现，last仅在best来自早先完整epoch时允许此值，best及刚选中的last仍拒绝None，其他选择字段继续严格验证。
 
-两项修正后的formal/artifact/evaluator定向161 passed/1实际GPU skip；77文件整体1125 passed/3实际GPU skip（281.02s），轻量739 passed/389依赖skip（21.79s）。新源码尚未取得GPU验收。此前6adc三路径的只读后续诊断实测最终模型/optimizer浮点状态不同；首步后预测最大差6.1035e-5rad、下一步后9.765625e-4rad，scheduler/scaler和执行计数一致。全局Python/NumPy/Torch/CUDA RNG与sampler/val-loader状态一致，train-loader状态在resumed端多一次原生int64 base-seed draw。当前逐位比较门槛仍拒绝这组数据，尚须独立解决原生生命周期及预测试数值协议；没有把这些差异改写为GPU通过。
+两项修正后的formal/artifact/evaluator定向161 passed/1实际GPU skip；77文件整体1125 passed/3实际GPU skip（281.02s），轻量739 passed/389依赖skip（21.79s）。新源码尚未取得GPU验收。此前6adc三路径的只读后续诊断实测最终模型/optimizer浮点状态不同；首步后预测最大差6.1035e-5rad、下一步后9.765625e-4rad，scheduler/scaler和执行计数一致。全局Python/NumPy/Torch/CUDA RNG与sampler/val-loader状态一致，train-loader状态在resumed端多一次原生int64 base-seed draw。旧逐位比较门槛拒绝该组数据；后续原生生命周期追踪及事先固定的限定比较见上文，没有把这些差异改写为GPU通过。
 
 最新修正组包含[终止后 selected-best 测试入口](../egoemg_repro/classic_emg_evaluate.py)及原生 AdamW 配置校验。77文件冻结组实际完整CPU **1118 passed/3 skipped**（271.95s），轻量 **739 passed/382依赖skip**（21.40s），源码和原七项结果均核对不变。三个完整环境skip仍是实际CUDA检查，不能据CPU通过授予GPU或科研资格。
 

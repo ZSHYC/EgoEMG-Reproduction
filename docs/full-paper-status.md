@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **classic新增限定比较，尚无新GPU资格：** [固定规则](classic-canonical-comparison.md)新增所有工程train/val批次输入精确核对、首样本eval-copy固定工程门槛、真实最终浮点差异测量及绑定完整runtime/五文件SHA的原生loader正向一次draw关系；checkpoint-to-live仍精确恢复。78文件组完整CPU1173 passed/3实际CUDA skip、轻量739 passed/390依赖skip，独立审查无待修项。两模型均须另跑新源码三进程GPU验收，旧6adc不追认，正式训练/测试/报告仍欠。
+
 - **七项 legacy 实验已完整运行并审计：** EMGFormer-S/M/L、ResNet-18、RN18+S及独立发布的RN50/RN152。原结果、配方、源码和初始化身份保留在[已完成实验](../results/completed/README.md)及[发布清单](../results/completed/publication-manifest.json)，不因新目标改写。它们与 PDF 原表的数据、标签、输入和训练协议仍有差异。
 - **新增损失合成差异已确认：** [11配置实际审计](../results/official-loss-audit.md)证明固定官方EgoEMG配置的两个指尖别名最终相加为0.02，既有legacy训练器/配方为0.01。此前漏核的差异现已明确；旧四实验及当前L/RN50/RN152仍只属于既定legacy协议，不是当前官方合成损失的等价复现。新官方字面实验须另行完成，不能由旧结果补算得到。EMG2Pose直接官方流程仍为0.01。
 - **EMGFormer-L已完整结束并审计：** [独立结果](../results/completed/emgformer-l/README.md)为200轮/25,400更新/200次完整轨迹验证，验证选择第508步（第4轮）。全部/有图中心16.612111°/16.571878°，最终测试、严格导出及独立中心复算成功；轨迹16.591133°仅来自原训练器测试，未额外重推。运行源码7b805d4与legacy限制保留，不用后续文档头替换。

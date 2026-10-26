@@ -4,6 +4,8 @@
 
 用户将目标扩展为论文全部内容，歧义优先官方代码。下文 2026-10-25 四基线完成记录保留为历史证据，不能作为新目标完成声明。[全文清单](full-paper-status.md)覆盖全部 15 表、13 图、17 项主要姿态模型设置及标注/预处理流程。
 
+**当前新增：classic事先固定的限定比较已实现并审查，GPU重验待执行。** [规则与边界](classic-canonical-comparison.md)要求所有工程train/val批次typed输入精确一致，保留checkpoint-to-live严格恢复；独立运行最终浮点差异如实测量，首样本eval-copy采用固定对称逐元素门槛。原生loader例外仅为绑定完整runtime及五文件SHA的正向一次draw，不回退RNG。新78文件组本机完整1173 passed/3实际CUDA skip（281.44s），轻量739 passed/390依赖skip（23.50s）；独立源码审查无待修项，所有78成员和七项旧结果未变。新目录已暂存并核对55个source/input pin，但尚未启动此源码GPU验收；旧6adc失败及下文历史记录保留，完整classic训练仍欠。
+
 **最新结果：WiLoR真实预训练与禁网CPU检查已完成**，见[完整证据](../results/wilor-pretrained-cpu.md)。原下载终止后，新独立attempt保留并复制原片段，以精确16MiB Range/ETag和整文件SHA完成2,564,989,533-byte官方权重。随后原WiLoRViTPose两次真实构造各404个主干tensor匹配；实测631,631,657总参数、52,499冻结，原高度裁剪192×256、1×1280×12×16特征和1×22×1有限输出、严格模型重载预测逐位一致。网络尝试0、CUDA未初始化；这是合成CPU接入，尚无WiLoR完整训练。
 
 classic最新6adc三条VEMG路径（连续两轮、prefix单轮、fresh恢复）实际全部成功；汇总因模型tuple/JSON-list metadata比较失败。该窄修及原生恢复后未选新best时current_score=None的合法last保存回归，完整77文件1125 passed/3实际GPU skip（281.02s），轻量739 passed/389依赖skip（21.79s），原结果和源hash核对一致。只读后续诊断另揭示浮点轨迹不逐位相同、train-loader base-seed多一次draw；当前验收仍拒绝，尚无最终GPU资格或完整classic训练。原全局RNG/采样器状态及scheduler/scaler计数相同，差异与下一步工作详见[classic范围](classic-emg.md)。
