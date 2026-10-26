@@ -194,3 +194,9 @@ assert torch.equal(target, batch['joint_angles'][...,model.left_context:])
 Task2采用`official_literal_loader`：`LegacyDataset(norm=None)`仅负责既有Store/窗口初始化检查，外围从只读Store读取原标签/EMG及原generated二维mask，不调用legacy的非有限清零与20+2 mask分支。另行admission明确拒绝非有限输入/目标，不偷偷补0监督。固定源码的普通reader在本次legacy schema下还有字段选择矛盾：EMG modality未列`*_filtered`、datamodule未补fields，真实完整module实际KeyError；外围显式指定左右filtered字段，两份配置与数据身份保留declared/effective差异。没有改官方reader、模型或Task1。
 
 实际CPU fixture已完成49项定向检查，包括72对真实完整reader/原Compose/RNG逐位对照；独立4项抽查通过。这里只证明模型/数据合同，未生成真实cohort新分区或运行训练。参考导入需模型/vision运行时再加`official-reader` extra；它只补固定OpenCV headless依赖，不以AST提取或替身代替完整reader。
+
+### Task3的CPU工程子阶段
+
+原模型/Lightning的CPU32训练与严格epoch恢复已实现并独立审查通过，见[当前实现范围](../../classic-emg.md)。35项定向检查、无Torch层10 passed/25 skip及独立5项关键测试实际通过；真实两模型连续两轮与离线last恢复一致。JSON身份及失败终态两项P2已修复，失败历史保留。
+
+这一子阶段不完成整个Task3：真实CUDA16-mixed/GradScaler、正式队列训练/完整val选模/冻结test及Task4仍待实现验收；当前正式入口保持关闭，不用CPU工程best作为科研best。
