@@ -1,0 +1,76 @@
+{
+  "actual_native_source_checks": [
+    "original make_data_module and _build_dataset/_make_loader on controlled CPU values: all roles repeat2 and batch360; declared val_batch_size256 unused",
+    "actual original point reader on real small memmaps/JPEG LMDB: byte-exact RGB/targets/masks and original NumPy RNG",
+    "end-of-episode jitter leftovers0/1/17/780 and original wrist rounding; no per-angle label cleanup",
+    "independent role guards over every possible jitter span; prospective unsafe-anchor exclusion",
+    "directory/flat crops, head priority and legacy webcam alias, absent key versus database, corrupt JPEG and negative-frame behavior"
+  ],
+  "actual_server": {
+    "audit_source_file": "tools/vision_literal_census.py",
+    "audit_source_sha256": "1ef34ad7f3d7a4d90117b227bb02dc9bcde200df2ec5a742e593a9b862d9b456",
+    "census_file_sha256": "a51c38a2cd5fc287d6902fa76e3c1ff1a2befbd8dc59e5e8b7a7b3dc4d4b3934",
+    "cuda_initialized": false,
+    "models_constructed": 0,
+    "optimizer_executions": 0,
+    "original_point_samples_read": 18,
+    "scope": "all possible center-row target finite scan and unique episode/frame/hand key census; bounded18 JPEG decodes; no whole payload content rehash",
+    "source_files_verified": 84,
+    "stat_guard_members": 52
+  },
+  "base_commit": "e53e86a92e66822a8d94e0c430ee96918c6c271d",
+  "checks": {
+    "complete_cpu": {
+      "log_sha256": "29e9e2022c720edd3a3ca4452fcd7f5a42a3f30f2a762b7054f945827fbd2ca1",
+      "passed": 1480,
+      "seconds": 295.0,
+      "skipped": 3,
+      "warnings": 106
+    },
+    "optional_runtime_cpu": {
+      "log_sha256": "b99eba5580bb80fbd4fa9704ad3cea66ddcbb6fb275718c053dc6c9c2771a6b6",
+      "passed": 841,
+      "seconds": 22.6,
+      "skipped": 595,
+      "warnings": 1
+    },
+    "targeted": {
+      "log_sha256": "aef0e8ae10e412f3605cb5506c9dec601aeb55b956a0c64a372a59e7db20be79",
+      "passed": 37,
+      "seconds": 12.21
+    }
+  },
+  "format": "original_vision_data_foundation_cpu_evidence_v1",
+  "frozen_source_members": 84,
+  "frozen_source_snapshot_sha256": "58366be41ffd5f74e3cf92c6764a6d40aaf0d2499cd049b3cd6478b7fa4e19c2",
+  "full_paper_complete": false,
+  "hosted_ci_for_this_source": "not observed",
+  "independent_implementation_review": false,
+  "observed_utc": "2026-10-26T18:12:21.005136+00:00",
+  "previous80_sources_unchanged": true,
+  "production_ready": false,
+  "remaining": [
+    "native Lightning module/real pretrained retention and optimizer checks",
+    "actual real-cohort optimization and strict native reload",
+    "full runner/coverage/termination-selected-best/native test/report implementation",
+    "final implementation review/integration then real GPU capacity/engineering and full training",
+    "missing original merged corpus and all other full-paper requirements"
+  ],
+  "review_scope": "complete vision runtime/training tranche review remains required before actual GPU qualification",
+  "scientific_eligible": false,
+  "seven_completed_legacy_results_unchanged": true,
+  "sources_sha256": {
+    "egoemg_repro/vision_literal.py": "07f7415cd00bc9d3afa058f6a89bf3ca63e788bf7214cecb5ecf558d377a71a3",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "tests/test_vision_literal.py": "dfb59f70a439e5f782ba0edc5cb35b5a98dc496b46e627cf79ca73dce2c48d72",
+    "tests/test_vision_literal_data.py": "a833c2836b8bfef0c03fbbb38f649608f0f0ee94d77e5520c2c5b3af894e0220"
+  },
+  "status": "configuration_and_readonly_data_engineering_only",
+  "tdd": {
+    "configuration_missing_module_red": 22,
+    "data_missing_module_red": 9,
+    "initial_dependency_skip": 1,
+    "notes": "Unneeded decord skip removed: decoding dependency is lazy. Native datamodule witness initially failed because range cannot accept transform=None; replaced only the controlled dataset fixture. Final native witness runs, not skipped."
+  },
+  "verification_scope": "84-member module/test CPU integration plus separately executed byte-identical public readonly census tool"
+}

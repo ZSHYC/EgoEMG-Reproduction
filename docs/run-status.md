@@ -1,5 +1,17 @@
 # 运行状态
 
+## 2026-10-27：DINOv2官方配置与真实数据读取准备
+
+**新literal vision配置／数据层完成CPU集成和实际服务器只读扫描；尚无原生模块优化或新模型成绩。** [语义、分母和缺口](vision-literal.md)、[CPU证据](../results/vision-literal-foundation-cpu.json)及[原始脱敏数据扫描](../results/vision-literal-data-census.json)记录实际原生数据模块的三个重要行为：所有loader均用batch360，声明的val_batch_size256未读取；所有角色repeat2；当前lineage声明EgoEMG/ShowEE/Incre合并数据，不能把可用legacy EgoEMG视作该完整来源。S为原YAML，B/L只作明确S派生，尚无作者独立配方等价证明。
+
+新的7790/780/7790窗口保留原train jitter完整随机范围；预先排除352个可能跨入独立val/test足迹的锚点，不裁剪随机范围。实际唯一／repeat2消费手样本为train101,010／202,020，val1,576／3,152，test4,306／8,612。原point方法的RGB、腕角舍入、生成mask及缺失key语义保持，真实小memmap/JPEG和原读取器数值／RNG逐字节核对。37项定向通过（12.21s）；固定84成员完整1,480 passed／3真实CUDA skip／106 warnings（295.00s），轻量841 passed／595依赖skip／1 warning（22.60s），此前80源码及七项legacy结果未变。新分支最终独立审查与托管CI尚未完成，未以CPU检查授权GPU训练。
+
+服务器84文件逐一hash核对；52个实际数据/metadata/LMDB文件前后stat稳定。扫描全部39,393,900个可能训练中心、788个验证中心和2,153个测试中心，目标均有限，检查所有可能视频帧手key并记录缺失；仅18个点读做JPEG解码与原始目标核对，未整文件重hash所有payload。这是数据准备，不是模型推理或性能评价，GPU未初始化。后续原生Lightning／预训练保留／优化器／重载和完整runner仍需实现。
+
+上一报告实现e53e86a的[实际CI40366479641](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40366479641)两项success：官方1,443 passed／3真实CUDA skip／104 warnings（385.70s）、轻量835 passed／564依赖skip（24.11s），pip check通过。该CI不覆盖本次vision新增源码。
+
+VEMG2026-10-26T18:08:59UTC（北京时间10月27日02:08）实读8,547次真实执行、50次完整1,576手验证，相同PID/start仍存活，原controller session仍运行。报告代码及12阶段私有执行器已经准备，尚无真实终态、GPU校准／原生测试／独立复算或新科学成绩；全文目标继续进行。
+
 ## 2026-10-27：测试独立复算、只读状态与完整报告实现
 
 **完整报告实现已完成一次审查修正和CPU集成，实际GPU执行仍欠。** [使用方式](classic-report.md)与[新CPU证据](../results/classic-report-complete-cpu.md)覆盖原4,306手测试预测参考／独立复算、类型与统计守恒、真实metadata匿名映射及用户交集、只读日志状态、JSON／Markdown和最后完成标记。审查的2项Important由19项实际RED复现，一次修复后定向303 passed／2 warnings（12.95s）；固定80成员完整1,443 passed／3真实CUDA skip／106 warnings（284.78s），轻量835 passed／564依赖skip／1 warning（22.74s）。全部源摘要和七项旧结果不变，没有第二次独立复审。

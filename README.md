@@ -28,6 +28,8 @@
 
 [全论文状态](docs/full-paper-status.md) · [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
+> 新增[DINOv2官方执行与数据准备](docs/vision-literal.md)：已实际核验所有角色batch360／repeat2、原中心读取及jitter独立划分，完成服务器只读数据扫描；原生模块优化和完整训练尚欠。[CPU证据](results/vision-literal-foundation-cpu.json)不构成新模型成绩。
+
 ## 复现什么
 
 论文研究双侧腕部 EMG 与第一视角视觉在手部姿态估计中的互补性。本仓库围绕公开 legacy 数据，建立从获取数据到独立验证选模、最终测试与结果追溯的完整流程。

@@ -6,6 +6,9 @@
 
 ## 当前实际完成到哪里
 
+- **DINOv2配置／literal数据准备已完成，原生优化和完整训练尚欠：** [使用与边界](vision-literal.md)、[实际只读扫描](../results/vision-literal-data-census.json)和[CPU证据](../results/vision-literal-foundation-cpu.json)新增原数据模块实读：所有角色batch360（val_batch_size256未消费）、repeat2、原lineage合并来源。保留原jitter且排除352个不安全锚点；可用legacy唯一／消费手样本为101,010／202,020、1,576／3,152、4,306／8,612。所有可能中心目标和crop key已扫描，18个真实点读，52文件stat稳定，无模型或CUDA。37定向、84成员完整1,480／3CUDA skip及轻量841／595依赖skip；新源码最终审查／托管CI仍欠。S/B/L真实cohort优化、完整训练及与缺失合并源/PDF等价仍未完成。
+
+
 - **验证／原生绑定／测试独立复算／只读状态／完整报告已实现，实际GPU链尚欠：** [使用与边界](classic-report.md)和[新CPU证据](../results/classic-report-complete-cpu.md)记录真实原始证据重开、完整4,306手预测参考／新进程精确复算、原22角／中心统计、真实metadata匿名用户与交集及最后拥有的完成标记。独立审查2项Important以19项RED复现后一次修正：训练统计绑定终态last日志与固定运行时／适配策略；Markdown包含全部公开JSON证据。定向303通过，固定80成员完整1,443／3真实CUDA skip，轻量835／564依赖skip；没有第二次独立复审，本次托管CI尚未观察。上一82109cd真实托管1,351／3及806／501已通过。服务器新目录80文件核验一致，只读API实读6,613次执行／38次完整验证且未初始化CUDA。VEMG于2026-10-26T17:10:49UTC实读6,677次执行、39次完整验证，相同PID/start仍存活；训练终态、实际GPU校准／测试／复算及科学完成产物仍欠。
 
 - **VEMG已通过最终源码GPU限定验收并进入完整训练；NeuroPose未通过：** [实际证据](../results/classic-formal-gpu-engineering.md)记录全部工程输入一致及严格恢复，VEMG汇总与fresh复核成功，Neuro的8/171,380个预测元素超出固定门槛，失败保留。VEMG另起101,714手full训练、完整1,576手val、max100/patience50；13:52:31UTC快照为309次真实更新、1次完整验证，尚未完成或测试。78文件组本机CPU1173/3实际CUDA skip与轻量739/390依赖skip、匹配658d8c6托管CI成功，不替代真实GPU证据或报告校准。

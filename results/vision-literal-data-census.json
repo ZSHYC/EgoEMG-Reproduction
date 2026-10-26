@@ -1,0 +1,68 @@
+{
+  "available_data": "released legacy EgoEMG only; original merged source not admitted",
+  "crop_scope": "unique (episode,source-video-frame,hand) key presence across ALL possible jitter centers; keys are not sample/angle denominators; JPEG decode is bounded samples only",
+  "cuda_initialized": false,
+  "data_payload_content_rehashed": false,
+  "declared_current_training_corpus": "physically_merged_egoemg_showee_incre",
+  "discarded_unsafe_jitter_anchors": 352,
+  "elapsed_seconds": 12.848569235764444,
+  "episode_records": 41,
+  "format": "original_vision_legacy_readonly_census_v1",
+  "frame_mapping_field": "image_webcam_frame_index",
+  "full_paper_complete": false,
+  "model_constructed": false,
+  "optimizer_executions": 0,
+  "partition_sha256": "43b573e8e8840431cdd064aa1b03d5a437ae0bdff19ead26c0d8677cb9538f8f",
+  "point_samples_read_and_raw_target_checked": 18,
+  "production_ready": false,
+  "protocol_sha256": "bd23b667e1147cae180f4a2bd41f224d9fac97f851faeacbad046abe777cd969",
+  "roles": {
+    "test": {
+      "anchor_windows": 2153,
+      "consumed_hand_samples": 8612,
+      "missing_unique_keys": 173,
+      "negative_frame_index_rows": 0,
+      "possible_center_label_true_hand_rows": 4178,
+      "possible_center_rows": 2153,
+      "possible_center_target_nonfinite_entries": 0,
+      "present_unique_keys": 4133,
+      "unique_episode_frame_hand_keys": 4306,
+      "unique_hand_samples": 4306
+    },
+    "train": {
+      "anchor_windows": 50505,
+      "consumed_hand_samples": 202020,
+      "missing_unique_keys": 138429,
+      "negative_frame_index_rows": 0,
+      "possible_center_label_true_hand_rows": 75864821,
+      "possible_center_rows": 39393900,
+      "possible_center_target_nonfinite_entries": 0,
+      "present_unique_keys": 2224531,
+      "unique_episode_frame_hand_keys": 2362960,
+      "unique_hand_samples": 101010
+    },
+    "val": {
+      "anchor_windows": 788,
+      "consumed_hand_samples": 3152,
+      "missing_unique_keys": 101,
+      "negative_frame_index_rows": 0,
+      "possible_center_label_true_hand_rows": 1505,
+      "possible_center_rows": 788,
+      "possible_center_target_nonfinite_entries": 0,
+      "present_unique_keys": 1475,
+      "unique_episode_frame_hand_keys": 1576,
+      "unique_hand_samples": 1576
+    }
+  },
+  "scientific_eligible": false,
+  "scope": "actual metadata/jitter-position targets/crop-key census plus bounded original point reads",
+  "source_stat_guard_stable": true,
+  "source_subject_keys": 41,
+  "sources_sha256": {
+    "vision_literal.py": "07f7415cd00bc9d3afa058f6a89bf3ca63e788bf7214cecb5ecf558d377a71a3",
+    "vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b"
+  },
+  "stat_guard_members": 52,
+  "target_scope": "all possible distinct center rows, unweighted across anchors; not an observed training epoch or performance metric",
+  "variant": "vit_small"
+}
