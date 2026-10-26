@@ -2,7 +2,7 @@
 
 > **当前范围 · 全论文复现进行中（2026-10-26）**
 >
-> 用户已要求“论文的所有内容全部复现；有歧义优先官方代码”。[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)替代此前四基线完成即验收的范围限制。全部 **Tables 1–15、Figures 1–13、17 个主要姿态模型设置、markers2mano 与标签全链、数据统计和派生分析**逐项登记于[全论文状态与证据](full-paper-status.md)。L 短训练、完整验证与严格重载已通过，独立 200 epoch 生产训练进行中，尚无完整结果；额外资产与其他模型的真实状态见该清单及[运行状态](run-status.md)。
+> 用户已要求“论文的所有内容全部复现；有歧义优先官方代码”。[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)替代此前四基线完成即验收的范围限制。全部 **Tables 1–15、Figures 1–13、17 个主要姿态模型设置、markers2mano 与标签全链、数据统计和派生分析**逐项登记于[全论文状态与证据](full-paper-status.md)。L 已完成200轮、最终测试和独立中心复算，[结果](../results/completed/emgformer-l/README.md)属于明确声明的legacy协议；目前共七项完整legacy实验。classic正式入口已通过CPU集成，最终源码GPU验收及完整训练尚欠；其他模型与数据状态见该清单及[运行状态](run-status.md)。
 >
 > **下文保留 2026-10-25 的四模型范围历史核对。** 其中“已批准范围完成”“扩展”“未运行”描述当时范围和快照，不排除任何当前全文必需项；既有结果、运行身份及历史证据保持原样。后续阶段完成也不等于全文完成。
 

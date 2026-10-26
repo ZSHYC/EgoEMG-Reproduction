@@ -27,6 +27,12 @@ def api():
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+@pytest.fixture(autouse=True)
+def sufficient_worker_space(monkeypatch):
+    """Transaction tests control capacity; individual low-space cases override it."""
+    monkeypatch.setattr(api(),'_free',lambda _:100*1024**3)
+
+
 @pytest.fixture
 def inputs(admitted_fixture,tmp_path,monkeypatch):
     w=api();p=w.preflight
@@ -223,8 +229,9 @@ def actual_old_source(tmp_path_factory):
     return root
 
 
-def test_real_old_namespace_factory_and_alignment_are_used_in_fresh_process(actual_old_source):
+def test_real_old_namespace_factory_and_alignment_are_used_in_fresh_process(request):
     pytest.importorskip('torch');pytest.importorskip('hydra');project=Path(__file__).parents[1]
+    actual_old_source=request.getfixturevalue('actual_old_source')
     script='''
 import json,sys,torch
 from pathlib import Path
@@ -383,6 +390,23 @@ def test_factory_temporary_budget_is_admitted_without_spending_reserve(tmp_path,
     monkeypatch.setattr(w,'_free',lambda _:w.RESERVE+100*1024**2)
     with pytest.raises(OSError,match='reserve'):w.Attempt(output,{})
     assert not output.exists()
+
+
+def test_attempt_rejects_hosted_runner_subreserve_space(tmp_path,monkeypatch):
+    w=api();output=tmp_path/'never-created'
+    monkeypatch.setattr(w,'_free',lambda _:7_900_000_000)
+    with pytest.raises(OSError,match='reserve'):w.Attempt(output,{})
+    assert not output.exists()
+
+
+def test_attempt_refuses_capacity_drop_before_payload_publication(tmp_path,monkeypatch):
+    w=api();output=tmp_path/'attempt'
+    with w.Attempt(output,{}) as attempt:
+        monkeypatch.setattr(w,'_free',lambda _:14*1024**3)
+        with pytest.raises(OSError,match='reserve'):attempt.write('centers.npz',b'private payload')
+        attempt.fail()
+    assert not (output/'centers.npz').exists()
+    assert not (output/'status.json').exists()
 
 
 def transaction_child(w,spec,cohort,monkeypatch):

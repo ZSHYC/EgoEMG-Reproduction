@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Fetch the pinned legacy namespace for readonly fixtures
+        run: git fetch --no-tags --depth=1 origin 8dc57cdd667cb05341cb3f79064c59f58d27f7f8
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -28,6 +30,8 @@ jobs:
       MKL_NUM_THREADS: '2'
     steps:
       - uses: actions/checkout@v4
+      - name: Fetch the pinned legacy namespace for readonly fixtures
+        run: git fetch --no-tags --depth=1 origin 8dc57cdd667cb05341cb3f79064c59f58d27f7f8
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

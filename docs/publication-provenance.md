@@ -53,3 +53,7 @@ Git commit 标识包含文件树、父提交、作者和时间等信息。即使
 容量工具原执行路径为私有tmp；现公开[tools/classic_capacity.py](../tools/classic_capacity.py)与实际b890源严格逐字节相同。它的公开位置不改写历史执行路径、base archive或模型运行身份。新formal-artifacts仅实现状态/日志契约，派生worker仅完成CPU与来源检查；正式runner仍未集成、未通过最终源码GPU验收，尚无新的classic科研完整训练结果。
 
 新增公开capacity工具、worker与原生callback语义修正后的72文件冻结组，源码快照SHA9f879422b483206c0133b1bd095ce405503d14f962b5b183abfec1ea9f1d005d，本机完整CPU **1025 passed/3 skipped**（271.86s，两个真实CUDA正例及一个既有ViT-L内存准入skip），轻量 **690 passed/338依赖skip**（23.83s）。最终文件SHA逐一复核不变；该组明确排除仍在实现的formal runner及其测试，托管CI待对应发布提交实读。
+
+该组公开为`6599e05da0edbec2adac570c9f75cc43f927c69b`后，[实际CI40306913437](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40306913437)失败，不能再记作等待或通过。官方CPU1013 passed/2 skipped/11 failed/2 errors，轻量678 passed/337 skipped/11 failed/2 errors；失败来自旧namespace夹具缺浅克隆历史对象及事务测试的临时磁盘前提。后续仅修复有界fetch和测试空间fixture，worker及生产15GiB门槛保持原字节，原失败记录保留。
+
+后续正式classic入口5285与CI修复的75文件快照SHA为`d9f8283741000a5dfe151c13ae463b2e964de7669e7c5d170f42c4689208ade4`。实际本机完整**1076 passed/3 skipped**（267.26s）、轻量**727 passed/352依赖skip**（21.59s）；ViT-L本次实际通过，三项skip为两CUDA限定正例及新formal入口缺实际GPUbundle。源码与独立复审范围分别保留；这些CPU结果不能授权未运行的正式GPU训练，也不覆盖后续评价模块。新发布头的托管结果仍须按其实际运行核验。
