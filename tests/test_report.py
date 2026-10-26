@@ -369,6 +369,30 @@ def test_export_rejects_unknown_emg_context_contract(tmp_path, experiment):
         build_export(run, 'Unknown', checkpoint_loader=read_checkpoint)
 
 
+def test_large_official_experiment_exports_complete_aligned_trajectory(tmp_path):
+    run = tmp_path/'run'
+    complete_run(run, recipe_config={
+        'upstream_experiment': 'emgformer/egoemg_emgformer_large'})
+    report = build_export(run, 'EMGFormer-L', checkpoint_loader=read_checkpoint)
+    trajectory = report['test']['sampling']['trajectory']
+    assert trajectory['time_points_per_window'] == 11490
+    assert trajectory['overall']['valid_angle_count'] == 1011120
+    assert build_status(run)['model_label'] == 'EMGFormer-L'
+
+
+def test_large_export_rejects_full_input_instead_of_aligned_trajectory(tmp_path):
+    run = tmp_path/'run'
+    summary = complete_run(run, recipe_config={
+        'upstream_experiment': 'emgformer/egoemg_emgformer_large'})
+    summary['test']['sampling']['trajectory'] = metrics('trajectory', trajectory_points=12000)
+    save_json(run/'summary.json', summary)
+    events = [json.loads(line) for line in (run/'progress.jsonl').read_text().splitlines()]
+    events[-1]['test'] = summary['test']
+    (run/'progress.jsonl').write_text(''.join(json.dumps(event)+'\n' for event in events))
+    with pytest.raises(ReportError, match='trajectory observations'):
+        build_export(run, 'EMGFormer-L', checkpoint_loader=read_checkpoint)
+
+
 @pytest.mark.parametrize('stage', ['test', 'validation'])
 def test_full_trajectory_accepts_masked_angles_without_shortening_coverage(tmp_path, stage):
     run = tmp_path/'run'; summary = complete_run(run)

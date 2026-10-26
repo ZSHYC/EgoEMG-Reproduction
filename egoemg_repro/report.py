@@ -120,6 +120,7 @@ def _kind(config):
 def _model_name(config):
     known = {'emgformer/egoemg_emgformer_small':'EMGFormer-S',
              'emgformer/egoemg_emgformer_middle':'EMGFormer-M',
+             'emgformer/egoemg_emgformer_large':'EMGFormer-L',
              'fusion/vision_resnet18':'ResNet-18',
              'fusion/fusion_rn18_s_center_8ch':'ResNet-18 + EMGFormer-S'}
     return known.get(config.get('upstream_experiment'),
@@ -199,13 +200,14 @@ def build_status(run):
 
 
 def _trajectory_points(config):
-    """Pinned S/M tds_slim context, also enforced by the frozen model builder."""
+    """Pinned S/M/L tds_slim context, also enforced by the model builder."""
     if _kind(config) != 'emg':
         return None
     if config.get('upstream_experiment') not in {
-            'emgformer/egoemg_emgformer_small', 'emgformer/egoemg_emgformer_middle'}:
+            'emgformer/egoemg_emgformer_small', 'emgformer/egoemg_emgformer_middle',
+            'emgformer/egoemg_emgformer_large'}:
         raise ReportError('unsupported EMG trajectory context contract')
-    # Both pinned experiments have left_context=510 and right_context=0;
+    # All three pinned experiments have left_context=510 and right_context=0;
     # prediction interpolation targets the entire cropped label interval.
     length = _count(config.get('window_length'), 'trajectory input window length')
     if length <= 510:

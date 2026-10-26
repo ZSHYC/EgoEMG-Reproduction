@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "upstream_experiment": "emgformer/egoemg_emgformer_large",
+  "window_length": 12000,
+  "train_stride": 1200,
+  "eval_stride": 12000,
+  "val_fraction": 0.12,
+  "batch_size": 500,
+  "official_batch_size": 500,
+  "batch_size_note": "Official large recipe batch size 500; real-data acceptance must precede the full run. Uses the existing legacy cohort, not the official unified dataset.",
+  "num_workers": 6,
+  "epochs": 200,
+  "lr": 5e-05,
+  "weight_decay": 0.01,
+  "eta_min": 1e-05,
+  "gradient_clip": 1.0,
+  "precision": "bfloat16",
+  "fingertip_weight": 0.01,
+  "bounded_eval_batches": 4,
+  "augmentation": "official_rotation",
+  "matmul_precision": "high"
+}
