@@ -1,0 +1,1747 @@
+{
+  "schema_version": 1,
+  "status": "complete_frame_audit_projection",
+  "data_scope": "recorded_legacy_frame_audit",
+  "scope": "shared synchronized timeline rows only; not hand, window, center or independent-person counts",
+  "definition_count": 60,
+  "observed_class_count": 60,
+  "active_observed_class_count": 60,
+  "timeline_frames": {
+    "total": 66161725,
+    "active": 65600616,
+    "inactive": 561109,
+    "defined": 65600616,
+    "unassigned": 561109,
+    "active_defined": 65600616,
+    "raw50": 86952
+  },
+  "by_split": {
+    "train": {
+      "total": 49409330,
+      "active": 48956244,
+      "inactive": 453086,
+      "defined": 48956244,
+      "unassigned": 453086,
+      "active_defined": 48956244,
+      "raw50": 86952
+    },
+    "user": {
+      "total": 6469595,
+      "active": 6399890,
+      "inactive": 69705,
+      "defined": 6399890,
+      "unassigned": 69705,
+      "active_defined": 6399890,
+      "raw50": 0
+    },
+    "gesture": {
+      "total": 9020820,
+      "active": 8984573,
+      "inactive": 36247,
+      "defined": 8984573,
+      "unassigned": 36247,
+      "active_defined": 8984573,
+      "raw50": 0
+    },
+    "both": {
+      "total": 1261980,
+      "active": 1259909,
+      "inactive": 2071,
+      "defined": 1259909,
+      "unassigned": 2071,
+      "active_defined": 1259909,
+      "raw50": 0
+    }
+  },
+  "by_gesture": [
+    {
+      "id": 0,
+      "name": "ASL1",
+      "family": "Single-hand",
+      "total": 1074402,
+      "active": 1074402,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 1,
+      "name": "ASL2",
+      "family": "Single-hand",
+      "total": 1086935,
+      "active": 1086935,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 2,
+      "name": "ASL3",
+      "family": "Single-hand",
+      "total": 1098496,
+      "active": 1098496,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 3,
+      "name": "ASL4",
+      "family": "Single-hand",
+      "total": 1168318,
+      "active": 1168318,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 4,
+      "name": "ASL5",
+      "family": "Single-hand",
+      "total": 1150662,
+      "active": 1150662,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 5,
+      "name": "ASL6",
+      "family": "Single-hand",
+      "total": 1260645,
+      "active": 1260645,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 6,
+      "name": "ASL7",
+      "family": "Single-hand",
+      "total": 1289079,
+      "active": 1289079,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 7,
+      "name": "ASL8",
+      "family": "Single-hand",
+      "total": 1322742,
+      "active": 1322742,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 8,
+      "name": "ASL9",
+      "family": "Single-hand",
+      "total": 1367775,
+      "active": 1367775,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 9,
+      "name": "Claw3",
+      "family": "Single-hand",
+      "total": 1356425,
+      "active": 1356425,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 10,
+      "name": "Claw5",
+      "family": "Single-hand",
+      "total": 1369348,
+      "active": 1369348,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 11,
+      "name": "FreeAction",
+      "family": "Single-hand",
+      "total": 1387821,
+      "active": 1387821,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 12,
+      "name": "ILY",
+      "family": "Single-hand",
+      "total": 1385942,
+      "active": 1385942,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 13,
+      "name": "IndexBow",
+      "family": "Single-hand",
+      "total": 1366006,
+      "active": 1366006,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 14,
+      "name": "IndexMiddleClaw",
+      "family": "Single-hand",
+      "total": 1336673,
+      "active": 1336673,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 15,
+      "name": "JoystickCircle",
+      "family": "Single-hand",
+      "total": 1194933,
+      "active": 1194933,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 16,
+      "name": "JoystickSlide",
+      "family": "Single-hand",
+      "total": 1208378,
+      "active": 1208378,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 17,
+      "name": "MiddleBow",
+      "family": "Single-hand",
+      "total": 1229818,
+      "active": 1229818,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 18,
+      "name": "Nine",
+      "family": "Single-hand",
+      "total": 1261545,
+      "active": 1261545,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 19,
+      "name": "PalmYaw",
+      "family": "Single-hand",
+      "total": 1250860,
+      "active": 1250860,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 20,
+      "name": "PinchMiddle",
+      "family": "Single-hand",
+      "total": 1256767,
+      "active": 1256767,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 21,
+      "name": "PinkyBow",
+      "family": "Single-hand",
+      "total": 1254798,
+      "active": 1254798,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 22,
+      "name": "Rest",
+      "family": "Single-hand",
+      "total": 1265441,
+      "active": 1265441,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 23,
+      "name": "RingAndThumb",
+      "family": "Single-hand",
+      "total": 1243530,
+      "active": 1243530,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 24,
+      "name": "RingBow",
+      "family": "Single-hand",
+      "total": 1256776,
+      "active": 1256776,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 25,
+      "name": "Rock",
+      "family": "Single-hand",
+      "total": 1210184,
+      "active": 1210184,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 26,
+      "name": "Thumb",
+      "family": "Single-hand",
+      "total": 1170846,
+      "active": 1170846,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 27,
+      "name": "nocontact_disperse_palm",
+      "family": "Single-hand",
+      "total": 1159092,
+      "active": 1159092,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 28,
+      "name": "nocontact_free",
+      "family": "Single-hand",
+      "total": 1164683,
+      "active": 1164683,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 29,
+      "name": "nocontact_grab",
+      "family": "Single-hand",
+      "total": 1157157,
+      "active": 1157157,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 30,
+      "name": "Clap",
+      "family": "Symmetric bimanual",
+      "total": 958667,
+      "active": 958667,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 31,
+      "name": "CrossHand",
+      "family": "Symmetric bimanual",
+      "total": 991871,
+      "active": 991871,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 32,
+      "name": "CrossStretch",
+      "family": "Symmetric bimanual",
+      "total": 1013331,
+      "active": 1013331,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 33,
+      "name": "FingerPullLeft",
+      "family": "Asymmetric bimanual",
+      "total": 1018330,
+      "active": 1018330,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 34,
+      "name": "FingerPullRight",
+      "family": "Asymmetric bimanual",
+      "total": 990148,
+      "active": 990148,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 35,
+      "name": "FingerTipTouch",
+      "family": "Symmetric bimanual",
+      "total": 1005413,
+      "active": 1005413,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 36,
+      "name": "FistBump",
+      "family": "Symmetric bimanual",
+      "total": 1030830,
+      "active": 1030830,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 37,
+      "name": "Gaming",
+      "family": "Symmetric bimanual",
+      "total": 996288,
+      "active": 996288,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 38,
+      "name": "HandClasp",
+      "family": "Symmetric bimanual",
+      "total": 987208,
+      "active": 987208,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 39,
+      "name": "HandRub",
+      "family": "Symmetric bimanual",
+      "total": 1027276,
+      "active": 1027276,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 40,
+      "name": "IndexTapping",
+      "family": "Symmetric bimanual",
+      "total": 1014176,
+      "active": 1014176,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 41,
+      "name": "PalmRoll",
+      "family": "Asymmetric bimanual",
+      "total": 967242,
+      "active": 967242,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 42,
+      "name": "PalmStack",
+      "family": "Symmetric bimanual",
+      "total": 967448,
+      "active": 967448,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 43,
+      "name": "PinkyHook",
+      "family": "Asymmetric bimanual",
+      "total": 947382,
+      "active": 947382,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 44,
+      "name": "Prayer",
+      "family": "Symmetric bimanual",
+      "total": 953321,
+      "active": 953321,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 45,
+      "name": "Squeeze",
+      "family": "Asymmetric bimanual",
+      "total": 936040,
+      "active": 936040,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 46,
+      "name": "SymOpen",
+      "family": "Symmetric bimanual",
+      "total": 950631,
+      "active": 950631,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 47,
+      "name": "SymSwing",
+      "family": "Symmetric bimanual",
+      "total": 974877,
+      "active": 974877,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 48,
+      "name": "ThumbWrestle",
+      "family": "Symmetric bimanual",
+      "total": 1004106,
+      "active": 1004106,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 49,
+      "name": "Typing",
+      "family": "Symmetric bimanual",
+      "total": 1022450,
+      "active": 1022450,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 50,
+      "name": "raw",
+      "family": "Symmetric bimanual",
+      "total": 86952,
+      "active": 86952,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 51,
+      "name": "Kiss",
+      "family": "Symmetric bimanual",
+      "total": 944583,
+      "active": 944583,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 52,
+      "name": "MiddleOppo",
+      "family": "Symmetric bimanual",
+      "total": 927398,
+      "active": 927398,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 53,
+      "name": "Beijing",
+      "family": "Asymmetric bimanual",
+      "total": 1048101,
+      "active": 1048101,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 54,
+      "name": "Checky",
+      "family": "Asymmetric bimanual",
+      "total": 966390,
+      "active": 966390,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 55,
+      "name": "PairClaw",
+      "family": "Asymmetric bimanual",
+      "total": 927094,
+      "active": 927094,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 56,
+      "name": "PairOK",
+      "family": "Asymmetric bimanual",
+      "total": 916750,
+      "active": 916750,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 57,
+      "name": "Picture",
+      "family": "Asymmetric bimanual",
+      "total": 907337,
+      "active": 907337,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 58,
+      "name": "PinchWring",
+      "family": "Asymmetric bimanual",
+      "total": 888347,
+      "active": 888347,
+      "inactive": 0,
+      "observed": true
+    },
+    {
+      "id": 59,
+      "name": "ThumbOppo",
+      "family": "Asymmetric bimanual",
+      "total": 924552,
+      "active": 924552,
+      "inactive": 0,
+      "observed": true
+    }
+  ],
+  "records": [
+    {
+      "class_id": -1,
+      "split": "train",
+      "active": false,
+      "synchronized_rows": 453086
+    },
+    {
+      "class_id": 0,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 916186
+    },
+    {
+      "class_id": 1,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 951407
+    },
+    {
+      "class_id": 2,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 978632
+    },
+    {
+      "class_id": 3,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1048404
+    },
+    {
+      "class_id": 4,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1030747
+    },
+    {
+      "class_id": 5,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1112175
+    },
+    {
+      "class_id": 6,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1140525
+    },
+    {
+      "class_id": 7,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1174211
+    },
+    {
+      "class_id": 8,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1219273
+    },
+    {
+      "class_id": 9,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1207924
+    },
+    {
+      "class_id": 10,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1220897
+    },
+    {
+      "class_id": 11,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1239321
+    },
+    {
+      "class_id": 12,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1237426
+    },
+    {
+      "class_id": 13,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1217503
+    },
+    {
+      "class_id": 14,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1087844
+    },
+    {
+      "class_id": 15,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 2420
+    },
+    {
+      "class_id": 16,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 963721
+    },
+    {
+      "class_id": 17,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 990518
+    },
+    {
+      "class_id": 18,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1359
+    },
+    {
+      "class_id": 19,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 915325
+    },
+    {
+      "class_id": 21,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1028386
+    },
+    {
+      "class_id": 22,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1136933
+    },
+    {
+      "class_id": 23,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1114992
+    },
+    {
+      "class_id": 24,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1108274
+    },
+    {
+      "class_id": 25,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1061667
+    },
+    {
+      "class_id": 26,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 1022328
+    },
+    {
+      "class_id": 27,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 912850
+    },
+    {
+      "class_id": 29,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 923938
+    },
+    {
+      "class_id": 30,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 890119
+    },
+    {
+      "class_id": 31,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 903342
+    },
+    {
+      "class_id": 32,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 910199
+    },
+    {
+      "class_id": 33,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 909805
+    },
+    {
+      "class_id": 34,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 881591
+    },
+    {
+      "class_id": 35,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 826016
+    },
+    {
+      "class_id": 36,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 4469
+    },
+    {
+      "class_id": 37,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 799954
+    },
+    {
+      "class_id": 38,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 878702
+    },
+    {
+      "class_id": 39,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 898770
+    },
+    {
+      "class_id": 40,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 885723
+    },
+    {
+      "class_id": 41,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 762278
+    },
+    {
+      "class_id": 43,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 813650
+    },
+    {
+      "class_id": 44,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 777870
+    },
+    {
+      "class_id": 46,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 764090
+    },
+    {
+      "class_id": 47,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 866300
+    },
+    {
+      "class_id": 48,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 875568
+    },
+    {
+      "class_id": 49,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 887573
+    },
+    {
+      "class_id": 50,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 86952
+    },
+    {
+      "class_id": 51,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 748959
+    },
+    {
+      "class_id": 53,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 945458
+    },
+    {
+      "class_id": 54,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 882938
+    },
+    {
+      "class_id": 55,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 734960
+    },
+    {
+      "class_id": 56,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 788261
+    },
+    {
+      "class_id": 57,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 711688
+    },
+    {
+      "class_id": 58,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 759809
+    },
+    {
+      "class_id": 59,
+      "split": "train",
+      "active": true,
+      "synchronized_rows": 796014
+    },
+    {
+      "class_id": -1,
+      "split": "user",
+      "active": false,
+      "synchronized_rows": 69705
+    },
+    {
+      "class_id": 0,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 158216
+    },
+    {
+      "class_id": 1,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 135528
+    },
+    {
+      "class_id": 2,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 119864
+    },
+    {
+      "class_id": 3,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 119914
+    },
+    {
+      "class_id": 4,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 119915
+    },
+    {
+      "class_id": 5,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148470
+    },
+    {
+      "class_id": 6,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148554
+    },
+    {
+      "class_id": 7,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148531
+    },
+    {
+      "class_id": 8,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148502
+    },
+    {
+      "class_id": 9,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148501
+    },
+    {
+      "class_id": 10,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148451
+    },
+    {
+      "class_id": 11,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148500
+    },
+    {
+      "class_id": 12,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148516
+    },
+    {
+      "class_id": 13,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148503
+    },
+    {
+      "class_id": 14,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128039
+    },
+    {
+      "class_id": 16,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 130787
+    },
+    {
+      "class_id": 17,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 137819
+    },
+    {
+      "class_id": 19,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 116850
+    },
+    {
+      "class_id": 21,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 134181
+    },
+    {
+      "class_id": 22,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128508
+    },
+    {
+      "class_id": 23,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128538
+    },
+    {
+      "class_id": 24,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148502
+    },
+    {
+      "class_id": 25,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148517
+    },
+    {
+      "class_id": 26,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 148518
+    },
+    {
+      "class_id": 27,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 132253
+    },
+    {
+      "class_id": 29,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 142407
+    },
+    {
+      "class_id": 30,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 68548
+    },
+    {
+      "class_id": 31,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 88529
+    },
+    {
+      "class_id": 32,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 103132
+    },
+    {
+      "class_id": 33,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 108525
+    },
+    {
+      "class_id": 34,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 108557
+    },
+    {
+      "class_id": 35,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 104829
+    },
+    {
+      "class_id": 37,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 96292
+    },
+    {
+      "class_id": 38,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 108506
+    },
+    {
+      "class_id": 39,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128506
+    },
+    {
+      "class_id": 40,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128453
+    },
+    {
+      "class_id": 41,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 120239
+    },
+    {
+      "class_id": 43,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128520
+    },
+    {
+      "class_id": 44,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 104235
+    },
+    {
+      "class_id": 46,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 96969
+    },
+    {
+      "class_id": 47,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 108577
+    },
+    {
+      "class_id": 48,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128538
+    },
+    {
+      "class_id": 49,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 134877
+    },
+    {
+      "class_id": 51,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 112816
+    },
+    {
+      "class_id": 53,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 102643
+    },
+    {
+      "class_id": 54,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 83452
+    },
+    {
+      "class_id": 55,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 117200
+    },
+    {
+      "class_id": 56,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128489
+    },
+    {
+      "class_id": 57,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 117498
+    },
+    {
+      "class_id": 58,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128538
+    },
+    {
+      "class_id": 59,
+      "split": "user",
+      "active": true,
+      "synchronized_rows": 128538
+    },
+    {
+      "class_id": -1,
+      "split": "gesture",
+      "active": false,
+      "synchronized_rows": 36247
+    },
+    {
+      "class_id": 14,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 100313
+    },
+    {
+      "class_id": 15,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 1044045
+    },
+    {
+      "class_id": 16,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 96140
+    },
+    {
+      "class_id": 17,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 90813
+    },
+    {
+      "class_id": 18,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 1111653
+    },
+    {
+      "class_id": 19,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 187036
+    },
+    {
+      "class_id": 20,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 1108301
+    },
+    {
+      "class_id": 21,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 81521
+    },
+    {
+      "class_id": 27,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 97723
+    },
+    {
+      "class_id": 28,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 1016148
+    },
+    {
+      "class_id": 29,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 84669
+    },
+    {
+      "class_id": 35,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 70872
+    },
+    {
+      "class_id": 36,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 917804
+    },
+    {
+      "class_id": 37,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 87840
+    },
+    {
+      "class_id": 41,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 76495
+    },
+    {
+      "class_id": 42,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 838925
+    },
+    {
+      "class_id": 43,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 5212
+    },
+    {
+      "class_id": 44,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 66874
+    },
+    {
+      "class_id": 45,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 827517
+    },
+    {
+      "class_id": 46,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 77984
+    },
+    {
+      "class_id": 51,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 67069
+    },
+    {
+      "class_id": 52,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 798859
+    },
+    {
+      "class_id": 55,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 63631
+    },
+    {
+      "class_id": 57,
+      "split": "gesture",
+      "active": true,
+      "synchronized_rows": 67129
+    },
+    {
+      "class_id": -1,
+      "split": "both",
+      "active": false,
+      "synchronized_rows": 2071
+    },
+    {
+      "class_id": 14,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 20477
+    },
+    {
+      "class_id": 15,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 148468
+    },
+    {
+      "class_id": 16,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 17730
+    },
+    {
+      "class_id": 17,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 10668
+    },
+    {
+      "class_id": 18,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 148533
+    },
+    {
+      "class_id": 19,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 31649
+    },
+    {
+      "class_id": 20,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 148466
+    },
+    {
+      "class_id": 21,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 10710
+    },
+    {
+      "class_id": 27,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 16266
+    },
+    {
+      "class_id": 28,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 148535
+    },
+    {
+      "class_id": 29,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 6143
+    },
+    {
+      "class_id": 35,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 3696
+    },
+    {
+      "class_id": 36,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 108557
+    },
+    {
+      "class_id": 37,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 12202
+    },
+    {
+      "class_id": 41,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 8230
+    },
+    {
+      "class_id": 42,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 128523
+    },
+    {
+      "class_id": 44,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 4342
+    },
+    {
+      "class_id": 45,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 108523
+    },
+    {
+      "class_id": 46,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 11588
+    },
+    {
+      "class_id": 51,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 15739
+    },
+    {
+      "class_id": 52,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 128539
+    },
+    {
+      "class_id": 55,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 11303
+    },
+    {
+      "class_id": 57,
+      "split": "both",
+      "active": true,
+      "synchronized_rows": 11022
+    }
+  ],
+  "full60_view": {
+    "definition_count": 60,
+    "observed_class_count": 60,
+    "active_observed_class_count": 60,
+    "synchronized_rows": 65600616,
+    "active_synchronized_rows": 65600616,
+    "family_definition_counts": {
+      "Single-hand": 30,
+      "Symmetric bimanual": 18,
+      "Asymmetric bimanual": 12
+    },
+    "family_rows": {
+      "Single-hand": 37306077,
+      "Symmetric bimanual": 16856826,
+      "Asymmetric bimanual": 11437713
+    },
+    "family_active_rows": {
+      "Single-hand": 37306077,
+      "Symmetric bimanual": 16856826,
+      "Asymmetric bimanual": 11437713
+    },
+    "denominator": "shared synchronized timeline rows in defined classes; unassigned rows are separate"
+  },
+  "exclude_raw59_frame_view": {
+    "definition_count": 59,
+    "observed_class_count": 59,
+    "active_observed_class_count": 59,
+    "synchronized_rows": 65513664,
+    "active_synchronized_rows": 65513664,
+    "family_definition_counts": {
+      "Single-hand": 30,
+      "Symmetric bimanual": 17,
+      "Asymmetric bimanual": 12
+    },
+    "family_rows": {
+      "Single-hand": 37306077,
+      "Symmetric bimanual": 16769874,
+      "Asymmetric bimanual": 11437713
+    },
+    "family_active_rows": {
+      "Single-hand": 37306077,
+      "Symmetric bimanual": 16769874,
+      "Asymmetric bimanual": 11437713
+    },
+    "denominator": "shared synchronized timeline rows in defined classes; unassigned rows are separate",
+    "before_count": 65600616,
+    "raw_excluded_count": 86952,
+    "after_count": 65513664,
+    "before_active": 65600616,
+    "raw_excluded_active": 86952,
+    "after_active": 65513664,
+    "excluded_ids": [
+      50
+    ],
+    "scope": "59-class frame view only; no model errors or error-analysis sample count"
+  },
+  "sources": {
+    "official": {
+      "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "files": [
+        {
+          "filename": "egoemg/constants.py",
+          "sha256": "01f4ad9d6be5b587d46d28b01c2325d584a593a63bd14c79dd0f8e2a1e561099"
+        },
+        {
+          "filename": "scripts/paper/generate_per_gesture_appendix.py",
+          "sha256": "590b85ee7f1675e82ca7cf02fa72464b6c3c335b068467ff8d35484fd91ecf1d"
+        },
+        {
+          "filename": "scripts/paper/plot_paper_figures.py",
+          "sha256": "0da286e14f434d8b66a3fa7cb297b4175a3b77f899ef1c7642409936cd755289"
+        },
+        {
+          "filename": "egoemg/UmeTrack/dataset/generic_hand_model.json",
+          "sha256": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31"
+        },
+        {
+          "filename": "scripts/eval/analyze_per_gesture.py",
+          "sha256": "448e83f7a3698334d1813fda8ce0b7303672f9d95740442157ded4aa244d28a7"
+        },
+        {
+          "filename": "egoemg/datasets/egoemg_memmap_dataset.py",
+          "sha256": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060"
+        },
+        {
+          "filename": "egoemg/metrics.py",
+          "sha256": "85aac28fc2cac11e4714bf6a18a52b2faeccc488d6135202aae8a8e974e95309"
+        },
+        {
+          "filename": "egoemg/lightning.py",
+          "sha256": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899"
+        },
+        {
+          "filename": "scripts/ik/batch_ik_mesh.py",
+          "sha256": "794fdfcb82a692812de4ca7a15fd4e41c0c3f3717424dd917fb05e4f9508da2c"
+        }
+      ],
+      "policy": "approved revision, clean source tree and pinned source contents"
+    },
+    "reproduction": {
+      "filename": "egoemg_repro/semantic_tables.py",
+      "sha256": "fe0e0e3a87888bcca763bd28e8ea894328316c36d60b2b9e3e1616c7b272d1ea"
+    },
+    "legacy_reader": {
+      "filename": "egoemg_repro/data.py",
+      "sha256": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e"
+    },
+    "manifest": {
+      "filename": "manifest.json",
+      "sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+    },
+    "metadata": {
+      "filename": "metadata.npz",
+      "sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+    },
+    "metadata_summary": {
+      "filename": "metadata_summary.json",
+      "sha256": "34736a9ef3c311a0ddc4a060d6a996c6c850c26f90d1cb32856c9231fe87be62"
+    },
+    "frame_audit": {
+      "filename": "legacy-gesture-frame-audit.json",
+      "sha256": "c590c1a82831c297a75c3cd67b7de47ac8abb47a7e685faf2936cca79c7f08eb"
+    },
+    "fields": {
+      "label_gesture_class": {
+        "filename": "label_gesture_class.dat",
+        "dtype": "<i4",
+        "shape": [
+          66161725
+        ],
+        "bytes": 264646900,
+        "sha256": "55a07d9d639483e54eef963a527d50554902d632eea4e42a29651f40f83b4212",
+        "checksum_basis": "local_transfer",
+        "matches_acquisition_receipt": true
+      },
+      "label_gesture_active": {
+        "filename": "label_gesture_active.dat",
+        "dtype": "|b1",
+        "shape": [
+          66161725
+        ],
+        "bytes": 66161725,
+        "sha256": "27bfef6dc99d98110613acc8685dad1ee5321f119098d9bac772c27d4f77d7cb",
+        "checksum_basis": "local_transfer",
+        "matches_acquisition_receipt": true
+      },
+      "frame_split_id": {
+        "filename": "frame_split_id.dat",
+        "dtype": "|i1",
+        "shape": [
+          66161725
+        ],
+        "bytes": 66161725,
+        "sha256": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+        "checksum_basis": "local_transfer",
+        "matches_acquisition_receipt": true
+      }
+    },
+    "coverage_reproduction": {
+      "filename": "egoemg_repro/semantic_coverage.py",
+      "sha256": "0cd84bfae0398f158c5b46423f280571126ce12fa84e830c7df805d4a9064e9e"
+    }
+  },
+  "provenance": {
+    "computation_input": "verified_frame_audit",
+    "source_array_rehash_performed_by": "recorded_audit",
+    "this_export_rescanned_raw_arrays": false,
+    "no_hand_duplication": true,
+    "observed_utc": "2026-10-26T03:57:25.322850+00:00",
+    "verification_scope": "schema and aggregate consistency checked here; raw-array hashes and full scan belong to the recorded audit",
+    "publisher_authenticity": "not established by local-transfer hashes"
+  },
+  "balances": {
+    "aggregate_rows": 66161725,
+    "active_plus_inactive": 66161725,
+    "defined_plus_unassigned": 66161725,
+    "family_defined_rows": 65600616,
+    "after_raw_plus_excluded": 65600616
+  },
+  "notes": [
+    "Activity is not a joint-label validity mask.",
+    "The complete vocabulary keeps raw ID 50; its exclusion is explicit only in the 59-class frame view.",
+    "Zero observed frames for a defined class do not imply zero model error.",
+    "No window, hand-center, valid-angle, participant or training result is inferred from frame counts."
+  ],
+  "window_centers": {
+    "status": "not_computed",
+    "count": null
+  },
+  "hand_centers": {
+    "status": "not_computed",
+    "count": null
+  },
+  "raw_mask_hand_frames": {
+    "status": "not_computed",
+    "count": null
+  },
+  "center_valid_angles": {
+    "status": "not_computed",
+    "count": null
+  },
+  "model_error_statistics": {
+    "status": "not_computed",
+    "count": null
+  }
+}

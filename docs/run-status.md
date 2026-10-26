@@ -30,7 +30,13 @@ legacy raw的直连下载因TLS握手中断退出。随后通过显式SSH路由�
 
 Task3的[官方模型入口与真实mini CPU证据](../results/emg2pose-mini-runtime.md)已经完成：S/M/L各检查1个实际窗口，16ch/20D、7790→7280、归一化、构造前seed、严格禁网重载均核验；526是可用窗口数，未做完整526评价。独立审查的字段hash后变更漏洞已用真实RED修复，11个新变更用例通过，Spec/Quality最终均PASS。修后核心统一检查为445 passed、1个未改ViT-L内存准入skip；真实无Torch环境379 passed、67个可选依赖skip。两项运行均明确排除仍在实现的semantic模块测试，不将未完任务计入。新提交托管CI仍需对应实际运行另验。
 
-该Task3代码已公开为`79153e1e3895af2f216cebcc927528cff8e0b1a4`。[对应托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40268110037)实际成功：官方CPU **446 passed、无skip**，轻量379 passed/67可选依赖skip，两项shell检查通过。新增官方Lightning依赖在CI真实安装并通过pip check；本机历史内存skip仍保留，不改写为本地通过。Task4两步优化/完整工程评价、semantic定义覆盖及classic模型contract正在各自独立实现，未由此CI计作完成。
+该Task3代码已公开为`79153e1e3895af2f216cebcc927528cff8e0b1a4`。[对应托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40268110037)实际成功：官方CPU **446 passed、无skip**，轻量379 passed/67可选依赖skip，两项shell检查通过。新增官方Lightning依赖在CI真实安装并通过pip check；本机历史内存skip仍保留，不改写为本地通过。Task4两步优化/完整工程评价仍在独立修复与复审，不计作完成。
+
+[60类词表](../results/dataset-semantics/gesture-vocabulary.md)、[22维关节语义](../results/dataset-semantics/joint-angle-semantics.md)与[实际同步帧覆盖](../results/dataset-semantics/coverage.md)现已独立审核通过：66,161,725行中全部60类确有观测，raw50有86,952行，active/inactive与四split/三族群总数守恒。原帧审计实读并重哈希三个全数组，当前导出使用该审计并核对来源与聚合，不声称再次扫描。窗口中心、手计数、有效角度和模型误差仍为not_computed。
+
+[classic模型入口](../egoemg_repro/classic_emg.py)也已独立审核通过：四个基础/with_aug配置严格白名单，原始双loss key、原模型tuple及2D mask保留；VEMG明确8ch/WL7790→6000、NeuroPose16槽/WL7790→7790，真实参数和错误布局负例通过。仅为模型接口工程验收，未进行优化或完整训练，loader/mask/固定scalar归一化与FP16仍待实现。
+
+新增上述模块后的同一53文件快照，本机CPU整体检查为**518 passed、1个既有ViT-L内存skip**（66.09秒）；无Torch层为**433 passed、86个可选依赖skip**（15.92秒），采用与轻量CI相同的不设置EGOEMG_UPSTREAM方式。两项均明确排除尚未完成的Task4；尚无本次新增代码的托管CI结论，旧Task3成功不能代替它。
 
 新增[损失与选模审计](../results/official-loss-audit.md)：实际Hydra合成、未改官方Lightning归约AST和独立复核发现，EgoEMG S/M/L、RN18、RN18+S、DINO-S及classic两项的两个指尖别名合计系数0.02；既有复现层实际为0.01。旧四结果和当前L/RN50/RN152源身份不改，继续明确为该legacy配方；不得把完成记录升级为官方字面协议等价。classic实际监控val_loss并有patience50，RN18/DINO-S有patience30；今后须保留真实回调行为。EMG2Pose三项仅有base指尖项0.01，不受该叠加影响。
 

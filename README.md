@@ -8,6 +8,8 @@
 
 > **新增协议审计：** 固定官方EgoEMG配置经Hydra合成与别名归约后，指尖项有效系数为0.02；既有legacy配方使用0.01。此前这一差异漏核，[实际11配置审计](results/official-loss-audit.md)已公开说明，旧结果与在跑legacy实验不能称为该官方损失的等价复现。EMG2Pose三项无此叠加，仍为0.01。
 
+新增[60类手势词表](results/dataset-semantics/gesture-vocabulary.md)、[22角语义](results/dataset-semantics/joint-angle-semantics.md)及[真实帧覆盖](results/dataset-semantics/coverage.md)已经独立核验；66,161,725个共享同步帧包含全部60类。帧数不等于窗口/手样本数，尚不构成逐手势模型误差结果。
+
 [![Reproduction checks](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml/badge.svg)](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml)
 [![Paper: arXiv 2605.05712v1](https://img.shields.io/badge/Paper-arXiv%3A2605.05712v1-355c7d)](https://arxiv.org/abs/2605.05712v1)
 [![Original code: MIT](https://img.shields.io/badge/Original_code-MIT-1e847c)](LICENSE)

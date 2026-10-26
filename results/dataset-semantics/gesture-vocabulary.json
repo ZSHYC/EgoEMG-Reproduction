@@ -1,0 +1,812 @@
+{
+  "schema_version": 1,
+  "scope": "definitions only; actual frame coverage is separate",
+  "definition_count": 60,
+  "family_definition_counts": {
+    "Single-hand": 30,
+    "Symmetric bimanual": 18,
+    "Asymmetric bimanual": 12
+  },
+  "observed_class_count": null,
+  "coverage_status": "not_computed",
+  "coverage_artifact": "coverage.json",
+  "rows": [
+    {
+      "id": 0,
+      "name": "ASL1",
+      "description_official": "ASL digit 1",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 1,
+      "name": "ASL2",
+      "description_official": "ASL digit 2",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 2,
+      "name": "ASL3",
+      "description_official": "ASL digit 3",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 3,
+      "name": "ASL4",
+      "description_official": "ASL digit 4",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 4,
+      "name": "ASL5",
+      "description_official": "ASL digit 5",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 5,
+      "name": "ASL6",
+      "description_official": "ASL digit 6",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 6,
+      "name": "ASL7",
+      "description_official": "ASL digit 7",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 7,
+      "name": "ASL8",
+      "description_official": "ASL digit 8",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 8,
+      "name": "ASL9",
+      "description_official": "ASL digit 9",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ASL1-ASL9",
+        "description": "American Sign Language digits 1 through 9"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 9,
+      "name": "Claw3",
+      "description_official": "Three-finger claw pose (index + middle + ring flexed)",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "Claw3",
+        "description": "Three-finger claw pose (index + middle + ring flexed)"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 10,
+      "name": "Claw5",
+      "description_official": "Five-finger claw pose (all fingers flexed)",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "Claw5",
+        "description": "Five-finger claw pose (all fingers flexed)"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 11,
+      "name": "FreeAction",
+      "description_official": "Free-form unconstrained hand action",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "FreeAction",
+        "description": "Free-form unconstrained hand action"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 12,
+      "name": "ILY",
+      "description_official": "I Love You hand sign (thumb, index, pinky extended)",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "ILY",
+        "description": "\u201cI Love You\u201d hand sign (thumb, index, pinky extended)"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 13,
+      "name": "IndexBow",
+      "description_official": "Index finger flexion/extension bowing",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "IndexBow",
+        "description": "Index finger flexion/extension bowing"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 14,
+      "name": "IndexMiddleClaw",
+      "description_official": "Index and middle fingers clawed, others extended",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "IndexMiddleClaw",
+        "description": "Index and middle fingers clawed, others extended"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 15,
+      "name": "JoystickCircle",
+      "description_official": "Circular joystick manipulation on the palm with thumb",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "JoystickCircle",
+        "description": "Circular joystick manipulation on the palm with thumb"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 16,
+      "name": "JoystickSlide",
+      "description_official": "Linear joystick sliding on the palm with thumb",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "JoystickSlide",
+        "description": "Linear joystick sliding on the palm with thumb"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 17,
+      "name": "MiddleBow",
+      "description_official": "Middle finger flexion/extension bowing",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "MiddleBow",
+        "description": "Middle finger flexion/extension bowing"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 18,
+      "name": "Nine",
+      "description_official": "Hand forming number 9 (four fingers curled, index up)",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "Nine",
+        "description": "Hand forming number 9 (four fingers curled, index up)"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 19,
+      "name": "PalmYaw",
+      "description_official": "Palm facing up/down rotation about the yaw axis",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "PalmYaw",
+        "description": "Palm facing up/down rotation about the yaw axis"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 20,
+      "name": "PinchMiddle",
+      "description_official": "Thumb to middle fingertip pinch",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "PinchMiddle",
+        "description": "Thumb to middle fingertip pinch"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 21,
+      "name": "PinkyBow",
+      "description_official": "Pinky finger flexion/extension bowing",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "PinkyBow",
+        "description": "Pinky finger flexion/extension bowing"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 22,
+      "name": "Rest",
+      "description_official": "Relaxed hand in neutral resting posture",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "Rest",
+        "description": "Relaxed hand in neutral resting posture"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 23,
+      "name": "RingAndThumb",
+      "description_official": "Ring finger touching thumb tip",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "RingAndThumb",
+        "description": "Ring finger touching thumb tip"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 24,
+      "name": "RingBow",
+      "description_official": "Ring finger flexion/extension bowing",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "RingBow",
+        "description": "Ring finger flexion/extension bowing"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 25,
+      "name": "Rock",
+      "description_official": "Rock on hand sign (index and pinky extended)",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "Rock",
+        "description": "\u201cRock on\u201d hand sign (index and pinky extended)"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 26,
+      "name": "Thumb",
+      "description_official": "Thumb up",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "Thumb",
+        "description": "Thumb up"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 27,
+      "name": "nocontact_disperse_palm",
+      "description_official": "Fingers spread apart with palm open, no contact",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "nocontact_disperse_palm",
+        "description": "Fingers spread apart with palm open, no contact"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 28,
+      "name": "nocontact_free",
+      "description_official": "Free-form finger motion without contact",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "nocontact_free",
+        "description": "Free-form finger motion without contact"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 29,
+      "name": "nocontact_grab",
+      "description_official": "Simulated grasping motion without object contact",
+      "family": "Single-hand",
+      "paper_reference": {
+        "row_name": "nocontact_grab",
+        "description": "Simulated grasping motion without contact"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 30,
+      "name": "Clap",
+      "description_official": "Both hands clapping together symmetrically",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "Clap",
+        "description": "Both hands clapping together symmetrically"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 31,
+      "name": "CrossHand",
+      "description_official": "Both hands crossed fingers",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "CrossHand",
+        "description": "Both hands crossed fingers"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 32,
+      "name": "CrossStretch",
+      "description_official": "Hands opposite fingers and stretched",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "CrossStretch",
+        "description": "Hands opposite fingers and stretched"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 33,
+      "name": "FingerPullLeft",
+      "description_official": "Left hand pulls right-hand fingers",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "FingerPullLeft",
+        "description": "Left hand pulls right-hand fingers"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 34,
+      "name": "FingerPullRight",
+      "description_official": "Right hand pulls left-hand fingers",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "FingerPullRight",
+        "description": "Right hand pulls left-hand fingers"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 35,
+      "name": "FingerTipTouch",
+      "description_official": "Matching fingertips of both hands touching",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "FingerTipTouch",
+        "description": "Matching fingertips of both hands touching"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 36,
+      "name": "FistBump",
+      "description_official": "Two fists bumping together",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "FistBump",
+        "description": "Two fists bumping together"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 37,
+      "name": "Gaming",
+      "description_official": "Both hands holding a game controller",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "Gaming",
+        "description": "Both hands holding a game controller"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 38,
+      "name": "HandClasp",
+      "description_official": "Hands clasped together",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "HandClasp",
+        "description": "Hands clasped together"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 39,
+      "name": "HandRub",
+      "description_official": "Rubbing palms together",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "HandRub",
+        "description": "Rubbing palms together"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 40,
+      "name": "IndexTapping",
+      "description_official": "Both index fingers tapping in the air",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "IndexTapping",
+        "description": "Both index fingers tapping in the air"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 41,
+      "name": "PalmRoll",
+      "description_official": "Palms facing, rolling around each other",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "PalmRoll",
+        "description": "Palms facing, rolling around each other"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 42,
+      "name": "PalmStack",
+      "description_official": "One palm stacked on top of the other",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "PalmStack",
+        "description": "One palm stacked on top of the other"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 43,
+      "name": "PinkyHook",
+      "description_official": "Pinky fingers hooked together",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "PinkyHook",
+        "description": "Pinky fingers hooked together"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 44,
+      "name": "Prayer",
+      "description_official": "Palms pressed together in prayer position",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "Prayer",
+        "description": "Palms pressed together in prayer position"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 45,
+      "name": "Squeeze",
+      "description_official": "Both hands squeezing an imaginary object",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "Squeeze",
+        "description": "Both hands squeezing an imaginary object"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 46,
+      "name": "SymOpen",
+      "description_official": "Both hands opening symmetrically from closed to open",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "SymOpen",
+        "description": "Both hands opening symmetrically from closed to open"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 47,
+      "name": "SymSwing",
+      "description_official": "Both hands swinging symmetrically side to side",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "SymSwing",
+        "description": "Both hands swinging symmetrically side to side"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 48,
+      "name": "ThumbWrestle",
+      "description_official": "Thumbs wrestling each other",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "ThumbWrestle",
+        "description": "Thumbs wrestling each other"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 49,
+      "name": "Typing",
+      "description_official": "Both hands typing on a virtual keyboard",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "Typing",
+        "description": "Both hands typing on a virtual keyboard"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 50,
+      "name": "raw",
+      "description_official": "Unconstrained bimanual hand movement",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "raw",
+        "description": "Unconstrained bimanual hand movement"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": true
+    },
+    {
+      "id": 51,
+      "name": "Kiss",
+      "description_official": "Fingertips of both hands touching (thumb and middle), then separating",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "Kiss",
+        "description": "Fingertips of both hands touching (Thumb and Middle), then separating"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 52,
+      "name": "MiddleOppo",
+      "description_official": "Middle and ring finger of one hand opposes the other hand",
+      "family": "Symmetric bimanual",
+      "paper_reference": {
+        "row_name": "MiddleOppo",
+        "description": "Middle and Ring fingers of one hand oppose the other hand"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 53,
+      "name": "Beijing",
+      "description_official": "Two hands crossing to make a 'Bei' Chinese character",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "Beijing",
+        "description": "Two hands crossing to make a \u201cBei\u201d Chinese character"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 54,
+      "name": "Checky",
+      "description_official": "Two hands thumb make 'Checky' sign",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "Checky",
+        "description": "Two hands with thumbs forming a \u201cChecky\u201d sign"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 55,
+      "name": "PairClaw",
+      "description_official": "Both hands clawing with asymmetric finger configurations",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "PairClaw",
+        "description": "Both hands clawing with asymmetric finger configurations"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 56,
+      "name": "PairOK",
+      "description_official": "Both hands forming OK signs",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "PairOK",
+        "description": "Both hands forming OK signs"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 57,
+      "name": "Picture",
+      "description_official": "Hands forming a picture frame rectangle",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "Picture",
+        "description": "Hands forming a picture frame rectangle"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 58,
+      "name": "PinchWring",
+      "description_official": "Two hand pinch and wring",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "PinchWring",
+        "description": "Two hands pinching and wringing"
+      },
+      "description_matches_paper": false,
+      "analysis59_excluded": false
+    },
+    {
+      "id": 59,
+      "name": "ThumbOppo",
+      "description_official": "Thumbs of both hands in opposition at different orientations",
+      "family": "Asymmetric bimanual",
+      "paper_reference": {
+        "row_name": "ThumbOppo",
+        "description": "Thumbs of both hands in opposition at different orientations"
+      },
+      "description_matches_paper": true,
+      "analysis59_excluded": false
+    }
+  ],
+  "sources": {
+    "official": {
+      "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "files": [
+        {
+          "filename": "egoemg/constants.py",
+          "sha256": "01f4ad9d6be5b587d46d28b01c2325d584a593a63bd14c79dd0f8e2a1e561099"
+        },
+        {
+          "filename": "scripts/paper/generate_per_gesture_appendix.py",
+          "sha256": "590b85ee7f1675e82ca7cf02fa72464b6c3c335b068467ff8d35484fd91ecf1d"
+        },
+        {
+          "filename": "scripts/paper/plot_paper_figures.py",
+          "sha256": "0da286e14f434d8b66a3fa7cb297b4175a3b77f899ef1c7642409936cd755289"
+        },
+        {
+          "filename": "egoemg/UmeTrack/dataset/generic_hand_model.json",
+          "sha256": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31"
+        },
+        {
+          "filename": "scripts/eval/analyze_per_gesture.py",
+          "sha256": "448e83f7a3698334d1813fda8ce0b7303672f9d95740442157ded4aa244d28a7"
+        },
+        {
+          "filename": "egoemg/datasets/egoemg_memmap_dataset.py",
+          "sha256": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060"
+        },
+        {
+          "filename": "egoemg/metrics.py",
+          "sha256": "85aac28fc2cac11e4714bf6a18a52b2faeccc488d6135202aae8a8e974e95309"
+        },
+        {
+          "filename": "egoemg/lightning.py",
+          "sha256": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899"
+        },
+        {
+          "filename": "scripts/ik/batch_ik_mesh.py",
+          "sha256": "794fdfcb82a692812de4ca7a15fd4e41c0c3f3717424dd917fb05e4f9508da2c"
+        }
+      ],
+      "policy": "approved revision, clean source tree and pinned source contents"
+    },
+    "reproduction": {
+      "filename": "egoemg_repro/semantic_tables.py",
+      "sha256": "fe0e0e3a87888bcca763bd28e8ea894328316c36d60b2b9e3e1616c7b272d1ea"
+    },
+    "legacy_reader": {
+      "filename": "egoemg_repro/data.py",
+      "sha256": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e"
+    },
+    "manifest": {
+      "filename": "manifest.json",
+      "sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+    },
+    "metadata": {
+      "filename": "metadata.npz",
+      "sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+    },
+    "metadata_summary": {
+      "filename": "metadata_summary.json",
+      "sha256": "34736a9ef3c311a0ddc4a060d6a996c6c850c26f90d1cb32856c9231fe87be62"
+    }
+  },
+  "paper_reference": {
+    "filename": "EgoEMG.pdf",
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+    "table": 4,
+    "page": 15,
+    "kind": "fixed manually checked transcription; not a runtime PDF read"
+  },
+  "notes": [
+    "IDs come from pinned code; Table 4 prints names without numeric IDs.",
+    "raw (ID 50) remains in the complete vocabulary and symmetric family.",
+    "The later 59-class error analysis excludes raw explicitly; these definitions are not errors.",
+    "Official descriptions are retained; fixed PDF wording differences are recorded separately."
+  ]
+}

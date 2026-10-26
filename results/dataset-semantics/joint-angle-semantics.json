@@ -1,0 +1,726 @@
+{
+  "schema_version": 1,
+  "definition_count": 22,
+  "finger_dimensions": 20,
+  "wrist_dimensions": 2,
+  "rows": [
+    {
+      "index": 0,
+      "name": "THUMB_CMC_FE",
+      "finger": "thumb",
+      "joint": "CMC",
+      "motion": "FE",
+      "groups": [
+        "thumb",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 0,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.7872664332389832,
+        1.287266492843628
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 1,
+      "name": "THUMB_CMC_AA",
+      "finger": "thumb",
+      "joint": "CMC",
+      "motion": "AA",
+      "groups": [
+        "thumb",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 1,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.6117993593215942,
+        0.6117993593215942
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 2,
+      "name": "THUMB_MCP_FE",
+      "finger": "thumb",
+      "joint": "MCP",
+      "motion": "FE",
+      "groups": [
+        "thumb",
+        "mid"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 2,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.287266492843628
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 3,
+      "name": "THUMB_IP_FE",
+      "finger": "thumb",
+      "joint": "IP",
+      "motion": "FE",
+      "groups": [
+        "thumb",
+        "distal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 3,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.25853946805000305,
+        1.087266445159912
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 4,
+      "name": "INDEX_MCP_AA",
+      "finger": "index",
+      "joint": "MCP",
+      "motion": "AA",
+      "groups": [
+        "index",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 4,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.3372664749622345,
+        0.4872664511203766
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 5,
+      "name": "INDEX_MCP_FE",
+      "finger": "index",
+      "joint": "MCP",
+      "motion": "FE",
+      "groups": [
+        "index",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 5,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.28726646304130554,
+        1.337266445159912
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 6,
+      "name": "INDEX_PIP_FE",
+      "finger": "index",
+      "joint": "PIP",
+      "motion": "FE",
+      "groups": [
+        "index",
+        "mid"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 6,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.8824622631072998
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 7,
+      "name": "INDEX_DIP_FE",
+      "finger": "index",
+      "joint": "DIP",
+      "motion": "FE",
+      "groups": [
+        "index",
+        "distal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 7,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.4336633682250977
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 8,
+      "name": "MIDDLE_MCP_AA",
+      "finger": "middle",
+      "joint": "MCP",
+      "motion": "AA",
+      "groups": [
+        "middle",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 8,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.4872664511203766,
+        0.28726646304130554
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 9,
+      "name": "MIDDLE_MCP_FE",
+      "finger": "middle",
+      "joint": "MCP",
+      "motion": "FE",
+      "groups": [
+        "middle",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 9,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.28726646304130554,
+        1.43726646900177
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 10,
+      "name": "MIDDLE_PIP_FE",
+      "finger": "middle",
+      "joint": "PIP",
+      "motion": "FE",
+      "groups": [
+        "middle",
+        "mid"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 10,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.8824622631072998
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 11,
+      "name": "MIDDLE_DIP_FE",
+      "finger": "middle",
+      "joint": "DIP",
+      "motion": "FE",
+      "groups": [
+        "middle",
+        "distal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 11,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.4336633682250977
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 12,
+      "name": "RING_MCP_AA",
+      "finger": "ring",
+      "joint": "MCP",
+      "motion": "AA",
+      "groups": [
+        "ring",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 12,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.28726646304130554,
+        0.28726646304130554
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 13,
+      "name": "RING_MCP_FE",
+      "finger": "ring",
+      "joint": "MCP",
+      "motion": "FE",
+      "groups": [
+        "ring",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 13,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.28726646304130554,
+        1.537266492843628
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 14,
+      "name": "RING_PIP_FE",
+      "finger": "ring",
+      "joint": "PIP",
+      "motion": "FE",
+      "groups": [
+        "ring",
+        "mid"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 14,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.8824622631072998
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 15,
+      "name": "RING_DIP_FE",
+      "finger": "ring",
+      "joint": "DIP",
+      "motion": "FE",
+      "groups": [
+        "ring",
+        "distal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 15,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.4336633682250977
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 16,
+      "name": "PINKY_MCP_AA",
+      "finger": "pinky",
+      "joint": "MCP",
+      "motion": "AA",
+      "groups": [
+        "pinky",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 16,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.68726646900177,
+        0.4872664511203766
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 17,
+      "name": "PINKY_MCP_FE",
+      "finger": "pinky",
+      "joint": "MCP",
+      "motion": "FE",
+      "groups": [
+        "pinky",
+        "proximal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 17,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        -0.4872664511203766,
+        1.6372665166854858
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 18,
+      "name": "PINKY_PIP_FE",
+      "finger": "pinky",
+      "joint": "PIP",
+      "motion": "FE",
+      "groups": [
+        "pinky",
+        "mid"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 18,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.8824622631072998
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 19,
+      "name": "PINKY_DIP_FE",
+      "finger": "pinky",
+      "joint": "DIP",
+      "motion": "FE",
+      "groups": [
+        "pinky",
+        "distal"
+      ],
+      "disk_field": "generated_joint_angles_{hand}",
+      "disk_component": 19,
+      "disk_unit": "rad",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "generated_label_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": [
+        0.0,
+        1.4336633682250977
+      ],
+      "limit_scope": "model constraint, not a measured legacy range",
+      "source_reference": "egoemg/constants.py"
+    },
+    {
+      "index": 20,
+      "name": "WRIST_FE",
+      "finger": null,
+      "joint": "wrist",
+      "motion": "FE",
+      "groups": [
+        "wrist"
+      ],
+      "disk_field": "mocap_{hand}_wrist_pitch",
+      "disk_component": null,
+      "disk_unit": "deg",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "mocap_{hand}_wrist_angles_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": null,
+      "limit_scope": "unknown for independent mocap wrist, not a measured range; generic model limits are not assigned",
+      "source_reference": "scripts/paper/plot_paper_figures.py"
+    },
+    {
+      "index": 21,
+      "name": "WRIST_RU",
+      "finger": null,
+      "joint": "wrist",
+      "motion": "RU",
+      "groups": [
+        "wrist"
+      ],
+      "disk_field": "mocap_{hand}_wrist_yaw",
+      "disk_component": null,
+      "disk_unit": "deg",
+      "model_unit": "rad",
+      "report_unit": "deg",
+      "hand_index": {
+        "left": 0,
+        "right": 1
+      },
+      "mask_field": "mocap_{hand}_wrist_angles_valid",
+      "mask_policy": "legacy_reproduction_angle_mask: raw hand/group validity AND finite angle before cleanup",
+      "nominal_limit_rad": null,
+      "limit_scope": "unknown for independent mocap wrist, not a measured range; generic model limits are not assigned",
+      "source_reference": "scripts/paper/plot_paper_figures.py"
+    }
+  ],
+  "sources": {
+    "official": {
+      "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "files": [
+        {
+          "filename": "egoemg/constants.py",
+          "sha256": "01f4ad9d6be5b587d46d28b01c2325d584a593a63bd14c79dd0f8e2a1e561099"
+        },
+        {
+          "filename": "scripts/paper/generate_per_gesture_appendix.py",
+          "sha256": "590b85ee7f1675e82ca7cf02fa72464b6c3c335b068467ff8d35484fd91ecf1d"
+        },
+        {
+          "filename": "scripts/paper/plot_paper_figures.py",
+          "sha256": "0da286e14f434d8b66a3fa7cb297b4175a3b77f899ef1c7642409936cd755289"
+        },
+        {
+          "filename": "egoemg/UmeTrack/dataset/generic_hand_model.json",
+          "sha256": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31"
+        },
+        {
+          "filename": "scripts/eval/analyze_per_gesture.py",
+          "sha256": "448e83f7a3698334d1813fda8ce0b7303672f9d95740442157ded4aa244d28a7"
+        },
+        {
+          "filename": "egoemg/datasets/egoemg_memmap_dataset.py",
+          "sha256": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060"
+        },
+        {
+          "filename": "egoemg/metrics.py",
+          "sha256": "85aac28fc2cac11e4714bf6a18a52b2faeccc488d6135202aae8a8e974e95309"
+        },
+        {
+          "filename": "egoemg/lightning.py",
+          "sha256": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899"
+        },
+        {
+          "filename": "scripts/ik/batch_ik_mesh.py",
+          "sha256": "794fdfcb82a692812de4ca7a15fd4e41c0c3f3717424dd917fb05e4f9508da2c"
+        }
+      ],
+      "policy": "approved revision, clean source tree and pinned source contents"
+    },
+    "reproduction": {
+      "filename": "egoemg_repro/semantic_tables.py",
+      "sha256": "fe0e0e3a87888bcca763bd28e8ea894328316c36d60b2b9e3e1616c7b272d1ea"
+    },
+    "legacy_reader": {
+      "filename": "egoemg_repro/data.py",
+      "sha256": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e"
+    },
+    "manifest": {
+      "filename": "manifest.json",
+      "sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+    },
+    "metadata": {
+      "filename": "metadata.npz",
+      "sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+    },
+    "metadata_summary": {
+      "filename": "metadata_summary.json",
+      "sha256": "34736a9ef3c311a0ddc4a060d6a996c6c850c26f90d1cb32856c9231fe87be62"
+    }
+  },
+  "paper_reference": {
+    "filename": "EgoEMG.pdf",
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+    "table": 6,
+    "page": 20,
+    "kind": "fixed manually checked transcription; not a runtime PDF read"
+  },
+  "left_hand_strategy": "flip_local_z",
+  "sign_convention": {
+    "wrist_positive": "extension and radial deviation",
+    "left_wrist_normal": "L cross F",
+    "source": "PDF B.2 page 19",
+    "verification": "paper definition; legacy marker computation equivalence is unverified",
+    "finger": "canonical anatomical rotation axes; no blanket left-hand sign inversion"
+  },
+  "mask_protocols": {
+    "legacy_reproduction_angle_mask": {
+      "fingers": "generated_label_valid[row, hand_column] AND isfinite(finger_angle)",
+      "wrist": "mocap_{hand}_wrist_angles_valid[row] AND isfinite(wrist_angle)",
+      "hand_columns": {
+        "left": 0,
+        "right": 1
+      },
+      "finite_before_cleanup": true,
+      "source": "egoemg_repro/data.py"
+    },
+    "official_literal_loader": {
+      "ordinary_path": "generated hand validity is surfaced; wrist validity is not surfaced to loss",
+      "extra_wrist_mask": "Lightning masks wrist for named datasets without wrist labels",
+      "wrist_metric": "a per-joint mask uses channel 20 for both wrist metrics",
+      "equivalent_to_legacy_angle_mask": false,
+      "source": "egoemg/datasets/egoemg_memmap_dataset.py and egoemg/lightning.py"
+    }
+  },
+  "generation": {
+    "legacy_method": "axis_angle_projection",
+    "paper_method": "landmark_level_ik",
+    "equivalence_verified": false
+  },
+  "notes": [
+    "Finger angles are radians on disk; wrist pitch/yaw are degrees on disk.",
+    "The model uses radians and reports use degrees; reporting units do not change disk units.",
+    "Nominal limits are model constraints, not measured legacy ranges or proof they were enforced.",
+    "Independent mocap wrist limits are unknown; generic model final limits are not assigned.",
+    "Matching dimension names does not establish label-generation or fitting-error equivalence."
+  ]
+}
