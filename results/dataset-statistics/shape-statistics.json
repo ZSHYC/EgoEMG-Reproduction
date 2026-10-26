@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "counts": {
+    "episodes": 41,
+    "available_beta_rows": 41,
+    "referenced_beta_rows": 41,
+    "unreferenced_beta_rows": 0,
+    "left_hands": 41,
+    "right_hands": 41,
+    "combined_hands": 82,
+    "dimensions": 10
+  },
+  "method": {
+    "ddof": 0,
+    "percentile_method": "linear",
+    "computation_dtype": "float32",
+    "percentile_dtype": "float64",
+    "numpy_version": "1.26.4",
+    "sampling": "distinct metadata-referenced beta rows, once per left and right hand",
+    "range": "max - min",
+    "p95_minus_p05": "linear P95 - linear P5"
+  },
+  "sources": {
+    "manifest": {
+      "filename": "manifest.json",
+      "sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+    },
+    "metadata": {
+      "filename": "metadata.npz",
+      "sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+    },
+    "beta": {
+      "left": {
+        "filename": "generated_mano_left_beta.dat",
+        "dtype": "float32",
+        "shape": [
+          41,
+          10
+        ],
+        "bytes": 1640,
+        "sha256": "cfc2b56a47e5a912cfd03e576a27920fb2c43a0152fc73e28b74f5ac9063d865",
+        "checksum_basis": "local_transfer"
+      },
+      "right": {
+        "filename": "generated_mano_right_beta.dat",
+        "dtype": "float32",
+        "shape": [
+          41,
+          10
+        ],
+        "bytes": 1640,
+        "sha256": "48e6889f51db4cb45623731f7ae98a79f2d6498fa45048abb0b7c3fbd6af2628",
+        "checksum_basis": "local_transfer"
+      }
+    },
+    "acquisition_ledger": {
+      "filename": "acquisition_ledger.json",
+      "sha256": "764163c27a77135adea7a66e626f9e23ed7aab34121a95a820a8c27fbf9e8ab2",
+      "scope": "payload bytes rehashed and matched to local receipts; publisher authenticity is unverified"
+    },
+    "official_script": {
+      "filename": "scripts/paper/plot_beta_diversity.py",
+      "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "sha256": "c7c6179f06185954096ec32e97ce93f72dcaffa8d8276dfa78bca9b8c4eddc72",
+      "source_policy": "approved revision, clean source tree and pinned script content"
+    },
+    "reproduction": {
+      "filename": "egoemg_repro/dataset_statistics.py",
+      "sha256": "e61c383d8d7ea48717e8dca56c5506f8ab3c2fb1396707d506f0e570e8ee2d11"
+    }
+  },
+  "dimensions": [
+    {
+      "dimension": "beta1",
+      "mean": 1.0867398977279663,
+      "std": 1.0509308576583862,
+      "min": -0.9659643173217773,
+      "max": 3.034078359603882,
+      "range": 4.000042915344238,
+      "p05": -0.6324046730995179,
+      "p95": 2.5268112778663636,
+      "p95_minus_p05": 3.1592159509658817
+    },
+    {
+      "dimension": "beta2",
+      "mean": 1.504563570022583,
+      "std": 0.7930035591125488,
+      "min": 0.18318943679332733,
+      "max": 3.5060834884643555,
+      "range": 3.3228940963745117,
+      "p05": 0.21572462990880012,
+      "p95": 2.9210442900657654,
+      "p95_minus_p05": 2.7053196601569653
+    },
+    {
+      "dimension": "beta3",
+      "mean": -0.9809563755989075,
+      "std": 1.0763578414916992,
+      "min": -3.8036415576934814,
+      "max": 2.547081232070923,
+      "range": 6.350722789764404,
+      "p05": -2.5643728494644167,
+      "p95": 0.7225417047739029,
+      "p95_minus_p05": 3.2869145542383196
+    },
+    {
+      "dimension": "beta4",
+      "mean": -0.5365671515464783,
+      "std": 1.0688393115997314,
+      "min": -3.0772674083709717,
+      "max": 2.0503554344177246,
+      "range": 5.127622604370117,
+      "p05": -2.160610568523407,
+      "p95": 1.1477185010910043,
+      "p95_minus_p05": 3.3083290696144116
+    },
+    {
+      "dimension": "beta5",
+      "mean": 1.0538272857666016,
+      "std": 0.9964228868484497,
+      "min": -0.46090835332870483,
+      "max": 4.638143062591553,
+      "range": 5.099051475524902,
+      "p05": -0.11158795021474362,
+      "p95": 2.584068286418915,
+      "p95_minus_p05": 2.6956562366336585
+    },
+    {
+      "dimension": "beta6",
+      "mean": -2.269289255142212,
+      "std": 1.7106306552886963,
+      "min": -10.25283145904541,
+      "max": 0.44966575503349304,
+      "range": 10.702497482299805,
+      "p05": -5.936637878417969,
+      "p95": -0.20555216446518887,
+      "p95_minus_p05": 5.73108571395278
+    },
+    {
+      "dimension": "beta7",
+      "mean": 0.727392852306366,
+      "std": 1.4373375177383423,
+      "min": -1.7348811626434326,
+      "max": 8.253786087036133,
+      "range": 9.988667488098145,
+      "p05": -1.0754762887954712,
+      "p95": 3.007347667217255,
+      "p95_minus_p05": 4.082823956012726
+    },
+    {
+      "dimension": "beta8",
+      "mean": 0.3714766502380371,
+      "std": 1.0000042915344238,
+      "min": -1.8021987676620483,
+      "max": 4.683078289031982,
+      "range": 6.48527717590332,
+      "p05": -1.0074004381895065,
+      "p95": 1.9322869062423709,
+      "p95_minus_p05": 2.9396873444318774
+    },
+    {
+      "dimension": "beta9",
+      "mean": 0.3648703396320343,
+      "std": 1.4640893936157227,
+      "min": -2.9778666496276855,
+      "max": 5.343984603881836,
+      "range": 8.32185173034668,
+      "p05": -1.7680660128593444,
+      "p95": 2.723044323921204,
+      "p95_minus_p05": 4.491110336780548
+    },
+    {
+      "dimension": "beta10",
+      "mean": -0.7385061383247375,
+      "std": 0.5530099868774414,
+      "min": -3.3084309101104736,
+      "max": 0.36582648754119873,
+      "range": 3.674257278442383,
+      "p05": -1.8448079109191895,
+      "p95": -0.09171915277838698,
+      "p95_minus_p05": 1.7530887581408026
+    }
+  ],
+  "paper_comparison": {
+    "filename": "EgoEMG.pdf",
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+    "table": 5,
+    "page": 16,
+    "reference_kind": "fixed transcription of supplied PDF, not a runtime PDF read",
+    "decimal_places": 3,
+    "compared_entries": 50,
+    "matching_entries": 48,
+    "last_column_interpretation": "official range (max - min), despite the PDF P95-P5 label",
+    "differences": [
+      {
+        "dimension": "beta6",
+        "metric": "range",
+        "pdf_printed": "10.703",
+        "computed": 10.702497482299805,
+        "computed_rounded": "10.702"
+      },
+      {
+        "dimension": "beta10",
+        "metric": "mean",
+        "pdf_printed": "-0.738",
+        "computed": -0.7385061383247375,
+        "computed_rounded": "-0.739"
+      }
+    ]
+  },
+  "notes": [
+    "Counts describe episodes and distinct referenced beta rows, not verified independent people.",
+    "Official code computes range (max - min); the paper PDF labels the corresponding column P95-P5. These are different statistics.",
+    "Actual P5, P95 and P95-P5 are separately reported using linear percentiles; values are not adjusted to match the PDF.",
+    "The requested aggregate boxplot replaces the official per-episode bar chart. Individual points and outlier markers are hidden.",
+    "beta1 through beta10 are neutral MANO coefficient labels; no fixed anatomical meaning is assigned."
+  ]
+}
