@@ -17,6 +17,37 @@ from egoemg_repro.train import (load_config, source_identity, build_model, align
 
 
 class TrainingConfigTests(unittest.TestCase):
+    @unittest.skipUnless(importlib.util.find_spec('torch'), 'torch unavailable')
+    def test_dinov2_initialization_policy_and_resume_identity_are_not_imagenet(self):
+        from egoemg_repro.train import initialization_identity
+        config = {'model_kind': 'vision', 'seed': 42, 'vision_pretrained': True,
+                  'upstream_experiment': 'fusion/vision_vit_small', 'vision_backbone_type': 'vit_base'}
+        identity = initialization_identity(config, {})
+        self.assertEqual(identity['policy'], 'DINOv2 backbone')
+        self.assertEqual(identity['seed_before_model'], 42)
+        identity['official_builder'] = {'pretrained_weights': {'family': 'DINOv2', 'source_type': 'hf-hub'}}
+        restored = initialization_identity(config, {}, loaded={'provenance': {'initialization': identity}})
+        self.assertEqual(restored, identity)
+        self.assertEqual(initialization_identity(dict(config, vision_pretrained=False), {})['policy'], 'random')
+
+    @unittest.skipUnless(importlib.util.find_spec('torch'), 'torch unavailable')
+    def test_clean_vision_initializer_is_not_claimed_as_a_fresh_pretrained_load(self):
+        import torch
+        from egoemg_repro.train import initialization_identity
+        state = checkpoint_fixture()
+        state['provenance'].update(model_kind='vision', data={'sha256': 'same'}, visual_data={'sha256': 'crops'},
+                                   partition_sha256='split', normalization_sha256='norm')
+        state = checkpoint_with_best(state)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp)/'selected-vision.pt'
+            torch.save(state, path)
+            config = {'model_kind': 'vision', 'seed': 42, 'vision_pretrained': True,
+                      'upstream_experiment': 'fusion/vision_vit_small'}
+            result = initialization_identity(config, state['provenance'], vision_checkpoint=path)
+            self.assertEqual(result['policy'], 'clean vision checkpoint')
+            self.assertEqual(result['vision']['model_kind'], 'vision')
+            self.assertEqual(result['vision']['selection'], 'complete independent validation')
+
     def test_config_exposes_released_recipe_and_explicit_memory_adjustment(self):
         config = load_config(Path(__file__).parents[1] / 'configs/emgformer_s.json')
         self.assertGreater(config['batch_size'], 0)

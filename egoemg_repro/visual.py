@@ -8,6 +8,8 @@ import os
 from pathlib import Path
 import sys
 import tempfile
+import threading
+from contextlib import contextmanager
 
 import numpy as np
 
@@ -15,6 +17,7 @@ from .crops import CropStore, video_frame_at_center
 from .data import LegacyDataset, file_sha256
 
 SPARSE16_ANCHORS = (10, 12, 0, 1, 2, 4, 5, 6)
+_TIMM_TRANSPORT_LOCK = threading.RLock()
 
 
 def sparse16(emg):
@@ -105,8 +108,39 @@ def _clean_state(path):
     return checkpoint['model']
 
 
+@contextmanager
+def _capture_timm_pretrained_source():
+    """Observe successful timm transport without selecting or retrying its route.
+
+    timm 1.0.15 does not expose the selected source on the returned model.
+    Its HF/URL transport entry points are observed only during construction;
+    all calls and exceptions retain timm's behavior and are restored on exit.
+    """
+    import timm.models._builder as builder
+    with _TIMM_TRANSPORT_LOCK:
+        owner = threading.get_ident()
+        observed = []
+        originals = {name: getattr(builder, name) for name in
+                     ('load_state_dict_from_hf', 'load_state_dict_from_url')}
+        def observer(original, source_type):
+            def load(location, *args, **kwargs):
+                result = original(location, *args, **kwargs)
+                if threading.get_ident() == owner:
+                    observed.append({'source_type': source_type, 'source_location': location})
+                return result
+            return load
+        try:
+            for name, original in originals.items():
+                source_type = 'hf-hub' if name.endswith('_hf') else 'url'
+                setattr(builder, name, observer(original, source_type))
+            yield observed
+        finally:
+            for name, original in originals.items():
+                setattr(builder, name, original)
+
+
 def pretrained_weight_identity(model):
-    """Describe selected ImageNet source and hash exact loaded backbone tensors.
+    """Describe observed pretrained source and hash exact loaded backbone tensors.
 
     Digest order is sorted state_dict keys. Each UTF-8 JSON name/dtype/shape
     header is prefixed with its 8-byte big-endian length, then followed by the
@@ -114,10 +148,22 @@ def pretrained_weight_identity(model):
     included; the newly initialized pose head and unused ImageNet FC are not.
     """
     import torch
-    import torchvision
     backbone = model.backbone_type
-    enum_name = 'ResNet' + backbone[len('resnet'):].upper() + '_Weights'
-    weights = getattr(torchvision.models, enum_name).IMAGENET1K_V1
+    if backbone.startswith('vit_'):
+        import timm
+        from egoemg.models.modules._vision_constants import DINOV2_VARIANTS
+        source = getattr(model, 'reproduction_pretrained_source', None)
+        if source is None:
+            raise ValueError('DINOv2 pretrained source must be observed during weight loading')
+        identity = {'family': 'DINOv2', 'timm_model': DINOV2_VARIANTS[backbone][0],
+                    'timm_version': timm.__version__, **source,
+                    'resolved_pretrained_cfg': dict(model.backbone.pretrained_cfg)}
+    else:
+        import torchvision
+        enum_name = 'ResNet' + backbone[len('resnet'):].upper() + '_Weights'
+        weights = getattr(torchvision.models, enum_name).IMAGENET1K_V1
+        identity = {'enum': 'torchvision.models.' + enum_name + '.IMAGENET1K_V1',
+                    'source_url': weights.url, 'torchvision_version': torchvision.__version__}
     digest = hashlib.sha256()
     for name, tensor in sorted(model.backbone.state_dict().items()):
         value = tensor.detach().cpu().contiguous()
@@ -126,9 +172,7 @@ def pretrained_weight_identity(model):
         digest.update(len(header).to_bytes(8, 'big'))
         digest.update(header)
         digest.update(value.reshape(-1).view(torch.uint8).numpy().tobytes())
-    return {'enum': 'torchvision.models.' + enum_name + '.IMAGENET1K_V1',
-            'source_url': weights.url, 'torchvision_version': torchvision.__version__,
-            'backbone_tensor_sha256': digest.hexdigest(),
+    return {**identity, 'backbone_tensor_sha256': digest.hexdigest(),
             'digest_scope': 'sorted backbone state_dict names/dtypes/shapes and raw contiguous CPU bytes; excludes pose head and unused ImageNet FC',
             'digest_format': 'length-prefixed canonical JSON header + raw tensor bytes, v1'}
 
@@ -156,10 +200,11 @@ def build_visual_model(upstream, config, vision_checkpoint=None, emg_checkpoint=
         if kind != 'vision':
             raise ValueError('vision_backbone_type is supported only for vision models')
         backbone = config['vision_backbone_type']
-        if not isinstance(backbone, str) or backbone not in ('resnet18', 'resnet50', 'resnet152'):
-            raise ValueError('vision_backbone_type must be resnet18, resnet50 or resnet152')
-        if config['upstream_experiment'] != 'fusion/vision_resnet18':
-            raise ValueError('vision_backbone_type requires the official ResNet vision experiment')
+        family = {'fusion/vision_resnet18': ('resnet18', 'resnet50', 'resnet152'),
+                  'fusion/vision_vit_small': ('vit_small', 'vit_base', 'vit_large')}
+        choices = family.get(config['upstream_experiment'], ())
+        if not isinstance(backbone, str) or backbone not in choices:
+            raise ValueError('vision_backbone_type must match the supported official ResNet or ViT vision experiment')
     if kind == 'fusion' and resume_state is None and (vision_checkpoint is None or emg_checkpoint is None):
         raise ValueError('Clean fusion requires independent-validation vision and EMG initializers')
     overrides = ['experiment=' + config['upstream_experiment']]
@@ -167,8 +212,9 @@ def build_visual_model(upstream, config, vision_checkpoint=None, emg_checkpoint=
         if 'vision_backbone_type' in config:
             overrides += ['module.backbone_type=' + config['vision_backbone_type']]
         needs_pretrained = config.get('vision_pretrained', True) and resume_state is None and vision_checkpoint is None
+        pretrained_family = 'DINOv2' if config['upstream_experiment'] == 'fusion/vision_vit_small' else 'ImageNet1K_V1'
         if needs_pretrained and os.environ.get('EGOEMG_NO_PRETRAINED_DOWNLOAD', '') not in ('', '0'):
-            raise ValueError('Requested ImageNet initialization conflicts with EGOEMG_NO_PRETRAINED_DOWNLOAD; set vision_pretrained=false explicitly for random initialization')
+            raise ValueError(f'Requested {pretrained_family} initialization conflicts with EGOEMG_NO_PRETRAINED_DOWNLOAD; set vision_pretrained=false explicitly for random initialization')
         overrides += ['module.pretrained=' + str(bool(needs_pretrained)).lower()]
     else:
         overrides += ['vision_resnet_checkpoint=null', 'pretrained_emg_checkpoint=null',
@@ -178,8 +224,15 @@ def build_visual_model(upstream, config, vision_checkpoint=None, emg_checkpoint=
         composed = compose(config_name='base', overrides=overrides)
     initialization = dict(kind=kind, upstream_experiment=config['upstream_experiment'])
     if kind == 'vision':
-        model = instantiate(composed.module)
-        initialization['vision_backbone'] = ('ImageNet1K_V1' if needs_pretrained else 'random')
+        if needs_pretrained and pretrained_family == 'DINOv2':
+            with _capture_timm_pretrained_source() as sources:
+                model = instantiate(composed.module)
+            if len(sources) != 1:
+                raise RuntimeError('DINOv2 pretrained source was not uniquely observed during loading')
+            model.reproduction_pretrained_source = sources[0]
+        else:
+            model = instantiate(composed.module)
+        initialization['vision_backbone'] = (pretrained_family if needs_pretrained else 'random')
         if needs_pretrained:
             initialization['pretrained_weights'] = pretrained_weight_identity(model)
         if resume_state is not None:

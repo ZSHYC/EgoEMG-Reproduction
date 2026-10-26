@@ -501,3 +501,230 @@ def test_larger_resnet_export_keeps_exact_public_pretrained_identity(tmp_path, e
     assert initialization['torchvision_version'] == '0.17.2+cu118'
     assert initialization['policy'] == 'ImageNet1K_V1 backbone'
     assert 'participant' not in json.dumps(report) and '/private/' not in json.dumps(report)
+
+
+@pytest.mark.parametrize('backbone,label', [('vit_small', 'ViT-S'), ('vit_base', 'ViT-B'), ('vit_large', 'ViT-L')])
+def test_dinov2_reports_preserve_actual_backbone_and_name(tmp_path, backbone, label):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={
+        'upstream_experiment': 'fusion/vision_vit_small', 'vision_backbone_type': backbone})
+    assert build_status(run)['model_label'] == label
+    result = build_export(run, label, checkpoint_loader=read_checkpoint)
+    assert result['model_label'] == label
+    assert result['configuration']['vision_backbone_type'] == backbone
+    with pytest.raises(ReportError, match='model label'):
+        build_export(run, 'ResNet-18', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('source_type,location', [
+    ('hf-hub', 'timm/vit_small_patch14_dinov2.lvd142m'),
+    ('url', 'https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth'),
+])
+def test_dinov2_export_retains_actual_source_and_sanitizes_resolved_cfg(tmp_path, source_type, location):
+    run = tmp_path/'run'
+    weights = dinov2_weights(source_type=source_type)
+    cfg = weights['resolved_pretrained_cfg']
+    cfg.update(file='/private/participant-Alice/weights', extra={'name': 'participant-Bob'})
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small',
+                                             'vision_backbone_type': 'vit_small'}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42,
+        'official_builder': {'pretrained_weights': weights}})
+    result = build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+    identity = result['identities']['initialization']
+    assert identity['policy'] == 'DINOv2 backbone'
+    assert identity['pretrained_family'] == 'DINOv2'
+    assert identity['pretrained_timm_model'] == 'vit_small_patch14_dinov2'
+    assert identity['timm_version'] == '1.0.15'
+    assert identity['pretrained_source_type'] == source_type
+    assert identity['pretrained_source_location'] == location
+    assert identity['pretrained_backbone_tensor_sha256'] == 'f'*64
+    assert identity['pretrained_resolved_cfg']['input_size'] == [3, 518, 518]
+    assert identity['pretrained_resolved_cfg']['hf_hub_id'] == cfg['hf_hub_id']
+    assert 'file' not in identity['pretrained_resolved_cfg']
+    assert 'extra' not in identity['pretrained_resolved_cfg']
+    assert 'pretrained_enum' not in identity and 'torchvision_version' not in identity
+    assert 'pretrained_source_url' not in identity
+    assert '/private/' not in json.dumps(result) and 'participant' not in json.dumps(result)
+
+
+@pytest.mark.parametrize('source_type,location', [
+    ('hf-hub', 'private-org/participant-Alice'),
+    ('url', 'https://example.com/participant-Alice.pth'),
+    ('file', '/private/participant-Alice.pth'),
+])
+def test_dinov2_export_rejects_unapproved_weight_sources(tmp_path, source_type, location):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42,
+        'official_builder': {'pretrained_weights': {
+            'family': 'DINOv2', 'timm_model': 'vit_small_patch14_dinov2', 'timm_version': '1.0.15',
+            'source_type': source_type, 'source_location': location,
+            'resolved_pretrained_cfg': {}, 'backbone_tensor_sha256': 'f'*64}}})
+    with pytest.raises(ReportError, match='DINOv2.*source|source.*DINOv2'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('backbone,family', [('vit_base', 'DINOv2'), ('vit_small', 'unknown-family')])
+def test_dinov2_export_rejects_pretrained_model_or_family_mismatch(tmp_path, backbone, family):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small',
+                                             'vision_backbone_type': backbone}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42,
+        'official_builder': {'pretrained_weights': {
+            'family': family, 'timm_model': 'vit_small_patch14_dinov2', 'timm_version': '1.0.15',
+            'source_type': 'hf-hub', 'source_location': 'timm/vit_small_patch14_dinov2.lvd142m',
+            'resolved_pretrained_cfg': {}, 'backbone_tensor_sha256': 'f'*64}}})
+    with pytest.raises(ReportError, match='DINOv2.*(model|family)'):
+        build_export(run, {'vit_base': 'ViT-B', 'vit_small': 'ViT-S'}[backbone], checkpoint_loader=read_checkpoint)
+
+
+def test_dinov2_default_experiment_cannot_export_a_different_model_label(tmp_path):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'})
+    assert build_status(run)['model_label'] == 'ViT-S'
+    with pytest.raises(ReportError, match='model label'):
+        build_export(run, 'ResNet-18', checkpoint_loader=read_checkpoint)
+
+
+def test_clean_vision_checkpoint_export_retains_its_actual_initialization_policy(tmp_path):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': 'clean vision checkpoint', 'seed_before_model': 42,
+        'vision': {'sha256': 'f'*64, 'selected_step': 9, 'best_val_mae_deg': 12.,
+                   'model_kind': 'vision', 'selection': 'complete independent validation'}})
+    identity = build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)['identities']['initialization']
+    assert identity.get('policy') == 'clean vision checkpoint'
+    assert identity['vision']['checkpoint_sha256'] == 'f'*64
+    assert 'pretrained_family' not in identity
+
+
+@pytest.mark.parametrize('evidence', ['missing', None, {}, [], '', 'not-a-record'])
+def test_dinov2_policy_requires_nonempty_pretrained_evidence(tmp_path, evidence):
+    run = tmp_path/'run'
+    builder = {} if evidence == 'missing' else {'pretrained_weights': evidence}
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42, 'official_builder': builder})
+    with pytest.raises(ReportError, match='DINOv2.*evidence'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+def dinov2_weights(backbone='vit_small', source_type='hf-hub'):
+    """Actual timm1.0.15 public cfg values; available without importing Torch."""
+    name = backbone + '_patch14_dinov2'
+    tag = {'vit_small': 'vits14', 'vit_base': 'vitb14', 'vit_large': 'vitl14'}[backbone]
+    url = f'https://dl.fbaipublicfiles.com/dinov2/dinov2_{tag}/dinov2_{tag}_pretrain.pth'
+    hub = 'timm/' + name + '.lvd142m'
+    return {'family': 'DINOv2', 'timm_model': name, 'timm_version': '1.0.15',
+            'source_type': source_type, 'source_location': hub if source_type == 'hf-hub' else url,
+            'backbone_tensor_sha256': 'f'*64,
+            'resolved_pretrained_cfg': {
+                'architecture': name, 'tag': 'lvd142m', 'url': url, 'hf_hub_id': hub,
+                'custom_load': False, 'input_size': [3, 518, 518], 'fixed_input_size': True,
+                'interpolation': 'bicubic', 'crop_pct': 1., 'crop_mode': 'center',
+                'mean': [.485, .456, .406], 'std': [.229, .224, .225], 'num_classes': 0,
+                'pool_size': None, 'first_conv': 'patch_embed.proj', 'classifier': 'head', 'license': 'apache-2.0'}}
+
+
+@pytest.mark.parametrize('backbone', [None, 'vit_small', 'vit_base', 'vit_large'])
+@pytest.mark.parametrize('policy', ['ImageNet1K_V1 backbone', 'random', 'clean vision checkpoint'])
+def test_selected_vit_recipe_rejects_resnet_identity_even_if_policy_is_changed(tmp_path, backbone, policy):
+    run = tmp_path/'run'
+    recipe = {'upstream_experiment': 'fusion/vision_vit_small'}
+    if backbone is not None:
+        recipe['vision_backbone_type'] = backbone
+    complete_run(run, 'vision', recipe_config=recipe, initialization={
+        'policy': policy, 'seed_before_model': 42,
+        'official_builder': {'pretrained_weights': {
+            'enum': 'torchvision.models.ResNet18_Weights.IMAGENET1K_V1',
+            'source_url': 'https://download.pytorch.org/models/resnet18-f37072fd.pth',
+            'torchvision_version': '0.17.2+cpu', 'backbone_tensor_sha256': 'f'*64}}})
+    label = {None: 'ViT-S', 'vit_small': 'ViT-S', 'vit_base': 'ViT-B', 'vit_large': 'ViT-L'}[backbone]
+    with pytest.raises(ReportError, match='DINOv2.*(family|policy|pretrained)'):
+        build_export(run, label, checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('field,value', [
+    ('enum', 'torchvision.models.ResNet18_Weights.IMAGENET1K_V1'),
+    ('source_url', 'https://download.pytorch.org/models/resnet18-f37072fd.pth'),
+    ('torchvision_version', '0.17.2+cpu'),
+])
+def test_selected_vit_recipe_rejects_resnet_fields_inside_dinov2_evidence(tmp_path, field, value):
+    run = tmp_path/'run'
+    weights = dinov2_weights()
+    weights[field] = value
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42, 'official_builder': {'pretrained_weights': weights}})
+    with pytest.raises(ReportError, match='DINOv2.*ResNet'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('policy', ['random', 'clean vision checkpoint'])
+def test_selected_vit_recipe_cannot_hide_dinov2_package_by_changing_policy(tmp_path, policy):
+    run = tmp_path/'run'
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': policy, 'seed_before_model': 42, 'official_builder': {'pretrained_weights': dinov2_weights()}})
+    with pytest.raises(ReportError, match='DINOv2.*(policy|pretrained)'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('branch', [None, {}, {'sha256': 'f'*64, 'selected_step': 9, 'best_val_mae_deg': 12.}])
+def test_selected_vit_clean_policy_requires_validated_branch_selection_evidence(tmp_path, branch):
+    run = tmp_path/'run'
+    initialization = {'policy': 'clean vision checkpoint', 'seed_before_model': 42}
+    if branch is not None:
+        initialization['vision'] = branch
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'},
+                 initialization=initialization)
+    with pytest.raises(ReportError, match='(DINOv2|evidence hash)'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('field', ['architecture', 'tag', 'url', 'hf_hub_id', 'input_size', 'mean', 'std', 'num_classes'])
+def test_dinov2_resolved_cfg_requires_real_core_fields(tmp_path, field):
+    run = tmp_path/'run'
+    weights = dinov2_weights()
+    del weights['resolved_pretrained_cfg'][field]
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42, 'official_builder': {'pretrained_weights': weights}})
+    with pytest.raises(ReportError, match='DINOv2.*configuration'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('change', [
+    {}, {'architecture': 'vit_large_patch14_dinov2'}, {'tag': 'wrong-tag'},
+    {'url': 'https://example.com/incorrect.pth'}, {'hf_hub_id': 'another-org/other'},
+    {'input_size': [3, 256, 256]}, {'mean': [0., 0., 0.]}, {'std': [1., 1., 1.]},
+    {'num_classes': 1000}, {'first_conv': 'incorrect.layer'},
+])
+def test_dinov2_resolved_cfg_rejects_empty_or_conflicting_known_core(tmp_path, change):
+    run = tmp_path/'run'
+    weights = dinov2_weights()
+    if change:
+        weights['resolved_pretrained_cfg'].update(change)
+    else:
+        weights['resolved_pretrained_cfg'] = {}
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small'}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42, 'official_builder': {'pretrained_weights': weights}})
+    with pytest.raises(ReportError, match='DINOv2.*configuration'):
+        build_export(run, 'ViT-S', checkpoint_loader=read_checkpoint)
+
+
+@pytest.mark.parametrize('backbone,label', [('vit_small', 'ViT-S'), ('vit_base', 'ViT-B'), ('vit_large', 'ViT-L')])
+def test_dinov2_full_original_pretrained_identity_is_valid_for_resumed_recipe(tmp_path, backbone, label):
+    run = tmp_path/'run'
+    weights = dinov2_weights(backbone)
+    complete_run(run, 'vision', recipe_config={'upstream_experiment': 'fusion/vision_vit_small',
+                                             'vision_backbone_type': backbone}, initialization={
+        'policy': 'DINOv2 backbone', 'seed_before_model': 42, 'official_builder': {'pretrained_weights': weights}})
+    result = build_export(run, label, checkpoint_loader=read_checkpoint)
+    identity = result['identities']['initialization']
+    assert result['benchmark_eligible'] is True
+    assert identity['pretrained_resolved_cfg'] == weights['resolved_pretrained_cfg']
+
+
+@pytest.mark.parametrize('backbone', ['vit_small', 'vit_base', 'vit_large'])
+def test_dinov2_evidence_fixture_matches_real_pinned_timm_cfg(backbone):
+    timm = pytest.importorskip('timm')
+    assert timm.__version__ == '1.0.15'
+    actual = timm.get_pretrained_cfg(backbone + '_patch14_dinov2').to_dict()
+    assert dinov2_weights(backbone)['resolved_pretrained_cfg'] == json.loads(json.dumps(actual))

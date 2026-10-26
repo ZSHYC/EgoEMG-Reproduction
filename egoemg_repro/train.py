@@ -247,7 +247,9 @@ def initialization_identity(config, provenance, *, vision_checkpoint=None, emg_c
     if kind == 'fusion' and not all(paths.values()):
         raise ValueError('clean fusion requires both --vision-checkpoint and --emg-checkpoint')
     identity = {'policy': 'clean branches then official residual-zero initialization' if kind == 'fusion' else
-                'ImageNet1K_V1 backbone' if kind == 'vision' and config.get('vision_pretrained', True) else 'random',
+                'clean vision checkpoint' if kind == 'vision' and vision_checkpoint is not None else
+                ('DINOv2 backbone' if config.get('upstream_experiment') == 'fusion/vision_vit_small' else
+                 'ImageNet1K_V1 backbone') if kind == 'vision' and config.get('vision_pretrained', True) else 'random',
                 'seed_before_model': config['seed']}
     for branch, path in paths.items():
         if path is not None:

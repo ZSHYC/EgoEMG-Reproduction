@@ -121,20 +121,23 @@ def _vision_backbone(config):
     if 'vision_backbone_type' not in config:
         return None
     backbone = config['vision_backbone_type']
-    if (_kind(config) != 'vision' or config.get('upstream_experiment') != 'fusion/vision_resnet18'
-            or not isinstance(backbone, str) or backbone not in ('resnet18', 'resnet50', 'resnet152')):
-        raise ReportError('vision_backbone_type requires a supported official ResNet vision model')
+    choices = {'fusion/vision_resnet18': ('resnet18', 'resnet50', 'resnet152'),
+               'fusion/vision_vit_small': ('vit_small', 'vit_base', 'vit_large')}.get(config.get('upstream_experiment'), ())
+    if _kind(config) != 'vision' or not isinstance(backbone, str) or backbone not in choices:
+        raise ReportError('vision_backbone_type requires a matching supported official ResNet or ViT vision model')
     return backbone
 
 
 def _model_name(config):
     backbone = _vision_backbone(config)
     if backbone is not None:
-        return {'resnet18':'ResNet-18', 'resnet50':'ResNet-50', 'resnet152':'ResNet-152'}[backbone]
+        return {'resnet18':'ResNet-18', 'resnet50':'ResNet-50', 'resnet152':'ResNet-152',
+                'vit_small':'ViT-S', 'vit_base':'ViT-B', 'vit_large':'ViT-L'}[backbone]
     known = {'emgformer/egoemg_emgformer_small':'EMGFormer-S',
              'emgformer/egoemg_emgformer_middle':'EMGFormer-M',
              'emgformer/egoemg_emgformer_large':'EMGFormer-L',
              'fusion/vision_resnet18':'ResNet-18',
+             'fusion/vision_vit_small':'ViT-S',
              'fusion/fusion_rn18_s_center_8ch':'ResNet-18 + EMGFormer-S'}
     return known.get(config.get('upstream_experiment'),
                      {'emg':'EMG model','vision':'Vision model','fusion':'Fusion model'}[_kind(config)])
@@ -478,6 +481,54 @@ def _hex(value,length):
     return value
 
 
+def _safe_dinov2_identity(pretrained):
+    variants = {'vit_small_patch14_dinov2': 'vits14', 'vit_base_patch14_dinov2': 'vitb14',
+                'vit_large_patch14_dinov2': 'vitl14'}
+    name = pretrained.get('timm_model')
+    if not isinstance(name, str) or name not in variants:
+        raise ReportError('unknown DINOv2 pretrained model')
+    tag = variants[name]
+    hub_id = 'timm/' + name + '.lvd142m'
+    url = f'https://dl.fbaipublicfiles.com/dinov2/dinov2_{tag}/dinov2_{tag}_pretrain.pth'
+    source_type = pretrained.get('source_type')
+    location = pretrained.get('source_location')
+    if source_type not in ('hf-hub', 'url') or location != {'hf-hub': hub_id, 'url': url}[source_type]:
+        raise ReportError('unapproved DINOv2 pretrained source')
+    version = pretrained.get('timm_version', '')
+    if not isinstance(version, str) or not re.fullmatch(r'[0-9]+(?:\.[0-9]+){1,3}(?:\+[A-Za-z0-9.]+)?', version):
+        raise ReportError('invalid DINOv2 timm version')
+    cfg = pretrained.get('resolved_pretrained_cfg')
+    if not isinstance(cfg, dict):
+        raise ReportError('missing resolved DINOv2 pretrained configuration')
+    # Core identity/preprocessing evidence must exist and match the pinned timm
+    # cfg. Contradictory known evidence is rejected before private extras drop.
+    required = {'architecture', 'tag', 'url', 'hf_hub_id', 'input_size', 'mean', 'std', 'num_classes'}
+    known = {'architecture': name, 'tag': 'lvd142m', 'url': url, 'hf_hub_id': hub_id,
+             'first_conv': 'patch_embed.proj', 'classifier': 'head', 'license': 'apache-2.0',
+             'interpolation': 'bicubic', 'crop_mode': 'center', 'input_size': [3, 518, 518],
+             'mean': [.485, .456, .406], 'std': [.229, .224, .225], 'num_classes': 0,
+             'custom_load': False, 'fixed_input_size': True, 'crop_pct': 1., 'pool_size': None}
+    safe_cfg = {}
+    for key, expected in known.items():
+        if key not in cfg:
+            if key in required:
+                raise ReportError('DINOv2 pretrained configuration is missing core field ' + key)
+            continue
+        actual = cfg[key]
+        if isinstance(expected, list):
+            if not isinstance(actual, (list, tuple)):
+                raise ReportError('DINOv2 pretrained configuration conflicts at ' + key)
+            actual = [_finite(x, 'DINOv2 configuration number', nonnegative=True) for x in actual]
+        elif type(expected) in (int, float):
+            actual = _finite(actual, 'DINOv2 configuration number', nonnegative=True)
+        if actual != expected or (type(expected) is bool and type(actual) is not bool):
+            raise ReportError('DINOv2 pretrained configuration conflicts at ' + key)
+        safe_cfg[key] = expected
+    return {'pretrained_family': 'DINOv2', 'pretrained_timm_model': name, 'timm_version': version,
+            'pretrained_source_type': source_type, 'pretrained_source_location': location,
+            'pretrained_resolved_cfg': safe_cfg}
+
+
 def _safe_identities(provenance):
     if provenance.get('source',{}).get('revision')!=UPSTREAM_COMMIT:
         raise ReportError('upstream is not the approved source revision')
@@ -488,9 +539,30 @@ def _safe_identities(provenance):
     for key in ('config_sha256','partition_sha256','normalization_sha256'):
         result[key]=_hex(provenance.get(key),64)
     result['original_recipe_sha256']=_hex(provenance['reproduction'].get('selected_recipe_sha256'),64)
+    config = provenance.get('recipe', {}).get('effective_config', {})
+    selected_vit = config.get('upstream_experiment') == 'fusion/vision_vit_small'
     initialization=provenance.get('initialization',{})
+    policy=initialization.get('policy')
+    builder=initialization.get('official_builder',{})
+    if (selected_vit or policy == 'DINOv2 backbone') and not isinstance(builder, dict):
+        raise ReportError('DINOv2 policy requires pretrained source and tensor evidence')
+    pretrained=builder.get('pretrained_weights')
+    if selected_vit:
+        if policy not in ('DINOv2 backbone', 'random', 'clean vision checkpoint'):
+            raise ReportError('DINOv2 recipe initialization policy/family mismatch')
+        if policy != 'DINOv2 backbone' and pretrained is not None:
+            raise ReportError('DINOv2 recipe has pretrained evidence inconsistent with its policy')
+        if isinstance(pretrained, dict) and any(key in pretrained for key in ('enum', 'source_url', 'torchvision_version')):
+            raise ReportError('DINOv2 recipe contains conflicting ResNet initialization evidence')
+        branch=initialization.get('vision')
+        if policy == 'random' and branch is not None:
+            raise ReportError('DINOv2 random policy conflicts with vision checkpoint evidence')
+        if policy == 'clean vision checkpoint' and (
+                not isinstance(branch, dict) or branch.get('model_kind') != 'vision' or
+                branch.get('selection') != 'complete independent validation'):
+            raise ReportError('DINOv2 clean checkpoint requires validated vision branch evidence')
     public_init={}
-    if initialization.get('policy') in ('random','ImageNet1K_V1 backbone','clean branches then official residual-zero initialization'):
+    if initialization.get('policy') in ('random','ImageNet1K_V1 backbone','DINOv2 backbone','clean vision checkpoint','clean branches then official residual-zero initialization'):
         public_init['policy']=initialization['policy']
     if 'seed_before_model' in initialization:public_init['seed']=_count(initialization['seed_before_model'],'initialization seed')
     for branch in ('emg','vision'):
@@ -499,17 +571,31 @@ def _safe_identities(provenance):
             public_init[branch]={'checkpoint_sha256':_hex(item.get('sha256'),64),
                 'selected_step':_count(item.get('selected_step'),'initializer step'),
                 'best_val_mae_deg':_finite(item.get('best_val_mae_deg'),'initializer score')}
-    pretrained=initialization.get('official_builder',{}).get('pretrained_weights')
+    if initialization.get('policy') == 'DINOv2 backbone' and (
+            not isinstance(builder, dict) or not isinstance(builder.get('pretrained_weights'), dict)
+            or not builder['pretrained_weights']):
+        raise ReportError('DINOv2 policy requires nonempty pretrained source and tensor evidence')
     if pretrained:
-        url=pretrained.get('source_url','')
-        if re.fullmatch(r'https://download\.pytorch\.org/models/resnet[0-9]+-[0-9a-f]{8}\.pth',url):
-            public_init['pretrained_source_url']=url
+        if initialization.get('policy') == 'DINOv2 backbone' and pretrained.get('family') != 'DINOv2':
+            raise ReportError('DINOv2 pretrained family mismatch')
+        if pretrained.get('family') == 'DINOv2':
+            backbone = config.get('vision_backbone_type', 'vit_small')
+            expected = {'vit_small': 'vit_small_patch14_dinov2', 'vit_base': 'vit_base_patch14_dinov2',
+                        'vit_large': 'vit_large_patch14_dinov2'}.get(backbone) if isinstance(backbone, str) else None
+            if (config.get('upstream_experiment') != 'fusion/vision_vit_small' or
+                    pretrained.get('timm_model') != expected or initialization.get('policy') != 'DINOv2 backbone'):
+                raise ReportError('DINOv2 pretrained model/family does not match the selected recipe')
+            public_init.update(_safe_dinov2_identity(pretrained))
+        else:
+            url=pretrained.get('source_url','')
+            if re.fullmatch(r'https://download\.pytorch\.org/models/resnet[0-9]+-[0-9a-f]{8}\.pth',url):
+                public_init['pretrained_source_url']=url
+            # Exact hashes identify weights; only known enum/version strings are public.
+            enum=pretrained.get('enum','')
+            version=pretrained.get('torchvision_version','')
+            if re.fullmatch(r'torchvision\.models\.ResNet\d+_Weights\.IMAGENET1K_V1',enum):public_init['pretrained_enum']=enum
+            if re.fullmatch(r'[0-9.]+(?:\+[A-Za-z0-9.]+)?',version):public_init['torchvision_version']=version
         public_init['pretrained_backbone_tensor_sha256']=_hex(pretrained.get('backbone_tensor_sha256'),64)
-        # Exact hashes identify weights; only fixed known enum/version strings are public.
-        enum=pretrained.get('enum','')
-        version=pretrained.get('torchvision_version','')
-        if re.fullmatch(r'torchvision\.models\.ResNet\d+_Weights\.IMAGENET1K_V1',enum):public_init['pretrained_enum']=enum
-        if re.fullmatch(r'[0-9.]+(?:\+[A-Za-z0-9.]+)?',version):public_init['torchvision_version']=version
     result['initialization']=public_init
     for key in ('visual_data',):
         if key in provenance:result[key+'_sha256']=_hex(provenance[key].get('sha256'),64)
@@ -538,7 +624,7 @@ def build_export(run, model_label, *, checkpoint_loader=None):
     if recipe.get('source_utf8','').encode('utf-8')!=recipe_bytes or _canonical(recipe.get('effective_config'))!=_canonical(config):
         raise ReportError('original/effective recipe evidence disagrees')
     kind=_kind(config)
-    if 'vision_backbone_type' in config and model_label!=_model_name(config):
+    if ('vision_backbone_type' in config or config.get('upstream_experiment') == 'fusion/vision_vit_small') and model_label!=_model_name(config):
         raise ReportError('model label disagrees with configured vision backbone')
     trajectory_points=_trajectory_points(config)
     if _count(config.get('epochs'),'configured epochs')==0 or _count(config.get('batch_size'),'batch size')==0:
