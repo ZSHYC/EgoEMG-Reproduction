@@ -61,7 +61,7 @@ The existing local resumable xz receiver is correct but its single-flow compress
 - [x] First write RED cases for two concurrent cursors, slice boundary EOF, nonzero-offset real HDF5 fields/attrs, closed ownership and unsealed fd rejection.
 - [x] Add hostile/ambiguous TAR cases: traversal, duplicate/normalized duplicate, links, sparse members, truncated member/trailer, missing/extra official filenames and wrong metadata/attrs.
 - [x] Implement bounded original-member reads, preserve all nonconsumed fields in the sealed source, and stream original helpers for masks/blocks/field hashes; no materialized source-sized arrays or weakened old path guards.
-- [x] Prove actual mini original member and HDF5 field bytes against existing source receipts; run relevant GREEN tests. Actual30HDF5/4,218,756rows,allglobal/session fields and native metadata arrays match; complete101source1651/4 and light919/689. Native526window/model check remains Task3.
+- [x] Prove actual mini original member and HDF5 field bytes against existing source receipts; run relevant GREEN tests. Actual30HDF5/4,218,756rows,allglobal/session fields and native metadata arrays match; complete101source1651/4 and light919/689. Code committed as `cbee8fe`; task-done re-ran82checks. Native526window/model check remains Task3.
 
 ### Task 3: Storage-only adapter to the unchanged official data factory
 

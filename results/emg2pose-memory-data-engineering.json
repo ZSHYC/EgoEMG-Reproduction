@@ -82,6 +82,7 @@
   "full_paper_complete": false,
   "full_source_acquired": false,
   "full_training_complete": false,
+  "implementation_commit": "cbee8fe61446d72bfac7b3fd344cc620e4ce1c71",
   "implementation_files_sha256": {
     "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
     "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
