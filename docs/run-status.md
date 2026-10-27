@@ -1,5 +1,9 @@
 # 运行状态
 
+## 2026-10-27：持久化接收的同范围响应体重试通过本机与服务器检查
+
+[独立组件与实际证据](../results/emg2pose-persistent-body-retry-engineering.json)针对07:29真实ReadTimeout中断：原核心仅在请求建立阶段重试，响应内容读取失败直接退出。新helper只重试原核心明确包装的网络响应体错误，最多三次body尝试；每次保留原协议/身份/长度核验，guard覆盖每次请求及退避两侧，失败块从不提交，协议/TLS/内容/资源错误不重试。真实loopback半途关闭、三次耗尽、后续对象变化和显式恢复完整SHA已检查，本机/服务器各76项实际exit0，原核心SHA9fb668不变。未将此传输检查计为完整数据、250轮训练或新增模型成绩。新的持久化续传须另行记录实际进程和前缀验证状态；旧失败退出保留。
+
 ## 2026-10-27：原预算fit/选模入口完成受控GPU工程验收
 
 [正式fit入口的工程证据](../results/emg2pose-memory-native-fit-engineering.json)记录原factory/训练增强/验证角色、原320批量/12workers/bf16/clip1/cosine250及top3+last/val_mae/min/noearlystop。S/M/L各在显式合成的3个HDF5文件、25,710行及分开的角色上执行一个完整工程epoch，另一个真实进程恢复至两轮；每轮16次实际更新、5,120次消费，合计每模型32次更新。六类原生恢复状态全部一致，原生best/last/恢复前缀/epoch journal另由独立CPU消费者重新接受，七个受管理阶段实际exit0，457.00秒。合成数据不是官方mini或benchmark，每轮验证只有1窗；没有模型精度、完整源或250轮结果。此前真实mini526窗口GPU重推证据独立保留。

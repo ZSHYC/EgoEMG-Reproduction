@@ -1,0 +1,62 @@
+{
+  "checks": {
+    "initial_red": {
+      "actual_exit_code": 1,
+      "failed": 31,
+      "log_sha256": "19a52c0774951909106abf2ea44237ba4671f2c1ee27e2354dd7a88bf2088cab",
+      "reason": "new module missing",
+      "seconds": 0.45
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "476d5adee06b76f0a252505b9eee0f2566ad94ba7e448e1ca4dca1802d64b2c1",
+      "passed": 76,
+      "python": "3.12.14",
+      "seconds": 7.22
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "3d972cded10662986796c3ad6e18f555d58e25aacb46ad0b25eaa3028b86ef6b",
+      "log_sha256": "9438c0cd8d965d4c1f429198344b9ce45eadff22847f33c9d79d6edf1b5c8ffa",
+      "passed": 76,
+      "python": "3.11.12",
+      "seconds": 7.9
+    }
+  },
+  "format": "emg2pose_persistent_body_retry_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "new_scientific_result": false,
+  "observed_utc": "2026-10-27T08:15:23.639415+00:00",
+  "policy": {
+    "automatic_process_retry": false,
+    "delays_seconds": [
+      1.0,
+      2.0
+    ],
+    "guard_before_each_attempt_and_backoff": true,
+    "max_body_attempts_per_range": 3,
+    "partial_body_never_committed": true,
+    "range_and_source_identity_preserved": true,
+    "strict_tls_protocol_identity_and_content_errors_are_not_retried": true,
+    "unchanged_request_attempts_per_body_attempt": 3
+  },
+  "scope": "Real loopback HTTP body truncation, strict protocol refusal and byte-exact archive resume; no full-source or model-performance claim",
+  "source": {
+    "archive_core_sha256": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "core_unchanged": true,
+    "original_archive_tests_sha256": "685237ddd1abc5a0df8931984149746f7a801fef8d46865262221a1d1eb0882a",
+    "retry_helper_sha256": "e574b8bd0725c69e9c6955ed06983768c42894ff184614bc5da1bc6d9b66c418",
+    "retry_tests_sha256": "553e622e4696ca3dd807fa9bda23c976f47a14a1a227ad59f0aadf4e170ecf70"
+  },
+  "tested_behaviors": [
+    "real partial response then exact same-range retry",
+    "bounded exhaustion preserves last requests body exception",
+    "changed identity on a later attempt is rejected",
+    "TLS/protocol/content/unknown/local errors and KeyboardInterrupt are not retried",
+    "capacity guard before first attempt, before backoff and after backoff",
+    "observer failure propagates without a new request",
+    "caller source mutation cannot change a retry identity",
+    "no partial commit after earlier complete block; explicit resume reconstructs full original source SHA256"
+  ]
+}

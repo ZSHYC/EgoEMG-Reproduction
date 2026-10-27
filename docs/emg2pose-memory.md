@@ -4,6 +4,10 @@
 
 ## 已实现的接收组件
 
+持久化xz接收另有独立的[响应体重试组件](../egoemg_repro/emg2pose_archive_retry.py)，不修改原归档核心或已提交块。它只对原读取器明确包装的连接、读取超时或响应中断重试同一范围，最多三次响应体尝试，等待1/2秒；每次仍由原代码核验206、范围、强ETag、Last-Modified、长度和内容。TLS、协议、身份、内容、资源和其他错误立即传播。原请求建立阶段最多三次尝试另行保留，因此不能把三个响应体尝试误写为所有情况下最多三个HTTP请求。
+
+容量guard在每次尝试及退避前检查，退避后再次检查才能请求；独立私有持久化入口继续保留340GiB预算和15GiB磁盘余量，不自动重启进程或训练。[实际证据](../results/emg2pose-persistent-body-retry-engineering.json)覆盖真实HTTP半途断开、后续身份变化拒绝、三次耗尽不提交失败块、先前已提交块保留及显式恢复后完整SHA一致。本机Python3.12和服务器Python3.11各76项通过。这些是传输与归档工程证据，不能作为完整源就绪或模型成绩。
+
 `egoemg_repro.emg2pose_memory_archive.acquire_archive`沿用已有下载器的强ETag、Last-Modified、精确206范围、总长度和响应体检查。默认8个并发、每块16MiB，仅保留有界的在途响应；原HTTP对象的每一个字节都写入拥有的Linux memfd，不提取或删去字段、文件、TAR头或填充。
 
 开始前检查完整对象与缓冲所需内存，默认额外保留256GiB；接收和最终读回期间持续检查主机MemAvailable及可见cgroup-v2各级限额。完整接收后重新核对HEAD，再加上WRITE/GROW/SHRINK/SEAL封印；逐块读回比较实际收到的SHA256，并计算整个原对象SHA256。任何失败都关闭本组件拥有的fd，不返回可用缓存。
