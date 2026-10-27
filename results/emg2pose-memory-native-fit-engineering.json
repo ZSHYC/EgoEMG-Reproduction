@@ -1,0 +1,244 @@
+{
+  "actual_exit_code": 0,
+  "all_owned_consumers_exited": true,
+  "engineering_only": true,
+  "fit_entrypoint": {
+    "actual_driver_cuda_qualification_and_frozen_receipt_required": true,
+    "default_scope": "full",
+    "final_test_or_report_performed": false,
+    "full_file_count": 25253,
+    "full_max_epochs": 250,
+    "full_native_resume_requires_frozen_last_checkpoint": true,
+    "full_role_session_counts": {
+      "test": 6167,
+      "train": 17136,
+      "val": 1950
+    },
+    "full_source_bytes": 462824048640,
+    "full_source_required": true,
+    "no_full_subset_or_step_cap": true,
+    "original_sampler_block_batches": 16,
+    "uninterrupted_trajectory_qualified": false,
+    "validation_selected_best_independently_reopened": true
+  },
+  "fixture": {
+    "archive_bytes": 3942400,
+    "archive_sha256": "2f0b904fe8a98750144724faac1aa5a33d9bb696ff09b4a6cedc775503d30f6f",
+    "benchmark_performance_eligible": false,
+    "files": 3,
+    "index_completion_sha256": "4256a9a1d145f3858375ef9de8a2413359510843f5d4f4a8b3eb1666bd25bd40",
+    "kind": "explicitly synthetic HDF5 test data, not official mini or full benchmark",
+    "rows": 25710,
+    "separate_train_val_test_roles": true
+  },
+  "formal_driver_bounded_gpu_qualified": true,
+  "format": "emg2pose_native_fit_driver_engineering_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "gpu": "NVIDIA A800-SXM4-80GB; one rank",
+  "limitations": [
+    "The three HDF5 files are generated test fixtures with separate declared roles; there is no benchmark training or generalization result.",
+    "Original native SessionShuffleSampler cyclically pads each rank to16-batch blocks. Tiny unique-anchor counts therefore produce5120 consumptions and16 updates per GPU epoch; these are not5120 unique benchmark samples.",
+    "Two CUDA-engineering epochs qualify only bounded execution, native selection and fresh-process state restore; full250epoch/complete25253source experiments remain unperformed.",
+    "Native callbacks/loop/RNG restore observed immediately after original restore_training_state, before iterator reconstruction. Only stock-unrestored current_score is excluded; uninterrupted trajectory/dataloader order are unclaimed.",
+    "The prior real647MB-mini recovery component separately validates complete526-window replay. This synthetic driver fixture has one validation window and cannot replace complete-source validation.",
+    "Training-only receipts remain scientific_complete/test_performed/full_paper_complete=false; validation-only calibration, original final per-user evaluation, independent replay/statistics and reporting remain separate.",
+    "Resource floors256GiB host/64GiB prelaunchGPU/8GiB ongoingGPU/15GiB disk were retained. Capacity is observed, not an operating-system reservation.",
+    "Final full-source owned controller and Task4 implementation review remain outstanding; full paper is incomplete."
+  ],
+  "observed_utc": "2026-10-27T07:19:54.066069+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "owned_cpu_qualification_readback_stages": 1,
+  "owned_gpu_stages": 6,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "raw_sha256": "5814cafd9016bbf90212aa3a8ad88524fd7762e0e42d508c7a2d8ea2c61012cf",
+  "runtime": {
+    "dependencies": {
+      "h5py": "3.11.0",
+      "hydra-core": "1.3.2",
+      "joblib": "1.5.2",
+      "lightning-utilities": "0.11.9",
+      "numpy": "1.26.4",
+      "omegaconf": "2.3.1",
+      "pandas": "2.2.3",
+      "pytorch-lightning": "2.5.0.post0",
+      "scipy": "1.13.1",
+      "torch": "2.2.2+cu118",
+      "torchmetrics": "1.4.3",
+      "torchvision": "0.17.2+cu118"
+    },
+    "python": "3.11.12",
+    "seed_policy": "official setup_runtime before model factory; explicit correction of upstream train() launch ordering",
+    "tensorboard": "2.18.0"
+  },
+  "sizes": [
+    {
+      "actual_optimizer_updates_by_process": [
+        16,
+        16
+      ],
+      "actual_train_consumptions_per_epoch": 5120,
+      "batch_size": 320,
+      "exact_native_resume": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "frozen_resume_checkpoint_sha256": "ca9a864ab6634a2e49ca85443605c131f610a52b6480462f066d615ddc72823f",
+      "global_steps_by_process": [
+        16,
+        32
+      ],
+      "gradient_clip_val": 1,
+      "minimum_observed_gpu_free_bytes": 61822795776,
+      "native_callback_policy": "top3+last, val_mae/min, no EarlyStopping; TensorBoard",
+      "native_epochs": 2,
+      "native_last_checkpoint_sha256": "ee40d2c909a6ff677d3f4628d83337ea67a359b0832f0050e595753b1c86ee59",
+      "native_sampler_block_batches": 16,
+      "native_sampler_cyclic_padding_preserved": true,
+      "native_selected_best_state_epoch_score_validated": true,
+      "native_train_augmentation_and_separate_val_role": true,
+      "native_train_batches_per_epoch": 16,
+      "precision": "bf16-mixed",
+      "qualification_identity_sha256": "dd4deb27944e02bb3c63326ba27d88f1af254ce8d50d276c8b65694f96bd1531",
+      "qualification_receipt_sha256": "7f7803e63b1020fedffa22eb72db43e39cb2fe9e5b80cd470e0fe538f04ae4fc",
+      "scheduler_epochs": 250,
+      "seconds_by_process": [
+        41.935773813165724,
+        74.4525863789022
+      ],
+      "selected_best_checkpoint_sha256": "ee40d2c909a6ff677d3f4628d83337ea67a359b0832f0050e595753b1c86ee59",
+      "separate_qualification_reader_accepted": true,
+      "size": "small",
+      "unique_train_anchor_windows": 1,
+      "validation_windows_per_epoch": 1,
+      "workers": 12
+    },
+    {
+      "actual_optimizer_updates_by_process": [
+        16,
+        16
+      ],
+      "actual_train_consumptions_per_epoch": 5120,
+      "batch_size": 320,
+      "exact_native_resume": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "frozen_resume_checkpoint_sha256": "faed459d8ea4f86dc72178dca3be1c7d453ec801385c0d4a36f578b2027e5001",
+      "global_steps_by_process": [
+        16,
+        32
+      ],
+      "gradient_clip_val": 1,
+      "minimum_observed_gpu_free_bytes": 60788899840,
+      "native_callback_policy": "top3+last, val_mae/min, no EarlyStopping; TensorBoard",
+      "native_epochs": 2,
+      "native_last_checkpoint_sha256": "74e849020680297f4d621950a1c5c14ca95c48b06859cd34cb75b938a600fd3f",
+      "native_sampler_block_batches": 16,
+      "native_sampler_cyclic_padding_preserved": true,
+      "native_selected_best_state_epoch_score_validated": true,
+      "native_train_augmentation_and_separate_val_role": true,
+      "native_train_batches_per_epoch": 16,
+      "precision": "bf16-mixed",
+      "qualification_identity_sha256": "57bcd37cab9984194b924eff76d559d0dba6105fc30833dcf821345135a151c1",
+      "qualification_receipt_sha256": "1b97dcfe3cedb4a3b0544c6ffd4153a9deb55b21c954afa3a8b3746f7aaa2fe7",
+      "scheduler_epochs": 250,
+      "seconds_by_process": [
+        38.509847194422036,
+        68.38252275669947
+      ],
+      "selected_best_checkpoint_sha256": "74e849020680297f4d621950a1c5c14ca95c48b06859cd34cb75b938a600fd3f",
+      "separate_qualification_reader_accepted": true,
+      "size": "middle",
+      "unique_train_anchor_windows": 2,
+      "validation_windows_per_epoch": 1,
+      "workers": 12
+    },
+    {
+      "actual_optimizer_updates_by_process": [
+        16,
+        16
+      ],
+      "actual_train_consumptions_per_epoch": 5120,
+      "batch_size": 320,
+      "exact_native_resume": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "frozen_resume_checkpoint_sha256": "7d7839ccba355cf07aeb6d045601ac04c34b682547923ced3e8b0846d23db564",
+      "global_steps_by_process": [
+        16,
+        32
+      ],
+      "gradient_clip_val": 1,
+      "minimum_observed_gpu_free_bytes": 56187748352,
+      "native_callback_policy": "top3+last, val_mae/min, no EarlyStopping; TensorBoard",
+      "native_epochs": 2,
+      "native_last_checkpoint_sha256": "7e266be2fd9e7db48d155ab3aefe9fd0c6d87b77e917e797b547de9aa8e9297a",
+      "native_sampler_block_batches": 16,
+      "native_sampler_cyclic_padding_preserved": true,
+      "native_selected_best_state_epoch_score_validated": true,
+      "native_train_augmentation_and_separate_val_role": true,
+      "native_train_batches_per_epoch": 16,
+      "precision": "bf16-mixed",
+      "qualification_identity_sha256": "36165f8f5cf3a91afb88015e7f41c76801d30546a499905b034d82d3ef614f28",
+      "qualification_receipt_sha256": "6834ec5a5b3442f7cda355a46913d7b525e52ce6e15ef508f1bc01e5f92405d7",
+      "scheduler_epochs": 250,
+      "seconds_by_process": [
+        39.47467528283596,
+        70.01390570681542
+      ],
+      "selected_best_checkpoint_sha256": "7e266be2fd9e7db48d155ab3aefe9fd0c6d87b77e917e797b547de9aa8e9297a",
+      "separate_qualification_reader_accepted": true,
+      "size": "large",
+      "unique_train_anchor_windows": 2,
+      "validation_windows_per_epoch": 1,
+      "workers": 12
+    }
+  ],
+  "source_bundle_sha256": "db51f1dd80c7083ec0447f1b856da27d68177cfcd00294ffcdc403a73df878ed",
+  "source_manifest_members": 116,
+  "source_manifest_sha256": "00db790fb8a8bed91f0cd50e40a93fd868e27d2951682ea2293b01c04107d6a5",
+  "tests": {
+    "full": {
+      "actual_exit_code": 0,
+      "log_sha256": "ab6e5aab1b370364f2c1ba797ba5df8e5a1efd9edd099b7bf2852cc98ff64403",
+      "passed": 1798,
+      "seconds": 1042.97,
+      "skipped": 3,
+      "warnings": 137
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "5406ffa06d46ec55f7d6745a1b979728b92912ca3d0eeb44c71c4133685b305b",
+      "passed": 987,
+      "seconds": 40.35,
+      "skipped": 693,
+      "warnings": 1
+    },
+    "local_targeted": {
+      "actual_exit_code": 0,
+      "passed": 18,
+      "seconds": 72.14
+    },
+    "server_targeted": {
+      "actual_exit_code": 0,
+      "passed": 18,
+      "seconds": 104.71
+    }
+  },
+  "total_seconds": 456.9961185269058
+}

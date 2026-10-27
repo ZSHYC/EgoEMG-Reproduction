@@ -1,5 +1,15 @@
 # 运行状态
 
+## 2026-10-27：原预算fit/选模入口完成受控GPU工程验收
+
+[正式fit入口的工程证据](../results/emg2pose-memory-native-fit-engineering.json)记录原factory/训练增强/验证角色、原320批量/12workers/bf16/clip1/cosine250及top3+last/val_mae/min/noearlystop。S/M/L各在显式合成的3个HDF5文件、25,710行及分开的角色上执行一个完整工程epoch，另一个真实进程恢复至两轮；每轮16次实际更新、5,120次消费，合计每模型32次更新。六类原生恢复状态全部一致，原生best/last/恢复前缀/epoch journal另由独立CPU消费者重新接受，七个受管理阶段实际exit0，457.00秒。合成数据不是官方mini或benchmark，每轮验证只有1窗；没有模型精度、完整源或250轮结果。此前真实mini526窗口GPU重推证据独立保留。
+
+原`SessionShuffleSampler`按每rank的16个batch块循环补齐。本次真实执行先揭示了“ceil(unique_windows/batch)”的错误计数假设，现严格保留原采样器，单列唯一锚点（S1/M2/L2）和实际消费（每轮5,120）。CPU工程同样保留补齐：唯一锚点1、每轮16更新。新入口full默认要求完整25,253源、原角色及该入口实际CUDA资格的另行冻结SHA；full只允许250完整轮次，无子集/步数上限/工程早停。训练和原生验证选best后，独立reader核验实际检查点和完整journal；不自动打开test。错误模型恢复不改旧凭据，并发拒绝不泄漏锁fd，完成预算不能通过resume延长。
+
+本机18项72.14秒、服务器同18项104.71秒通过；116成员固定源码整体1,798 passed/3实际CUDA skip/137warnings（1042.97秒），轻量987 passed/693依赖skip/1warning（40.35秒），均实际exit0且前后源码一致。仅剩三项skip为另行提供实际CUDA证据的classic专项。此前114成员7ed5be0的[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40462128853)两项成功：官方1,780/3/128warnings（1285.42秒）、pip check通过；轻量987/692/1warning（43.43秒），已验证其磁盘测试目录修正，**不覆盖本次116成员fit代码**。
+
+07:44UTC原DINO-S/B/L训练子进程身份均匹配，正在第57/39/17轮，已完成56/38/16轮完整验证，无终态错误或最终测试。主机可用527,075,725,312 bytes仍低于完整源737,836,173,312 bytes准入需求。持久化接收器已完成75.3GB旧前缀校验并新增至76,973,867,008源字节（压缩52,231,762,008）；07:29真实exit1，错误为当前范围响应体ReadTimeout、未提交该不完整块，已提交前缀保留。后续需处理当前范围的有界重试，不能因观察超时重启存活进程。完整源、三项250轮实验、验证校准/最终原逐用户评价/独立复推报告、完整控制器和Task4最后实现审查仍欠；本节不能填Tables11/13或验收全文。
+
 ## 2026-10-27：三模型原生GPU完整状态恢复及新进程完整验证通过
 
 [新恢复入口与证据](../results/emg2pose-memory-native-gpu-recovery.json)使用原生factory、callbacks、TensorBoard和Trainer：S/M/L各两次batch320/12worker/bf16前缀更新及两轮完整526窗口验证，另一个真实进程严格重载后完整526窗口的输入/输出/顺序与全部原生指标精确一致，原生完整检查点的权重、AdamW、cosine250、callbacks、fit循环和Python/NumPy/Torch/CUDA随机状态六项一致，再实际更新一次至step3并完整验证。六个受管理阶段实际exit0，全部拥有的消费者退出；总计636.92秒。只排除PL2.5明确不加载的ModelCheckpoint.current_score暂态字段；原top3+last/val_mae/min/noearlystop/clip1保留，bf16没有FP16 scaler。

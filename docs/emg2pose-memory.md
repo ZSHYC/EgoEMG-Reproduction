@@ -138,3 +138,17 @@ with acquire_archive('mini') as cache:
 检查点IO支持原生保存、加载及自动topK删除；仅允许拥有的目录，保留15GiB磁盘余量、同步原子写入，冻结检查点不允许覆盖或删除。独立CLI通过`EGOEMG_STAGE_FD_ARCHIVE`接收真实继承权限并在退出时关闭；调用方仍须使用已有guardian管理12worker后代和资源压力。失败保留开始/检查点/错误记录、删除该阶段的成功receipt，并拒绝自动重试。
 
 本次仍复用mini原val和验证变换作为工程训练夹具，没有独立验证、完整训练人口或增强验收，没有验证选best后的最终测试。完整526窗口的`skipIKfalse`验证与原逐用户分析的460个`skipIKtrue`窗口不同。检查点状态恢复不证明中断前后训练轨迹或数据顺序逐位一致；原生提示保留。完整源、正式250轮训练入口及选模/测试/报告仍需完成，不能用本节填Tables11/13。
+
+## 正式训练入口及受控工程验收
+
+`emg2pose_memory_train.fit_source(upstream, source, metadata_csv, size, output, *, scope='full', resume=False, expected_last_sha256=None, stop_after_epoch=None, qualification=None, expected_qualification_sha256=None)`只运行原生Trainer.fit；不会自动打开测试集。full要求实际准入的全部25,253会话、462,824,048,640个源字节及原train17,136/val1,950/test6,167角色，保留250轮、batch320、12workers、bf16、clip1、cosine250、top3+last/val_mae/min且无EarlyStopping。full没有子集、步数上限或工程早停参数。原val-only mini没有train角色，因此不能通过此入口启动训练。
+
+full还要求该规模、相同科学配方/代码/运行时/硬件的实际CUDA工程资格：`read_qualification`重新打开完整两轮的原生best/last/恢复前缀和epoch journal，核对真实GPU配置及新进程六状态恢复，外部须另行冻结fit-result文件SHA。CPU结果、旧mini容量报告或单个成功布尔字段均不构成这份资格。完整数据的身份另外独立绑定，不能用合成数据的角色和字节数替代。
+
+官方`SessionShuffleSampler`会按每rank的16个batch块循环补齐，而不是只迭代`ceil(len(dataset)/batch)`。入口保留原采样器类型、单rank、块大小和每轮补齐行为，分别记录`train_unique_windows`（数据集锚点数）、`train_samples`（实际消费数）与实际batch/更新次数。完整epoch hash链绑定完整train/val消费数、原生验证MAE、流式输入/输出/指标摘要及全部模型state；原模型损失和选模方法不重写。
+
+`read_fit(output, require_full=True)`独立检查终态last、每轮覆盖、优化器计数、cosine250和原生验证最小值所选best的文件/权重/epoch。只有完整250轮及真实full源才是full训练结束；fit-only结果仍不代表最终科学测试或全文完成。恢复显式要求last.ckpt的另外冻结SHA，在相同输出目录保留不可变恢复前缀和旧结果；原callback路径不变。错误模型/输入的预检拒绝不改写旧成功凭据，并发写入拒绝不遗留锁fd。未提交journal尾部在恢复前另存，不自动重试。日志和数据集清理完成后才发布最后的fit-only receipt。
+
+[实际GPU工程证据](../results/emg2pose-memory-native-fit-engineering.json)为3个**合成HDF5文件**、25,710行和显式分开的train/val/test角色，不是官方mini或完整benchmark。S/M/L各完成两轮原320/12/bf16训练，共32次实际更新（首进程16，另一个进程恢复后再16），每轮消费5,120个原采样器补齐窗口，唯一锚点分别1/2/2；每轮验证只有1窗。原训练增强、验证角色、native best/last/前缀、epoch hash链和六状态恢复全部实际检查，另一个CPU消费者重新接受三份CUDA资格，全部七个受管理阶段exit0，总计457.00秒。合成误差不发布为性能结论；此前真实mini526窗口GPU重推证据仍独立保留。
+
+完整源、正式250轮实验、仅验证集校准、原逐用户最终评价/独立统计复推、拥有的完整控制器及Task4最后实现审查仍未完成。本节只是入口实现与受控工程验收，不能填Tables11/13。
