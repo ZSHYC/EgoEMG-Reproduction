@@ -1,6 +1,7 @@
 {
   "format": "emg2pose_memory_hosted_ci_v1",
   "full_paper_complete": false,
+  "latest_verified_native_foundation_run": 40535564494,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
   "pending_cpu_backend_fixture_fix": {
@@ -288,7 +289,55 @@
         }
       ],
       "run_id": 40519871088
+    },
+    {
+      "commit": "2ef5fc2ae5be7c8c11851ab2ac8113d88ceb0cc2",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122279428918,
+          "passed": 1235,
+          "seconds": 44.55,
+          "skipped": 696,
+          "warnings": 1
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122279429000,
+          "passed": 2094,
+          "pip_check": true,
+          "seconds": 2100.55,
+          "skipped": 3,
+          "warnings": 139
+        }
+      ],
+      "run_id": 40529871595
+    },
+    {
+      "commit": "122361e4b010e8d2f7e6e752eb8c881ddd7461ac",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122299742409,
+          "passed": 1235,
+          "seconds": 60.17,
+          "skipped": 698,
+          "warnings": 1
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122299743049,
+          "passed": 2168,
+          "pip_check": true,
+          "seconds": 1588.92,
+          "skipped": 3,
+          "warnings": 157
+        }
+      ],
+      "run_id": 40535564494
     }
   ],
-  "scope": "Actual hosted checks through ef0825c SUCCESS: CPU2032/3 actualCUDA skips and light1173/696 optional-dependency skips. Includes compact sealed carrier and fresh-stage evaluation tests; new compact inventory/index are not covered by this run."
+  "scope": "Actual hosted terminal results through frozen122361e native foundation; subsequent disk acquisition has separate actual server/mini evidence, not these hosted runs"
 }

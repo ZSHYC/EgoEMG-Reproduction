@@ -1,0 +1,184 @@
+{
+  "actual_original_mini": {
+    "acquisition_owner_torch_unimported": true,
+    "actual_exit_code": 0,
+    "actual_owned_processes_gone": true,
+    "all_original_converted_fields_and_native_arrays_equal": true,
+    "all_original_member_bytes_equal": true,
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "bundle_sha256": "d6f3ac8103b2960ad15e435449db9076b0d6eeab9fa464f0468b72b73cfc0d6c",
+    "cuda_initialized": false,
+    "download_receipt_sha256": "e92f10a07102117e08a4b2a115915b43f535b24855c12c8d26daa42e9970f068",
+    "files": 30,
+    "maximum_connections_observed": 8,
+    "models": [
+      {
+        "actual_cpu_forward": true,
+        "parameters": 3481636,
+        "shapes": [
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            7280
+          ]
+        ],
+        "size": "small"
+      },
+      {
+        "actual_cpu_forward": true,
+        "parameters": 6638884,
+        "shapes": [
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            7280
+          ]
+        ],
+        "size": "middle"
+      },
+      {
+        "actual_cpu_forward": true,
+        "parameters": 16342308,
+        "shapes": [
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            7280
+          ]
+        ],
+        "size": "large"
+      }
+    ],
+    "native_metadata_arrays": 22,
+    "optimization_performed": false,
+    "original_conversion_completion_sha256": "b0bde8630c58c9d9acd3a48d7722fa2fbced2ec08d82d0f83083319e9dbb9127",
+    "original_source_inventory_sha256": "8f111f80919e75b231765b0588f44c1f8f97a95de10f96f69233ddfb3ae70760",
+    "phases": {
+      "actual_mini_download_seconds": 65.99917519977316,
+      "original_inspection_seconds": 3.7213898999616504,
+      "original_member_copy_seconds": 2.3306235861964524,
+      "original_models_and_all526_input_seconds": 8.964649945963174,
+      "unchanged_conversion_seconds": 9.708230963908136
+    },
+    "rows": 4218756,
+    "runtime_capacity_observer_injected": false,
+    "seconds": 91.88188212970272,
+    "valid_blocks": 1015,
+    "valid_rows": 3559584,
+    "window_proof": {
+      "stream_digests": {
+        "emg": "152fa67137f493bac4658928606d1a36fc369519ec4d9447ff8904d33815c835",
+        "joint_angles": "5b408e1bdd98a6073c1b12bb66f4775ef4a604177788821b620964c2e87a675f",
+        "label_valid_mask": "12f6a6caa93e751693293f3d521336a75685db3b3359b8fa3a4bf2dae4c58581",
+        "metadata": "d56a28d992f1308acd971907969db7a64806cbd8aad30ca6646acfe4366fa043"
+      },
+      "valid_mask_elements": 3493232,
+      "windows": 526
+    }
+  },
+  "format": "emg2pose_original_disk_acquisition_engineering_v1",
+  "full_download_snapshot": {
+    "actual_received_bytes": 6106103808,
+    "actual_recorder_and_parent_pid_start_live": true,
+    "actual_worker_and_guardian_pid_start_live": true,
+    "bundle_sha256": "c0a269b822dac94a3ac7ca4ea587e1b4258f0e684688800f5e90cb0e23a2426b",
+    "byte_receipt_complete": false,
+    "full_corpus_inspected": false,
+    "maximum_connections_observed": 8,
+    "progress_source": "authenticated owned loopback aria2 RPC completedLength; preallocated file length is never download progress",
+    "received_full_sha256": null,
+    "started_utc": "2026-10-27T16:39:13.295676+00:00",
+    "status": "active",
+    "total_bytes": 462824048640,
+    "utc": "2026-10-27T16:45:59.194751+00:00"
+  },
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "new_scientific_result": false,
+  "recorded_test_failures": [
+    "Initial missing-module feature/dependent-output RED:15failures7.62s",
+    "First actual integration14passed/1failed30.30s: tiny fast fixture finished before connection observation; longer real fixture retained actual measurement",
+    "Second actual integration14passed/1failed32.99s: preallocation test incorrectly assumed an incomplete-size state during a successful fast transfer; moved invariant to actual truncated-transfer case",
+    "Actual physical server integration15passed33.19s; final small-fixture resource isolation15passed33.02s so the test can run on ordinary CI hosts without lowering production thresholds"
+  ],
+  "remaining": [
+    "Complete full462824048640byte acquisition and final independent digest/HEAD/owned-exit checks",
+    "Independent exact25253HDF5 member/source inspection, preserved source bytes and unchanged original conversion",
+    "Original native full-data S/M/L250epoch training/validation-selected best/final per-user evaluation and independent reports",
+    "Other full-paper experiments, annotation/statistics/occlusion/qualitative figures remain in scope"
+  ],
+  "scientific_complete": false,
+  "scope": "Actual installed aria2 transport plus unchanged original HDF5/converter/native model mini pipeline; full byte acquisition active, no new training score",
+  "source_files_sha256": {
+    "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_disk_download.py": "5b440a922fc6495508ed258d7b2a752086380d5edf41dcf9529d4f2a20f17297",
+    "egoemg_repro/emg2pose_memory_archive.py": "a8d1aed29e2f89ae9e84e8ee16ca85299c2358b13f0b2c0ad53725e5c5230bd4",
+    "egoemg_repro/emg2pose_memory_process.py": "de3f18048a0306234e46c4a3cb7af216948d94dcc084f233e4a732e1fdf347a4",
+    "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422"
+  },
+  "tests": {
+    "actual_server_aria2": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "b374fe63ae915df23298ccff10d6f61fb1e277273eb0445ed98e7e6b4092028b",
+      "fixture_bytes_approximate": 5242880,
+      "passed": 15,
+      "seconds": 33.02,
+      "unit_resource_observers_injected": true
+    },
+    "whole_light": {
+      "actual_aria2_integration_executed_on_local_host": false,
+      "actual_exit_code": 0,
+      "aria2_cases_skipped_on_local_host": 15,
+      "passed": 1235,
+      "seconds": 51.49,
+      "skipped": 713,
+      "warnings": 1
+    }
+  },
+  "training_performed": false,
+  "unchanged_policies": {
+    "automatic_process_retry": false,
+    "connect_timeout_seconds": 15,
+    "disk_reserve_bytes": 16106127360,
+    "failed_resume_requires_separate_failure_sha_and_partial_and_native_control_sha": true,
+    "host_memory_reserve_bytes": 274877906944,
+    "if_match_header": true,
+    "initial_and_final_original_head_bound": true,
+    "max_connections": 8,
+    "old_live_local_xz_receiver_restarted": false,
+    "other_jobs_or_files_removed": false,
+    "read_timeout_seconds": 60,
+    "request_max_tries": 3,
+    "split_bytes": 16777216,
+    "tls_validation": true
+  }
+}
