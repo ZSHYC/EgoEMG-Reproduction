@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **当前完整源瓶颈有新的无损压缩可行性证据，但尚未接入训练：** [有界编码证据](../results/emg2pose-compact-codec-engineering.json)为48项本机／48项服务器、64个真实1MiB块及64次窗口大小读取，全部原字节和摘要一致；样本估计约196.7GB而非全量容量保证。完整封印载体、原生HDF/数据一致性和全源仍欠。最新f1托管CPU实际1,916/3/11ERROR，cuDNN全局测试状态根因已真实复现并以测试夹具修正，污染环境16项actual exit0；下次完整托管结果仍待观察。
+
 - **EMG2Pose实际FP32完整批量与表格算术已通过工程核验：** [批量证据](../results/emg2pose-memory-evaluation-capacity-engineering.json)为S/M/L、两模式、每pass321窗/实际320+1、原12worker/FP32，35个受管理阶段/1,783.53秒及父进程actual exit0，原选best权重未变、跨进程预测/统计精确一致，全部worker/guardian实际退出。合成三角色5,009,750行与两轮工程fit，初始计数探针失败及源/Sfit只读复用均保留；不是benchmark或250轮。[表格算术](../results/emg2pose-memory-table-arithmetic-engineering.json)另通过48本机/48服务器/15轻量及四份真实GPU统计重读，明确用户/样本/有效角度三种权重与匿名边界。新CPU job配置以实际YAML驱动64项通过，旧5f托管失败不追认；完整源、科学控制器/报告和Task4最终审查仍欠。
 
 - **EMG2Pose最佳模型的原生流式评价完成三模型GPU工程复推：** [实际证据](../results/emg2pose-memory-selected-evaluation-engineering.json)包含服务器16项检查及17个受管理阶段/713.39秒实际exit0；S/M/L均重载真正由原验证最小值选出的工程best，val/test与新进程输入/预测摘要及充分统计量精确一致，校准在测试前冻结，模型权重未变，所有拥有的worker/guardian另核对退出。合成3文件/25,710行，每次仅1个实际窗口（配置320/12/FP32），GPU只运行预先声明的文件行对照，原样混角色val已实际拒绝；CPU覆盖两种模式。没有实际320窗FP32批量资格、完整源、250轮或benchmark成绩，最终科学控制器/报告及Task4最后审查仍欠。

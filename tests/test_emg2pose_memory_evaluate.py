@@ -27,6 +27,16 @@ def api():return importlib.import_module('egoemg_repro.emg2pose_memory_evaluate'
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+@pytest.fixture(scope='module',autouse=True)
+def cpu_backend():
+    # Legacy audit fixtures leave this process-global flag enabled. Native and
+    # fresh passes must use the same declared backend, even on a CPU-only host.
+    previous=torch.backends.cudnn.deterministic
+    torch.backends.cudnn.deterministic=False
+    try:yield
+    finally:torch.backends.cudnn.deterministic=previous
+
+
 @pytest.fixture(scope='module')
 def memory(corpus,tmp_path_factory):
     from egoemg_repro import emg2pose_memory_data as data,emg2pose_memory_index as index

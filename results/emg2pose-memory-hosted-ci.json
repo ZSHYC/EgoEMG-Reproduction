@@ -3,6 +3,33 @@
   "full_paper_complete": false,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
+  "pending_cpu_backend_fixture_fix": {
+    "change": "Module-scoped evaluation test fixture explicitly declares cudnn.deterministic false and restores incoming caller setting on teardown",
+    "local_green": {
+      "actual_exit_code": 0,
+      "actual_legacy_seed_before_pytest": true,
+      "incoming_caller_backend_restored": true,
+      "log_sha256": "1c82ec9812c4aa927a814f6bdaac68b58acece4281b9d7afa73daddc27523736",
+      "passed": 16,
+      "seconds": 267.49,
+      "warnings": 9
+    },
+    "local_green_observed": true,
+    "local_red": {
+      "actual_exit_code": 1,
+      "fixture_errors": 1,
+      "observed_only_inference_difference": {
+        "cudnn_deterministic": {
+          "fresh": false,
+          "native": true
+        }
+      },
+      "prior_action": "Actual legacy train.seed_everything(42)",
+      "seconds": 50.22
+    },
+    "new_hosted_run_observed": false,
+    "production_guards_unchanged": true
+  },
   "pending_cpu_job_environment_fix": {
     "actual_yaml_job_environment_green": {
       "actual_exit_code": 0,
@@ -18,7 +45,9 @@
       "fixture_errors": 1,
       "seconds": 3.52
     },
-    "new_hosted_run_observed": false,
+    "new_hosted_run_observed": true,
+    "observed_conclusion": "failure from a distinct suite-state mismatch; missing CUDA visibility guard no longer fails",
+    "observed_run_id": 40502051433,
     "production_guards_unchanged": true,
     "workflow_sha256": "ae407f1a44231ed3ed57cf8a57a80c98fe70874272e752102551a3cb954380ce"
   },
@@ -136,7 +165,33 @@
         }
       ],
       "run_id": 40494382039
+    },
+    {
+      "cause": "Legacy audit leaves process-global cudnn.deterministic enabled in the parent; native CPU pass records true, fresh replay records default false. Strict runtime identity correctly refuses the mismatch.",
+      "commit": "f1e24e03e9890e6dc2c43acae5ac9df308c8051e",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122181894237,
+          "passed": 1068,
+          "seconds": 33.54,
+          "skipped": 696,
+          "warnings": 1
+        },
+        {
+          "conclusion": "failure",
+          "errors": 11,
+          "job_id": 122181893827,
+          "passed": 1916,
+          "pip_check": true,
+          "seconds": 1737.43,
+          "skipped": 3,
+          "warnings": 139
+        }
+      ],
+      "run_id": 40502051433
     }
   ],
-  "scope": "Actual hosted checks through5fbd897; its CPU run failed from missing explicit CPU visibility environment. Subsequent job-env fix, table arithmetic and batch-capacity proof are not covered by that failed run."
+  "scope": "Actual hosted checks through f1e24e0. CPU CUDA visibility is explicit; latest CPU run still fails from cross-test backend contamination. Test-only backend isolation is under actual verification; no scientific completion."
 }

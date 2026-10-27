@@ -1,0 +1,106 @@
+{
+  "codec": "delta152-plane152-xz6-v1",
+  "format": "emg2pose_compact_codec_engineering_v1",
+  "full_paper_complete": false,
+  "full_projection_guaranteed": false,
+  "full_source_complete": false,
+  "limits": {
+    "all_raw_and_encoded_hashes_required": true,
+    "decode_memory_bytes": 67108864,
+    "encoded_block_bytes": 1114112,
+    "float_conversion": false,
+    "old_raw_tar_descriptor_admission_changed": false,
+    "raw_block_bytes": 1048576
+  },
+  "native_hdf_reader_qualified": false,
+  "production_codec_sha256": "c7eb616b54d38ff98dac0c460c2983736d8c9615003a69913081a2139a32fe30",
+  "random_reads": {
+    "all_bytes_and_hashes_exact": true,
+    "block_decodes": 121,
+    "bytes_per_request": 1184080,
+    "cache_hits": 16,
+    "cache_peak_bytes": 8388608,
+    "requests": 64,
+    "seconds": 2.2116210120148025
+  },
+  "receiver_changed": false,
+  "remaining": [
+    "sealed compact carrier and ordered index",
+    "complete original-byte acquisition under unchanged resource margins",
+    "native HDF5 and original dataset/transform equivalence",
+    "all25253 full files and original split inventory",
+    "three original250epoch experiments and complete scientific reports"
+  ],
+  "sample_projected_full_bytes": 196667839682,
+  "sample_ratio": 0.42493003606796265,
+  "sample_raw_bytes": 67108864,
+  "samples": [
+    {
+      "all_block_hashes_and_bytes_exact": true,
+      "encoded_bytes": 7121324,
+      "index": 0,
+      "raw_bytes": 16777216,
+      "seconds": 3.735044992004987
+    },
+    {
+      "all_block_hashes_and_bytes_exact": true,
+      "encoded_bytes": 6596548,
+      "index": 1761,
+      "raw_bytes": 16777216,
+      "seconds": 2.599530228995718
+    },
+    {
+      "all_block_hashes_and_bytes_exact": true,
+      "encoded_bytes": 7609076,
+      "index": 3522,
+      "raw_bytes": 16777216,
+      "seconds": 4.132739899971057
+    },
+    {
+      "all_block_hashes_and_bytes_exact": true,
+      "encoded_bytes": 7189624,
+      "index": 5282,
+      "raw_bytes": 16777216,
+      "seconds": 3.781871768005658
+    }
+  ],
+  "scientific_result": false,
+  "source_original_raw_bytes": 462824048640,
+  "tests": {
+    "full_light_suite": {
+      "actual_exit_code": 0,
+      "log_sha256": "d83f4376ae35b8229c63ef1d5451d7178646292a6f8af3a613d3f9b226e876c5",
+      "passed": 1116,
+      "seconds": 36.89,
+      "skipped_optional_dependencies": 696,
+      "warnings": 1
+    },
+    "local_green": {
+      "actual_exit_code": 0,
+      "passed": 48,
+      "seconds": 0.25
+    },
+    "local_red": {
+      "actual_exit_code": 1,
+      "cause": "ModuleNotFoundError before implementation",
+      "failed": 48,
+      "seconds": 0.24
+    },
+    "prior_full_light_failure": {
+      "actual_exit_code": 1,
+      "cause": "Operator-selected long worktree basetemp exceeded AF_UNIX socket path bound; corrected only to a fresh short temporary directory before rerunning the unchanged full suite",
+      "failed": 1,
+      "log_sha256": "338e23a5b7cb90bdfea71fa50781a107a8fb0fb17d129bd44c7d97036d7077d7",
+      "passed": 1115,
+      "seconds": 37.02,
+      "skipped_optional_dependencies": 696,
+      "test": "test_offline_transport_keeps_real_local_unix_ipc_available"
+    },
+    "server_green": {
+      "actual_exit_code": 0,
+      "passed": 48,
+      "seconds": 0.23,
+      "source_bundle_sha256": "1cff9ba97a137760edec7a04dd59b582b6fe9a1ee8b1a08f693361bb0317e9c2"
+    }
+  }
+}
