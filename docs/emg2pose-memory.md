@@ -156,3 +156,25 @@ full还要求该规模、相同科学配方/代码/运行时/硬件的实际CUDA
 [实际GPU工程证据](../results/emg2pose-memory-native-fit-engineering.json)为3个**合成HDF5文件**、25,710行和显式分开的train/val/test角色，不是官方mini或完整benchmark。S/M/L各完成两轮原320/12/bf16训练，共32次实际更新（首进程16，另一个进程恢复后再16），每轮消费5,120个原采样器补齐窗口，唯一锚点分别1/2/2；每轮验证只有1窗。原训练增强、验证角色、native best/last/前缀、epoch hash链和六状态恢复全部实际检查，另一个CPU消费者重新接受三份CUDA资格，全部七个受管理阶段exit0，总计457.00秒。合成误差不发布为性能结论；此前真实mini526窗口GPU重推证据仍独立保留。
 
 完整源、正式250轮实验、仅验证集校准、原逐用户最终评价/独立统计复推、拥有的完整控制器及Task4最后实现审查仍未完成。本节只是入口实现与受控工程验收，不能填Tables11/13。
+
+## 独立20角统计与原生评价人口
+
+[独立统计组件](../egoemg_repro/emg2pose_memory_statistics.py)按样本流式累计float64逐角误差和、有效时间点及消费次数，分条件和私有用户保留20角、五指和近/中/远端八组；逐用户均值和ddof0标准差与有效角度加权MAE分列，不加入腕角。完整批次的类型、有限值和元数据先通过校验才能改计数。原始20×7790标签/生成mask必须在left510/right0后与20×7280原生tuple逐位一致。原FP32指标与独立float64只使用预先固定的2e-6 rad绝对/相对数值界；这不等于预测重推资格。
+
+[实际工程证据](../results/emg2pose-memory-statistics-engineering.json)：本机/服务器各33项通过，含新进程执行未修改的官方逐用户函数及全部常量组映射。真实647MB mini随后在两个独立受管理CPU进程中重载既有两次更新的工程前缀，每次按原函数完成460次消费、56项原生指标核对；完整输入/预测摘要和独立统计精确重现，190.52秒、父进程exit0，全部拥有的消费者和fd退出。batch1/workers0/FP32、全部原val、没有正式选best或GPU/full资格，也不发布工程MAE为模型成绩。
+
+这次真实执行发现[原生选择人口问题](../results/emg2pose-native-evaluation-selection-audit.json)：mini有30个阶段/手文件行，但只有1个记录session ID。原`get_dataloaders`把这个重复ID传给`allowed_sessions`，于是user/user_stage原本22/8行都选成30行；各230次消费的有序窗口以及输入/预测摘要完全相同，合计460不能解释为两个独立人群。首次私有观察器按记录ID推断条件而失败，exit1保留；后改为随原loader迭代标记，**保留原筛选行为并测量重叠**，没有静默纠正官方人口或放宽数值界。
+
+另用同一未修改筛选函数对官方完整CSV实际执行元数据层检查：
+
+| 请求角色/条件 | 请求文件行 | 原筛选选中文件行 | 选中角色 |
+| --- | ---: | ---: | --- |
+| val/user | 1,618 | 1,950 | val 1,950 |
+| val/user_stage | 332 | 1,934 | val 1,934 |
+| test/stage | 3,539 | 20,370 | train 16,831；test 3,539 |
+| test/user | 2,172 | 2,628 | test 2,628 |
+| test/user_stage | 456 | 2,610 | test 2,610 |
+
+这些是25,253行CSV上的原筛选函数结果，**不是完整HDF5实物或窗口推理结果**。后续完整评价须预先声明`official_literal`为原样路径，并单列通过官方已有`allowed_session_indices`/`allowed_splits`隔离文件行的`metadata_indices`对照；两者不混表、不在测试后选择协议或容差。仅验证集校准、所选best及实际完整源仍须各自准入；本节算术证据不能授予这些资格。
+
+[持久化续传实查](../results/emg2pose-persistent-body-retry-live-observation.json)在08:54UTC已完成旧76.974GB前缀核验并新增128MiB至77.108GB。一次实际响应体ConnectionError后，同范围第二次尝试成功提交，另独立解压核对该16MiB块的原始及压缩SHA。接收进程当时仍存活，完整源仍未完成。[托管CI证据](../results/emg2pose-memory-hosted-ci.json)记录7b8911f与8a05ae9两次成功；后者完整CPU1,832/3实际CUDA skip、轻量1,021/693依赖skip，**不覆盖随后新增的统计源码**。

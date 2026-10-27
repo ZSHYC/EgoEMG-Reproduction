@@ -1,0 +1,53 @@
+{
+  "format": "emg2pose_memory_hosted_ci_v1",
+  "full_paper_complete": false,
+  "new_scientific_result": false,
+  "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
+  "runs": [
+    {
+      "commit": "7b8911fa9b74d169591fa473e7ec026ea34315dc",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "job_id": 122075489133,
+          "passed": 987,
+          "seconds": 35.66,
+          "skipped": 693,
+          "warnings": 1
+        },
+        {
+          "job_id": 122075489892,
+          "passed": 1798,
+          "pip_check": true,
+          "seconds": 1400.34,
+          "skipped": 3,
+          "warnings": 134
+        }
+      ],
+      "run_id": 40470282851
+    },
+    {
+      "commit": "8a05ae988d22fb956ba7b11a9bdaeae8c2b9464c",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "job_id": 122082420854,
+          "passed": 1021,
+          "seconds": 33.22,
+          "skipped": 693,
+          "warnings": 1
+        },
+        {
+          "job_id": 122082420634,
+          "passed": 1832,
+          "pip_check": true,
+          "seconds": 1142.77,
+          "skipped": 3,
+          "warnings": 134
+        }
+      ],
+      "run_id": 40472411365
+    }
+  ],
+  "scope": "Actual hosted checks for fit and body-retry commits; excludes subsequent independent-statistics code"
+}

@@ -1,5 +1,13 @@
 # 运行状态
 
+## 2026-10-27：独立20角统计完成真实mini复推，发现原生条件人口重叠
+
+[统计与实际证据](../results/emg2pose-memory-statistics-engineering.json)：本机/服务器各33项、两次真实mini受管理CPU推理190.52秒，父进程及两个阶段均exit0，所有消费者/fd退出。每次按未改官方函数消费460窗、核对56项原指标，完整输入/预测摘要与独立float64统计在新进程精确一致；原20角/left510/生成mask保持，私有逐用户记录不公开。仅工程前缀、原val、CPU/batch1/workers0，不是正式选best、校准、GPU或benchmark成绩。
+
+[原人口审计](../results/emg2pose-native-evaluation-selection-audit.json)实测mini两个条件各230次消费来自相同30文件行与相同有序窗口；记录session ID重复，不能把它当文件唯一ID。私有观察器首次映射失败exit1保留，改为原loader迭代标签后重推通过，未改原筛选。进一步对完整CSV实际执行原函数，test/stage的3,539请求行会选中20,370行，包含16,831个train文件条目；这是元数据执行证据，不是全量HDF5窗口结果。完整评价必须分列原样`official_literal`和明确文件行隔离的`metadata_indices`对照，保留各自实际人口及事先冻结的验证校准，不能静默修正或混表。
+
+[持久化接收](../results/emg2pose-persistent-body-retry-live-observation.json)08:54UTC已核验原76.974GB前缀并新增128MiB至77.108GB；一次真实响应体中断经同范围重试后提交，该块另独立解压/SHA通过，进程存活。09:00UTC三个DINO训练仍为full-fit、PID/start匹配、error=None。[托管CI](../results/emg2pose-memory-hosted-ci.json)7b8911f与8a05ae9已成功；8a05ae9完整CPU1,832/3及轻量1,021/693实际通过，覆盖重试组件但不覆盖新统计源码。完整源、三个250轮实验、完整评价/控制器/报告及Task4最终审查仍欠。
+
 ## 2026-10-27：持久化接收的同范围响应体重试通过本机与服务器检查
 
 [独立组件与实际证据](../results/emg2pose-persistent-body-retry-engineering.json)针对07:29真实ReadTimeout中断：原核心仅在请求建立阶段重试，响应内容读取失败直接退出。新helper只重试原核心明确包装的网络响应体错误，最多三次body尝试；每次保留原协议/身份/长度核验，guard覆盖每次请求及退避两侧，失败块从不提交，协议/TLS/内容/资源错误不重试。真实loopback半途关闭、三次耗尽、后续对象变化和显式恢复完整SHA已检查，本机/服务器各76项实际exit0，原核心SHA9fb668不变。未将此传输检查计为完整数据、250轮训练或新增模型成绩。新的持久化续传须另行记录实际进程和前缀验证状态；旧失败退出保留。

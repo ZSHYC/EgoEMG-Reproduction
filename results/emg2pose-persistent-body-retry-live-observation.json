@@ -1,0 +1,35 @@
+{
+  "archive_core_sha256": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+  "body_retries_observed": 1,
+  "committed_source_bytes_observed": 77108084736,
+  "complete_source": false,
+  "compressed_bytes_observed": 52325278128,
+  "format": "emg2pose_persistent_body_retry_live_observation_v1",
+  "full_paper_complete": false,
+  "last_body_retry": {
+    "delay_seconds": 1.0,
+    "error_type": "ConnectionError",
+    "failed_attempt": 1,
+    "next_attempt": 2,
+    "observed_utc": "2026-10-27T08:52:14.269048+00:00",
+    "size": 16777216,
+    "start": 76990644224
+  },
+  "new_scientific_result": false,
+  "new_source_bytes_since_resume": 134217728,
+  "observed_utc": "2026-10-27T08:54:54.886535+00:00",
+  "phase": "acquiring",
+  "receiver_pid_start_matched_live": true,
+  "retried_block": {
+    "compressed_sha256": "c29d3eb9a8016b5237aa2edf85068addb2c736c10dee514986dfeb0d1fb21deb",
+    "independently_decompressed_and_verified": true,
+    "offset": 76990644224,
+    "raw_bytes": 16777216,
+    "raw_sha256": "84efe5894f380924624665f16229ba4ce664cffd6e96f505073dfc56dc0d88be",
+    "subsequently_committed": true
+  },
+  "retry_helper_sha256": "e574b8bd0725c69e9c6955ed06983768c42894ff184614bc5da1bc6d9b66c418",
+  "source_commit": "8a05ae988d22fb956ba7b11a9bdaeae8c2b9464c",
+  "source_expected_bytes": 462824048640,
+  "verified_prefix_at_launch_bytes": 76973867008
+}

@@ -1,0 +1,109 @@
+{
+  "checks": {
+    "initial_red": {
+      "actual_exit_code": 1,
+      "failed": 32,
+      "log_sha256": "06b43cc648ebd8b61b46f4c96123fc39e166180df507b1e61c2b15ac32c49e09",
+      "reason": "statistics module missing",
+      "seconds": 5.35
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "dd91e9188f5acc1818256dc5aa52f4ca2d30662f4f64c89b6c7615127a2525fc",
+      "passed": 33,
+      "python": "3.12.14",
+      "seconds": 4.71
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "655884049414e407196fcea428377e6a865cdfbe9b8043f975fd11c619243332",
+      "log_sha256": "238bb9e5ed0ac3f5f341ac8e93a0da2b221f58fe5a5d3b3f484899adf5c47979",
+      "passed": 33,
+      "python": "3.11.12",
+      "seconds": 5.24
+    }
+  },
+  "format": "emg2pose_memory_statistics_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "native_population_audit": {
+    "metadata_session_rows": 30,
+    "native_selected_rows_by_condition": {
+      "user": 30,
+      "user_stage": 30
+    },
+    "native_selection_matches_requested": false,
+    "requested_rows_by_condition": {
+      "user": 22,
+      "user_stage": 8
+    },
+    "selected_row_overlap": 30,
+    "unique_recording_session_ids": 1
+  },
+  "preserved_first_probe_failure": {
+    "actual_exit_code": 1,
+    "correction": "associate observations with original loader iteration; preserve and report actual native population overlap, no filter or tolerance relaxation",
+    "failed_log_sha256": "3a6d49eb5365325cd01a25760732e26de69ed4aef25c28a29b725be21d377b18",
+    "reason": "private observer assumed recording-session ID uniquely identifies condition; statistics rejected missing condition coverage"
+  },
+  "real_mini": {
+    "actual_parent_exit_code": 0,
+    "all_owned_consumers_exited": true,
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "arithmetic_policy": {
+      "aggregation": "float64 sums / exact valid-angle counts; unweighted user means and ddof0 std",
+      "native_mae_atol_rad": 2e-06,
+      "native_mae_rtol": 2e-06,
+      "prediction_replay": "not qualified by arithmetic comparison",
+      "selection": "fixed before validation or test"
+    },
+    "batch_size": 1,
+    "checkpoint": "prior two-update engineering prefix; not selected-best formal model",
+    "consumed_windows_per_pass": 460,
+    "fresh_float64_statistics_exact": true,
+    "fresh_typed_input_prediction_digests_exact": true,
+    "model_state_unchanged": true,
+    "native_loader_and_evaluation_code_unchanged": true,
+    "native_metric_fields_checked": 56,
+    "owned_fresh_process_passes": 2,
+    "parent_descriptors_closed": true,
+    "parent_torch_unimported": true,
+    "precision": "32-true CPU",
+    "raw_log_sha256": "e8ac865965a5cf5439195619094d70105e9dbb254bdac44bc13b432ec2ed3f49",
+    "same_ordered_population_in_both_native_conditions": true,
+    "seconds": 190.51535484800115,
+    "source_bundle_sha256": "f74622f9850c84cbe8758e8c04b0392fbeb9f8fdc2bbc957734d6ba53c5bcb02",
+    "source_files": 30,
+    "source_role": "val only",
+    "typed_input_prediction_digests": {
+      "user": "156f4e859e6f6f5aea6bc6531e270a469b305179f4ce3ca0d3a7bdf71c1df5a2",
+      "user_stage": "156f4e859e6f6f5aea6bc6531e270a469b305179f4ce3ca0d3a7bdf71c1df5a2"
+    },
+    "users_per_native_condition": {
+      "user": 1,
+      "user_stage": 1
+    },
+    "valid_angle_counts_by_native_condition": {
+      "user": 33488000,
+      "user_stage": 33488000
+    },
+    "window_population_digests": {
+      "user": "cea23f4f7613e14f672391a6f3dc281750085e481cb8122c5066f3c1326fb896",
+      "user_stage": "cea23f4f7613e14f672391a6f3dc281750085e481cb8122c5066f3c1326fb896"
+    },
+    "windows_by_native_condition": {
+      "user": 230,
+      "user_stage": 230
+    },
+    "workers": 0
+  },
+  "scientific_complete": false,
+  "scope": "Independent20D arithmetic and real-mini CPU native evaluation/fresh replay; no full-source, independent-validation or model-performance qualification",
+  "source": {
+    "statistics_sha256": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "tests_sha256": "dd088392b95fb691e7673b0203f397a6cfcf1023f05939e0b1f1e5a90ea267e2",
+    "upstream_constants_sha256": "01f4ad9d6be5b587d46d28b01c2325d584a593a63bd14c79dd0f8e2a1e561099",
+    "upstream_test_analysis_sha256": "0d6f54e765b3e1c57eb3194b9f849555ca5f2b36cce2e11953c17df879eaecd6"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "format": "executed_native_session_selection_on_official_csv_v1",
+  "full_HDF5_window_population_measured": false,
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+  "metadata_rows": 25253,
+  "mini_actual_population_audit": {
+    "metadata_session_rows": 30,
+    "native_selected_rows_by_condition": {
+      "user": 30,
+      "user_stage": 30
+    },
+    "native_selection_matches_requested": false,
+    "requested_rows_by_condition": {
+      "user": 22,
+      "user_stage": 8
+    },
+    "selected_row_overlap": 30,
+    "unique_recording_session_ids": 1
+  },
+  "mini_consumptions_per_condition": {
+    "user": 230,
+    "user_stage": 230
+  },
+  "mini_measured_inference": true,
+  "mini_window_population_digests": {
+    "user": "cea23f4f7613e14f672391a6f3dc281750085e481cb8122c5066f3c1326fb896",
+    "user_stage": "cea23f4f7613e14f672391a6f3dc281750085e481cb8122c5066f3c1326fb896"
+  },
+  "model_inference_performed": false,
+  "native_dataset_sha256": "82fbd93849b906543f6f0705b8ca220b40ff81e3ee26175527c2a2d3124f2cc6",
+  "native_filter_executed": true,
+  "role_conditions": {
+    "test/stage": {
+      "extra_rows": 16831,
+      "omitted_rows": 0,
+      "requested_rows": 3539,
+      "selected_by_condition": {
+        "none": 16831,
+        "stage": 3539
+      },
+      "selected_by_role": {
+        "test": 3539,
+        "train": 16831
+      },
+      "selected_rows": 20370
+    },
+    "test/user": {
+      "extra_rows": 456,
+      "omitted_rows": 0,
+      "requested_rows": 2172,
+      "selected_by_condition": {
+        "user": 2172,
+        "user_stage": 456
+      },
+      "selected_by_role": {
+        "test": 2628
+      },
+      "selected_rows": 2628
+    },
+    "test/user_stage": {
+      "extra_rows": 2154,
+      "omitted_rows": 0,
+      "requested_rows": 456,
+      "selected_by_condition": {
+        "user": 2154,
+        "user_stage": 456
+      },
+      "selected_by_role": {
+        "test": 2610
+      },
+      "selected_rows": 2610
+    },
+    "val/user": {
+      "extra_rows": 332,
+      "omitted_rows": 0,
+      "requested_rows": 1618,
+      "selected_by_condition": {
+        "user": 1618,
+        "user_stage": 332
+      },
+      "selected_by_role": {
+        "val": 1950
+      },
+      "selected_rows": 1950
+    },
+    "val/user_stage": {
+      "extra_rows": 1602,
+      "omitted_rows": 0,
+      "requested_rows": 332,
+      "selected_by_condition": {
+        "user": 1602,
+        "user_stage": 332
+      },
+      "selected_by_role": {
+        "val": 1934
+      },
+      "selected_rows": 1934
+    }
+  },
+  "scientific_complete": false,
+  "scope": "Unchanged official dataset selection method executed on actual CSV columns; no full HDF5/source/window or model inference claim"
+}
