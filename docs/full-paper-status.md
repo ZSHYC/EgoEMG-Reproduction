@@ -173,7 +173,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | --- | --- | --- | --- |
 | Figure 1，p.3 | 原采集设备、布置、marker/MANO 与穿戴示意 | **来源说明部分已有，采集未重做**；[论文指南](paper-guide.md)与原创示意只支持说明 | 原系统设备/拓扑/同步/标定记录与可核验图；公开数据 benchmark 不要求重新招募，但不能将原照片说成本项目新采集 |
 | Figure 2，p.4 | 3 类同步样例，每行 3.9s 的 GT、双腕 EMG、ego RGB、外部 RGB-D | **未实现完整面板**；E3/E4 有 EMG/crop 中心链 | 固定匿名 episode/time/gesture、原始全帧/外部 RGB-D、GT mesh 与时间偏差/有效性；crop+信号曲线不足以证明完整多模态同步 |
-| Figure 3，p.5 | (a)82手β箱线图；(b)参与者×手势split矩阵 | **(a)聚合展示图已生成并核验；(b)图未生成**；[实际图与统计](../results/dataset-statistics/shape-statistics.md) | (a)公开图隐藏单点/离群点，属于展示适配；官方[β脚本][beta]画左右柱图，未声称逐像素重画。(b)按实际release绘制并保留User/Both用户交集 |
+| Figure 3，p.5 | (a)82手β箱线图；(b)参与者×手势split矩阵 | **(a)聚合展示图、(b)协议示意与真实旧发布矩阵已生成并核验**；[手形统计](../results/dataset-statistics/shape-statistics.md)、[41键×60类矩阵及计数](../results/dataset-statistics/split-matrix.md)。三标签全396,970,350字节重哈希及逐项对账，556多标签格、全帧Train∩User/Both各5键；与模型中心队列1/1分开 | (a)隐藏单点/离群点是展示适配，官方[β脚本][beta]另画左右柱图。(b)左为PDF概念、右为真实旧版帧标签；保留raw/未分配与交集，不证明PDF人口等价，不声称逐像素重画 |
 | Figure 4，p.6 | EMGFormer remapping/TDS/RoPE/head/增强架构 | **S/M 已构造、L 工程验证；图未重生**，E1/E6 | 从实际配置、形状与对齐生成图；PDF 的 7790ms、8/16 通道与 TDS 简图差异见下节，不能用示意覆盖源码 |
 | Figure 5，p.6 | 256 crop→ResNet/ViT→池化/角度头 | **RN18 部分完整运行；图未重生**，E1；[真实实现][vit] | 全部 7 backbone 构造与初始化；具体头激活由实际类裁决，不能以一张通用图代表七项实验 |
 | Figure 6，p.7 | 视觉预测+EMG 时间池化残差融合 | **RN18+S 已核验（legacy）；ViT-S+S 未运行，图未重生**，E1/E2 | 两对独立来源、真实形状、零残差等价性与架构图；官方极小正态初始化与本项目精确零适配分别记 |

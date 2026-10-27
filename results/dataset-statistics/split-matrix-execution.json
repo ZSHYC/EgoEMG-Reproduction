@@ -1,0 +1,40 @@
+{
+  "actual_owned_exit_code": 0,
+  "actual_payload_bytes_rehashed": 396970350,
+  "all_three_actual_processes_independently_nonlive": true,
+  "anonymous_metadata_keys": 41,
+  "artifact_sha256": {
+    "split-matrix.json": "0d0a688940b1837659e6d2959d9cb414c62dbe87c8c69a4ae3f550d3030b6fc5",
+    "split-matrix.png": "3d56dd5ea0ef35e4a70269ce1412457b68a45b0c6d1ff24936bc3b60f022f501",
+    "split-matrix.svg": "a0c0516d8be71e6bbcc929ae907ebc2b74c4012e8361a9640125f326ec145af7"
+  },
+  "counts": {
+    "defined": 65600616,
+    "minor_labels_beyond_cell_max_frames": 1537951,
+    "multilabel_cells": 556,
+    "shared_frames": 66161725,
+    "train_both_intersection": 5,
+    "train_user_intersection": 5,
+    "unassigned": 561109
+  },
+  "format": "actual_legacy_split_matrix_execution_v1",
+  "full_frame_count_records_exactly_match_previous_audit": true,
+  "full_paper_complete": false,
+  "gesture_classes": 60,
+  "keys_with_defined_gesture_frames": 40,
+  "model_error_statistics": false,
+  "model_training_performed": false,
+  "observed_utc": "2026-10-27T23:15:24.351242+00:00",
+  "parent_torch_unimported": true,
+  "png_visually_inspected": true,
+  "resource_observations_injected": false,
+  "same_environment_repeated_png_svg_byte_identical": true,
+  "scan_inputs_sha256": {
+    "frame-audit.json": "c590c1a82831c297a75c3cd67b7de47ac8abb47a7e685faf2936cca79c7f08eb",
+    "script.py": "e6d8318aa55ba7a46dd3aefc51c5258c934852dbccc7f207b6e27f6e19520c3d",
+    "vocabulary.json": "3431e0e36631e872dc3d8616fc913654e405f56f255a51f5dc0c80b521d9b159"
+  },
+  "scan_seconds": 1.6882422151975334,
+  "source_data_read_only": true,
+  "source_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+}
