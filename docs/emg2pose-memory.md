@@ -1,6 +1,6 @@
 # EMG2Pose 完整源数据的内存存储接入
 
-本路线用于解决完整源包约462.8GB、服务器磁盘不能同时保存原TAR和转换数组的问题。**当前完成无损内存接收和原TAR/HDF5盘点组件；完整源、原生数据集适配和三个完整实验仍未完成。** 现有本机分块xz接收继续运行，原始数据、旧mini产物及DINO训练快照保持独立。
+本路线用于解决完整源包约462.8GB、服务器磁盘不能同时保存原TAR和转换数组的问题。**当前已核验全部526个真实mini窗口，以及新入口三个模型的实际CPU优化/新进程恢复；最终完整项目检查和实现审查仍欠，完整源和三个完整实验尚未完成。** 保留本机分块xz接收进度，原始数据、旧mini产物及DINO训练快照保持独立。
 
 ## 已实现的接收组件
 
@@ -63,6 +63,22 @@ with acquire_archive('mini') as cache:
     )
 ```
 
-下一步是只替换底层存储的官方数据集适配。必须比较全部526个mini窗口的输入、标签、mask、顺序与恢复状态，并实测fork/spawn数据加载；通过后才可执行完整源准入和三项250轮实验。不能直接把新TAR交给现有memmap入口，也不修改旧转换器的完成标记规则。
+## 原生数据集与训练入口
+
+`emg2pose_memory_index.prepare_index`独立复核源盘点，再原子写入四个小文件：source-inventory.json、metadata.npz、manifest.json和最后的completion.json；不生成源大小的dat数组，不覆盖已有或失败的索引。`open_source`必须接收调用者另外保存的completion SHA256，核验索引和实际只读TAR字节后返回拥有独立fd的`VerifiedSource`。它在准入时完整hash一次，运行中检查封印和文件绑定，不在每个batch重新hash数百GB源。
+
+`emg2pose_memory_dataset.SealedTarDataset`继承固定官方`Emg2PoseDataset`，只替换底层字段读取。窗口、过滤、jitter、增强、归一化、mask fallback及会话分组沿用原方法。每个窗口的HDF5上下文及时关闭；fork重置进程内缓存，spawn通过`DupFd`转移实际描述符权限，不能把某个fd整数当作跨进程身份。
+
+`emg2pose_memory_runtime.compose_config`和`build_runtime`要求仍然有效的`VerifiedSource`。在两个数据配置集合中显式替换dataset target和描述符，其他模型、损失、优化器、归一化及科学配方不变；先逐项检查实际私有配置，再生成可跨相同内容缓存重建的身份。原生setup_runtime在模型factory之前调用，沿用已声明的seed顺序修正。`reload_runtime`严格恢复权重；完整优化器/调度器/RNG/Lightning循环恢复由调用方另行验证，不能以权重加载替代。
+
+调用方须让源在数据集构造及使用期间有效，并在消费者结束后调用`close_data_module`关闭各唯一叶数据集的fd，包括共享ConcatDataset/Subset。该函数不会停止其他进程；控制器还须等待自己创建的worker退出。索引、配置和完整身份包含私有路径或会话信息，应留在私有目录，公开报告只发布脱敏摘要。
+
+当前18项索引、19项数据集、28项运行时和45项既有盘点检查合计110项定向通过。三个真实模型的随机初始化权重、前向和官方变换与原入口一致；这不是新的性能结果。实际mini的全部526窗口、样本元数据、RNG消耗和会话分组逐项一致，累计3,493,232个true输入mask元素。此分母不是原始valid行数，也不是对齐后的模型输出mask分母。
+
+[实际原生工程证据](../results/emg2pose-memory-native-engineering.json)记录S/M/L各两次真实CPU更新，全部526窗口在新进程中的输入/预测/目标/mask/顺序及指标摘要精确一致；AdamW矩、cosine和显式RNG恢复一致，原生Trainer在step2加载权重、优化器、调度器和循环计数后再执行一次实际更新到step3。所有拥有的内存fd最终关闭，未初始化CUDA。原生框架对中途checkpoint的dataloader顺序提示保留，因此不声称连续训练轨迹逐位一致。
+
+首次未隐藏GPU的CPU检查在最终资源检查失败；原生Lightning即使CPU fit也会通过isolate_rng读取可见CUDA RNG。该失败保留，最终检查在进程启动时显式隐藏CUDA，生产读取器/模型/优化器源码不变。三个模型均为mini原val、float32、batch1/workers0工程检查，不证明原GPU批量或论文精度。
+
+后续必须完成三模型实际检查、最终完整项目检查和实现审查，再执行完整源准入、资源/进程生命周期验收和三项250轮实验。不能直接把新TAR交给现有memmap入口，也不修改旧转换器的完成标记规则。
 
 实现与验证顺序见[内存接入计划](superpowers/plans/2026-10-27-emg2pose-memory-storage.md)。这项工程结果不能填入论文Tables11/13。

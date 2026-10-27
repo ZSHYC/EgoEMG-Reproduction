@@ -14,7 +14,7 @@
 
 [EMG2Pose真实mini工程验收](results/emg2pose-mini-optimization.md)也已完成：S/M/L各2次实际更新、两遍全部526窗口及严格完整状态重载一致。mini全为原val，这项检查不能作为独立验证或论文精度；完整数据与三个完整训练仍待完成。
 
-新增[完整原包的内存存储接入](docs/emg2pose-memory.md)：无损接收组件已在服务器实收647MB官方mini原TAR，39块完整SHA256与已有源一致；原TAR/HDF5盘点另核验30文件/4,218,756行的全部使用字段、掩码、属性及原生metadata数组，与既有直接转换结果一致。检查后全部内存描述符关闭。官方数据集适配、526窗口等价、完整462.8GB源准入和三个完整实验仍欠；本机持久化分块下载继续运行。
+新增[完整原包的内存存储接入](docs/emg2pose-memory.md)：服务器647MB完整mini接收与30HDF5/4,218,756行盘点已通过；新存储适配与原官方读取器的全部526窗口、样本元数据和RNG一致。[新原生工程证据](results/emg2pose-memory-native-engineering.json)中S/M/L各完成2次CPU更新、全部526窗口新进程精确复推，以及原生完整状态加载后再更新一次到step3；拥有的内存fd全部关闭。最终107成员完整检查/实现审查仍待完成，完整462.8GB源、资源/进程控制器及三项完整实验仍欠，不能填论文Tables11/13。本机持久化下载进度保留。
 
 [![Reproduction checks](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml/badge.svg)](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml)
 [![Paper: arXiv 2605.05712v1](https://img.shields.io/badge/Paper-arXiv%3A2605.05712v1-355c7d)](https://arxiv.org/abs/2605.05712v1)

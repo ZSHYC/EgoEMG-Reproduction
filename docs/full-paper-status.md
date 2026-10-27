@@ -6,7 +6,7 @@
 
 ## 当前实际完成到哪里
 
-- **完整EMG2Pose原包接收及TAR/HDF5盘点已通过真实mini检查：** [接入与边界](emg2pose-memory.md)、[实际字节证据](../results/emg2pose-memory-acquisition-engineering.json)和[全字段盘点证据](../results/emg2pose-memory-data-engineering.json)记录完整647,198,208字节/39块mini接收、SHA一致与只读封印；30HDF5/4,218,756行的全部使用字段、raw mask、属性、原生metadata数组及1,015有效区间均与原直接转换一致，所有fd检查后关闭。完整源、官方数据集适配/全部526窗口等价/新完整训练仍欠。101成员完整检查1,651/4skip、轻量919/689；已完成的77d9a85托管CI只覆盖之前99成员接收代码。持久化xz接收继续，工程检查不能填Tables11/13。
+- **EMG2Pose只读内存接入已通过真实mini原生检查：** [接入与边界](emg2pose-memory.md)、[全字段盘点](../results/emg2pose-memory-data-engineering.json)及[新原生工程证据](../results/emg2pose-memory-native-engineering.json)覆盖完整647,198,208字节/30HDF5/4,218,756行、全部526窗口与原读取器的样本/RNG一致。S/M/L各2次实际CPU更新、526窗口新进程精确复推、原生权重/AdamW/cosine/循环/RNG加载后再执行一次更新到step3，全部拥有的fd关闭。107成员最终整体检查/实现审查仍欠；已观察的33fc756托管CI只覆盖此前101成员盘点代码，官方CPU1,652/3CUDA skip与轻量919/689。完整源、资源/进程控制器、GPU准入及三项完整训练仍未完成；mini工程检查不能填Tables11/13。
 
 - **DINO-S/B及显式激活重计算L的实际GPU验收均通过，三者已进入各自全量训练：** [实际S证据](../results/vision-literal-gpu-engineering.json)、[B证据](../results/vision-literal-base-gpu-engineering.json)和[新L证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)各为原360／bf16两轮、4次实际更新，每轮完整3,152手验证；六项原生恢复一致，完整验证预测跨进程精确复推，各七阶段exit0。L保留原模型／损失／优化器／批量，显式启用固定timm激活重计算；原未启用版本的显存失败保留。三项full均保留150上限／patience30，无最终测试成绩。匹配新2129accc[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)为1,574／3实际CUDA skip及841／689依赖skip。下文CPU阶段“GPU尚欠”为历史记录，不覆盖此新快照。
 

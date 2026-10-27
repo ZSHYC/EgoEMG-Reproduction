@@ -131,6 +131,31 @@
       ],
       "warnings": 106
     },
+    "hosted_CI": {
+      "conclusion": "success",
+      "head_commit": "33fc75646b9f55b450c3e2092bac42e12136921f",
+      "light": {
+        "dependency_skipped": 689,
+        "elapsed_seconds": 28.3,
+        "job_id": 121957596069,
+        "log_sha256": "84cc40f45750b72db1383385c21bc21d01e56e0d6ed9a5363682913a4d3dfe66",
+        "passed": 919,
+        "warnings": 1
+      },
+      "official": {
+        "elapsed_seconds": 963.93,
+        "job_id": 121957595906,
+        "log_sha256": "68cf2b37fbdcad85df1f95802ee9197343e665ecab582de49e6c11f6a537e972",
+        "passed": 1652,
+        "pip_check": "No broken requirements found.",
+        "skipped": 3,
+        "warnings": 104
+      },
+      "run_id": 40433812371,
+      "scope": "published101member inventory source only; excludes new107member adapter implementation",
+      "status": "completed",
+      "url": "https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40433812371"
+    },
     "light": {
       "actual_exit_code": 0,
       "dependency_skipped": 689,
