@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **原始普通文件上的S/M/L原生CPU入口已完成独立核验：** [入口与边界](emg2pose-direct.md)、[实际证据](../results/emg2pose-direct-native-runtime-engineering.json)为182本机/182服务器以及完整轻量1,355/727 actual exit0。完整mini27.59秒实际exit0，全部526窗口与独立原参考相同；原始数据集类、三模型初始权重/CPU前向/原AdamW-cosine250配置及严格权重重载精确一致。一次深度字段准入后保持具体文件绑定，不使用archive FD或封印、不改变原validator/global。没有优化器更新、训练状态恢复、CUDA/full-source/250轮或新精度结果，这些仍欠。
+
 - **原始数据全流程入口与等待现有下载的控制器已接通：** [证据](../results/emg2pose-original-source-pipeline-engineering.json)为179本机/179服务器与完整轻量1,332/713 actual exit0；新的完整官方mini从下载到受管理的原准备/回收/转换/准入131.52秒actual exit0，四字段/22数组一致、实际拥有者退出。相同冻结控制器已实际启动full模式，当前等待既有下载完成及其拥有者退出，尚未准备完整源；不会重复获取全量包。原始直接数据的模型/GPU恢复/250轮/最终评价和全文仍欠。
 
 - **原始磁盘源准备与冗余TAR回收已通过完整mini实测：** [证据](../results/emg2pose-original-disk-preparation-engineering.json)为170本机/170服务器及完整轻量1,323/713 actual exit0；新下载的官方mini实际142.30秒exit0。全部原文件与额外字节保留后，重新核验全包及原HDF5盘点，实际回收本任务这份冗余TAR，再在原包不在场时精确重建；原转换四字段/22数组及原生准入一致。此前参考包、活动全量下载和原转换器不变。完整25,253会话的真实准备/转换和三项250轮科学实验仍欠。

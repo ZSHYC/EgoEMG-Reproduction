@@ -1,0 +1,181 @@
+{
+  "actual_entire_mini": {
+    "actual_original_dataset_without_subclass": true,
+    "actual_owned_dataset_views_closed": true,
+    "actual_source_closed": true,
+    "actual_source_deep_admitted_before_torch": true,
+    "all_original_fields_and_all526_windows_equal": true,
+    "archive_descriptor_or_seal_used": false,
+    "cuda_initialized": false,
+    "full_paper_complete": false,
+    "full_source_acquired": false,
+    "models": [
+      {
+        "actual_cpu_forward_exact": true,
+        "all_owned_dataset_memmap_views_closed": true,
+        "forward_shapes": [
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            7280
+          ]
+        ],
+        "original_optimizer_scheduler_equal": true,
+        "parameters": 3481636,
+        "scheduler_T_max": 250,
+        "seconds": 16.23855201108381,
+        "seeded_initial_weights_equal": true,
+        "size": "small",
+        "strict_weights_reload_exact": true
+      },
+      {
+        "actual_cpu_forward_exact": true,
+        "all_owned_dataset_memmap_views_closed": true,
+        "forward_shapes": [
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            7280
+          ]
+        ],
+        "original_optimizer_scheduler_equal": true,
+        "parameters": 6638884,
+        "scheduler_T_max": 250,
+        "seconds": 4.552377175074071,
+        "seeded_initial_weights_equal": true,
+        "size": "middle",
+        "strict_weights_reload_exact": true
+      },
+      {
+        "actual_cpu_forward_exact": true,
+        "all_owned_dataset_memmap_views_closed": true,
+        "forward_shapes": [
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            20,
+            7280
+          ],
+          [
+            1,
+            7280
+          ]
+        ],
+        "original_optimizer_scheduler_equal": true,
+        "parameters": 16342308,
+        "scheduler_T_max": 250,
+        "seconds": 4.711883874610066,
+        "seeded_initial_weights_equal": true,
+        "size": "large",
+        "strict_weights_reload_exact": true
+      }
+    ],
+    "optimization_performed": false,
+    "runtime_capacity_observer_injected": false,
+    "scientific_complete": false,
+    "seconds": 27.59047431498766,
+    "source_admission_seconds": 0.980712675023824,
+    "source_pipeline_completion_sha256": "0b0ea24752865a72e1407d4ebb16bde99f2d7c0ecb47d221872974228e3ef23d",
+    "window_proof": {
+      "all_window_original_reference_equal": true,
+      "seconds": 10.48784596612677,
+      "stream_digests": {
+        "emg": "152fa67137f493bac4658928606d1a36fc369519ec4d9447ff8904d33815c835",
+        "joint_angles": "5b408e1bdd98a6073c1b12bb66f4775ef4a604177788821b620964c2e87a675f",
+        "label_valid_mask": "12f6a6caa93e751693293f3d521336a75685db3b3359b8fa3a4bf2dae4c58581",
+        "metadata": "d56a28d992f1308acd971907969db7a64806cbd8aad30ca6646acfe4366fa043"
+      },
+      "valid_mask_elements": 3493232,
+      "windows": 526
+    }
+  },
+  "checks": {
+    "foreign_runtime_binding_regression": {
+      "actual_red_exit_code": 1,
+      "actual_red_failed": 1,
+      "deselected": 36,
+      "fix": "Reject foreign original-runtime context before seed/model construction; original native canonicalizer unchanged",
+      "red_log_sha256": "533ed180aea39867ad52e8a6b62f16e237e79692038eba0ee325c91f0d6f4646"
+    },
+    "full_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "c2f2ee24b59b9f40cc69ba561d8ceb042de686606a04a2c8b72e75268cb73f07",
+      "passed": 1355,
+      "seconds": 78.57,
+      "skip_reason": "optional framework dependencies and unavailable aria2 tool",
+      "skipped": 727,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "3f991b789e509770da463b20c41f9e38601a0cc49f626767d285e977df7eae72",
+      "passed": 182,
+      "seconds": 53.85,
+      "warnings": 23
+    },
+    "new_direct_source_runtime_cases": 37,
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "6a81d18e38072aef25c3f00fc872486720b91850bf18b63602baf2582a6a0233",
+      "passed": 182,
+      "seconds": 69.16,
+      "warnings": 23
+    },
+    "unchanged_native_source_regression_cases": 145
+  },
+  "format": "emg2pose_direct_ordinary_native_runtime_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "Original native validators/factories/dataset classes/globals remain unchanged; only a private globals copy binds an actually deep-admitted live ordinary source.",
+    "Existing seed policy explicitly runs original setup_runtime before factory construction, correcting upstream launch ordering; this is declared rather than original unseeded launch equivalence.",
+    "Mini is validation-only; independent train/val augmentation and RNG agreement were checked using the explicit3-role engineering fixture.",
+    "No optimizer updates, training-state recovery, CUDA qualification, full25253source/250epoch fit or scientific performance was obtained here.",
+    "Complete original source and owned preparation controller remain separate live jobs.",
+    "Current component hosted CI has not yet been observed."
+  ],
+  "observed_utc": "2026-10-27T18:30:55.507098+00:00",
+  "ordinary_source": {
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "full_corpus_complete": false,
+    "hdf5_files": 30,
+    "rows": 4218756
+  },
+  "owned_execution": {
+    "actual_exit_code": 0,
+    "all_actual_matching_owned_controller_and_recorder_gone": true,
+    "bundle_sha256": "6a81d18e38072aef25c3f00fc872486720b91850bf18b63602baf2582a6a0233"
+  },
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "egoemg_repro/emg2pose_direct_source.py": "555a2b80c93b9ef4838ce544bbca3be833d038d6772984c3c798bc548d814bae",
+    "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422",
+    "tests/test_emg2pose_direct_runtime.py": "da4de3a7f3db2195bd513213e8dd28b37cb9334fa7ac740f3b7fa435e13ac6c3"
+  },
+  "scientific_complete": false,
+  "scope": "Original ordinary-field admission and exact native S/M/L CPU factory/weight-reload foundation; not recovery/full training/scientific results"
+}

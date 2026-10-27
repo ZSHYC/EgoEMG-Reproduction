@@ -1,5 +1,14 @@
 # 运行状态
 
+## 2026-10-28：原始磁盘数据上的S/M/L原生CPU入口核验完成
+
+[入口与边界](emg2pose-direct.md)、[实际证据](../results/emg2pose-direct-native-runtime-engineering.json)为37项新检查及145项原入口/源回归：本机182/53.85秒、服务器182/69.16秒，各23warning且actual exit0；完整轻量1,355通过/727可选框架或工具跳过/1warning78.57秒actual exit0。一次真实失败回归修正了新入口对另一格式私有context的拒绝，原validator、dataset类和全局对象不改。
+
+完整真实mini在普通文件上实际27.59秒exit0；深度准入0.98秒，在导入Torch之前完成，全部526原窗口/3,493,232有效window mask与独立原参考相同。S/M/L的初始权重、实际CPU前向、原优化器/cosine250配置和严格权重重载精确匹配原生入口；实际普通memmap视图及源均关闭，两个实际PID/start拥有者独立确认退出。没有archive FD、封印、虚拟数据集、优化器更新、训练状态恢复或CUDA资格，也没有完整源/250轮/新EMG2Pose精度结果。
+
+原始全量获取及9e563c5aef66准备控制器继续独立运行；模型端后续仍须完整状态恢复、原batch320/12worker/bf16的GPU资格、250轮fit/选best和FP32最终评价/科学报告，全文范围不变。
+
+
 ## 2026-10-28：原始数据全流程与现有下载自动衔接控制器已实跑
 
 [实际证据](../results/emg2pose-original-source-pipeline-engineering.json)记录9项新检查和170项原回归：本机179项/28.93秒、服务器179项/35.96秒；完整轻量1,332通过/713依赖或工具跳过/1warning76.16秒，全部actual exit0。新官方mini从下载开始131.52秒完成，下载104.66秒、受管理原始源阶段26.16秒。原盘点/冗余TAR回收/未修改转换器/原生准入串联通过，四字段和22索引数组与独立参考一致；真正worker/guardian及外层两个拥有者均已退出。全程没有Torch、GPU更新或注入实际资源观测。
