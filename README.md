@@ -32,7 +32,7 @@
 
 [全论文状态](docs/full-paper-status.md) · [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
-> 新增[DINOv2原生训练与评价](docs/vision-literal.md)：S/B/L真实权重经原factory保留并严格重载。S、B及显式激活重计算的L均通过原360/bf16实际GPU七阶段验收、完整3,152手验证与独立精确复推，已分别进入完整训练；L原未启用重计算时的显存失败保留。三者尚无最终测试成绩，不能用工程检查或中途验证值作为新DINO性能结果。当前证据见[全论文状态](docs/full-paper-status.md)。
+> [DINOv2原生训练与评价](docs/vision-literal.md)：[ViT-S完整结果](results/original-vision/vit-small/README.md)已完成124轮/69,688更新，全部中心MAE6.464179°；[ViT-B完整结果](results/original-vision/vit-base/README.md)已完成94轮/52,828更新，全部中心6.761261°。两者均完成验证选best、最终test、新进程完整复算及报告核验，测试4,306唯一手样本/原repeat2消费8,612；保留原0.02损失和旧队列/单rank适配，B明确从S配方派生，不证明PDF或多seed等价。L显式激活重计算后仍在完整训练，原未启用版本的显存失败保留。全文进展与缺口见[全论文状态](docs/full-paper-status.md)。
 
 ## 复现什么
 

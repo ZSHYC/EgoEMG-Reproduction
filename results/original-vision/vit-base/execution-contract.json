@@ -1,0 +1,147 @@
+{
+  "batch_size_by_role": {
+    "test": 360,
+    "train": 360,
+    "val": 360
+  },
+  "batch_size_semantics": "native make_data_module passes batch_size only; all _make_loader roles use self.batch_size",
+  "callbacks": [
+    {
+      "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+      "filename": "vit-small-{epoch:03d}-{val_mae:.4f}",
+      "mode": "min",
+      "monitor": "val_mae",
+      "save_last": true,
+      "save_top_k": 3
+    },
+    {
+      "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+    },
+    {
+      "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+      "check_on_train_epoch_end": false,
+      "mode": "min",
+      "monitor": "val_mae",
+      "patience": 30
+    }
+  ],
+  "data_admission": "not performed; legacy-only cohort and independent train-only validation require explicit separate identity",
+  "declared_dataset_names": {
+    "test": [
+      "egoemg_unified",
+      "egoemg_unified"
+    ],
+    "train": [
+      "egoemg_unified",
+      "egoemg_unified"
+    ],
+    "val": [
+      "egoemg_unified",
+      "egoemg_unified"
+    ]
+  },
+  "declared_training_corpus": "physically_merged_egoemg_showee_incre",
+  "declared_validation_splits": [
+    "user",
+    "gesture",
+    "both"
+  ],
+  "effective_loss_weights": {
+    "landmark/fingertip": 0.02,
+    "mae": 1.0
+  },
+  "format": "original_vision_execution_contract_v1",
+  "full_paper_complete": false,
+  "jitter_by_role": {
+    "test": false,
+    "train": true,
+    "val": false
+  },
+  "lr_scheduler": {
+    "frequency": 1,
+    "interval": "epoch",
+    "scheduler": {
+      "T_max": 150,
+      "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+      "eta_min": 1e-05
+    }
+  },
+  "mask_semantics": "original generated center label mask for all22 angles; no legacy per-angle wrist cleanup",
+  "missing_crop_semantics": "original point reader returns normalized black input and vision-invalid flag; label mask unchanged",
+  "module": {
+    "_target_": "egoemg.models.modules.vit_vision.VisionViTPose",
+    "backbone_type": "vit_base",
+    "freeze_backbone": false,
+    "head_dropout": 0.1,
+    "head_hidden": 512,
+    "out_channels": 22,
+    "pretrained": true
+  },
+  "optimizer": {
+    "_target_": "torch.optim.AdamW",
+    "amsgrad": false,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "lr": 0.0001,
+    "weight_decay": 0.01
+  },
+  "production_ready": false,
+  "raw_loss_weights": {
+    "fingertip_distance": 0.01,
+    "landmark/fingertip": 0.01,
+    "mae": 1.0
+  },
+  "recipe_origin": "explicit_small_recipe_derivation",
+  "repeat_by_role": {
+    "test": 2,
+    "train": 2,
+    "val": 2
+  },
+  "repeat_semantics": "native _build_dataset repeats every role after left/right concatenation",
+  "scientific_eligible": false,
+  "seed": 42,
+  "seed_policy": "original setup_runtime before native factory; configuration metadata alone does not construct a runtime",
+  "sha256": "d3c05870f8a2bde7b3f272091bb72a1a40c3d69f0635ce8e0a0eddb0183dd068",
+  "sources_sha256": {
+    "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+    "config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+    "config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+    "config/experiment/fusion/vision_vit_small.yaml": "1c051a315dc074b186bf15482e394009bb3f2bec304b688e32c01bc2239aef02",
+    "config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+    "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+    "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+    "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+    "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+    "egoemg/models/modules/vit_vision.py": "aa93eb7a45534945cc596a188e571de19b8bee2ff57734823571dce79059058a",
+    "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e"
+  },
+  "trainer": {
+    "check_val_every_n_epoch": 1,
+    "devices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "enable_model_summary": false,
+    "gradient_clip_val": 1,
+    "log_every_n_steps": 1,
+    "max_epochs": 150,
+    "precision": "bf16-mixed"
+  },
+  "unused_declared_val_batch_size": 256,
+  "upstream_experiment": "fusion/vision_vit_small",
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "variant": "vit_base",
+  "window": {
+    "eval_length": 7790,
+    "eval_stride": 7790,
+    "train_length": 7790,
+    "train_stride": 780
+  }
+}
