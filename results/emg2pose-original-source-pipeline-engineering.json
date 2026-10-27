@@ -1,0 +1,91 @@
+{
+  "actual_entire_mini": {
+    "actual_acquisition_seconds": 104.6615917282179,
+    "actual_all_owned_consumers_exited": true,
+    "actual_controller_and_recorder_gone": true,
+    "actual_owned_stage_worker_exit_code": 0,
+    "actual_owned_work_no_torch": true,
+    "all_original_bits_reconstructable": true,
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "complete_original_files_retained": true,
+    "cuda_initialized": false,
+    "full_corpus_complete": false,
+    "full_paper_complete": false,
+    "hdf5_files": 30,
+    "native_metadata_arrays_equal": 22,
+    "optimization_performed": false,
+    "original_converted_fields_equal": true,
+    "owned_source_phase_seconds": 26.15715595567599,
+    "redundant_original_tar_retired": true,
+    "rows": 4218756,
+    "runtime_capacity_observer_injected": false,
+    "scientific_complete": false,
+    "seconds": 131.52328073885292
+  },
+  "checks": {
+    "full_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "8e2ecc3dd059bf4ee8d6b5a5d4e99a7594fd03d9499d40ffab1c3b42b933686f",
+      "passed": 1332,
+      "seconds": 76.16,
+      "skipped": 713,
+      "warnings": 1
+    },
+    "initial_missing_feature_red": {
+      "actual_exit_code": 1,
+      "failed": 9,
+      "log_sha256": "79f40f516f4c52dd2872a3bfeb2ae37bded7a4162b75d2310ca254a54653fc24",
+      "seconds": 4.22
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "8358eade5d6510f97d212a08c189466cc5c8c698c7e768f7fa7f87e7724897be",
+      "passed": 179,
+      "seconds": 28.93
+    },
+    "new_pipeline_cases": 9,
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "b0e1f36b1f2fce42bf2446caa60e6b50f9504826dab253d11718d176bdbd584c",
+      "passed": 179,
+      "seconds": 35.96
+    },
+    "unchanged_source_regression_cases": 170
+  },
+  "format": "emg2pose_original_source_pipeline_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "Full original source is still downloading; actual complete25253 source preparation/conversion remains outstanding.",
+    "Mini preserves its unchanged legacy-TAR validation and converts before retirement; full/engineering retire proved redundancy before conversion.",
+    "Full source phase has continuous256GiB host/15GiB disk resource and code guards through the actual owned-stage guardian.",
+    "No model factory, GPU update,250epoch or scientific evaluation was executed by this component.",
+    "New component hosted CI has not yet been observed."
+  ],
+  "observed_utc": "2026-10-27T18:06:06.646380+00:00",
+  "operational_controller": {
+    "actual_full_controller_and_recorder_matching_live": true,
+    "actual_full_controller_live_observed_utc": "2026-10-27T18:07:29.865704+00:00",
+    "actual_once_full_controller_started_utc": "2026-10-27T18:06:43.664095+00:00",
+    "controller_sha256": "e712f461335309ab7822476231c01eba6dd5d3188edf30178007c8064dfed8e7",
+    "expected_source_bytes": 462824048640,
+    "full_bundle_sha256": "9e563c5aef665cb900d5aabbc41953912edaf38d0cd5ee41eab884ea871102d0",
+    "full_preparation_started": false,
+    "full_source_ready": false,
+    "launches_a_second_full_acquisition": false,
+    "mini_bundle_sha256": "b0e1f36b1f2fce42bf2446caa60e6b50f9504826dab253d11718d176bdbd584c",
+    "phase": "waiting-existing-full-acquisition",
+    "source_bytes_received_at_observation": 72020082688,
+    "waits_for_existing_acquisition_bundle": "c0a269b822dac94a3ac7ca4ea587e1b4258f0e684688800f5e90cb0e23a2426b"
+  },
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_disk_pipeline.py": "c5377f50d5193ebe7159c39c60ca00eccc219858488af280c8b38a2f2e65a345",
+    "egoemg_repro/emg2pose_disk_prepare.py": "aa79e081a2413eb6c5427eefb159167f6700f1c8d51ddb6435b789028bdf0b0a",
+    "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422",
+    "tests/test_emg2pose_disk_pipeline.py": "89dc5d956975c0d103a7ed15ac49b08942b3da34119b036d39d509cb0757f2e1"
+  },
+  "scientific_complete": false,
+  "scope": "Original source preparation/conversion composition and owned operational controller; not full-source completion or model science"
+}
