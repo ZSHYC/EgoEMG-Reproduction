@@ -135,6 +135,12 @@ def _fetch(source, start, size):
         return transport._receive_range(session, source, start, size)
 
 
+def _final_head(source):
+    # The transport worker owns only its HTTP session, never the cache FD.
+    with requests.Session() as session:
+        return transport._head(session, source['url'], source['expected_bytes'])
+
+
 def _write_all(descriptor, body, offset):
     view = memoryview(body)
     done = 0
@@ -183,6 +189,7 @@ def _acquire_source(source, *, workers, chunk_bytes, reserve_bytes, on_progress=
         records = {}
         received = next_offset = 0
         inflight = {}
+        head = None
         pool = ThreadPoolExecutor(max_workers=workers, thread_name_prefix='emg2pose-range')
         try:
             while next_offset < length or inflight:
@@ -210,6 +217,15 @@ def _acquire_source(source, *, workers, chunk_bytes, reserve_bytes, on_progress=
                                               'source_bytes_received': received,
                                               'source': source, 'chunk': record}))
                 done.clear()
+            if received != length or len(records) != (length+chunk_bytes-1)//chunk_bytes:
+                raise ArchiveError('incomplete memory archive extent ledger')
+            head = pool.submit(_final_head, source)
+            while not head.done():
+                _guard(reserve_bytes, working_bytes)
+                wait((head,), timeout=1)
+            _guard(reserve_bytes, working_bytes)
+            if head.result() != source:
+                raise ArchiveError('source object identity changed at final HEAD')
         except BaseException:
             # Free the potentially large owned cache immediately, before waiting
             # for bounded HTTP workers to unwind. They never write to this fd.
@@ -217,14 +233,11 @@ def _acquire_source(source, *, workers, chunk_bytes, reserve_bytes, on_progress=
             descriptor = None
             for future in inflight:
                 future.cancel()
+            if head is not None:
+                head.cancel()
             raise
         finally:
             pool.shutdown(wait=True, cancel_futures=True)
-        if received != length or len(records) != (length+chunk_bytes-1)//chunk_bytes:
-            raise ArchiveError('incomplete memory archive extent ledger')
-        with requests.Session() as session:
-            if transport._head(session, source['url'], length) != source:
-                raise ArchiveError('source object identity changed at final HEAD')
         _guard(reserve_bytes, working_bytes)
         # Seal before final readback so the verified digest cannot race mutation.
         fcntl.fcntl(descriptor, _ADD_SEALS, _SEALS)

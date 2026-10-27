@@ -2,9 +2,9 @@
 
 ## 2026-10-27：EMG2Pose新内存读取器通过全部mini窗口和三模型原生CPU检查
 
-[实际证据](../results/emg2pose-memory-native-engineering.json)记录新索引/官方存储子类/原生factory绑定。全部526窗口的输入、标签、mask、样本元数据、RNG消耗及会话分组与原读取器一致；S/M/L各2次真实更新，全部526预测在新进程重载后精确一致，原生Trainer恢复权重/AdamW矩/cosine/循环计数后再执行一次实际更新到step3。所有拥有的memfd关闭；CPU工程进程显式隐藏CUDA，保留此前可见GPU时最后资源检查失败。110项定向检查通过；冻结107成员完整检查日志报告1,717通过/3CUDA skip，但启动器被中断而缺退出码，最终有退出记录的验证及实现审查尚欠。全部mini为原val，不能作为独立验证或论文成绩。
+[实际证据](../results/emg2pose-memory-native-engineering.json)记录新索引/官方存储子类/原生factory绑定。全部526窗口的输入、标签、mask、样本元数据、RNG消耗及会话分组与原读取器一致；S/M/L各2次真实更新，全部526预测在新进程重载后精确一致，原生Trainer恢复权重/AdamW矩/cosine/循环计数后再执行一次实际更新到step3。所有拥有的memfd关闭；CPU工程进程显式隐藏CUDA，保留此前可见GPU时最后资源检查失败。一次实现审查发现最终HEAD阻塞时缓存未持续检查内存压力，真实两项RED→77项GREEN已修正。最终107成员完整1,719通过/3实际CUDA skip（863.83秒）、轻量939/691依赖skip（29.71秒）均捕获实际exit0；修后全部526窗口与三模型原生检查再次通过。此前1,717通过但缺退出码的日志仍保留为历史，未追认exit0。全部mini为原val，不能作为独立验证或论文成绩。
 
-原101成员盘点代码的[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40433812371)已实际完成：官方CPU1,652 passed/3实际CUDA skip/104warnings（963.93s）及轻量919/689依赖skip/1warning（28.30s），pip check通过。它不覆盖后续新适配器。完整462.8GB源、资源/进程控制器、原GPU批量准入和三项250轮科学实验仍欠；本机70.2GB持久化下载前缀在网络失败后已启动原下载器重验/续传，不因它的中断重启其他模型。
+原101成员盘点代码的[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40433812371)已实际完成：官方CPU1,652 passed/3实际CUDA skip/104warnings（963.93s）及轻量919/689依赖skip/1warning（28.30s），pip check通过。它不覆盖后续新适配器。完整462.8GB源、资源/进程控制器、原GPU批量准入和三项250轮科学实验仍欠；11:56北京时间实读持久化前缀70.4GB（15.21%）且原续传进程PID/start仍匹配。同期DINO-S/B/L控制器及训练子进程均存活、无终态错误，日志分别在零起算epoch33/20/8；仍没有新DINO最终测试成绩。
 
 ## 2026-10-27：显式重计算L七阶段GPU验收通过，S/B/L均进入各自完整训练
 

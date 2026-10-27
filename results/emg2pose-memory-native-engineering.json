@@ -3,7 +3,7 @@
     "all_owned_memory_descriptors_closed": true,
     "cuda_initialized": false,
     "probe_source_sha256": "1117c82e84c677bd2758653df5fadd19c1fa956fbcff7c13f9039a846f553477",
-    "raw_evidence_sha256": "2130d376480959015c67b4af82900e9f397a3a79bc5074be61d0c670afc1f146",
+    "raw_evidence_sha256": "337834a0097de77855896dafb81f4fabb3dee9604f51fb14fee08e1f16f0a103",
     "sizes": [
       {
         "actual_fresh_further_updates": 1,
@@ -19,7 +19,7 @@
           "policy": "single same-directory temporary checkpoint; per-write reserve; file+directory fsync; atomic no-replace publication",
           "reserve_bytes": 16106127360
         },
-        "checkpoint_sha256": "ed0261181d9e9e26fc3ecddacda5ef542c9e8481bb4cb330f4a62a2dc7f16a6a",
+        "checkpoint_sha256": "5a4e962d09c561d1ed16ae4a9178f930a4cfa0a30c2ce59d4f37602ac72e2ee2",
         "complete_evaluation": {
           "all_windows_consumed": true,
           "input_sha256": "7723ee0db82539fc017e55f7a21fed406e5b3cb14dcc2d86f085dd68bebed5b3",
@@ -64,7 +64,7 @@
           "policy": "single same-directory temporary checkpoint; per-write reserve; file+directory fsync; atomic no-replace publication",
           "reserve_bytes": 16106127360
         },
-        "checkpoint_sha256": "5d790dbbc47572b891a921d39da170c770cf1e1fdde45c320ee096533d7bbbe2",
+        "checkpoint_sha256": "39610ac92fbf88510e501bbe86da8c7b25ca25c53aede1da26c3cf0628b35d46",
         "complete_evaluation": {
           "all_windows_consumed": true,
           "input_sha256": "7723ee0db82539fc017e55f7a21fed406e5b3cb14dcc2d86f085dd68bebed5b3",
@@ -109,7 +109,7 @@
           "policy": "single same-directory temporary checkpoint; per-write reserve; file+directory fsync; atomic no-replace publication",
           "reserve_bytes": 16106127360
         },
-        "checkpoint_sha256": "e42302244e75d37de5e0c1c0fcf91637712d870331dff642546ab313e6466d90",
+        "checkpoint_sha256": "ed220652cb4df706dd44d7f513073d3999b95cde69f4b748164517487e4c4136",
         "complete_evaluation": {
           "all_windows_consumed": true,
           "input_sha256": "7723ee0db82539fc017e55f7a21fed406e5b3cb14dcc2d86f085dd68bebed5b3",
@@ -141,8 +141,8 @@
         "workers": 0
       }
     ],
-    "source_bundle_sha256": "849c1448bdf56e93852334fd84df5c31541e13691611b7c09aad47c2987d67c2",
-    "whole_seconds": 458.97130968188867
+    "source_bundle_sha256": "4b37abaa251934ddd085862863503306bade7e804b8dd3366acfba8b38019e0a",
+    "whole_seconds": 462.5227012503892
   },
   "actual_windows": {
     "all_memory_descriptors_closed": true,
@@ -164,7 +164,7 @@
         "metadata": "d56a28d992f1308acd971907969db7a64806cbd8aad30ca6646acfe4366fa043"
       }
     },
-    "window_seconds": 4.658520434051752,
+    "window_seconds": 4.668531931005418,
     "windows": 526
   },
   "engineering_only": true,
@@ -180,7 +180,7 @@
     "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
     "egoemg_repro/emg2pose_check.py": "7c633a98d7528ed0c4e414ebc56e65ba306b1655693489282da9f1dddab5b2cf",
     "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
-    "egoemg_repro/emg2pose_memory_archive.py": "993dbb7474969989cde173660b713f15dec56539923c8dbe8d0b1877b46fbe0d",
+    "egoemg_repro/emg2pose_memory_archive.py": "a8d1aed29e2f89ae9e84e8ee16ca85299c2358b13f0b2c0ad53725e5c5230bd4",
     "egoemg_repro/emg2pose_memory_data.py": "7d1a89c2554b84dbdf01752f66600a3816a86821ec9e807c3df399ddd4e9214f",
     "egoemg_repro/emg2pose_memory_dataset.py": "eda423288e8450fbe987900dda60597d8d9072cb7e666d8502545f28ec1f35db",
     "egoemg_repro/emg2pose_memory_index.py": "31f8ac2dc50f2deee265307cca07fabd7527151956ced4cadd1a8ecc2212ba40",
@@ -195,49 +195,97 @@
     "The first CPU probe with GPUs visible failed its final resource gate; unchanged native Lightning CPU fit reads CUDA RNG. Its failure is retained; final probe explicitly hides CUDA.",
     "Full source cache/process/resource lifecycle, full-corpus inventory, original GPU acceptance and all three complete scientific experiments remain unfinished."
   ],
-  "observed_utc": "2026-10-27T03:04:29.861959+00:00",
+  "observed_utc": "2026-10-27T03:51:02.250593+00:00",
   "scope": "storage-only official adapter; entire mini window equivalence and native S/M/L engineering optimization/restoration",
   "source": {
     "archive_bytes": 647198208,
     "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
-    "index_completion_sha256": "5ab6a1cb84a4aefc5f5291d383c30b44c74ad6d980042a99bc5d7067f3cb690d",
+    "index_completion_sha256": "4c2bd6b369605665a3e42d23aa805907db53519327ee80fa80dccf1df350638e",
     "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6"
   },
   "source_manifest_members": 107,
-  "source_manifest_sha256": "f4ad917a32770a79125cef0455f1c7f82356d8c332adde86466f32e3376be7e0",
+  "source_manifest_sha256": "af216a4fd5070172d7b22456b9dc271ae0cfed7dcc642a88776e57a6a85cd71d",
   "upstream": "f7cbd048b7092139852270491d3859cd472e0311",
   "verification": {
-    "complete_project_checks": "107source completed test summary1717passed/3CUDA skip; interrupted launcher lost exit receipt; final exited validation remains pending",
-    "interrupted_full_summary": {
-      "actual_exit_code": null,
-      "elapsed_seconds": 1056.53,
-      "log_sha256": "ac91be1ecd94f99a3ab8ed1cfb565695fecc1f7177ec7652dce2c79d03d7b868",
-      "passed": 1717,
-      "scope": "test summary observed; not credited as a captured exit0 run",
+    "complete_project_checks": "passed for exact final107source with captured process exits",
+    "final_guard_targeted": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 10.42,
+      "log_sha256": "192e7af8407a0dc898c840a900da6da4ed8288a9dfecdf2337a2f2642c9ba6b7",
+      "passed": 77
+    },
+    "full": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 863.83,
+      "log_sha256": "ba4c0750c613d62a2e5d37e9f4d81087af7c835e6bf282fc11f8340e17c7cf52",
+      "passed": 1719,
       "skipped": 3,
       "warnings": 125
     },
+    "historical_pre_review": {
+      "evidence": {
+        "complete_project_checks": "107source completed test summary1717passed/3CUDA skip; interrupted launcher lost exit receipt; final exited validation remains pending",
+        "interrupted_full_summary": {
+          "actual_exit_code": null,
+          "elapsed_seconds": 1056.53,
+          "log_sha256": "ac91be1ecd94f99a3ab8ed1cfb565695fecc1f7177ec7652dce2c79d03d7b868",
+          "passed": 1717,
+          "scope": "test summary observed; not credited as a captured exit0 run",
+          "skipped": 3,
+          "warnings": 125
+        },
+        "light": {
+          "actual_exit_code": 0,
+          "dependency_skipped": 691,
+          "elapsed_seconds": 42.3,
+          "log_sha256": "7b7f04879385c07fd1ba0c6b5682ba27873b9b2bf07d8af96771d7652a850e26",
+          "passed": 937,
+          "warnings": 2
+        },
+        "precommit_targeted": {
+          "actual_exit_code": 0,
+          "elapsed_seconds": 112.75,
+          "log_sha256": "eff8b719e4c5c943371ed00ca61e861a813139865d4b080f3936343cd0e0a807",
+          "passed": 110,
+          "warnings": 18
+        },
+        "targeted": {
+          "actual_exit_code": 0,
+          "elapsed_seconds": 107.6,
+          "log_sha256": "265a93b631a94c489e74ac0eabb4707a98b90888907aa4ae3e86baa213bcc7db",
+          "passed": 110,
+          "warnings": 18
+        }
+      },
+      "scope": "before finalHEAD pressure fix; prior interrupted full exit remains unknown",
+      "source_manifest_sha256": "f4ad917a32770a79125cef0455f1c7f82356d8c332adde86466f32e3376be7e0"
+    },
+    "implementation_review": {
+      "critical": 0,
+      "fix_files_sha256": {
+        "egoemg_repro/emg2pose_memory_archive.py": "a8d1aed29e2f89ae9e84e8ee16ca85299c2358b13f0b2c0ad53725e5c5230bd4",
+        "tests/test_emg2pose_memory_archive.py": "7c44f74a0b16810bdc397d935b1ddedb154901146c5c89bb2f612fe50d922628"
+      },
+      "green_cases": 77,
+      "important": 1,
+      "important_fix": "final HEAD runs in monitored range pool; release cache before waiting for stalled HTTP on pressure or unknown capacity",
+      "minor_deferred": [
+        "remaining-steps wording can explicitly name original GPU qualification"
+      ],
+      "red_cases": 2,
+      "red_elapsed_seconds": 6.43,
+      "red_log_sha256": "7bce6d262d52414dcd138f060fbeca9d3ff912d18c7e8eefef2f3d9323bd4c5e",
+      "reviewed_snapshot_commit": "64b188550fb33fe9e01e5862718d68b34d2e6c5c",
+      "scope": "all implemented memoryTasks1–3; Task4 is future work",
+      "second_review_performed": false
+    },
     "light": {
       "actual_exit_code": 0,
-      "dependency_skipped": 691,
-      "elapsed_seconds": 42.3,
-      "log_sha256": "7b7f04879385c07fd1ba0c6b5682ba27873b9b2bf07d8af96771d7652a850e26",
-      "passed": 937,
-      "warnings": 2
-    },
-    "precommit_targeted": {
-      "actual_exit_code": 0,
-      "elapsed_seconds": 112.75,
-      "log_sha256": "eff8b719e4c5c943371ed00ca61e861a813139865d4b080f3936343cd0e0a807",
-      "passed": 110,
-      "warnings": 18
-    },
-    "targeted": {
-      "actual_exit_code": 0,
-      "elapsed_seconds": 107.6,
-      "log_sha256": "265a93b631a94c489e74ac0eabb4707a98b90888907aa4ae3e86baa213bcc7db",
-      "passed": 110,
-      "warnings": 18
+      "elapsed_seconds": 29.71,
+      "log_sha256": "b04ff4f4f69292b5486f1fcf79657a1771e46755c89b9ab038c8d437b8958c4d",
+      "passed": 939,
+      "skipped": 691,
+      "warnings": 1
     }
   }
 }

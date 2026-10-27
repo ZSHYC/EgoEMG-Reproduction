@@ -35,7 +35,9 @@ def endpoint(monkeypatch):
     # bit patterns and arbitrary trailing bytes must survive unmodified.
     data = bytes.fromhex('000000800100c07f') * 4001 + bytes(range(251))
     state = SimpleNamespace(data=data, mode='ok', requests=[], finished=[], heads=0,
-                            lock=threading.Lock(), active=0, max_active=0)
+                            lock=threading.Lock(), active=0, max_active=0,
+                            hold_final_head=False, final_head_started=threading.Event(),
+                            release_final_head=threading.Event())
 
     class Handler(BaseHTTPRequestHandler):
         protocol_version = 'HTTP/1.1'
@@ -46,7 +48,11 @@ def endpoint(monkeypatch):
         def do_HEAD(self):
             with state.lock:
                 state.heads += 1
+                head_number = state.heads
                 state.requests.append(('HEAD', dict(self.headers)))
+            if state.hold_final_head and head_number > 1:
+                state.final_head_started.set()
+                assert state.release_final_head.wait(timeout=10)
             self.send_response(200)
             self.send_header('Content-Length', str(len(data)))
             self.send_header('Content-Type', 'application/x-tar')
@@ -93,6 +99,7 @@ def endpoint(monkeypatch):
     try:
         yield state
     finally:
+        state.release_final_head.set()
         server.shutdown()
         server.server_close()
         worker.join(timeout=3)
@@ -192,6 +199,46 @@ def test_runtime_memory_pressure_stops_acquisition_and_closes_fd(endpoint, monke
         memory.acquire_archive('full', workers=1, chunk_bytes=7001, reserve_bytes=1000, on_progress=observer)
     assert owned_fds() == before
     assert len(events) == 1 and events[0]['complete'] is False
+
+
+@pytest.mark.parametrize('fault',['pressure','unknown_capacity'])
+def test_stalled_final_head_releases_cache_on_pressure_before_response_returns(endpoint,monkeypatch,fault):
+    memory = module()
+    endpoint.hold_final_head = True
+    depleted = threading.Event()
+    def available():
+        if depleted.is_set():
+            if fault == 'unknown_capacity':
+                raise memory.ArchiveCapacityError('capacity observation lost')
+            return 0
+        return 2**40
+    monkeypatch.setattr(memory,'available_memory_bytes',available)
+    before = owned_fds()
+    events,errors,returned = [],[],[]
+    def run():
+        try:
+            with memory.acquire_archive('full',workers=3,chunk_bytes=7001,reserve_bytes=1000,
+                                        on_progress=events.append) as cache:
+                returned.append(cache.receipt)
+        except BaseException as error:errors.append(error)
+    worker = threading.Thread(target=run)
+    worker.start()
+    try:
+        assert endpoint.final_head_started.wait(timeout=3)
+        assert len(owned_fds()-before) == 1
+        depleted.set()
+        deadline = time.monotonic()+3
+        while owned_fds()!=before and time.monotonic()<deadline:
+            time.sleep(.02)
+        assert owned_fds()==before,'full cache retained while final HEAD is stalled'
+        assert not endpoint.release_final_head.is_set()
+        assert not returned and not any(event['complete'] for event in events)
+    finally:
+        endpoint.release_final_head.set()
+        worker.join(timeout=5)
+    assert not worker.is_alive()
+    assert len(errors)==1 and isinstance(errors[0],memory.ArchiveCapacityError)
+    assert owned_fds()==before
 
 
 def test_short_kernel_writes_are_completed_and_read_back(endpoint, monkeypatch):
