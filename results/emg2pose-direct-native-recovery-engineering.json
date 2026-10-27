@@ -1,0 +1,496 @@
+{
+  "actual_exit_code": 0,
+  "actual_owned_phases": 12,
+  "all_24_worker_guardian_identities_independently_gone": true,
+  "all_owned_consumers_exited": true,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "3de69a0b5ebdbd9ff8d9d78fbfd02fd48622af02627e6e31a71f52f0bdc87cb0",
+      "passed": 1355,
+      "seconds": 89.66,
+      "skipped": 728,
+      "warnings": 1
+    },
+    "local-check": {
+      "actual_exit_code": 0,
+      "log_sha256": "b0d76c4f70bbe520486a80816382f47c4c11a27bf63523f6e7fd4492f20bcbe7",
+      "passed": 65,
+      "seconds": 126.0,
+      "skipped": 0,
+      "warnings": 27
+    },
+    "server-check": {
+      "actual_exit_code": 0,
+      "log_sha256": "344387dd596290cc426f560e184188abab1874f0630935dddaafcf83205876f0",
+      "passed": 65,
+      "seconds": 152.81,
+      "skipped": 0,
+      "warnings": 27
+    }
+  },
+  "cpu_complete_state_restore_qualified": true,
+  "engineering_only": true,
+  "format": "emg2pose_direct_native_cpu_gpu_recovery_mini_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "gpu_complete_state_restore_qualified": true,
+  "groups": [
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "all_owned_consumers_exited": true,
+      "device": "cpu",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "frozen_prefix_checkpoint_sha256": "05780cc21d0cf20880bebb8a732e36b94eb74edb7b1b433941ba52632ca969f0",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "independently_observed_worker_and_guardian_exits": true,
+      "minimum_observed_gpu_free_bytes": null,
+      "peak_reserved_bytes_by_phase": [
+        null,
+        null
+      ],
+      "profile": {
+        "batch_size": 1,
+        "device": "cpu",
+        "device_name": "CPU",
+        "fixture": "entire original val dataset reused as engineering train; no independent validation",
+        "gradient_clip_val": 1,
+        "logger": "pytorch_lightning.loggers.TensorBoardLogger",
+        "precision": "32-true",
+        "scheduler_epochs": 250,
+        "scientific_batch_size": 320,
+        "scientific_workers": 12,
+        "uninterrupted_trajectory_qualified": false,
+        "visible_device": "",
+        "workers": 0
+      },
+      "resumed_checkpoint_sha256": "73563868db0d442060c8912829daf907f02768dc57d89ce82605428676f25519",
+      "seconds_by_phase": [
+        74.79010341176763,
+        74.5689732520841
+      ],
+      "size": "small",
+      "validation_batches": {
+        "count": 526,
+        "ordered_sizes_sha256": "f892762e67ad95b28ffbd9bb8991c31590f4af4f0d14dba8a7d481b56b2fe657",
+        "size_counts": {
+          "1": 526
+        }
+      }
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "all_owned_consumers_exited": true,
+      "device": "cpu",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "frozen_prefix_checkpoint_sha256": "85101e68f7961be4be1c7eb8339588c568f8a6b6af026047b6446a98af39858c",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "independently_observed_worker_and_guardian_exits": true,
+      "minimum_observed_gpu_free_bytes": null,
+      "peak_reserved_bytes_by_phase": [
+        null,
+        null
+      ],
+      "profile": {
+        "batch_size": 1,
+        "device": "cpu",
+        "device_name": "CPU",
+        "fixture": "entire original val dataset reused as engineering train; no independent validation",
+        "gradient_clip_val": 1,
+        "logger": "pytorch_lightning.loggers.TensorBoardLogger",
+        "precision": "32-true",
+        "scheduler_epochs": 250,
+        "scientific_batch_size": 320,
+        "scientific_workers": 12,
+        "uninterrupted_trajectory_qualified": false,
+        "visible_device": "",
+        "workers": 0
+      },
+      "resumed_checkpoint_sha256": "e720c65172ced97cda1e81fa0ab338cb849dba7b1e55c4c97ecade0d913fc303",
+      "seconds_by_phase": [
+        83.35692663304508,
+        81.10113739175722
+      ],
+      "size": "middle",
+      "validation_batches": {
+        "count": 526,
+        "ordered_sizes_sha256": "f892762e67ad95b28ffbd9bb8991c31590f4af4f0d14dba8a7d481b56b2fe657",
+        "size_counts": {
+          "1": 526
+        }
+      }
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "all_owned_consumers_exited": true,
+      "device": "cpu",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "frozen_prefix_checkpoint_sha256": "45c5953c85ad3f50c9f121eed260d6b2ca097a3bfe8e678da5e44a9b3e5407da",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "independently_observed_worker_and_guardian_exits": true,
+      "minimum_observed_gpu_free_bytes": null,
+      "peak_reserved_bytes_by_phase": [
+        null,
+        null
+      ],
+      "profile": {
+        "batch_size": 1,
+        "device": "cpu",
+        "device_name": "CPU",
+        "fixture": "entire original val dataset reused as engineering train; no independent validation",
+        "gradient_clip_val": 1,
+        "logger": "pytorch_lightning.loggers.TensorBoardLogger",
+        "precision": "32-true",
+        "scheduler_epochs": 250,
+        "scientific_batch_size": 320,
+        "scientific_workers": 12,
+        "uninterrupted_trajectory_qualified": false,
+        "visible_device": "",
+        "workers": 0
+      },
+      "resumed_checkpoint_sha256": "af7033ceb6a97f217a259a22031399457d225b7dc560dde4b64eb1ff86674937",
+      "seconds_by_phase": [
+        100.52980563417077,
+        101.8645095191896
+      ],
+      "size": "large",
+      "validation_batches": {
+        "count": 526,
+        "ordered_sizes_sha256": "f892762e67ad95b28ffbd9bb8991c31590f4af4f0d14dba8a7d481b56b2fe657",
+        "size_counts": {
+          "1": 526
+        }
+      }
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "all_owned_consumers_exited": true,
+      "device": "cuda:0",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "frozen_prefix_checkpoint_sha256": "456f2317054be65bd8ea0982c312f5bb2c0f6972d8c55921e368890c82ea1a62",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "independently_observed_worker_and_guardian_exits": true,
+      "minimum_observed_gpu_free_bytes": 65830387712,
+      "peak_reserved_bytes_by_phase": [
+        9942597632,
+        9250537472
+      ],
+      "profile": {
+        "batch_size": 320,
+        "device": "cuda:0",
+        "device_name": "NVIDIA A800-SXM4-80GB",
+        "fixture": "entire original val dataset reused as engineering train; no independent validation",
+        "gradient_clip_val": 1,
+        "logger": "pytorch_lightning.loggers.TensorBoardLogger",
+        "precision": "bf16-mixed",
+        "scheduler_epochs": 250,
+        "scientific_batch_size": 320,
+        "scientific_workers": 12,
+        "uninterrupted_trajectory_qualified": false,
+        "visible_device": "GPU-3b5a6250-aa89-83c4-f375-844893f374f5",
+        "workers": 12
+      },
+      "resumed_checkpoint_sha256": "e463504eabb3c635ad9c97d76f3246528c0df949b1ceb79a12fbf549318b863f",
+      "seconds_by_phase": [
+        20.75497480854392,
+        24.007019553799182
+      ],
+      "size": "small",
+      "validation_batches": {
+        "count": 2,
+        "ordered_sizes_sha256": "40c0255201f5a8629cd485efed5d4f4492ef55dff1bf5e5b74e971172e9c8978",
+        "size_counts": {
+          "206": 1,
+          "320": 1
+        }
+      }
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "all_owned_consumers_exited": true,
+      "device": "cuda:0",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "frozen_prefix_checkpoint_sha256": "f26fbcd853340e15d2194381a1a34f3be20628f83ede4d54a6525d65272d7e2d",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "independently_observed_worker_and_guardian_exits": true,
+      "minimum_observed_gpu_free_bytes": 62988746752,
+      "peak_reserved_bytes_by_phase": [
+        12784238592,
+        11414798336
+      ],
+      "profile": {
+        "batch_size": 320,
+        "device": "cuda:0",
+        "device_name": "NVIDIA A800-SXM4-80GB",
+        "fixture": "entire original val dataset reused as engineering train; no independent validation",
+        "gradient_clip_val": 1,
+        "logger": "pytorch_lightning.loggers.TensorBoardLogger",
+        "precision": "bf16-mixed",
+        "scheduler_epochs": 250,
+        "scientific_batch_size": 320,
+        "scientific_workers": 12,
+        "uninterrupted_trajectory_qualified": false,
+        "visible_device": "GPU-3b5a6250-aa89-83c4-f375-844893f374f5",
+        "workers": 12
+      },
+      "resumed_checkpoint_sha256": "01b39fca0ae9973712cb422f590d6d338737a834c9135529662a10abe0e210a1",
+      "seconds_by_phase": [
+        18.365721033886075,
+        18.789781762752682
+      ],
+      "size": "middle",
+      "validation_batches": {
+        "count": 2,
+        "ordered_sizes_sha256": "40c0255201f5a8629cd485efed5d4f4492ef55dff1bf5e5b74e971172e9c8978",
+        "size_counts": {
+          "206": 1,
+          "320": 1
+        }
+      }
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "all_owned_consumers_exited": true,
+      "device": "cuda:0",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "frozen_prefix_checkpoint_sha256": "c527a76a7b9b65d3b040a91e821bb0dcf123362fae000d8cbfda709c6d34f0a5",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "independently_observed_worker_and_guardian_exits": true,
+      "minimum_observed_gpu_free_bytes": 58987380736,
+      "peak_reserved_bytes_by_phase": [
+        16561209344,
+        16785604608
+      ],
+      "profile": {
+        "batch_size": 320,
+        "device": "cuda:0",
+        "device_name": "NVIDIA A800-SXM4-80GB",
+        "fixture": "entire original val dataset reused as engineering train; no independent validation",
+        "gradient_clip_val": 1,
+        "logger": "pytorch_lightning.loggers.TensorBoardLogger",
+        "precision": "bf16-mixed",
+        "scheduler_epochs": 250,
+        "scientific_batch_size": 320,
+        "scientific_workers": 12,
+        "uninterrupted_trajectory_qualified": false,
+        "visible_device": "GPU-3b5a6250-aa89-83c4-f375-844893f374f5",
+        "workers": 12
+      },
+      "resumed_checkpoint_sha256": "970da8db2e6e93560b95106d58877352b9dcf146ee2855dd00da5e71d7d60b96",
+      "seconds_by_phase": [
+        19.98352570272982,
+        20.034411248285323
+      ],
+      "size": "large",
+      "validation_batches": {
+        "count": 2,
+        "ordered_sizes_sha256": "40c0255201f5a8629cd485efed5d4f4492ef55dff1bf5e5b74e971172e9c8978",
+        "size_counts": {
+          "206": 1,
+          "320": 1
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Original mini val is explicitly reused as an engineering training fixture; no independent scientific validation or full training population/augmentation qualification.",
+    "Two prefix updates and one resumed update qualify state recovery; they are not250epochs, final model accuracy or continuous-trajectory equivalence.",
+    "State observation is after unchanged native restore_training_state and before iterator reconstruction; original PL ModelCheckpoint.current_score transient alone is excluded.",
+    "CPU1/0/FP32 and actual GPU320/12/bf16 profiles are separate; both validate every526window, GPU actual320+206 batches.",
+    "Full independent-role fit, its own new CUDA qualification, selected-best FP32 final evaluation, full-source admission and scientific controller/report still required.",
+    "Resource floors are real observations, not OS reservations; no source/backend gate is borrowed from a different storage path."
+  ],
+  "observed_utc": "2026-10-27T19:38:26.168720+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "outer_recorder_and_controller_independently_gone": true,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "producer_files_sha256": {
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/emg2pose_direct_recovery.py": "10e616029fc8b05e21598d6b24af44e3a7aae00e46415e1a9ac1653238f124e7",
+    "egoemg_repro/emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "egoemg_repro/emg2pose_direct_source.py": "555a2b80c93b9ef4838ce544bbca3be833d038d6772984c3c798bc548d814bae",
+    "egoemg_repro/emg2pose_memory_recovery.py": "eaa6dd2b9f37671e58c6a53690af1f9121682d6a8dfd49e63f6f3c1723610eeb",
+    "tests/test_emg2pose_direct_recovery.py": "c4b7e4902e891a6992041b8b0353e7e3f4e7900cdbe5c5a422acee35513fb891"
+  },
+  "python": "3.11.12",
+  "raw_actual_sha256": "575843850b084639c3ae7d2f707636e2d584a30b166c9266af71c74530fabef1",
+  "real_source": {
+    "archive_descriptor_or_seal_used": false,
+    "cohort": "mini",
+    "ordinary_original_dataset": true,
+    "original_files": 30,
+    "original_validation_windows": 526,
+    "rows": 4218756,
+    "source_pipeline_completion_sha256": "0b0ea24752865a72e1407d4ebb16bde99f2d7c0ecb47d221872974228e3ef23d"
+  },
+  "runtime_capacity_observer_injected": false,
+  "runtime_dependencies": {
+    "h5py": "3.11.0",
+    "hydra-core": "1.3.2",
+    "joblib": "1.5.2",
+    "lightning-utilities": "0.11.9",
+    "numpy": "1.26.4",
+    "omegaconf": "2.3.1",
+    "pandas": "2.2.3",
+    "pytorch-lightning": "2.5.0.post0",
+    "scipy": "1.13.1",
+    "torch": "2.2.2+cu118",
+    "torchmetrics": "1.4.3",
+    "torchvision": "0.17.2+cu118"
+  },
+  "seconds": 702.2442742548883,
+  "server_result_sha256": "499982bfbca1b5afe6efc544e67947aab7a2da255e24d35b2038f5e7e4d855e7",
+  "source_and_all_immutable_code_bindings_unchanged": true,
+  "source_bundle_sha256": "abbef7ce12918f40e0184d483ebd91cb1bcf772b3fa543fd200782fe7668e617"
+}

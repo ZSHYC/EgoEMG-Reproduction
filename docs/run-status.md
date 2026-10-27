@@ -1,6 +1,29 @@
 # 运行状态
 
 
+## 2026-10-28：普通原文件独立角色GPU fit/选best工程检查完成
+
+[实际完整证据](../results/emg2pose-direct-native-fit-engineering.json)为9受管理阶段/213.35秒actual exit0，原19:40:24启动、19:43:58.486292UTC完成。明确合成3文件/25,710行独立train/val/test原格式源经真正aria2 loopback获取、原准备/转换/普通源准入；S/M/L各原320/12/bf16两完整工程epoch/32真实更新，原Sampler每轮5120消费与1/2唯一锚点分列。原AdamW/cosine250/clip1/top3+last/noearlystop、完整epoch六状态新进程恢复和验证min选best保留；另外CPU阶段独立重开last/best/history/日志和三份实际CUDA资格。
+
+独立收集另验证源码/检查点SHA、18个worker/guardian及两个外层拥有者实际PID/start已退出。无archive fd/封印或实际资源观测注入，父进程无Torch/CUDA。本资格属于新普通源fit入口，不能代表完整源/250轮/新精度，后续普通源selected-best FP32评价/其容量/官方字面与角色隔离对照/科学控制器报告和全文仍欠。
+
+备用本机接收在19:37:15.575671UTC实际exit3，原因是预估完整压缩包超过磁盘容量保护（已收111.149GB原始/76.408GB压缩，incomplete）；[真实终态](../results/emg2pose-persistent-backup-capacity-stop.json)保留，前缀未删、门槛未降低、进程未重启。服务器主下载四个实际进程仍活动，19:43实收160.741/462.824GB；这一路与备用前缀不相加。B92/L41原完整训练仍正常运行。
+
+
+## 2026-10-28：普通原文件独立角色fit CPU核验完成，GPU完整epoch运行中
+
+[实际CPU证据](../results/emg2pose-direct-native-fit-cpu-engineering.json)为22新检查+原fit/recovery/runtime回归：105本机/215.91秒、105服务器/285.08秒，各39warning；完整轻量1,355/729可选跳过/1warning84.77秒，全部actual exit0。新的普通源入口精确复用原fit函数及每个witness方法，不继承旧globals；合成三角色实际两完整CPUepoch/32更新、每轮16原Sampler消费和1窗口val、按完整验证min选best及新进程完整epoch六状态恢复通过。val-only源、假full/旧格式/检查点/日志/模型/冻结SHA/锁/完成预算均实际拒绝。
+
+真实官方mini普通源恢复先完成12阶段/702.24秒actual exit0，并独立确认24个消费者和外层拥有者退出后，新GPU完整epoch检查于2026-10-27T19:40:24.731357UTC实际一次启动。真实loopback aria2取得的是明确合成3文件/25,710行工程TAR；原文件准备/转换/source准入已完成，small前缀worker/guardian当前实际PID/start活动。CPU资格不替代这个新fit GPU资格，旧内存后端也不转授；full250/320/12/bf16/独立角色/真正25,253源和最后FP32 test/科学报告仍欠。
+
+
+## 2026-10-28：原始普通文件S/M/L完整mini CPU/GPU恢复完成
+
+[实际完整证据](../results/emg2pose-direct-native-recovery-engineering.json)为12阶段/702.24秒actual exit0，实际终态2026-10-27T19:37:25.675586UTC。三模型各CPU1/0/FP32与实际A800 GPU320/12/bf16保持原生AdamW/cosine250/clip1/top3+last/noearlystop：前缀两次更新和两轮全部526窗验证；新进程526窗输入/预测/顺序/指标精确复推，模型/优化器/调度/回调/循环/RNG六状态精确恢复，再真实更新至step3和完整526验证。GPU真实320+206验证批量，没有缩短验证人口。
+
+独立重读原始prefix/restored检查点SHA、全部冻结源码和12份实际owned-stage终态；24个worker/guardian与外层两个拥有者实际PID/start确认已退出。原prefix字节不变，父进程无Torch/CUDA，源/主机/磁盘/GPU容量观测未注入。普通原文件入口独立取得此资格，历史CPU“运行中”快照由此更新。mini复用val仅为工程训练，不是独立科学验证、连续轨迹等价、完整源/250轮/最终测试或新精度结果；下一步独立角色fit/其自身GPU完整epoch资格/选best/FP32评价及全文仍欠。
+
+
 ## 2026-10-28：原始普通文件训练恢复CPU检查通过，完整mini实跑已启动
 
 [实际CPU证据](../results/emg2pose-direct-native-recovery-cpu-engineering.json)记录65本机/126.00秒、65服务器/152.81秒，各27warning且actual exit0；完整轻量1,355/728可选跳过/1warning89.66秒actual exit0。三种规模在明确CPU工程夹具上两次更新后，由新进程完整复推、精确恢复模型/AdamW/调度/回调/循环/RNG，再实际更新至step3。新API私有绑定精确旧算法和普通文件source，新CLI无archive FD；旧入口与官方算法不改。

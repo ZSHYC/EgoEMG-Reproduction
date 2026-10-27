@@ -6,6 +6,12 @@
 
 ## 当前实际完成到哪里
 
+- **原始普通文件独立角色GPU fit/选best工程资格已完成：** [实际证据](../results/emg2pose-direct-native-fit-engineering.json)为9个受管理阶段/213.35秒actual exit0。显式合成3角色/25,710行原格式源经过真正loopback aria2接收/原准备转换后，S/M/L各原320/12/bf16两完整工程epoch/32实际更新，原Sampler每轮5,120消费与1/2唯一train锚点分列；新进程完整epoch六状态恢复及真正验证min选best、last/history/日志另行CPU重开通过。全部18个worker/guardian和两个外层拥有者独立确认退出，源码/检查点SHA不变、无实际容量观测注入。完整源及250轮、普通源FP32最终评价/科学报告和全文仍欠，工程结果不填Tables11/13。
+
+- **原始普通文件独立角色fit入口CPU核验完成，自己的GPU资格正在执行：** [证据](../results/emg2pose-direct-native-fit-cpu-engineering.json)为22新检查及原回归，本机105/215.91秒、服务器105/285.08秒，各39warning；完整轻量1,355/729/1warning84.77秒均actual exit0。合成三角色普通源两完整CPUepoch/32更新/新进程六状态恢复和验证min选best通过，实际val-only源拒绝。完整full250/320/12/bf16及真正25253源+新GPU完整epoch资格门槛不改。前述真实mini恢复完成后，新GPU独立角色检查已一次启动，源准备完成/small前缀活动，尚未qualified；完整训练/最终评价/科学报告仍欠。
+
+- **原始普通文件三模型CPU/GPU完整状态恢复已实际完成：** [证据](../results/emg2pose-direct-native-recovery-engineering.json)为12个受管理阶段/702.24秒actual exit0。S/M/L各CPU和实际GPU原320/12/bf16前缀两次更新，两轮完整526验证；新进程526窗输入/预测/顺序/指标精确复推、六状态恢复、再更新至step3并完整验证。GPU验证实际320+206，全部24个worker/guardian与两个外层拥有者独立确认退出，原prefix及源码不变、无资源观测注入。mini原val仅复用工程训练，没有独立科学验证/250轮或Tables11/13成绩；普通源独立角色fit/选best/最终评价仍欠。
+
 - **原始普通文件训练恢复入口的CPU检查通过，真实完整mini仍在运行：** [证据](../results/emg2pose-direct-native-recovery-cpu-engineering.json)为本机65/126.00秒、服务器65/152.81秒，各27warning；完整轻量1,355/728/1warning89.66秒均actual exit0。三种模型在明确CPU工程夹具上完成六状态新进程恢复及step3；新入口只私有绑定已有精确算法。真实mini12阶段已实际启动，当前已确认small CPU前缀/新进程526窗复推/六状态恢复及step3全验证，medium正在运行，其余未完成，不能借用旧内存后端GPU资格。原始普通源GPU恢复、完整源/250轮fit和科学结果仍欠。
 
 - **DINOv2 ViT-S完整实验及最终独立核验完成：** [完整结果](../results/original-vision/vit-small/README.md)为124轮、69,688次实际更新、验证选择零起算epoch93；4,306唯一测试手样本（原配置repeat2共8,612次消费），全部/有图中心MAE为6.464179°/6.324737°。完整原生测试、独立完整预测复算、报告及最后核验共16阶段实际exit0，外层及阶段进程确认退出，另在原冻结环境重新打开原始链条核验通过。保留服务器三个核心报告原字节，补充精确源码e7c20b9/配置/依赖/124轮曲线清单；原生0.02配方、独立验证、单rank/workers0及旧版数据/缺失合并来源/PDF不等价边界保留。B/L仍在完整训练。
@@ -121,7 +127,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini526窗恢复及新fit入口受控GPU验收通过**；[入口证据](../results/emg2pose-memory-native-fit-engineering.json)保留原320/12/bf16/250cosine及原Sampler补齐，合成分角色两轮/32更新/六状态恢复和原生选best已核验。完整源、真正250轮训练及最终测试仍欠 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini526窗恢复及新fit入口受控GPU验收通过**；[入口证据](../results/emg2pose-direct-native-fit-engineering.json)保留原320/12/bf16/250cosine及原Sampler补齐，合成分角色两轮/32更新/六状态恢复和原生选best已核验。完整源、真正250轮训练及最终测试仍欠 |
 | EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成mini原批量恢复和新fit入口工程验收**；合成角色没有benchmark或完整人口意义，正式250轮/最终评价仍未完成 |
 | EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成mini原批量恢复和新fit入口工程验收**；没有完整科研结果，不能用EgoEMG-L或工程数值填表 |
 

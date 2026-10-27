@@ -1,0 +1,30 @@
+{
+  "actual_exit_code": 3,
+  "actual_pid_start_processes_gone": true,
+  "actual_terminal_utc": "2026-10-27T19:37:15.575671+00:00",
+  "capacity_guard_relaxed": false,
+  "committed_chunk_bytes_rehashed_after_stop": false,
+  "committed_chunks": 6625,
+  "committed_prefix_files_present_with_exact_sizes": true,
+  "compressed_bytes": 76407852124,
+  "exit_record_sha256": "2e5140ea7cf725036e5e50b902fc351363255fa9fd8d85cf6e0b76fecc4a823d",
+  "explanation": "The independent local persistent backup stopped at its projected disk-capacity guard; its existing prefix is retained. The already-running original full server disk acquisition remains the primary route and was not restarted.",
+  "format": "emg2pose_persistent_backup_capacity_stop_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-10-27T19:44:14.259344+00:00",
+  "original_primary_server_download": {
+    "actual_four_owner_worker_guardian_pid_start_live": true,
+    "observed_utc": "2026-10-27T19:43:14.570719+00:00",
+    "source_bytes_received": 160741490688,
+    "source_complete": false,
+    "total_bytes": 462824048640
+  },
+  "prefix_retained_without_deletion": true,
+  "process_automatically_retried": false,
+  "projected_compressed_bytes": 318161869661,
+  "scientific_complete": false,
+  "source_bytes_received": 111149056000,
+  "source_complete": false,
+  "stop_reason": "projected_capacity",
+  "terminal_manifest_sha256": "5a066077d6031d6daa30a9b3300398d893d684638d8260881ef16d61da1c6526"
+}

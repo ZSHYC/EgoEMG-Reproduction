@@ -1,0 +1,133 @@
+{
+  "actual_gpu_qualification": {
+    "initial_actual_controller_and_recorder_pid_start_live": true,
+    "prerequisite_direct_recovery_actual_exit_code": 0,
+    "source_bundle_sha256": "69c5d8111dd67394b666bd1b412ee3d8faf56e911a0757ba5c306819be79d31c",
+    "started_utc": "2026-10-27T19:40:24.731357+00:00",
+    "status": "launched; not yet qualified"
+  },
+  "archive_descriptor_or_seal_used": false,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "7acbabfa574fc374d00ad9e2fd2b7654c41e7a992e9aa34d80b77c6e6bde1b64",
+      "passed": 1355,
+      "seconds": 84.77,
+      "skipped": 729,
+      "warnings": 1
+    },
+    "local-all": {
+      "actual_exit_code": 0,
+      "log_sha256": "48c6320bd38b5a603097be4f6d7c84d7b5f190adaf71c6aa28c529c71c6cc426",
+      "passed": 105,
+      "seconds": 215.91,
+      "skipped": 0,
+      "warnings": 39
+    },
+    "server-all": {
+      "actual_exit_code": 0,
+      "log_sha256": "a1855f604db5f60426bf5bc7124fe16543dc802b0ff20b60340cb763c2b10e14",
+      "passed": 105,
+      "seconds": 285.08,
+      "skipped": 0,
+      "warnings": 39
+    }
+  },
+  "cpu_engineering_fixture": {
+    "actual_complete_epochs": 2,
+    "actual_optimizer_updates": 32,
+    "batch_size": 1,
+    "engineering_never_satisfies_full_source_or_cuda_qualification": true,
+    "epoch_one_prefix_updates": 16,
+    "fresh_process_complete_epoch_restore": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "original_scheduler_T_max": 250,
+    "original_top3_last_no_earlystop": true,
+    "precision": "32-true",
+    "rows": 25710,
+    "selected_best_is_actual_validation_minimum": true,
+    "source": "three synthetic original-format HDF5 files with independent train/val/test roles; actual original ordinary-field pipeline conversion",
+    "source_files": 3,
+    "train_batches_per_epoch": [
+      16,
+      16
+    ],
+    "train_consumed_samples_per_epoch": [
+      16,
+      16
+    ],
+    "train_unique_windows": 1,
+    "uninterrupted_trajectory_qualified": false,
+    "unit_fixture_capacity_observation_mocked": true,
+    "val_only_source_rejected_before_rng_or_output": true,
+    "validation_samples_per_epoch": [
+      1,
+      1
+    ],
+    "workers": 0
+  },
+  "final_new_green": {
+    "passed": 22,
+    "seconds": 28.22,
+    "warnings": 7
+  },
+  "formal_full_policy": {
+    "batch_size": 320,
+    "early_stopping": false,
+    "full_train_val_coverage": true,
+    "gradient_clip_val": 1,
+    "max_epochs": 250,
+    "precision": "bf16-mixed",
+    "requires_exact25253_source": true,
+    "requires_own_actual_frozen_cuda_fit_qualification": true,
+    "save_last": true,
+    "save_top_k": 3,
+    "scheduler_epochs": 250,
+    "workers": 12
+  },
+  "format": "emg2pose_direct_native_fit_cpu_foundation_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "gpu_complete_epoch_fit_qualified": false,
+  "initial_new_green": {
+    "passed": 21,
+    "seconds": 26.63,
+    "warnings": 7
+  },
+  "limitations": [
+    "CPU independent-role fixture is synthetic and small; two complete original sampler-padded epochs are engineering, not250epochs or model performance.",
+    "Actual direct-file GPU complete-epoch qualification was only launched at this snapshot; no old raw-memory fit qualification is reused.",
+    "Full admission still requires all25253 real original sources and exact17136train/1950val/6167test counts, plus the new fit driver actual CUDA qualification.",
+    "Fit-only results never claim final test/scientific completion; selected-best FP32 evaluation and scientific controller/report remain separate.",
+    "Checkpoint last/best/history/journal/model/producer/loop identity, wrong source/format, lock and complete-budget refusal are preserved."
+  ],
+  "native_algorithms": "exact qualified fit function and every FitWitness method code object; one private namespace and a new witness class, old globals unchanged",
+  "new_fit_cases": 22,
+  "observed_utc": "2026-10-27T19:40:57.351730+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_direct_recovery.py": "10e616029fc8b05e21598d6b24af44e3a7aae00e46415e1a9ac1653238f124e7",
+    "egoemg_repro/emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "egoemg_repro/emg2pose_direct_source.py": "555a2b80c93b9ef4838ce544bbca3be833d038d6772984c3c798bc548d814bae",
+    "egoemg_repro/emg2pose_direct_train.py": "864cc36efe1bedf13cfc56ddeeb6872acd0c7ac57897975b5bb35a9f6c3c9b93",
+    "egoemg_repro/emg2pose_memory_recovery.py": "eaa6dd2b9f37671e58c6a53690af1f9121682d6a8dfd49e63f6f3c1723610eeb",
+    "egoemg_repro/emg2pose_memory_train.py": "d91fad5a13c24848b749b3b09a36c8eb2d04a42436af6eb2fd5077cfbd1a492b",
+    "tests/test_emg2pose_direct_train.py": "2d48dfddaa24fadbb24ac94209c1d2fcfd46eb03383cc707ddc7c89e13357b43"
+  },
+  "red": {
+    "actual_exit_code": 1,
+    "cause": "direct native fit module absent",
+    "failed": 21,
+    "log_sha256": "e9153f97846002a249ef4f133106db472b6cf7d67f60b375aa090c759632077e",
+    "seconds": 4.34
+  },
+  "scientific_complete": false,
+  "source_bundle_sha256": "7e164f455fd5af7fd554e0b85571cd794d6eda5a482d0b623309fa4c0d309abc"
+}
