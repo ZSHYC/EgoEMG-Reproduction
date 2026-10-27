@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **普通原文件共享实验控制器已通过真实GPU工程验收：** [控制器证据](../results/emg2pose-direct-experiment-engineering.json)为22新检查与原报告回归，本机43/378.64秒、服务器43/467.82秒actual exit0；轻量1,355/733可选跳过。一个S模型在真实原格式合成5,009,750行源上完成14受管理阶段312.91秒、原320/12/bf16两轮32更新、两种选择各321窗/320+1/12/FP32、验证profile与报告；控制器实际退出后另受管理CPU独立重读57.27秒actual exit0，全部30个worker/guardian实际PID/start确认退出。父进程无Torch、实际GPU/读取资源观测未注入。共享编排代码支持三模型，模型训练/评价资格仍逐模型独立；此处未重做三模型数值资格。真正完整源及三项250轮、自动衔接队列和整篇论文仍欠。
+
 - **普通原文件最终报告API通过真实GPU结果的只读工程复核：** [报告证据](../results/emg2pose-direct-final-report-engineering.json)为21新检查+原表格/fit回归，本机58/244.12秒、服务器58/295.62秒，各7warning且actual exit0；轻量1,355/732可选跳过。复用已完成5,009,750行源的S/M/L工程fit和两模式实际320+1 FP32预测，三份报告生成与三个新进程重开共6受管理CPU阶段/303.39秒actual exit0，12个worker/guardian及外层拥有者实际PID/start独立确认退出，原权重/日志/pass/侧文件不变。两种人口分开、原Table11/13与独立算术/匿名边界重核，工程无法升级full，未重复GPU工作。完整源/250轮/科学控制器及全文仍欠。
 
 - **普通原文件完整FP32批量与两模式已实测通过：** [容量证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)为S/M/L各新的两轮工程fit/32更新，官方字面与文件行对照各val/test原生及新进程完整复推，每pass321窗/实际320+1/12worker/FP32。显式合成三角色5,009,750行，经gzip4+shuffle无损HDF保存为299,345,920B，原接收/转换后全部字段另核对逐字节一致，未放宽647MB工程源上限。37个成功受管理阶段，另保留1个私有最后读取失败；原653.04秒链exit1，纠正仅该CPU读取后66.38秒exit0，无GPU重训/重测。76个实际worker/guardian及两组外层拥有者独立确认退出，权重/日志/源码不变。完整源/250轮/最终科学controller/report与全文仍欠，不能填Tables11/13。

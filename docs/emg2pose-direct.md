@@ -75,3 +75,13 @@ full要求真正25,253来源和原train/val/test角色数量、250完整轮次�
 公开只选择`metrics.json`、`metrics.md`和`completion.json`；`evidence.json`保留私有源/检查点/拥有者路径供独立重开，不能随整个目录公开。完整控制器与真实full/250轮仍是后续验收范围。
 
 报告API现已通过[本机/服务器58项与真实复核](../results/emg2pose-direct-final-report-engineering.json)：S/M/L各实际工程GPU fit与两模式320+1 FP32结果，三份报告生成和新进程重开共6个受管理CPU阶段303.39秒actual exit0，所有消费者/外层拥有者独立确认退出，未重复训练或推理。原输入权重/日志/pass保持SHA。此项资格只覆盖工程报告流程，完整科学控制器和真正全源250轮仍欠。
+
+## 共享实验控制器：14个独立受管理阶段
+
+`emg2pose_direct_experiment.run_experiment`接受普通源的冻结完成SHA、模型size、独立输出与三类资格：逐模型原生训练恢复fit、逐模型真实321窗FP32报告、full额外需要共享编排自身CUDA工程完成标记。一个真正CUDA工程流程资格覆盖模型参数化的共同控制逻辑；每个正式S/M/L仍分别需要自己的训练与评价资格。原训练和评价函数不改写；不导入Torch的父进程只负责源/资源/进程/文件绑定。
+
+14阶段为：CPU准入、native fit，随后两种选择分别执行完整val/native-replay、profile冻结、test/native-replay，最后CPU报告导出和新进程核验。每个CUDA阶段前需64GiB余量，运行中保持实际256GiB主机/15GiB磁盘/8GiBGPU检查。`driver-completion.json`只能在全部实际阶段成功、阶段消费者退出和源/资格/源码不变后产生；`read_experiment`还要求原控制器实际退出并重开报告。失败保留、不自动重试，工程不能提升为full。CPU工程仅1/0/FP32、两轮，GPU工程320/12/bf16、两轮；full始终250轮/完整源，并保留两个原选择口径。
+
+[实际证据](../results/emg2pose-direct-experiment-engineering.json)记录43本机/43服务器检查及一个S模型的14阶段真实GPU流程312.91秒，额外独立受管理CPU重读57.27秒；30个worker/guardian和外层拥有者均独立确认退出。实际使用三角色合成5M行源，不是benchmark精度。单元测试明确注入内存观测，真实服务器GPU及独立重读未注入。
+
+CLI为`python -m egoemg_repro.emg2pose_direct_experiment run`，参数与上方API同名并使用连字符；full必须分别提供`--qualification`、`--evaluation-qualification`、`--controller-qualification`及各自独立冻结SHA。`verify`子命令默认只接受full，工程重读须明确`--allow-engineering`。完整运行目录含私有request/evidence/拥有者信息，公开仅选择脱敏的最终报告文件。真正完整源的队列接通和250轮结果仍欠。

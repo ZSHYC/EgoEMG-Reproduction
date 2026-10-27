@@ -2,7 +2,7 @@
 
 # EgoEMG Reproduction
 
-> **当前目标 · 全论文复现进行中（2026-10-27）**
+> **当前目标 · 全论文复现进行中（2026-10-28）**
 >
 > 用户目标已扩展为论文全文；有歧义时优先固定官方代码。范围覆盖 **Tables 1–15、Figures 1–13、全部作者模型、EMG2Pose、标注与预处理、数据统计和派生分析**。原四项 legacy 基线是已完成的历史子集；新增 [ResNet-50](results/completed/resnet50/README.md)和[ResNet-152](results/completed/resnet152/README.md)均完成150轮、完整验证选模、最终测试与独立复算，全部中心 MAE 分别为6.640058°和5.982738°。新增[EMGFormer-L](results/completed/emgformer-l/README.md)也完成200轮、最终测试与独立中心复算，全部中心16.612111°。七项均保留legacy数据及0.01损失协议，不代表论文原表等价。[classic CPU训练与恢复](docs/classic-emg.md)、[短程CUDA数值/状态恢复](results/classic-cuda-numeric-engineering.md)和[原批量600/256容量检查](results/classic-cuda-capacity-engineering.md)已完成；[VEMG原生配方完整实验](results/original-classic/vemg2pose/README.md)已完成62轮早停训练、原生测试和独立完整复算，轨迹／中心MAE为16.452932°／16.347705°（新的4,306测试手样本队列）；NeuroPose验收失败保留。新增[测试复算与完整报告](docs/classic-report.md)已完成审查修正与CPU集成，VEMG实际12阶段报告链已全部通过，最终公开字节与完成标记已核验。[手形统计与聚合图](results/dataset-statistics/shape-statistics.md)已从真实82手数据生成并核验，PDF显示微差与统计列歧义照实保留。全文状态与真正缺口见[全论文证据清单](docs/full-paper-status.md)，动态进展见[运行状态](docs/run-status.md)，验收范围见[全文设计](docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md)。
 
@@ -13,6 +13,8 @@
 [冻结中心点读](results/dataset-semantics/center-coverage.md)另核验33,508窗口/67,016手中心，含2,792测试手中心和逐角有效性；train/val/test实际覆盖51/32/59类。该统计保持旧12000/stride1200协议，不等于新classic队列或模型误差分析。
 
 [EMG2Pose真实mini工程验收](results/emg2pose-mini-optimization.md)也已完成：S/M/L各2次实际更新、两遍全部526窗口及严格完整状态重载一致。mini全为原val，这项检查不能作为独立验证或论文精度；完整数据与三个完整训练仍待完成。
+
+新增[原始普通文件共享实验控制器](results/emg2pose-direct-experiment-engineering.json)：本机/服务器各43项检查，一个S模型的14阶段GPU工程流程及控制器退出后的独立重读通过；共享编排与逐模型训练/评价资格分别核验，真实资源观测不注入。完整源及三项250轮仍待完成。
 
 新增[普通原文件最终报告核验](results/emg2pose-direct-final-report-engineering.json)：本机/服务器各58项检查、三模型两模式GPU结果的6个只读CPU报告阶段全部通过；保留原验证选best/完整复算与Table11/13算术，工程报告始终不代表完整源或250轮成绩。全量科学控制器仍待接通。
 

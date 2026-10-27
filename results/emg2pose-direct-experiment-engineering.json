@@ -1,0 +1,132 @@
+{
+  "actual_exit_code": 0,
+  "actual_shared_controller": {
+    "actual_batches": [
+      320,
+      1
+    ],
+    "actual_gpu_training_epochs": 2,
+    "actual_optimizer_updates": 32,
+    "actual_owned_driver_stages": 14,
+    "actual_samples_per_val_or_test_pass": 321,
+    "driver_completion_sha256": "a9b0573892a3bb1a76eb3907c099d21a2a43b6fda28e692fbed2b300b8ee36a3",
+    "early_stopping": false,
+    "epoch_journal_sha256": "d0b422ec709770fee5e69f53dab8aa51eadc0bdae21c021cd4aeffce5076afd7",
+    "extra_independent_owned_driver_reads": 1,
+    "fit_receipt_sha256": "c88ee0dd8d9f13f4c9bca46c375d4849d799cbe3b05d4af5501b942e1bd68084",
+    "gradient_clip_val": 1,
+    "inference_precision": "FP32; no autocast",
+    "inference_workers": 12,
+    "model_size": "small",
+    "native_and_fresh_replay_predictions_and_statistics_exact": true,
+    "phase_order": [
+      "admission",
+      "fit",
+      "official_literal-val-native",
+      "official_literal-val-replay",
+      "official_literal-profile",
+      "official_literal-test-native",
+      "official_literal-test-replay",
+      "metadata_indices-val-native",
+      "metadata_indices-val-replay",
+      "metadata_indices-profile",
+      "metadata_indices-test-native",
+      "metadata_indices-test-replay",
+      "export",
+      "verify"
+    ],
+    "scheduler_epochs": 250,
+    "selected_checkpoint_sha256": "44945680029a00c500877bddb1ef41417ba3fc651ad9c8c95a5ab53ce690dce6",
+    "selection_modes": [
+      "official_literal",
+      "metadata_indices"
+    ],
+    "training_batch_size": 320,
+    "training_precision": "bf16-mixed",
+    "training_workers": 12,
+    "validation_profiles_frozen_before_tests": true,
+    "verification_after_actual_controller_exit": true
+  },
+  "all30worker_guardian_identities_independently_gone": true,
+  "archive_descriptor_or_seal_used": false,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "7ef6a79a39778b3139d3f47d66655f4769165e81ffaa9974e9986dcde28dc930",
+      "optional_skips": 733,
+      "passed": 1355,
+      "seconds": 79.91,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "a5e249c8df9c58661e13e654eba0af9d0f1dfb921e44a4f9b3ac3fbaedec935a",
+      "passed": 43,
+      "seconds": 378.64
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "log_sha256": "fbf81221676f64d9a1f11081b1c7fb64094b76e019d55370024d1e9174a626ea",
+      "passed": 43,
+      "scratch_on_data_volume": true,
+      "seconds": 467.82,
+      "source_bundle_sha256": "120815a89cc6d468a7af3f3325539130a213d64a57c0823c80e0a9d220740583"
+    }
+  },
+  "common_sequencer_cuda_qualified": true,
+  "driver_seconds": 312.90532288793474,
+  "format": "emg2pose_direct_experiment_gpu_engineering_v1",
+  "full_paper_complete": false,
+  "full_positive_experiment_verified": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "independent_driver_read_seconds": 57.27315619587898,
+  "limitations": [
+    "One actual small-model CUDA engineering run qualifies the common size-parametric sequencer, not new S/M/L benchmark accuracy. Same-model native training and inference qualification remains required for every full model.",
+    "CPU orchestration unit tests explicitly inject only host-memory observations; actual server GPU run and its independent owned reader use unchanged real resource guards.",
+    "Full requires actual25253original source,17136/1950/6167role files,250complete native epochs, both declared evaluation modes and the frozen genuine shared-driver qualification.",
+    "Existing full-data acquisition/preparation is still in progress. The full scientific experiment queue and actual three250epoch experiments remain open.",
+    "No automatic retries, subsets, reduced full epoch budget or paper-completion claims are permitted by engineering artifacts."
+  ],
+  "model_parametric_plans_checked": [
+    "small",
+    "middle",
+    "large"
+  ],
+  "model_specific_native_training_and_inference_qualifications_still_separate": true,
+  "observed_utc": "2026-10-27T22:11:55.584618+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "outer_recorder_controller_and_independent_reader_owner_gone": true,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_direct_evaluate.py": "12c83fc36584455fc0dff9b410b75f6547ef10f3d70a25317b7b3c080dd2c144",
+    "egoemg_repro/emg2pose_direct_experiment.py": "5a0c322529fb32448a8e13a7746a084739b2d99d058e1a4582e988f3a099d716",
+    "egoemg_repro/emg2pose_direct_report.py": "0926c93d23359b626c5b31bbdeb2d0d4d8ea202c308524c0b1829a5085e5f0a9",
+    "egoemg_repro/emg2pose_direct_train.py": "864cc36efe1bedf13cfc56ddeeb6872acd0c7ac57897975b5bb35a9f6c3c9b93",
+    "tests/test_emg2pose_direct_experiment.py": "4494543ddb3710552d431879452bdacf5156083b503187b5d0ddd8ca30da31fe",
+    "tests/test_emg2pose_direct_report.py": "ab3a516a6bd2800f02ec567389fd54e8cfdd459109250db93bd97148939707c5"
+  },
+  "raw_actual_evidence_sha256": "efac7fc95ca34084fea989ad9bca58d17643060694b9869f9b3995bb94c5b5e9",
+  "real_gpu_resource_observations_injected": false,
+  "retained_cpu_test_storage_failure": {
+    "failed": 1,
+    "log_sha256": "7d761d82d5a9441bf4dc93ba05abfea9e1e6cbf291787fe5af7b4d1ac5e9a7bb",
+    "passed": 42,
+    "reason": "15GiB actual storage reserve protection",
+    "seconds": 444.04
+  },
+  "scientific_complete": false,
+  "server_actual_result_sha256": "a4211a21fd115771ea34a96b9bb58baa5285179e6ae1b115bb53003fa670f47a",
+  "source": {
+    "benchmark_data": false,
+    "distinct_recording_ids": true,
+    "explicitly_synthetic": true,
+    "files": 3,
+    "independent_file_roles": true,
+    "rows": 5009750,
+    "source_pipeline_completion_sha256": "d298180ad2fb8cc09b3f356f7278522b4e4ead1bd0cfc7a3b566445ea209566b"
+  },
+  "source_bundle_sha256": "714c364b5c7ac71232b8753fe2eedefcd270d1db6a65b76bea8db12cb297a54b",
+  "source_closed": true,
+  "unit_parent_memory_observations_explicitly_injected": true
+}
