@@ -69,7 +69,29 @@
         }
       ],
       "run_id": 40478615135
+    },
+    {
+      "commit": "430109a8f19f4443823b3e6041cbaaa4c395ff2c",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "job_id": 122131985465,
+          "passed": 1053,
+          "seconds": 46.01,
+          "skipped": 695,
+          "warnings": 1
+        },
+        {
+          "job_id": 122131985680,
+          "passed": 1896,
+          "pip_check": true,
+          "seconds": 1388.15,
+          "skipped": 3,
+          "warnings": 134
+        }
+      ],
+      "run_id": 40487240153
     }
   ],
-  "scope": "Actual hosted checks through independent-statistics commit335348b; excludes subsequent evaluation-data admission code"
+  "scope": "Actual hosted checks through evaluation-data admission commit430109a; excludes subsequent selected-best inference/profile code"
 }

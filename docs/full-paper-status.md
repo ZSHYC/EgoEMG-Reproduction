@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **EMG2Pose最佳模型的原生流式评价完成三模型GPU工程复推：** [实际证据](../results/emg2pose-memory-selected-evaluation-engineering.json)包含服务器16项检查及17个受管理阶段/713.39秒实际exit0；S/M/L均重载真正由原验证最小值选出的工程best，val/test与新进程输入/预测摘要及充分统计量精确一致，校准在测试前冻结，模型权重未变，所有拥有的worker/guardian另核对退出。合成3文件/25,710行，每次仅1个实际窗口（配置320/12/FP32），GPU只运行预先声明的文件行对照，原样混角色val已实际拒绝；CPU覆盖两种模式。没有实际320窗FP32批量资格、完整源、250轮或benchmark成绩，最终科学控制器/报告及Task4最后审查仍欠。
+
 - **EMG2Pose评价数据准入已实际核验两种选择模式：** [新证据](../results/emg2pose-memory-evaluation-data-engineering.json)记录31本机/31服务器检查与真实mini元数据阶段exit0。原样两个条件各230窗；明确文件行隔离后167/63窗、22/8文件、重叠0。val跨角色在读取信号前拒绝，full要求实际完整源；原读取/筛选代码保留，仅作用域内关闭NPZ资源。未构造模型或执行推理，这不是正式校准、最终测试或三项250轮成绩。
 
 - **EMG2Pose独立统计通过真实mini新进程复推，原条件选择问题已实测并分列：** [工程证据](../results/emg2pose-memory-statistics-engineering.json)为33本机/33服务器检查、两个独立受管理CPU阶段、每次460次原生消费和56项FP32/float64指标核对，输入/预测摘要及统计精确复推。mini两个条件的230次消费来自相同30文件行及相同有序窗口；[原筛选审计](../results/emg2pose-native-evaluation-selection-audit.json)另在完整CSV上执行官方函数，test/stage会选入16,831个train文件条目，完整HDF5窗口尚未实测。完整科学评价须分别声明原样和文件行隔离对照，不能静默替换官方人口；尚无正式benchmark成绩。[接收实查](../results/emg2pose-persistent-body-retry-live-observation.json)已完成旧前缀核验并在一次真实中断重试后新增128MiB，完整源仍欠。

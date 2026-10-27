@@ -1,5 +1,13 @@
 # 运行状态
 
+## 2026-10-27：最佳模型的流式评价完成三模型GPU工程复推
+
+[新评价代码与实际证据](../results/emg2pose-memory-selected-evaluation-engineering.json)完成原生selected-best重载、未改逐用户函数、逐批输入/输出摘要与20角统计、验证native/fresh replay冻结profile、测试native/fresh replay。服务器16项/362.52秒实际exit0；另有三项计数/资源边界先RED后GREEN。full source/fit、模式、单独冻结SHA、原始sidecar损坏、同进程伪复推和无profile测试均有拒绝检查，失败不留下成功pass或改写fit。
+
+A800上的S/M/L另经17个真实受管理阶段，713.39秒、父进程actual exit0；12次GPU评价、3次CPU冻结、1次真实mixed-role验证拒绝和1次独立CPU全重读均exit0，所有worker/guardian另核对实际退出。各模型val/test的新进程输入/预测摘要及统计精确一致，selected-best前后权重不变，父进程没有导入Torch。配置为320/12/FP32，但该合成3文件/25,710行夹具每次实际只有1窗；只运行声明的metadata_indices对照，原样val因重复记录ID混入其他角色而实际拒绝。CPU测试另覆盖唯一记录ID下的两种模式。**这不证明实际320窗FP32批量，也不产生benchmark成绩或250轮结果。** 后续仍需完整评价批量资格、完整科学控制器/报告、真实完整源、三项250轮及Task4最终审查。
+
+前一430109a元数据准入源码的[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40487240153)现已成功：CPU1,896/3实际CUDA skip/134warnings（1388.15秒），轻量1,053/695依赖skip/1warning（46.01秒），pip check通过；它不覆盖本次新增的selected-best评价/profile代码。
+
 ## 2026-10-27：评价数据准入完成真实mini检查
 
 [新准入组件与证据](../results/emg2pose-memory-evaluation-data-engineering.json)在原样/文件行隔离两种明确模式下核对实际角色、条件及窗口计划；val混入其他角色先拒绝，full只接受真实完整25,253源。原数据集与评价函数代码保持，私有绑定仅提供封印源、声明的索引过滤与当前NPZ生命周期。新增回归实测发现角色/评价类型/逐用户设置改变未拒绝，以及原NPZ未及时关闭；保留RED后修正，本机31项115.57秒、服务器31项172.47秒通过，含禁用循环回收的实际fd检查。

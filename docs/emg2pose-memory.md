@@ -190,3 +190,22 @@ full还要求该规模、相同科学配方/代码/运行时/硬件的实际CUDA
 [实际准入证据](../results/emg2pose-memory-evaluation-data-engineering.json)记录本机31项/115.57秒、服务器同31项/172.47秒通过。真实647MB mini另在一个受管理CPU消费者中检查两种模式：原样两组各30文件/230窗；控制模式为22文件/167窗与8文件/63窗，文件行重叠为0。全程未读取信号窗口、未构造模型、未改变Torch RNG；调用者源保留至作用域退出，拥有的消费者和fd均退出，父进程实际exit0，总计102.82秒。后续完整推理、仅验证集校准、最终测试/复推/报告仍未实现完成。
 
 335348b的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40478615135)已成功：完整CPU1,865 passed/3实际CUDA skip、轻量1,053 passed/694依赖skip，pip check通过。这覆盖独立统计源码，**不覆盖本节随后新增的准入源码**。
+
+## 最佳检查点的流式评价与测试前校准
+
+此前元数据准入提交430109a的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40487240153)现已成功：完整CPU1,896 passed/3实际CUDA skip（1,388.15秒），轻量1,053 passed/695依赖skip（46.01秒），pip check通过。这覆盖前一节元数据准入，尚不覆盖本节新增的推理/profile代码；对应范围见[CI记录](../results/emg2pose-memory-hosted-ci.json)。
+
+`emg2pose_memory_evaluate.run_evaluation_pass`消费实际`VerifiedSource`和已完成的原生fit目录，先由`read_fit`重新核验原验证最小值选出的best文件与完整权重，再运行未修改的`_evaluate_emg2pose_single_pass`。显式声明`role='val'|'test'`、`kind='native'|'replay'`、scope和selection；full要求完整源及真正完成250轮的full fit。工程fit、恢复前缀或mini不能取得full资格。
+
+评价保留原7790输入、left510/right0后的7280输出、20角、FP32与无autocast。full/CUDA工程配置batch320、12workers，CPU工程为1/0；最后一个不完整batch照常消费。metadata-only计划绑定原条件顺序、每批样本数、用户和窗口元数据摘要；实际forward逐批核对输入、标签/mask对齐及模型状态。GPU启动前保留64GiB，自己的模型及工作空间分配后持续保留8GiB，不把启动前门槛重复套在已分配的模型上。
+
+私有输出包含`identity.json`、`plan.json`、有界`batches.jsonl`、`statistics.json`、`native-metrics.json`和最后的`pass.json`。逐批hash链保存带类型的输入/输出摘要及每用户20角float64误差和/有效计数，不保存整套预测数组。`read_evaluation_pass`重新读取实际检查点和全部sidecar，检查完整窗口消费、原始日志统计、固定2e-6原生数值核对及前后权重一致；全部无效样本不能带非零误差和，每个有有效标签的样本至少贡献一个有效时间点。
+
+`freeze_evaluation_profile(native_val, replay_val, output, ...)`要求两份另外冻结SHA的完整val结果、不同实际PID/start、输入/预测摘要和充分统计量精确一致。full还要求与两个实际worker及源封印绑定匹配的受管理exit0和消费者全部退出。`read_evaluation_profile(output, expected_sha256, ...)`深读所绑定的原结果；测试入口必须先通过这个同模式、同源、同best和同推理后端的profile，才会构造测试数据或推理。原样和文件行隔离对照分别校准，不能交叉使用。这里的“校准”只固定一致性与来源，没有拟合阈值或根据测试成绩调参。
+
+成功pass在日志、指标及数据集清理后才发布；任何失败保留已有诊断文件但不保留成功pass，已有目录及fit/source/reference/profile不得覆盖。所有写入继续保留15GiB磁盘余量，控制器必须另行等待消费者退出。pass/profile始终只证明一个阶段，`scientific_complete`和`full_paper_complete`均为false；完整科学报告、控制器及Task4最后审查仍需完成。
+
+
+[实际评价工程证据](../results/emg2pose-memory-selected-evaluation-engineering.json)记录服务器16项/362.52秒通过；本机另有三项真实RED→GREEN，初始13项日志与退出记录缺失的边界在私有ledger中保留，不拼成一次新的本机16项运行。真实A800 S/M/L共17个受管理阶段、713.39秒、实际exit0，包括原样混角色val拒绝、12次GPU推理、三份仅验证集profile冻结与一次独立CPU全重读；全部worker/guardian实际退出。前后best权重不变，val/test新进程输入/预测和统计精确一致。
+
+GPU使用已有原生两轮/32更新的合成三角色fit及相同源，3文件/25,710行，重复记录ID；因此仅运行声明的metadata_indices对照。配置320/12/FP32，但每次实际1个窗口，**不能当成完整320样本FP32推理容量或benchmark**。CPU独立唯一记录ID夹具覆盖两种模式。实际完整批量评价资格、最终科学控制器/报告、完整源及三个250轮实验仍欠；本组件验收不等于Task4或全文完成。
