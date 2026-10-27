@@ -1,0 +1,149 @@
+{
+  "boundaries": {
+    "disk_reserve_bytes": 16106127360,
+    "host_memory_reserve_bytes": 274877906944,
+    "inventory_applies_all_false_window_fallback": false,
+    "native_window_fallback_remains_in_original_reader": true,
+    "old_raw_or_direct_memmap_validation_broadened": false,
+    "raw_inspector_globals_modified": false,
+    "source_bytes_extracted_to_dat_files": false
+  },
+  "format": "emg2pose_compact_source_index_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "mini": {
+    "actual_exit_code": 0,
+    "actual_owned_processes_gone": true,
+    "all_original_converted_fields_equal": true,
+    "all_original_native_metadata_arrays_equal": true,
+    "all_owned_memory_fds_closed": true,
+    "caller_close_does_not_invalidate_owned_source": true,
+    "completion_sha256": "5827d1b0929dcf887607d929ff72c492f7720bbf0f960d8e9d02ea112e518946",
+    "counts": {
+      "generalization": {
+        "user": 22,
+        "user_stage": 8
+      },
+      "side": {
+        "left": 15,
+        "right": 15
+      },
+      "split": {
+        "val": 30
+      }
+    },
+    "elapsed_seconds": 342.6529242056422,
+    "field_specs": {
+      "emg": {
+        "dtype": "<f4",
+        "sha256": "2f6efe2e0f6b01438017f491975e2b65050fc26e4c31d4067951d7b8ef3153fd",
+        "shape": [
+          4218756,
+          16
+        ]
+      },
+      "joint_angles": {
+        "dtype": "<f4",
+        "sha256": "335560bcce440b46f2354ccaa6047fde84e0f9712eb3c8f137d129de3b6c6e24",
+        "shape": [
+          4218756,
+          20
+        ]
+      },
+      "time": {
+        "dtype": "<f8",
+        "sha256": "0baee45098397606ee2ea5ec635e7fd709263453429b1dd0777cd255707efb57",
+        "shape": [
+          4218756
+        ]
+      },
+      "valid_mask": {
+        "dtype": "|b1",
+        "sha256": "9839fba27fdce689a5f508085ef925ce9666c23061b87ca62d42c9fc7236ea4d",
+        "shape": [
+          4218756
+        ]
+      }
+    },
+    "files": 30,
+    "native_metadata_array_count": 22,
+    "old_raw_admission_unmodified": true,
+    "original_raw_bytes": 647198208,
+    "original_raw_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "parent_imported_torch": false,
+    "phases": {
+      "acquire_seconds": 85.60372516559437,
+      "complete_inventory_seconds": 44.84543053386733,
+      "independent_reinspection_and_index_seconds": 44.88323463080451,
+      "pack_seconds": 166.8971209479496
+    },
+    "reader_sources_sha256": {
+      "__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+      "download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+      "emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+      "emg2pose_compact_archive.py": "4d78fb412a819244bdda104c78ab99154195641ddb688371566935922d1892f7",
+      "emg2pose_compact_codec.py": "c7eb616b54d38ff98dac0c460c2983736d8c9615003a69913081a2139a32fe30",
+      "emg2pose_compact_data.py": "b6f1880667b2f26dc21db59586ec82924ccde4a941731973041f4f78c708114a",
+      "emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+      "emg2pose_memory_archive.py": "a8d1aed29e2f89ae9e84e8ee16ca85299c2358b13f0b2c0ad53725e5c5230bd4",
+      "emg2pose_memory_data.py": "7d1a89c2554b84dbdf01752f66600a3816a86821ec9e807c3df399ddd4e9214f"
+    },
+    "rows": 4218756,
+    "runtime_capacity_observer_injected": false,
+    "valid_blocks": 1015,
+    "valid_rows": 3559584
+  },
+  "native_window_adapter_qualified": false,
+  "remaining": [
+    "storage-only native dataset adapter and actual window/transform/RNG/sampler equivalence",
+    "separate compact native runtime and actual S/M/L CPU/GPU qualification",
+    "complete25253-file source acquisition and independent full inventory",
+    "all three original250epoch fits and final scientific controller/evaluation/report"
+  ],
+  "scientific_complete": false,
+  "scope": "Separate compact inventory/native metadata index/verified source owner; complete original mini equivalence, no native window/model/scientific qualification",
+  "source_bundle_sha256": "1de4a9563d33faabb3dc253536e6bdf349843a8e28d8f2c4b66b35849927edfc",
+  "source_files_sha256": {
+    "egoemg_repro/emg2pose_compact_data.py": "b6f1880667b2f26dc21db59586ec82924ccde4a941731973041f4f78c708114a",
+    "egoemg_repro/emg2pose_compact_index.py": "d29f5f1e6ffec9571eddadefe0ac876633b8ce975a6d5d7596e05037f9deb036",
+    "tests/test_emg2pose_compact_data.py": "6397a6daee7c843c7c53c695ca9df5ccabf8b9431c5e299188402360a593e9e1",
+    "tests/test_emg2pose_compact_index.py": "4774fde97435247e53cf96f575aba65a999d0bf9daec06e3d994b20d90adeef3"
+  },
+  "tests": {
+    "full_light": {
+      "actual_exit_code": 0,
+      "passed": 1235,
+      "seconds": 51.86,
+      "skipped_optional_dependencies": 696,
+      "warnings": 1
+    },
+    "index_red": {
+      "actual_exit_code": 1,
+      "failed": 18,
+      "seconds": 2.91
+    },
+    "initial_data_red": {
+      "actual_exit_code": 1,
+      "fixture_error_cause": "test helper already supplies chunk_rows; duplicate argument corrected before subsequent verification",
+      "fixture_errors": 9,
+      "missing_module_failures": 15
+    },
+    "inspection_adapter_red": {
+      "actual_exit_code": 1,
+      "cause": "native inspector supplies expected logical bytes/hash to TAR index; adapter signature corrected; negative-test default expression corrected",
+      "failed": 3,
+      "passed": 21
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "passed": 167,
+      "seconds": 14.76
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "passed": 167,
+      "seconds": 17.81
+    }
+  },
+  "training_performed": false
+}

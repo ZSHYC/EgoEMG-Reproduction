@@ -31,7 +31,9 @@
     "observed_conclusion": "failure; single-flag isolation did not resolve the full hosted suite",
     "observed_run_id": 40511589798,
     "production_guards_unchanged": true,
-    "remaining_hosted_cause_resolved": false
+    "remaining_hosted_cause_resolved": false,
+    "status": "historical incomplete single-flag fix; superseded",
+    "superseded_by_successful_fresh_stage_commit": "ef0825c5113f333f66f393d67772296370fc39ee"
   },
   "pending_cpu_job_environment_fix": {
     "actual_yaml_job_environment_green": {
@@ -55,6 +57,7 @@
     "workflow_sha256": "ae407f1a44231ed3ed57cf8a57a80c98fe70874272e752102551a3cb954380ce"
   },
   "pending_fresh_stage_fixture": {
+    "actual_full_cpu_passed": 2032,
     "change": "Both native and replay positive inference passes run through actual separate CLI processes, matching the owned scientific controller; explicit same-PID refusal uses a separately created actual parent-process native reference",
     "comparison_tolerances_unchanged": true,
     "diagnostics": "Only canonical differing identity field paths are printed on mismatch, never private values",
@@ -89,8 +92,11 @@
       "parent_threads": 1,
       "seconds": 49.78
     },
-    "new_hosted_run_observed": false,
-    "production_evaluation_guards_unchanged": true
+    "new_hosted_run_observed": true,
+    "observed_conclusion": "success",
+    "observed_run_id": 40519871088,
+    "production_evaluation_guards_unchanged": true,
+    "resolution": "Fresh native and replay CLI stages match the formal process model; complete hosted suite actually passed. Prior failed runs remain failed history."
   },
   "runs": [
     {
@@ -258,7 +264,31 @@
         }
       ],
       "run_id": 40511589798
+    },
+    {
+      "commit": "ef0825c5113f333f66f393d67772296370fc39ee",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122243723018,
+          "passed": 1173,
+          "seconds": 57.11,
+          "skipped": 696,
+          "warnings": 1
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122243722631,
+          "passed": 2032,
+          "pip_check": true,
+          "seconds": 1940.0,
+          "skipped": 3,
+          "warnings": 139
+        }
+      ],
+      "run_id": 40519871088
     }
   ],
-  "scope": "Actual hosted checks through94a1fcf: light success, CPU1964/3/11ERROR. Both failed histories preserved. New compact carrier has independent local/server/whole-mini proof but is not covered by94a1. Test-only fresh-process isolation and leaf-path diagnostics are under verification."
+  "scope": "Actual hosted checks through ef0825c SUCCESS: CPU2032/3 actualCUDA skips and light1173/696 optional-dependency skips. Includes compact sealed carrier and fresh-stage evaluation tests; new compact inventory/index are not covered by this run."
 }
