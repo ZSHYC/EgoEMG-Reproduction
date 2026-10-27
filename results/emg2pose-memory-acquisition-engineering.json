@@ -29,6 +29,7 @@
   "full_paper_complete": false,
   "full_source_acquired": false,
   "full_training_complete": false,
+  "implementation_commit": "d6a40a5bbc5648dd0952ec612f36a9b1a7bf347e",
   "implementation_files_sha256": {
     "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
     "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",

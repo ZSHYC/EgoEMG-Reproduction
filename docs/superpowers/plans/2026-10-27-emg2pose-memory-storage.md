@@ -47,7 +47,7 @@ The existing local resumable xz receiver is correct but its single-flow compress
 - [x] Add failure cases for wrong ETag/Content-Range/200 response/interrupted body/final HEAD change; no ready object, owned fd closed on failures/callback exceptions.
 - [x] Add capacity tests using real fixture proc/cgroup files: finite parent tighter than leaf, unsupported hierarchy rejected, initial budget refuses before allocation, mid-run pressure stops owned cache. Invalid numeric policy inputs fail before I/O.
 - [x] Run tests RED, implement bounded download (at most `workers` responses/buffers retained), exact pwrite/readback/hash, repeated guard checks and seal verification; run GREEN with existing archive tests.
-- [ ] Record results/limitations in the ledger; commit only after required suite checks.
+- [x] Record results/limitations in the ledger; commit only after required suite checks. Task1 code committed as `d6a40a5`; actual complete-project 1606/4, light874/689 and real mini receipt are published separately from scientific results. `task-done` additionally re-ran75checks successfully.
 
 ### Task 2: Original TAR/HDF5 range reading and full inventory
 
