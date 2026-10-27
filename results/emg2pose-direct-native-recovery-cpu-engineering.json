@@ -1,0 +1,134 @@
+{
+  "actual_cpu_fixture": {
+    "actual_updates_by_phase": [
+      2,
+      1
+    ],
+    "batch_size": 1,
+    "complete_native_restore": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "fresh_process_validation_inputs_outputs_metrics_exact": true,
+    "global_steps_by_phase": [
+      2,
+      3
+    ],
+    "original_top3_last_no_earlystop": true,
+    "precision": "32-true",
+    "scheduler_T_max": 250,
+    "sizes": [
+      "small",
+      "middle",
+      "large"
+    ],
+    "source": "three independent-role original-format synthetic engineering HDF5 files, ordinary original conversion",
+    "unit_capacity_observation_mocked": true,
+    "unmodified_prefix_bytes": true,
+    "validation_windows": 1,
+    "workers": 0
+  },
+  "actual_real_complete_mini": {
+    "actual_controller_and_recorder_pid_start_live": true,
+    "actually_completed_phases": [
+      {
+        "actual_optimizer_updates": 2,
+        "all_owned_consumers_exited": true,
+        "device": "cpu",
+        "full_val_samples": [
+          526,
+          526
+        ],
+        "global_step": 2,
+        "recovery_phase": "prefix",
+        "restore_matches": null,
+        "size": "small"
+      },
+      {
+        "actual_optimizer_updates": 1,
+        "all_owned_consumers_exited": true,
+        "device": "cpu",
+        "full_val_samples": [
+          526
+        ],
+        "global_step": 3,
+        "recovery_phase": "restore",
+        "restore_matches": {
+          "callbacks": true,
+          "loops": true,
+          "model": true,
+          "optimizer": true,
+          "rng": true,
+          "scheduler": true
+        },
+        "size": "small"
+      }
+    ],
+    "cpu_gpu_complete_qualification": false,
+    "observed_utc": "2026-10-27T19:28:47.511811+00:00",
+    "required_owned_phases": 12,
+    "required_validation_windows": 526,
+    "status": "running"
+  },
+  "archive_descriptor_or_seal_used": false,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "3de69a0b5ebdbd9ff8d9d78fbfd02fd48622af02627e6e31a71f52f0bdc87cb0",
+      "passed": 1355,
+      "seconds": 89.66,
+      "skipped": 728,
+      "warnings": 1
+    },
+    "local-check": {
+      "actual_exit_code": 0,
+      "log_sha256": "b0d76c4f70bbe520486a80816382f47c4c11a27bf63523f6e7fd4492f20bcbe7",
+      "passed": 65,
+      "seconds": 126.0,
+      "skipped": 0,
+      "warnings": 27
+    },
+    "server-check": {
+      "actual_exit_code": 0,
+      "log_sha256": "344387dd596290cc426f560e184188abab1874f0630935dddaafcf83205876f0",
+      "passed": 65,
+      "seconds": 152.81,
+      "skipped": 0,
+      "warnings": 27
+    }
+  },
+  "format": "emg2pose_direct_native_recovery_cpu_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "CPU fixture checks do not establish real complete-mini CPU/GPU qualification; its independently owned execution is still running at this snapshot.",
+    "Real-mini recovery explicitly reuses val for engineering train; no independent scientific validation, uninterrupted trajectory or benchmark score.",
+    "Original320/12/bf16 GPU recovery, independent-role full-budget fit, selected-best FP32 evaluation, full-source admission and scientific controller/report remain required.",
+    "Only pinned PL ModelCheckpoint.current_score transient is excluded from callback comparison, exactly as in the qualified existing algorithm.",
+    "Prior raw-memory backend GPU qualification is not borrowed for original ordinary files."
+  ],
+  "native_algorithms": "exact original qualified recovery code objects in a private globals copy; unchanged old module globals",
+  "observed_utc": "2026-10-27T19:28:47.720274+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "producer_files_sha256": {
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/emg2pose_direct_recovery.py": "10e616029fc8b05e21598d6b24af44e3a7aae00e46415e1a9ac1653238f124e7",
+    "egoemg_repro/emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "egoemg_repro/emg2pose_direct_source.py": "555a2b80c93b9ef4838ce544bbca3be833d038d6772984c3c798bc548d814bae",
+    "egoemg_repro/emg2pose_memory_recovery.py": "eaa6dd2b9f37671e58c6a53690af1f9121682d6a8dfd49e63f6f3c1723610eeb",
+    "tests/test_emg2pose_direct_recovery.py": "c4b7e4902e891a6992041b8b0353e7e3f4e7900cdbe5c5a422acee35513fb891"
+  },
+  "red": {
+    "actual_exit_code": 1,
+    "cause": "new direct recovery module absent",
+    "failed": 15,
+    "log_sha256": "281dd1ef1bb662b65984890a9e7725f479fe53fd426fbebfa2d3ea6f98836dcd",
+    "seconds": 3.17
+  },
+  "scientific_training_complete": false,
+  "source_bundle_sha256": "abbef7ce12918f40e0184d483ebd91cb1bcf772b3fa543fd200782fe7668e617"
+}

@@ -1,6 +1,15 @@
 # 运行状态
 
 
+## 2026-10-28：原始普通文件训练恢复CPU检查通过，完整mini实跑已启动
+
+[实际CPU证据](../results/emg2pose-direct-native-recovery-cpu-engineering.json)记录65本机/126.00秒、65服务器/152.81秒，各27warning且actual exit0；完整轻量1,355/728可选跳过/1warning89.66秒actual exit0。三种规模在明确CPU工程夹具上两次更新后，由新进程完整复推、精确恢复模型/AdamW/调度/回调/循环/RNG，再实际更新至step3。新API私有绑定精确旧算法和普通文件source，新CLI无archive FD；旧入口与官方算法不改。
+
+真实完整官方mini12个受管理CPU/GPU阶段已实际一次启动；当前small CPU前缀与新进程恢复已完成：两次更新/两轮526验证，新进程526窗口精确复推、六状态恢复、再更新至step3并完整验证；medium正在执行，拥有者与当前worker/guardian实际PID/start活动。尚未完整CPU/GPU验收，不声明原320/12/bf16通过。之后仍需原始普通源独立角色fit/250轮/选best/FP32最终评价/科学报告；完整数据未就绪、全文未完成。
+
+另外已读取真正托管终态与日志：f4fbac7、dd054bd、d9d9e9b各CPU/轻量检查均成功，最新d9d9e9b为2,280通过/3CUDA跳过及1,347/698轻量跳过，见[托管证据](../results/emg2pose-memory-hosted-ci.json)。它们只覆盖各自冻结源码；新直接恢复入口以本机/服务器实际结果为证。以下段落保留各历史快照，旧“尚欠”不覆盖新已完成部分。
+
+
 ## 2026-10-28：DINOv2 ViT-S完整原生实验与报告核验完成
 
 [实际报告与曲线](../results/original-vision/vit-small/README.md)记录124轮、69,688实际更新，按原patience30早停、验证选择零起算epoch93（第94轮）。原生测试、独立完整预测复算、公开报告及最终verify共16个阶段实际exit0；外层控制器及所有阶段子进程另核对已退出。完整消费8,612次（repeat2），唯一4,306手样本；全部中心MAE6.464179°、有图子集6.324737°。有效角度加权pooled、原生样本加权批量MAE0.112734586rad以及逐用户mean±总体SD分列。

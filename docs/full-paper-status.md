@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **原始普通文件训练恢复入口的CPU检查通过，真实完整mini仍在运行：** [证据](../results/emg2pose-direct-native-recovery-cpu-engineering.json)为本机65/126.00秒、服务器65/152.81秒，各27warning；完整轻量1,355/728/1warning89.66秒均actual exit0。三种模型在明确CPU工程夹具上完成六状态新进程恢复及step3；新入口只私有绑定已有精确算法。真实mini12阶段已实际启动，当前已确认small CPU前缀/新进程526窗复推/六状态恢复及step3全验证，medium正在运行，其余未完成，不能借用旧内存后端GPU资格。原始普通源GPU恢复、完整源/250轮fit和科学结果仍欠。
+
 - **DINOv2 ViT-S完整实验及最终独立核验完成：** [完整结果](../results/original-vision/vit-small/README.md)为124轮、69,688次实际更新、验证选择零起算epoch93；4,306唯一测试手样本（原配置repeat2共8,612次消费），全部/有图中心MAE为6.464179°/6.324737°。完整原生测试、独立完整预测复算、报告及最后核验共16阶段实际exit0，外层及阶段进程确认退出，另在原冻结环境重新打开原始链条核验通过。保留服务器三个核心报告原字节，补充精确源码e7c20b9/配置/依赖/124轮曲线清单；原生0.02配方、独立验证、单rank/workers0及旧版数据/缺失合并来源/PDF不等价边界保留。B/L仍在完整训练。
 
 - **原始普通文件上的S/M/L原生CPU入口已完成独立核验：** [入口与边界](emg2pose-direct.md)、[实际证据](../results/emg2pose-direct-native-runtime-engineering.json)为182本机/182服务器以及完整轻量1,355/727 actual exit0。完整mini27.59秒实际exit0，全部526窗口与独立原参考相同；原始数据集类、三模型初始权重/CPU前向/原AdamW-cosine250配置及严格权重重载精确一致。一次深度字段准入后保持具体文件绑定，不使用archive FD或封印、不改变原validator/global。没有优化器更新、训练状态恢复、CUDA/full-source/250轮或新精度结果，这些仍欠。

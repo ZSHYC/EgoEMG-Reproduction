@@ -2,6 +2,7 @@
   "format": "emg2pose_memory_hosted_ci_v1",
   "full_paper_complete": false,
   "latest_verified_native_foundation_run": 40535564494,
+  "latest_verified_source_pipeline_run": 40557682359,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
   "pending_cpu_backend_fixture_fix": {
@@ -361,7 +362,79 @@
         }
       ],
       "run_id": 40546027514
+    },
+    {
+      "commit": "f4fbac77a183f48ac5d1132fe7d3877915c7b696",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122357773396,
+          "passed": 2231,
+          "pip_check": true,
+          "seconds": 2171.16,
+          "skipped": 3,
+          "warnings": 157
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122357774106,
+          "passed": 1298,
+          "seconds": 95.89,
+          "skipped": 698,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40551953718
+    },
+    {
+      "commit": "dd054bddffcd21be51784c45b12f31cc9425b011",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122367734904,
+          "passed": 2271,
+          "pip_check": true,
+          "seconds": 2483.34,
+          "skipped": 3,
+          "warnings": 157
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122367735464,
+          "passed": 1338,
+          "seconds": 121.18,
+          "skipped": 698,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40554763370
+    },
+    {
+      "commit": "d9d9e9bc08335d0f1d310d3abcf12a7c7051f7b0",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122378005356,
+          "passed": 2280,
+          "pip_check": true,
+          "seconds": 2309.58,
+          "skipped": 3,
+          "warnings": 157
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122378004742,
+          "passed": 1347,
+          "seconds": 118.92,
+          "skipped": 698,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40557682359
     }
   ],
-  "scope": "Actual hosted terminal results through frozen725ff81 original disk acquisition; later TAR preservation/preparation have their own actual local/server/mini evidence and separate pending hosted runs"
+  "scope": "Actual hosted terminal results through frozen d9d9e9b original full-source pipeline composition; later direct-native runtime and scientific publication run739f320 remains observed in progress, and current direct recovery is not covered by these frozen runs"
 }
