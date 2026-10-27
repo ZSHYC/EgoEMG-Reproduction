@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **EMG2Pose评价数据准入已实际核验两种选择模式：** [新证据](../results/emg2pose-memory-evaluation-data-engineering.json)记录31本机/31服务器检查与真实mini元数据阶段exit0。原样两个条件各230窗；明确文件行隔离后167/63窗、22/8文件、重叠0。val跨角色在读取信号前拒绝，full要求实际完整源；原读取/筛选代码保留，仅作用域内关闭NPZ资源。未构造模型或执行推理，这不是正式校准、最终测试或三项250轮成绩。
+
 - **EMG2Pose独立统计通过真实mini新进程复推，原条件选择问题已实测并分列：** [工程证据](../results/emg2pose-memory-statistics-engineering.json)为33本机/33服务器检查、两个独立受管理CPU阶段、每次460次原生消费和56项FP32/float64指标核对，输入/预测摘要及统计精确复推。mini两个条件的230次消费来自相同30文件行及相同有序窗口；[原筛选审计](../results/emg2pose-native-evaluation-selection-audit.json)另在完整CSV上执行官方函数，test/stage会选入16,831个train文件条目，完整HDF5窗口尚未实测。完整科学评价须分别声明原样和文件行隔离对照，不能静默替换官方人口；尚无正式benchmark成绩。[接收实查](../results/emg2pose-persistent-body-retry-live-observation.json)已完成旧前缀核验并在一次真实中断重试后新增128MiB，完整源仍欠。
 
 - **EMG2Pose原预算fit/恢复/选best入口已通过受控GPU工程验收：** [实际证据](../results/emg2pose-memory-native-fit-engineering.json)为显式合成3HDF/25,710行、分开train/val角色，S/M/L各两完整工程轮次/32实际更新，六状态新进程恢复与独立best/last/前缀/journal读取通过；七受管理阶段exit0，457.00秒。原Sampler按16batch循环补齐，唯一锚点1/2/2与每轮5,120消费分列；原320/12/bf16/clip1/cosine250/top3+last/noearlystop及训练增强保留。full入口要求全部25,253真实源和实际CUDA资格，不能以工程结果代替；本机/服务器各18定向、116成员完整1,798/3及轻量987/693均实际exit0。**没有benchmark成绩或250轮实验**；完整源、最终评价/校准/控制器/报告和Task4最后审查仍欠。

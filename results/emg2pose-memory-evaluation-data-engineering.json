@@ -1,0 +1,162 @@
+{
+  "checks": {
+    "initial_red": {
+      "actual_exit_code": 1,
+      "failed": 27,
+      "log_sha256": "ff42a41627c7485d67f3462a33cc321e8549e1608fafe18eea2fc0ec2f1b3d2f",
+      "reason": "new module missing after fixture held-out booleans corrected",
+      "seconds": 3.22
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "8257d3ad325eca0335ed777e68e5224b51d18998a08526bd32f0417152730bb5",
+      "passed": 31,
+      "seconds": 115.57
+    },
+    "npz_red": {
+      "actual_exit_code": 1,
+      "failed": 1,
+      "log_sha256": "8a8af1d074d032e26ef0c9a0fdb019b3e77aab1fa539a43188fce155a12a6248",
+      "reason": "native NPZ metadata read retained a file descriptor with cycle collection disabled",
+      "seconds": 7.56
+    },
+    "semantic_red": {
+      "actual_exit_code": 1,
+      "failed": 3,
+      "log_sha256": "acfc2559240635c00793b30ecfb95790d954a2dd4b70cf9669154f8f7007a71f",
+      "reason": "changed role, dataset type and per-user setting not yet rejected",
+      "seconds": 24.3
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "log_sha256": "2ca1e5e20092c38c775c7958719826735b254aa263c03018ab9fe29a8584b555",
+      "passed": 31,
+      "seconds": 172.47,
+      "source_bundle_sha256": "bcfbf33322cb9160698782ec9103d78baf9043aa10e6b0dea491352f26722caa"
+    }
+  },
+  "format": "emg2pose_evaluation_data_admission_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "preserved_native_code": {
+    "dataset_selection_windowing_and_transforms": true,
+    "global_monkeypatch": false,
+    "metadata_reader_function_code_unchanged": true,
+    "npz_handles_closed_at_current_call_exit": true,
+    "persistent_instance_method_override": false,
+    "private_storage_constructor_binding": true
+  },
+  "real_mini": {
+    "actual_owned_worker_exit_code": 0,
+    "actual_parent_exit_code": 0,
+    "all_owned_consumers_exited": true,
+    "caller_source_retained_until_context_exit": true,
+    "file_rows": 30,
+    "modes": {
+      "metadata_indices": {
+        "by_condition": {
+          "user": {
+            "extra_rows": 0,
+            "omitted_rows": 0,
+            "requested_rows": 22,
+            "requested_selection_exact": true,
+            "selected_by_condition": {
+              "user": 22
+            },
+            "selected_by_role": {
+              "val": 22
+            },
+            "selected_rows": 22,
+            "window_plan_sha256": "ec0b8d1cb3bba949044e7626a87f0fa2113dcb61f7eb532241d251921b618f50",
+            "windows": 167
+          },
+          "user_stage": {
+            "extra_rows": 0,
+            "omitted_rows": 0,
+            "requested_rows": 8,
+            "requested_selection_exact": true,
+            "selected_by_condition": {
+              "user_stage": 8
+            },
+            "selected_by_role": {
+              "val": 8
+            },
+            "selected_rows": 8,
+            "window_plan_sha256": "4f438072192a4ad4269897ba3f0a6bdec2874d0f5764d5aa96426cca766b2b14",
+            "windows": 63
+          }
+        },
+        "identity_sha256": "b5bef3bf28246270763154574626d1d7bf7156e5bcfbca1f5ce4d7363de71b73",
+        "inference_performed": false,
+        "no_signal_window_read": true,
+        "pairwise_row_overlap": {
+          "user|user_stage": 0
+        }
+      },
+      "official_literal": {
+        "by_condition": {
+          "user": {
+            "extra_rows": 8,
+            "omitted_rows": 0,
+            "requested_rows": 22,
+            "requested_selection_exact": false,
+            "selected_by_condition": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "selected_by_role": {
+              "val": 30
+            },
+            "selected_rows": 30,
+            "window_plan_sha256": "b9cf0f6784c9c8768257bf7f3f1c9cfb47fbec21aeaf8a647c41e9adef8d6778",
+            "windows": 230
+          },
+          "user_stage": {
+            "extra_rows": 22,
+            "omitted_rows": 0,
+            "requested_rows": 8,
+            "requested_selection_exact": false,
+            "selected_by_condition": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "selected_by_role": {
+              "val": 30
+            },
+            "selected_rows": 30,
+            "window_plan_sha256": "b9cf0f6784c9c8768257bf7f3f1c9cfb47fbec21aeaf8a647c41e9adef8d6778",
+            "windows": 230
+          }
+        },
+        "identity_sha256": "4cced11d61e7dc38a82f9236abf1617adfdaaab50b82d9ba236f57ed3a96084c",
+        "inference_performed": false,
+        "no_signal_window_read": true,
+        "pairwise_row_overlap": {
+          "user|user_stage": 30
+        }
+      }
+    },
+    "no_inference": true,
+    "no_model_constructed": true,
+    "parent_owned_fds_closed": true,
+    "parent_torch_unimported": true,
+    "raw_log_sha256": "ac8b8115391b5b79a257922ab2e81ac4137526a17b0193ec8404ef8ef00af700",
+    "scope": "cpu_engineering",
+    "seconds": 102.8159298109822,
+    "source_archive_bytes": 647198208,
+    "source_archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "source_bundle_sha256": "eedf17ab133597d2275c7d2c70bdfe009533d0dee0e8a76c160d1dd879f84dad",
+    "source_role": "val only",
+    "torch_rng_unchanged": true,
+    "worker_seconds": 24.96535063488409
+  },
+  "scientific_complete": false,
+  "scope": "Metadata/dataset admission and resource ownership only; no model construction, inference, selected-best, calibration or scientific completion",
+  "source": {
+    "implementation_sha256": "9be3a4e9e71d90f7e6a8ac374cfe17684a93d63521da4ff10cd4c1052b8dc4b3",
+    "tests_sha256": "14bc54c830bf83185341671b515df2ecc216390c9a4fe949ee289e4a1c813915",
+    "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+    "upstream_dataset_sha256": "82fbd93849b906543f6f0705b8ca220b40ff81e3ee26175527c2a2d3124f2cc6",
+    "upstream_evaluation_sha256": "0d6f54e765b3e1c57eb3194b9f849555ca5f2b36cce2e11953c17df879eaecd6"
+  }
+}

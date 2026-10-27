@@ -47,7 +47,29 @@
         }
       ],
       "run_id": 40472411365
+    },
+    {
+      "commit": "335348b465b19546e5939214209b6ae26070c426",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "job_id": 122102966350,
+          "passed": 1053,
+          "seconds": 37.96,
+          "skipped": 694,
+          "warnings": 1
+        },
+        {
+          "job_id": 122102966533,
+          "passed": 1865,
+          "pip_check": true,
+          "seconds": 1064.92,
+          "skipped": 3,
+          "warnings": 134
+        }
+      ],
+      "run_id": 40478615135
     }
   ],
-  "scope": "Actual hosted checks for fit and body-retry commits; excludes subsequent independent-statistics code"
+  "scope": "Actual hosted checks through independent-statistics commit335348b; excludes subsequent evaluation-data admission code"
 }

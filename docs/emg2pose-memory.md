@@ -178,3 +178,15 @@ full还要求该规模、相同科学配方/代码/运行时/硬件的实际CUDA
 这些是25,253行CSV上的原筛选函数结果，**不是完整HDF5实物或窗口推理结果**。后续完整评价须预先声明`official_literal`为原样路径，并单列通过官方已有`allowed_session_indices`/`allowed_splits`隔离文件行的`metadata_indices`对照；两者不混表、不在测试后选择协议或容差。仅验证集校准、所选best及实际完整源仍须各自准入；本节算术证据不能授予这些资格。
 
 [持久化续传实查](../results/emg2pose-persistent-body-retry-live-observation.json)在08:54UTC已完成旧76.974GB前缀核验并新增128MiB至77.108GB。一次实际响应体ConnectionError后，同范围第二次尝试成功提交，另独立解压核对该16MiB块的原始及压缩SHA。接收进程当时仍存活，完整源仍未完成。[托管CI证据](../results/emg2pose-memory-hosted-ci.json)记录7b8911f与8a05ae9两次成功；后者完整CPU1,832/3实际CUDA skip、轻量1,021/693依赖skip，**不覆盖随后新增的统计源码**。
+
+## 评价数据的元数据准入
+
+`emg2pose_memory_evaluation_data.build_evaluation_data(upstream, source, metadata_csv, size, *, role, scope='full', selection='official_literal')`先使用原数据集筛选函数核验请求与实际选择，再通过私有存储构造绑定执行原`get_dataloaders`代码。full要求完整25,253文件及独立原角色；显式工程scope允许验证存储和人口。它不构造模型、不推理、不写结果文件，也不授予正式选best、校准或测试资格。
+
+返回对象的`config`/`context`供后续受管理评价消费，`population`与`identity`是私有副本。`check()`核对实际源、代码、元数据、角色/逐用户设置、配置、筛选、变换、归一化、loader顺序与窗口计划；`close()`及上下文管理只关闭本对象复制的数据集fd，借入源仍由调用者持有。必须另外等待拥有的消费者退出，不能把关闭父fd当成进程已退出。
+
+验证选择包含非val文件时，在创建存储读取器前拒绝。原样test保留官方实际选择并披露额外角色；`metadata_indices`明确使用原有文件行与split过滤，不能与原样结果混淆。原元数据函数未显式关闭NPZ文件，实测拒绝路径留下文件fd；现在仅在当前调用的私有numpy绑定中显式关闭所打开NPZ，临时实例方法随即移除。原函数代码、模块全局变量、数组值及筛选算法保持不变，测试在禁用循环垃圾回收时也能立即释放这些文件。
+
+[实际准入证据](../results/emg2pose-memory-evaluation-data-engineering.json)记录本机31项/115.57秒、服务器同31项/172.47秒通过。真实647MB mini另在一个受管理CPU消费者中检查两种模式：原样两组各30文件/230窗；控制模式为22文件/167窗与8文件/63窗，文件行重叠为0。全程未读取信号窗口、未构造模型、未改变Torch RNG；调用者源保留至作用域退出，拥有的消费者和fd均退出，父进程实际exit0，总计102.82秒。后续完整推理、仅验证集校准、最终测试/复推/报告仍未实现完成。
+
+335348b的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40478615135)已成功：完整CPU1,865 passed/3实际CUDA skip、轻量1,053 passed/694依赖skip，pip check通过。这覆盖独立统计源码，**不覆盖本节随后新增的准入源码**。

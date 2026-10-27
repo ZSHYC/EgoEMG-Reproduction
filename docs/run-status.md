@@ -1,5 +1,13 @@
 # 运行状态
 
+## 2026-10-27：评价数据准入完成真实mini检查
+
+[新准入组件与证据](../results/emg2pose-memory-evaluation-data-engineering.json)在原样/文件行隔离两种明确模式下核对实际角色、条件及窗口计划；val混入其他角色先拒绝，full只接受真实完整25,253源。原数据集与评价函数代码保持，私有绑定仅提供封印源、声明的索引过滤与当前NPZ生命周期。新增回归实测发现角色/评价类型/逐用户设置改变未拒绝，以及原NPZ未及时关闭；保留RED后修正，本机31项115.57秒、服务器31项172.47秒通过，含禁用循环回收的实际fd检查。
+
+真实647MB mini准入实际exit0，102.82秒、拥有的消费者/源fd均退出，父进程无Torch。原样user/user_stage各30文件/230窗；显式隔离模式22文件/167窗与8文件/63窗，行重叠0。没有读取信号窗口、构造模型或推理，Torch RNG不变；这是元数据准入，不能作为校准或benchmark成绩。10:08UTC三个DINO训练仍full-fit/error=None且子PID/start匹配；10:01UTC下载器仍存活，已至81,352,720,384源字节，重试计数1。完整源和三个250轮实验、完整推理/校准/测试/报告/控制器及Task4最终审查仍欠。
+
+335348b的[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40478615135)已成功：完整CPU1,865/3实际CUDA skip/134warnings（1064.92秒）、轻量1,053/694依赖skip/1warning（37.96秒），pip check通过；覆盖独立统计，尚不覆盖本次新准入源码。
+
 ## 2026-10-27：独立20角统计完成真实mini复推，发现原生条件人口重叠
 
 [统计与实际证据](../results/emg2pose-memory-statistics-engineering.json)：本机/服务器各33项、两次真实mini受管理CPU推理190.52秒，父进程及两个阶段均exit0，所有消费者/fd退出。每次按未改官方函数消费460窗、核对56项原指标，完整输入/预测摘要与独立float64统计在新进程精确一致；原20角/left510/生成mask保持，私有逐用户记录不公开。仅工程前缀、原val、CPU/batch1/workers0，不是正式选best、校准、GPU或benchmark成绩。
