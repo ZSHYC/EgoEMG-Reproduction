@@ -1,0 +1,234 @@
+{
+  "actual_failed_runs_preserved": [
+    {
+      "actual_exit_code": 1,
+      "bundle_sha256": "8741e778b061ac92a1407af2f16fdd74a43eaaaa27da93e3e0b9f99193de0433",
+      "cause": "Private final JSON report resource variable was overwritten by an RNG tuple; fixed only probe variable names and reran a new immutable stage after actual terminal exit",
+      "scope": "first complete mini native-window probe"
+    }
+  ],
+  "boundaries": {
+    "codec_cache_bytes": 8388608,
+    "disk_reserve_bytes": 16106127360,
+    "full_source_rehashed_per_window": false,
+    "global_module_bindings_modified": false,
+    "host_memory_reserve_bytes": 274877906944,
+    "mini_validation_is_independent_training_validation": false,
+    "original_window_and_sampler_algorithms_modified": false,
+    "raw_fileno_masquerading": false
+  },
+  "compact_gpu_qualified": false,
+  "compact_native_optimizer_recovery_qualified": false,
+  "format": "emg2pose_compact_native_foundation_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "mini": {
+    "actual_exit_code": 0,
+    "actual_owned_processes_gone": true,
+    "all_owned_memory_fds_closed": true,
+    "bundle_sha256": "a51e89a18b20283836042c990526879fea04348bbd8a2f22db96bbf4a65cfa1b",
+    "phases": {
+      "acquire_seconds": 84.78980392822996,
+      "all526_original_windows_seconds": 23.25814787717536,
+      "complete_inventory_seconds": 46.15674741799012,
+      "independent_reinspection_and_index_seconds": 46.55269952537492,
+      "pack_seconds": 176.90816293796524
+    },
+    "proof": {
+      "actual_native_windows": 526,
+      "all_original_converted_fields_equal": true,
+      "all_original_native_metadata_arrays_equal": true,
+      "all_original_rng_states_equal": true,
+      "all_original_window_fields_equal": true,
+      "all_session_groups_equal": true,
+      "counts": {
+        "generalization": {
+          "user": 22,
+          "user_stage": 8
+        },
+        "side": {
+          "left": 15,
+          "right": 15
+        },
+        "split": {
+          "val": 30
+        }
+      },
+      "dataset_survives_original_raw_reader_and_source_holder_close": true,
+      "files": 30,
+      "maximum_process_codec_cache_bytes": 8388608,
+      "native_metadata_array_count": 22,
+      "original_raw_bytes": 647198208,
+      "original_raw_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+      "original_sampler_epochs": [
+        {
+          "consumptions": 5120,
+          "epoch": 0,
+          "stream_sha256": "1f39e25282449e30b04ffb5c2020a04fb7d11f8d97cfeea29dcf96d75bf281c5",
+          "unique_anchors": 526
+        },
+        {
+          "consumptions": 5120,
+          "epoch": 1,
+          "stream_sha256": "3f900b6006a69352634e927f3d2dbabca668a755854878df3befc738c79ed9ef",
+          "unique_anchors": 526
+        },
+        {
+          "consumptions": 5120,
+          "epoch": 9,
+          "stream_sha256": "4c2d6dfd1c237c071567a76a038348f85e169b59a2aec0f50c2499feea5318f2",
+          "unique_anchors": 526
+        }
+      ],
+      "original_training_transform_and_jitter_samples": 32,
+      "reference_full_field_hashes_rechecked": true,
+      "rows": 4218756,
+      "stream_digests": {
+        "compact": {
+          "emg": "152fa67137f493bac4658928606d1a36fc369519ec4d9447ff8904d33815c835",
+          "joint_angles": "5b408e1bdd98a6073c1b12bb66f4775ef4a604177788821b620964c2e87a675f",
+          "label_valid_mask": "12f6a6caa93e751693293f3d521336a75685db3b3359b8fa3a4bf2dae4c58581",
+          "metadata": "d56a28d992f1308acd971907969db7a64806cbd8aad30ca6646acfe4366fa043"
+        },
+        "original": {
+          "emg": "152fa67137f493bac4658928606d1a36fc369519ec4d9447ff8904d33815c835",
+          "joint_angles": "5b408e1bdd98a6073c1b12bb66f4775ef4a604177788821b620964c2e87a675f",
+          "label_valid_mask": "12f6a6caa93e751693293f3d521336a75685db3b3359b8fa3a4bf2dae4c58581",
+          "metadata": "d56a28d992f1308acd971907969db7a64806cbd8aad30ca6646acfe4366fa043"
+        }
+      },
+      "valid_blocks": 1015,
+      "valid_rows": 3559584,
+      "valid_window_mask_elements": 3493232
+    },
+    "runtime_capacity_observer_injected": false,
+    "seconds": 383.844640948344
+  },
+  "remaining": [
+    "Original compact S/M/L actual native CPU/GPU optimizer/callback/loop/RNG recovery",
+    "Actual original320/12worker mixed-precision optimization and FP32 selected-best evaluation on compact storage",
+    "Complete25253-session source acquisition/inventory and original three250epoch scientific runs",
+    "Full scientific controller/report integration and final Task4 review"
+  ],
+  "runtime_foundation": {
+    "actual_forward_shapes": [
+      [
+        1,
+        20,
+        7280
+      ],
+      [
+        1,
+        20,
+        7280
+      ],
+      [
+        1,
+        7280
+      ]
+    ],
+    "actual_original_adamw_and_cosine250_constructed": true,
+    "all_engineering_train_val_test_windows_and_rng_equal_original": true,
+    "all_seeded_initial_weights_equal_original": true,
+    "all_three_actual_cpu_forward_tensors_equal_original": true,
+    "bundle_sha256": "3df94351f3595b96502ccefb3adf5cb30044105ac86483d1587b017e4e618e86",
+    "exact_repack_relocation_identity_and_strict_weight_reload": true,
+    "model_parameters": {
+      "large": 16342308,
+      "middle": 6638884,
+      "small": 3481636
+    },
+    "old_raw_and_direct_memmap_validation_unchanged": true
+  },
+  "scientific_complete": false,
+  "scope": "Original compact mini windows and separate exact native S/M/L CPU factory/weight-restore foundation; no optimizer update or GPU qualification",
+  "source_files_sha256": {
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/audit.py": "86cf0c74086f2581f430ee88d8725df10c3389379535ef9036e2d7a892b27cdd",
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+    "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+    "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/crops.py": "1aa0871d6ede77d93988d455d0930e1f42470c1a92a47cfc8e49252bbfc0695e",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/dataset_statistics.py": "e61c383d8d7ea48717e8dca56c5506f8ab3c2fb1396707d506f0e570e8ee2d11",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "egoemg_repro/emg2pose_archive_retry.py": "e574b8bd0725c69e9c6955ed06983768c42894ff184614bc5da1bc6d9b66c418",
+    "egoemg_repro/emg2pose_check.py": "7c633a98d7528ed0c4e414ebc56e65ba306b1655693489282da9f1dddab5b2cf",
+    "egoemg_repro/emg2pose_compact_archive.py": "4d78fb412a819244bdda104c78ab99154195641ddb688371566935922d1892f7",
+    "egoemg_repro/emg2pose_compact_codec.py": "c7eb616b54d38ff98dac0c460c2983736d8c9615003a69913081a2139a32fe30",
+    "egoemg_repro/emg2pose_compact_data.py": "b6f1880667b2f26dc21db59586ec82924ccde4a941731973041f4f78c708114a",
+    "egoemg_repro/emg2pose_compact_dataset.py": "7992a3134555ef4b044c0fe6e7ab2dc9f3d6cd869cedcd84848df8fd521d7cc2",
+    "egoemg_repro/emg2pose_compact_index.py": "d29f5f1e6ffec9571eddadefe0ac876633b8ce975a6d5d7596e05037f9deb036",
+    "egoemg_repro/emg2pose_compact_runtime.py": "a0793eaf7d2b04c03e19228f30acc133c2e436efa1c8daa701275f7d07181f35",
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_memory_archive.py": "a8d1aed29e2f89ae9e84e8ee16ca85299c2358b13f0b2c0ad53725e5c5230bd4",
+    "egoemg_repro/emg2pose_memory_data.py": "7d1a89c2554b84dbdf01752f66600a3816a86821ec9e807c3df399ddd4e9214f",
+    "egoemg_repro/emg2pose_memory_dataset.py": "eda423288e8450fbe987900dda60597d8d9072cb7e666d8502545f28ec1f35db",
+    "egoemg_repro/emg2pose_memory_evaluate.py": "54ec2a6deb3ce4aa4003bb766340c8baefb0c8cb9586fa0b9f91195742757ad9",
+    "egoemg_repro/emg2pose_memory_evaluation_data.py": "9be3a4e9e71d90f7e6a8ac374cfe17684a93d63521da4ff10cd4c1052b8dc4b3",
+    "egoemg_repro/emg2pose_memory_index.py": "31f8ac2dc50f2deee265307cca07fabd7527151956ced4cadd1a8ecc2212ba40",
+    "egoemg_repro/emg2pose_memory_prepare.py": "86e691d2148b86ba9cc11c33a7832d30b3cf7f91ee87c244e1c5c774ffd53bb5",
+    "egoemg_repro/emg2pose_memory_process.py": "de3f18048a0306234e46c4a3cb7af216948d94dcc084f233e4a732e1fdf347a4",
+    "egoemg_repro/emg2pose_memory_recovery.py": "eaa6dd2b9f37671e58c6a53690af1f9121682d6a8dfd49e63f6f3c1723610eeb",
+    "egoemg_repro/emg2pose_memory_report.py": "9f409a7276f83ffe08fb77f5cca29658e7e232fe618832fde7e0ab21423276ed",
+    "egoemg_repro/emg2pose_memory_runtime.py": "3a3df632ad9c3871e774a8874f711585305d70bce4b2efc36c31b678427790d1",
+    "egoemg_repro/emg2pose_memory_statistics.py": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "egoemg_repro/emg2pose_memory_train.py": "d91fad5a13c24848b749b3b09a36c8eb2d04a42436af6eb2fd5077cfbd1a492b",
+    "egoemg_repro/emg2pose_prefetch.py": "074d640394f46c13bda57c442733fa4a709db3ade632b07fba46ca3b65bbd753",
+    "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "egoemg_repro/report.py": "88b835885d3f78705874b8d1e5d428c741dd3ffc02a7b2ea440f50a678ca892f",
+    "egoemg_repro/semantic_centers.py": "c8be5798a2c27bf9303482fdefe3b9de9eea04cf250f385e17e8a21c808b0e15",
+    "egoemg_repro/semantic_coverage.py": "0cd84bfae0398f158c5b46423f280571126ce12fa84e830c7df805d4a9064e9e",
+    "egoemg_repro/semantic_tables.py": "fe0e0e3a87888bcca763bd28e8ea894328316c36d60b2b9e3e1616c7b272d1ea",
+    "egoemg_repro/train.py": "10696073b661823a9bf47ddda26b4c3b27324b00c9b62e3841a670409e872b6a",
+    "egoemg_repro/vision_literal.py": "738a4e81e6988f08d39768991b1192dd0295b9da870a63d89a7461a927adc5a0",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_cohort.py": "997cb2f7975f49b45b6313294b0dc3f20150f775bbfe65aa1c02857ace89b977",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_eval.py": "63553900476855dc0cf9ecc2f97f841e33225470488066de39af23465565c581",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7",
+    "egoemg_repro/visual.py": "b8c390c0291abd67ee58a6f46caddce38296f2013b9f19088c330792b3d76cdb"
+  },
+  "test_failure_history": [
+    "29 missing-module RED cases then27passed/2spawn capacity refusals; isolated test-only child capacity bootstrap, production reserve unchanged",
+    "Norm path basename collision and partial plain-pickle export leak:2actualRED; corrected normalization-byte binding and exported-right rollback",
+    "Cached window pressure:1actualRED; unchanged host resource observer now runs before cached window reuse",
+    "30 runtime missing-module RED cases before the separate source/config/factory implementation"
+  ],
+  "tests": {
+    "full_light": {
+      "actual_exit_code": 0,
+      "passed": 1235,
+      "seconds": 54.26,
+      "skipped": 698,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "passed": 288,
+      "seconds": 250.59,
+      "warnings": 42
+    },
+    "new_dataset_cases": 40,
+    "new_runtime_cases": 34,
+    "other_unchanged_storage_and_raw_runtime_regression_cases": 214,
+    "server": {
+      "actual_exit_code": 0,
+      "passed": 288,
+      "seconds": 337.61,
+      "warnings": 36
+    }
+  },
+  "training_performed": false
+}
