@@ -1,9 +1,11 @@
 {
   "format": "emg2pose_memory_hosted_ci_v1",
   "full_paper_complete": false,
+  "latest_verified_direct_evaluation_run": 40579880725,
+  "latest_verified_direct_fit_run": 40572463352,
   "latest_verified_direct_recovery_run": 40569652239,
   "latest_verified_direct_runtime_run": 40566699991,
-  "latest_verified_native_foundation_run": 40569652239,
+  "latest_verified_native_foundation_run": 40579880725,
   "latest_verified_source_pipeline_run": 40557682359,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
@@ -484,6 +486,58 @@
         }
       ],
       "run_id": 40569652239
+    },
+    {
+      "commit": "54625d301f86fecf47a3a3662f3bbbf5d1755cb1",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "decoded_log_file_sha256": "5a25a97e78d93650048411c1113da25d7ef58a7156051a30078cf3f092e33c3c",
+          "job_id": 122429998945,
+          "passed": 2354,
+          "pip_check": true,
+          "seconds": 2483.29,
+          "skipped": 3,
+          "warnings": 183
+        },
+        {
+          "conclusion": "success",
+          "decoded_log_file_sha256": "f9f00da93e3dace7a673cf532219bac08877f7c1508f0536d21e147068a8ff89",
+          "job_id": 122429999575,
+          "passed": 1370,
+          "seconds": 106.81,
+          "skipped": 714,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40572463352
+    },
+    {
+      "commit": "f41755bf519c9a3602590d3688bc6d93107568ed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "decoded_log_file_sha256": "f48faf8bcaeab4f6985589df2508d81fe6f8f6ef7dfe500d35106b1189627615",
+          "job_id": 122456099338,
+          "passed": 2412,
+          "pip_check": true,
+          "seconds": 2182.23,
+          "skipped": 3,
+          "warnings": 188
+        },
+        {
+          "conclusion": "success",
+          "decoded_log_file_sha256": "a264c41c41fc6945c4184af8e2c8ce3db31ee4ad1fdcafbc15c95fd22fc69913",
+          "job_id": 122456099697,
+          "passed": 1370,
+          "seconds": 117.43,
+          "skipped": 716,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40579880725
     }
   ],
   "scope": "Actual hosted terminal results through8b5c895 direct ordinary-file native recovery CPU entry;54625d3 fit qualification run remains observed in progress. New ordinary evaluation modules are supported by their own actual local/server/mini evidence, not these earlier frozen CI runs."

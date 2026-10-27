@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **普通原文件最终报告API通过真实GPU结果的只读工程复核：** [报告证据](../results/emg2pose-direct-final-report-engineering.json)为21新检查+原表格/fit回归，本机58/244.12秒、服务器58/295.62秒，各7warning且actual exit0；轻量1,355/732可选跳过。复用已完成5,009,750行源的S/M/L工程fit和两模式实际320+1 FP32预测，三份报告生成与三个新进程重开共6受管理CPU阶段/303.39秒actual exit0，12个worker/guardian及外层拥有者实际PID/start独立确认退出，原权重/日志/pass/侧文件不变。两种人口分开、原Table11/13与独立算术/匿名边界重核，工程无法升级full，未重复GPU工作。完整源/250轮/科学控制器及全文仍欠。
+
 - **普通原文件完整FP32批量与两模式已实测通过：** [容量证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)为S/M/L各新的两轮工程fit/32更新，官方字面与文件行对照各val/test原生及新进程完整复推，每pass321窗/实际320+1/12worker/FP32。显式合成三角色5,009,750行，经gzip4+shuffle无损HDF保存为299,345,920B，原接收/转换后全部字段另核对逐字节一致，未放宽647MB工程源上限。37个成功受管理阶段，另保留1个私有最后读取失败；原653.04秒链exit1，纠正仅该CPU读取后66.38秒exit0，无GPU重训/重测。76个实际worker/guardian及两组外层拥有者独立确认退出，权重/日志/源码不变。完整源/250轮/最终科学controller/report与全文仍欠，不能填Tables11/13。
 
 - **DINOv2 ViT-B完整实验及独立报告核验完成：** [完整结果与曲线](../results/original-vision/vit-base/README.md)记录94轮、52,828次实际更新、原patience30早停，验证选择零起算epoch63（第64轮）。全部/有图中心MAE为6.761261°/6.623680°，4,306唯一手样本（repeat2共8,612消费），原生test/新进程完整复算/报告/最后核验共16阶段actual exit0，外层及全部阶段进程独立确认退出；另在正确冻结环境重开核验通过，无CUDA。实际86,182,166参数与768维B骨干/真预训练来源已核验，checkpoint沿用S模板名称不改变模型身份。作者缺独立B YAML，明确记录为S配方派生、0.02有效损失/原360/bf16/单rank/workers0/旧队列；不是PDF或多seed架构优劣结论。L仍完整训练，全文仍未完成。
@@ -133,7 +135,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini526窗恢复及新fit入口受控GPU验收通过**；[入口证据](../results/emg2pose-direct-native-fit-engineering.json)保留原320/12/bf16/250cosine及原Sampler补齐，合成分角色两轮/32更新/六状态恢复和原生选best已核验。完整源、真正250轮训练及最终测试仍欠 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini恢复、普通源原批量fit/FP32两模式与报告工程核验通过**；[入口证据](../results/emg2pose-direct-native-fit-engineering.json)保留原320/12/bf16/250cosine及原Sampler补齐，合成分角色两轮/32更新/六状态恢复和原生选best已核验。完整源、真正250轮训练及最终测试仍欠 |
 | EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成mini原批量恢复和新fit入口工程验收**；合成角色没有benchmark或完整人口意义，正式250轮/最终评价仍未完成 |
 | EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成mini原批量恢复和新fit入口工程验收**；没有完整科研结果，不能用EgoEMG-L或工程数值填表 |
 
@@ -153,7 +155,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **RN18/RN50/RN152及DINO-S/B部分已核验**；S/B有实际源/真权重/参数与完整运行证据，L和WiLoR进展见模型表；其余配方/初始化未闭合；上表及[模型源码][resnet] | 每种实际 resolved 配置、256 输入/patch 策略、回归头、冻结状态、权重身份及参数量；PDF 超参和缺失独立 YAML 必须分栏 |
 | Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M/L细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
 | Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M/L中心结果已核验（legacy）**，E1/E2/E3及L独立结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
-| Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；完整mini源准备及三模型原batch320 GPU容量已通过，仍仅属工程检查 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
+| Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；普通源S/M/L原batch320 fit/FP32两模式与报告已工程核验，仍没有全源250轮成绩 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
 | Table 12，D.4 p.24 | EgoEMG S/M/L 的 10 个逐指/关节组派生误差 | **未生成**；E5 只有整体 fingers/wrist；[官方分组][constants]存在 | 累积逐角误差和/分母后生成重叠的 proximal/mid/distal、五指、腕 FE/RU 组，按主轨迹协议聚合；现有汇总不能逆推出这 10 组 |
 | Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **尚无正式结果，依赖 Table 11**；逐组/逐用户方法及三种权重的独立表格算术已实际核验，不替代完整数据/模型 | 三个完整模型与标准三 split 的逐角计数、同官方组映射及独立复算；无需为该表再训练三遍 |
 | Table 14，D.5 p.25 | RN18、S、RN18+S 在 59 类的 3 族群同中心比较 | **已有三个 checkpoint 与匹配人口，分析未实现**，E1/E2；[评价][gesture-eval]与[聚合][gesture-paper]源码存在 | 逐样本键、gesture/active/split/hand/crop/mask、三误差及 raw 排除记录；本项目 2,792 中心不能冒称原表 4,278 样本 |

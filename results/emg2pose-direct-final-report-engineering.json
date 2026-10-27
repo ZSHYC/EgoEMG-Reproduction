@@ -1,0 +1,165 @@
+{
+  "actual_exit_code": 0,
+  "actual_owned_stages": 6,
+  "actual_report_readback": {
+    "actual_batches": [
+      320,
+      1
+    ],
+    "actual_independent_cpu_reopens": 3,
+    "actual_report_cpu_exports": 3,
+    "actual_windows_per_val_or_test_pass": 321,
+    "all_native_and_independent_statistics_and_anonymous_tables_match": true,
+    "configured_evaluation_workers": 12,
+    "existing_gpu_fit_selected_best_and_prediction_artifacts_reused": true,
+    "model_sizes": [
+      "small",
+      "middle",
+      "large"
+    ],
+    "mutable_public_claims_cannot_upgrade_engineering_to_full": true,
+    "no_gpu_training_or_prediction_repeated": true,
+    "original_evaluation_precision": "FP32",
+    "selections": [
+      "official_literal",
+      "metadata_indices"
+    ]
+  },
+  "actual_server_result_sha256": "26c2ff98e996ce0b82f008044d72142c48b22cb928f19a883adf3681a626369d",
+  "all12worker_guardian_identities_independently_gone": true,
+  "all_frozen_producers_unchanged": true,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "454ac9cc5e6ff80f91ea3e77337d2e28d80c71cf4fd86eafbd99985e0ac57793",
+      "optional_skips": 732,
+      "passed": 1355,
+      "scope": "Optional native report module skipped in lightweight environment",
+      "seconds": 81.09,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "9722ef4296e542567ba04a3ecaa28575da7847e18afd6f7f2cb501cf2b453982",
+      "passed": 58,
+      "seconds": 244.12,
+      "warnings": 7
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "log_sha256": "2c2ce6f04b5f26975e30de5594640d43cd157053bebd441cc90853bedb15265b",
+      "passed": 58,
+      "seconds": 295.62,
+      "source_bundle_sha256": "c3e40578f7978d28babcdd1d5f844acc7c1d3f2ecd1f4e6608e299cb0cf29750",
+      "warnings": 7
+    }
+  },
+  "format": "emg2pose_direct_final_report_engineering_v1",
+  "full_paper_complete": false,
+  "full_positive_experiment_verified": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "Actual ordinary-file report generation and independent reopening on synthetic engineering data, not benchmark accuracy or full250epoch results.",
+    "Full report admission requires real25253source and17136/1950/6167role counts,250complete native epochs, both declared evaluation populations, full profiles and all three test conditions.",
+    "Publish only sanitized metrics.json, metrics.md and completion.json; evidence.json retains private input paths and must not be published.",
+    "Anonymous user keys are scoped within each selection mode; condition consumptions may overlap and do not represent independent samples.",
+    "The full-source scientific controller, three full experiments and the remaining EgoEMG paper requirements remain open."
+  ],
+  "observed_utc": "2026-10-27T21:23:30.825607+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "original_capacity_consumers_remain_gone": true,
+  "original_capacity_fits_best_last_journals_and_pass_sidecars_unchanged": true,
+  "outer_recorder_and_controller_independently_gone": true,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_direct_evaluate.py": "12c83fc36584455fc0dff9b410b75f6547ef10f3d70a25317b7b3c080dd2c144",
+    "egoemg_repro/emg2pose_direct_report.py": "0926c93d23359b626c5b31bbdeb2d0d4d8ea202c308524c0b1829a5085e5f0a9",
+    "egoemg_repro/emg2pose_direct_source.py": "555a2b80c93b9ef4838ce544bbca3be833d038d6772984c3c798bc548d814bae",
+    "egoemg_repro/emg2pose_direct_train.py": "864cc36efe1bedf13cfc56ddeeb6872acd0c7ac57897975b5bb35a9f6c3c9b93",
+    "egoemg_repro/emg2pose_memory_report.py": "9f409a7276f83ffe08fb77f5cca29658e7e232fe618832fde7e0ab21423276ed",
+    "tests/test_emg2pose_direct_report.py": "ab3a516a6bd2800f02ec567389fd54e8cfdd459109250db93bd97148939707c5",
+    "tests/test_emg2pose_direct_train.py": "2d48dfddaa24fadbb24ac94209c1d2fcfd46eb03383cc707ddc7c89e13357b43",
+    "tests/test_emg2pose_memory_report.py": "4f3a5e611f500feba131aeaa6da939927846ba1a90ae96d466281264a49945ad"
+  },
+  "raw_actual_evidence_sha256": "b2f78d06c6c7e22f417ccad052e1db137d04071bb476741d260efc67f79b8a05",
+  "reports": [
+    {
+      "actual_full_from_engineering_refusal": true,
+      "actual_test_windows_by_selection": {
+        "metadata_indices": {
+          "user_stage": 321
+        },
+        "official_literal": {
+          "user_stage": 321
+        }
+      },
+      "native_table11_and_all8_table13_groups_read": true,
+      "private_evidence_sha256": "5a45f859c079ae79a03d84a628209474062df01b6902edaefd2a90cf531c01b0",
+      "public_report_files_sha256": {
+        "completion.json": "62681d69d831cf0e9261e767f23c3f996e1f0a84b376a5ac58344a32ff143807",
+        "metrics.json": "8c1ec97a36611cd4231056eb5e5a316f022033bd3ed00f89e89721fa2877354a",
+        "metrics.md": "c65eda40f2b042a8d86cd7ec76f38de7cb89e933a51fe02bf7f8c8de23dfc291"
+      },
+      "scientific_complete": false,
+      "scope": "cuda_engineering",
+      "size": "small",
+      "source_pipeline_completion_sha256": "d298180ad2fb8cc09b3f356f7278522b4e4ead1bd0cfc7a3b566445ea209566b"
+    },
+    {
+      "actual_full_from_engineering_refusal": true,
+      "actual_test_windows_by_selection": {
+        "metadata_indices": {
+          "user_stage": 321
+        },
+        "official_literal": {
+          "user_stage": 321
+        }
+      },
+      "native_table11_and_all8_table13_groups_read": true,
+      "private_evidence_sha256": "471b657ece030a94bf2e4bba2509fcc09ec259051b551ae88c7b6c1e5df7551a",
+      "public_report_files_sha256": {
+        "completion.json": "c7767cc956dfebe1a2023d403ac17b42427d60bc5b85a716e95313eb10bac6ef",
+        "metrics.json": "e32aaa155346978a0e4598477944ad218b9da73a2993aa118ced410b41e5f1b3",
+        "metrics.md": "259ff90c467f20e461d79b4208b8e779f4345ccde43e316a4c0e81d21fe13313"
+      },
+      "scientific_complete": false,
+      "scope": "cuda_engineering",
+      "size": "middle",
+      "source_pipeline_completion_sha256": "d298180ad2fb8cc09b3f356f7278522b4e4ead1bd0cfc7a3b566445ea209566b"
+    },
+    {
+      "actual_full_from_engineering_refusal": true,
+      "actual_test_windows_by_selection": {
+        "metadata_indices": {
+          "user_stage": 321
+        },
+        "official_literal": {
+          "user_stage": 321
+        }
+      },
+      "native_table11_and_all8_table13_groups_read": true,
+      "private_evidence_sha256": "a663cd86d1aeabe746300eaac75bd376a48ad3d41dc97b3817de64e4b0f5da1f",
+      "public_report_files_sha256": {
+        "completion.json": "cc6218abf2c65ec60d9f27b2476fa8c9e9a28e8c39d73c9b1d0fae3d513ee390",
+        "metrics.json": "66fdc1128861d7059a6e1823b9ca55065650bc8797835d79b03563e48bc7c6a0",
+        "metrics.md": "76b387278471a6655a21c61425a1a79d95afc569aff863fb8733e468a15b71ed"
+      },
+      "scientific_complete": false,
+      "scope": "cuda_engineering",
+      "size": "large",
+      "source_pipeline_completion_sha256": "d298180ad2fb8cc09b3f356f7278522b4e4ead1bd0cfc7a3b566445ea209566b"
+    }
+  ],
+  "scientific_complete": false,
+  "seconds": 303.3883398962207,
+  "source": {
+    "benchmark_data": false,
+    "distinct_recording_ids": true,
+    "explicitly_synthetic": true,
+    "files": 3,
+    "independent_file_roles": true,
+    "rows": 5009750
+  },
+  "source_bundle_sha256": "1561fb2cde2446805e3597e544cf413d1825c2a71ea7dfa065e13a1028bcfdce"
+}

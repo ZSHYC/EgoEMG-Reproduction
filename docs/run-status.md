@@ -1,5 +1,16 @@
 # 运行状态
 
+## 2026-10-28：普通原文件最终报告工程复核通过，完整实验控制器仍欠
+
+[最终报告实际证据](../results/emg2pose-direct-final-report-engineering.json)对应新`emg2pose_direct_report`。21项新检查和原表格/fit回归，本机58/244.12秒、服务器58/295.62秒，各7warning且actual exit0；轻量1,355/732可选跳过/1warning81.09秒。报告要求实际普通源、冻结fit、验证min best、真正最后fit进程与四个val/test native/replay进程的退出证明、原生完整人口、测试前profile和完整独立复算，两种选择分栏。full要求25,253源/原角色数量、250完整轮次和完整三条件；工程报告明确false，不以小数据代替。Table11逐用户无权mean/总体SD、Table13条件窗口加权与有效角度pooled分开，私有路径只进evidence.json，公开仅三个脱敏文件。
+
+真实复用此前5M行源的S/M/L工程GPU结果，没有重训或重测：三份CPU报告生成、三个新进程重开共6受管理阶段303.39秒actual exit0（2026-10-27T21:23:15.381162UTC结束）。全部12个worker/guardian和两位外层拥有者实际PID/start独立确认退出，原GPU fit、best/last、epoch日志、所有24个pass及侧文件保持原SHA；工程升级full的实际拒绝保留。私有收集器最初使用系统Python3.10缺少file_digest而失败，只改为同等有界SHA循环后重读成功，未重跑报告或GPU。
+
+还核对了真正托管终态和完整日志：54625d3的CPU2,354/3CUDA跳过、轻量1,370/714；f41755b的CPU2,412/3、轻量1,370/716，均成功且pip check通过，见[托管证据](../results/emg2pose-memory-hosted-ci.json)。这些只覆盖各冻结提交；新报告模块以本机/服务器及六实际阶段为证，新完整托管尚未观察。
+
+最新21:23UTC：原全量下载四个PID/start匹配活动，265,232,564,224/462,824,048,640B约57.3%，尚无完整源receipt；L45完整验证epoch、原控制器/训练子进程活动；S124/B94已完成，不重复运行。全量科学控制器、真正三个250轮及全部其余论文内容仍欠。
+
+
 ## 2026-10-28：普通原文件S/M/L原320+1批量FP32与两模式通过
 
 [实际容量证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)来自明确合成的三文件独立录制/角色源，共5,009,750行；无损gzip4+shuffle HDF压缩为299,345,920B，维持647,198,208B工程输入上限。真实aria2 loopback接收、原文件保存/冗余TAR回收/未修改转换与准入后，三个原连续字段及valid_mask另行独立全量核对，所有生成HDF字段与普通memmap逐字节相同。S/M/L各两完整工程轮次/32实际更新，原320/12/bf16和验证min选best不变；两种选择各自val/native-replay/profile/test/native-replay，实际每pass321窗、批量320+1、12worker、FP32。typed预测及原生/独立统计精确复推，峰reserved约2.430/2.441/2.469GiB；没有benchmark精度。

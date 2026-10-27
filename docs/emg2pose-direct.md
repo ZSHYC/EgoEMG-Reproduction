@@ -65,3 +65,13 @@ GPU工程源仍是明确的三文件/25,710行合成三角色、重复录制ID�
 [实际证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)为显式合成三角色/独立录制5,009,750行，原格式HDF仅使用无损gzip4+shuffle，实际TAR299,345,920B，不放宽647MB工程源上限。原接收/原保存和转换/原生准入均真实执行；另独立全量核对生成HDF与普通字段的time、joint_angles、emg及5,009,750个有效mask，全部一致。S/M/L各新的两轮原生工程fit/32更新与验证min best，两个选择模式的val/test native及新进程复算、测试前profile均完成；每pass321窗、实际320+1、12worker、FP32，预测和充分统计精确复推。
 
 原GPU链完成后私有最后读取误用恢复专用资格API，653.04秒实际exit1保留；仅纠正最后CPU读取，66.38秒actual exit0，未重复训练或预测、未改原模型/算法/容差。37个成功阶段另有1失败读取，76个worker/guardian及两组外层拥有者实际PID/start确认退出，代码/权重/epoch日志不变。原恢复资格继续使用已完成的独立恢复运行。本工程结果没有完整25253源/250轮或科学成绩；最终科学controller/report与全量实验仍须完成。
+
+## 最终报告接口与发布范围
+
+`emg2pose_direct_report.export_report`接收实际借用的普通源、单一模型的冻结fit结果SHA、最后fit进程拥有者，以及`official_literal`与`metadata_indices`两套val/test native/replay及其拥有者目录。它重开验证最小值best/last/epoch日志、实际原人口与预先冻结profile，并核对所有实际worker/guardian退出；不更换官方人口、模型或指标。`read_report`从私有输入证据重新准入源与全部结果，重算公开字段，不能靠重签一个JSON把工程实验升级为完整科学实验。
+
+full要求真正25,253来源和原train/val/test角色数量、250完整轮次、两模式完整三条件和full profile。工程报告可以显式保留部分条件，始终`scientific_complete=False`。Table11采用逐用户无权均值/总体SD，Table13采用条件窗口数加权；有效角度pooled另列。匿名用户编号只在单一选择模式内对齐，不作为跨模式身份映射。
+
+公开只选择`metrics.json`、`metrics.md`和`completion.json`；`evidence.json`保留私有源/检查点/拥有者路径供独立重开，不能随整个目录公开。完整控制器与真实full/250轮仍是后续验收范围。
+
+报告API现已通过[本机/服务器58项与真实复核](../results/emg2pose-direct-final-report-engineering.json)：S/M/L各实际工程GPU fit与两模式320+1 FP32结果，三份报告生成和新进程重开共6个受管理CPU阶段303.39秒actual exit0，所有消费者/外层拥有者独立确认退出，未重复训练或推理。原输入权重/日志/pass保持SHA。此项资格只覆盖工程报告流程，完整科学控制器和真正全源250轮仍欠。
