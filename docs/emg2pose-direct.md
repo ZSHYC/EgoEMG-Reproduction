@@ -45,3 +45,17 @@ full仍要求真正完整25,253源、train17,136/val1,950/test6,167、462,824,04
 每模型第1轮暂停后，新进程在原完整epoch边界精确恢复六状态并完成第2轮。真正的验证min选best、终态last、冻结history前缀与全部epoch日志由另外CPU只读阶段重开核验，实际profile/原生循环源码摘要保存。独立收集再次核对所有检查点与源码SHA、18个worker/guardian和外层两个拥有者PID/start已退出。全过程普通原文件、无archive fd/封印、无资源观测注入，父进程无Torch/CUDA；CPU“GPU运行中”为历史快照，现由此更新。
 
 该fit入口现在具备自己的实际GPU完整epoch资格；旧内存资格没有转授。full依然需要真正全部25,253来源与原250轮预算；这里只完成工程两轮，没有新模型精度、完整源、FP32最终评价/容量或科学controller/report资格。下一步是普通原文件上验证选择best的FP32评价、官方字面与角色隔离对照、完整科学报告链，并在全量源真正完成后进行三个完整实验。
+
+## 原始普通文件评价数据：全选窗实测完成
+
+[实际数据准入证据](../results/emg2pose-direct-evaluation-data-engineering.json)包含36新检查+原数据准入/运行时回归：本机104/178.46秒、服务器104/247.36秒，各8warning且actual exit0；完整轻量1,355/730可选跳过/1warning77.52秒actual exit0。新`emg2pose_direct_evaluation_data`保留官方`Emg2PoseDataset`精确类型及原group/frame/loader算法，在私有绑定中关闭原NPZ临时句柄；普通字段路径/dtype/shape和已打开的只读map绑定到实际源，不使用TAR fd/封印/新dataset子类。metadata准入不构造模型或读取信号窗口，真正的窗口比较另在准入后执行。
+
+真实完整mini实跑28.30秒actual exit0，两份独立获取/转换的原始字段深度核对一致，全部690次选窗输入/目标/mask/元数据typed摘要精确相同：官方字面选择user/user_stage各230窗、30文件行交集；显式文件行隔离为167/63窗、交集0。所有原map及source关闭，RNG不变；worker/guardian与两个外层拥有者实际PID/start独立确认退出。第一次私有探针先导入原dataset却未激活上游路径，实际exit1及全部退出记录保留；只修复探针激活顺序后另起冻结成功运行，生产算法未改。以上是数据资格，模型推理另行核验。
+
+## 验证选择best的原生FP32评价与独立复算：工程检查完成
+
+[CPU入口证据](../results/emg2pose-direct-selected-evaluation-cpu-engineering.json)记录22新检查+旧评价/新数据/独立算术回归，本机107/432.13秒、服务器107/564.64秒，各11warning；完整轻量1,355/731可选跳过/1warning80.47秒均actual exit0。[实际GPU证据](../results/emg2pose-direct-selected-evaluation-engineering.json)为17个受管理阶段/286.11秒actual exit0。复用之前真正训练并按验证min选出的普通源S/M/L工程best，分别完成原生val、新进程完整预测复推、测试前profile冻结、原生test及新进程test复推、最后独立CPU重开。所有typed输入/输出和统计量完全复推，原按用户float32与独立float64误差和/有效分母一致，原20角/左510/mask位对齐不改，模型参数及fit的best/last/日志保持原SHA。34个worker/guardian及外层两个拥有者实际PID/start另核对退出。
+
+新`emg2pose_direct_evaluate`使用独立pass/profile格式和普通源pipeline完成SHA+完整数据身份SHA；每次重读独立核对source-file绑定，拒绝旧kernel identity。实际owned证明要求匹配真实worker、空descriptor map和已退出的worker/guardian；源检查贯穿实际原生评价。原读者/journal/pair/profile/算术算法私有精确复用，原模块全局和固定数值容差不改。
+
+GPU工程源仍是明确的三文件/25,710行合成三角色、重复录制ID队列，仅预先声明的`metadata_indices`对照可用于独立val，官方字面混角色val已实际拒绝。各pass实际1窗口，虽配置320/12worker/FP32，**尚未取得真实batch320或320+1资格**。CPU独立录制夹具覆盖两种选择。完整321窗/两模式/12worker FP32容量需要自己的较大独立录制源与新fit，不能转用旧内存后端资格；完整源/250轮/科学控制器报告和全文仍欠。

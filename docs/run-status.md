@@ -1,6 +1,17 @@
 # 运行状态
 
 
+## 2026-10-28：普通原文件评价数据和三模型selected-best FP32工程复推完成
+
+[数据准入实际证据](../results/emg2pose-direct-evaluation-data-engineering.json)为104本机/178.46秒、104服务器/247.36秒，各8warning；完整轻量1,355/730/1warning77.52秒actual exit0。真实完整mini28.30秒实跑、690次选窗与另一份独立原转换参考typed值精确相同，字面230+230窗口/30文件行交集与文件行对照167+63/0交集分列；RNG不变、全部原map/source关闭、真实拥有者及消费者退出。首次私有探针未激活上游路径，实际exit1记录保留；只修复私有探针后另起冻结成功运行，生产算法未改。
+
+[原生FP32评价实际证据](../results/emg2pose-direct-selected-evaluation-engineering.json)为107本机/432.13秒、107服务器/564.64秒，各11warning；完整轻量1,355/731/1warning80.47秒actual exit0。17受管理阶段286.11秒实际exit0，2026-10-27T20:25:03.039582UTC结束，所有34个worker/guardian和两个外层拥有者实际PID/start另核对退出。S/M/L原验证min选出的工程best完成val/新进程精确复推/测试前profile/test/新进程test复推和最后独立CPU重开，typed输入/输出/统计量相同，原按用户float32与独立float64充分统计一致；fit的权重、last、best和epoch日志保持原SHA。
+
+普通源有自己的新pass/profile/source-file绑定，不伪装archive fd；旧算法/全局/容差不改。明确合成三角色、重复录制ID源仅资格化预先声明的文件行对照；官方字面混角色val已实际拒绝。各pass实际1窗口，配置320/12/FP32仍不是实际320或320+1容量。下一步较大独立录制321窗口源/原生fit/两模式实际FP32容量，再普通源完整科学controller/report及真正全源250轮；全文仍未完成。
+
+另已读取739f320与8b5c895两个完整托管终态及原始日志：CPU分别2,317/3CUDA跳过与2,332/3，轻量1,370/712与1,370/713，均实际成功、pip check通过；见[托管证据](../results/emg2pose-memory-hosted-ci.json)。它们只覆盖其冻结源码，54625d3及当前评价新增代码不借用这两个托管成功。
+
+
 ## 2026-10-28：普通原文件独立角色GPU fit/选best工程检查完成
 
 [实际完整证据](../results/emg2pose-direct-native-fit-engineering.json)为9受管理阶段/213.35秒actual exit0，原19:40:24启动、19:43:58.486292UTC完成。明确合成3文件/25,710行独立train/val/test原格式源经真正aria2 loopback获取、原准备/转换/普通源准入；S/M/L各原320/12/bf16两完整工程epoch/32真实更新，原Sampler每轮5120消费与1/2唯一锚点分列。原AdamW/cosine250/clip1/top3+last/noearlystop、完整epoch六状态新进程恢复和验证min选best保留；另外CPU阶段独立重开last/best/history/日志和三份实际CUDA资格。

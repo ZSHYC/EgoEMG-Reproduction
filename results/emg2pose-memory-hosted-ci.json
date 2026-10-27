@@ -1,7 +1,9 @@
 {
   "format": "emg2pose_memory_hosted_ci_v1",
   "full_paper_complete": false,
-  "latest_verified_native_foundation_run": 40535564494,
+  "latest_verified_direct_recovery_run": 40569652239,
+  "latest_verified_direct_runtime_run": 40566699991,
+  "latest_verified_native_foundation_run": 40569652239,
   "latest_verified_source_pipeline_run": 40557682359,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
@@ -434,7 +436,55 @@
         }
       ],
       "run_id": 40557682359
+    },
+    {
+      "commit": "739f32010bab40de0f6c259fc8a4c283833caa47",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122409772445,
+          "passed": 2317,
+          "pip_check": true,
+          "seconds": 1961.72,
+          "skipped": 3,
+          "warnings": 165
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122409771942,
+          "passed": 1370,
+          "seconds": 123.57,
+          "skipped": 712,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40566699991
+    },
+    {
+      "commit": "8b5c8952194f49f704e237dda78f22459fe938f1",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122420162342,
+          "passed": 2332,
+          "pip_check": true,
+          "seconds": 2473.37,
+          "skipped": 3,
+          "warnings": 177
+        },
+        {
+          "conclusion": "success",
+          "job_id": 122420162986,
+          "passed": 1370,
+          "seconds": 116.19,
+          "skipped": 713,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40569652239
     }
   ],
-  "scope": "Actual hosted terminal results through frozen d9d9e9b original full-source pipeline composition; later direct-native runtime and scientific publication run739f320 remains observed in progress, and current direct recovery is not covered by these frozen runs"
+  "scope": "Actual hosted terminal results through8b5c895 direct ordinary-file native recovery CPU entry;54625d3 fit qualification run remains observed in progress. New ordinary evaluation modules are supported by their own actual local/server/mini evidence, not these earlier frozen CI runs."
 }

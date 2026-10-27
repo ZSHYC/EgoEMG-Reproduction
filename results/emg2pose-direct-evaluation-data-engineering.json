@@ -1,0 +1,216 @@
+{
+  "actual_exit_code": 0,
+  "actual_mini": {
+    "actual_original_dataset_class_without_subclass": true,
+    "actual_source_closed": true,
+    "all_owned_original_maps_closed": true,
+    "all_selected_window_inputs_targets_masks_metadata_exact_independent_original_reference": true,
+    "independent_original_field_identities_deep_verified_equal": true,
+    "metadata_admission_has_no_model_or_signal_window_reads": true,
+    "modes": {
+      "metadata_indices": {
+        "all_selected_window_consumptions": 230,
+        "by_condition": {
+          "user": {
+            "extra_rows": 0,
+            "omitted_rows": 0,
+            "requested_rows": 22,
+            "requested_selection_exact": true,
+            "selected_by_condition": {
+              "user": 22
+            },
+            "selected_by_role": {
+              "val": 22
+            },
+            "selected_rows": 22,
+            "window_plan_sha256": "ec0b8d1cb3bba949044e7626a87f0fa2113dcb61f7eb532241d251921b618f50",
+            "windows": 167
+          },
+          "user_stage": {
+            "extra_rows": 0,
+            "omitted_rows": 0,
+            "requested_rows": 8,
+            "requested_selection_exact": true,
+            "selected_by_condition": {
+              "user_stage": 8
+            },
+            "selected_by_role": {
+              "val": 8
+            },
+            "selected_rows": 8,
+            "window_plan_sha256": "4f438072192a4ad4269897ba3f0a6bdec2874d0f5764d5aa96426cca766b2b14",
+            "windows": 63
+          }
+        },
+        "inference_performed": false,
+        "metadata_admission_before_signal_reads": true,
+        "no_model_constructed": true,
+        "pairwise_file_row_overlap": {
+          "user|user_stage": 0
+        },
+        "stream_proof": {
+          "user": {
+            "independent_original_reference_sha256": "c6cc0e87acedc55356a1cde466460adf0f43aa36311ec6f5824adc33ab7ea70a",
+            "stream_sha256": "c6cc0e87acedc55356a1cde466460adf0f43aa36311ec6f5824adc33ab7ea70a",
+            "windows": 167
+          },
+          "user_stage": {
+            "independent_original_reference_sha256": "f10174a84d5ab843580c148ec9acfad8f839ed358ce560512465ffaf1502b29b",
+            "stream_sha256": "f10174a84d5ab843580c148ec9acfad8f839ed358ce560512465ffaf1502b29b",
+            "windows": 63
+          }
+        },
+        "windows_by_condition": {
+          "user": 167,
+          "user_stage": 63
+        }
+      },
+      "official_literal": {
+        "all_selected_window_consumptions": 460,
+        "by_condition": {
+          "user": {
+            "extra_rows": 8,
+            "omitted_rows": 0,
+            "requested_rows": 22,
+            "requested_selection_exact": false,
+            "selected_by_condition": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "selected_by_role": {
+              "val": 30
+            },
+            "selected_rows": 30,
+            "window_plan_sha256": "b9cf0f6784c9c8768257bf7f3f1c9cfb47fbec21aeaf8a647c41e9adef8d6778",
+            "windows": 230
+          },
+          "user_stage": {
+            "extra_rows": 22,
+            "omitted_rows": 0,
+            "requested_rows": 8,
+            "requested_selection_exact": false,
+            "selected_by_condition": {
+              "user": 22,
+              "user_stage": 8
+            },
+            "selected_by_role": {
+              "val": 30
+            },
+            "selected_rows": 30,
+            "window_plan_sha256": "b9cf0f6784c9c8768257bf7f3f1c9cfb47fbec21aeaf8a647c41e9adef8d6778",
+            "windows": 230
+          }
+        },
+        "inference_performed": false,
+        "metadata_admission_before_signal_reads": true,
+        "no_model_constructed": true,
+        "pairwise_file_row_overlap": {
+          "user|user_stage": 30
+        },
+        "stream_proof": {
+          "user": {
+            "independent_original_reference_sha256": "29dd1a36ad8b914993fd550a15a454095a70f922c5224eee236a394798f5d9c2",
+            "stream_sha256": "29dd1a36ad8b914993fd550a15a454095a70f922c5224eee236a394798f5d9c2",
+            "windows": 230
+          },
+          "user_stage": {
+            "independent_original_reference_sha256": "29dd1a36ad8b914993fd550a15a454095a70f922c5224eee236a394798f5d9c2",
+            "stream_sha256": "29dd1a36ad8b914993fd550a15a454095a70f922c5224eee236a394798f5d9c2",
+            "windows": 230
+          }
+        },
+        "windows_by_condition": {
+          "user": 230,
+          "user_stage": 230
+        }
+      }
+    },
+    "original_files": 30,
+    "rows": 4218756,
+    "subsequent_explicit_window_equivalence_executed": true,
+    "torch_rng_unchanged": true,
+    "total_selected_window_consumptions": 690
+  },
+  "all_owned_consumers_and_outer_owners_independently_gone": true,
+  "archive_descriptor_or_seal_used": false,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "5d54d776e6c30388ca17062356bc1d8e064267e12bfe15916a7d6de288fda573",
+      "passed": 1355,
+      "seconds": 77.52,
+      "skipped": 730,
+      "warnings": 1
+    },
+    "local-all": {
+      "actual_exit_code": 0,
+      "log_sha256": "689aca6c83e7d5706124d2caad5d5db3aefdfe22f421dcc71a1b1e76192063d0",
+      "passed": 104,
+      "seconds": 178.46,
+      "skipped": 0,
+      "warnings": 8
+    },
+    "server-all": {
+      "actual_exit_code": 0,
+      "log_sha256": "8d5a64f503db75595d7892ea3d14d1c929c83cd42ab8668bf8cb18f37c5ccbe0",
+      "passed": 104,
+      "seconds": 247.36,
+      "skipped": 0,
+      "warnings": 8
+    }
+  },
+  "first_green": {
+    "cause": "new test still expected old source class name; actual rejection was correct",
+    "failed": 1,
+    "passed": 35,
+    "production_changed": false,
+    "seconds": 49.4
+  },
+  "format": "emg2pose_direct_evaluation_data_mini_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "Admission itself reads metadata only; the subsequent explicit690window comparison reads signal fields and is not model inference.",
+    "Official literal mini condition groups share30file rows and230windows; row-isolated control selects167+63windows with zero overlap. These are separately declared populations.",
+    "Original validation containing non-val file roles is refused before dataset construction; tiny/engineering data cannot satisfy full25253source admission.",
+    "Original model selected-best FP32 inference, actual320+1capacity, pretest calibration/profile, fullsource250epochs and scientific report remain separate qualifications.",
+    "This report does not transfer old sealed-source admission or GPU qualifications to ordinary files."
+  ],
+  "new_cases": 36,
+  "no_inference": true,
+  "no_model_constructed": true,
+  "observed_utc": "2026-10-27T20:11:34.198891+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "old_native_globals_unchanged": true,
+  "ordinary_field_specs_and_readonly_lazy_views_bound": true,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "prior_failed_probe": {
+    "actual_exit_code": 1,
+    "all_owning_processes_and_consumers_actually_gone": true,
+    "bundle_sha256": "e28839fe2dcc4b2aa298e83db9bbdeb9b910a95725acf996c0c46a6e5e3b6fe9",
+    "cause": "private probe imported original dataset before activating pinned upstream",
+    "failure_retained": true,
+    "production_changed": false,
+    "repair": "activate pinned upstream in private probe before dataset import"
+  },
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_direct_evaluation_data.py": "e0313a33a06cea042ad80e20f093341bdbeb3b3d58f66e9f8b6c63e7a912c395",
+    "egoemg_repro/emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "egoemg_repro/emg2pose_direct_source.py": "555a2b80c93b9ef4838ce544bbca3be833d038d6772984c3c798bc548d814bae",
+    "egoemg_repro/emg2pose_memory_evaluation_data.py": "9be3a4e9e71d90f7e6a8ac374cfe17684a93d63521da4ff10cd4c1052b8dc4b3",
+    "tests/test_emg2pose_direct_evaluation_data.py": "216385c27636b245814c1a93532b7f657263a77bf075131207d71aec41962584"
+  },
+  "raw_actual_sha256": "f8a2b88c5e829250143602be7045ddfb2ad0c933323d917957edb8e394b8c6a1",
+  "red": {
+    "actual_exit_code": 1,
+    "cause": "new data-admission module absent",
+    "failed": 36,
+    "log_sha256": "acfaa350c0cdaa1daacac23fc5dfa153692038a89e9d3b7133b1df8c4c961f65",
+    "seconds": 6.95
+  },
+  "runtime_capacity_observer_injected": false,
+  "scientific_complete": false,
+  "seconds": 28.29519993579015,
+  "server_result_sha256": "8297e55fad3bb69d0459b723254d23076a6dd77a07dd010681ded3686ac98e18",
+  "source_bundle_sha256": "dae7c0d27c4ba911bd8d146c1011a9365045ee778380d0dea2c9b28b712d2fa7"
+}

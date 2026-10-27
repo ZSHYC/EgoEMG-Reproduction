@@ -1,0 +1,96 @@
+{
+  "actual_cpu_fixture": {
+    "actual_empty_right_owned_cli_phase_and_nonempty_right_refusal": true,
+    "actual_new_process_native_and_replay": true,
+    "actual_samples_per_validation_or_test_pass": 1,
+    "actual_selected_best_unchanged": true,
+    "fit_actual_optimizer_updates": 32,
+    "fit_complete_engineering_epochs": 2,
+    "full_inference_or_scientific_qualification": false,
+    "original_native_single_pass_and_shared_independent_statistics": true,
+    "selections": [
+      "official_literal",
+      "metadata_indices"
+    ],
+    "source": "three synthetic original-format independent-role and distinct-recording HDF5 files through original ordinary conversion and direct native fit",
+    "source_file_binding_independently_checked": true,
+    "typed_inputs_outputs_statistics_exact_replay": true,
+    "validation_profile_frozen_before_test": true
+  },
+  "actual_gpu_check": {
+    "actual_batch320_capacity_qualified": false,
+    "actual_samples_per_pass": 1,
+    "bundle_sha256": "aeb24ba446f2efec7bbc8ec066579f7c2c01dd1063a1000253381bcff812b975",
+    "configured_batch_size": 320,
+    "configured_workers": 12,
+    "initial_actual_owner_pid_start_live": true,
+    "started_utc": "2026-10-27T20:20:16.513431+00:00",
+    "status": "launched; not yet claimed qualified"
+  },
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "a5db925cfac11b68bf5b3905606e764fb60493c26c6238ca9806d225a5a38257",
+      "passed": 1355,
+      "seconds": 80.47,
+      "skipped": 731,
+      "warnings": 1
+    },
+    "local-all": {
+      "actual_exit_code": 0,
+      "log_sha256": "ce96316e8abf6262d42e4e263a33a7d382ca5a4b54125a18c99f4fcb0d1102c1",
+      "passed": 107,
+      "seconds": 432.13,
+      "skipped": 0,
+      "warnings": 11
+    },
+    "server-all": {
+      "actual_exit_code": 0,
+      "log_sha256": "1f8f7264fff329450a78a9e4eea3bb7b73aaf38149582795bf66cf3c9e1556f3",
+      "passed": 107,
+      "seconds": 564.64,
+      "skipped": 0,
+      "warnings": 11
+    }
+  },
+  "format": "emg2pose_direct_selected_best_evaluation_cpu_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "initial_new_green": {
+    "passed": 22,
+    "seconds": 94.2,
+    "warnings": 6
+  },
+  "limitations": [
+    "CPU fixture checks use one validation/test window and do not establish a complete benchmark, actual GPU320batch capacity, full source or250epochs.",
+    "Official literal and explicit metadata-row selection are separately declared; validation leaking non-val roles is refused before any dataset or model inference.",
+    "Actual GPU engineering reuses existing qualified direct-fit selected-best weights in the row-isolated valid mode, and does not silently repair literal mixed-role validation.",
+    "Original320+1 FP32 capacity with12workers and both modes still needs its own larger distinct-recording engineering source and actual direct native fits.",
+    "Pass/profile completion is not full experiment completion; complete full-source training, final scientific controller/report and whole-paper review remain required."
+  ],
+  "new_cases": 22,
+  "observed_utc": "2026-10-27T20:26:16.163698+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "old_globals_unchanged": true,
+  "original_reader_journal_pair_profile_arithmetic_algorithms_private_code_objects": true,
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_direct_evaluate.py": "12c83fc36584455fc0dff9b410b75f6547ef10f3d70a25317b7b3c080dd2c144",
+    "egoemg_repro/emg2pose_direct_evaluation_data.py": "e0313a33a06cea042ad80e20f093341bdbeb3b3d58f66e9f8b6c63e7a912c395",
+    "egoemg_repro/emg2pose_direct_train.py": "864cc36efe1bedf13cfc56ddeeb6872acd0c7ac57897975b5bb35a9f6c3c9b93",
+    "egoemg_repro/emg2pose_memory_evaluate.py": "54ec2a6deb3ce4aa4003bb766340c8baefb0c8cb9586fa0b9f91195742757ad9",
+    "egoemg_repro/emg2pose_memory_evaluation_data.py": "9be3a4e9e71d90f7e6a8ac374cfe17684a93d63521da4ff10cd4c1052b8dc4b3",
+    "egoemg_repro/emg2pose_memory_statistics.py": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "tests/test_emg2pose_direct_evaluate.py": "865f3a4e4d5d8e8ce795b676dc426286b79c276ffec4979330f39495bf749f31"
+  },
+  "red": {
+    "actual_exit_code": 1,
+    "cause": "new evaluation module absent, including owned CLI failure",
+    "failed": 22,
+    "log_sha256": "0ba4b7f7a01ac5bf0b3badc3e4697c26cb565147df2486304061d54ddfe8d046",
+    "seconds": 11.67,
+    "warnings": 4
+  },
+  "scientific_complete": false,
+  "source_binding": "verified ordinary pipeline completion SHA256 and full data identity SHA256; no kernel identity or archive fd",
+  "source_bundle_sha256": "35b6c20d34ceae40d27084599a03a9b76caf06b0d5ba66cf05fb70ff9f3578af"
+}

@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **普通原文件选best原生FP32评价完成三模型GPU工程复推：** [数据证据](../results/emg2pose-direct-evaluation-data-engineering.json)为104本机/104服务器检查及真实mini28.30秒actual exit0，690次选窗与独立原参考相同（字面230+230/行交集30，文件行对照167+63/交集0）。[评价证据](../results/emg2pose-direct-selected-evaluation-engineering.json)为107本机/107服务器检查、17受管理阶段/286.11秒actual exit0；S/M/L真正工程best完成val/test和新进程typed预测/统计精确复推、测试前profile及最后CPU重开，所有34个worker/guardian和两个外层拥有者独立确认退出，fit及权重未变。显式合成三角色每pass仅1实际窗口，配置320/12/FP32不能升级为真实batch320容量；字面混角色val拒绝、GPU只资格化文件行对照。普通源321窗FP32容量/完整源250轮/科学报告仍欠，不能填写Tables11/13。
+
 - **原始普通文件独立角色GPU fit/选best工程资格已完成：** [实际证据](../results/emg2pose-direct-native-fit-engineering.json)为9个受管理阶段/213.35秒actual exit0。显式合成3角色/25,710行原格式源经过真正loopback aria2接收/原准备转换后，S/M/L各原320/12/bf16两完整工程epoch/32实际更新，原Sampler每轮5,120消费与1/2唯一train锚点分列；新进程完整epoch六状态恢复及真正验证min选best、last/history/日志另行CPU重开通过。全部18个worker/guardian和两个外层拥有者独立确认退出，源码/检查点SHA不变、无实际容量观测注入。完整源及250轮、普通源FP32最终评价/科学报告和全文仍欠，工程结果不填Tables11/13。
 
 - **原始普通文件独立角色fit入口CPU核验完成，自己的GPU资格正在执行：** [证据](../results/emg2pose-direct-native-fit-cpu-engineering.json)为22新检查及原回归，本机105/215.91秒、服务器105/285.08秒，各39warning；完整轻量1,355/729/1warning84.77秒均actual exit0。合成三角色普通源两完整CPUepoch/32更新/新进程六状态恢复和验证min选best通过，实际val-only源拒绝。完整full250/320/12/bf16及真正25253源+新GPU完整epoch资格门槛不改。前述真实mini恢复完成后，新GPU独立角色检查已一次启动，源准备完成/small前缀活动，尚未qualified；完整训练/最终评价/科学报告仍欠。
