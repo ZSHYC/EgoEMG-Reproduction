@@ -4,8 +4,9 @@
   "latest_verified_direct_evaluation_run": 40579880725,
   "latest_verified_direct_fit_run": 40572463352,
   "latest_verified_direct_recovery_run": 40569652239,
+  "latest_verified_direct_report_run": 40586669995,
   "latest_verified_direct_runtime_run": 40566699991,
-  "latest_verified_native_foundation_run": 40579880725,
+  "latest_verified_native_foundation_run": 40586669995,
   "latest_verified_source_pipeline_run": 40557682359,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
@@ -538,6 +539,32 @@
         }
       ],
       "run_id": 40579880725
+    },
+    {
+      "commit": "a4d772d042186cdbbf91a5e154e5f2b373fb3dfe",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "decoded_log_file_sha256": "ea19f18ba1873967fb57232835289e917eff195a57c211fe316814cba149f4f5",
+          "job_id": 122479811417,
+          "passed": 2433,
+          "pip_check": true,
+          "seconds": 2952.83,
+          "skipped": 3,
+          "warnings": 188
+        },
+        {
+          "conclusion": "success",
+          "decoded_log_file_sha256": "b87ed7f8e95639ffd442da78dbcec5e8be5aed913d1ea5919728756366b64e11",
+          "job_id": 122479812008,
+          "passed": 1370,
+          "seconds": 99.03,
+          "skipped": 717,
+          "warnings": 1
+        }
+      ],
+      "run_id": 40586669995
     }
   ],
   "scope": "Actual hosted terminal results through8b5c895 direct ordinary-file native recovery CPU entry;54625d3 fit qualification run remains observed in progress. New ordinary evaluation modules are supported by their own actual local/server/mini evidence, not these earlier frozen CI runs."

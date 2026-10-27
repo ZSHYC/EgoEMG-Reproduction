@@ -1,0 +1,80 @@
+{
+  "accepted_fixes": [
+    "recover registered owned worker/session on guardian-only death; launch gate before user executable",
+    "verify actual retained original payloads at deep admission and bind live tree file identities",
+    "reject standalone output overlapping pinned upstream before mutation"
+  ],
+  "actual_finding_regressions": {
+    "green_deselected": 79,
+    "green_passed": 10,
+    "green_seconds": 7.98,
+    "red_deselected": 79,
+    "red_failed": 10,
+    "red_seconds": 5.37,
+    "supplemental_start_packet_race_and_stale_fallback_cases": 2
+  },
+  "actual_owned_server_source_readback": {
+    "actual_exit_code": 0,
+    "actual_retained_original_bytes_verified": true,
+    "all_three_process_identities_independently_nonlive": true,
+    "original_converted_fields_verified": true,
+    "parent_torch_unimported": true,
+    "raw_evidence_sha256": "2f2529b1691ac58e0b2d8d44608727e988c3e3116cd42a5993d81a2b2508c51a",
+    "runtime_resources_injected": false,
+    "seconds": 4.207317309919745,
+    "synthetic_rows": 5009750
+  },
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "4a5e5da5f42bdaf634deeeb63759b78e2a3e29f4aaa0f4636b1bfa727d8dc057",
+      "passed": 1379,
+      "seconds": 90.9,
+      "skipped": 733,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "07cebcbdc6e58db598424f26562e828aaab7ae6bade950ed9fb060f7da9357cf",
+      "passed": 125,
+      "seconds": 436.87,
+      "warnings": 8
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "passed": 125,
+      "seconds": 523.89,
+      "warnings": 8
+    }
+  },
+  "cpu_unit_parent_memory_observer_explicitly_injected": true,
+  "critical_findings": 0,
+  "current_whole_native_ci_verified": false,
+  "declined_review_scope": [
+    "unexecuted full acquisition/conversion and three250epoch outcomes remain mandatory",
+    "full scale throughput/duration requires actual full runs",
+    "inactive compact route numerics remain unqualified and unused",
+    "other paper model/table/figure/annotation requirements remain independently open",
+    "simultaneous owner+guardian/node loss and deliberate session escape exceed the qualified ownership model",
+    "publisher authenticated archive checksum unavailable; received-byte identity limitation disclosed"
+  ],
+  "deferred_minor_findings": 0,
+  "fix_producer_files_sha256": {
+    "emg2pose_direct_experiment.py": "03fd4baffd5086fd4147b9cf900da42a9c7e784e9ebec4e5467763dd375b499c",
+    "emg2pose_direct_source.py": "ffd74770e3c32b028c392992266983e3bafeb5f1bb5310dc9f35419559cc347f",
+    "emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db"
+  },
+  "format": "emg2pose_final_implementation_review_engineering_v1",
+  "fresh_reviewers": 1,
+  "full_paper_complete": false,
+  "full_scientific_queue_started": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "important_findings": 3,
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "reviewed_base": "e5df47c8f573492473f5d757abb30680da8922aa",
+  "reviewed_head": "7a695bd7169e7047774bd43fef589bd11e935f0a",
+  "reviewed_runtime_gpu_qualification_renewal_required": true,
+  "reviewed_runtime_gpu_qualification_renewal_started": true,
+  "scientific_complete": false
+}

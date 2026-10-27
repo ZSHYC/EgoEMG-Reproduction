@@ -180,10 +180,21 @@ def _session_members(leader):
     return members
 
 
-def _clean_session(leader, grace, poll):
+def _registered_session_members(leader):
+    """Recover a trusted registered session after its guardian has died."""
+    current = process_identity(leader['pid'])
+    if current is not None and not same_process(leader):
+        raise OwnedStageError('registered worker PID was reused; refusing unrelated session')
+    return [p for entry in Path('/proc').iterdir() if entry.name.isdigit()
+        if (p := process_identity(int(entry.name))) is not None
+        and p['sid'] == leader['sid'] and p['uid'] == leader['uid']
+        and int(p['start_ticks']) >= int(leader['start_ticks']) and p['state'] != 'Z']
+
+
+def _clean_session(leader, grace, poll, *, registered=False):
     started, terminated, escalated = time.monotonic(), set(), False
     while True:
-        members = _session_members(leader)
+        members = _registered_session_members(leader) if registered else _session_members(leader)
         if not members:
             return escalated
         force = time.monotonic()-started >= grace
@@ -203,6 +214,7 @@ def _worker_exited(child):
 
 def _guardian(channel, output, owner, grace, poll):
     child, leader, rights = None, None, []
+    gate_read, gate_write = None, None
     guardian = process_identity()
     try:
         request, rights = _receive(channel)
@@ -216,12 +228,15 @@ def _guardian(channel, output, owner, grace, poll):
             raise OwnedStageError('received source descriptor identity changed')
         environment = {k:v for k,v in request['environment'].items() if not k.startswith(_FD_ENV)}
         environment.update({_FD_ENV+name:str(fd) for name,fd in zip(names,rights)})
+        gate_read, gate_write = os.pipe()
         try:
             with (output/'worker.log').open('xb') as log:
-                child = subprocess.Popen(request['argv'], env=environment,
+                child = subprocess.Popen([sys.executable,str(Path(__file__).resolve()),
+                    '--worker-gate',str(gate_read),json.dumps(request['argv'])], env=environment,
                     stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
-                    start_new_session=True, close_fds=True, pass_fds=rights)
+                    start_new_session=True, close_fds=True, pass_fds=(*rights,gate_read))
         finally:
+            os.close(gate_read);gate_read = None
             for fd in rights:
                 os.close(fd)
             rights = []
@@ -233,6 +248,7 @@ def _guardian(channel, output, owner, grace, poll):
                        descriptor_bindings=actual)
         _atomic(output/'started.json', started)
         _send(channel, dict(event='started', **started))
+        os.write(gate_write,b'1');os.close(gate_write);gate_write = None
         status, reason = 'aborted', 'owner_lost'
         while True:
             if not same_process(owner):
@@ -280,6 +296,8 @@ def _guardian(channel, output, owner, grace, poll):
             pass
         return 1
     finally:
+        for fd in (gate_read,gate_write):
+            if fd is not None:os.close(fd)
         for fd in rights:
             os.close(fd)
         channel.close()
@@ -323,6 +341,7 @@ def run_owned_stage(argv, output, *, descriptors, guard, environment=None,
     guard()
     output = Path(output).resolve(); output.mkdir(mode=0o700)
     owner, guardian, result, started = process_identity(), None, None, None
+    guardian_identity = None
     channel, remote = socket.socketpair(socket.AF_UNIX,socket.SOCK_SEQPACKET)
     handlers = {}
     def interrupted(signum, _):
@@ -339,6 +358,7 @@ def run_owned_stage(argv, output, *, descriptors, guard, environment=None,
                 str(poll_seconds)],pass_fds=(remote.fileno(),),close_fds=True,
                 stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,
                 start_new_session=True,env=guardian_environment)
+        guardian_identity = process_identity(guardian.pid)
         remote.close()
         _send(channel,request,tuple(descriptors.values()))
         while result is None:
@@ -382,6 +402,22 @@ def run_owned_stage(argv, output, *, descriptors, guard, environment=None,
             receipt = output/'guardian-result.json'
             result = json.loads(receipt.read_text()) if receipt.exists() else dict(
                 owner=owner,worker=None,worker_exit_code=None,all_owned_consumers_exited=guardian is None)
+            if not result.get('all_owned_consumers_exited'):
+                registration = started
+                if registration is None and (output/'started.json').exists():
+                    registration = json.loads((output/'started.json').read_text())
+                if registration is not None:
+                    for key,pinned in (('owner',owner),('guardian',guardian_identity)):
+                        if pinned is None or any(registration[key][k]!=pinned[k] for k in _IDENTITY):
+                            raise OwnedStageError('fallback launch registration identity differs')
+                    leader = registration['worker']
+                    if (registration['descriptor_bindings']!=bindings or leader['uid']!=owner['uid']
+                            or leader['sid']!=leader['pid'] or leader['pgrp']!=leader['pid']):
+                        raise OwnedStageError('fallback worker session registration differs')
+                    escalation = _clean_session(leader,terminate_grace,poll_seconds,registered=True)
+                    result = dict(result,guardian=registration['guardian'],worker=leader,
+                        all_owned_consumers_exited=True,kill_escalation_used=escalation,
+                        reason='guardian_lost_owner_cleanup')
             result = dict(result,format='egoemg_owned_stage_v1',status='failed',
                           error_type=type(error).__name__,scientific_complete=False,
                           descriptor_bindings=bindings)
@@ -395,6 +431,10 @@ def run_owned_stage(argv, output, *, descriptors, guard, environment=None,
 
 
 if __name__ == '__main__':
+    if len(sys.argv)==4 and sys.argv[1]=='--worker-gate':
+        gate=int(sys.argv[2]);ready=os.read(gate,1);os.close(gate)
+        if ready!=b'1':raise SystemExit(125)
+        argv=json.loads(sys.argv[3]);os.execvpe(argv[0],argv,os.environ)
     if len(sys.argv) != 7 or sys.argv[1] != '--guardian':
         raise SystemExit('private guardian entry point; use run_owned_stage')
     raise SystemExit(_guardian(socket.socket(fileno=int(sys.argv[2])),Path(sys.argv[3]),

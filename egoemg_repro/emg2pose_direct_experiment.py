@@ -227,7 +227,7 @@ def run_experiment(upstream,source_root,metadata_csv,size,output,*,expected_sour
         expected_controller_qualification_sha256=expected_controller_qualification_sha256,
         deadline_seconds=deadline_seconds if deadline_seconds is not None else (None if scope=='full' else 7200),
         sources_sha256=_sources(),controller=process_identity())
-    for other in (q['source_root'],q['qualification'],q['evaluation_qualification'],q['controller_qualification']):
+    for other in (q['upstream'],q['source_root'],q['qualification'],q['evaluation_qualification'],q['controller_qualification']):
         if other is not None:
             other=Path(other)
             if output==other or output in other.parents or other in output.parents:raise ValueError('output overlaps immutable source/qualification')

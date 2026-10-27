@@ -98,6 +98,25 @@ def test_csv_and_restored_field_identity_changes_are_detected(case):
         case.csv.write_text(case.csv.read_text()+'\n')
         with pytest.raises(ValueError):s.assert_current()
 
+@pytest.mark.parametrize('fault',['missing','replace','corrupt'])
+@pytest.mark.parametrize('boundary',['live','fresh'])
+def test_retained_original_payload_changes_refuse_live_and_fresh_admission(case,fault,boundary):
+    preserved=case.root/'prepared/preserved'
+    path=next((preserved/'contents').rglob('*.hdf5'))
+    with open_source(case) as source:
+        if fault=='missing':path.unlink()
+        elif fault=='replace':
+            replacement=path.with_suffix('.replacement');replacement.write_bytes(b'X'*path.stat().st_size)
+            os.replace(replacement,path)
+        else:
+            with path.open('r+b') as stream:
+                stream.seek(-1,2);last=stream.read(1);stream.seek(-1,2);stream.write(bytes([last[0]^1]))
+        if boundary=='live':
+            with pytest.raises(ValueError):source.assert_current()
+        else:
+            with pytest.raises(ValueError):open_source(case)
+
+
 def test_field_replacement_after_original_deep_admission_is_rejected(case,monkeypatch):
     from egoemg_repro import emg2pose_runtime as native
     original=native.validate_completed_data

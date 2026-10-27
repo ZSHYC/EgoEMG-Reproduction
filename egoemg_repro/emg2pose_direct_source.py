@@ -138,12 +138,25 @@ def open_source(source_root,*,expected_completion_sha256,upstream,metadata_csv):
         upstream,_,_=storage._official(upstream)
         if any(storage._sha256(_ROOT/n)!=h for n,h in _IMPORTED.items()):raise ValueError('imported direct-source producer changed')
         result,p=_proof(root,expected_completion_sha256,csv)
+        retained=root/'prepared/preserved'
+        retained_manifest=storage._json(retained/'manifest.json')
+        if (retained_manifest.get('archive_bytes')!=p['archive_bytes'] or
+                retained_manifest.get('archive_sha256')!=p['archive_sha256']):
+            raise ValueError('retained actual original archive binding differs')
+        _,retained_stamps=preparation.retained._tree(retained,retained_manifest)
         paths=[root,root/'data',root/'prepared',root/'completion.json',csv,
             *(root/'data'/n for n in ('emg.dat','joint_angles.dat','time.dat','valid_mask.dat','completion.json','manifest.json','metadata.npz','source-receipt.json')),
             *(root/'prepared'/n for n in ('preparation.json','retirement.json','source-inventory.json','download-receipt.json','preserved/completion.json','preserved/manifest.json','preserved/tar-overhead.bin')),
             *(_ROOT/n for n in _CODE),*_official_files(upstream),*_git_bindings(upstream)]
         if (root/'prepared/mini-acquisition.json').exists():paths.append(root/'prepared/mini-acquisition.json')
-        stamps={path:_stamp(path) for path in paths}
+        stamps={**retained_stamps,**{path:_stamp(path) for path in paths}}
+        metadata_stamps={path:s for path,s in stamps.items() if path not in retained_stamps}
+        def retained_current():
+            if any(_stamp(path)!=s for path,s in metadata_stamps.items()):
+                raise ValueError('original source changed during preservation admission')
+        # Hash retained original bytes once on deep admission. Live batch
+        # guards below compare file identities instead of rescanning a TAR.
+        preparation.retained._stream(retained,retained_manifest,retained_current,phase='direct-source-admission')
         identity=native.validate_completed_data(upstream,root/'data',root/'prepared/source-inventory.json',metadata_csv=csv)
         if (identity!=result['data_identity'] or identity['cohort']!=result['cohort'] or
                 identity['full_corpus_complete'] is not result['full_corpus_complete']):raise ValueError('actual original completed fields differ from pipeline')

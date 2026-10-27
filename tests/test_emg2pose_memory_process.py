@@ -221,6 +221,79 @@ def test_term_resistant_owned_session_is_killed_on_pressure(worker,tmp_path):
             proc.kill();proc.wait(timeout=10)
 
 
+@pytest.mark.parametrize('mode',['wait','resistant','nested'])
+def test_guardian_only_death_preserves_owned_identity_and_cleans_every_consumer(worker,tmp_path,mode):
+    api = importlib.import_module('egoemg_repro.emg2pose_memory_process')
+    if mode == 'nested':
+        nested = tmp_path/'nested.py'
+        nested.write_text('''import os,sys
+from pathlib import Path
+from egoemg_repro.emg2pose_memory_process import run_owned_stage
+run_owned_stage([sys.executable,WORKER,'wait',sys.argv[2]],Path(sys.argv[2]).parent/'inner-stage',
+ descriptors={'ARCHIVE':int(os.environ['EGOEMG_STAGE_FD_ARCHIVE'])},guard=lambda:None,
+ poll_seconds=.02,terminate_grace=.15)
+'''.replace('WORKER',repr(str(worker))))
+        worker = nested
+    proc,ready,output,_ = owner_process(tmp_path,worker,mode)
+    consumers,started = None,None
+    sentinel = subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'])
+    try:
+        consumers = wait_for(ready);started = wait_for(output/'started.json')
+        if mode == 'nested':wait_for(tmp_path/'inner-stage/started.json')
+        os.kill(started['guardian']['pid'],signal.SIGKILL)
+        proc.wait(timeout=10)
+        assert proc.returncode != 0
+        result = wait_for(output/'stage-result.json')
+        assert result['worker'] == started['worker']
+        assert result['all_owned_consumers_exited'] is True
+        assert result['status'] == 'failed' and result['scientific_complete'] is False
+        assert_consumers_gone(consumers)
+        assert not live(started['worker']['pid'])
+        if mode == 'nested':
+            inner = wait_for(tmp_path/'inner-stage/guardian-result.json')
+            assert inner['all_owned_consumers_exited'] and inner['status'] == 'aborted'
+        assert sentinel.poll() is None
+    finally:
+        # The RED run must not retain its intentionally orphaned test workers.
+        pids = [p for p in ((consumers or {}).get('grandchild'),(consumers or {}).get('pid'),
+            ((started or {}).get('worker') or {}).get('pid')) if p]
+        for pid in pids:
+            if live(pid):
+                try:os.kill(pid,signal.SIGKILL)
+                except ProcessLookupError:pass
+        if proc.poll() is None:proc.kill();proc.wait(timeout=10)
+        sentinel.terminate();sentinel.wait(timeout=10)
+
+
+def test_guardian_loss_before_owner_receives_start_packet_uses_registered_identity(sealed,worker,tmp_path):
+    api=importlib.import_module('egoemg_repro.emg2pose_memory_process')
+    output,ready=tmp_path/'stage',tmp_path/'ready.json'
+    registration={}
+    def guard():
+        if output.exists():
+            registration.update(wait_for(output/'started.json'))
+            os.kill(registration['guardian']['pid'],signal.SIGKILL)
+            raise RuntimeError('actual guardian lost before owner reads packet')
+    with pytest.raises(RuntimeError,match='before owner reads packet'):
+        api.run_owned_stage([sys.executable,str(worker),'wait',str(ready)],output,
+            descriptors={'ARCHIVE':sealed},guard=guard,poll_seconds=.02,terminate_grace=.15)
+    result=wait_for(output/'stage-result.json')
+    assert result['worker']==registration['worker'] and result['all_owned_consumers_exited']
+    assert result['status']=='failed' and not live(registration['worker']['pid'])
+    if ready.exists():assert_consumers_gone(wait_for(ready))
+
+
+def test_registered_fallback_refuses_a_reused_or_stale_leader_identity():
+    api=importlib.import_module('egoemg_repro.emg2pose_memory_process')
+    sentinel=subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'],start_new_session=True)
+    try:
+        stale=dict(api.process_identity(sentinel.pid),start_ticks='0')
+        with pytest.raises(api.OwnedStageError,match='reused'):
+            api._clean_session(stale,.01,.01,registered=True)
+        assert sentinel.poll() is None
+    finally:sentinel.terminate();sentinel.wait(timeout=10)
+
+
 def test_stale_start_ticks_cannot_signal_unrelated_live_sentinel():
     api = importlib.import_module('egoemg_repro.emg2pose_memory_process')
     proc = subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'],start_new_session=True)

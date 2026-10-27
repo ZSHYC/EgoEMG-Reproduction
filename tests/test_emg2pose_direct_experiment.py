@@ -13,7 +13,7 @@ from test_emg2pose_direct_evaluate import memory,corpus,UPSTREAM,sha
 
 def api():return importlib.import_module('egoemg_repro.emg2pose_direct_experiment')
 
-def invoke(memory,output,*,fault=None,**changes):
+def invoke(memory,output,*,fault=None,log_directory=None,**changes):
     kwargs=dict(upstream=str(UPSTREAM),source_root=str(memory.source_root),metadata_csv=str(memory.metadata),size='small',
         output=str(output),expected_source_completion_sha256=memory.receipt['completion_sha256'],scope='cpu_engineering')
     kwargs.update(changes)
@@ -40,9 +40,10 @@ print('DRIVER_FINISHED='+json.dumps(v,sort_keys=True))
 '''
     r=subprocess.run([sys.executable,'-c',code,json.dumps(kwargs),fault or ''],env=dict(os.environ,
         CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2'),capture_output=True,text=True,timeout=600)
-    output.parent.mkdir(parents=True,exist_ok=True)
-    (output.parent/(output.name+'.stdout')).write_text(r.stdout)
-    (output.parent/(output.name+'.stderr')).write_text(r.stderr)
+    logs=output.parent if log_directory is None else Path(log_directory)
+    logs.mkdir(parents=True,exist_ok=True)
+    (logs/(output.name+'.stdout')).write_text(r.stdout)
+    (logs/(output.name+'.stderr')).write_text(r.stderr)
     return r
 
 @pytest.fixture(scope='module')
@@ -131,6 +132,17 @@ def test_driver_reader_reopens_every_actual_stage_and_derived_report(finished,da
         path.write_text(json.dumps(value))
         with pytest.raises(ValueError):m.read_experiment(root,require_full=False)
     finally:path.write_bytes(raw)
+
+def test_output_inside_original_upstream_refuses_before_mutating_checkout(memory,tmp_path):
+    upstream=tmp_path/'pinned-upstream';upstream.mkdir()
+    sentinel=upstream/'immutable.txt';sentinel.write_text('pinned original bytes\n')
+    output=upstream/'new-untracked-output'
+    before={p.relative_to(upstream).as_posix():p.read_bytes() for p in upstream.rglob('*') if p.is_file()}
+    r=invoke(memory,output,upstream=str(upstream),log_directory=tmp_path/'logs')
+    assert r.returncode!=0 and 'overlap' in r.stderr
+    assert not output.exists()
+    assert {p.relative_to(upstream).as_posix():p.read_bytes() for p in upstream.rglob('*') if p.is_file()}==before
+
 
 def test_existing_output_and_inherited_archive_rights_cannot_be_reused(memory,finished,tmp_path):
     api();r=invoke(memory,finished());assert r.returncode!=0 and 'FileExistsError' in r.stderr
