@@ -74,7 +74,9 @@
   "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
   "reviewed_base": "e5df47c8f573492473f5d757abb30680da8922aa",
   "reviewed_head": "7a695bd7169e7047774bd43fef589bd11e935f0a",
-  "reviewed_runtime_gpu_qualification_renewal_required": true,
+  "reviewed_runtime_gpu_qualification_evidence": "emg2pose-reviewed-runtime-qualification-engineering.json",
+  "reviewed_runtime_gpu_qualification_renewal_completed": true,
+  "reviewed_runtime_gpu_qualification_renewal_required": false,
   "reviewed_runtime_gpu_qualification_renewal_started": true,
   "scientific_complete": false
 }

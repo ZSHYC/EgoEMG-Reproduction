@@ -1,0 +1,106 @@
+{
+  "actual_consumers_independently_nonlive": 122,
+  "actual_exit_code": 0,
+  "actual_resource_observations_injected": false,
+  "actual_successful_owned_stages": 61,
+  "all_frozen_producers_unchanged": true,
+  "current_whole_native_ci_verified": false,
+  "existing_original_format_synthetic_source_reused": true,
+  "format": "emg2pose_reviewed_runtime_qualification_engineering_v1",
+  "full_paper_complete": false,
+  "full_scientific_queue_started": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "gpu_training_or_inference_repeated_for_collector_failure": false,
+  "models": [
+    {
+      "actual_eval_batch_sizes": [
+        320,
+        1
+      ],
+      "completed_engineering_epochs": 2,
+      "each_native_or_replay_val_or_test_pass_windows": 321,
+      "epoch_journal_sha256": "365712ec6310b8721e4cc57f043b5a03110a32ebfab4debc792cac855207b21c",
+      "evaluation_precision": "32-true",
+      "evaluation_workers": 12,
+      "fit_receipt_sha256": "aefe8e677daa4e9c79497a3b371418793c15f65981daa32d302297e42ac00b9f",
+      "native_and_fresh_replay_exact": true,
+      "native_epoch_boundary_six_state_restore_exact": true,
+      "optimizer_executions": 32,
+      "report_completion_sha256": "dad82d12b51f5bc772b3b936ad17dbe36ccb5956186a30d944193f230ace40da",
+      "selection_modes": [
+        "official_literal",
+        "metadata_indices"
+      ],
+      "size": "small",
+      "train_batch_size": 320,
+      "train_precision": "bf16-mixed",
+      "train_workers": 12
+    },
+    {
+      "actual_eval_batch_sizes": [
+        320,
+        1
+      ],
+      "completed_engineering_epochs": 2,
+      "each_native_or_replay_val_or_test_pass_windows": 321,
+      "epoch_journal_sha256": "866e3d376a54dd088bc29ec021605878cbe4f88d2b5e8f624398807bebbf1e20",
+      "evaluation_precision": "32-true",
+      "evaluation_workers": 12,
+      "fit_receipt_sha256": "f87f560cb69e02ead43cbf00d28b0f599c592f8870abb23052e25ad35f755a19",
+      "native_and_fresh_replay_exact": true,
+      "native_epoch_boundary_six_state_restore_exact": true,
+      "optimizer_executions": 32,
+      "report_completion_sha256": "67b273493b2377c201cf26b5c4382b211f6292f4bc9f8bd6e55eb68cf60405e4",
+      "selection_modes": [
+        "official_literal",
+        "metadata_indices"
+      ],
+      "size": "middle",
+      "train_batch_size": 320,
+      "train_precision": "bf16-mixed",
+      "train_workers": 12
+    },
+    {
+      "actual_eval_batch_sizes": [
+        320,
+        1
+      ],
+      "completed_engineering_epochs": 2,
+      "each_native_or_replay_val_or_test_pass_windows": 321,
+      "epoch_journal_sha256": "8a88eb19e8e0316b247896c15cdbf88c7c1b6e395f8ee73d759eb36a46ad82da",
+      "evaluation_precision": "32-true",
+      "evaluation_workers": 12,
+      "fit_receipt_sha256": "22051ed8fcdcdd7388edbcee11a7f7f571a41f9322c2866eb34020a90c0e3d03",
+      "native_and_fresh_replay_exact": true,
+      "native_epoch_boundary_six_state_restore_exact": true,
+      "optimizer_executions": 32,
+      "report_completion_sha256": "d54b5a25f2c0ae7f8115b9b73c0b5cc92d0cd21709cc7b47a32a0a835cfc3a19",
+      "selection_modes": [
+        "official_literal",
+        "metadata_indices"
+      ],
+      "size": "large",
+      "train_batch_size": 320,
+      "train_precision": "bf16-mixed",
+      "train_workers": 12
+    }
+  ],
+  "observed_utc": "2026-10-27T23:21:18.497348+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "original_outer_recorder_and_controller_independently_nonlive": true,
+  "original_source_or_training_data_regenerated": false,
+  "outer_owned_stages": 47,
+  "parent_torch_unimported": true,
+  "private_collector_initial_failure": "system Python lacked hashlib.file_digest; only read-only collector rerun in frozen3.11 environment",
+  "raw_actual_evidence_sha256": "70f522c3a529eb1baadeb56270a05e7e545d1469c854bc5f5c5193d001c70374",
+  "same_model_training_and_evaluation_qualification_separate_for_each_size": true,
+  "scientific_complete": false,
+  "seconds": 1645.1338910530321,
+  "shared_common_controller_actual_model": "small",
+  "shared_common_controller_independent_read_after_actual_controller_exit": true,
+  "shared_common_controller_stages": 14,
+  "shared_controller_inner_owned_stages": 14,
+  "source_bundle_sha256": "913c7c7e2836c024569440fae85328ab11450939dce1ecbff61e8bee5ec95811",
+  "synthetic_rows": 5009750
+}
