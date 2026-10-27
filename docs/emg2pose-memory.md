@@ -96,3 +96,25 @@ with acquire_archive('mini') as cache:
 [进程工程证据](../results/emg2pose-memory-process-engineering.json)记录本机20项、真实服务器20项检查，包含实际父进程SIGKILL/TERM/INT、仍持有缓存的孙进程、拒绝TERM、资源压力/未知容量、错误身份和只读权限。最终109成员整体1,739通过/3实际CUDA skip、轻量959/691依赖skip，均捕获实际exit0。完整mini还实际经过新进程管理、严格加载既有small工程检查点及未改的官方逐用户评价；原转换数据与新存储的两组指标完全一致，父进程、消费者缓存fd均关闭，运行中实际观察guardian不持有缓存副本。
 
 这次逐用户评价沿用原`skip_ik_failures=True`，得到460窗口（两组各230，各只有1个mini用户），与此前`skip_ik_failures=False`的526验证窗口分列。它仍是mini原val、CPU float32、batch1/workers0，没有新训练、原GPU批量或模型性能结论。消费者必须保留所属session；同时失去guardian与调用者的恢复没有通过此检查。完整源/索引控制器、三模型原生GPU验收、完整训练和最后报告仍需实现与运行；本模块只发布私有阶段receipt，不产生科学完成标记。
+
+## 受管理的源数据准备
+
+`emg2pose_memory_prepare.prepare_owned_source(cache, output, *, upstream, metadata_csv, cohort='full', reserve_bytes=274877906944)`消费一个仍由调用者拥有的`SealedArchive`。父进程冻结接收receipt的文件SHA，把长时间盘点、索引和实际准入交给独立消费者，持续检查主机/cgroup内存、封印源、代码和输入文件。full/mini保持至少256GiB余量，显式engineering夹具不能获得full资格。调用者须在后续模型阶段继续保留缓存。
+
+消费者的`prepare_source`借用其fd，独立重验所有原字节、HDF5字段/属性/会话/有效区间，复用现有索引生产器并真正重新打开索引。`prepared.incomplete/{index/,preparation.json,status.json}`原子无覆盖发布为`prepared/`；其中index仍是独立的四文件格式，没有源大小dat或HDF5提取。失败保留不完整目录、删除准备成功标记，不能覆盖已有输出；进程结束关闭继承的fd，直接函数不关闭调用者的fd。
+
+完整模式须满足原25,253会话及train17,136/val1,950/test6,167；mini始终是工程数据。父进程只有在消费者实际exit0、拥有的进程均退出、来源/生产者一致且最终资源检查通过后，才写`owned-preparation.json`；它是私有准备receipt，不是科学完成标记。工作目录里存在同名Python包也不能换掉已核验代码：guardian按其实际文件启动，准备消费者显式从当前bundle加载，生产者摘要另外核对。
+
+[实际证据](../results/emg2pose-memory-preparation-engineering.json)记录本机/服务器各66项检查，全部647MB mini准备83.47秒、30文件/4,218,756行/四字段与原转换参考一致，仅写紧凑索引、没有导入Torch。最终111成员完整1,767通过/3实际CUDA skip，轻量987/691依赖skip，均实际exit0；实际完整源仍未准备。
+
+## 原批量GPU容量工程检查
+
+[实际三模型证据](../results/emg2pose-memory-native-gpu-capacity.json)保留原module/0.01损失/AdamW/cosine250/clip1和原train sampler/collate、val loader，在A800上逐模型执行两次batch320、12worker、bf16更新与两轮完整526窗口验证。S的原eval spawn、M/L的默认上下文均保留。全部拥有的消费者正常退出，缓存所有者隐藏CUDA且未导入Torch。
+
+| 模型 | 实际更新 | 每轮原生验证窗口 | 峰allocated GiB | 峰reserved GiB |
+| --- | ---: | ---: | ---: | ---: |
+| S | 2 | 526 | 8.75 | 9.89 |
+| M | 2 | 526 | 10.70 | 11.28 |
+| L | 2 | 526 | 14.07 | 15.27 |
+
+这里仍复用mini原val及其验证变换作为训练夹具；不是原完整训练人口、增强或独立验证。每epoch只消费一个完整320训练batch、保留250周期的优化器日程而在两步后停止。该检查没有保存/恢复GPU完整状态、选best或最终测试；仅证明观测设备上该批量/读取进程/模型前后向及完整mini原生验证可执行，不能填论文Tables11/13或称为完整训练。

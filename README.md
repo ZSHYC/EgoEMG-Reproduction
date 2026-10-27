@@ -16,6 +16,8 @@
 
 新增[完整原包的内存存储接入](docs/emg2pose-memory.md)：服务器647MB完整mini接收与30HDF5/4,218,756行盘点已通过；新存储适配与原官方读取器的全部526窗口、样本元数据和RNG一致。[新原生工程证据](results/emg2pose-memory-native-engineering.json)中S/M/L各完成2次CPU更新、全部526窗口新进程精确复推，以及原生完整状态加载后再更新一次到step3；拥有的内存fd全部关闭。一次实现审查发现的最终HEAD阻塞期间内存压力检查问题已通过真实RED→GREEN修正；最终107成员完整检查1,719通过/3实际CUDA skip、轻量939/691依赖skip均实际exit0。完整462.8GB源、资源/进程控制器及三项完整实验仍欠，不能填论文Tables11/13。本机持久化下载进度保留。
 
+新增[受管理的源数据准备入口](results/emg2pose-memory-preparation-engineering.json)已实际核验完整mini，仅发布独立验证过的紧凑索引；本机/服务器各66项定向检查和111成员整体1,767/3实际CUDA skip、轻量987/691依赖skip通过。[三模型原批量GPU容量检查](results/emg2pose-memory-native-gpu-capacity.json)也已完成：S/M/L各两次batch320、12worker、bf16更新，以及两轮完整526窗口原生验证；仍是mini原val工程夹具，没有独立科学训练、GPU状态恢复或250轮完整结果。
+
 [![Reproduction checks](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml/badge.svg)](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml)
 [![Paper: arXiv 2605.05712v1](https://img.shields.io/badge/Paper-arXiv%3A2605.05712v1-355c7d)](https://arxiv.org/abs/2605.05712v1)
 [![Original code: MIT](https://img.shields.io/badge/Original_code-MIT-1e847c)](LICENSE)

@@ -52,6 +52,30 @@
   "full_paper_complete": false,
   "full_scientific_training_complete": false,
   "full_source_acquired": false,
+  "hosted_ci": {
+    "commit": "745a8644d990408a0e3c2292b7bdf3b295da7944",
+    "conclusion": "success",
+    "light": {
+      "job_id": 122011126583,
+      "log_sha256": "6f539ebd95828e70d28bdbc12fde238fd7393a8c922ad5b39f0466f6d9b5051e",
+      "passed": 959,
+      "seconds": 33.32,
+      "skipped": 691,
+      "warnings": 1
+    },
+    "official": {
+      "job_id": 122011126708,
+      "log_sha256": "9a54cde8a5d3be3cb323d4ce043b195b09e39f20f36a30437d7331ea88294732",
+      "passed": 1739,
+      "pip_check": "No broken requirements found.",
+      "seconds": 1014.23,
+      "skipped": 3,
+      "warnings": 122
+    },
+    "run_id": 40450278844,
+    "run_url": "https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40450278844",
+    "scope": "prior109source process primitive; excludes new111source preparation and exact-bundle bootstrap correction"
+  },
   "implementation_files_sha256": {
     "egoemg_repro/emg2pose_memory_process.py": "34b992f4d8e9b3ddae427133b8e2e3188d6b179564615516b38aa3fdda30a9fe",
     "tests/test_emg2pose_memory_process.py": "a2c175357868aaf5581edadd2fd6217ecbe0bce27a90810bf476617e1bd34e3b"

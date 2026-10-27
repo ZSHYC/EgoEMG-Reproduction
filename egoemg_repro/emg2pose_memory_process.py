@@ -334,7 +334,7 @@ def run_owned_stage(argv, output, *, descriptors, guard, environment=None,
         guardian_environment = dict(os.environ,CUDA_VISIBLE_DEVICES='')
         guardian_environment['PYTHONPATH'] = str(Path(__file__).resolve().parents[1])+os.pathsep+os.environ.get('PYTHONPATH','')
         with (output/'guardian.log').open('xb') as log:
-            guardian = subprocess.Popen([sys.executable,'-m',__name__,'--guardian',
+            guardian = subprocess.Popen([sys.executable,str(Path(__file__).resolve()),'--guardian',
                 str(remote.fileno()),str(output),json.dumps(owner),str(terminate_grace),
                 str(poll_seconds)],pass_fds=(remote.fileno(),),close_fds=True,
                 stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,

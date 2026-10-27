@@ -1,0 +1,164 @@
+{
+  "actual_exit_code": 0,
+  "all_owned_consumers_exited": true,
+  "engineering_only": true,
+  "format": "emg2pose_original_batch_gpu_capacity_mini_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "gpu": "NVIDIA A800-SXM4-80GB; one rank",
+  "gpu_full_state_restore_qualified": false,
+  "limitations": [
+    "Allmini originalval reused as training fixture; not independent train/val or original full training population.",
+    "Original module/loss/AdamW/cosine250/clip1/bf16 and native train sampler/collate/val loader; prefix stops after2 full320 updates.",
+    "The reused mini val dataset retains validation transforms; original training jitter/augmentation and fullpopulation are not qualified.",
+    "Each complete native validation consumes526skipIKfalse windows; separate official per-user skipIKtrue path uses460mini windows.",
+    "No checkpoint callback, selected-best test, GPU full-state recovery or full250epoch result is claimed.",
+    "Peak allocated/reserved are process Torch allocator values; minimum free is whole-device observation, not a reservation guarantee.",
+    "One observed host/GPU run; exact repeated training trajectory and multi-rank equivalence are not claimed."
+  ],
+  "observed_utc": "2026-10-27T05:14:33.740195+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "ongoing_observed_free_floor_bytes": 8589934592,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "prelaunch_observed_free_floor_bytes": 68719476736,
+  "raw_sha256": "44f9f0b6b4133ab2ce1c753ca8f3fd4738d06bae7d78df87ef3b48d7adcc63b6",
+  "sizes": [
+    {
+      "actual_optimizer_updates": 2,
+      "batch_size": 320,
+      "configured_eval_multiprocessing_context": "spawn",
+      "full_native_validations": [
+        {
+          "batch_sizes": [
+            320,
+            206
+          ],
+          "samples": 526
+        },
+        {
+          "batch_sizes": [
+            320,
+            206
+          ],
+          "samples": 526
+        }
+      ],
+      "gradient_clip_val": 1.0,
+      "minimum_observed_device_free_bytes": 64987398144,
+      "parameters": 3481636,
+      "peak_allocated_bytes": 9393602048,
+      "peak_reserved_bytes": 10619977728,
+      "precision": "bf16-mixed",
+      "runtime_identity_sha256": "01bd46b1b025d9039bbe0858205a90fcd5d99b821ed5208e8d27b3eaab302b52",
+      "scheduler_epochs": 250,
+      "seconds": 73.13514700997621,
+      "size": "small",
+      "train_batches": [
+        {
+          "batch_size": 320,
+          "step_before": 0
+        },
+        {
+          "batch_size": 320,
+          "step_before": 1
+        }
+      ],
+      "train_workers": 12,
+      "val_workers": 12
+    },
+    {
+      "actual_optimizer_updates": 2,
+      "batch_size": 320,
+      "configured_eval_multiprocessing_context": "None",
+      "full_native_validations": [
+        {
+          "batch_sizes": [
+            320,
+            206
+          ],
+          "samples": 526
+        },
+        {
+          "batch_sizes": [
+            320,
+            206
+          ],
+          "samples": 526
+        }
+      ],
+      "gradient_clip_val": 1.0,
+      "minimum_observed_device_free_bytes": 63500517376,
+      "parameters": 6638884,
+      "peak_allocated_bytes": 11491138560,
+      "peak_reserved_bytes": 12106858496,
+      "precision": "bf16-mixed",
+      "runtime_identity_sha256": "59555e0854cd405f211ad524809b5734a304c7fb84378c8aa108f24757febd42",
+      "scheduler_epochs": 250,
+      "seconds": 71.18449650285766,
+      "size": "middle",
+      "train_batches": [
+        {
+          "batch_size": 320,
+          "step_before": 0
+        },
+        {
+          "batch_size": 320,
+          "step_before": 1
+        }
+      ],
+      "train_workers": 12,
+      "val_workers": 12
+    },
+    {
+      "actual_optimizer_updates": 2,
+      "batch_size": 320,
+      "configured_eval_multiprocessing_context": "None",
+      "full_native_validations": [
+        {
+          "batch_sizes": [
+            320,
+            206
+          ],
+          "samples": 526
+        },
+        {
+          "batch_sizes": [
+            320,
+            206
+          ],
+          "samples": 526
+        }
+      ],
+      "gradient_clip_val": 1.0,
+      "minimum_observed_device_free_bytes": 59211841536,
+      "parameters": 16342308,
+      "peak_allocated_bytes": 15111436800,
+      "peak_reserved_bytes": 16395534336,
+      "precision": "bf16-mixed",
+      "runtime_identity_sha256": "83ba29abe087aaa878d45e06673bc3740807de4588304647376711a70efea92f",
+      "scheduler_epochs": 250,
+      "seconds": 70.51699989894405,
+      "size": "large",
+      "train_batches": [
+        {
+          "batch_size": 320,
+          "step_before": 0
+        },
+        {
+          "batch_size": 320,
+          "step_before": 1
+        }
+      ],
+      "train_workers": 12,
+      "val_workers": 12
+    }
+  ],
+  "source_archive_bytes": 647198208,
+  "source_archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+  "source_bundle_sha256": "2b690f2e1a2ef5c0483f212db64e11da73dc7beed7145fea4df0c8ab68a4bb56",
+  "source_index_completion_sha256": "58279edcda36fee7b77ed8e8d97d4a518a86be1b06cffb666e7132fe77d9c009",
+  "source_manifest_members": 111,
+  "source_manifest_sha256": "9e84eccaf172d47b666b3342b2c41febb271601dde5e90d512de8f73ff81222c",
+  "total_seconds": 309.3748714062385
+}

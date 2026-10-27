@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **EMG2Pose源准备与三模型原批量GPU容量已通过实际检查：** [源准备证据](../results/emg2pose-memory-preparation-engineering.json)为完整647MB mini的30HDF5/4,218,756行独立盘点、索引重验及受管理的准备进程；全部字段与原转换参考一致，本机/服务器各66项检查通过。111成员整体1,767/3实际CUDA skip、轻量987/691依赖skip均exit0。[GPU容量证据](../results/emg2pose-memory-native-gpu-capacity.json)为S/M/L各两次实际batch320/12worker/bf16更新、两轮完整526窗口原生验证，峰reserved约9.89/11.28/15.27GiB，全部拥有的消费者退出。mini原val复用为工程训练夹具，不是独立验证或模型精度；完整源、GPU状态恢复、正式训练/选模/测试与报告仍欠。
+
 - **EMG2Pose缓存消费者的进程管理已通过真实检查：** [实际证据](../results/emg2pose-memory-process-engineering.json)为本机/服务器各20项实际进程检查和完整647MB mini流程；父进程强制退出、孙进程持有fd、资源压力及TERM拒绝均回收，guardian不保留缓存fd。严格重载已有small工程模型后，未改官方逐用户函数在原转换数据/新存储上结果精确一致；IK过滤路径460窗口（230/230，各1用户），CPU/batch1/workers0，无新训练成绩。最终109成员整体1,739/3实际CUDA skip及轻量959/691依赖skip均exit0；完整源控制器、GPU准入、三项完整训练及Task4最终审查仍欠。
 
 - **EMG2Pose只读内存接入已完成真实mini原生检查和一次实现审查修正：** [接入与边界](emg2pose-memory.md)、[全字段盘点](../results/emg2pose-memory-data-engineering.json)及[新原生工程证据](../results/emg2pose-memory-native-engineering.json)覆盖完整647,198,208字节/30HDF5/4,218,756行、全部526窗口与原读取器的样本/RNG一致。S/M/L各2次实际CPU更新、526窗口新进程精确复推、原生权重/AdamW/cosine/循环/RNG加载后再执行一次更新到step3，全部拥有的fd关闭。审查发现最终HEAD阻塞时未持续检查资源压力，真实两项RED→77项GREEN修正；最终107成员整体1,719/3实际CUDA skip及轻量939/691依赖skip均捕获exit0，修后实际526窗口和三模型检查再次完成。33fc756托管CI仍只覆盖此前101成员盘点代码。完整源、资源/进程控制器、GPU准入及三项完整训练仍未完成；mini工程检查不能填Tables11/13。
@@ -83,9 +85,9 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini CPU两次优化、526窗×2与严格完整状态恢复已核验**，见[新增证据](../results/emg2pose-mini-optimization.md)；无独立选模/正式测试，全量仍在接收 |
-| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成2次真实更新、526窗×2工程检查**；完整独立训练/验证/测试仍未完成 |
-| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成2次真实更新、526窗×2工程检查**；没有完整科研结果，不能用EgoEMG-L或mini数值填表 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **CPU完整状态恢复及原批量GPU容量已核验**，见[GPU证据](../results/emg2pose-memory-native-gpu-capacity.json)：mini限定进程的2次GPU320/12worker/bf16更新及两轮完整526窗验证。完整源、GPU状态恢复、250轮选模/测试仍欠 |
+| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成CPU恢复与GPU原批量容量检查**；mini原val工程夹具无独立验证意义，完整训练/验证/测试仍未完成 |
+| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成CPU恢复与GPU原批量容量检查**；峰reserved15.27GiB，没有完整科研结果，不能用EgoEMG-L或mini数值填表 |
 
 classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实现检查：现有复现训练器只为 bfloat16 启用 autocast，裁剪值直接设 0 会清零非零梯度，不能照搬数值宣称忠实训练。两类模型 tuple 已对齐，不能重复裁剪。RN50/152、ViT-B/L/WiLoR 缺独立 YAML 是固定提交内的已核验发布缺口，不是模型类不存在；新增派生配方必须明确其来源和差异。[官方配置说明][config-readme]也将配置定位为研究记录。
 
@@ -103,9 +105,9 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **RN18/RN50/RN152部分已核验**；DINO-S/B/L真实预训练与CPU检查已核验，其余配方/初始化未闭合；上表及[模型源码][resnet] | 每种实际 resolved 配置、256 输入/patch 策略、回归头、冻结状态、权重身份及参数量；PDF 超参和缺失独立 YAML 必须分栏 |
 | Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M/L细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
 | Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M/L中心结果已核验（legacy）**，E1/E2/E3及L独立结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
-| Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；公开数据来源见下节，完整 mini 仅用于工程接入 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
+| Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；完整mini源准备及三模型原batch320 GPU容量已通过，仍仅属工程检查 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
 | Table 12，D.4 p.24 | EgoEMG S/M/L 的 10 个逐指/关节组派生误差 | **未生成**；E5 只有整体 fingers/wrist；[官方分组][constants]存在 | 累积逐角误差和/分母后生成重叠的 proximal/mid/distal、五指、腕 FE/RU 组，按主轨迹协议聚合；现有汇总不能逆推出这 10 组 |
-| Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **未实现，依赖 Table 11** | 三个完整模型与标准三 split 的逐角计数、同官方组映射；无需为该表再训练三遍 |
+| Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **尚无正式结果，依赖 Table 11**；未改官方逐组/逐用户方法已在mini原读取器/新存储间实际比对一致 | 三个完整模型与标准三 split 的逐角计数、同官方组映射及独立复算；无需为该表再训练三遍 |
 | Table 14，D.5 p.25 | RN18、S、RN18+S 在 59 类的 3 族群同中心比较 | **已有三个 checkpoint 与匹配人口，分析未实现**，E1/E2；[评价][gesture-eval]与[聚合][gesture-paper]源码存在 | 逐样本键、gesture/active/split/hand/crop/mask、三误差及 raw 排除记录；本项目 2,792 中心不能冒称原表 4,278 样本 |
 | Table 15，D.5 p.27 | 同 Table 14 底表生成 59 类 ID/name/N/三 MAE/Δ 与排序 | **未实现**；官方词表和表/散点生成入口存在 | 未舍入误差和/分母、按真实 Δ 排序、各族群人数与样本权重；原文 54/59 改善是参考结论，不是当前实测 |
 
