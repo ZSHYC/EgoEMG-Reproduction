@@ -1,5 +1,15 @@
 # 运行状态
 
+
+## 2026-10-28：DINOv2 ViT-S完整原生实验与报告核验完成
+
+[实际报告与曲线](../results/original-vision/vit-small/README.md)记录124轮、69,688实际更新，按原patience30早停、验证选择零起算epoch93（第94轮）。原生测试、独立完整预测复算、公开报告及最终verify共16个阶段实际exit0；外层控制器及所有阶段子进程另核对已退出。完整消费8,612次（repeat2），唯一4,306手样本；全部中心MAE6.464179°、有图子集6.324737°。有效角度加权pooled、原生样本加权批量MAE0.112734586rad以及逐用户mean±总体SD分列。
+
+另外用冻结的e7c20b9代码/训练依赖重新打开原始训练与测试链条核验成功，未初始化CUDA。第一次额外读取少带原PYTHONPATH，基础Lightning2.5.1.post0的checkpoint_connector与实际2.5.0.post0摘要不同，原校验正确拒绝；只修复读取环境后重开通过，没有重训/重测/改容差或原报告。服务器metrics.json/metrics.md/completion.json保持原字节，补充发布清单绑定12个实际Git源码、原配置、依赖及124轮哈希链曲线。
+
+这是原生模型/0.02配方在旧版队列上的单rank/workers0结果，独立train留出验证；合并训练来源未补齐，User/Both各有1个metadata subject键与训练交集，未证明PDF或六rank等价。B/L继续原完整训练；原始EMG2Pose全量下载和9e563c5aef66准备控制器继续运行。直接数据的完整状态恢复/GPU/250轮/科学评价及其余全文内容仍欠。
+
+
 ## 2026-10-28：原始磁盘数据上的S/M/L原生CPU入口核验完成
 
 [入口与边界](emg2pose-direct.md)、[实际证据](../results/emg2pose-direct-native-runtime-engineering.json)为37项新检查及145项原入口/源回归：本机182/53.85秒、服务器182/69.16秒，各23warning且actual exit0；完整轻量1,355通过/727可选框架或工具跳过/1warning78.57秒actual exit0。一次真实失败回归修正了新入口对另一格式私有context的拒绝，原validator、dataset类和全局对象不改。
