@@ -62,6 +62,31 @@
       ],
       "warnings": 106
     },
+    "hosted": {
+      "conclusion": "success",
+      "head_sha": "77d9a85b2c71289677f544891e2beef908aa77ba",
+      "light": {
+        "decoded_log_sha256": "df645071fa8884a915a2e9afb104e5bd1d09f6ff2363266906089a1377b90b63",
+        "dependency_skipped": 689,
+        "elapsed_seconds": 20.75,
+        "job_id": 121942658431,
+        "passed": 874,
+        "warnings": 1
+      },
+      "official_cpu": {
+        "decoded_log_sha256": "4481d28c429e7d7de5ef2dfbdb2847a40b164d028df842e05ef7d7512d73a763",
+        "elapsed_seconds": 702.88,
+        "job_id": 121942657884,
+        "passed": 1607,
+        "pip_check_passed": true,
+        "skipped": 3,
+        "warnings": 104
+      },
+      "run_id": 40429258366,
+      "scope": "exact99member Task1 acquisition source; does not cover subsequent memory_data additions",
+      "status": "completed",
+      "url": "https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40429258366"
+    },
     "light": {
       "actual_exit_code": 0,
       "dependency_skipped": 689,

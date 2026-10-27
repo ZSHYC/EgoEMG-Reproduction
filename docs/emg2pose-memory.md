@@ -1,6 +1,6 @@
 # EMG2Pose 完整源数据的内存存储接入
 
-本路线用于解决完整源包约462.8GB、服务器磁盘不能同时保存原TAR和转换数组的问题。**当前只完成无损内存接收组件；完整源、原生数据集适配和三个完整实验仍未完成。** 现有本机分块xz接收继续运行，原始数据、旧mini产物及DINO训练快照保持独立。
+本路线用于解决完整源包约462.8GB、服务器磁盘不能同时保存原TAR和转换数组的问题。**当前完成无损内存接收和原TAR/HDF5盘点组件；完整源、原生数据集适配和三个完整实验仍未完成。** 现有本机分块xz接收继续运行，原始数据、旧mini产物及DINO训练快照保持独立。
 
 ## 已实现的接收组件
 
@@ -36,6 +36,33 @@ with acquire_archive('mini') as cache:
 
 同一99成员源码的完整项目检查为1,606 passed/4 skipped；三项跳过需实际CUDA验收，另一项为本机内存不足而未执行的旧ViT-L构造。轻量检查为874 passed/689依赖skip；接收与既有归档的75项定向检查通过。这些结果分别证明代码范围，不能代替未运行的完整数据或模型实验。
 
-下一步须实现有界TAR成员/HDF5读接口、完整源人口和字段盘点，以及只替换底层存储的官方数据集适配。必须比较全部30文件/526个mini窗口的输入、标签、mask、顺序与恢复状态；通过后才可执行完整源准入和三项250轮实验。不能直接把新TAR交给现有memmap入口，也不修改旧转换器的完成标记规则。
+新增[原TAR/HDF5盘点证据](../results/emg2pose-memory-data-engineering.json)已在服务器真实mini上核验：全部32个TAR成员中的31文件、30个HDF5的对象和属性、全部4,218,756行的四个使用字段、每个会话的字段摘要，以及原metadata.npz全部数组，均与既有直接转换结果一致。原始valid行3,559,584、有效区间1,015；这些是原始mask统计，不是模型窗口应用all-false fallback后的有效分母。检查结束后所有内存描述符均关闭，没有进行新模型优化。
+
+该新增盘点组件对应101成员源码的完整项目检查为1,651 passed/4 skipped，轻量919 passed/689依赖skip；45项新读取/盘点检查与37项原转换检查合计82项通过。上一接收组件99成员源码的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40429258366)也已成功：官方CPU1,607/3真实CUDA skip、轻量874/689；其证据不覆盖随后新增盘点代码。
+
+## 原TAR/HDF5盘点API
+
+`emg2pose_memory_data.FdSlice`为一个TAR成员提供独立游标和严格字节边界，拥有自己的只读封印对象描述符副本。HDF5访问按原成员偏移读取，不提取到磁盘；HDF5先关闭、slice后关闭。原始额外字段和属性仍完整保存在TAR中。
+
+`index_archive`核对全部字节SHA256，每个成员记录数据/头部摘要及物理位置；拒绝不安全路径、重复、链接、稀疏成员、截断及隐藏追加归档。至少两个零TAR结束记录必须完整存在。长名字的GNU/PAX头部也绑定摘要，不把第一个结束记录后隐藏的数据忽略掉。
+
+`inspect_archive`自行核验上述源，使用固定官方helpers排序会话、构造IK/finite mask和连续有效区间，以最多262,144行逐块计算字段摘要。完整/mini模式额外要求对应已完成接收receipt、固定官方CSV和精确HDF5人口；结果为独立的私有`emg2pose_sealed_tar_inventory_v1`格式，包含实际源字段和参与者元数据，须留在私有数据目录。
+
+```python
+from pathlib import Path
+from egoemg_repro.emg2pose_memory_archive import acquire_archive
+from egoemg_repro.emg2pose_memory_data import inspect_archive
+
+with acquire_archive('mini') as cache:
+    source = cache.receipt
+    inventory = inspect_archive(
+        cache.fileno(), expected_bytes=source['source_bytes_received'],
+        expected_sha256=source['full_sha256'], cohort='mini',
+        acquisition_receipt=source, upstream=Path('upstream'),
+        metadata_csv=Path('data/emg2pose/emg2pose_metadata.csv'),
+    )
+```
+
+下一步是只替换底层存储的官方数据集适配。必须比较全部526个mini窗口的输入、标签、mask、顺序与恢复状态，并实测fork/spawn数据加载；通过后才可执行完整源准入和三项250轮实验。不能直接把新TAR交给现有memmap入口，也不修改旧转换器的完成标记规则。
 
 实现与验证顺序见[内存接入计划](superpowers/plans/2026-10-27-emg2pose-memory-storage.md)。这项工程结果不能填入论文Tables11/13。

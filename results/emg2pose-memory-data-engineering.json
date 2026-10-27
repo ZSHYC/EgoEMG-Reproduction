@@ -1,0 +1,154 @@
+{
+  "actual_server": {
+    "all_global_and_session_field_hashes_match": true,
+    "all_hdf5_objects_attrs_match": true,
+    "all_memory_descriptors_closed_after_probe": true,
+    "all_native_metadata_arrays_match": true,
+    "all_original_archive_members_match": true,
+    "capacity_observations": {
+      "after_cache_release": 977750720512,
+      "after_inventory": 977106956288,
+      "before_acquisition": 977876819968,
+      "before_inventory": 977203748864
+    },
+    "environment": {
+      "h5py": "3.11.0",
+      "numpy": "1.26.4",
+      "python": "3.11.12"
+    },
+    "gpu_used": false,
+    "inventory_seconds": 3.9789330810308456,
+    "raw_evidence_sha256": "3b6cb4f34210f339336083a9a79106addd9fe7f6235ae524a0ec9b1818b618a8",
+    "whole_probe_seconds": 88.63308832794428
+  },
+  "cohort": "mini",
+  "counts": {
+    "archive_members": 32,
+    "hdf5_files": 30,
+    "raw_valid_rows": 3559584,
+    "regular_members": 31,
+    "rows": 4218756,
+    "source_session_population": {
+      "generalization": {
+        "user": 22,
+        "user_stage": 8
+      },
+      "side": {
+        "left": 15,
+        "right": 15
+      },
+      "split": {
+        "val": 30
+      }
+    },
+    "tar_trailer_bytes": 1024,
+    "valid_blocks": 1015
+  },
+  "engineering_only": true,
+  "fields": {
+    "emg": {
+      "dtype": "<f4",
+      "sha256": "2f6efe2e0f6b01438017f491975e2b65050fc26e4c31d4067951d7b8ef3153fd",
+      "shape": [
+        4218756,
+        16
+      ]
+    },
+    "joint_angles": {
+      "dtype": "<f4",
+      "sha256": "335560bcce440b46f2354ccaa6047fde84e0f9712eb3c8f137d129de3b6c6e24",
+      "shape": [
+        4218756,
+        20
+      ]
+    },
+    "time": {
+      "dtype": "<f8",
+      "sha256": "0baee45098397606ee2ea5ec635e7fd709263453429b1dd0777cd255707efb57",
+      "shape": [
+        4218756
+      ]
+    },
+    "valid_mask": {
+      "dtype": "|b1",
+      "sha256": "9839fba27fdce689a5f508085ef925ce9666c23061b87ca62d42c9fc7236ea4d",
+      "shape": [
+        4218756
+      ]
+    }
+  },
+  "format": "public_emg2pose_memory_data_engineering_v1",
+  "full_corpus_complete": false,
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "full_training_complete": false,
+  "implementation_files_sha256": {
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_memory_archive.py": "993dbb7474969989cde173660b713f15dec56539923c8dbe8d0b1877b46fbe0d",
+    "egoemg_repro/emg2pose_memory_data.py": "7d1a89c2554b84dbdf01752f66600a3816a86821ec9e807c3df399ddd4e9214f"
+  },
+  "inspected_file_set_complete": true,
+  "limitations": [
+    "This is a separate sealed-TAR inventory format; old completed-memmap validators were not widened",
+    "Original whole-window all-false fallback remains the responsibility of the unchanged official reader",
+    "Native dataset/transforms/sampling/spawn equivalence, full source and three complete scientific runs remain unfinished"
+  ],
+  "model_optimization_performed": false,
+  "native_526_window_equivalence_performed": false,
+  "observed_utc": "2026-10-27T01:17:21.842505+00:00",
+  "official_helpers_sha256": {
+    "egoemg/datasets/emg2pose_dataset.py": "82fbd93849b906543f6f0705b8ca220b40ff81e3ee26175527c2a2d3124f2cc6",
+    "egoemg/utils.py": "d8faf33e037b4decec3b7febcb2d3db1576dc83e74d36a8f4b4739a8aa5241d2",
+    "scripts/data/convert_hdf5_to_zarr.py": "15170f53d248de7e5f886e160322a6ae68fde41b07b83126032d58403ca7b441"
+  },
+  "scope": "entire official30HDF5 mini source inventory and field equivalence; separate from original memmap model checks",
+  "source": {
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "archive_url": "https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset_mini.tar",
+    "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+    "source_identity_policy": "ETag is transport identity, not a publisher checksum; SHA256 identifies received bytes"
+  },
+  "source_manifest_members": 101,
+  "source_manifest_sha256": "265d727682c97fd48873c272e02771b59b4b62daaaf6b5f495bfbf2b9fa50d1b",
+  "upstream": "f7cbd048b7092139852270491d3859cd472e0311",
+  "verification": {
+    "complete_project_checks": "passed for the exact101member source manifest; actualGPU positives and a local large-constructor capacity skip remain explicit",
+    "full": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 784.16,
+      "log_sha256": "7d5ac854beea681007ecfb594af119bfbf670ff5b867b5a2c23722406cb2b8cf",
+      "passed": 1651,
+      "skipped": 4,
+      "skips": [
+        "2 actual CUDA numeric acceptance positives",
+        "1 actual three-process CUDA formal acceptance positive",
+        "1 unchanged legacy ViT-L CPU construction: MemAvailable2918424576 below reserve2967539888"
+      ],
+      "warnings": 106
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "dependency_skipped": 689,
+      "elapsed_seconds": 25.55,
+      "log_sha256": "99bef2827c3bdb04f21da0a015598a08ec74ec0040250b7f506917e19f906a92",
+      "passed": 919,
+      "warnings": 1
+    },
+    "light_targeted": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 10.05,
+      "log_sha256": "2b0d6b1e07e91db92b393b9e4ad6db1302290ef537ab91a87eb1c28a36ba9817",
+      "passed": 120
+    },
+    "targeted": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 4.35,
+      "log_sha256": "f12e4f8d6c9068f3218c626b9889ab7a6f3277871d96c151c53ee0164f3033fc",
+      "passed": 82
+    }
+  }
+}

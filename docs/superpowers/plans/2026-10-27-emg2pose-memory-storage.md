@@ -58,10 +58,10 @@ The existing local resumable xz receiver is correct but its single-flow compress
 - Produces `FdSlice(fd, offset, length)` with independent cursor and bounded read/readinto/seek/tell; `index_archive(fd, *, expected_bytes, expected_sha256) -> dict`; `inspect_archive(..., cohort, metadata_csv, upstream) -> dict`.
 - Inventory binds the entire original source SHA, every physical member offset/size/hash, all original HDF5 objects/typed attrs, exact CSV session population/order, global row offsets and original IK/finite masks. A new format stays distinct from completed direct-memmap receipts.
 
-- [ ] First write RED cases for two concurrent cursors, slice boundary EOF, nonzero-offset real HDF5 fields/attrs, closed ownership and unsealed fd rejection.
-- [ ] Add hostile/ambiguous TAR cases: traversal, duplicate/normalized duplicate, links, sparse members, truncated member/trailer, missing/extra official filenames and wrong metadata/attrs.
-- [ ] Implement bounded original-member reads, preserve all nonconsumed fields in the sealed source, and stream original helpers for masks/blocks/field hashes; no materialized source-sized arrays or weakened old path guards.
-- [ ] Prove actual mini original member and HDF5 field bytes against existing source receipts; run relevant GREEN tests.
+- [x] First write RED cases for two concurrent cursors, slice boundary EOF, nonzero-offset real HDF5 fields/attrs, closed ownership and unsealed fd rejection.
+- [x] Add hostile/ambiguous TAR cases: traversal, duplicate/normalized duplicate, links, sparse members, truncated member/trailer, missing/extra official filenames and wrong metadata/attrs.
+- [x] Implement bounded original-member reads, preserve all nonconsumed fields in the sealed source, and stream original helpers for masks/blocks/field hashes; no materialized source-sized arrays or weakened old path guards.
+- [x] Prove actual mini original member and HDF5 field bytes against existing source receipts; run relevant GREEN tests. Actual30HDF5/4,218,756rows,allglobal/session fields and native metadata arrays match; complete101source1651/4 and light919/689. Native526window/model check remains Task3.
 
 ### Task 3: Storage-only adapter to the unchanged official data factory
 
