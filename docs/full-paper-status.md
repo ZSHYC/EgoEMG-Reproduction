@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **EMG2Pose实际FP32完整批量与表格算术已通过工程核验：** [批量证据](../results/emg2pose-memory-evaluation-capacity-engineering.json)为S/M/L、两模式、每pass321窗/实际320+1、原12worker/FP32，35个受管理阶段/1,783.53秒及父进程actual exit0，原选best权重未变、跨进程预测/统计精确一致，全部worker/guardian实际退出。合成三角色5,009,750行与两轮工程fit，初始计数探针失败及源/Sfit只读复用均保留；不是benchmark或250轮。[表格算术](../results/emg2pose-memory-table-arithmetic-engineering.json)另通过48本机/48服务器/15轻量及四份真实GPU统计重读，明确用户/样本/有效角度三种权重与匿名边界。新CPU job配置以实际YAML驱动64项通过，旧5f托管失败不追认；完整源、科学控制器/报告和Task4最终审查仍欠。
+
 - **EMG2Pose最佳模型的原生流式评价完成三模型GPU工程复推：** [实际证据](../results/emg2pose-memory-selected-evaluation-engineering.json)包含服务器16项检查及17个受管理阶段/713.39秒实际exit0；S/M/L均重载真正由原验证最小值选出的工程best，val/test与新进程输入/预测摘要及充分统计量精确一致，校准在测试前冻结，模型权重未变，所有拥有的worker/guardian另核对退出。合成3文件/25,710行，每次仅1个实际窗口（配置320/12/FP32），GPU只运行预先声明的文件行对照，原样混角色val已实际拒绝；CPU覆盖两种模式。没有实际320窗FP32批量资格、完整源、250轮或benchmark成绩，最终科学控制器/报告及Task4最后审查仍欠。
 
 - **EMG2Pose评价数据准入已实际核验两种选择模式：** [新证据](../results/emg2pose-memory-evaluation-data-engineering.json)记录31本机/31服务器检查与真实mini元数据阶段exit0。原样两个条件各230窗；明确文件行隔离后167/63窗、22/8文件、重叠0。val跨角色在读取信号前拒绝，full要求实际完整源；原读取/筛选代码保留，仅作用域内关闭NPZ资源。未构造模型或执行推理，这不是正式校准、最终测试或三项250轮成绩。
@@ -117,7 +119,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M/L中心结果已核验（legacy）**，E1/E2/E3及L独立结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
 | Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；完整mini源准备及三模型原batch320 GPU容量已通过，仍仅属工程检查 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
 | Table 12，D.4 p.24 | EgoEMG S/M/L 的 10 个逐指/关节组派生误差 | **未生成**；E5 只有整体 fingers/wrist；[官方分组][constants]存在 | 累积逐角误差和/分母后生成重叠的 proximal/mid/distal、五指、腕 FE/RU 组，按主轨迹协议聚合；现有汇总不能逆推出这 10 组 |
-| Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **尚无正式结果，依赖 Table 11**；未改官方逐组/逐用户方法已在mini原读取器/新存储间实际比对一致 | 三个完整模型与标准三 split 的逐角计数、同官方组映射及独立复算；无需为该表再训练三遍 |
+| Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **尚无正式结果，依赖 Table 11**；逐组/逐用户方法及三种权重的独立表格算术已实际核验，不替代完整数据/模型 | 三个完整模型与标准三 split 的逐角计数、同官方组映射及独立复算；无需为该表再训练三遍 |
 | Table 14，D.5 p.25 | RN18、S、RN18+S 在 59 类的 3 族群同中心比较 | **已有三个 checkpoint 与匹配人口，分析未实现**，E1/E2；[评价][gesture-eval]与[聚合][gesture-paper]源码存在 | 逐样本键、gesture/active/split/hand/crop/mask、三误差及 raw 排除记录；本项目 2,792 中心不能冒称原表 4,278 样本 |
 | Table 15，D.5 p.27 | 同 Table 14 底表生成 59 类 ID/name/N/三 MAE/Δ 与排序 | **未实现**；官方词表和表/散点生成入口存在 | 未舍入误差和/分母、按真实 Δ 排序、各族群人数与样本权重；原文 54/59 改善是参考结论，不是当前实测 |
 

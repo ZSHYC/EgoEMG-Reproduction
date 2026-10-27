@@ -3,6 +3,25 @@
   "full_paper_complete": false,
   "new_scientific_result": false,
   "official_cpu_skip_scope": "Two actual selected-CUDA checks and one actual three-process CUDA bundle; light tier skips optional model-runtime checks",
+  "pending_cpu_job_environment_fix": {
+    "actual_yaml_job_environment_green": {
+      "actual_exit_code": 0,
+      "log_sha256": "1250b2edac46e33adbca19aadc31ed78ea85fd29e1d1bdba49d0c553a83fb1c1",
+      "passed": 64,
+      "seconds": 275.47,
+      "warnings": 9
+    },
+    "change": "official-cpu job sets CUDA_VISIBLE_DEVICES empty before starting Python",
+    "local_red": {
+      "actual_exit_code": 1,
+      "deselected": 15,
+      "fixture_errors": 1,
+      "seconds": 3.52
+    },
+    "new_hosted_run_observed": false,
+    "production_guards_unchanged": true,
+    "workflow_sha256": "ae407f1a44231ed3ed57cf8a57a80c98fe70874272e752102551a3cb954380ce"
+  },
   "runs": [
     {
       "commit": "7b8911fa9b74d169591fa473e7ec026ea34315dc",
@@ -91,7 +110,33 @@
         }
       ],
       "run_id": 40487240153
+    },
+    {
+      "cause": "CPU workflow omitted explicit CUDA_VISIBLE_DEVICES empty before framework import; strict recovery guard refused13 genuine-fit fixture setups",
+      "commit": "5fbd897272023f6287eab4628ee5ecb324f8476d",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122155998491,
+          "passed": 1053,
+          "seconds": 42.69,
+          "skipped": 696,
+          "warnings": 1
+        },
+        {
+          "conclusion": "failure",
+          "errors": 13,
+          "job_id": 122155998790,
+          "passed": 1899,
+          "pip_check": true,
+          "seconds": 1059.02,
+          "skipped": 3,
+          "warnings": 134
+        }
+      ],
+      "run_id": 40494382039
     }
   ],
-  "scope": "Actual hosted checks through evaluation-data admission commit430109a; excludes subsequent selected-best inference/profile code"
+  "scope": "Actual hosted checks through5fbd897; its CPU run failed from missing explicit CPU visibility environment. Subsequent job-env fix, table arithmetic and batch-capacity proof are not covered by that failed run."
 }

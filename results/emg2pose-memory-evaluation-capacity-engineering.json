@@ -1,0 +1,1071 @@
+{
+  "actual_batch_sizes": [
+    320,
+    1
+  ],
+  "actual_exit_code": 0,
+  "actual_samples_per_pass": 321,
+  "all_owned_consumers_exited": true,
+  "bundle_sha256": "53a07f6345688915a950c4602f6ce16d687aca8411f32edef77fe8878080b694",
+  "configured_batch_size": 320,
+  "configured_workers": 12,
+  "elapsed_seconds": 1783.5327551728114,
+  "engineering_only": true,
+  "fixture": {
+    "archive_bytes": 761518080,
+    "archive_sha256": "c94a948bde3a1e55bd70708fbd5b69c1a50e6dd6906a4c7e8fc9c37049e5ad58",
+    "benchmark_data": false,
+    "files": 3,
+    "format": "synthetic_emg2pose_capacity_fixture_v1",
+    "generated_by_sha256": "f6a49ddb2652ea69a54eab6683836001c91a9d79f7d535af719659b0a36f184f",
+    "hdf5_sha256": {
+      "capacity-test.hdf5": "a58c34f45dbcac70b7851b3c3dcb500ab09642045eaef6e10558dc01f3dd49de",
+      "capacity-train.hdf5": "dd0b46612b3804ce3d4fb72682c0d38601e96ebf5e70074bc4856bde660b14c2",
+      "capacity-val.hdf5": "bf9d2756c02e4777dd8000d4a8ef8907918ec4316cfa0fff6a31034127357550"
+    },
+    "metadata_sha256": "71f4bdc11a5407a3ac45a79789f11d50bb4268731ad47c4a80003565afcbbcbf",
+    "rows_by_role": {
+      "test": 2500590,
+      "train": 8570,
+      "val": 2500590
+    },
+    "synthetic": true,
+    "total_rows": 5009750,
+    "unique_recording_ids": true
+  },
+  "format": "emg2pose_original_fp32_batch_capacity_engineering_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "inference_precision": "FP32",
+  "initial_attempt": {
+    "actual_exit_code": 1,
+    "corrected_probe": "explicit CUDA initialization before resetting peak counters; unchanged production model/evaluation code",
+    "reason": "private peak-memory probe reset before CUDA initialization; failed before inference",
+    "reused_archive_sha256": "c94a948bde3a1e55bd70708fbd5b69c1a50e6dd6906a4c7e8fc9c37049e5ad58",
+    "reused_small_fit_result_sha256": "f80b51138849fa38acb5edb7e2fd5af7f629a86027c0035e142f94ec732476f7",
+    "successful_preparation_and_small_fit_preserved": true
+  },
+  "limitations": [
+    "Synthetic source and two-epoch engineering fits, not benchmark performance or250epochs.",
+    "Both modes use the same selected source rows in this unique-recording fixture; real full literal populations can overlap and include train files.",
+    "Capacity qualification does not replace full-source admission, final scientific controller/report or final implementation review."
+  ],
+  "observed_utc": "2026-10-27T11:58:43.253398+00:00",
+  "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "owned_process_readback": [
+    {
+      "guardian_actually_gone": true,
+      "name": "large-fit-owned",
+      "sha256": "0adc3f92bb7615ab72d6cb07838d56432faba7b9eac52624c567951f2e082025",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-metadata_indices-freeze-owned",
+      "sha256": "060010b5efe7c124729cf675d421ad1fd1e1e66ac65658311dea6e4b411fa5ae",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-metadata_indices-test-native-owned",
+      "sha256": "31e05c4f87e238a64005b3f868ce1c69dcfcea2be83032199e7cc8e33b4756e2",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-metadata_indices-test-replay-owned",
+      "sha256": "be073c277fb26fff51f4c640ca8738768b6dbb8bb9a4ac0767047c3dd6555cd7",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-metadata_indices-val-native-owned",
+      "sha256": "34e5b86ffaab6e82a8645cddf8b23eafed5965d9c63c3c786afab9ffdfce362c",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-metadata_indices-val-replay-owned",
+      "sha256": "7595d55abf8e3fd562017c81dbd4ddf2a8e17c78ebdb3183bc75b3ec596b1c12",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-official_literal-freeze-owned",
+      "sha256": "fb2b6f535fcb27be43b2eb90ef37f697b56fdd60fe1d9d0a3eb5f6b3ed6a48e6",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-official_literal-test-native-owned",
+      "sha256": "f96187a05096caaf7616eb24a679d1633d89db1a2104a680098cfd3be9320539",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-official_literal-test-replay-owned",
+      "sha256": "bbe4d50cf10b7a5597c380186dfee8259b8f17496066debde919f9dbe01a0078",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-official_literal-val-native-owned",
+      "sha256": "20649dd2de6e052bb6d0f266997296fb6dba7b4096cabbd9a21bddfc00be2a4a",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "large-official_literal-val-replay-owned",
+      "sha256": "02df8bba7dfba33e085671fd439e5b0dc27f25a263080707d8d4c6c54e193ff9",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-fit-owned",
+      "sha256": "37d62e555bd8b21fc6a0d7ba8f5ddb1180b494edd0654a314d65b742c0191673",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-metadata_indices-freeze-owned",
+      "sha256": "1cd8ed7ec23497b1821e38ed027246f5a6201718a84563e623858c1574873c1d",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-metadata_indices-test-native-owned",
+      "sha256": "24a6e0b1458bdaf3648b50c376f19b26e9e11417ca4355c7f493ba4c383a47d8",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-metadata_indices-test-replay-owned",
+      "sha256": "8a15753a9fe5bdfb68de65feac50df4306f49ac4c86a3152eabfb7d641b90374",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-metadata_indices-val-native-owned",
+      "sha256": "5870116ae35dd9e6c7d3d62831e639dd1518ef643028f3e7d7217cfee16dbb11",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-metadata_indices-val-replay-owned",
+      "sha256": "f170689fc7959dd737e70a1d2fe72edc32fa7db12ecd76a847f0ee832da8133f",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-official_literal-freeze-owned",
+      "sha256": "c7da67e37394c7e492089f04b501460e5446a56f3ff9355f357f35710b5834d2",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-official_literal-test-native-owned",
+      "sha256": "e2c594230e513ad8d199e19be0df60981a9375b7525ee0a41a5e81b5c660796c",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-official_literal-test-replay-owned",
+      "sha256": "48e5a0c74028be44477e5996a3e539983a08cb5e41de82737359b44e903655dd",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-official_literal-val-native-owned",
+      "sha256": "8769414d7a9ed77d8c02886c1cf35b0f7c31dca74e330a2a26be9f57645183b9",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "middle-official_literal-val-replay-owned",
+      "sha256": "abe9e4128d251a40695fa2b39589844a54ad7b8f3455d0151f74a18483e4433d",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "preparation-owned",
+      "sha256": "f7f40b6b10cbd73b2d32d997b10d1947207dfc5eed8005b4c7da65e55ab8eed0",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "readback-owned",
+      "sha256": "7864cdbfb1e80ead17215d5ed8765c369de91a4cff73e99be9a381a8a308cae9",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-fit-reuse-check-owned",
+      "sha256": "4029eaa3def1b659ff99a13a3506fc21f7ba7af4523dba29a97c1c35189efd45",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-metadata_indices-freeze-owned",
+      "sha256": "f913d489c160e847328934090da4b0aa0d4429be0182d50d063856757d3355dc",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-metadata_indices-test-native-owned",
+      "sha256": "2da8299e2289801131048adbd709d7419a2a2510b13d2ebcb0866c3200af9e38",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-metadata_indices-test-replay-owned",
+      "sha256": "d00bc2212d3caa7c89586700695321f561198045bc58ca72c32232cfc4292c24",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-metadata_indices-val-native-owned",
+      "sha256": "92696736d0b08ccc1ba120fb6556fb927e3c70330b72a0ef7dfb4d1533eadd3b",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-metadata_indices-val-replay-owned",
+      "sha256": "9a194193953019ee0b4f2fca220a4d9a6a1d570ca6e0e41def3519c138d76116",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-official_literal-freeze-owned",
+      "sha256": "8cec4c0cca43473ff50df9a8ef0ccfb18fe6bf39b38a9941ca9a7fc0e4a85c59",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-official_literal-test-native-owned",
+      "sha256": "dab27a47942a5721895fd0bcf082b6f93db85ac7634539174631e2b7e354a86a",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-official_literal-test-replay-owned",
+      "sha256": "0ef32328ff7cebb3d41a361bd557d90bd07eff04a3a98ffea3e23aff4ef56b24",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-official_literal-val-native-owned",
+      "sha256": "04e7d6cb8e1d975c19ce1c94aa801319b09ed7f32044e848b57a6a333def94c8",
+      "worker_actually_gone": true
+    },
+    {
+      "guardian_actually_gone": true,
+      "name": "small-official_literal-val-replay-owned",
+      "sha256": "d3277d9f4a93c0f02dee6bfd4cae0d1d539974ac136d335f7ce4261762632175",
+      "worker_actually_gone": true
+    }
+  ],
+  "parent_torch_unimported": true,
+  "sizes": [
+    {
+      "fit_result_sha256": "f80b51138849fa38acb5edb7e2fd5af7f629a86027c0035e142f94ec732476f7",
+      "modes": {
+        "metadata_indices": {
+          "passes": {
+            "test-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "68b400d3b31804fb64f11783686c5a537616e4c92a4f089872772052dc00c77e",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "2da8299e2289801131048adbd709d7419a2a2510b13d2ebcb0866c3200af9e38",
+              "pass_sha256": "68b400d3b31804fb64f11783686c5a537616e4c92a4f089872772052dc00c77e",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "fa47b71dc6cb8a2147ffb402d479ec505f259eadd9ffc6b9c9cd0722ee7d5a5a",
+              "typed_input_output_digest": "e068a1be49ea2cae0a4c4a8043c085695a205351964a4f595a5dda4db8583a71"
+            },
+            "test-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "8e9d5aecfeba7afe29d1c47eee06d21c7fae684bcb0c58123d4c31fefebd805d",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "d00bc2212d3caa7c89586700695321f561198045bc58ca72c32232cfc4292c24",
+              "pass_sha256": "8e9d5aecfeba7afe29d1c47eee06d21c7fae684bcb0c58123d4c31fefebd805d",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "fa47b71dc6cb8a2147ffb402d479ec505f259eadd9ffc6b9c9cd0722ee7d5a5a",
+              "typed_input_output_digest": "e068a1be49ea2cae0a4c4a8043c085695a205351964a4f595a5dda4db8583a71"
+            },
+            "val-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "79a5c8ca4f7090eaf1680c563e82bb35521ae773483925c91c0ebaa09cdc3136",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "92696736d0b08ccc1ba120fb6556fb927e3c70330b72a0ef7dfb4d1533eadd3b",
+              "pass_sha256": "79a5c8ca4f7090eaf1680c563e82bb35521ae773483925c91c0ebaa09cdc3136",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "2fad6198bc31de9183d469bc4d78c66a5b8ca71ebdabb1dfb296dd70ff18566a",
+              "typed_input_output_digest": "d3523fba6a0300eed9b6677fd983990f5568a40a2d34f69b8c70250d4e2550c8"
+            },
+            "val-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "562bf0508d68444165bb8944be749833485b5657fff9d5d5d0ac9d138f244d15",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "9a194193953019ee0b4f2fca220a4d9a6a1d570ca6e0e41def3519c138d76116",
+              "pass_sha256": "562bf0508d68444165bb8944be749833485b5657fff9d5d5d0ac9d138f244d15",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "2fad6198bc31de9183d469bc4d78c66a5b8ca71ebdabb1dfb296dd70ff18566a",
+              "typed_input_output_digest": "d3523fba6a0300eed9b6677fd983990f5568a40a2d34f69b8c70250d4e2550c8"
+            }
+          },
+          "profile_sha256": "11d6bf0f8fa5cabdc0da706e98c16d6b34a2c8ea7e8b441466abd9d17ca038b2"
+        },
+        "official_literal": {
+          "passes": {
+            "test-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "ea3e00906ee7494dacfe101ec1b8ce24495494aa486b79d8a79b715e48a7be43",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "dab27a47942a5721895fd0bcf082b6f93db85ac7634539174631e2b7e354a86a",
+              "pass_sha256": "ea3e00906ee7494dacfe101ec1b8ce24495494aa486b79d8a79b715e48a7be43",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "fa47b71dc6cb8a2147ffb402d479ec505f259eadd9ffc6b9c9cd0722ee7d5a5a",
+              "typed_input_output_digest": "e068a1be49ea2cae0a4c4a8043c085695a205351964a4f595a5dda4db8583a71"
+            },
+            "test-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "ce69a1b5ce381825369bbd478ecd8b6d0558fffd4d28aa4c2c1047ebf8408222",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "0ef32328ff7cebb3d41a361bd557d90bd07eff04a3a98ffea3e23aff4ef56b24",
+              "pass_sha256": "ce69a1b5ce381825369bbd478ecd8b6d0558fffd4d28aa4c2c1047ebf8408222",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "fa47b71dc6cb8a2147ffb402d479ec505f259eadd9ffc6b9c9cd0722ee7d5a5a",
+              "typed_input_output_digest": "e068a1be49ea2cae0a4c4a8043c085695a205351964a4f595a5dda4db8583a71"
+            },
+            "val-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "88defe1c1100511f4bf2e205769a7352996fe130a996b1b296f58cbed43e5cee",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "04e7d6cb8e1d975c19ce1c94aa801319b09ed7f32044e848b57a6a333def94c8",
+              "pass_sha256": "88defe1c1100511f4bf2e205769a7352996fe130a996b1b296f58cbed43e5cee",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "2fad6198bc31de9183d469bc4d78c66a5b8ca71ebdabb1dfb296dd70ff18566a",
+              "typed_input_output_digest": "d3523fba6a0300eed9b6677fd983990f5568a40a2d34f69b8c70250d4e2550c8"
+            },
+            "val-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81923538944,
+                "pass_sha256": "dc280d52d0a8ff6e891313f1fed74d4b5b65e0b1111bacff4749c9ee68f708d0",
+                "peak_allocated_bytes": 2415204864,
+                "peak_reserved_bytes": 2608857088
+              },
+              "model_sha256": "a86ad085ae45be13fc782aed150cc7e8f8d58766a47f62a2613d2094badbb324",
+              "owned_exit_sha256": "d3277d9f4a93c0f02dee6bfd4cae0d1d539974ac136d335f7ce4261762632175",
+              "pass_sha256": "dc280d52d0a8ff6e891313f1fed74d4b5b65e0b1111bacff4749c9ee68f708d0",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "2fad6198bc31de9183d469bc4d78c66a5b8ca71ebdabb1dfb296dd70ff18566a",
+              "typed_input_output_digest": "d3523fba6a0300eed9b6677fd983990f5568a40a2d34f69b8c70250d4e2550c8"
+            }
+          },
+          "profile_sha256": "fbd1dd2e684d61291c2f08f7e9da1e79335c3e3b0bf225eb5baab928720c6776"
+        }
+      },
+      "size": "small",
+      "training": {
+        "completed_epochs": 2,
+        "optimizer_executions": 32,
+        "reused_successful_readonly_fit": true,
+        "selected_best_validated": true,
+        "train_samples_per_epoch": [
+          5120,
+          5120
+        ],
+        "val_samples_per_epoch": [
+          321,
+          321
+        ]
+      }
+    },
+    {
+      "fit_result_sha256": "44eada4d239d27b85331653acacad0e35217108c7fb7dbf1ac2b89a5b3b9b063",
+      "modes": {
+        "metadata_indices": {
+          "passes": {
+            "test-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "0ee3d81e5d7d184dc6efa731ae7bfd6569c3a552bdd4f989e0adcb55b480638d",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "24a6e0b1458bdaf3648b50c376f19b26e9e11417ca4355c7f493ba4c383a47d8",
+              "pass_sha256": "0ee3d81e5d7d184dc6efa731ae7bfd6569c3a552bdd4f989e0adcb55b480638d",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "7519f6d13bdd347c5309eafa15d47dadfdcaf6db43a3a0b599c064660318474b",
+              "typed_input_output_digest": "8114a32e7b994f1070d4edf446465d8c53bfbeff80fca910bd911fb28841330e"
+            },
+            "test-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "fefc8d272540e8b1c68ac9c9f5ed68d090c0d8c9d74d46ce11a5dc76cb44badc",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "8a15753a9fe5bdfb68de65feac50df4306f49ac4c86a3152eabfb7d641b90374",
+              "pass_sha256": "fefc8d272540e8b1c68ac9c9f5ed68d090c0d8c9d74d46ce11a5dc76cb44badc",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "7519f6d13bdd347c5309eafa15d47dadfdcaf6db43a3a0b599c064660318474b",
+              "typed_input_output_digest": "8114a32e7b994f1070d4edf446465d8c53bfbeff80fca910bd911fb28841330e"
+            },
+            "val-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "89a57ff88fc1b0e00c802b3cd9b11350e17f8f48b09c48994a93570169e7bafb",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "5870116ae35dd9e6c7d3d62831e639dd1518ef643028f3e7d7217cfee16dbb11",
+              "pass_sha256": "89a57ff88fc1b0e00c802b3cd9b11350e17f8f48b09c48994a93570169e7bafb",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "ab5f20a886a5f341ff175f80cef12ca5034434896dea0fb322a1d95c32cb2828",
+              "typed_input_output_digest": "3bad243e42ba649a41daa9929afa0e81e517d0e3331c90ffbcf458c990aa8c6e"
+            },
+            "val-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "77d3f833c2210969f16c5c72c07d920822f8f4c945d05c0bf2bd45f5361bc316",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "f170689fc7959dd737e70a1d2fe72edc32fa7db12ecd76a847f0ee832da8133f",
+              "pass_sha256": "77d3f833c2210969f16c5c72c07d920822f8f4c945d05c0bf2bd45f5361bc316",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "ab5f20a886a5f341ff175f80cef12ca5034434896dea0fb322a1d95c32cb2828",
+              "typed_input_output_digest": "3bad243e42ba649a41daa9929afa0e81e517d0e3331c90ffbcf458c990aa8c6e"
+            }
+          },
+          "profile_sha256": "1f01eeb5646cadd0489d692ded3b14551a0a9fb96085d7ddbf3835b6dff1d4f7"
+        },
+        "official_literal": {
+          "passes": {
+            "test-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "f5474609c797ba97fa3d1af0cfa24e1d5aefdfc2da78437121d32c9bffa4d24d",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "e2c594230e513ad8d199e19be0df60981a9375b7525ee0a41a5e81b5c660796c",
+              "pass_sha256": "f5474609c797ba97fa3d1af0cfa24e1d5aefdfc2da78437121d32c9bffa4d24d",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "7519f6d13bdd347c5309eafa15d47dadfdcaf6db43a3a0b599c064660318474b",
+              "typed_input_output_digest": "8114a32e7b994f1070d4edf446465d8c53bfbeff80fca910bd911fb28841330e"
+            },
+            "test-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "41eda2dd0c16caab22f044361831fc1c2a5281aa6628af664d03654a93a77ac8",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "48e5a0c74028be44477e5996a3e539983a08cb5e41de82737359b44e903655dd",
+              "pass_sha256": "41eda2dd0c16caab22f044361831fc1c2a5281aa6628af664d03654a93a77ac8",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "7519f6d13bdd347c5309eafa15d47dadfdcaf6db43a3a0b599c064660318474b",
+              "typed_input_output_digest": "8114a32e7b994f1070d4edf446465d8c53bfbeff80fca910bd911fb28841330e"
+            },
+            "val-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "dfa8098cc4557e3bd5be598a06c37c44079c9feb09b9f6917c9f43209f15c099",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "8769414d7a9ed77d8c02886c1cf35b0f7c31dca74e330a2a26be9f57645183b9",
+              "pass_sha256": "dfa8098cc4557e3bd5be598a06c37c44079c9feb09b9f6917c9f43209f15c099",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "ab5f20a886a5f341ff175f80cef12ca5034434896dea0fb322a1d95c32cb2828",
+              "typed_input_output_digest": "3bad243e42ba649a41daa9929afa0e81e517d0e3331c90ffbcf458c990aa8c6e"
+            },
+            "val-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81910956032,
+                "pass_sha256": "5147c1b22be499fff4317686b14e1df4e82f5dd8bf360a81a2ef084317c24de4",
+                "peak_allocated_bytes": 2427835392,
+                "peak_reserved_bytes": 2621440000
+              },
+              "model_sha256": "27eca585b4ebc5bd9c0beae996615e53a327fb50081acaf5144fa5c73d1703ec",
+              "owned_exit_sha256": "abe9e4128d251a40695fa2b39589844a54ad7b8f3455d0151f74a18483e4433d",
+              "pass_sha256": "5147c1b22be499fff4317686b14e1df4e82f5dd8bf360a81a2ef084317c24de4",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "ab5f20a886a5f341ff175f80cef12ca5034434896dea0fb322a1d95c32cb2828",
+              "typed_input_output_digest": "3bad243e42ba649a41daa9929afa0e81e517d0e3331c90ffbcf458c990aa8c6e"
+            }
+          },
+          "profile_sha256": "e5f5895c7929b43fe86b5a052331c2c0771d4d2887e8e919087c81d9c81301ab"
+        }
+      },
+      "size": "middle",
+      "training": {
+        "completed_epochs": 2,
+        "optimizer_executions": 32,
+        "reused_successful_readonly_fit": false,
+        "selected_best_validated": true,
+        "train_samples_per_epoch": [
+          5120,
+          5120
+        ],
+        "val_samples_per_epoch": [
+          321,
+          321
+        ]
+      }
+    },
+    {
+      "fit_result_sha256": "620a8da6bea97813139afa0f74f297de6a50310f1ff6cf8654b833e4c6c3bfce",
+      "modes": {
+        "metadata_indices": {
+          "passes": {
+            "test-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "c6255477fa5ba7ef822c3912399d933fa99982867c7eb2500f635671ef3d0d00",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "31e05c4f87e238a64005b3f868ce1c69dcfcea2be83032199e7cc8e33b4756e2",
+              "pass_sha256": "c6255477fa5ba7ef822c3912399d933fa99982867c7eb2500f635671ef3d0d00",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "6eaa863a39930b636767b1f9f53f80a0c3714d7a26e627336506a82e3a0656bb",
+              "typed_input_output_digest": "f1f9c3177312513e48b03c3cf58c511b00aec8cf5a0126f1375f74fb99d8a756"
+            },
+            "test-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "06cd6b7859ea89ca0574e911961b592a2efe6389f9ba1a92d0983cbba4d4a5e9",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "be073c277fb26fff51f4c640ca8738768b6dbb8bb9a4ac0767047c3dd6555cd7",
+              "pass_sha256": "06cd6b7859ea89ca0574e911961b592a2efe6389f9ba1a92d0983cbba4d4a5e9",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "6eaa863a39930b636767b1f9f53f80a0c3714d7a26e627336506a82e3a0656bb",
+              "typed_input_output_digest": "f1f9c3177312513e48b03c3cf58c511b00aec8cf5a0126f1375f74fb99d8a756"
+            },
+            "val-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "4a695c5e0f4ce80cf0ca65b2275f3af1b8988826dbc2cf87b82cdd5cc2f2a142",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "34e5b86ffaab6e82a8645cddf8b23eafed5965d9c63c3c786afab9ffdfce362c",
+              "pass_sha256": "4a695c5e0f4ce80cf0ca65b2275f3af1b8988826dbc2cf87b82cdd5cc2f2a142",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "5fd4e6a4f957d815053ecbbaa9e54ee488010e06aae689f26899910ff183436b",
+              "typed_input_output_digest": "a6bdd3a8b7744394bfb12a0c56948fef5c8ef1deaf73839cc6bd7e4f4dab0d99"
+            },
+            "val-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "c6c9cf2097f212c84bd36a06ff3a55d51bad74c98c971c1efe1f40e78732f7fc",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "7595d55abf8e3fd562017c81dbd4ddf2a8e17c78ebdb3183bc75b3ec596b1c12",
+              "pass_sha256": "c6c9cf2097f212c84bd36a06ff3a55d51bad74c98c971c1efe1f40e78732f7fc",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "5fd4e6a4f957d815053ecbbaa9e54ee488010e06aae689f26899910ff183436b",
+              "typed_input_output_digest": "a6bdd3a8b7744394bfb12a0c56948fef5c8ef1deaf73839cc6bd7e4f4dab0d99"
+            }
+          },
+          "profile_sha256": "1d3e5b8d2eb0f34d6d3ff1af164a1b5331abe1c671578285730e25dede61685d"
+        },
+        "official_literal": {
+          "passes": {
+            "test-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "1e94b2e20f9b208e567856bbf417e5a88027ecd6d92eb7f9617af489a9790376",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "f96187a05096caaf7616eb24a679d1633d89db1a2104a680098cfd3be9320539",
+              "pass_sha256": "1e94b2e20f9b208e567856bbf417e5a88027ecd6d92eb7f9617af489a9790376",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "6eaa863a39930b636767b1f9f53f80a0c3714d7a26e627336506a82e3a0656bb",
+              "typed_input_output_digest": "f1f9c3177312513e48b03c3cf58c511b00aec8cf5a0126f1375f74fb99d8a756"
+            },
+            "test-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "08235186a745fa6454de0ef060d4578e70f3caf610f6d61bb3573037a84d2b98",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "bbe4d50cf10b7a5597c380186dfee8259b8f17496066debde919f9dbe01a0078",
+              "pass_sha256": "08235186a745fa6454de0ef060d4578e70f3caf610f6d61bb3573037a84d2b98",
+              "samples_by_condition": {
+                "user_stage": 321
+              },
+              "statistics_sha256": "6eaa863a39930b636767b1f9f53f80a0c3714d7a26e627336506a82e3a0656bb",
+              "typed_input_output_digest": "f1f9c3177312513e48b03c3cf58c511b00aec8cf5a0126f1375f74fb99d8a756"
+            },
+            "val-native": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "0bd55c7def0ed432ee7c17b9d0223762af0182a3855f9ba641d7980ff864c7ab",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "20649dd2de6e052bb6d0f266997296fb6dba7b4096cabbd9a21bddfc00be2a4a",
+              "pass_sha256": "0bd55c7def0ed432ee7c17b9d0223762af0182a3855f9ba641d7980ff864c7ab",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "5fd4e6a4f957d815053ecbbaa9e54ee488010e06aae689f26899910ff183436b",
+              "typed_input_output_digest": "a6bdd3a8b7744394bfb12a0c56948fef5c8ef1deaf73839cc6bd7e4f4dab0d99"
+            },
+            "val-replay": {
+              "batch_count": 2,
+              "capacity": {
+                "accelerator": "NVIDIA A800-SXM4-80GB",
+                "batch_sizes": [
+                  320,
+                  1
+                ],
+                "free_bytes_after": 81881595904,
+                "pass_sha256": "1048c6605a478aa5b4e0ee9c6b585bf576d85b9f0ca876ed3897f822de87d9a5",
+                "peak_allocated_bytes": 2466846720,
+                "peak_reserved_bytes": 2650800128
+              },
+              "model_sha256": "ef30eb56e214275d9640ff70d137915e7f09d227db6fad0cdc92bfc62492469d",
+              "owned_exit_sha256": "02df8bba7dfba33e085671fd439e5b0dc27f25a263080707d8d4c6c54e193ff9",
+              "pass_sha256": "1048c6605a478aa5b4e0ee9c6b585bf576d85b9f0ca876ed3897f822de87d9a5",
+              "samples_by_condition": {
+                "user": 321
+              },
+              "statistics_sha256": "5fd4e6a4f957d815053ecbbaa9e54ee488010e06aae689f26899910ff183436b",
+              "typed_input_output_digest": "a6bdd3a8b7744394bfb12a0c56948fef5c8ef1deaf73839cc6bd7e4f4dab0d99"
+            }
+          },
+          "profile_sha256": "c68d3a7697f79a3558945745b096fc17ffd2dc6b72a4e78ef2b6057cbead05bc"
+        }
+      },
+      "size": "large",
+      "training": {
+        "completed_epochs": 2,
+        "optimizer_executions": 32,
+        "reused_successful_readonly_fit": false,
+        "selected_best_validated": true,
+        "train_samples_per_epoch": [
+          5120,
+          5120
+        ],
+        "val_samples_per_epoch": [
+          321,
+          321
+        ]
+      }
+    }
+  ],
+  "stages": [
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "preparation"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-fit-reuse-check"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-official_literal-val-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-official_literal-val-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-official_literal-freeze"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-official_literal-test-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-official_literal-test-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-metadata_indices-val-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-metadata_indices-val-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-metadata_indices-freeze"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-metadata_indices-test-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "small-metadata_indices-test-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-fit"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-official_literal-val-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-official_literal-val-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-official_literal-freeze"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-official_literal-test-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-official_literal-test-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-metadata_indices-val-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-metadata_indices-val-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-metadata_indices-freeze"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-metadata_indices-test-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "middle-metadata_indices-test-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-fit"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-official_literal-val-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-official_literal-val-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-official_literal-freeze"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-official_literal-test-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-official_literal-test-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-metadata_indices-val-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-metadata_indices-val-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-metadata_indices-freeze"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-metadata_indices-test-native"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "large-metadata_indices-test-replay"
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "exit_code": 0,
+      "name": "readback"
+    }
+  ],
+  "unchanged_producer_sha256": {
+    "egoemg_repro/emg2pose_memory_evaluate.py": "54ec2a6deb3ce4aa4003bb766340c8baefb0c8cb9586fa0b9f91195742757ad9",
+    "egoemg_repro/emg2pose_memory_statistics.py": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "egoemg_repro/emg2pose_memory_train.py": "d91fad5a13c24848b749b3b09a36c8eb2d04a42436af6eb2fd5077cfbd1a492b"
+  }
+}

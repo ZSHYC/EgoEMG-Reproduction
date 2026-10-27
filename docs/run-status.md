@@ -1,5 +1,15 @@
 # 运行状态
 
+## 2026-10-27：三模型实际FP32批量320+1与表格算术已核验
+
+[实际批量证据](../results/emg2pose-memory-evaluation-capacity-engineering.json)为761,518,080字节合成三角色源、5,009,750行、唯一记录ID。S/M/L各有真实两轮/32更新工程fit及原验证选择的best；两种声明模式均执行val-native/fresh/profile/test-native/fresh，每次321窗、实际批次320+1、12workers、FP32。修正后的35个受管理阶段及父进程actual exit0，1,783.53秒；全部worker/guardian另核对实际退出，前后权重不变，跨进程预测与统计精确一致。峰reserved为S2.430/M2.441/L2.469GiB。这是完整批量容量与流程证据，**不是完整benchmark、250轮或论文成绩**。
+
+首次私有显存计数探针在CUDA初始化前调用reset，实际exit1且尚未进入推理；原准备和成功Sfit只读保留。根因以新GPU进程复现，显式初始化后计数通过；后续单次新调用冻结旧源/Sfit的SHA，重开新封印缓存和新索引，独立读取成功fit及旧阶段退出记录后复用，未重复训练S或改变生产模型/评价代码。失败记录没有改写为成功。
+
+[表格算术证据](../results/emg2pose-memory-table-arithmetic-engineering.json)为本机/服务器各48项、轻量15项实际exit0及四份真实S321窗GPU统计重读。表11保留原用户均值/标准差与独立FP64；表13明确按条件窗口数加权，并单列有效角度加权汇总。默认缺三条件拒绝，显式部分算术始终不授予正式数据/模型/测试资格；私有用户键匿名化。
+
+5fbd897托管CPU检查因缺少显式CPU启动环境而出现13个fit夹具ERROR，失败保留。现仅在official-cpu job加入空CUDA_VISIBLE_DEVICES；读取实际YAML配置启动的新本机进程64项/9warnings/275.47秒actual exit0，未放宽生产门槛或跳过条件。修后托管CI尚须对应新提交实际观察。完整源、三项250轮、最终科学控制器/报告及Task4最终审查仍未完成。
+
 ## 2026-10-27：最佳模型的流式评价完成三模型GPU工程复推
 
 [新评价代码与实际证据](../results/emg2pose-memory-selected-evaluation-engineering.json)完成原生selected-best重载、未改逐用户函数、逐批输入/输出摘要与20角统计、验证native/fresh replay冻结profile、测试native/fresh replay。服务器16项/362.52秒实际exit0；另有三项计数/资源边界先RED后GREEN。full source/fit、模式、单独冻结SHA、原始sidecar损坏、同进程伪复推和无profile测试均有拒绝检查，失败不留下成功pass或改写fit。

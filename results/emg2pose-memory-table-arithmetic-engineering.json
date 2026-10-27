@@ -1,0 +1,103 @@
+{
+  "actual_GPU_statistic_arithmetic": {
+    "actual_existing_GPU_statistics_reopened": true,
+    "checks": [
+      {
+        "actual_samples": 321,
+        "anonymous_summary_sha256": "b7949a9850193d97502af1ef3e19479ce27cda50e1a9f3a0fa8aca1e562cd82e",
+        "mode": "official_literal",
+        "role": "val",
+        "source_native_sha256": "7ef622269f7f0c1914d1e149dd95252c561e913747f4ca9be3c8b365745a92bd",
+        "source_pass_sha256": "88defe1c1100511f4bf2e205769a7352996fe130a996b1b296f58cbed43e5cee",
+        "source_statistics_sha256": "2fad6198bc31de9183d469bc4d78c66a5b8ca71ebdabb1dfb296dd70ff18566a"
+      },
+      {
+        "actual_samples": 321,
+        "anonymous_summary_sha256": "6099843a876fb47e958bc98b8618faf3527716d3adcb6b8f092201064ce5ec66",
+        "mode": "official_literal",
+        "role": "test",
+        "source_native_sha256": "9ff51844bfc04a36bc6475631451c25f8e85a8711d9bcfb7a0ccfdef6c4f7e25",
+        "source_pass_sha256": "ea3e00906ee7494dacfe101ec1b8ce24495494aa486b79d8a79b715e48a7be43",
+        "source_statistics_sha256": "fa47b71dc6cb8a2147ffb402d479ec505f259eadd9ffc6b9c9cd0722ee7d5a5a"
+      },
+      {
+        "actual_samples": 321,
+        "anonymous_summary_sha256": "b7949a9850193d97502af1ef3e19479ce27cda50e1a9f3a0fa8aca1e562cd82e",
+        "mode": "metadata_indices",
+        "role": "val",
+        "source_native_sha256": "7ef622269f7f0c1914d1e149dd95252c561e913747f4ca9be3c8b365745a92bd",
+        "source_pass_sha256": "79a5c8ca4f7090eaf1680c563e82bb35521ae773483925c91c0ebaa09cdc3136",
+        "source_statistics_sha256": "2fad6198bc31de9183d469bc4d78c66a5b8ca71ebdabb1dfb296dd70ff18566a"
+      },
+      {
+        "actual_samples": 321,
+        "anonymous_summary_sha256": "6099843a876fb47e958bc98b8618faf3527716d3adcb6b8f092201064ce5ec66",
+        "mode": "metadata_indices",
+        "role": "test",
+        "source_native_sha256": "9ff51844bfc04a36bc6475631451c25f8e85a8711d9bcfb7a0ccfdef6c4f7e25",
+        "source_pass_sha256": "68b400d3b31804fb64f11783686c5a537616e4c92a4f089872772052dc00c77e",
+        "source_statistics_sha256": "fa47b71dc6cb8a2147ffb402d479ec505f259eadd9ffc6b9c9cd0722ee7d5a5a"
+      }
+    ],
+    "engineering_only": true,
+    "formal_table_results": false,
+    "inputs_unchanged": true,
+    "parent_torch_unimported": true
+  },
+  "benchmark_scores_published": false,
+  "engineering_only": true,
+  "format": "emg2pose_table_arithmetic_engineering_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "observed_utc": "2026-10-27T11:53:48.028527+00:00",
+  "paper_pages": [
+    23,
+    24,
+    25
+  ],
+  "paper_sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+  "source_model_profile_or_coverage_qualified": false,
+  "source_policy": {
+    "global_pooled": "separate float64 valid-angle pooled consumption view; not substituted for sample weights",
+    "privacy": "anonymous ordinals within one summary, consistent across its conditions; private identifiers omitted",
+    "table11": "unchanged native per-user mean/std/count plus independent float64 counterpart",
+    "table13": "sample-count weighted condition group MAE across stage/user/user_stage; native and independent separately",
+    "table13_assembly": "derived from PDF caption; pinned official single-pass supplies valid-angle pooled per-condition values"
+  },
+  "sources_sha256": {
+    "egoemg_repro/emg2pose_memory_report.py": "9f409a7276f83ffe08fb77f5cca29658e7e232fe618832fde7e0ab21423276ed",
+    "egoemg_repro/emg2pose_memory_statistics.py": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "tests/test_emg2pose_memory_report.py": "4f3a5e611f500feba131aeaa6da939927846ba1a90ae96d466281264a49945ad"
+  },
+  "tests": {
+    "existing_statistics_and_new_report": {
+      "actual_exit_code": 0,
+      "log_sha256": "17c1c42505ac5c5dee934a1eaa6af388d26354949b5456ffbb772bdaf2964682",
+      "passed": 48,
+      "seconds": 5.19
+    },
+    "focused": {
+      "actual_exit_code": 0,
+      "passed": 15,
+      "seconds": 0.12
+    },
+    "light_without_model_runtime": {
+      "actual_exit_code": 0,
+      "log_sha256": "ae5fc2ebac53f9b13f6a743873135bb2f70b109f605c498df5dc27a5ca5f5df0",
+      "passed": 15,
+      "seconds": 0.43
+    },
+    "missing_module_red": {
+      "actual_exit_code": 1,
+      "failed": 15,
+      "seconds": 0.31
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "617516069e06fc3c3dcc8b62fd0a95817b051fa8d87b25b4d8e63b2d95e38e18",
+      "log_sha256": "62574b90fb2ef5297ed429264526ff2580670a47416517eb30b2e77bd2f41aaf",
+      "passed": 48,
+      "seconds": 5.23
+    }
+  }
+}

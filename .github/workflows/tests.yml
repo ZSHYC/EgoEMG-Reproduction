@@ -26,6 +26,7 @@ jobs:
     name: Pinned CPU official-model fixture checks
     runs-on: ubuntu-latest
     env:
+      CUDA_VISIBLE_DEVICES: ''
       EGOEMG_UPSTREAM: ${{ github.workspace }}/upstream
       EGOEMG_NO_PRETRAINED_DOWNLOAD: '1'
       OMP_NUM_THREADS: '2'

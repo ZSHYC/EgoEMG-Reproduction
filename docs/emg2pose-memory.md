@@ -209,3 +209,33 @@ full还要求该规模、相同科学配方/代码/运行时/硬件的实际CUDA
 [实际评价工程证据](../results/emg2pose-memory-selected-evaluation-engineering.json)记录服务器16项/362.52秒通过；本机另有三项真实RED→GREEN，初始13项日志与退出记录缺失的边界在私有ledger中保留，不拼成一次新的本机16项运行。真实A800 S/M/L共17个受管理阶段、713.39秒、实际exit0，包括原样混角色val拒绝、12次GPU推理、三份仅验证集profile冻结与一次独立CPU全重读；全部worker/guardian实际退出。前后best权重不变，val/test新进程输入/预测和统计精确一致。
 
 GPU使用已有原生两轮/32更新的合成三角色fit及相同源，3文件/25,710行，重复记录ID；因此仅运行声明的metadata_indices对照。配置320/12/FP32，但每次实际1个窗口，**不能当成完整320样本FP32推理容量或benchmark**。CPU独立唯一记录ID夹具覆盖两种模式。实际完整批量评价资格、最终科学控制器/报告、完整源及三个250轮实验仍欠；本组件验收不等于Task4或全文完成。
+
+
+## 表11/13的独立算术与匿名汇总
+
+`emg2pose_memory_report.summarize_tables(statistics, native_rows, native_users, *, require_all_conditions=True)`从每个条件/私有用户的20角原始误差和、有效时间点、消费数及全无效数重建全部E1统计，检查原角顺序/名称、计数守恒和所有缓存汇总，再按原固定2e-6数值界核对未改官方逐用户评价的FP32指标。它只做算术，不准入来源、模型、预测、profile或拥有的进程，输出始终不能声明科学或全文完成。
+
+表11保留原生逐用户均值、ddof0标准差和用户数（度），独立float64值另列。表13按PDF p24表注，以各条件实际消费的窗口数加权三个条件的组MAE：`sum(n_condition * group_MAE_condition) / sum(n_condition)`；原生FP32组MAE和独立float64值分别生成。固定官方single-pass在每个条件内部按有效角度汇总；本次在固定源码的scripts/analysis中未找到跨条件表13生成脚本，因此这里把表注要求的跨条件样本权重明确写出。所有条件的有效角度加权总量是另一种单列的视图，不能静默替代样本权重。原样条件有重叠时保留真实重复消费，不冒称唯一窗口。
+
+默认要求stage/user/user_stage三个条件且各有有效标签；显式`require_all_conditions=False`只得到标为不完整的算术结果。公开用户键替换为本次汇总内一致的匿名序号，不跨独立报告宣称同一人。20角、八组原始误差和及有效分母保留，不加入腕角或用已舍入MAE逆推原始量。
+
+[实际算术证据](../results/emg2pose-memory-table-arithmetic-engineering.json)：15项缺模块RED后通过；本机旧统计+新汇总48项/5.19秒、服务器同48项/5.23秒、无模型运行时轻量15项/0.43秒均实际exit0。另一个无Torch进程实际重读S在两种模式下的val/test各321窗GPU统计共四份，汇总守恒、原生数值一致、用户已匿名，输入文件SHA不变。它们是合成工程数据，不是表11/13的正式成绩。
+
+5fbd897的[实际托管CPU运行](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40494382039)失败：1,899通过、3实际CUDA skip、13个真实fit夹具在严格CPU环境门槛拒绝。该job原先未在Python启动前显式设置空CUDA_VISIBLE_DEVICES；轻量job1,053通过/696依赖skip。现在仅在official-cpu任务环境补上该变量，生产检查和skip条件保持；从实际YAML任务配置启动的新本机进程64项/275.47秒通过。修正后托管运行仍须另行观察，旧失败保留在[CI记录](../results/emg2pose-memory-hosted-ci.json)。
+
+
+## 实际FP32评价批量320与最后不足批次
+
+[完整批量工程证据](../results/emg2pose-memory-evaluation-capacity-engineering.json)使用明确合成的原HDF5结构三角色源：train8,570行，val/test各2,500,590行，共5,009,750行/761,518,080字节；记录ID唯一。原helpers盘点所有字段/mask并建立新索引。S/M/L分别使用与该源严格匹配的原生两轮/32次更新fit，train每轮原采样器补齐5,120次消费，实际val每轮321窗；不把训练stride误套在验证上。
+
+每模型每模式均完成实际FP32 val-native/fresh replay/profile冻结/test-native/fresh replay，原12worker、实际批次[320,1]，每pass321窗。所有原始输入/预测摘要和独立统计精确复推，原验证选best前后权重不变。24次GPU评价共7,704次窗口消费；它们含模式及复推的重复，不能说成7,704个唯一数据窗口。父进程未导入Torch，35个受管理阶段全部actual exit0，独立CPU最终重开全部fit/pass/profile/owned证据；所有worker/guardian及缓存所有者另核对实际退出，总计1,783.53秒。
+
+| 模型 | 最大allocated GiB | 最大reserved GiB | 实际评价批次 |
+| --- | ---: | ---: | --- |
+| S | 2.249 | 2.430 | 320+1 |
+| M | 2.261 | 2.441 | 320+1 |
+| L | 2.297 | 2.469 | 320+1 |
+
+峰值来自同一真实预测进程的CUDA计数器，并绑定pass与进程身份；不改变原forward、模型或评价源码。首次私有探针在CUDA未初始化时重置计数，worker actual exit1且未进入推理；成功源准备和Sfit保留。新GPU进程先复现该错误、显式初始化后计数通过；修正后的独立新调用核对旧父进程已失败退出、源/CSV/Sfit/原owned退出记录的另外冻结SHA，复用只读源和真实Sfit，重新封印并盘点/建立新索引，另外训练M/L。旧失败不会变为成功或被覆盖，没有自动重试。
+
+这是原FP32完整批量及尾批流程资格。合成数据、两轮工程fit、相同源行的两种模式不证明完整benchmark人口、250轮、科学成绩或原样完整测试的无交叉；真实full源、最终科学控制器/报告及Task4最后审查仍须完成。
