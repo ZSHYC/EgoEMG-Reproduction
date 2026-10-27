@@ -1,0 +1,26 @@
+{
+  "commit": "a6a9f2ee4342e63255fd7c7fc5590768923b41c6",
+  "conclusion": "success",
+  "format": "actual_current_emg2pose_whole_native_ci_v1",
+  "full_paper_complete": false,
+  "light": {
+    "conclusion": "success",
+    "decoded_log_file_sha256": "68ea2b43e0dfae16c1d2165327d4b357f638df40c5f6f1a2464207ca9827d9f4",
+    "job_id": 122519569877,
+    "passed": 1394,
+    "seconds": 134.2,
+    "skipped": 718,
+    "warnings": 1
+  },
+  "official_cpu": {
+    "conclusion": "success",
+    "decoded_log_file_sha256": "3b40bd24f4b33ea159ead98bb80930ac5b2987916c41d0c80b67eff955a46360",
+    "job_id": 122519570235,
+    "passed": 2480,
+    "pip_check": true,
+    "seconds": 2922.72,
+    "skipped": 3,
+    "warnings": 188
+  },
+  "run_id": 40598254284
+}

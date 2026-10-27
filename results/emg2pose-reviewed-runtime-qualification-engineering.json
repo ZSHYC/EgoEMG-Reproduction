@@ -4,14 +4,18 @@
   "actual_resource_observations_injected": false,
   "actual_successful_owned_stages": 61,
   "all_frozen_producers_unchanged": true,
-  "current_whole_native_ci_verified": false,
+  "current_whole_native_ci_evidence": "emg2pose-reviewed-whole-ci.json",
+  "current_whole_native_ci_verified": true,
   "existing_original_format_synthetic_source_reused": true,
   "format": "emg2pose_reviewed_runtime_qualification_engineering_v1",
   "full_paper_complete": false,
-  "full_scientific_queue_started": false,
+  "full_scientific_queue_started": true,
+  "full_scientific_queue_status": "waiting-existing-full-source",
   "full_scientific_training_complete": false,
+  "full_scientific_training_started": false,
   "full_source_acquired": false,
   "gpu_training_or_inference_repeated_for_collector_failure": false,
+  "latest_actual_progress_evidence": "progress-snapshot-2026-10-28.json",
   "models": [
     {
       "actual_eval_batch_sizes": [

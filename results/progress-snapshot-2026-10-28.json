@@ -1,0 +1,97 @@
+{
+  "additional_open_work": [
+    "match official EgoEMG recipes/data/protocols where existing legacy settings differ",
+    "per-joint/per-gesture/occlusion/qualitative analyses and required tables/figures",
+    "raw preprocessing and annotation regeneration",
+    "markers2mano model package/training recipe/weights not publicly supplied"
+  ],
+  "completed_declared_experiment_settings": 10,
+  "completed_groups": {
+    "legacy": {
+      "center_mae_degrees": {
+        "emgformer_l": 16.612111,
+        "emgformer_m": 16.490835,
+        "emgformer_s": 16.313757,
+        "resnet152": 5.982738,
+        "resnet18": 7.784887,
+        "resnet18_emgformer_s": 6.793533,
+        "resnet50": 6.640058
+      },
+      "test_hand_centers": 2792,
+      "tip_coefficient": 0.01
+    },
+    "native_recipe_legacy_cohort": {
+      "center_mae_degrees": {
+        "dinov2_vit_base": 6.761261,
+        "dinov2_vit_small": 6.464179,
+        "vemg2pose": 16.347705
+      },
+      "test_unique_hand_centers": 4306,
+      "tip_coefficient": 0.02,
+      "vemg2pose_trajectory_mae_degrees": 16.452932
+    }
+  },
+  "completed_original_pdf_equivalent_settings_not_established": true,
+  "current_model_code_ci": {
+    "commit": "a6a9f2ee4342e63255fd7c7fc5590768923b41c6",
+    "conclusion": "success",
+    "evidence": "emg2pose-reviewed-whole-ci.json",
+    "run_id": 40598254284
+  },
+  "emg2pose_full_acquisition": {
+    "expected_bytes": 462824048640,
+    "four_original_process_identities_matching_live": true,
+    "observed_utc": "2026-10-27T23:48:15.907334+00:00",
+    "receipt_complete": false,
+    "received_fraction": 0.8996985220098005,
+    "source_bytes_received": 416402112512
+  },
+  "format": "egoemg_actual_progress_snapshot_v1",
+  "full_paper_complete": false,
+  "full_queue": {
+    "actual_launch_command_exit": 0,
+    "bundle_sha256": "ff9274687c53e27c721630422653ea47ffe1de275096f850b76fe9fe57705a2d",
+    "completed_models": 0,
+    "epochs_per_full_model": 250,
+    "fixed_order": [
+      "small",
+      "middle",
+      "large"
+    ],
+    "four_owned_process_identities_matching_live": true,
+    "full_queue_complete": false,
+    "models_started": [],
+    "scientific_training_started": false,
+    "started_utc": "2026-10-27T23:48:28.385853+00:00",
+    "status": "waiting-existing-full-source"
+  },
+  "groups_are_not_one_controlled_leaderboard": true,
+  "no_models_restarted_for_this_status_observation": true,
+  "observed_utc": "2026-10-27T23:48:51.985482+00:00",
+  "remaining_model_settings": [
+    "egoemg_neuropose",
+    "egoemg_dinov2_vit_large",
+    "egoemg_wilor",
+    "egoemg_vit_small_emgformer_s",
+    "emg2pose_emgformer_small",
+    "emg2pose_emgformer_middle",
+    "emg2pose_emgformer_large"
+  ],
+  "source_preparation_controller": {
+    "last_observed_phase": "waiting-existing-full-acquisition",
+    "observed_utc": "2026-10-27T23:48:15.897714+00:00",
+    "original_owners_matching_live": {
+      "child": true,
+      "wrapper": true
+    }
+  },
+  "vision_large": {
+    "actual_current_stage_child_live": true,
+    "actual_training_child_live": true,
+    "completed_validation_epochs": 50,
+    "controller_live": true,
+    "current_stage": "full-fit",
+    "error": null,
+    "status": "full-fit"
+  }
+}
