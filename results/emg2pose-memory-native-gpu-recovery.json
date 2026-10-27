@@ -1,0 +1,218 @@
+{
+  "actual_exit_code": 0,
+  "all_owned_consumers_exited": true,
+  "engineering_only": true,
+  "format": "emg2pose_native_gpu_checkpoint_recovery_mini_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "gpu": "NVIDIA A800-SXM4-80GB; one rank",
+  "gpu_complete_state_restore_qualified": true,
+  "limitations": [
+    "Entire mini original val reused as engineering train fixture; no independent train/val or full training population/augmentation qualification.",
+    "Two prefix updates, fresh-process complete526-window validation, native six-state restore then one actual further update; no250epoch scientific training.",
+    "Restore observation is immediately after unchanged native restore_training_state and before iterator reconstruction; uninterrupted trajectory and resumed data order are unclaimed.",
+    "Pinned PL2.5 intentionally omits ModelCheckpoint.current_score during load; only that transient is excluded from exact callback comparison.",
+    "Native bf16 uses no FP16 GradScaler; CUDA RNG is explicitly restored and observed on the selected device.",
+    "Complete526-window skipIKfalse native validation differs from original per-user skipIKtrue analysis460-window mini path.",
+    "No validation-selected final test, published model performance, fullsource or Tables11/13 result.",
+    "Resource values are observations, not reservations; simultaneous owner/guardian loss remains outside existing lifecycle qualification."
+  ],
+  "observed_utc": "2026-10-27T06:13:57.024722+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "ongoing_observed_free_floor_bytes": 8589934592,
+  "parent_cuda_hidden_and_torch_unimported": true,
+  "prelaunch_observed_free_floor_bytes": 68719476736,
+  "raw_sha256": "e85c5ae8123a2ab08f6628cf54cb180f2bf04704785b13ca71d91f0cbca61968",
+  "sizes": [
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "batch_size": 320,
+      "configured_eval_multiprocessing_context": "spawn",
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "fresh_validation_reference_sha256": "9922ade1c960508f172148f1f2f0f4bdae8c3af70b5da2103238a2e5163ccd60",
+      "frozen_prefix_checkpoint_sha256": "b589e3ba1ebd6a4ee37db84f8ca9092148648bb03d94d58c1aac8adf177c0dd9",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "gradient_clip_val": 1,
+      "minimum_observed_gpu_free_bytes": 64987398144,
+      "native_callback_policy": "original top3+last, val_mae/min, no EarlyStopping; original TensorBoard logger",
+      "peak_reserved_bytes_by_phase": [
+        10619977728,
+        9250537472
+      ],
+      "precision": "bf16-mixed",
+      "resumed_checkpoint_sha256": "23bd3ca4c14ad902d50e750ae33835cb84ad7871ec93ef97aab6d9f9182732af",
+      "runtime_identity_sha256": "01bd46b1b025d9039bbe0858205a90fcd5d99b821ed5208e8d27b3eaab302b52",
+      "scheduler_epochs": 250,
+      "seconds_by_phase": [
+        78.54508999595419,
+        97.24007807625458
+      ],
+      "size": "small",
+      "workers": 12
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "batch_size": 320,
+      "configured_eval_multiprocessing_context": null,
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "fresh_validation_reference_sha256": "f024917cbfdc816c4af0aec68d88bffd4d1cdca292678274a03b13d353c876f5",
+      "frozen_prefix_checkpoint_sha256": "677f80cd3519413e8ba574a0ebe11852967a1ccf421cde1e3595a3ec973ca9c9",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "gradient_clip_val": 1,
+      "minimum_observed_gpu_free_bytes": 62823137280,
+      "native_callback_policy": "original top3+last, val_mae/min, no EarlyStopping; original TensorBoard logger",
+      "peak_reserved_bytes_by_phase": [
+        12784238592,
+        11414798336
+      ],
+      "precision": "bf16-mixed",
+      "resumed_checkpoint_sha256": "3b2ff25383f7ee5462ae3c7e8975a8887ffb6d625976a179630016e97f0efa49",
+      "runtime_identity_sha256": "59555e0854cd405f211ad524809b5734a304c7fb84378c8aa108f24757febd42",
+      "scheduler_epochs": 250,
+      "seconds_by_phase": [
+        75.24685705732554,
+        91.3179541840218
+      ],
+      "size": "middle",
+      "workers": 12
+    },
+    {
+      "actual_updates_by_phase": [
+        2,
+        1
+      ],
+      "batch_size": 320,
+      "configured_eval_multiprocessing_context": null,
+      "distinct_actual_processes": true,
+      "exact_native_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "fresh_validation_inputs_outputs_order_metrics_exact": true,
+      "fresh_validation_reference_sha256": "86d6bff3fea42d186e0f64063a698d80b0bba2d1ff1b93d8b4b597863bce7eea",
+      "frozen_prefix_checkpoint_sha256": "1902e9bf9dd48bc8cae1036d8699be3834463006b732062bf424c7e39210d75d",
+      "full_validation_window_counts": {
+        "after_resumed_update": [
+          526
+        ],
+        "fresh_restore": 526,
+        "prefix": [
+          526,
+          526
+        ]
+      },
+      "global_steps_by_phase": [
+        2,
+        3
+      ],
+      "gradient_clip_val": 1,
+      "minimum_observed_gpu_free_bytes": 59211841536,
+      "native_callback_policy": "original top3+last, val_mae/min, no EarlyStopping; original TensorBoard logger",
+      "peak_reserved_bytes_by_phase": [
+        16395534336,
+        15848177664
+      ],
+      "precision": "bf16-mixed",
+      "resumed_checkpoint_sha256": "61cf5dcaaaa87cb262d2218d50e7f0780e9497a4d0ce37b3f48eb9cd6c149e35",
+      "runtime_identity_sha256": "83ba29abe087aaa878d45e06673bc3740807de4588304647376711a70efea92f",
+      "scheduler_epochs": 250,
+      "seconds_by_phase": [
+        76.73082064511254,
+        92.42678926931694
+      ],
+      "size": "large",
+      "workers": 12
+    }
+  ],
+  "source_archive_bytes": 647198208,
+  "source_archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+  "source_bundle_sha256": "616a123020f3e47ed22436179505c47d9ab4f246896fd94c2f437575f54e54d0",
+  "source_index_completion_sha256": "58279edcda36fee7b77ed8e8d97d4a518a86be1b06cffb666e7132fe77d9c009",
+  "source_manifest_members": 114,
+  "source_manifest_sha256": "588c150767a9ce707682a60acc05e90aa38c059a89ea51445e4dbef1792789ac",
+  "tests": {
+    "full": {
+      "actual_exit_code": 0,
+      "log_sha256": "8220ab6bb0720a66329cb15462da721ef11ec5067d4454a77e94af01730f1ceb",
+      "passed": 1780,
+      "seconds": 988.82,
+      "skipped": 3,
+      "warnings": 131
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "955a770e7f652da1e62979b3a308ef23ef3be4acfd3421c2e5377435cbe66ffd",
+      "passed": 987,
+      "seconds": 35.95,
+      "skipped": 692,
+      "warnings": 1
+    },
+    "local_targeted": {
+      "actual_exit_code": 0,
+      "passed": 13,
+      "seconds": 60.53
+    },
+    "server_targeted": {
+      "actual_exit_code": 0,
+      "passed": 13,
+      "seconds": 85.18
+    }
+  },
+  "total_seconds": 636.9227102161385,
+  "uninterrupted_trajectory_qualified": false
+}

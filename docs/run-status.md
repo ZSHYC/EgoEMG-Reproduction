@@ -1,5 +1,15 @@
 # 运行状态
 
+## 2026-10-27：三模型原生GPU完整状态恢复及新进程完整验证通过
+
+[新恢复入口与证据](../results/emg2pose-memory-native-gpu-recovery.json)使用原生factory、callbacks、TensorBoard和Trainer：S/M/L各两次batch320/12worker/bf16前缀更新及两轮完整526窗口验证，另一个真实进程严格重载后完整526窗口的输入/输出/顺序与全部原生指标精确一致，原生完整检查点的权重、AdamW、cosine250、callbacks、fit循环和Python/NumPy/Torch/CUDA随机状态六项一致，再实际更新一次至step3并完整验证。六个受管理阶段实际exit0，全部拥有的消费者退出；总计636.92秒。只排除PL2.5明确不加载的ModelCheckpoint.current_score暂态字段；原top3+last/val_mae/min/noearlystop/clip1保留，bf16没有FP16 scaler。
+
+本机13项真实恢复/IO/拒绝/失败发布检查60.53秒、服务器同13项85.18秒通过；首轮真实prefix暴露导入顺序错误、额外真实故障注入暴露失败成功receipt未删除，均保留RED后修正。完整114成员冻结源码检查1,780 passed/3实际CUDA skip/131warnings（988.82秒），轻量987 passed/692依赖skip/1warning（35.95秒），均捕获实际exit0且前后源码一致。这不是250轮训练、独立验证或Tables11/13结果：仍复用mini原val及验证变换作为工程训练夹具，不证明完整人口/增强或连续训练轨迹；完整源、正式fit/选模/test/replay/report及Task4最终审查仍欠。
+
+另核对上一111成员4d18fbd的[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40455566293)：官方CPU实际1,767 passed/3实际CUDA skip（1205.46秒）、pip check通过；轻量4 failed/983 passed/691 skip（38.22秒），整次workflow失败。四个源准备子进程正确拒绝只有8GiB的/tmp。当前仅把轻量测试目录移至已有官方CPU层同样采用的磁盘RUNNER_TEMP，保留生产15GiB余量；新来源托管结果须另外观察，不把本机绿色替代云端结果。
+
+06:34UTC原DINO-S/B/L训练子进程身份均匹配，无终态错误，正在第50/33/15轮，已完成49/32/14次完整验证，无最终测试。完整源RAM观察518,454,767,616 bytes仍低于固定737,836,173,312 bytes准入需求，未分配完整缓存。持久化接收器06:24真实exit3/stop_reason=projected_capacity，保留75,329,699,840源字节（压缩51,073,675,560字节）。核验三份本任务已通过、已退出测试的可再生成临时目录后释放约21.8GB，仅涉及测试副本；日志、原数据、真实模型结果和活动测试保留。空间重新满足剩余投影加15GiB余量后，原固定接收代码在独立进程续传，正在重验75.3GB前缀，尚未声明新增字节；没有自动重试或降低资源门槛。
+
 ## 2026-10-27：受管理的源准备与S/M/L原批量GPU容量检查完成
 
 [源准备入口](../results/emg2pose-memory-preparation-engineering.json)把完整源盘点、索引生成和实际重新准入放在独立CPU消费者中，父进程持续检查内存/源/代码与输入文件。完整647MB mini实际运行83.47秒，30HDF5/4,218,756行及四字段与独立原转换参考一致，只生成四个小索引文件；所有消费者退出，父缓存仅由调用者关闭。full模式仍要求全部25,253会话和原train17,136/val1,950/test6,167划分；这些完整数据尚未取得，不能用mini成功代替。本机66项/9.86秒、服务器66项/12.87秒通过；当前111成员完整1,767 passed/3实际CUDA skip/125warnings（917.72秒），轻量987/691依赖skip/1warning（38.63秒），均捕获exit0。不同工作目录中的同名包误加载、子进程生产者身份不符均先以真实RED复现后修正。

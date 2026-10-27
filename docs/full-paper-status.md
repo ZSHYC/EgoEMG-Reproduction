@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **EMG2Pose S/M/L原生GPU完整检查点恢复已通过：** [实际证据](../results/emg2pose-memory-native-gpu-recovery.json)记录A800上的六个独立受管理阶段，636.92秒全部实际exit0且拥有的消费者退出。每模型保留原320/12worker/bf16/clip1/cosine250及原top3+last/TensorBoard/noearlystop：两次前缀更新和两轮完整526窗口验证，新进程完整526窗口精确复推，权重/AdamW/cosine/callbacks/循环/RNG六项精确恢复，再实际更新一次至step3并完整验证。本机/服务器各13项真实检查通过；整体软件检查按独立JSON的实际退出记录列示。mini原val仍仅是工程训练夹具，没有独立验证、完整训练人口/增强、连续轨迹或科研成绩；完整源、正式fit/选模/test/报告及Task4最终审查仍欠。
+
 - **EMG2Pose源准备与三模型原批量GPU容量已通过实际检查：** [源准备证据](../results/emg2pose-memory-preparation-engineering.json)为完整647MB mini的30HDF5/4,218,756行独立盘点、索引重验及受管理的准备进程；全部字段与原转换参考一致，本机/服务器各66项检查通过。111成员整体1,767/3实际CUDA skip、轻量987/691依赖skip均exit0。[GPU容量证据](../results/emg2pose-memory-native-gpu-capacity.json)为S/M/L各两次实际batch320/12worker/bf16更新、两轮完整526窗口原生验证，峰reserved约9.89/11.28/15.27GiB，全部拥有的消费者退出。mini原val复用为工程训练夹具，不是独立验证或模型精度；完整源、GPU状态恢复、正式训练/选模/测试与报告仍欠。
 
 - **EMG2Pose缓存消费者的进程管理已通过真实检查：** [实际证据](../results/emg2pose-memory-process-engineering.json)为本机/服务器各20项实际进程检查和完整647MB mini流程；父进程强制退出、孙进程持有fd、资源压力及TERM拒绝均回收，guardian不保留缓存fd。严格重载已有small工程模型后，未改官方逐用户函数在原转换数据/新存储上结果精确一致；IK过滤路径460窗口（230/230，各1用户），CPU/batch1/workers0，无新训练成绩。最终109成员整体1,739/3实际CUDA skip及轻量959/691依赖skip均exit0；完整源控制器、GPU准入、三项完整训练及Task4最终审查仍欠。
@@ -75,7 +77,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
 | EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
 | EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **完整运行、已核验（原生配方／旧版数据单rank适配）**；[实际结果](../results/original-classic/vemg2pose/README.md)为62轮早停、10,535更新、4,306测试手样本，轨迹／中心16.452932°／16.347705°。目标手8ch/WL7790输出6000；原批量600、完整验证选模、原生test和独立复算／报告完成。六rank、原表数据和标注等价未证明 |
-| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **CPU训练/epoch恢复已核验，未正式完整训练**；WL7790输出7790；先原零填16槽再归一化/全槽旋转。原Lightning clip0与val_loss语义已有真实CPU证明，真实cohort及batch1 CUDA/scaler限定检查已完成，原批量256容量已通过，正式完整训练仍欠 |
+| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **CPU恢复和原批量容量通过，正式GPU准入未通过**；WL7790、原零填16槽再归一化/全槽旋转、clip0/val_loss保留。正式限定检查的171,380个预测元素中8个超出预先固定门槛，失败保留、未降低容差；尚未正式完整训练 |
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **150 epochs完整legacy实验与锁定复算完成**；23,700更新/150次full val，best第19,118步，全部中心6.640058°。独立YAML未发布，损失/队列/单卡配方与官方字面/PDF等价仍未证明，见[结果](../results/completed/resnet50/README.md) |
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **150 epochs完整legacy实验与锁定复算完成**；52,650更新/150次full val，验证选择第52,650步，全部/有图中心5.982738°/5.869706°。独立作者YAML未发布，保留损失/队列/派生配方限制，见[结果](../results/completed/resnet152/README.md) |
@@ -85,9 +87,9 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |
-| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **CPU完整状态恢复及原批量GPU容量已核验**，见[GPU证据](../results/emg2pose-memory-native-gpu-capacity.json)：mini限定进程的2次GPU320/12worker/bf16更新及两轮完整526窗验证。完整源、GPU状态恢复、250轮选模/测试仍欠 |
-| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成CPU恢复与GPU原批量容量检查**；mini原val工程夹具无独立验证意义，完整训练/验证/测试仍未完成 |
-| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成CPU恢复与GPU原批量容量检查**；峰reserved15.27GiB，没有完整科研结果，不能用EgoEMG-L或mini数值填表 |
+| EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **原批量GPU容量及完整状态恢复已核验**，见[新恢复证据](../results/emg2pose-memory-native-gpu-recovery.json)：原320/12worker/bf16、2前缀更新+新进程精确526窗验证/六状态恢复+实际step3/完整验证。完整源、250轮训练及选模/测试仍欠 |
+| EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成原批量GPU完整状态恢复及完整mini重验**；原val工程夹具无独立验证或完整人口/增强意义，正式训练/选模/测试仍未完成 |
+| EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成原批量GPU完整状态恢复及完整mini重验**；恢复流程峰reserved15.27GiB，没有完整科研结果，不能用EgoEMG-L或mini数值填表 |
 
 classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实现检查：现有复现训练器只为 bfloat16 启用 autocast，裁剪值直接设 0 会清零非零梯度，不能照搬数值宣称忠实训练。两类模型 tuple 已对齐，不能重复裁剪。RN50/152、ViT-B/L/WiLoR 缺独立 YAML 是固定提交内的已核验发布缺口，不是模型类不存在；新增派生配方必须明确其来源和差异。[官方配置说明][config-readme]也将配置定位为研究记录。
 

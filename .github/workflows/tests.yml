@@ -18,7 +18,9 @@ jobs:
         run: bash scripts/bootstrap_upstream.sh "${{ github.workspace }}/upstream"
       # Pure metadata/statistics use pinned source. Torch integration remains
       # opt-in here; this tier deliberately does not install a model runtime.
-      - run: python -m pytest -q -ra
+      # Source-preparation subprocesses enforce the real 15GiB disk reserve.
+      # Hosted /tmp may be an 8GiB tmpfs, including in the lightweight job.
+      - run: python -m pytest -q -ra --basetemp="${RUNNER_TEMP}/egoemg-light-pytest"
       - run: bash -n scripts/*.sh
   official-cpu:
     name: Pinned CPU official-model fixture checks

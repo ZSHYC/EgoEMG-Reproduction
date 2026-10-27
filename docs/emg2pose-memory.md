@@ -1,6 +1,6 @@
 # EMG2Pose 完整源数据的内存存储接入
 
-本路线用于解决完整源包约462.8GB、服务器磁盘不能同时保存原TAR和转换数组的问题。**当前已核验全部526个真实mini窗口，以及新入口三个模型的实际CPU优化/新进程恢复；最终完整项目检查和一次实现审查修正已完成，完整源和三个完整实验尚未完成。** 保留本机分块xz接收进度，原始数据、旧mini产物及DINO训练快照保持独立。
+本路线用于解决完整源包约462.8GB、服务器磁盘不能同时保存原TAR和转换数组的问题。**当前已核验全部526个真实mini窗口、三模型CPU恢复、原批量GPU容量，以及原生检查点的新进程GPU完整状态恢复；完整源和三个完整实验尚未完成。** 保留本机分块xz接收进度，原始数据、旧mini产物及DINO训练快照保持独立。下文历史工程快照各有独立范围，最新恢复证据见本文最后一节。
 
 ## 已实现的接收组件
 
@@ -118,3 +118,23 @@ with acquire_archive('mini') as cache:
 | L | 2 | 526 | 14.07 | 15.27 |
 
 这里仍复用mini原val及其验证变换作为训练夹具；不是原完整训练人口、增强或独立验证。每epoch只消费一个完整320训练batch、保留250周期的优化器日程而在两步后停止。该检查没有保存/恢复GPU完整状态、选best或最终测试；仅证明观测设备上该批量/读取进程/模型前后向及完整mini原生验证可执行，不能填论文Tables11/13或称为完整训练。
+
+## 原生GPU检查点恢复
+
+`emg2pose_memory_recovery.run_recovery_phase(upstream, source, metadata_csv, size, output, *, phase, device='cpu', expected_prefix_sha256=None)`借用一个实际准入的`VerifiedSource`，始终只产生工程结果。安装`.[emg2pose-runtime]`包含固定TensorBoard2.18，以调用原`build_callbacks`、`build_logger`和`build_trainer`。GPU保留batch320、12workers、bf16、clip1、cosine250、top3+last、val_mae/min且没有EarlyStopping；仅日志/检查点路径及两步/三步的工程停止预算不同。CPU明确为batch1/workers0/float32。
+
+`prefix`执行两次真实优化器更新及两轮完整验证，随后在自动topK目录外冻结`prefix.ckpt`和`prefix.json`。`restore`必须在另一个真实进程中提供另外冻结的prefix JSON SHA，严格核验数据、原配方、运行时、生产者、GPU配置和检查点SHA；原目录及日志version保持一致。先严格加载权重并重跑全部验证，再让原生Trainer.fit加载完整检查点，最后执行一次真正的参数更新及完整验证。输入/输出/顺序采用流式摘要，观察器不累积全队列预测。
+
+[实际三模型证据](../results/emg2pose-memory-native-gpu-recovery.json)记录一块A800上的六个受管理阶段、总计636.92秒，各阶段实际exit0且拥有的消费者全部退出：
+
+| 模型 | 前缀实际更新 | 新进程完整重验窗口 | 恢复后实际更新 | 恢复后完整验证窗口 | 精确状态核对 |
+| --- | ---: | ---: | ---: | ---: | --- |
+| S | 2 | 526 | 1 | 526 | 六项全部一致 |
+| M | 2 | 526 | 1 | 526 | 六项全部一致 |
+| L | 2 | 526 | 1 | 526 | 六项全部一致 |
+
+六项为模型权重、AdamW完整状态、cosine调度器、原生callbacks、原生fit循环和Python/NumPy/Torch/所选CUDA的随机状态。观察位置是未改的`restore_training_state`返回后、迭代器重建前。PL2.5保存但故意不恢复`ModelCheckpoint.current_score`，只排除这个暂态字段；其他选模、分数、路径与topK状态逐项比较。原bf16没有FP16 GradScaler，不制造scaler恢复结论。完整新进程验证与前缀末轮的全部原生指标及输入/输出/顺序摘要精确一致。
+
+检查点IO支持原生保存、加载及自动topK删除；仅允许拥有的目录，保留15GiB磁盘余量、同步原子写入，冻结检查点不允许覆盖或删除。独立CLI通过`EGOEMG_STAGE_FD_ARCHIVE`接收真实继承权限并在退出时关闭；调用方仍须使用已有guardian管理12worker后代和资源压力。失败保留开始/检查点/错误记录、删除该阶段的成功receipt，并拒绝自动重试。
+
+本次仍复用mini原val和验证变换作为工程训练夹具，没有独立验证、完整训练人口或增强验收，没有验证选best后的最终测试。完整526窗口的`skipIKfalse`验证与原逐用户分析的460个`skipIKtrue`窗口不同。检查点状态恢复不证明中断前后训练轨迹或数据顺序逐位一致；原生提示保留。完整源、正式250轮训练入口及选模/测试/报告仍需完成，不能用本节填Tables11/13。
