@@ -27,8 +27,11 @@
       "prior_action": "Actual legacy train.seed_everything(42)",
       "seconds": 50.22
     },
-    "new_hosted_run_observed": false,
-    "production_guards_unchanged": true
+    "new_hosted_run_observed": true,
+    "observed_conclusion": "failure; single-flag isolation did not resolve the full hosted suite",
+    "observed_run_id": 40511589798,
+    "production_guards_unchanged": true,
+    "remaining_hosted_cause_resolved": false
   },
   "pending_cpu_job_environment_fix": {
     "actual_yaml_job_environment_green": {
@@ -50,6 +53,44 @@
     "observed_run_id": 40502051433,
     "production_guards_unchanged": true,
     "workflow_sha256": "ae407f1a44231ed3ed57cf8a57a80c98fe70874272e752102551a3cb954380ce"
+  },
+  "pending_fresh_stage_fixture": {
+    "change": "Both native and replay positive inference passes run through actual separate CLI processes, matching the owned scientific controller; explicit same-PID refusal uses a separately created actual parent-process native reference",
+    "comparison_tolerances_unchanged": true,
+    "diagnostics": "Only canonical differing identity field paths are printed on mismatch, never private values",
+    "integrated_light_suite": {
+      "actual_exit_code": 0,
+      "passed": 1173,
+      "seconds": 43.99,
+      "skipped_optional_dependencies": 696,
+      "warnings": 1
+    },
+    "local_final_green": {
+      "actual_exit_code": 0,
+      "both_parent_settings_unchanged": true,
+      "log_sha256": "437e6925f13ef35d8d3f0e42ae56794c2d348c57e0ab29c148cc373b20a90c9f",
+      "parent_cudnn_deterministic": true,
+      "parent_threads": 1,
+      "passed": 16,
+      "seconds": 291.63,
+      "test_source_sha256": "0db1d89604af39e613fe64b5a7e84bc1fc66bac6a2003745a07ee8eca40fae02",
+      "warnings": 6
+    },
+    "local_final_green_observed": true,
+    "local_red": {
+      "actual_differing_fields": [
+        "inference_runtime.threads",
+        "sha256"
+      ],
+      "actual_exit_code": 1,
+      "fixture_errors": 1,
+      "fresh_threads": 2,
+      "hosted_leaf_cause_proven": false,
+      "parent_threads": 1,
+      "seconds": 49.78
+    },
+    "new_hosted_run_observed": false,
+    "production_evaluation_guards_unchanged": true
   },
   "runs": [
     {
@@ -191,7 +232,33 @@
         }
       ],
       "run_id": 40502051433
+    },
+    {
+      "cause": "Selected-evaluation native/fresh identity still differs in full hosted suite after the single cuDNN flag isolation. The hosted leaf difference was not logged; root cause remains open.",
+      "commit": "94a1fcf58d7dcab4f883b0bb28c9b8160f793122",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "job_id": 122214622142,
+          "passed": 1116,
+          "seconds": 47.61,
+          "skipped": 696,
+          "warnings": 1
+        },
+        {
+          "conclusion": "failure",
+          "errors": 11,
+          "job_id": 122214622315,
+          "passed": 1964,
+          "pip_check": true,
+          "seconds": 1843.11,
+          "skipped": 3,
+          "warnings": 139
+        }
+      ],
+      "run_id": 40511589798
     }
   ],
-  "scope": "Actual hosted checks through f1e24e0. CPU CUDA visibility is explicit; latest CPU run still fails from cross-test backend contamination. Test-only backend isolation is under actual verification; no scientific completion."
+  "scope": "Actual hosted checks through94a1fcf: light success, CPU1964/3/11ERROR. Both failed histories preserved. New compact carrier has independent local/server/whole-mini proof but is not covered by94a1. Test-only fresh-process isolation and leaf-path diagnostics are under verification."
 }

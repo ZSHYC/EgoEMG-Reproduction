@@ -1,0 +1,126 @@
+{
+  "format": "emg2pose_compact_archive_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "guards": {
+    "host_reserve_bytes": 274877906944,
+    "maximum_decoded_cache_bytes": 8388608,
+    "maximum_read_bytes": 8388608,
+    "old_raw_tar_fd_admission_changed": false,
+    "persistent_receiver_changed": false,
+    "receipt_denies_source_or_scientific_qualification": true,
+    "workspace_bytes": 268435456
+  },
+  "mini": {
+    "actual_exit_code": 0,
+    "actual_owned_processes_gone": true,
+    "all_hdf_attributes_and_fields_equal": true,
+    "all_original_tar_bytes_equal": true,
+    "all_owned_memory_fds_closed": true,
+    "all_tar_members_equal": true,
+    "both_compact_kernel_mutations_rejected": true,
+    "elapsed_seconds": 294.1555370660499,
+    "fields_sha256": {
+      "emg": "22c09b8b11e017109047ec7eb0a9dd0c6887a1857f3347a6e3513ea81025f700",
+      "joint_angles": "ee9af7f1ac4582fe0185f9d2a475abda3f39045bdd7d47920f1a69772eb29dad",
+      "time": "001573be282dd4bac414ce750349ec5f2c4326a1ad706297479d9212005973a8"
+    },
+    "hdf_datasets": 30,
+    "hdf_files": 30,
+    "hdf_objects": 90,
+    "parent_imported_torch": false,
+    "peak_logical_cache_bytes_limit": 8388608,
+    "phases": {
+      "acquire_seconds": 83.64911951078102,
+      "pack_and_deep_readback_seconds": 178.76315809926018,
+      "tar_hdf_complete_field_comparison_seconds": 17.9196784212254,
+      "whole_original_byte_comparison_seconds": 13.733021018095315
+    },
+    "receipt": {
+      "block_count": 618,
+      "chunk_bytes": 1048576,
+      "codec": "delta152-plane152-xz6-v1",
+      "complete_bytes": true,
+      "format": "emg2pose_sealed_compact_bytes_v1",
+      "full_corpus_complete": false,
+      "full_paper_complete": false,
+      "index_bytes": 49440,
+      "index_sha256": "c036a0cdfa01fd514dca65dc6936a5b18f124074e416b1d6eeda75f0dea9eb3c",
+      "payload_bytes": 278398204,
+      "payload_sha256": "3e19b2b20db3c413b1a86464c9812b52249c5c9e380e39fb3ba0522216edeacb",
+      "raw_bytes": 647198208,
+      "raw_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+      "scientific_complete": false,
+      "seals": 15,
+      "sha256": "0ea7783380b5f81a31d98e79339a3f61aa059ae5a134c58e2fb7787317a71d5e",
+      "source_qualified": false
+    },
+    "rows": 4218756,
+    "runtime_capacity_observer_injected": false
+  },
+  "native_dataset_adapter_qualified": false,
+  "remaining": [
+    "separate admitted compact dataset/index/runtime and original window/transform/sampler equivalence",
+    "actual native S/M/L CPU/GPU qualification on compact storage",
+    "complete original25253-file source acquisition and independent full inventory",
+    "three original250epoch fits and final scientific evaluation/controller/report"
+  ],
+  "scientific_complete": false,
+  "scope": "Strict separate sealed compact bytes, complete original mini and independent HDF fileobj equivalence; no native dataset/model or scientific qualification",
+  "source_bundle_sha256": "9d604800246c8eb43112e864528ad0a7f3c5a0c2776e00db796c67a814201b3f",
+  "source_files_sha256": {
+    "egoemg_repro/emg2pose_compact_archive.py": "4d78fb412a819244bdda104c78ab99154195641ddb688371566935922d1892f7",
+    "egoemg_repro/emg2pose_compact_codec.py": "c7eb616b54d38ff98dac0c460c2983736d8c9615003a69913081a2139a32fe30",
+    "tests/test_emg2pose_compact_archive.py": "dcdadeb959b0b1fda7db0e45de707ee41130a617f7856b7aa6303da5960ec6d3",
+    "tests/test_emg2pose_compact_codec.py": "1277c057e2f3a201c1686741d17a4674264ee60bd33c81ecafd6c62b1acb7d57"
+  },
+  "tests": {
+    "full_light_after_fixture_integration": {
+      "actual_exit_code": 0,
+      "log_sha256": "ba165b522caed0223996b5adc82619fe95c1d4f969dbce81abbeac77484cd7e1",
+      "passed": 1173,
+      "seconds": 43.99,
+      "skipped_optional_dependencies": 696,
+      "warnings": 1
+    },
+    "full_light_final": {
+      "actual_exit_code": 0,
+      "passed": 1173,
+      "seconds": 44.66,
+      "skipped_optional_dependencies": 696,
+      "warnings": 1
+    },
+    "initial_missing_module_red": {
+      "actual_exit_code": 1,
+      "failed": 1
+    },
+    "invalid_borrowed_fd_red": {
+      "actual_exit_code": 1,
+      "failed": 1,
+      "seconds": 0.36
+    },
+    "local_final": {
+      "actual_exit_code": 0,
+      "passed": 105,
+      "seconds": 8.0
+    },
+    "preserved_initial_server_failure": {
+      "actual_exit_code": 1,
+      "cause": "Server Python omits os.memfd_create and MFD constants; corrected with existing unchanged libc/kernel helper, without changing storage or seals",
+      "failed": 13,
+      "fixture_errors": 43,
+      "passed": 48,
+      "seconds": 1.59
+    },
+    "python_without_memfd_wrapper_red": {
+      "actual_exit_code": 1,
+      "failed": 1
+    },
+    "server_final": {
+      "actual_exit_code": 0,
+      "passed": 105,
+      "seconds": 10.49
+    }
+  },
+  "training_performed": false
+}

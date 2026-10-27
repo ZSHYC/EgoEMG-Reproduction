@@ -27,16 +27,6 @@ def api():return importlib.import_module('egoemg_repro.emg2pose_memory_evaluate'
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-@pytest.fixture(scope='module',autouse=True)
-def cpu_backend():
-    # Legacy audit fixtures leave this process-global flag enabled. Native and
-    # fresh passes must use the same declared backend, even on a CPU-only host.
-    previous=torch.backends.cudnn.deterministic
-    torch.backends.cudnn.deterministic=False
-    try:yield
-    finally:torch.backends.cudnn.deterministic=previous
-
-
 @pytest.fixture(scope='module')
 def memory(corpus,tmp_path_factory):
     from egoemg_repro import emg2pose_memory_data as data,emg2pose_memory_index as index
@@ -86,6 +76,29 @@ def fresh(memory,trained,output,**kwargs):
         '--metadata-csv',str(memory.metadata),'--size','small','--fit',str(trained),
         '--output',str(output),'--scope','cpu_engineering']
     for key,value in kwargs.items():command.extend(['--'+key.replace('_','-'),str(value)])
+    # Observe sealed identities without changing the real CLI or its decisions.
+    # Report only field paths, never values, for hosted-only subprocess drift.
+    diagnostic='''import json,sys
+from pathlib import Path
+from egoemg_repro import emg2pose_memory_evaluate as evaluation
+original=evaluation._seal
+def paths(a,b,p=''):
+ if type(a) is dict and type(b) is dict:
+  return [v for k in sorted(set(a)|set(b)) for v in paths(a.get(k),b.get(k),p+'.'+k)]
+ if type(a) is list and type(b) is list and len(a)==len(b):
+  return [v for i,(x,y) in enumerate(zip(a,b)) for v in paths(x,y,p+'['+str(i)+']')]
+ return [] if a==b else [p]
+def observe(value):
+ result=original(value)
+ if value.get('document')=='identity' and '--reference' in sys.argv:
+  reference=Path(sys.argv[sys.argv.index('--reference')+1])/'identity.json'
+  differences=paths(json.loads(reference.read_text()),json.loads(json.dumps(result,allow_nan=False)))
+  if differences:print('REPLAY_IDENTITY_DIFFERING_FIELDS='+json.dumps(differences[:100]),file=sys.stderr)
+ return result
+evaluation._seal=observe
+evaluation.main()
+'''
+    command=[sys.executable,'-c',diagnostic,*command[3:]]
     result=subprocess.run(command,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',
         EGOEMG_STAGE_FD_ARCHIVE=str(memory.fd),OMP_NUM_THREADS='2',MKL_NUM_THREADS='2'),
         pass_fds=(memory.fd,),capture_output=True,text=True,timeout=180)
@@ -102,7 +115,7 @@ def passes(memory,trained,tmp_path_factory):
     m=api()
     for selection in ('official_literal','metadata_indices'):
         native=root/(selection+'-val-native');replay=root/(selection+'-val-replay')
-        run(memory,trained,native,role='val',kind='native',selection=selection)
+        fresh(memory,trained,native,role='val',kind='native',selection=selection)
         fresh(memory,trained,replay,role='val',kind='replay',selection=selection,reference=native,
               expected_reference_sha256=sha(native/'pass.json'))
         m.freeze_evaluation_profile(native,replay,root/(selection+'-profile'),
@@ -131,7 +144,7 @@ def test_profile_and_actual_complete_test_then_fresh_test_replay(memory,trained,
     for mode in ('official_literal','metadata_indices'):
         profile=passes/(mode+'-profile');native=tmp_path/(mode+'-test-native');replay=tmp_path/(mode+'-test-replay')
         kwargs=dict(role='test',selection=mode,profile=profile,expected_profile_sha256=sha(profile/'profile.json'))
-        result=run(memory,trained,native,kind='native',**kwargs)
+        result=fresh(memory,trained,native,kind='native',**kwargs)
         assert result['samples_by_condition']=={'user_stage':1} and result['test_performed'] is True
         actual=fresh(memory,trained,replay,kind='replay',reference=native,
             expected_reference_sha256=sha(native/'pass.json'),**kwargs)
@@ -161,9 +174,11 @@ def test_engineering_source_fit_and_profile_never_admit_full(memory,trained,pass
 
 def test_same_process_replay_wrong_reference_and_cross_mode_profile_are_refused(memory,trained,passes,tmp_path):
     m=api();native=passes/'official_literal-val-native'
+    same_process=tmp_path/'same-process-native'
+    run(memory,trained,same_process,role='val',kind='native')
     with pytest.raises(ValueError,match='fresh|process'):
-        run(memory,trained,tmp_path/'same',role='val',kind='replay',reference=native,
-            expected_reference_sha256=sha(native/'pass.json'))
+        run(memory,trained,tmp_path/'same',role='val',kind='replay',reference=same_process,
+            expected_reference_sha256=sha(same_process/'pass.json'))
     with pytest.raises(ValueError,match='SHA|sha|reference'):
         run(memory,trained,tmp_path/'wrong',role='val',kind='replay',reference=native,expected_reference_sha256='0'*64)
     p=passes/'metadata_indices-profile'
