@@ -1,5 +1,14 @@
 # 运行状态
 
+## 2026-10-28：普通原文件S/M/L原320+1批量FP32与两模式通过
+
+[实际容量证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)来自明确合成的三文件独立录制/角色源，共5,009,750行；无损gzip4+shuffle HDF压缩为299,345,920B，维持647,198,208B工程输入上限。真实aria2 loopback接收、原文件保存/冗余TAR回收/未修改转换与准入后，三个原连续字段及valid_mask另行独立全量核对，所有生成HDF字段与普通memmap逐字节相同。S/M/L各两完整工程轮次/32实际更新，原320/12/bf16和验证min选best不变；两种选择各自val/native-replay/profile/test/native-replay，实际每pass321窗、批量320+1、12worker、FP32。typed预测及原生/独立统计精确复推，峰reserved约2.430/2.441/2.469GiB；没有benchmark精度。
+
+原冻结链653.04秒实际exit1：所有GPU阶段成功，最后私有读取器误将恢复专用资格API用于本次连续两轮fit。原失败与原目录保留；另起冻结CPU读取仅删除该不适用调用，原read_fit、选best、checkpoint/journal/pass/profile检查保留，66.38秒actual exit0，没有重复任何GPU训练/预测。共有37成功阶段与1失败读取，全部76个worker/guardian及原/新两组外层进程实际PID/start独立确认退出。失败链未追认为exit0，真正六状态恢复资格仍由既有独立运行证明。
+
+这关闭普通源自己的FP32实际批量门槛；完整25,253源、三个真正250轮及最终科学controller/report和其余全文内容仍未完成。下方旧“尚无完整批量”段落保留为当时快照。
+
+
 
 ## 2026-10-28：DINOv2 ViT-B完整旧队列实验与最终独立核验完成
 

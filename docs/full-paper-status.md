@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **普通原文件完整FP32批量与两模式已实测通过：** [容量证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)为S/M/L各新的两轮工程fit/32更新，官方字面与文件行对照各val/test原生及新进程完整复推，每pass321窗/实际320+1/12worker/FP32。显式合成三角色5,009,750行，经gzip4+shuffle无损HDF保存为299,345,920B，原接收/转换后全部字段另核对逐字节一致，未放宽647MB工程源上限。37个成功受管理阶段，另保留1个私有最后读取失败；原653.04秒链exit1，纠正仅该CPU读取后66.38秒exit0，无GPU重训/重测。76个实际worker/guardian及两组外层拥有者独立确认退出，权重/日志/源码不变。完整源/250轮/最终科学controller/report与全文仍欠，不能填Tables11/13。
+
 - **DINOv2 ViT-B完整实验及独立报告核验完成：** [完整结果与曲线](../results/original-vision/vit-base/README.md)记录94轮、52,828次实际更新、原patience30早停，验证选择零起算epoch63（第64轮）。全部/有图中心MAE为6.761261°/6.623680°，4,306唯一手样本（repeat2共8,612消费），原生test/新进程完整复算/报告/最后核验共16阶段actual exit0，外层及全部阶段进程独立确认退出；另在正确冻结环境重开核验通过，无CUDA。实际86,182,166参数与768维B骨干/真预训练来源已核验，checkpoint沿用S模板名称不改变模型身份。作者缺独立B YAML，明确记录为S配方派生、0.02有效损失/原360/bf16/单rank/workers0/旧队列；不是PDF或多seed架构优劣结论。L仍完整训练，全文仍未完成。
 
 - **普通原文件选best原生FP32评价完成三模型GPU工程复推：** [数据证据](../results/emg2pose-direct-evaluation-data-engineering.json)为104本机/104服务器检查及真实mini28.30秒actual exit0，690次选窗与独立原参考相同（字面230+230/行交集30，文件行对照167+63/交集0）。[评价证据](../results/emg2pose-direct-selected-evaluation-engineering.json)为107本机/107服务器检查、17受管理阶段/286.11秒actual exit0；S/M/L真正工程best完成val/test和新进程typed预测/统计精确复推、测试前profile及最后CPU重开，所有34个worker/guardian和两个外层拥有者独立确认退出，fit及权重未变。显式合成三角色每pass仅1实际窗口，配置320/12/FP32不能升级为真实batch320容量；字面混角色val拒绝、GPU只资格化文件行对照。普通源321窗FP32容量/完整源250轮/科学报告仍欠，不能填写Tables11/13。

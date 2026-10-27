@@ -59,3 +59,9 @@ full仍要求真正完整25,253源、train17,136/val1,950/test6,167、462,824,04
 新`emg2pose_direct_evaluate`使用独立pass/profile格式和普通源pipeline完成SHA+完整数据身份SHA；每次重读独立核对source-file绑定，拒绝旧kernel identity。实际owned证明要求匹配真实worker、空descriptor map和已退出的worker/guardian；源检查贯穿实际原生评价。原读者/journal/pair/profile/算术算法私有精确复用，原模块全局和固定数值容差不改。
 
 GPU工程源仍是明确的三文件/25,710行合成三角色、重复录制ID队列，仅预先声明的`metadata_indices`对照可用于独立val，官方字面混角色val已实际拒绝。各pass实际1窗口，虽配置320/12worker/FP32，**尚未取得真实batch320或320+1资格**。CPU独立录制夹具覆盖两种选择。完整321窗/两模式/12worker FP32容量需要自己的较大独立录制源与新fit，不能转用旧内存后端资格；完整源/250轮/科学控制器报告和全文仍欠。
+
+## 原始普通文件完整FP32批量与两种选择：实际容量已核验
+
+[实际证据](../results/emg2pose-direct-evaluation-capacity-engineering.json)为显式合成三角色/独立录制5,009,750行，原格式HDF仅使用无损gzip4+shuffle，实际TAR299,345,920B，不放宽647MB工程源上限。原接收/原保存和转换/原生准入均真实执行；另独立全量核对生成HDF与普通字段的time、joint_angles、emg及5,009,750个有效mask，全部一致。S/M/L各新的两轮原生工程fit/32更新与验证min best，两个选择模式的val/test native及新进程复算、测试前profile均完成；每pass321窗、实际320+1、12worker、FP32，预测和充分统计精确复推。
+
+原GPU链完成后私有最后读取误用恢复专用资格API，653.04秒实际exit1保留；仅纠正最后CPU读取，66.38秒actual exit0，未重复训练或预测、未改原模型/算法/容差。37个成功阶段另有1失败读取，76个worker/guardian及两组外层拥有者实际PID/start确认退出，代码/权重/epoch日志不变。原恢复资格继续使用已完成的独立恢复运行。本工程结果没有完整25253源/250轮或科学成绩；最终科学controller/report与全量实验仍须完成。
