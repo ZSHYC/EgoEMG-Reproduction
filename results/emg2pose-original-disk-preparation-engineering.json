@@ -1,0 +1,106 @@
+{
+  "actual_mini": {
+    "actual_fresh_owned_mini_tar_retired": true,
+    "actual_owned_work_no_torch": true,
+    "all_original_hdf5_objects_attributes_and_extra_files_retained": true,
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "cuda_initialized": false,
+    "full_paper_complete": false,
+    "full_source_acquired": false,
+    "maximum_connections_observed": 8,
+    "native_metadata_arrays_equal": 22,
+    "no_owned_deleted_archive_fd_remains": true,
+    "optimization_performed": false,
+    "original_archive_physically_absent": true,
+    "original_download_receipt_sha256": "3eb31643ca7f067fb446d8400348cd5d27795553be527f0cbf85aba9515710b9",
+    "original_hdf5_files": 30,
+    "original_native_completed_data_admission_after_retirement": true,
+    "original_regular_files": 31,
+    "original_retained_reference_archive_untouched": true,
+    "phases": {
+      "actual_fresh_original_mini_acquisition_seconds": 115.81420885398984,
+      "actual_source_absent_verification_and_new_tar_reconstruction_seconds": 3.8504152451641858,
+      "all_original_bytes_preserved_and_original_mini_inspected_seconds": 7.223689877893776,
+      "fresh_all_source_proofs_and_actual_owned_tar_retirement_seconds": 5.096807059831917,
+      "unchanged_original_conversion_seconds": 9.400204655248672
+    },
+    "preparation_sha256": "b1fdd558b6d4f8a536cc3ac84d25895079dac915c66a406d289913149293a383",
+    "preservation_completion_sha256": "eb9e1a99b2eca330dc8f6130b3d32701512fd2aa83244711b6c05ddf6cfdb16a",
+    "retirement_sha256": "cf3928554b3796727d442aa7f18d338df37c63eb73ef9c11ba095159f9edc73a",
+    "rows": 4218756,
+    "runtime_capacity_observer_injected": false,
+    "scientific_complete": false,
+    "seconds": 142.29527735896409,
+    "source_absent_reverification_and_rebuilt_tar_sha_exact": true,
+    "unchanged_original_converter_fields_equal": true
+  },
+  "checks": {
+    "actual_red_regressions": {
+      "late_retained_byte_changes": {
+        "actual_exit_code": 1,
+        "actual_failed": 4,
+        "log_sha256": "6fffb43573d69d99e8d5f40427a2303166da7f86850f8c5248720d91a98b09df"
+      },
+      "preparation_publication": {
+        "actual_exit_code": 1,
+        "actual_failed": 1,
+        "log_sha256": "efc0b30d801e5e4444849f4f70bb2b2f258805bdd1c301e9c76f1ffa19fabc4e"
+      },
+      "terminal_identity": {
+        "actual_exit_code": 1,
+        "actual_failed": 6,
+        "log_sha256": "15ec20dffd80b4653bfdb2c22a02620cf41f09ab18374e9359a8edb0c3fd323c"
+      }
+    },
+    "full_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "fa1e465387b1fc8e4cf22676098a4aa28277842610153a5b75dd64400326b590",
+      "passed": 1323,
+      "seconds": 71.72,
+      "skipped": 713,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "6bce712e35c0a4595971faa91499b6acfc7a0114b2e69486f08970c91f5aa776",
+      "passed": 170,
+      "seconds": 24.51
+    },
+    "new_preparation_cases": 40,
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "87bbb31a5ba44773133b1d56a5fedef835cf2a68893161e4095265534b6f33e0",
+      "passed": 170,
+      "seconds": 29.74
+    },
+    "unchanged_preservation_and_data_cases": 130
+  },
+  "format": "emg2pose_original_disk_preparation_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "Only a fresh task-owned mini TAR was retired; all original source bytes remain reconstructable and all original HDF5/extra files survive.",
+    "Previously qualified reference archive and currently active full source are untouched.",
+    "Unchanged mini converter requires its legacy TAR receipt, so the actual mini converts before retirement; tiny engineering fixtures prove original conversion after retirement. Full conversion does not require a legacy TAR receipt.",
+    "Actual mini capacity observation was not injected; tiny ordinary CI fixtures isolate capacity.",
+    "Complete25253 original full source preparation/conversion remains unexecuted.",
+    "No optimization/CUDA/250epoch/full scientific model results were produced.",
+    "Hosted CI for this new preparation component has not yet been observed."
+  ],
+  "observed_utc": "2026-10-27T17:49:45.270298+00:00",
+  "owned_execution": {
+    "actual_exit_code": 0,
+    "all_actual_matching_owned_processes_gone": true,
+    "bundle_sha256": "87bbb31a5ba44773133b1d56a5fedef835cf2a68893161e4095265534b6f33e0"
+  },
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_disk_download.py": "5b440a922fc6495508ed258d7b2a752086380d5edf41dcf9529d4f2a20f17297",
+    "egoemg_repro/emg2pose_disk_prepare.py": "aa79e081a2413eb6c5427eefb159167f6700f1c8d51ddb6435b789028bdf0b0a",
+    "egoemg_repro/emg2pose_tar_preservation.py": "7af211ac85dd690a596ebaae232a25d603f40d610326aaa4c746de25bf4cdff9",
+    "tests/test_emg2pose_disk_prepare.py": "468de6efe91c885f7df82ec5873796272247c39a6150b0694dbfd747ecf765bb"
+  },
+  "scientific_complete": false,
+  "scope": "Actual owned original-file preparation and reconstructable redundant TAR retirement; not full-corpus or scientific model completion"
+}

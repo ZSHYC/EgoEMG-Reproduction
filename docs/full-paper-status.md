@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **原始磁盘源准备与冗余TAR回收已通过完整mini实测：** [证据](../results/emg2pose-original-disk-preparation-engineering.json)为170本机/170服务器及完整轻量1,323/713 actual exit0；新下载的官方mini实际142.30秒exit0。全部原文件与额外字节保留后，重新核验全包及原HDF5盘点，实际回收本任务这份冗余TAR，再在原包不在场时精确重建；原转换四字段/22数组及原生准入一致。此前参考包、活动全量下载和原转换器不变。完整25,253会话的真实准备/转换和三项250轮科学实验仍欠。
+
 - **原始TAR全部字节保存与独立重建已实测：** [证据](../results/emg2pose-original-tar-preservation-engineering.json)为130本机/130服务器及完整轻量1,283/713 actual exit0；官方647MB mini实际22.39秒exit0，从全部31文件及25,394额外字节重建原包SHA一致，原盘点/转换/准入和四字段/22数组全等。六项真实失败回归修正了布尔/小数偏移准入；没有改原转换器、删除原始TAR/HDF5或执行新模型训练。冗余TAR受管理回收、完整源和科学实验仍欠。
 
 - **已启动完整原始EMG2Pose并行获取：** 新磁盘容量支持优先使用[原始文件路线](emg2pose-original-disk.md)。[实际核验](../results/emg2pose-original-disk-engineering.json)为15服务器真实aria2测试和91.88秒完整mini下载/解包/原转换/全部526窗口及三模型CPU前向exit0，原字段/22数组全等；本机完整轻量1,235/713actual exit0。全量462.8GB已在独立进程启动、实际8连接，进度取RPC接收量而非预分配文件大小；尚未收全/盘点/训练。之前122361e[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40535564494)实际2,168/3及1,235/698成功，但只覆盖此前原生压缩基础，不覆盖新磁盘模块。全文/原生完整科学实验仍未完成。
