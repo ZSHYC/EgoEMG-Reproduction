@@ -1,0 +1,129 @@
+{
+  "actual_mini": {
+    "actual_exit_code": 0,
+    "actual_guardian_observed_without_cache_descriptor": true,
+    "all_owned_consumers_exited": true,
+    "evaluation": "unchanged official EMG2PoseEvaluation._evaluate_emg2pose_single_pass on original converted datasets and sealed storage subclass; identical per-user/group metrics",
+    "new_model_training": false,
+    "parent_owned_fds_closed": true,
+    "raw_sha256": "8a4d80ee6c93e90d6a9a18427e21860cff6825b8f19796de187199b458780497",
+    "reused_small_checkpoint_sha256": "5a4e962d09c561d1ed16ae4a9178f930a4cfa0a30c2ce59d4f37602ac72e2ee2",
+    "source_bundle_sha256": "b5bcba22abc79349dd699c840ed0b240f006759911578fcb75cc15871c4eaf0e",
+    "source_bytes": 647198208,
+    "source_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "total_seconds": 126.49973118770868,
+    "worker": {
+      "all_owned_memory_descriptors_closed": true,
+      "batch_size": 1,
+      "condition_groups": 2,
+      "cuda_initialized": false,
+      "engineering_only": true,
+      "format": "actual_memory_supervised_native_eval_worker_v1",
+      "full_scientific_training_complete": false,
+      "full_source_acquired": false,
+      "num_workers": 0,
+      "original_reader_metrics_exact": true,
+      "parameters_unchanged": true,
+      "per_user_counts": [
+        1,
+        1
+      ],
+      "precision": "32-true CPU",
+      "seconds": 38.563674970995635,
+      "skip_ik_failures": true,
+      "source_sessions": 30,
+      "total_windows": 460,
+      "unchanged_official_per_user_and_group_metrics_exact": true,
+      "window_length": 7790,
+      "windows_by_condition": [
+        230,
+        230
+      ]
+    }
+  },
+  "design": {
+    "completion": "phase receipt only; never scientific completion or automatic retry",
+    "guardian": "worker parent; immutable rights transferred by private SCM_RIGHTS and guardian copies closed after launch",
+    "termination": "individually validated pidfds, TERM then KILL; owner EOF/SIGKILL, SIGTERM/SIGINT and resource guard refusal tested",
+    "worker_identity": "actual PID/start/UID/session; hold worker WNOWAIT until owned session cleanup"
+  },
+  "engineering_only": true,
+  "format": "emg2pose_owned_process_engineering_v1",
+  "full_paper_complete": false,
+  "full_scientific_training_complete": false,
+  "full_source_acquired": false,
+  "implementation_files_sha256": {
+    "egoemg_repro/emg2pose_memory_process.py": "34b992f4d8e9b3ddae427133b8e2e3188d6b179564615516b38aa3fdda30a9fe",
+    "tests/test_emg2pose_memory_process.py": "a2c175357868aaf5581edadd2fd6217ecbe0bce27a90810bf476617e1bd34e3b"
+  },
+  "implemented_scope": "Task4A phase supervision; complete-source/scientific controller and all three full experiments remain unfinished",
+  "kernel_compatibility": {
+    "fallback": "same Linux x86_64 UAPI syscalls434/open and424/send_signal, verified against actual server headers and real signals",
+    "numeric_pid_kill_fallback": false,
+    "prelaunch": "actual self pidfd open and signal0; unknown unsupported platform refuses",
+    "server": "Linux6.8 x86_64; Python and libc pidfd wrappers absent"
+  },
+  "limitations": [
+    "All30source sessions are original validation mini, not independent scientific validation.",
+    "Native per-user path skipIK=true uses460windows; earlier native validation skipIK=false uses526. These populations are distinct.",
+    "One mini user in each of two generalization groups; no multi-user performance conclusion.",
+    "CPU float32 batch1/workers0, not original GPU batch320/workers12/bf16 qualification.",
+    "Worker consumers must retain their owned session; arbitrary session-escaping commands are outside this API contract.",
+    "Independent guardian must remain alive to handle owner loss; simultaneous guardian/owner loss is not qualified.",
+    "Full source25253session inventory, capacity gate, native GPU qualification, full250epoch fits, selected-best test/replay/report and Task4 final review remain unfinished."
+  ],
+  "observed_utc": "2026-10-27T04:30:50.020671+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "source_manifest_members": 109,
+  "source_manifest_sha256": "a1150373e692fa61d39c174a36b17571031ddcbe5484013f81b1f992e54e3b76",
+  "targeted": {
+    "first_actual_server_failure": {
+      "actual_exit_code": 1,
+      "failed": 11,
+      "log_sha256": "f72dfbdb5e00bef5a4bb35ef9919993cf62c3284e0d1f52f36c3e3fd3a47b1b6",
+      "passed": 7,
+      "seconds": 50.3
+    },
+    "initial_missing_module_red": {
+      "failed": 18,
+      "log_sha256": "39564c1d1803701e7e60a4f3bf5941ac4ba967840884d63e788f1840d08316a8",
+      "seconds": 0.16
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "4e364e6aabe872826c107fc568bd503e81aa33f0c8b342e37a9a2442b22ce719",
+      "passed": 20,
+      "seconds": 1.48
+    },
+    "missing_python_wrapper_red": {
+      "failed": 2,
+      "log_sha256": "f9302869d6b8b321f739d77ddf10a033ecf0fe753075f1d3d87f9642849e6e6a",
+      "seconds": 0.08
+    },
+    "server": {
+      "actual_exit_code": 0,
+      "log_sha256": "cb9109439b921a7c50127d7c1926365b4548234e11e9a10cf623cadd2c742111",
+      "passed": 20,
+      "seconds": 2.55,
+      "source_bundle_sha256": "959cb527abc68f17e0b970b7dae0759c02cfbeaef2fb58f7358e8a6fe9f03bf0"
+    }
+  },
+  "verification": {
+    "full": {
+      "actual_exit_code": 0,
+      "log_sha256": "3ab7a7e4b67ea5eb609f76f3bd8ee0bccc79b8b35425db213682ec85e4dc5d8b",
+      "passed": 1739,
+      "seconds": 863.65,
+      "skipped": 3,
+      "warnings": 125
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "log_sha256": "4a8f22da1efc5545fc59d321715b262f69b0fbf546bc8aa912afc54ac9f5b76b",
+      "passed": 959,
+      "seconds": 31.22,
+      "skipped": 691,
+      "warnings": 1
+    }
+  }
+}

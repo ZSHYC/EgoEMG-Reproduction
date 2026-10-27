@@ -173,6 +173,30 @@
   "full_paper_complete": false,
   "full_scientific_training_complete": false,
   "full_source_acquired": false,
+  "hosted_ci": {
+    "commit": "c46c3459c32cf9ada90544902cc26e5c61f51a01",
+    "conclusion": "success",
+    "light": {
+      "job_id": 122002380635,
+      "log_sha256": "6def00e91ab9be17255828051911127cfe3d5edbb565f417cba2ba637466a773",
+      "passed": 939,
+      "seconds": 34.75,
+      "skipped": 691,
+      "warnings": 1
+    },
+    "official": {
+      "job_id": 122002380110,
+      "log_sha256": "3a5daaab59f44a1f1f0f57b82ff3c190cc30e21a2d34386da7b4d1d26c96669f",
+      "passed": 1719,
+      "pip_check": "No broken requirements found.",
+      "seconds": 1175.81,
+      "skipped": 3,
+      "warnings": 122
+    },
+    "run_id": 40447571670,
+    "run_url": "https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40447571670",
+    "scope": "final107source native adapter and finalHEAD fix; excludes subsequent109source owned-process module"
+  },
   "implementation_base_commit": "33fc75646b9f55b450c3e2092bac42e12136921f",
   "implementation_files_sha256": {
     "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",

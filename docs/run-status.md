@@ -1,5 +1,13 @@
 # 运行状态
 
+## 2026-10-27：EMG2Pose拥有的进程管理通过实际服务器与真实mini流程
+
+[新工程证据](../results/emg2pose-memory-process-engineering.json)覆盖父进程被SIGKILL/TERM/INT、仍持有缓存的孙进程、TERM拒绝、资源压力/未知容量、错误进程身份与真实封印字节。独立guardian通过SCM_RIGHTS把缓存权限交给自己创建的消费者后立即关闭副本，等待整个拥有的session实际退出；不会把单个父fd关闭当成缓存已释放。服务器Python/libc缺pidfd包装的真实失败保留，按主机x86_64内核UAPI执行同一操作的兼容层经两项RED→GREEN和实际20项检查；本机20项通过。
+
+完整647MB mini随后实际通过新进程管理和既有small工程检查点的严格重载，未修改的官方逐用户函数在原转换数据与新存储上结果完全一致。该路径开启IK过滤，460窗口（230/230）与此前526验证窗口分列；CPU/batch1/workers0、两组各1个mini用户、没有新优化或科研成绩。缓存消费者、父fd均关闭，运行中实际观察guardian无缓存fd；完整流程126.50秒。最终109成员整体1,739 passed/3实际CUDA skip（863.65秒）、轻量959/691依赖skip（31.22秒）均实际exit0。Task4完整源/原生GPU/三项完整实验及其最终实现审查仍欠，不能填Tables11/13。
+
+上一107成员c46c345的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40447571670)也已成功：官方CPU1,719/3实际CUDA skip及轻量939/691，pip check通过；它不覆盖随后新增的109成员进程模块。
+
 ## 2026-10-27：EMG2Pose新内存读取器通过全部mini窗口和三模型原生CPU检查
 
 [实际证据](../results/emg2pose-memory-native-engineering.json)记录新索引/官方存储子类/原生factory绑定。全部526窗口的输入、标签、mask、样本元数据、RNG消耗及会话分组与原读取器一致；S/M/L各2次真实更新，全部526预测在新进程重载后精确一致，原生Trainer恢复权重/AdamW矩/cosine/循环计数后再执行一次实际更新到step3。所有拥有的memfd关闭；CPU工程进程显式隐藏CUDA，保留此前可见GPU时最后资源检查失败。一次实现审查发现最终HEAD阻塞时缓存未持续检查内存压力，真实两项RED→77项GREEN已修正。最终107成员完整1,719通过/3实际CUDA skip（863.83秒）、轻量939/691依赖skip（29.71秒）均捕获实际exit0；修后全部526窗口与三模型原生检查再次通过。此前1,717通过但缺退出码的日志仍保留为历史，未追认exit0。全部mini为原val，不能作为独立验证或论文成绩。

@@ -84,3 +84,15 @@ with acquire_archive('mini') as cache:
 后续必须完成三模型实际检查、完整源准入、资源/进程生命周期验收和三项250轮实验。不能直接把新TAR交给现有memmap入口，也不修改旧转换器的完成标记规则。
 
 实现与验证顺序见[内存接入计划](superpowers/plans/2026-10-27-emg2pose-memory-storage.md)。这项工程结果不能填入论文Tables11/13。
+
+## 拥有的进程与缓存消费者
+
+新增`emg2pose_memory_process.run_owned_stage(argv, output, *, descriptors, guard, environment=None, poll_seconds=0.25, terminate_grace=5.0)`用于管理一次读取、盘点或模型阶段。调用者保留原fd，在阶段结束后再释放缓存；`descriptors={'ARCHIVE': fd}`通过私有Unix socket的SCM_RIGHTS转移实际权限，消费者从`EGOEMG_STAGE_FD_ARCHIVE`读取自己的fd编号。不能把父进程的某个数字直接当作子进程fd。
+
+独立guardian是消费者的父进程；启动消费者后立即关闭自己的缓存副本，只保留控制socket和真实PID/start/UID/session身份。持有缓存的调用者被SIGKILL、收到TERM/INT、资源检查失败，或消费者正常/异常退出时，guardian先回收同一session里的剩余消费者，再释放未回收的leader身份。逐个打开pidfd并重新核对身份后发送TERM，超过宽限期才发送KILL；不对未验证的数字进程组发送信号。所有相关消费者实际退出前不返回干净结果，内核不可中断进程也不能被假定已经退出。
+
+服务器Python和libc没有提供pidfd包装，但实际Linux6.8/x86_64头文件提供同一内核操作。组件在这种环境使用434/open与424/send_signal syscall；启动前真实open自身pidfd并执行signal0，不把缺少包装误判为内核不支持，也不退回数字PID信号。其他未支持平台直接拒绝。
+
+[进程工程证据](../results/emg2pose-memory-process-engineering.json)记录本机20项、真实服务器20项检查，包含实际父进程SIGKILL/TERM/INT、仍持有缓存的孙进程、拒绝TERM、资源压力/未知容量、错误身份和只读权限。最终109成员整体1,739通过/3实际CUDA skip、轻量959/691依赖skip，均捕获实际exit0。完整mini还实际经过新进程管理、严格加载既有small工程检查点及未改的官方逐用户评价；原转换数据与新存储的两组指标完全一致，父进程、消费者缓存fd均关闭，运行中实际观察guardian不持有缓存副本。
+
+这次逐用户评价沿用原`skip_ik_failures=True`，得到460窗口（两组各230，各只有1个mini用户），与此前`skip_ik_failures=False`的526验证窗口分列。它仍是mini原val、CPU float32、batch1/workers0，没有新训练、原GPU批量或模型性能结论。消费者必须保留所属session；同时失去guardian与调用者的恢复没有通过此检查。完整源/索引控制器、三模型原生GPU验收、完整训练和最后报告仍需实现与运行；本模块只发布私有阶段receipt，不产生科学完成标记。
