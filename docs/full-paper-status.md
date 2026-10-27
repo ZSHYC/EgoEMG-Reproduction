@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **原始TAR全部字节保存与独立重建已实测：** [证据](../results/emg2pose-original-tar-preservation-engineering.json)为130本机/130服务器及完整轻量1,283/713 actual exit0；官方647MB mini实际22.39秒exit0，从全部31文件及25,394额外字节重建原包SHA一致，原盘点/转换/准入和四字段/22数组全等。六项真实失败回归修正了布尔/小数偏移准入；没有改原转换器、删除原始TAR/HDF5或执行新模型训练。冗余TAR受管理回收、完整源和科学实验仍欠。
+
 - **已启动完整原始EMG2Pose并行获取：** 新磁盘容量支持优先使用[原始文件路线](emg2pose-original-disk.md)。[实际核验](../results/emg2pose-original-disk-engineering.json)为15服务器真实aria2测试和91.88秒完整mini下载/解包/原转换/全部526窗口及三模型CPU前向exit0，原字段/22数组全等；本机完整轻量1,235/713actual exit0。全量462.8GB已在独立进程启动、实际8连接，进度取RPC接收量而非预分配文件大小；尚未收全/盘点/训练。之前122361e[托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40535564494)实际2,168/3及1,235/698成功，但只覆盖此前原生压缩基础，不覆盖新磁盘模块。全文/原生完整科学实验仍未完成。
 
 - **压缩源原生窗口与三模型CPU构造基础已完成独立核验：** [实际证据](../results/emg2pose-compact-native-engineering.json)为288本机/288服务器、完整轻量1,235/698actual exit0；完整647MB mini 383.84秒实际exit0、所有拥有的fd和进程退出。全部526官方配置窗口的字段/RNG/完整摘要、原采样5120消费/526锚点以及32次原训练变换+jitter一致。新独立runtime的S/M/L初始权重、实际CPU前向、原AdamW/cosine250构造与严格权重重载一致；旧读取/校验不改。首次mini报告变量冲突导致actual exit1，修正私有探针后另起冻结成功运行，原失败保留。**尚无压缩源实际优化/六状态恢复/GPU/250轮或新精度成绩**；这些仍是F3C2/F4及完整Task4欠项。

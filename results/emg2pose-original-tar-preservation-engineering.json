@@ -1,0 +1,93 @@
+{
+  "actual_mini": {
+    "actual_owned_work_no_torch": true,
+    "actual_rebuilt_tar_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "all31original_member_payloads_equal": true,
+    "all_original_hdf5_objects_attributes_and_extra_files_retained": true,
+    "archive_bytes": 647198208,
+    "archive_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "completion_sha256": "eb9e1a99b2eca330dc8f6130b3d32701512fd2aa83244711b6c05ddf6cfdb16a",
+    "cuda_initialized": false,
+    "exact_original_opaque_bytes": 25394,
+    "exact_original_payload_bytes": 647172814,
+    "full_paper_complete": false,
+    "full_source_acquired": false,
+    "hdf5_files": 30,
+    "native_metadata_arrays_equal": 22,
+    "optimization_performed": false,
+    "original_native_completed_data_admission": true,
+    "original_source_tar_retained": true,
+    "phases": {
+      "actual_new_tar_reconstruction_seconds": 2.0663448851555586,
+      "fresh_preservation_verification_seconds": 1.5104267103597522,
+      "preservation_and_independent_reconstruction_hash_seconds": 3.553141515236348,
+      "unchanged_original_inspection_and_conversion_seconds": 12.972678621765226
+    },
+    "preserved_files_and_headers_reconstruct_original_exactly": true,
+    "regular_files": 31,
+    "rows": 4218756,
+    "runtime_capacity_observer_injected": false,
+    "scientific_complete": false,
+    "seconds": 22.38913631485775,
+    "separately_reverified_without_original_path_in_metadata": true,
+    "unchanged_original_converter_fields_equal": true,
+    "valid_rows": 3559584
+  },
+  "checks": {
+    "full_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "3e5a9d0a79c1ea9725b43faadb58e799fa23319fad0769544801824cde1d59f4",
+      "passed": 1283,
+      "seconds": 52.26,
+      "skip_reason": "optional dependencies and unavailable actual aria2 binary",
+      "skipped": 713,
+      "warnings": 1
+    },
+    "local": {
+      "actual_exit_code": 0,
+      "log_sha256": "5b0445292238ca605d9aed945d0044d1395c77e3a555d8d611126b665b3d9526",
+      "passed": 130,
+      "seconds": 4.74
+    },
+    "new_preservation_cases": 48,
+    "server": {
+      "actual_exit_code": 0,
+      "bundle_sha256": "98d634fb6a6c3b2801e7430bbce56efd8bdee35b06c09c2d4de4ecce2633a71e",
+      "log_sha256": "8535308fd6ca663f6a82553da27a38acba32ff70b11ed0589a296c30c9499592",
+      "passed": 130,
+      "seconds": 5.25
+    },
+    "typed_geometry_regression": {
+      "actual_red_exit_code": 1,
+      "fix": "Reject equal-valued booleans/floats before byte-offset/size use; no schema or integrity gate relaxed",
+      "red_deselected": 42,
+      "red_failed": 6,
+      "red_log_sha256": "07179b47c137d91aa65d03c96cb37021e9d7446653e9ae9f59dd3a71570ffee3"
+    },
+    "unchanged_data_regression_cases": 82
+  },
+  "format": "emg2pose_original_tar_preservation_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "limitations": [
+    "All original source TAR/HDF5 retained; no redundant original TAR retired by this module.",
+    "Mini has 30 HDF5 files; full source still requires all25253 exact official sessions and original conversion.",
+    "Actual mini used uninjected memory/disk observation; tiny unit fixtures isolate capacity for ordinary CI.",
+    "No CUDA or optimization performed here; no 250-epoch/full scientific result.",
+    "Hosted CI for this new component has not yet been observed."
+  ],
+  "observed_utc": "2026-10-27T17:32:50.371974+00:00",
+  "owned_execution": {
+    "actual_exit_code": 0,
+    "all_actual_matching_owned_processes_gone": true,
+    "bundle_sha256": "98d634fb6a6c3b2801e7430bbce56efd8bdee35b06c09c2d4de4ecce2633a71e"
+  },
+  "producer_files_sha256": {
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_memory_data.py": "7d1a89c2554b84dbdf01752f66600a3816a86821ec9e807c3df399ddd4e9214f",
+    "egoemg_repro/emg2pose_tar_preservation.py": "7af211ac85dd690a596ebaae232a25d603f40d610326aaa4c746de25bf4cdff9",
+    "tests/test_emg2pose_tar_preservation.py": "2cc4cb65136be68de1fd0bbe794086c84b61ed1f03d3928e094cf164da296680"
+  },
+  "scientific_complete": false,
+  "scope": "Exact ordinary original-file storage and whole TAR reconstruction; not full-corpus/model scientific completion"
+}
