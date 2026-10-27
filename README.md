@@ -14,6 +14,8 @@
 
 [EMG2Pose真实mini工程验收](results/emg2pose-mini-optimization.md)也已完成：S/M/L各2次实际更新、两遍全部526窗口及严格完整状态重载一致。mini全为原val，这项检查不能作为独立验证或论文精度；完整数据与三个完整训练仍待完成。
 
+新增[完整原包的内存存储接入](docs/emg2pose-memory.md)：无损接收组件已在服务器实收647MB官方mini原TAR，39块完整SHA256与已有源一致，内核拒绝修改且检查后关闭缓存。原生读取器适配、完整462.8GB源准入和三个完整实验仍欠；本机持久化分块下载继续运行。
+
 [![Reproduction checks](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml/badge.svg)](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/workflows/tests.yml)
 [![Paper: arXiv 2605.05712v1](https://img.shields.io/badge/Paper-arXiv%3A2605.05712v1-355c7d)](https://arxiv.org/abs/2605.05712v1)
 [![Original code: MIT](https://img.shields.io/badge/Original_code-MIT-1e847c)](LICENSE)
@@ -28,7 +30,7 @@
 
 [全论文状态](docs/full-paper-status.md) · [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
-> 新增[DINOv2原生模块与CPU工程检查](docs/vision-literal.md)：S/B/L真实权重经原factory保留并严格重载；S在真实旧版队列更新2次，新进程完整重推3,152手验证后再更新1次并完整验证。固定89源码CPU检查1,506 passed／3真实CUDA skip；[实际证据](results/vision-literal-native-cpu.json)保持工程范围。完整runner、最终审查、GPU容量与完整训练仍欠，没有新DINO性能成绩。
+> 新增[DINOv2原生训练与评价](docs/vision-literal.md)：S/B/L真实权重经原factory保留并严格重载。S、B及显式激活重计算的L均通过原360/bf16实际GPU七阶段验收、完整3,152手验证与独立精确复推，已分别进入完整训练；L原未启用重计算时的显存失败保留。三者尚无最终测试成绩，不能用工程检查或中途验证值作为新DINO性能结果。当前证据见[全论文状态](docs/full-paper-status.md)。
 
 ## 复现什么
 

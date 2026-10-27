@@ -1,0 +1,79 @@
+{
+  "actual_server": {
+    "available_memory_after_release": 978625351680,
+    "available_memory_before": 978709082112,
+    "chunk_bytes": 16777216,
+    "chunk_count": 39,
+    "complete_byte_cache": true,
+    "elapsed_seconds_including_acquisition_seal_readback": 75.25366314593703,
+    "full_sha256": "d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d",
+    "gpu_used": false,
+    "kernel_mutation_rejected": true,
+    "matches_existing_official_mini_bytes": true,
+    "owned_fd_closed_after_probe": true,
+    "raw_evidence_sha256": "c49e4c9d258e443ff19e5b1d677c0753f41b725600f92d79918f71edac6219ed",
+    "reserve_bytes": 274877906944,
+    "source": {
+      "etag": "\"4c29df0f0dc1c8c89b8cff4ffdb64ee3-78\"",
+      "expected_bytes": 647198208,
+      "last_modified": "Wed, 12 Jun 2024 15:04:52 GMT",
+      "url": "https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset_mini.tar"
+    },
+    "source_bytes_received": 647198208,
+    "training_performed": false,
+    "workers": 8
+  },
+  "engineering_only": true,
+  "format": "public_emg2pose_memory_acquisition_engineering_v1",
+  "full_corpus_complete": false,
+  "full_paper_complete": false,
+  "full_source_acquired": false,
+  "full_training_complete": false,
+  "implementation_files_sha256": {
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "egoemg_repro/emg2pose_memory_archive.py": "993dbb7474969989cde173660b713f15dec56539923c8dbe8d0b1877b46fbe0d"
+  },
+  "limitations": [
+    "RAM cache is volatile and callers must close owned/inherited descriptors",
+    "Capacity checks observe host and visible cgroup limits; they are not an operating-system reservation",
+    "A complete byte cache is not a completed scientific corpus or experiment",
+    "Full native reader, full-source acquisition and three complete EMG2Pose runs remain unfinished"
+  ],
+  "native_reader_equivalence_qualified": false,
+  "observed_utc": "2026-10-27T00:38:10.194080+00:00",
+  "scope": "complete official mini HTTP object only; no full source allocation or model training",
+  "source_identity_policy": "ETag is transport identity, not a publisher checksum; SHA256 identifies received bytes",
+  "source_manifest_members": 99,
+  "source_manifest_sha256": "b577ae918bc1444249d9fa445f8c8ed7e04535b2a964e5edc14d16b4b1155c21",
+  "verification": {
+    "complete_project_checks": "passed for the exact99member source manifest; GPU-dependent tests and a local large-constructor capacity skip remain explicit",
+    "full": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 770.89,
+      "log_sha256": "14fca34aa12f0297f6736aebdfb43f2f6ecf3bd409336cd70abce2906cfccc29",
+      "passed": 1606,
+      "skipped": 4,
+      "skips": [
+        "2 actual CUDA numeric acceptance positives",
+        "1 actual three-process CUDA formal acceptance positive",
+        "1 legacy ViT-L CPU construction: observed MemAvailable2486374400 below reserve2967539888"
+      ],
+      "warnings": 106
+    },
+    "light": {
+      "actual_exit_code": 0,
+      "dependency_skipped": 689,
+      "elapsed_seconds": 22.94,
+      "log_sha256": "64ab0c2a556217fd971c28f4f33c07f2b92a5d8138ac66c2d1eec213fa334d23",
+      "passed": 874,
+      "warnings": 1
+    },
+    "targeted": {
+      "actual_exit_code": 0,
+      "elapsed_seconds": 8.54,
+      "log_sha256": "de00a3c75b24fc8098f4e905c5cc76bb141a7be18e8ca4cc86eeca2e19e53bc1",
+      "passed": 75
+    }
+  }
+}

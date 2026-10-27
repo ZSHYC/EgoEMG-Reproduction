@@ -6,6 +6,8 @@
 
 ## 当前实际完成到哪里
 
+- **完整EMG2Pose原包的内存接收组件已通过真实mini接收检查：** [接入与边界](emg2pose-memory.md)及[实际字节证据](../results/emg2pose-memory-acquisition-engineering.json)记录服务器完整647,198,208字节/39块mini接收、原包SHA256一致、内核拒绝修改及检查后关闭fd。该组件保留原TAR全部字节，并观察256GiB内存余量和可见cgroup限额；完整源仍未接收完，官方HDF5存储适配/全部窗口等价/新完整训练仍欠。原持久化xz接收继续，不能把接收工程检查填入Tables11/13。
+
 - **DINO-S/B及显式激活重计算L的实际GPU验收均通过，三者已进入各自全量训练：** [实际S证据](../results/vision-literal-gpu-engineering.json)、[B证据](../results/vision-literal-base-gpu-engineering.json)和[新L证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)各为原360／bf16两轮、4次实际更新，每轮完整3,152手验证；六项原生恢复一致，完整验证预测跨进程精确复推，各七阶段exit0。L保留原模型／损失／优化器／批量，显式启用固定timm激活重计算；原未启用版本的显存失败保留。三项full均保留150上限／patience30，无最终测试成绩。匹配新2129accc[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)为1,574／3实际CUDA skip及841／689依赖skip。下文CPU阶段“GPU尚欠”为历史记录，不覆盖此新快照。
 
 - **VEMG完整实验与最终核验已完成：** [实际公开报告](../results/original-classic/vemg2pose/README.md)记录62轮、10,535次实际更新，原patience50早停；原生最终测试、独立完整预测复算、统计复核和最后完成核验共12阶段实际exit0。新4,306测试手样本的轨迹／中心MAE为16.452932°／16.347705°，有效角度551,176,956／91,916。保留7,790点、原0.02损失及单rank适配，与旧七项12,000点legacy成绩分列；不是PDF等价或全文完成。
