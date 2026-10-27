@@ -43,6 +43,6 @@
 **Files:** new private source stage, manifest/output and public engineering evidence; preserve original failed-L directory.
 
 - [x] Rehash unchanged complete inputs and pretrained L asset, bind the new reviewed source and frozen CPU evidence, select a freshly checked free A800.
-- [ ] Execute original360/bf16 short fit, fresh native restore, complete3152val and exact prediction replay with unchanged tolerances.
-- [ ] Only a successful actual capacity chain can precede a fresh full150/patience30 fit. A further resource failure remains failed; diagnose without silently changing the protocol.
+- [x] Execute original360/bf16 short fit, fresh native restore, complete3152val and exact prediction replay with unchanged tolerances.
+- [x] Only a successful actual capacity chain can precede a fresh full150/patience30 fit. A further resource failure remains failed; diagnose without silently changing the protocol.
 - [ ] Final scientific completion requires natural full termination, validation-best selection, complete native test, independent replay and verified report. Keep full-paper goal active meanwhile.

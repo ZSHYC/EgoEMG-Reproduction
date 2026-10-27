@@ -1,0 +1,31 @@
+{
+  "commit": "2129acccff74e0553fc574375effbc95bcb50271",
+  "format": "native_activation_checkpoint_actual_hosted_CI_v1",
+  "full_paper_complete": false,
+  "jobs": [
+    {
+      "conclusion": "success",
+      "decoded_log_sha256": "336afb0f91ef176e8055487e1254f55f1cb4d36c8397de5fa6f420c4387615a8",
+      "elapsed_seconds": 1003.73,
+      "id": 121914646293,
+      "passed": 1574,
+      "pip_check_passed": true,
+      "skipped": 3,
+      "status": "completed",
+      "warnings": 104
+    },
+    {
+      "conclusion": "success",
+      "decoded_log_sha256": "2370f6a9ba13bdbb7923578eeef3006fe5af6ba98493293898a9bd0c82781fb9",
+      "dependency_skipped": 689,
+      "elapsed_seconds": 20.85,
+      "id": 121914646541,
+      "passed": 841,
+      "status": "completed",
+      "warnings": 1
+    }
+  ],
+  "run_id": 40420859582,
+  "run_url": "https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582",
+  "scope": "matching code complete CPU fixture checks; actual adapted L GPU evidence is separate"
+}

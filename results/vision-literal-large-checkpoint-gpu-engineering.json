@@ -1,0 +1,184 @@
+{
+  "code_git_commit": "2129acccff74e0553fc574375effbc95bcb50271",
+  "explicit_adaptation": {
+    "backbone_recipe": "S-derived L; independent author L YAML unavailable",
+    "native_timm_activation_checkpointing": true,
+    "native_use_reentrant": false,
+    "original_model_loss_optimizer_and_360_batch_retained": true
+  },
+  "fit": {
+    "completed_epochs": 2,
+    "full_training_terminated": false,
+    "optimizer_executions": 4,
+    "resume_start_exact": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "scope": "cuda_engineering",
+    "sha256": "b09d2c0d40ebb1adf755912ff26259ef210726b35240826079d7e34d73836e2a",
+    "stage_complete": true,
+    "train_samples_per_epoch": [
+      720,
+      720
+    ],
+    "val_samples_per_epoch": [
+      3152,
+      3152
+    ]
+  },
+  "format": "original_vision_actual_GPU_engineering_evidence_v1",
+  "full_fit_snapshot": {
+    "activation_checkpointing": true,
+    "completed_epochs": 0,
+    "controller_and_child_PID_start_verified_live": true,
+    "final_test_performed": false,
+    "latest_logged_steps": [
+      87
+    ],
+    "max_epochs": 150,
+    "optimizer_executions_at_last_complete_epoch": null,
+    "patience": 30,
+    "status": "full-fit",
+    "train_consumptions_per_epoch": 202020,
+    "val_consumptions_per_epoch": 3152
+  },
+  "full_paper_complete": false,
+  "limitations": [
+    "Available legacy EgoEMG only, not current physically merged EgoEMG/ShowEE/Incre corpus.",
+    "One A800 and workers0 are explicit adaptations, not six-rank equivalence.",
+    "Device minimum free memory is a global observation, not owned peak memory or paper GPU hours.",
+    "No bitwise resumed versus uninterrupted training trajectory guarantee.",
+    "Engineering validation is not a final model performance score.",
+    "Activation recomputation is an explicit resource adaptation; no author-execution or paper GPU-hour equivalence claim.",
+    "Full fit snapshot is progress only; logged step is not a completed-epoch optimizer-execution count."
+  ],
+  "observed_utc": "2026-10-26T23:59:08.445156+00:00",
+  "original_failed_L_preserved": {
+    "automatic_retry_or_batch_shrink": false,
+    "code_git_commit": "e7c20b9916efbdc7ecb4ce1385d311692a17e0bd",
+    "completed_epochs": 0,
+    "minimum_device_free_bytes": 45088768,
+    "status": "failed_original_memory_reserve"
+  },
+  "policy": {
+    "activation_checkpoint_use_reentrant": false,
+    "activation_checkpointing": true,
+    "batch_size_by_role": {
+      "test": 360,
+      "train": 360,
+      "val": 360
+    },
+    "bitwise_training_trajectory_guaranteed": false,
+    "engineering_train_samples": 720,
+    "format": "original_vision_fit_policy_v1",
+    "full_paper_complete": false,
+    "gradient_clip_val": 1,
+    "max_epochs": 2,
+    "monitor": "val_mae",
+    "monitor_mode": "min",
+    "native_global_loader_rng": true,
+    "num_sanity_val_steps": 0,
+    "patience": 30,
+    "performance_is_paper_gpu_hours": false,
+    "precision": "bf16-mixed",
+    "protocol_sha256": "3e96bba4df9b5876df38ad492b0dbaf2890aa784429327cb97d275a07fdb7332",
+    "save_last": true,
+    "save_top_k": 3,
+    "scheduler_T_max": 150,
+    "scheduler_eta_min": 1e-05,
+    "scientific_eligible": false,
+    "scope": "cuda_engineering",
+    "sha256": "ac3e1780ca08d5d2eb1e9a29d9332f42955f73c43a80e59aad348d10bb0ff419",
+    "single_rank": true,
+    "variant": "vit_large",
+    "workers": 0
+  },
+  "production_ready": false,
+  "runtime": {
+    "accelerator": "gpu",
+    "cuda_runtime": "11.8",
+    "cudnn": 8700,
+    "name": "NVIDIA A800-SXM4-80GB",
+    "total_memory": 85094825984
+  },
+  "scientific_eligible": false,
+  "scope": "actual native-timm activation-checkpointed DINO-L original360/bf16 short GPU fit, fresh native restoration and complete validation replay; separate full fit running",
+  "source_manifest_sha256": "fd6952fec2a7d8e5730745f175ac44897863fe0929aec990a016c3658390db1c",
+  "stages": [
+    {
+      "elapsed_seconds": 162.62128646299243,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 60736667648,
+      "name": "capacity-prefix",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 188.13948551984504,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 61915267072,
+      "name": "capacity-resume",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 19.449702484998852,
+      "exit_code": 0,
+      "minimum_device_free_bytes": null,
+      "name": "capacity-verify",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 143.81551969842985,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 77578895360,
+      "name": "capacity-val-native",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 185.62855770718306,
+      "exit_code": 0,
+      "minimum_device_free_bytes": 77583089664,
+      "name": "capacity-val-replay",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 129.64809682685882,
+      "exit_code": 0,
+      "minimum_device_free_bytes": null,
+      "name": "capacity-freeze",
+      "status": "success"
+    },
+    {
+      "elapsed_seconds": 144.74432062311098,
+      "exit_code": 0,
+      "minimum_device_free_bytes": null,
+      "name": "capacity-gate",
+      "status": "success"
+    }
+  ],
+  "validation": {
+    "batch_size": 360,
+    "consumed_samples": 3152,
+    "duplicate_consumptions": 1576,
+    "fixed_agreement_policy": {
+      "native_aggregation": "sample-count weighted original per-batch masked L1, float32 accumulation",
+      "native_mae_atol_rad": 2e-06,
+      "native_mae_rtol": 2e-06,
+      "pooled_aggregation": "float64 absolute-error sum / exact valid-angle count",
+      "prediction": "exact typed prediction/target/mask/input replay",
+      "scope": "fixed before validation; no test-driven tolerance or checkpoint changes"
+    },
+    "fresh_prediction_replay_exact": true,
+    "model_unchanged": true,
+    "native_aggregation_agrees": true,
+    "prediction_sha256": "a7222e3c791024b3b41657ebf0de826140fbbddae2a1d097af7973ba361775c3",
+    "profile_sha256": "e3a0cbb6dd515ab5164748d2e356d7f850f21115f076c169bf1d363b902b9f14",
+    "reference_sha256": "1f354697d0ff278420f0764cb6cf80dbd26136a1e7e1a0fba3ebb3b7674e95e3",
+    "replay_sha256": "ef09eddf639c2ebb351f2d0e2a883e68fbce3d5d62f8b61abf8a7110e12322c5",
+    "unique_samples": 1576
+  },
+  "variant": "vit_large"
+}

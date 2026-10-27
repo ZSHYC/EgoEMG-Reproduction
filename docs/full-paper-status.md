@@ -6,7 +6,7 @@
 
 ## 当前实际完成到哪里
 
-- **DINO-S/B实际GPU验收已通过并进入各自全量训练，L显存准入失败：** [实际S证据](../results/vision-literal-gpu-engineering.json)与[实际B证据](../results/vision-literal-base-gpu-engineering.json)各为原360／bf16两轮、4次实际更新，每轮完整3,152手验证；六项原生恢复一致，完整验证预测跨进程精确复推，各七阶段exit0。独立S full快照完成2轮／1,124更新，原150上限／patience30；B随后另起full，两者尚无最终测试成绩。L原360首轮因8GiB设备空闲余量门槛失败，失败保留、未自动降批量或重试；显式原生激活重计算适配正在另行核验。匹配e7c20b9[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40412185942)为1,564／3实际CUDA skip及841／679依赖skip。下文CPU阶段“GPU尚欠”为历史记录，不覆盖此新快照。
+- **DINO-S/B及显式激活重计算L的实际GPU验收均通过，三者已进入各自全量训练：** [实际S证据](../results/vision-literal-gpu-engineering.json)、[B证据](../results/vision-literal-base-gpu-engineering.json)和[新L证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)各为原360／bf16两轮、4次实际更新，每轮完整3,152手验证；六项原生恢复一致，完整验证预测跨进程精确复推，各七阶段exit0。L保留原模型／损失／优化器／批量，显式启用固定timm激活重计算；原未启用版本的显存失败保留。三项full均保留150上限／patience30，无最终测试成绩。匹配新2129accc[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)为1,574／3实际CUDA skip及841／689依赖skip。下文CPU阶段“GPU尚欠”为历史记录，不覆盖此新快照。
 
 - **VEMG完整实验与最终核验已完成：** [实际公开报告](../results/original-classic/vemg2pose/README.md)记录62轮、10,535次实际更新，原patience50早停；原生最终测试、独立完整预测复算、统计复核和最后完成核验共12阶段实际exit0。新4,306测试手样本的轨迹／中心MAE为16.452932°／16.347705°，有效角度551,176,956／91,916。保留7,790点、原0.02损失及单rank适配，与旧七项12,000点legacy成绩分列；不是PDF等价或全文完成。
 
@@ -73,9 +73,9 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **150 epochs完整legacy实验与锁定复算完成**；23,700更新/150次full val，best第19,118步，全部中心6.640058°。独立YAML未发布，损失/队列/单卡配方与官方字面/PDF等价仍未证明，见[结果](../results/completed/resnet50/README.md) |
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **150 epochs完整legacy实验与锁定复算完成**；52,650更新/150次full val，验证选择第52,650步，全部/有图中心5.982738°/5.869706°。独立作者YAML未发布，保留损失/队列/派生配方限制，见[结果](../results/completed/resnet152/README.md) |
-| EgoEMG ViT-S/14 | [官方独立配置][vits]、[DINOv2 实现][vit]；[本项目配方](../configs/vit_small.json)与严格来源记录/安全导出 | **真实预训练与CPU工程验收、未完整运行**；[实际HF资产](../results/dinov2-small-pretrained.md)88,240,510 bytes及主干tensor身份、官方插值、合成256px前向和严格离线恢复均核验；另有随机初始化的实际AdamW工程测试。缺真实cohort优化、GPU容量验收和完整训练 |
-| EgoEMG ViT-B/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_base.json)，实际86,182,166总参数 | **真实预训练与合成CPU前向/严格离线恢复已核验、未完整运行**；独立作者YAML未发布，真实cohort优化、GPU容量/反传及完整训练仍未完成 |
-| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **真实预训练、合成CPU前向与严格离线恢复已核验、未完整运行**；独立作者YAML未发布，真实cohort优化、GPU/优化器/检查点容量仍待验收 |
+| EgoEMG ViT-S/14 | [官方独立配置][vits]、[DINOv2 实现][vit]；[本项目配方](../configs/vit_small.json)与严格来源记录/安全导出 | **实际GPU七阶段验收通过，完整训练运行中**；[实际证据](../results/vision-literal-gpu-engineering.json)保留原360/bf16及真实预训练。完整验证与恢复核验通过；尚无自然终态、最终测试或科学完成报告 |
+| EgoEMG ViT-B/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_base.json)，实际86,182,166总参数 | **独立实际GPU七阶段验收通过，完整训练运行中**；[证据](../results/vision-literal-base-gpu-engineering.json)包含原生优化／恢复／完整验证与精确复推。独立作者YAML未发布，仍为明确派生实验，尚无最终测试 |
+| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **显式原生激活重计算GPU七阶段通过，完整训练运行中**；[证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)保留原360/bf16及模型／目标／优化器，原未启用版本显存失败保留。独立作者YAML未发布，最终测试和完整报告仍欠 |
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；另有发布 16 槽/WL7790 配置 | **未完整运行**；须先完成 clean ViT-S，再接同分区 S；现 builder 的 RN18 路径键和 schema 不能直接复用，8/16 槽分支不得混载 |

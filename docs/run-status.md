@@ -1,5 +1,13 @@
 # 运行状态
 
+## 2026-10-27：显式重计算L七阶段GPU验收通过，S/B/L均进入各自完整训练
+
+[实际L GPU证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)已重新打开原始检查点／验证预测核验：原360／bf16、两轮／4次实际更新，每轮720训练消费与完整3,152验证消费；模型、优化器、调度器、回调、循环、RNG六项恢复一致。原生验证与新进程独立复推的3,152个预测精确一致，七阶段实际exit0。原生timm激活重计算显式开启，原模型／损失／优化器／批量保留。前两阶段设备最低观测空闲60,736,667,648／61,915,267,072bytes；这是全设备观测，不冒充本进程峰值显存。
+
+L随后从真实预训练权重另起full；2026-10-26T23:59:08UTC控制器及full子进程PID/start均存活，身份中的scope=full、max150／patience30、训练限制=None、重计算=True，已记录训练step87，尚无完整epoch。原L未启用重计算的显存失败保留。S、B继续各自原冻结源训练，三个新DINO实验均未完成最终测试，不发布工程验证MAE为模型成绩。
+
+匹配代码2129accc的[实际托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)两项成功：[原始日志摘要](../results/vision-literal-activation-hosted-ci.json)为完整1,574 passed／3实际CUDA skip／104warnings（1003.73s），轻量841／689依赖skip（20.85s），pip check通过。本机1,573／4及服务器单独补验仍按原范围记录，不能改写成本机1,574／3。
+
 ## 2026-10-27：L显式激活重计算实现完成CPU检查，S/B训练继续
 
 [显式适配与实际证据](../results/vision-literal-activation-checkpoint-cpu.json)保留原360／bf16／损失／优化器／回调，只启用固定timm的原生激活重计算。真实DINO-S前向、全部梯度和反向RNG一致，原生训练恢复六项一致；38项原生fit／评价通过，一次独立实现审查无问题。完整97成员检查1,573 passed／4 skipped（767.49s），轻量841／689依赖skip（25.50s）；本机ViT-L内存skip已在同源码服务器用原测试脚本补做成功，另三项需要实际CUDA。最初漏传官方源码目录的检查在确认范围不足后仅停止拥有的测试进程组，exit143和原日志保留，不计成功。

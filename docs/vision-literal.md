@@ -122,3 +122,5 @@ python -m egoemg_repro.vision_literal_eval verify --recompute "$TEST_REPLAY" --o
 已新增`--activation-checkpointing`显式资源适配，默认关闭：调用固定timm1.0.15的原生`VisionTransformer.set_grad_checkpointing(True)`，在反向时重新计算各Transformer块的激活。它不缩小原batch360、不增加梯度累积、不修改原生模型／损失／优化器或验证选模；代价是额外计算，不能当作论文GPU时间或作者原配方执行。开关及原生`use_reentrant`选择进入训练身份，相关timm／Torch源码进入恢复绑定；更换开关的续训必须拒绝，公开JSON与可读报告都披露完整执行策略。只在`fit`显式添加该参数；选中检查点的独立评价仍使用原模型正常前向。
 
 [实际CPU证据](../results/vision-literal-activation-checkpoint-cpu.json)记录DINO-S真实前向／反向的参数、预测、全部梯度和反向后RNG一致，genuine预训练S的新进程恢复六项一致。38项原生fit／评价检查通过；独立实现审查没有发现问题。97成员完整检查实际1,573 passed／4 skipped／106warnings（767.49s），轻量841／689依赖skip（25.50s）。三项skip需要实际CUDA，另一项ViT-L随机构造因本机内存不足跳过，已在同97源码服务器按同一测试脚本补做并通过；原整套1573／4记录保留。该CPU证明不构成L的GPU容量或科学结果，仍须完成新的L原360／bf16容量、完整验证和精确复推后才能另起full。
+
+随后[实际L GPU验收](../results/vision-literal-large-checkpoint-gpu-engineering.json)七阶段全部通过：两轮／4次更新，原360／bf16、完整3,152验证、六项恢复一致及新进程精确复推。新full已从真实预训练权重独立启动，最大150／patience30、无工程样本限制；尚无最终测试成绩。匹配实现2129accc的[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)为完整1,574／3实际CUDA skip、轻量841／689依赖skip。原未开启重计算的L显存失败保持失败，不用新结果追认。
