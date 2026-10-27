@@ -69,7 +69,7 @@
 
 TDS 前端通过时间卷积降采样，以较少 token 保留局部变化；每个 stage 的 SE 按整窗均值调节特征通道。随后 Transformer 的自注意力在时间 token 之间交换信息，RoPE 在 Q/K 上编码位置，最后逐 token 的 MLP 输出 22 维角度。
 
-论文给出两次初始 Conv1d 和两个 TDS stage。下面的时间长度**以全部时间卷积 `padding=0, dilation=1` 为条件**，按 `floor((T−k)/s)+1` 计算；这是论文层参数的条件推导，也符合固定 `tds_slim` 的相关卷积实现，不能外推到任意前端配置。TDS 内的 `8×32=256` 是潜在特征分组，不是电极数量。来源：[C.1，pp.21–22](https://arxiv.org/pdf/2605.05712v1#page=21)、[TDS 实现][up-tds]。
+论文给出两次初始 Conv1d 和两个 TDS stage。2026-10-28已对固定官方S/M/L原始工厂完成[六次CPU前向与架构重绘](../results/dataset-statistics/emgformer-architecture.md)，下表各长度已由真实hook测量核对。时间卷积均为 `padding=0,dilation=1`，也符合 `floor((T−k)/s)+1`；7,790列仅是诊断输入，实际这三个EgoEMG配置均为12,000点，不能外推到任意前端配置。TDS 内的 `8×32=256` 是潜在特征分组，不是电极数量。来源：[C.1，pp.21–22](https://arxiv.org/pdf/2605.05712v1#page=21)、[TDS 实现][up-tds]。
 
 | 时间算子 | k / stride | 论文 7,790 点 | 发布兼容 12,000 点 |
 | --- | --- | ---: | ---: |
@@ -89,7 +89,7 @@ S/M 前端形状为 `(B,256,T′)`。总时间 stride 为 50，名义步距对�
 | M | 6 | 256 | 8 | 1,024 | 6.6 M |
 | L | 8 | 384 | 12 | 1,536 | 16.3 M |
 
-来源：[Table 7，p.21](https://arxiv.org/pdf/2605.05712v1#page=21)。这些参数量是论文报告值，不是本项目对所有配置重新计数。固定 [S][up-small]、[M][up-middle]、[L][up-large] 配置的结构数值与表格一致；M 的配置名是 `middle`。M/L 文件头部残留的 “3-layer small” 注释不应覆盖显式配置值。论文未交代 L 的 256→384 衔接，源码的 [Transformer][up-transformer] 则明确有输入 Linear 投影。
+来源：[Table 7，p.21](https://arxiv.org/pdf/2605.05712v1#page=21)。上表末列仍是论文报告值；本项目现已对原始S/M/L统一实测总参数与可训练参数，分别为3,460,134、6,617,382、16,320,806，三者均全部可训练。实际配置、初始化状态摘要、FP32原生对齐和[PNG/SVG](../results/dataset-statistics/emgformer-architecture.md)均可追溯；没有数据读取、优化器更新或新精度结果。固定 [S][up-small]、[M][up-middle]、[L][up-large] 配置的结构数值与表格一致；M 的配置名是 `middle`。M/L 文件头部残留的 “3-layer small” 注释不应覆盖显式配置值。论文未交代 L 的 256→384 衔接，源码的 [Transformer][up-transformer] 则明确有输入 Linear 投影。
 
 **实现差异。** 论文点名 RoPE，但没有完整实现规格；固定源码使用基数 10,000，对各 head 的 Q/K 偶奇成对旋转，选定的 S/M/L 均 `causal=false`。论文图中的回归头标 GELU，发布默认 [head 配置][up-head] 为 ReLU、隐藏 512、dropout 0.1。本文不把这些后续源码细节当作 v1 明文。
 

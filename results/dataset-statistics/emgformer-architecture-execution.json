@@ -1,0 +1,36 @@
+{
+  "actual_cpu_probe_exit_code": 0,
+  "actual_original_cpu_forwards": 6,
+  "actual_original_factories": 3,
+  "actual_render_exit_codes": [
+    0,
+    0
+  ],
+  "all_initialized_model_states_unchanged": true,
+  "all_parameters_trainable": true,
+  "all_predictions_finite_fp32": true,
+  "all_target_mask_slices_exact": true,
+  "artifacts_sha256": {
+    "emgformer-architecture.json": "aa3fce3fe5760e2c4b885c5e2412533f16a48528ae0702d60ac233d1b9fa6366",
+    "emgformer-architecture.md": "2a27c3a18951647416629b0a5a42111321109460638918408b627e9cebfcff14",
+    "emgformer-architecture.png": "7c0b66b60137aa972cbf2c98bb77429c5ad637a74877cd51d1264e0be9bc5780",
+    "emgformer-architecture.svg": "f7f6b9fc4a060bd61df118f81f94a48541a087e46fad78a08a22913c2dbbeeb0"
+  },
+  "data_or_normalization_executed": false,
+  "diagnostic_input_points": 7790,
+  "format": "egoemg_emgformer_architecture_execution_v1",
+  "full_paper_complete": false,
+  "input_lengths": [
+    12000,
+    7790
+  ],
+  "middle_parameter_count_matches_independent_integration": true,
+  "normalization_asset_tracked_and_present": true,
+  "official_recipe_input_points": 12000,
+  "png_visually_inspected": true,
+  "probe_log_sha256": "b9a7e3cb4843016637fb8a33fa5384b6b07d8bf30d66634773bef83d1191c29b",
+  "producer_script_sha256": "33babf1af39ac95b623bae797ae78378e55a219bf4f716b9bf8e9dcf979bc655",
+  "repeat_render_byte_identical": true,
+  "scientific_training_or_accuracy_added": false,
+  "source_clean_and_unchanged": true
+}
