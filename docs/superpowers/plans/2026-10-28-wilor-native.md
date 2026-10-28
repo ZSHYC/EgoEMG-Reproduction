@@ -26,7 +26,7 @@
 4. Common S-data cohort is data-only, not a WiLoR configuration/GPU/full permit; preserve generated mask/repeat/order and reject forged compatibility bindings (Task3).
 5. Native teardown relocates the model toCPU; actual input/module device receipts must be captured at each forward; no engineering/prediction-before-freeze/full-best swap promotion (Task4).
 
-### Task1: Exact prospective configuration contract
+### Task 1: Exact prospective configuration contract
 
 **Files:** Create `egoemg_repro/wilor_literal.py`, `tests/test_wilor_literal.py`, `docs/wilor-native.md`.
 
@@ -36,7 +36,7 @@
 - [ ] Step2: Run `python -m pytest tests/test_wilor_literal.py -q` in existing native env. Expected: missing-module FAIL. Implement exactsource-bound composition/validation/protocol; repeat same command. Expected: all PASS, no model construction.
 - [ ] Step3: Run new contract + unchanged `tests/test_vision_literal.py`; bare suite with EGOEMG_UPSTREAMunset; fresh subprocess protocol/noTorch-orCUDA import proof. Expected: checks exit0, originalsources unchanged, all true scopes retained. Save actual logs/owners/hashes and public evidence, update ledger, commit.
 
-### Task2: Genuine asset and original native module/optimizer
+### Task 2: Genuine asset and original native module/optimizer
 
 **Files:** Create `configs/wilor-assets.json`, `egoemg_repro/wilor_literal_runtime.py`, `tests/test_wilor_literal_runtime.py`.
 
@@ -46,7 +46,7 @@
 - [ ] Step2: Genuine sequential remoteCPU construction with existing actual2.56GBprivateasset: all404backbone tensors exact, nativeoriginalmodule and optimizergroups, actualfiniteforward/backward/update onordinarysmallcohort; save/release then fresh-process strictreload/fullsmallvalidation. No local large construction, GPU or finalaccuracy claim. Expected: all ownersactualexit0, immutableassets/source/state, exactfrozenpredictions; failures retained.
 - [ ] Step3: Affected/related/bare checks once, independentrawCPUproof collection and viewed engineering curves if generated; commit actual source/evidence. Expected: exit0/sourcehashesmatch; nofullpermit.
 
-### Task3: Complete data binding and native uninterrupted fit
+### Task 3: Complete data binding and native uninterrupted fit
 
 **Files:** Create `egoemg_repro/wilor_native_train.py`, `tests/test_wilor_native_train.py`; extend guide.
 
@@ -56,7 +56,7 @@
 - [ ] Step2: Native fit tests first: exact3scopes/no callerrecipeoverride/resume/overwrite; originalcallbacks/top3last/30epochfulltermination, epochjournal/checkpoint identity and actualoptimizerexecutions/RNG/coverage, independentselected-best reload. OrdinaryCPUtinyfixture twoepochs; interruption/nonfinite/partialcoverage/wrongbest/source/journal/scaler/counters/incompletefull fail. Observe RED then implement native trainer/observer/readers. Full entry checks Task4rawcurrentCUDApermit before model/data; engineering neverfull.
 - [ ] Step3: New/related/bare checks and independentCPUrawfit/best proof, sourcehashes/ownerexit; commit. Expected: allpass, fullentry remainscloseduntilactualnewGPUqualification.
 
-### Task4: Exact evaluation/report, actualGPU qualification, one review and full experiment
+### Task 4: Exact evaluation/report, actualGPU qualification, one review and full experiment
 
 **Files:** Create `egoemg_repro/wilor_native_eval.py`, `tests/test_wilor_native_eval.py`; immutable ignoredstage/controller/observer; public sanitizedresults.
 
