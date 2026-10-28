@@ -1,0 +1,158 @@
+{
+  "actual_all_owned_consumers_independently_nonlive": true,
+  "actual_complete_admission": {
+    "actual_exit_path_reached": true,
+    "actual_rng_unchanged": true,
+    "actual_sources_verified": 82,
+    "counts": {
+      "train": 63026,
+      "val": 582
+    },
+    "cuda_initialized": false,
+    "finite_footprints": {
+      "train": {
+        "consumed_emg_elements": 668404320,
+        "consumed_emg_nonfinite_entries": 0,
+        "full_trajectory_target_elements": 1838111880,
+        "full_trajectory_target_nonfinite_entries": 0,
+        "possible_label_true_hand_rows": 80420198,
+        "unique_possible_rows": 41775270
+      },
+      "val": {
+        "consumed_emg_elements": 55872000,
+        "consumed_emg_nonfinite_entries": 0,
+        "full_trajectory_target_elements": 153648000,
+        "full_trajectory_target_nonfinite_entries": 0,
+        "possible_label_true_hand_rows": 6672354,
+        "unique_possible_rows": 3492000
+      }
+    },
+    "full_paper_complete": false,
+    "full_payload_files": 16,
+    "identity_file_sha256": "d130ffc49243467c0c5c50f2528ff1b9dd110d740073561f9604cfab16e4102b",
+    "identity_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+    "logical_payload_bytes": 16540457757,
+    "mode": "admit",
+    "model_constructed": false,
+    "native_loader_batch": {
+      "train": 260,
+      "val": 260
+    },
+    "native_workers": {
+      "train": 0,
+      "val": 0
+    },
+    "observed_utc": "2026-10-28T07:30:25.747523+00:00",
+    "production_ready": false,
+    "scientific_eligible": false,
+    "seconds": 33.21134085673839,
+    "synthetic": false
+  },
+  "actual_counts": {
+    "train": 63026,
+    "val": 582
+  },
+  "actual_exit_code": 0,
+  "actual_identity_content_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+  "actual_identity_file_sha256": "d130ffc49243467c0c5c50f2528ff1b9dd110d740073561f9604cfab16e4102b",
+  "actual_new_process_identity_exact": true,
+  "actual_new_process_reopen": {
+    "actual_exit_path_reached": true,
+    "actual_rng_unchanged": true,
+    "actual_sources_verified": 82,
+    "counts": {
+      "train": 63026,
+      "val": 582
+    },
+    "cuda_initialized": false,
+    "finite_footprints": {
+      "train": {
+        "consumed_emg_elements": 668404320,
+        "consumed_emg_nonfinite_entries": 0,
+        "full_trajectory_target_elements": 1838111880,
+        "full_trajectory_target_nonfinite_entries": 0,
+        "possible_label_true_hand_rows": 80420198,
+        "unique_possible_rows": 41775270
+      },
+      "val": {
+        "consumed_emg_elements": 55872000,
+        "consumed_emg_nonfinite_entries": 0,
+        "full_trajectory_target_elements": 153648000,
+        "full_trajectory_target_nonfinite_entries": 0,
+        "possible_label_true_hand_rows": 6672354,
+        "unique_possible_rows": 3492000
+      }
+    },
+    "full_paper_complete": false,
+    "full_payload_files": 16,
+    "identity_file_sha256": "d130ffc49243467c0c5c50f2528ff1b9dd110d740073561f9604cfab16e4102b",
+    "identity_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+    "logical_payload_bytes": 16540457757,
+    "mode": "reopen",
+    "model_constructed": false,
+    "native_loader_batch": {
+      "train": 260,
+      "val": 260
+    },
+    "native_workers": {
+      "train": 0,
+      "val": 0
+    },
+    "observed_utc": "2026-10-28T07:31:01.446710+00:00",
+    "production_ready": false,
+    "scientific_eligible": false,
+    "seconds": 33.15456924913451,
+    "synthetic": false
+  },
+  "actual_owned_consumer_count": 4,
+  "actual_unique_counts": {
+    "train": 63026,
+    "val": 582
+  },
+  "actual_wrapper_and_controller_independently_nonlive": true,
+  "all_immutable_members_unchanged": true,
+  "available_corpus": "legacy EgoEMG only; missing declared Incre training source",
+  "bundle_sha256": "5ea495d975438276cc58315cd7edc3df8f028e3fd1fd6d7ad60418b98dc5ef56",
+  "consumed_emg_nonfinite_entries": 0,
+  "cuda_initialized": false,
+  "finite_footprints": {
+    "train": {
+      "consumed_emg_elements": 668404320,
+      "consumed_emg_nonfinite_entries": 0,
+      "full_trajectory_target_elements": 1838111880,
+      "full_trajectory_target_nonfinite_entries": 0,
+      "possible_label_true_hand_rows": 80420198,
+      "unique_possible_rows": 41775270
+    },
+    "val": {
+      "consumed_emg_elements": 55872000,
+      "consumed_emg_nonfinite_entries": 0,
+      "full_trajectory_target_elements": 153648000,
+      "full_trajectory_target_nonfinite_entries": 0,
+      "possible_label_true_hand_rows": 6672354,
+      "unique_possible_rows": 3492000
+    }
+  },
+  "format": "actual_complete_emg_initializer_legacy_numeric_admission_v1",
+  "full_paper_complete": false,
+  "full_trajectory_target_nonfinite_entries": 0,
+  "image_inputs_required": false,
+  "logical_payload_bytes": 16540457757,
+  "minimum_actual_available_memory_bytes": 947565924352,
+  "minimum_actual_output_disk_free_bytes": 96079482880,
+  "model_constructed": false,
+  "observed_utc": "2026-10-28T07:31:46.919208+00:00",
+  "optimizer_updates": 0,
+  "parent_torch_unimported": true,
+  "payload_files": 16,
+  "production_ready": false,
+  "publisher_authenticated_payload_reference_available": false,
+  "raw_actual_evidence_sha256": "806ad8c6f2b05b016d7a446d4f7fd1a6181a6fed3f86347d99f3f20b32c7ae4e",
+  "resource_observation_count": 3,
+  "resource_observation_injected": false,
+  "scientific_eligible": false,
+  "seconds": 71.573285297025,
+  "source_commit": "d728c97393a3723964e6f9b05f02966dc2d4c8eb",
+  "source_members_verified": 82,
+  "whole_implementation_review_complete": true
+}

@@ -1,0 +1,62 @@
+{
+  "actual_light_optional_skipped": 974,
+  "actual_light_passed": 1449,
+  "actual_light_seconds": 96.06,
+  "actual_native_passed": 118,
+  "actual_native_seconds": 221.08,
+  "actual_red_failures": 13,
+  "actual_red_seconds": 94.07,
+  "author_fix_commit": "d728c97393a3723964e6f9b05f02966dc2d4c8eb",
+  "author_material_fixes": 3,
+  "deferred_minors": [
+    "Final: minor (deferred): planline24 incorrectly calls seed-before-factory upstream behavior; code intentionally calls originalsetup_runtime beforefactory as a reproducibilitycorrection while originaltrain() seedsafterconstruction. No codechange requested; retain asdocumentationminor forcompletion report."
+  ],
+  "findings": [
+    {
+      "fix": "mandatory independent selected-fit/checkpoint/cohort lineage and full native tensor schema/bytes",
+      "issue": "export admission used self-described inventory",
+      "test": "mandatory reference and6resealed invented/incomplete/lineage/scope cases"
+    },
+    {
+      "fix": "preserve historical incomplete result; reconcile checkpoint/journal; completed budget finalized without new updates",
+      "issue": "stale prefix result blocked durable checkpoint recovery",
+      "test": "actual3process interruption after checkpoint andafter journal, plus completed-retrain refusal"
+    },
+    {
+      "fix": "bind array computational type/dtype/shape/strides/values",
+      "issue": "equal-valued normalization representation changed native computation",
+      "test": "4float64/list substitutions reject before consumption"
+    }
+  ],
+  "format": "original_emg_initializer_one_whole_review_and_author_fix_v1",
+  "full_paper_complete": false,
+  "independent_rereview": false,
+  "review_reported_counts": {
+    "critical": 0,
+    "important": 3,
+    "minor": 1
+  },
+  "reviewed_head": "8571aa2777b375594ffac1aa9f1932c25cbeb0b4",
+  "rulings": [
+    "Ruling: Proceed inline on the necessary source-declared fusion initializer under the approved full-paper execution, no new user preference or architecture \u2014 old weights overlap the future fold so a new native initializer is required \u2014 cost if wrong: extra150epoch run and new adapter need correction, never repurpose original results.",
+    "Ruling: Preserve exact cotrain-S8channel/12000/fulltrajectory/batch260/repeat1/150 and native perhandnorm, while missing Incre source and independent temporal heldout roles remain explicit \u2014 native executed source has priority over filename/comment assumptions \u2014 cost if wrong: corpus/poolednorm differences remain and no PDF equivalence or additional baseline count is allowed.",
+    "Final: Ruling: reviewer checkedjitter andholdout arithmetic withnofinding \u2014 preserveoriginalhalfopen/maxjitterandbothhandplans \u2014 costifwrong:undetectedfootprintcrossingwouldinvalidatefuturefusion, so nativebounds/regressions andfixedpartition proofremainrequired.",
+    "Final: Ruling: reviewer checkedmasked/noncenterNaNs andunusedtargets withnofinding \u2014 allconsumedfulltargets finite, unusedvaluesuntouched \u2014 costifwrong: invalidsupervision, guardedbyfullactual rescans afterthissourcefix.",
+    "Final: Ruling: optionaldeclaredfields/nativewristmask semantics stand \u2014 missingdeclaredpayloads reject andupstreamgeneratedmaskrulehaspriority \u2014 costifwrong:legacy/PDF labeldifferences remainexplicit, no equivalentaccuracyclaim.",
+    "Final: Ruling: arbitrarytransientinprocessmutationthenrestoration not separatelyclassified \u2014 trusted taskexecution/framegenerationguards arethreatscope, actualnormdtypeholeisfixed \u2014 costifwrong: adversarial runtimepatchingcan evadefile-stampguards; no such hostilecodeauthorized.",
+    "Final: Ruling: originalrecipe/allparameterupdates checkedwithnofinding \u2014 effective0.01/nativebatch_aug/fulltrajectory/cosine150/top3lastpreserved \u2014 costifwrong:recipeerrorwouldrequire retraining; qualificationremainsourcebound.",
+    "Final: Ruling: isolatedstage_complete helper acceptsmanuallysupplied budgetbutproductionconstructs canonicalpolicy \u2014 no additional optionalbudget-helperchange inthethreefindingfixpass; fullreader alsorequiresactualcompletepopulation/counters/checkpointsource \u2014 costifwrong: directuntrusted forgedhelperinput isnot trainingevidence andmustnotbeusedassuch.",
+    "Final: Ruling: nativeiteratorRNGreentrydivergence isexplicitlyoutsidebitwise uninterrupted equivalence \u2014 six savedstateclasses andfrozenvalidation exactremainmandatory \u2014 costifwrong: convergenceorindependenttrajectories cannotbeclaimed equivalent.",
+    "Final: Ruling: missingIncre/poolednorm/wholeepisodeFFT/legacyPDFprovenance remainapproveddisclosedlimitations \u2014 no publisherauthenticity orpaperoriginaltableequivalencefromthisreview \u2014 costifwrong: externalcorpus/annotationgapsstillrequirefuturework, wholepapergoalactive.",
+    "Final: Ruling: futurefusion8to16firstconvskip followsverifiedoriginalexactnameshape rule \u2014 do notreshapeweights; actualfusionfitremainsfuture \u2014 costifwrong: newfusionrequirescorrection/retraining andcannotborrowengineeringresults.",
+    "Final: Ruling: reviewerreadreportedtests/realCPUartifacts butdeclinedbroadrepeat/GPU/serverrehash \u2014 authoractuallyobservedsource-bound104native/1449light,fullnumericand83memberGPUcollector; affectedqualificationwillbererunafterfix \u2014 costifwrong: newsourceunqualifieduntilnewactualproof,oldproofspreservedscoped9de8c54.",
+    "Final: Ruling: adjacentEMG2Poseandunrelatedjobs excludedfrominitializerreview \u2014 preservehealthyownersandseparatefrozenpackages \u2014 costifwrong: thosemodelsneedtheirownactualreports, nocrossscopeapprovalimplied.",
+    "Final: Ruling: wholeimplementationreviewoccursafterTask2andTask3engineeringbeforethelong150fit asplanexplicitlyrequires \u2014 Task3scientificexecution/acceptance staysincomplete, no secondreviewloop \u2014 costifwrong: operationalresultsremainunprovenuntilactualfulljobandindependentacceptance."
+  ],
+  "scientific_eligible": false,
+  "scope": "implementation correction verified by author tests; corrected actual complete data/GPU qualification and full150 execution separately required",
+  "source_sha256": {
+    "egoemg_repro/emg_initializer_cohort.py": "7c3624c1d22640144ea2e2d79c369fad917c5a9a4e48f1e60ef36048bf43a5b2",
+    "egoemg_repro/emg_initializer_train.py": "de1663ef5547b9b6dd49df197217681075e148afc1fa7aec22997aedf49e9c72"
+  }
+}

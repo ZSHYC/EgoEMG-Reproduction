@@ -1,0 +1,36 @@
+{
+  "actual_exit_code": 1,
+  "actual_new_bytes": 922746880,
+  "actual_tool_handle_reaped_exit_code": 1,
+  "complete_selected_files": 3,
+  "current_asset": "generated_mano_left_pose.dat",
+  "error_type": "DownloadError",
+  "expected_selected_bytes": 37778344975,
+  "finished_utc": "2026-10-28T07:24:59.876749+00:00",
+  "format": "legacy_geometry_bounded_intake_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 2214592512,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "partial_bytes_preserved": true,
+  "reason": "three bounded transient attempts exhausted at the same uncommitted offset",
+  "retry_events_total": 3,
+  "retry_policy": {
+    "attempts_per_stalled_offset": 3,
+    "backoff_seconds": [
+      1,
+      2
+    ],
+    "reset": "strict complete chunk progress only"
+  },
+  "started_utc": "2026-10-28T06:37:38.116348+00:00",
+  "status": "failed"
+}
