@@ -1,0 +1,81 @@
+{
+  "complete_model_settings_under_declared_protocol": 10,
+  "dino_large": {
+    "actual_controller_pid_start_live": true,
+    "actual_training_pid_start_live": true,
+    "completed_validation_epochs": 53,
+    "final_result_complete": false,
+    "observed_utc": "2026-10-28T01:25:35.653805+00:00",
+    "status": "full-fit"
+  },
+  "format": "egoemg_continuation_actual_progress_20261028_v1",
+  "full_archive_acquired": true,
+  "full_archive_bytes": 462824048640,
+  "full_archive_received_sha256": "c406e3dfe1e1aa516a2904ad406b918b41e9c653ac136a4dd9e9c36efcc91361",
+  "full_paper_complete": false,
+  "full_preparation": {
+    "all_four_actual_pid_start_live": true,
+    "controller_status": "running",
+    "latest_progress": {
+      "actual_bytes": 317830465064,
+      "phase": "copy",
+      "total_bytes": 462824048640
+    },
+    "native_full_source_qualified": false,
+    "observed_utc": "2026-10-28T01:25:35.584651+00:00"
+  },
+  "full_scientific_queue": {
+    "actual_all_four_owners_live": true,
+    "completed_models": 0,
+    "models_started": [],
+    "observed_utc": "2026-10-28T01:25:35.582054+00:00",
+    "status": "waiting-existing-full-source"
+  },
+  "new_hosted_light": {
+    "conclusion": "success",
+    "head_commit": "47de86719993d13fa8c4ec5d713b3c87281f233f",
+    "job_id": 122568911889,
+    "log_sha256": "a7aee0ca09925d8f66be3fb22c6677d3487b220672aad007d8f5488bda055aa5",
+    "passed": 1423,
+    "run_id": 40613032562,
+    "seconds": 143.25,
+    "skipped": 721,
+    "status": "completed",
+    "warnings": 1
+  },
+  "new_whole_native_hosted_verified": false,
+  "observed_utc": "2026-10-28T01:26:21.899000+00:00",
+  "original_fft_check": {
+    "actual_completed_episodes_per_hand": 1,
+    "all_episodes_complete": false,
+    "frequency_points_checked": 12,
+    "maximum_actual_difference_from_released": 2.9802322387695312e-08,
+    "public_evidence": "results/dataset-statistics/emg-fft-first-episode.json",
+    "total_episodes_per_hand": 41
+  },
+  "publisher_authenticated_sha_available": false,
+  "raw_emg_acquisition": {
+    "actual_pid_start_live": true,
+    "ambient_credentials_used": false,
+    "complete": false,
+    "connector_raw_limit_bytes": 268435456,
+    "direct_public_endpoint": true,
+    "expected_bytes_per_array": 2117175200,
+    "no_automatic_retry": true,
+    "observed_utc": "2026-10-28T01:25:35.763853+00:00",
+    "original_prefixes_tail_validated": true,
+    "received_bytes_per_array": {
+      "emg_left_raw.dat": 1946157056,
+      "emg_right_raw.dat": 368050176
+    },
+    "status": "downloading"
+  },
+  "table1_source_audit": {
+    "all_primary_modalities_verified": false,
+    "original_rows": 6,
+    "original_table_visually_checked": true,
+    "primary_audit_rows": 6,
+    "public_csv": "results/dataset-statistics/table1-as-reported.csv",
+    "public_json": "results/dataset-statistics/dataset-comparison.json"
+  }
+}

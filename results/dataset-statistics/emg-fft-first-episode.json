@@ -1,0 +1,125 @@
+{
+  "actual_exit_code": 0,
+  "format": "egoemg_fft_first_episode_actual_evidence_v1",
+  "full_paper_complete": false,
+  "raw_evidence_sha256": "8b2b0e8e38b535b8e8e524f7bd91b1bc8c00e47b9a7c20192b73e7818a31fa3d",
+  "result": {
+    "actual_first_complete_episode": [
+      {
+        "channels": 8,
+        "exact_equal_to_released": false,
+        "filtered_std": 0.9131543854828099,
+        "hand": "left",
+        "input_prefix_sha256": "b81215b353b9589281d5617acb9613fe027de8ae511d7c02059f40fb810e47c2",
+        "max_abs_difference_from_released": 2.9802322387695312e-08,
+        "mean_abs_difference_from_released": 1.872742635865216e-14,
+        "output_sha256": "a8f4578f5268a65aa45f6e135231aa5a116e05798653d9a924b66aa59f3a35c1",
+        "raw_std": 37.90864235020539,
+        "released_prefix_sha256": "cd2d54c85f9a96c7bde60de6a71ef47641ea497239355ae1ef5de11863e06670",
+        "rms_difference_from_released": 2.026484636770654e-11,
+        "rows": 1089586
+      },
+      {
+        "channels": 8,
+        "exact_equal_to_released": false,
+        "filtered_std": 5.928742966729838,
+        "hand": "right",
+        "input_prefix_sha256": "eb466461d63603e035110e58b93f7b1a607e6917a82242275a0376adb6168bb2",
+        "max_abs_difference_from_released": 1.4901161193847656e-08,
+        "mean_abs_difference_from_released": 1.763337228539382e-15,
+        "output_sha256": "8834607ce867d71be10c6d29aaa39b9b671ada8cbc7a1694c02e3107b27da892",
+        "raw_std": 33.36875059009097,
+        "released_prefix_sha256": "d7d9e969fca144a2f1bbfb2bab40d5ca16f2b9736ffda03fe35d78b6d1daa6ec",
+        "rms_difference_from_released": 5.049592392290177e-12,
+        "rows": 1089586
+      }
+    ],
+    "actual_full_episodes_per_hand": 1,
+    "all41episode_preprocessing_complete": false,
+    "complete_raw_arrays_acquired": false,
+    "dc_rejection_checked": true,
+    "empty_input_checked": true,
+    "format": "egoemg_original_fft_preprocessing_source_check_v1",
+    "frequency_checks": [
+      {
+        "expected_gain": 0,
+        "frequency_hz": 10,
+        "observed_gain": -6.674608648847449e-25
+      },
+      {
+        "expected_gain": 0.5,
+        "frequency_hz": 17.5,
+        "observed_gain": 0.4999999993941535
+      },
+      {
+        "expected_gain": 1,
+        "frequency_hz": 20,
+        "observed_gain": 1.000000001775579
+      },
+      {
+        "expected_gain": 1,
+        "frequency_hz": 40,
+        "observed_gain": 1.0000000016542039
+      },
+      {
+        "expected_gain": 0.25,
+        "frequency_hz": 48,
+        "observed_gain": 0.2499999992559797
+      },
+      {
+        "expected_gain": 0,
+        "frequency_hz": 50,
+        "observed_gain": -2.2434220624263383e-24
+      },
+      {
+        "expected_gain": 0.25,
+        "frequency_hz": 52,
+        "observed_gain": 0.24999999979571044
+      },
+      {
+        "expected_gain": 0,
+        "frequency_hz": 100,
+        "observed_gain": 7.858508770639526e-25
+      },
+      {
+        "expected_gain": 1,
+        "frequency_hz": 850,
+        "observed_gain": 1.000000007857326
+      },
+      {
+        "expected_gain": 0.5,
+        "frequency_hz": 875,
+        "observed_gain": 0.49999999072714546
+      },
+      {
+        "expected_gain": 0,
+        "frequency_hz": 900,
+        "observed_gain": -8.407161817997197e-23
+      },
+      {
+        "expected_gain": 0,
+        "frequency_hz": 950,
+        "observed_gain": -1.600120486161412e-22
+      }
+    ],
+    "full_paper_complete": false,
+    "numpy_version": "1.26.4",
+    "observed_utc": "2026-10-28T01:17:52.714153+00:00",
+    "official_memmap_entry_sha256": "77a743881821f85f791307eca36c7a41d1014693eca03ca8302e3910b012f1d3",
+    "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "official_source": "scripts/data/filter_emg_into_new_columns.py",
+    "official_source_sha256": "9d78f92ee2fa5e481833d32d69d1dcbec87a8dad7eb8ab2c83369a95dfb33905",
+    "peak_process_rss_bytes": 777666560,
+    "private_checker_sha256": "0cf7ce1c930d6d9ddc9fc0760aca84f8907e795f87d64e365e642c51c54dc811",
+    "pyarrow_version": "17.0.0",
+    "scope": "analytical frequency response and actual first complete episode inside preserved raw prefixes; original filter called unchanged; no normalization or training; released legacy filtered columns are comparison only",
+    "source_unchanged": true,
+    "torch_imported": false,
+    "total_release_episodes": 41,
+    "whole_episode_future_pulse_influence": 0.0005708040553145111
+  },
+  "source_metadata_identity": {
+    "manifest.json": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+    "metadata.npz": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+  }
+}

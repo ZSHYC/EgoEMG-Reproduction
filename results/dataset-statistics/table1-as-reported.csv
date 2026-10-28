@@ -1,0 +1,7 @@
+dataset,subjects,emg_channels,bilateral,ego_rgb,rgb_d,wrist_labels,pose_labels,gestures
+Jarque-Bou 2019,22,8,–,–,–,–,18 (g),26
+NinaPro,27–78,10–16,–,–,–,✓,22 (g)*,53
+MyoKi,36,16,–,–,–,–,18 (g),74
+PiMForce,21,8,–,–,–,–,20 (g),63
+EMG2Pose,193,32 (16×2),✓,–,–,–,20 (m),50
+EgoEMG (ours),41,16 (8×2),✓,✓,✓,✓,22 (m),60

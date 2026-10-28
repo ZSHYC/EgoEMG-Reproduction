@@ -1,0 +1,230 @@
+{
+  "all_primary_modalities_independently_verified": false,
+  "as_reported_footnotes": [
+    "EMG Ch counts total across both wrists; bilateral means dual-wrist EMG; wrist labels means explicit articulation; pose labels means continuous hand pose.",
+    "NinaPro DB1/2/5 continuous22DoF; remaining databases gesture labels only. This is an original-paper claim; see primary audit.",
+    "g=instrumented glove; m=optical motion capture."
+  ],
+  "as_reported_rows": [
+    {
+      "bilateral": "–",
+      "dataset": "Jarque-Bou 2019",
+      "ego_rgb": "–",
+      "emg_channels": "8",
+      "gestures": "26",
+      "pose_labels": "18 (g)",
+      "rgb_d": "–",
+      "subjects": "22",
+      "wrist_labels": "–"
+    },
+    {
+      "bilateral": "–",
+      "dataset": "NinaPro",
+      "ego_rgb": "–",
+      "emg_channels": "10–16",
+      "gestures": "53",
+      "pose_labels": "22 (g)*",
+      "rgb_d": "–",
+      "subjects": "27–78",
+      "wrist_labels": "✓"
+    },
+    {
+      "bilateral": "–",
+      "dataset": "MyoKi",
+      "ego_rgb": "–",
+      "emg_channels": "16",
+      "gestures": "74",
+      "pose_labels": "18 (g)",
+      "rgb_d": "–",
+      "subjects": "36",
+      "wrist_labels": "–"
+    },
+    {
+      "bilateral": "–",
+      "dataset": "PiMForce",
+      "ego_rgb": "–",
+      "emg_channels": "8",
+      "gestures": "63",
+      "pose_labels": "20 (g)",
+      "rgb_d": "–",
+      "subjects": "21",
+      "wrist_labels": "–"
+    },
+    {
+      "bilateral": "✓",
+      "dataset": "EMG2Pose",
+      "ego_rgb": "–",
+      "emg_channels": "32 (16×2)",
+      "gestures": "50",
+      "pose_labels": "20 (m)",
+      "rgb_d": "–",
+      "subjects": "193",
+      "wrist_labels": "–"
+    },
+    {
+      "bilateral": "✓",
+      "dataset": "EgoEMG (ours)",
+      "ego_rgb": "✓",
+      "emg_channels": "16 (8×2)",
+      "gestures": "60",
+      "pose_labels": "22 (m)",
+      "rgb_d": "✓",
+      "subjects": "41",
+      "wrist_labels": "✓"
+    }
+  ],
+  "attached_pdf_sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+  "columns": [
+    "dataset",
+    "subjects",
+    "emg_channels",
+    "bilateral",
+    "ego_rgb",
+    "rgb_d",
+    "wrist_labels",
+    "pose_labels",
+    "gestures"
+  ],
+  "complete_egoemg_multimodal_inventory_verified": false,
+  "external_datasets_retrained": false,
+  "format": "egoemg_table1_as_reported_and_primary_source_audit_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-10-28T01:23:23.648977+00:00",
+  "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "original_table_generator_found": false,
+  "original_table_values_silently_corrected": false,
+  "page_text_sha256": "90254c33b55782416a603cf5dcbcf7796b5688daa66ee592c021a33a813f8368",
+  "pdf_page": 4,
+  "primary_audit": [
+    {
+      "dataset": "Jarque-Bou 2019",
+      "finding": "Keep the eight-channel device distinct from seven recorded muscle areas; a device count is not proof of eight independent signal columns. Wrist-label classification not independently resolved in this audit.",
+      "source_ids": [
+        "jarque_bou_2019"
+      ],
+      "verified_facts": {
+        "activities": 26,
+        "anatomical_angles": 18,
+        "device_emg_channels": 8,
+        "recorded_forearm_spots": 7,
+        "subjects": 22
+      }
+    },
+    {
+      "dataset": "NinaPro",
+      "finding": "The family is heterogeneous. DB8 also provides continuous calibrated kinematics, contradicting the blanket footnote that only DB1/2/5 provide continuous labels. DB5 uses two armbands on one forearm. Raw22glove signals are not automatically calibrated22DoF. Do not collapse movement/rest or per-database participant counts.",
+      "source_ids": [
+        "ninapro_db1",
+        "ninapro_db2",
+        "ninapro_db5",
+        "ninapro_db8"
+      ],
+      "verified_facts": {
+        "DB1": {
+          "emg_channels": 10,
+          "glove_columns": 22,
+          "glove_values": "uncalibrated",
+          "movements_excluding_rest": 52,
+          "subjects": 27
+        },
+        "DB2": {
+          "emg_channels": 12,
+          "glove_columns": 22,
+          "glove_values": "uncalibrated",
+          "movements_excluding_rest": 49,
+          "subjects": 40
+        },
+        "DB5": {
+          "bilateral_emg": false,
+          "emg_channels": 16,
+          "glove_columns": 22,
+          "glove_values": "uncalibrated",
+          "movements_excluding_rest": 52,
+          "subjects": 10
+        },
+        "DB8": {
+          "emg_channels": 16,
+          "emg_side": "right",
+          "glove_columns": 18,
+          "glove_side": "left",
+          "glove_values": "calibrated",
+          "movements_excluding_rest": 9,
+          "subjects": 12
+        }
+      }
+    },
+    {
+      "dataset": "MyoKi",
+      "finding": "The original descriptor contradicts Table1 subjects36, EMG16 and absent wrist labels. It describes individual wrist flexion/extension and radial/ulnar calibration.",
+      "source_ids": [
+        "myoki"
+      ],
+      "verified_facts": {
+        "activities": 74,
+        "bilateral_emg": false,
+        "emg_channels": 12,
+        "excluded_from_original38": 3,
+        "kinematic_channels": 18,
+        "released_subjects": 35,
+        "wrist_channels": [
+          17,
+          18
+        ]
+      }
+    },
+    {
+      "dataset": "PiMForce",
+      "finding": "The official project paper has22interactions, not63. Its authors are Seo etal.; the attached EgoEMG bibliography names Shen/Hao/Fang/Lu with another title. Preserve the mismatch rather than silently treating it as the same verified citation.",
+      "source_ids": [
+        "pimforce"
+      ],
+      "verified_facts": {
+        "emg_channels": 8,
+        "glove_joint_angles": 20,
+        "interaction_groups": [
+          7,
+          5,
+          10
+        ],
+        "interactions": 22,
+        "sessions": 3,
+        "subjects": 21
+      }
+    },
+    {
+      "dataset": "EMG2Pose",
+      "finding": "The official README confirms these corpus statistics. Table1 gesture50 was not independently established here;29stages and50gestures have different possible definitions and must not be substituted.",
+      "source_ids": [
+        "emg2pose"
+      ],
+      "verified_facts": {
+        "hdf5_files": 25253,
+        "hours": 370,
+        "stages": 29,
+        "subjects": 193
+      }
+    },
+    {
+      "dataset": "EgoEMG (ours)",
+      "finding": "Paper modality claims are retained as reported. Available legacy episode metadata do not independently establish natural-person identity, complete RGB-D acquisition or current-release/PDF label equivalence. See asset/cohort and semantic evidence.",
+      "source_ids": [],
+      "verified_facts": {
+        "gesture_definition_classes": 60,
+        "legacy_metadata_episodes": 41,
+        "legacy_rows": 66161725,
+        "model_output_angles": 22,
+        "target_hand_emg_channels": 8
+      }
+    }
+  ],
+  "primary_sources": {
+    "emg2pose": "https://github.com/facebookresearch/emg2pose",
+    "jarque_bou_2019": "https://www.nature.com/articles/s41597-019-0285-1.pdf",
+    "myoki": "https://elib.dlr.de/221692/1/s41597-025-05852-6.pdf",
+    "ninapro_db1": "https://ninapro.hevs.ch/instructions/DB1.html",
+    "ninapro_db2": "https://ninapro.hevs.ch/instructions/DB2.html",
+    "ninapro_db5": "https://ninapro.hevs.ch/instructions/DB5.html",
+    "ninapro_db8": "https://ninapro.hevs.ch/instructions/DB8.html",
+    "pimforce": "https://arxiv.org/html/2410.23629v1"
+  }
+}

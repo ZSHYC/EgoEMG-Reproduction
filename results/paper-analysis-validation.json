@@ -81,7 +81,20 @@
       "passed": 1,
       "seconds": 0.25
     },
+    "hosted_light_verified": {
+      "conclusion": "success",
+      "head_commit": "47de86719993d13fa8c4ec5d713b3c87281f233f",
+      "job_id": 122568911889,
+      "log_sha256": "a7aee0ca09925d8f66be3fb22c6677d3487b220672aad007d8f5488bda055aa5",
+      "passed": 1423,
+      "run_id": 40613032562,
+      "seconds": 143.25,
+      "skipped": 721,
+      "status": "completed",
+      "warnings": 1
+    },
     "new_hosted_verification_pending": true,
+    "pending_scope": "full pinned CPU job122568912421; light is actually verified",
     "production_source_changed": false,
     "relevant_green": {
       "log_sha256": "e8f176cc33dcce3e032730342cf053b390248c433cd5deb1e5e30ed4670bda93",
