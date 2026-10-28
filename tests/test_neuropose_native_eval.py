@@ -65,6 +65,18 @@ def test_cpu_pass_records_actual_device_and_never_initializes_cuda(passes):
     for value in (passes[3],passes[4],passes[6],passes[7]):
         assert value.get('device_type')=='cpu'
         assert value.get('cuda_initialized') is False
+        assert value.get('forward_devices')==[dict(device_type='cpu',emg_device='cpu',module_device='cpu',cuda_initialized=False)]
+        assert value.get('post_pass_module_device_type')=='cpu'
+
+
+def test_device_receipt_describes_forward_before_module_teardown_relocation():
+    torch=pytest.importorskip('torch')
+    module=torch.nn.Linear(2,2);batch={'emg':torch.ones(2,2)}
+    assert module(batch['emg']).shape==(2,2)
+    receipt=api()._inference_device(module,batch)
+    module.to('meta')
+    assert next(module.parameters()).device.type=='meta'
+    assert receipt==dict(device_type='cpu',emg_device='cpu',module_device='cpu',cuda_initialized=False)
 
 
 def test_test_pass_keeps_original_generated_mask_center_and_pooled_degrees(passes):

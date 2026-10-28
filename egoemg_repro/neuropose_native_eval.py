@@ -42,6 +42,24 @@ def _process():
     return dict(pid=os.getpid(),start_ticks=fields[19],uid=os.getuid())
 
 
+def _inference_device(module,batch):
+    from . import classic_emg_train as storage
+    torch=storage._runtime();emg=batch['emg'];parameter=next(module.parameters())
+    if not torch.is_tensor(emg) or emg.device!=parameter.device:
+        raise ValueError('actual forward input/module devices differ')
+    return dict(device_type=emg.device.type,emg_device=str(emg.device),module_device=str(parameter.device),
+        cuda_initialized=torch.cuda.is_initialized())
+
+
+def _check_devices(value):
+    cpu=value['scope']=='cpu_engineering';device='cpu' if cpu else 'cuda:0'
+    expected=dict(device_type='cpu' if cpu else 'cuda',emg_device=device,module_device=device,cuda_initialized=not cpu)
+    if (value['forward_devices']!=[expected]*len(value['coverage']['batch_sizes']) or
+        value['device_type']!=expected['device_type'] or value['cuda_initialized'] is not expected['cuda_initialized'] or
+        value['post_pass_module_device_type']!=('cpu' if cpu or value['kind']=='native' else 'cuda')):
+        raise ValueError('actual per-forward devices or post-pass teardown device differs')
+
+
 def _merge(guard,other):
     other.check()
     for path,stamp in other.paths.items():
@@ -104,6 +122,7 @@ def _read_pass(path,context):
             if train._json(path/name)!=v[keyname]:raise ValueError('native raw prediction sidecar differs')
         report._validate_saved_coverage(v['coverage'],dict(variant='neuropose',role=role,
             samples=identity['counts'][role],batch_size=v['batch_size']))
+        _check_devices(v)
         if role=='val':
             if v['statistics'] is not None or v['selected_validation_digest']!=fit['selected_best']['validation_prediction_sha256']:
                 raise ValueError('selected native validation digest differs')
@@ -219,7 +238,7 @@ def run_neuropose_pass(fit,output,*,role,kind,reference=None,profile=None,requir
     subjects={w['episode']:str(dataset.store.episodes[w['episode']]['subject']) for w in dataset.windows}
     ledger=report.ReportInputLedger(dataset.windows,variant='neuropose',batch_size=prepared.policy['batch_size'],role=role,subjects=subjects)
     statistics=report.ClassicAngleReport('neuropose') if role=='test' else None
-    pending=[];parts=[];losses=[]
+    pending=[];parts=[];losses=[];forward_devices=[]
     from torch.utils.data._utils.collate import default_collate
     def collate(items):
         batch=default_collate(items);receipt=ledger.prepare(batch);pending.append((batch,receipt));return batch
@@ -230,6 +249,7 @@ def run_neuropose_pass(fit,output,*,role,kind,reference=None,profile=None,requir
         prepared.check()
         if not pending:raise ValueError('unprepared native forward')
         original,receipt=pending.pop(0)
+        forward_devices.append(_inference_device(module,batch))
         if report._evaluation()._tensor_digest(batch['emg'])!=receipt['emg_sha256']:raise ValueError('actual transferred EMG differs')
         output_tuple=original_forward(batch);ledger.commit(original,receipt,output_tuple)
         if role=='val':parts.append(train._part(batch,output_tuple))
@@ -286,9 +306,11 @@ def run_neuropose_pass(fit,output,*,role,kind,reference=None,profile=None,requir
         coverage=coverage,statistics=stats,native_metrics=metrics,sample_weighted_native_loss=weighted,
         selected_validation_digest=validation_digest,model_before_sha256=model_before,model_after_sha256=after,
         scaler_before_sha256=scaler_before,scaler_after_sha256=scaler_after,scientific_eligible=False,full_paper_complete=False))
-    v.pop('sha256');v=train._sealed(dict(v,device_type=next(module.parameters()).device.type,cuda_initialized=torch.cuda.is_initialized()))
-    if v['device_type']!=('cpu' if result['scope']=='cpu_engineering' else 'cuda') or v['cuda_initialized'] is not (result['scope']!='cpu_engineering'):
-        raise ValueError('actual native prediction device/CUDA initialization differs')
+    # Native Trainer teardown moves the module back to CPU. The device used by
+    # every actual forward is the execution evidence; retain teardown separately.
+    v.pop('sha256');v=train._sealed(dict(v,forward_devices=forward_devices,device_type=forward_devices[0]['device_type'],
+        cuda_initialized=forward_devices[0]['cuda_initialized'],post_pass_module_device_type=next(module.parameters()).device.type))
+    _check_devices(v)
     if stats is not None:_check_statistics(stats,len(dataset))
     prepared.check();context.guard.check();output.mkdir(mode=0o700)
     for name,key in (('coverage.json','coverage'),('statistics.json','statistics'),('native-metrics.json','native_metrics')):train._write(output/name,v[key])

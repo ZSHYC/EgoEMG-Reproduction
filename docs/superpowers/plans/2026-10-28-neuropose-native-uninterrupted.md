@@ -61,7 +61,7 @@
 
 **Files:** Task-owned immutable stage/controller/observer manifests in ignored scratch; public `results/neuropose-native-*-20261028.json` and final scientific results/status.
 
-- [ ] Step1: Freeze committed source and numeric/capacity/registered full input artifacts in a new server stage. Fresh resource/GPU observation; original B256/16-mixed two-epoch512train/all1576val native run; actual last/best and all ordinary state fields retained. Never downgrade model/batch/precision to pass.
+- [x] Step1: Freeze committed source and numeric/capacity/registered full input artifacts in a new server stage. Fresh resource/GPU observation; original B256/16-mixed two-epoch512train/all1576val native run; actual last/best and all ordinary state fields retained. Never downgrade model/batch/precision to pass.
 - [ ] Step2: Native complete validation of actual selected best plus a separate new-process exact input/prediction replay; qualify from reopened raw artifacts and actual exited owners. Fail closed without threshold changes; preserve old failed gate and every new failure.
 - [ ] Step3: Request the sole final fresh-context whole new implementation review. Grade C/I/M by actual effect, one accepted C/I author RED→GREEN fix pass with affected green suite; ledger minors/declined rulings, no second review. Source changes require affected actual qualification to match.
 - [ ] Step4: After actual qualification/review, freeze original complete-cohort full identity and launch one fresh B256/16-mixed max100/patience50 native training, with resource/owned-process guards. No resume, no test during fit, no restart on observation timeout.

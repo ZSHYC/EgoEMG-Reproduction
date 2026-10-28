@@ -1,0 +1,69 @@
+{
+  "actual_evidence": {
+    "actual_fit_summary": {
+      "attempts": 4,
+      "completed_epochs": 2,
+      "optimizer_executions": 4,
+      "scope": "cuda_engineering",
+      "selected_best": {
+        "checkpoint_sha256": "b41ed097fca05d0f5f1d4754791ab2bed5525199a79cecdefe23feb5179545c5",
+        "epoch": 1,
+        "file": "neuropose-egoemg-epoch=001-val_loss=1.4765.ckpt",
+        "model_sha256": "9c79ca5813be51522d032a6fdd524c7a5308fc13388274015efb9f35495ceb68",
+        "score": 1.4765046834945679,
+        "validation_prediction_sha256": "f687a04f2a411a2e141ebf5a12577a86130e4b5359a3af6219e016a1bd2e5fd6"
+      },
+      "sha256": "962c06fa438ee26d399b409d146b86a0316f47e6772c813234df09017b976aa3",
+      "train_samples_per_epoch": [
+        512,
+        512
+      ],
+      "val_samples_per_epoch": [
+        1576,
+        1576
+      ]
+    },
+    "actual_recorder_exit_code": 1,
+    "all_107_immutable_members_unchanged": true,
+    "all_six_owned_processes_exited": true,
+    "bundle_sha256": "2687a8f6598f65cb506b0b75fe33fd6179c4ee1c0efd5d3c60ea877073b784d2",
+    "native_pass_was_not_published": true,
+    "original_fit_files_sha256": {
+      "checkpoints/last.ckpt": "b41ed097fca05d0f5f1d4754791ab2bed5525199a79cecdefe23feb5179545c5",
+      "checkpoints/neuropose-egoemg-epoch=001-val_loss=1.4765.ckpt": "b41ed097fca05d0f5f1d4754791ab2bed5525199a79cecdefe23feb5179545c5",
+      "epochs.jsonl": "8d29dc850ad7baf8f3bbc0dea2410c9b26bea6235fb9ed411acb9efff898e34d",
+      "fit-result.json": "c76b9d5b5c2cc57c2738be4e70999a41794c71147d5b79e5f795ff56f5ccb583",
+      "identity.json": "a2881cbb7b35049ba26e3b3ca0557c1763fd13624747f357318effa8b77a6cdc",
+      "logs/lightning_logs/version_0/hparams.json": "137989c88bd4c70db097cea5e3e71730e2dd15bef1617da812b765879bfa4ff5",
+      "logs/lightning_logs/version_0/metrics.csv": "d3f55759cc1ebc84ad1be25384ceb6071d7fae75bcd98b2a7d0410c354e36085"
+    },
+    "original_state_sha256": "81cb45f46e076f0ca233ee7633f2c3b37b60f292d3a37beb3dd2dcb3b58b1e55",
+    "source_commit": "b1794b64f691b0ec841583d4c59a41235f6b551f",
+    "stages": {
+      "fit": {
+        "all_owned_consumers_exited": true,
+        "log_sha256": "852af8530da79cd01a6449a843e4f8dea0e56fd228a4f3d20bd442d32e9dd150",
+        "status": "success",
+        "worker_exit_code": 0
+      },
+      "val-native": {
+        "all_owned_consumers_exited": true,
+        "log_sha256": "a02a13cbcd11a512fbbb061b87a95a52db77f89cc36cdf236783b42c62d2e52f",
+        "status": "failed",
+        "worker_exit_code": 1
+      }
+    }
+  },
+  "cuda_qualified": false,
+  "diagnosis": "Evaluator queried module device after native Trainer teardown. Bound Lightning Strategy.teardown calls lightning_module.cpu(); this is not the device used by the forward pass.",
+  "failed_check": "actual native prediction device/CUDA initialization differs",
+  "failed_source": "egoemg_repro/neuropose_native_eval.py:291",
+  "format": "public_native_neuropose_gpu_device_teardown_failure_v1",
+  "full_paper_complete": false,
+  "full_training_started": false,
+  "lightning_strategy_sha256": "2d5a8d774b5138ccbe40f51ae6aff3bf4603d39e9f5b77dc8f375a0e2a39fd94",
+  "local_and_actual_server_strategy_source_sha256_equal": true,
+  "old_raw_failure_and_completed_fit_preserved": true,
+  "repair_plan": "Capture and require actual input/module device on every forward; keep post-teardown device separate. Reuse immutable completed training; new-source native full validation/replay must pass. No tolerance/model/batch/precision changes.",
+  "scientific_eligible": false
+}
