@@ -34,20 +34,22 @@
 
 **Interfaces:** `emgformer_data_contract(upstream,config)` returns exact original dataset/loader declarations, original namespace error, explicit legacy normalization/field substitution and false scope flags. `build_emgformer_partitions(store,val_fraction=.12)` returns original test centers, independent train-only val, unchanged train jitter ranges/footprints, counts and source/partition digests.
 
-- [ ] RED: all3configs show center flags false/true/true and canonical namespace KeyError; native B500/6worker/repeat1; invalid fraction/config rejection; exact original test grid and all-role footprint separation including last possible jitter row.
-- [ ] Run focused new tests in existing CPU environment. Expected: missing new component failures before implementation.
-- [ ] Implement exact contract and pure partition adapter over unchanged `partitions.build_partitions`. Expected: tests pass without model/GPU/data rewrite.
+- [x] RED: all3configs show center flags false/true/true and canonical namespace KeyError; native B500/6worker/repeat1; invalid fraction/config rejection; exact original test grid and all-role footprint separation including last possible jitter row.
+- [x] Run focused new tests in existing CPU environment. Expected: missing new component failures before implementation.
+- [x] Implement exact contract and pure partition adapter over unchanged `partitions.build_partitions`. Expected: tests pass without model/GPU/data rewrite.
 
 ## Task 2: real native samples and loaders
 
 **Interfaces:** `EmgformerDataset(data,partitions,*,upstream,config,normalization,role)` returns left-then-right native samples plus explicit provenance indices. `native_emgformer_loader(dataset,*,cpu_engineering=False)` returns native DataLoader with original full policy or clearly labeled zero-worker diagnostic.
 
-- [ ] RED: compare actual native constructors on synthetic memmaps for train/val/test, both hands,3sizes and original RNG; verify center/full shapes, wrist rounding and generated masks. Test unsafe aliases/optional file absence/metadata/normalization/partition mutations, empty roles, masked NaNs preserved for later admission.
-- [ ] Implement through original `_view`/native `__getitem__`, enabling the exact role center flag and actual split IDs. Do not edit reused helpers or old pipelines.
-- [ ] Verify native B500 full loader attributes and genuine CPU final partial collation; all new reader tests pass. No new model construction required for this component.
+- [x] RED: compare actual native constructors on synthetic memmaps for train/val/test, both hands,3sizes and original RNG; verify center/full shapes, wrist rounding and generated masks. Test unsafe aliases/optional file absence/metadata/normalization/partition mutations, empty roles, masked NaNs preserved for later admission.
+- [x] Implement through original `_view`/native `__getitem__`, enabling the exact role center flag and actual split IDs. Do not edit reused helpers or old pipelines.
+- [x] Verify native B500 full loader attributes and genuine CPU final partial collation; all new reader tests pass. No new model construction required for this component.
 
 ## Task 3: independent reader evidence and publication
 
-- [ ] Run a source-bound CPU reader producer and fresh replay using genuine memmaps/native constructors; retain immutable receipts and source/input hashes, no model/CUDA/updates. Where available, sample actual registered server data with explicit sampled scope; do not claim full finite-footprint admission.
-- [ ] One fresh component review, one TDD fix pass for material findings, no re-review/old95-runtime-suite rerun unless modified dependencies require it.
+- [x] Run a source-bound CPU reader producer and fresh replay using genuine memmaps/native constructors; retain immutable receipts and source/input hashes, no model/CUDA/updates. Where available, sample actual registered server data with explicit sampled scope; do not claim full finite-footprint admission.
+- [x] One fresh component review, one TDD fix pass for material findings, no re-review/old95-runtime-suite rerun unless modified dependencies require it.
 - [ ] Publish actual semantics, normalization incompatibility/adaptation, tests and independent evidence; commit/push/ref verification. Retain all downstream full-paper requirements and zero scientific setting increment.
+
+Implementation and one fresh review/fix complete at source2c93b7a; actual58passed/19warnings82.76s, six spawn workers read and exited, current source-bound real producer20.995s/replay17.175s exit0. Full input admission/GPU/full200epoch/scientific results remain downstream. Publication push/ref verification pending.

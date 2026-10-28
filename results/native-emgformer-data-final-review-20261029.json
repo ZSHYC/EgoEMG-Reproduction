@@ -1,0 +1,92 @@
+{
+  "current_real_reader_proof_sha256": "98dde4f12c5b98ecbcd0271b3ec8d808abd6b931a59fa60b81a3da6c028db5f0",
+  "current_source_sha256": {
+    "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
+    "tests/test_emgformer_data.py": "7c1fa4466ea4194e04c7e9b3083bbe365b5b0a622f9048c9b6ffdc865113edef"
+  },
+  "declined_to_judge": [
+    "Complete payload hashing/finite admission/persistent all-view mutation guards.",
+    "Actual six-worker throughput/GPU capacity/full200epoch training/selection/test metrics.",
+    "Unchanged previous runtime/model behavior and95tests.",
+    "Legacy population, fixed full-dataset normalization and whole-episode filtering equivalence.",
+    "Intentional native ignored wrist validity/masked nonfinite behavior."
+  ],
+  "deferred_minors": [],
+  "fixed_source_commit": "2c93b7a3b137ed664f09a75914b497b872ff2c37",
+  "format": "native_egoemg_emgformer_data_final_review_validation_v1",
+  "full_paper_complete": false,
+  "independent_review": {
+    "critical": 0,
+    "cuda_initialized": false,
+    "important": 1,
+    "minor": 0,
+    "models_constructed": 0,
+    "optimizer_executions": 0,
+    "passes": 1,
+    "read_only": true,
+    "temporary_one_window_pickle_reproduction": true
+  },
+  "one_fix_pass": {
+    "final_tests_passed": 58,
+    "final_warnings": 19,
+    "fixed": [
+      "Descriptor-only serialization; rebuild validated process-local readonly native views with original role center flags and split IDs, without copying memmap payload or reopening unused legacy episode fields."
+    ],
+    "fixture_only": true,
+    "green_exit_code": 0,
+    "green_log_sha256": "32b730bd1a4891da24e0629421cad651b293e881f5d223530675b7d46dd5bbcd",
+    "green_seconds": 82.76,
+    "pickle_payload_below_1MiB": true,
+    "real_six_spawn_workers_read_and_exited": true,
+    "red_exit_code": 1,
+    "red_log_sha256": "1574e213d708a7fbc2ad78a81d4dfa827f89f1d805975812c040bcd1668b599e",
+    "red_seconds": 16.02,
+    "regressions_observed_red": 7
+  },
+  "production_ready": false,
+  "recorded_utc": "2026-10-28T23:58:59.901323+00:00",
+  "reviewed_base": "1376203d03948385c9275da0227a65f0f92ecf56",
+  "reviewed_head": "81edcb7813c8c48236427fdc3a0b363d50df31b4",
+  "rulings": [
+    {
+      "choice": "Preserve source train full trajectory and val/test center fast paths, including original ignored wrist flag and rounding.",
+      "cost_if_wrong": "Changes learning/evaluation semantics.",
+      "reason": "Pinned native code is authoritative; model-input bytes and RNG checked against genuine constructors."
+    },
+    {
+      "choice": "Explicit same-asset legacy egoemg normalization and filtered aliases; disclose missing unified namespace.",
+      "cost_if_wrong": "Would misstate canonical/PDF equivalence.",
+      "reason": "Original canonical lookup actually raises KeyError; only legacy population is available."
+    },
+    {
+      "choice": "Generic approved12% train-only validation and full exclusive jitter footprint exclusion.",
+      "cost_if_wrong": "Train/holdout overlap or changed test population.",
+      "reason": "Separate native experiment preserves official12000 test centers; initializer-specific fusion holdouts are a different experiment."
+    },
+    {
+      "choice": "Complete numeric admission and all-view mutation bindings remain downstream.",
+      "cost_if_wrong": "Unchecked consumed nonfinite values or mutable views could invalidate scientific data.",
+      "reason": "Reader construction/sample checks grant no complete corpus or training permit."
+    },
+    {
+      "choice": "One fresh new-reader review and one fix pass; unchanged runtime/model tests not repeated.",
+      "cost_if_wrong": "Future GPU/full-training integration remains mandatory.",
+      "reason": "Approved plan bounds this component; new58checks plus source-bound fresh reader proof directly exercise changes."
+    }
+  ],
+  "scientific_eligible": false,
+  "scientific_model_settings_added": 0,
+  "source_bound_fresh_real_reader_proof": {
+    "actual_current_and_historical_owners_closed": 16,
+    "actual_values_rng_recipe_unchanged_by_fix": true,
+    "all_18_input_nine_attributes_unchanged": true,
+    "all_95_current_and_each_historical_source_members_unchanged": true,
+    "native_constructors_per_process": 20,
+    "old_success_preserved_not_retagged": true,
+    "producer_exit_code": 0,
+    "producer_seconds": 20.99538833089173,
+    "replay_exit_code": 0,
+    "replay_seconds": 17.175329877994955,
+    "samples_per_process": 22
+  }
+}

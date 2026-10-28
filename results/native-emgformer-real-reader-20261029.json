@@ -1,15 +1,15 @@
 {
-  "actual_all_ten_recorded_owners_closed": true,
+  "actual_all_sixteen_current_and_historical_owners_closed": true,
   "actual_constructed_size": "small",
-  "actual_controller_seconds": 36.50594483502209,
+  "actual_controller_seconds": 40.546364354901016,
   "actual_input_file_identities_checked": 18,
   "actual_native_constructor_executions_by_phase": {
     "producer": 20,
     "replay": 20
   },
   "actual_partition_core_exact_in_fresh_process": true,
-  "actual_producer_seconds": 16.618937046267092,
-  "actual_replay_seconds": 17.55356047488749,
+  "actual_producer_seconds": 20.99538833089173,
+  "actual_replay_seconds": 17.175329877994955,
   "actual_sampled_values_and_rng_exact_in_fresh_process": true,
   "actual_samples_per_phase": 22,
   "actual_source_member_count": 95,
@@ -25,9 +25,9 @@
     "val": true
   },
   "contracts_sha256": {
-    "large": "e165f2dc5df0889043f300a9a39166ec5d6239b10e9e7429453bb200be1aa5c2",
-    "middle": "2a65f0a1ac6f26ad527fb465bb85d53f0cc6bc02109520a6d4659b70b6a0025c",
-    "small": "5473a8a3ad056f037a3d007731d3be61408fbefee10a307be782d27f14c94d21"
+    "large": "d302983ef04082b6a93098f76696618032dba2c6c417e20eaaf6806fe51863f6",
+    "middle": "ac02dff9f6283e209e8f53b2486db4063da8953f0a0a9e9707f1a91140c2e49e",
+    "small": "79e493b8334637a35bd7ad6cba227a6bfb5b3999f65531267ee33bf5e495568f"
   },
   "controller_exit_code": 0,
   "coverage": {
@@ -84,7 +84,7 @@
     "production_reader_changed": false,
     "reason": "reference input projection omitted existing real beta episode fields; corrected private staging only"
   },
-  "format": "actual_sampled_native_emgformer_real_reader_v1",
+  "format": "actual_sampled_native_emgformer_real_reader_v2",
   "full_numeric_payload_sha256_recomputed": false,
   "limitations": [
     "41 episode records in released legacy source, not evidence of the PDF or current unified population.",
@@ -95,7 +95,7 @@
     "B500/six-worker native loader construction checked, not iterated; no capacity or training qualification follows.",
     "Published fixed normalization uses original full-dataset statistics; disjoint temporal row footprints do not remove released upstream filter dependence.",
     "Stored wrist-valid flag is ignored by original reader; original generated time/center label mask is preserved.",
-    "One fresh component review, full data admission, actual GPU qualification, native200epoch training/selection/evaluation/report remain pending."
+    "One fresh component review completed with one Important serialization finding fixed and seven regressions; full data admission, actual GPU qualification, native200epoch training/selection/evaluation/report remain pending."
   ],
   "loader_policies": {
     "test": {
@@ -257,7 +257,7 @@
     "egoemg_repro/emg_initializer_literal.py": "f0439d1a8d05bbf078570f806b88b2ab553f00990a91edde1563a5611250800f",
     "egoemg_repro/emg_initializer_runtime.py": "4286435f60ca50499d88e29d38ed66e3b1bf965039024ddb5dadb736d3fa5ff9",
     "egoemg_repro/emg_initializer_train.py": "de1663ef5547b9b6dd49df197217681075e148afc1fa7aec22997aedf49e9c72",
-    "egoemg_repro/emgformer_data.py": "261c70b1d5d2d33cc45d55744d3c1ee4755e570f7d2b4b4a9b2615f851ffd3e0",
+    "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
     "egoemg_repro/emgformer_literal.py": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
     "egoemg_repro/emgformer_runtime.py": "7691be8aacfb6a6796225ee91be9a19643d585a83512134178aa8ea354513bbb",
     "egoemg_repro/fusion_initializer_handoff.py": "9fdf4842d12b61ed5092746b06a0284af4a2abca91c93a388c67fcda930b5f80",
@@ -298,6 +298,27 @@
   },
   "partition_content_sha256": "0bd48d51a07660fb6c18b8b1804df429b9d634f386b12fc3b51e2dec9bba7ec2",
   "partition_sha256": "ddf51a962fe802ebf6edde13a161312902ed9cfaaca702f868ac47d06e20ca34",
+  "postexit_collection_history": {
+    "first_exit_code": 1,
+    "first_failure_log_sha256": "23492791586ababac6861502b8abe920acc71b3a2011c4206c9c8b5ed15201a3",
+    "reason": "collector invoked before the durable controller state had reached terminal; no producer or replay was restarted"
+  },
+  "preserved_pre_fix_success": {
+    "all_95_frozen_source_members_unchanged": true,
+    "all_six_owners_closed": true,
+    "immutable_public_evidence": "https://github.com/ZSHYC/EgoEMG-Reproduction/blob/81edcb7813c8c48236427fdc3a0b363d50df31b4/results/native-emgformer-real-reader-20261029.json",
+    "old_proof_not_retagged": true,
+    "original_reader_source_sha256": "261c70b1d5d2d33cc45d55744d3c1ee4755e570f7d2b4b4a9b2615f851ffd3e0",
+    "producer_seconds": 16.618937046267092,
+    "raw_receipts_sha256": {
+      "producer": "bc84b967216a7012197fa1bf232c0588d306735dfdb8ee7954b8ae5bce64c01b",
+      "reader-result": "7822ec62715bb10585caa3f54dfd1243045bce78daeda39d2a6af0ecefc408d2",
+      "replay": "4e4cabac39db40af71f0ae1e7b46c34decbac460ed8d6f11f8336bcbde0bdb0a"
+    },
+    "reader_samples_rng_and_recipe_unchanged_by_fix": true,
+    "replay_seconds": 17.55356047488749,
+    "source_commit": "9d010419400761f8a663a5cca8be88656c337e48"
+  },
   "producer_exit_code": 0,
   "publication_driver_history": {
     "data_or_models_rerun": false,
@@ -305,16 +326,16 @@
     "reason": "local collector initially imported installed main checkout; corrected explicit task root import before collecting"
   },
   "raw_receipts_sha256": {
-    "producer": "bc84b967216a7012197fa1bf232c0588d306735dfdb8ee7954b8ae5bce64c01b",
-    "reader-result": "7822ec62715bb10585caa3f54dfd1243045bce78daeda39d2a6af0ecefc408d2",
-    "replay": "4e4cabac39db40af71f0ae1e7b46c34decbac460ed8d6f11f8336bcbde0bdb0a"
+    "producer": "65d3f75fe996cb3c408fbffa89cb1f37af056f2b149f0a616727a5671a06300f",
+    "reader-result": "8d985d7ffb69df57454873ba7b1a88c65add6c375c5c26507308e7222153509c",
+    "replay": "47b7202419ad4c767744312d5f7a2ffce2d7d149d3f0e578587c2936e301527a"
   },
   "recipe_hashes": {
     "large": "a082bc634187f7ddec2a3e772918257b1f71e055c7f2db20a2412eabc38ef366",
     "middle": "a082bc634187f7ddec2a3e772918257b1f71e055c7f2db20a2412eabc38ef366",
     "small": "a082bc634187f7ddec2a3e772918257b1f71e055c7f2db20a2412eabc38ef366"
   },
-  "recorded_utc": "2026-10-28T23:44:18.389302+00:00",
+  "recorded_utc": "2026-10-28T23:58:29.517854+00:00",
   "reference_header_projection_sha256": {
     "manifest.json": "6a351cedce05a4e1839d41543d079040c2de251f7b8b41d8648e6b891dd96afa",
     "metadata.npz": "1de8291bf2ecf1bf125dbcb779b4fe1bd69fbfee0a09cddcecb35766b86aed1e"
@@ -1854,13 +1875,36 @@
     "scientific_eligible": false,
     "scientific_settings_added": 0
   },
-  "source_commit": "9d010419400761f8a663a5cca8be88656c337e48",
+  "serialization_review_fix": {
+    "actual_six_spawn_workers_read_small_fixture_batch_and_exited": true,
+    "actual_spawn_fixture_batch_size": 4,
+    "fix_passes": 1,
+    "fixture_scope_only": true,
+    "important_fixed": true,
+    "loader_batch_size": 500,
+    "model_input_bytes_and_rng_exact": true,
+    "original_helper_and_upstream_changed": false,
+    "pickle_payload_below_1MiB": true,
+    "previous_runtime_or_model_tests_repeated": false,
+    "production_full_six_worker_iteration_qualified": false,
+    "red_exit_code": 1,
+    "red_failed": 7,
+    "red_log_sha256": "1574e213d708a7fbc2ad78a81d4dfa827f89f1d805975812c040bcd1668b599e",
+    "red_seconds": 16.02,
+    "restored_roles_and_hands": 6,
+    "review_critical": 0,
+    "review_important": 1,
+    "review_minor": 0,
+    "single_review_completed": true,
+    "source_fix": "Descriptor-only serialization; receiving process reconstructs validated readonly adapted views through the existing constructor."
+  },
+  "source_commit": "2c93b7a3b137ed664f09a75914b497b872ff2c37",
   "tests": {
     "exit_code": 0,
-    "log_sha256": "e1f73969b9f30752a035666a558a3f3b818f12462602d52fde39744677a4ad1c",
-    "passed": 51,
-    "seconds": 65.19,
-    "warnings": 18
+    "log_sha256": "32b730bd1a4891da24e0629421cad651b293e881f5d223530675b7d46dd5bbcd",
+    "passed": 58,
+    "seconds": 82.76,
+    "warnings": 19
   },
   "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
 }
