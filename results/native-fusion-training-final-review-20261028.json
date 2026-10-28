@@ -1,0 +1,75 @@
+{
+  "actual_parent_range_diff_check_exit_code": 2,
+  "actual_parent_verified_checkout_and_upstream_clean_before_review_publication": true,
+  "actual_qualified_production_commit": "c14e6f8880c669db32557997713b960217cd651f",
+  "author_critical_important_fix_passes": 0,
+  "critical": 0,
+  "date": "2026-10-28",
+  "declined_to_judge_rulings": [
+    {
+      "behavior": "actual compatible EMG150 completion/full two-branch admission/full fusion150/final scientific metrics",
+      "cost_if_wrong": "cannot claim fusion scientific completion",
+      "disposition": "retain pending Task4Steps4-6; must independently observe and accept actual artifacts",
+      "why": "review assesses implemented path, not future execution"
+    },
+    {
+      "behavior": "general correctness of pre-existing producers, data, cohort and construction",
+      "cost_if_wrong": "new integration findings would still require an author correction",
+      "disposition": "prior reviewed projects remain context; inspect new integration boundaries only",
+      "why": "do not duplicate completed prior-project reviews"
+    },
+    {
+      "behavior": "merged data/annotation/broader analyses/PDF equivalence",
+      "cost_if_wrong": "whole-paper goal remains incomplete",
+      "disposition": "remain required or explicitly external in active whole-paper scope",
+      "why": "outside this new fusion implementation completed scope"
+    },
+    {
+      "behavior": "re-executing remote qualification/broad test suites in review",
+      "cost_if_wrong": "no claim of a new reviewer-executed test or GPU run",
+      "disposition": "reviewer inspected source-bound records; parent independently verified actual exits, raw hashes and unchanged sources",
+      "why": "no new production change/failure justifies duplicate expensive execution"
+    }
+  ],
+  "evidence": [
+    "native-fusion-training-gpu-qualified-20261028.json",
+    "native-fusion-gpu-report-failure-20261028.json",
+    "native-fusion-fit-cpu-validation-20261028.json",
+    "native-fusion-eval-cpu-validation-20261028.json"
+  ],
+  "format": "native_fusion_training_single_final_implementation_review_v1",
+  "full_fusion150_started": false,
+  "full_paper_complete": false,
+  "full_two_trained_branch_handoff_complete": false,
+  "important": 0,
+  "minor": 1,
+  "minor_findings": [
+    {
+      "cost_if_wrong": "diff hygiene warning remains visible; no source mutation or qualification claim expansion",
+      "disposition": "defer formatting-only edit to preserve actual qualified source identity",
+      "file": "egoemg_repro/fusion_literal_train.py",
+      "id": "M1",
+      "issue": "extra blank line at EOF; range git diff --check reports new blank line at EOF",
+      "line": 502,
+      "why": "no Python behavior, scientific result, data integrity or runtime effect; not a production blocker"
+    }
+  ],
+  "production_and_test_sources_unchanged_between_qualification_and_review": true,
+  "review_method": "one fresh-context read-only independent reviewer; no nested agents or second review",
+  "review_scope": "whole new verified initializer handoff, eight-group optimizer integration, native fit/recovery, selected-best evaluation/pretest freeze/replay/report and their four test files",
+  "reviewed_base": "74b83a2d6dd4e8322193c386c5ae9275604fe3bd",
+  "reviewed_head": "7ab6e43f899f527546c12a08c50f5e0c186526b2",
+  "scientific_eligible": false,
+  "second_review_requested": false,
+  "sources_sha256": {
+    "egoemg_repro/fusion_initializer_handoff.py": "9fdf4842d12b61ed5092746b06a0284af4a2abca91c93a388c67fcda930b5f80",
+    "egoemg_repro/fusion_literal_eval.py": "aa7321912d6fc0f3fc134e1713c9e2b1e7d272a710f9a4f2d07061de46aa0002",
+    "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+    "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+    "tests/test_fusion_initializer_handoff.py": "a758e69ddc45ccd57c9a720104062e183da9fa36108c824380657385ee758e98",
+    "tests/test_fusion_literal_eval.py": "91506df015d6d87688e0c5a11841233f27241432dc3d9c7c42c56f6c899f85bc",
+    "tests/test_fusion_literal_runtime.py": "aa558beff80a4b351b2f5f1186f83337bb86ab190fa8aead0b8a31303d1e787d",
+    "tests/test_fusion_literal_train.py": "f12db863fc3cfd0b2197a5b81185439910ca0f3717f89164ff0a914d5051322c"
+  },
+  "verdict": "ready for actual completed compatible EMG150 handoff and planned full150 execution"
+}

@@ -114,3 +114,5 @@ publish_fusion_report(fit, test_native, test_replay, report)
 根因是部署环境未安装项目已声明的`report`可选依赖，非模型或预测失败。新建隔离报告恢复目录，固定Matplotlib3.9.4及其依赖，只计划重做报告和新进程报告核验；旧失败日志、空报告目录、训练、预测与源文件均保留。不修改共享训练环境或已封存源码，不重启训练/预测，不改变一致门槛。恢复成功后再接纳完整工程资格及请求本计划唯一一次最终整体实现审查。
 
 [报告恢复后的完整工程资格](../results/native-fusion-training-gpu-qualified-20261028.json)已实际完成：本机11个固定版本安装包共37,955,509字节，ZIP/本机SHA/完整远端SHA一致，隔离离线安装actualexit0、相同worker搜索路径下实际版本全部匹配。两个新CPU进程先生成报告，再独立重开完整原始fit/验证profile/测试链、重新生成图像并逐字节校验，均actualexit0/未初始化CUDA；整个恢复11:26:26UTC实际exit0，新增训练更新和预测重启均0。原报告失败与9个成功阶段不改写。24个阶段worker/guardian和4个流程拥有者独立确认退出，86原成员、3356恢复成员及11安装包再次全hash未变，最终报告六文件/completion摘要一致，PNG已目视检查。仍只是原batch200/bf16/两轮4更新/400训练样本工程范围；完整3,152验证与8,612测试消费不能替代完整训练。一次新融合最终整体审查、真实兼容EMG150双分支交接和新融合完整150轮仍欠。
+
+[本计划唯一一次新实现最终审查](../results/native-fusion-training-final-review-20261028.json)现已完成：fresh-context只读审查74b83a2→7ab6e43的全部新交接/训练恢复/评价报告和八组优化器集成，0Critical/0Important/1Minor，可继续真实完整交接和训练。唯一Minor为`fusion_literal_train.py`末尾额外空行，仅影响range diff格式检查；为保留实际资格身份暂不改字节。8个涉及源码/测试与c14e6f8逐字节相同，无生产修复或新失败，不重复已通过套件。完整交接、完整150与科学结果仍须真实完成；此前模块与其他论文要求没有因审查scope被删除。当前Task4Steps1–3完成，Steps4–6继续。
