@@ -1,0 +1,119 @@
+{
+  "actual_complete_loop_structure_and_counters_validated": true,
+  "actual_corrected_reader_exit_code": 0,
+  "actual_cuda_initialized": false,
+  "actual_first_reader_exit_code": 1,
+  "actual_full_num_sanity_val_steps": 2,
+  "actual_model_and_frozen_state_digests_validated": true,
+  "actual_native16byte_cuda_rng_validated_on_cpu": true,
+  "actual_optimizer393_moment_states_and11224_steps_validated": true,
+  "actual_production_checkpoint_validator_accepted": true,
+  "actual_validation_loop_progress": {
+    "current": {
+      "completed": 176,
+      "processed": 176,
+      "ready": 176,
+      "started": 176
+    },
+    "is_last_batch": true,
+    "total": {
+      "completed": 176,
+      "processed": 176,
+      "ready": 176,
+      "started": 176
+    }
+  },
+  "all_four_recorded_reader_ssh_owners_nonlive": true,
+  "all_immutable_members_rehashed_unchanged": 113,
+  "bundle_sha256": "a618f2723de7684d97fea60c2810cf914ac74651e288df6eb5884d0d6dfcdfd7",
+  "checkpoint_restored_into_model": false,
+  "corrected_reader_change": "only private import path corrected in a new isolated directory; both original readers and failure retained",
+  "counts": {
+    "test": 8612,
+    "train": 202020,
+    "val": 3152
+  },
+  "first_actual_complete_epoch": {
+    "epoch": 0,
+    "global_step": 11224,
+    "model_sha256": "a7778f61e2dbd816d95b8ce3aea03e1015d64171afdf9f5ed49ebc322379f716",
+    "optimizer_executions": 11224,
+    "train_batches": 11224,
+    "train_loss": 0.5784457646617912,
+    "train_samples": 202020,
+    "validation": {
+      "cuda_forward_batches": 176,
+      "forward_batches": 176,
+      "forward_device": "cuda:0",
+      "input_and_module_device_agreed": true,
+      "prediction_sha256": "28b0c7d0d4120aacd4eb5c44545afd68423f67e13134d5cd55e75127a1f0413d",
+      "samples": 3152,
+      "val_mae": 0.13150086998939514
+    }
+  },
+  "first_reader_failed_before_checkpoint_load": true,
+  "first_reader_failure": "private checker imported _read_epochs from wilor_native_train; native fit/read functions actually import it locally from vision_literal_train",
+  "format": "actual_native_wilor_full_first_checkpoint_readback_v1",
+  "full_paper_complete": false,
+  "full_training_complete": false,
+  "identity_sha256": "04df99adfa7611240276262218b111093080a47b49f7118b0c2d199cc9a161bd",
+  "independent_postexit_all113members_and_current9attributes_unchanged": true,
+  "independent_reader_source_and_receipt_sha256": {
+    "1/owner.json": "7639f96e9754821f19003dcd9c77983d7295314003d0303f50e8edd236b8dada",
+    "1/read.py": "7c8f0cd0211315714f8efe634ae8665f1e13fd89091da2eaa35be9b9bc0559c0",
+    "1/request.json": "29278d52758f2fbc513acadabc1d3a95342019978134e30d0939a4946e676394",
+    "2/owner.json": "85f6554ffe88682821433718b7265c8599d0a577f4ceb6513e7cfbab90b4e7dd",
+    "2/private-input-stamps.json": "751a15db3b4738bce8635dd50b861219eecc3bd107f7b26ddd31f67f057eb5df",
+    "2/read.py": "c51d7aca2d99521fc33df05d8ec440b701994623d796e63b6fc2015af7c0b058",
+    "2/request.json": "4a3a8e8eb2fc28efe55ca2b91d9f435282abe709e38ba97b8316a105c687288d",
+    "2/result.json": "31a831e027ce1662953352b94ab3fb3bf95700aa8a61e6a0238febf06dab1da9"
+  },
+  "new_models_constructed": 0,
+  "new_optimizer_updates": 0,
+  "no_amp_scaler_invented": true,
+  "observed_utc": "2026-10-28T21:02:35.189157+00:00",
+  "peak_rss_bytes": 8097599488,
+  "policy": {
+    "batch_size_by_role": {
+      "test": 18,
+      "train": 18,
+      "val": 18
+    },
+    "bitwise_training_trajectory_guaranteed": false,
+    "checkpoint_continuation_supported": false,
+    "engineering_eval_samples": null,
+    "engineering_train_samples": null,
+    "format": "native_wilor_fit_policy_v1",
+    "full_counts": {
+      "test": 8612,
+      "train": 202020,
+      "val": 3152
+    },
+    "full_paper_complete": false,
+    "gradient_clip_val": 1,
+    "max_epochs": 30,
+    "monitor": "val_mae",
+    "monitor_mode": "min",
+    "native_global_loader_rng": true,
+    "num_sanity_val_steps": 2,
+    "num_workers": 0,
+    "patience": 30,
+    "precision": "bf16-mixed",
+    "save_last": true,
+    "save_top_k": 3,
+    "scheduler_T_max": 30,
+    "scheduler_behavior": "constant_initial_lr_equals_eta_min",
+    "scheduler_eta_min": 1e-05,
+    "scientific_eligible": false,
+    "scope": "full",
+    "sha256": "ec6cdf41947c6dd6117ed1e6168928feb3af2bed434cdbe4728712f5cf44ffc9",
+    "single_rank": true
+  },
+  "raw_checkpoint_bytes": 7579991738,
+  "raw_checkpoint_nine_attributes_unchanged": true,
+  "raw_checkpoint_sha256": "50c435fd298da95decf0bf1434f3f711ae0d80d7d5eb8962eb04f34b3c061dc7",
+  "script_sha256": "c51d7aca2d99521fc33df05d8ec440b701994623d796e63b6fc2015af7c0b058",
+  "seconds": 14.799973018933088,
+  "source_commit": "8a83e42fc33091843c98284aa726814d54c4c246",
+  "training_capsule_modified": false
+}
