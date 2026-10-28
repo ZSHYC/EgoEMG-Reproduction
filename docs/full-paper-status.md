@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+北京时间2026-10-28 11:30更新：[原生ViT-S融合构造](fusion-literal.md)已完成CPU工程验证：25,855,037参数、174视觉backbone+4head张量完整传输、105项EMG匹配/5项跳过，原训练模式loss/backward/一次AdamW更新、全部参数及时间注意力组、FP16初始化→FP32原生转换、新进程严格重载/预测精确一致；64项相关原生及完整轻量1,436通过/780可选跳过，独立collector实际exit0，[证据](../results/native-fusion-construction-cpu-20261028.json)。一次整体审查待完成；初始化是明确的工程状态，无数据/GPU/完整训练或新增精度，完成模型数仍10。几何[第一次有限续传实际退出1](../results/legacy-geometry-bounded-interruption-20261028.json)：新增1,040,337,776bytes，一次实网重试后成功16MiB，再在后续偏移连续三次EOF停止。冷却938.8秒后[第二次显式续传](../results/legacy-geometry-bounded-second-renewal-20261028.json)六项预检/一份旧尾部对照通过，原六份失败文件保留，新拥有者实际活动并新增167,772,160bytes，2/8完成；完整几何/遮挡仍欠。11:24实查DINO-L57轮、EMG2Pose源准备与三模型等待队列原进程均活动、0正式训练开始。
+
 北京时间2026-10-28 10:55补充：[几何续传实际进度](../results/legacy-geometry-bounded-progress-20261028.json)已新增369,249,136bytes，左手world transform完整3,175,762,800bytes通过原最终门槛及独立SHA复算，连同tracked共2/8文件完成，原拥有者仍活动、正在接收右手；其余数组/几何准入/遮挡未完成。[ViT-S融合配方审计](../results/fusion-recipe-audit-20261028.md)实际合成五配置：发布评价为16槽补零/7,790点，8通道S到16槽融合的首卷积不匹配会由原strict=False加载器跳过；cotrain-S有效指尖系数0.01，独立S与融合0.02，不能用一个配方概括。该审计无新forward、加载或训练结果。
 
 北京时间2026-10-28 10:51更新：测试断言修正29041be的[完整托管检查](../results/paper-analysis-validation.json)已实际终态成功：原生CPU2,513通过/3项仅CUDA跳过/198warning/2,719.34秒，pip check通过；轻量1,423通过/722可选跳过/1warning。原失败记录保留，原GPU分析产物不变；该旧提交不覆盖后来新增的有限续传模块。后者已完成[一次独立整体审查](../results/legacy-geometry-bounded-recovery-review.json)，0Critical/0Important/0Minor，另66项fresh与8项额外离线故障检查通过。10:50实查DINO-L56轮且原控制/训练进程活动；EMG2Pose源准备实际IO继续推进，队列仍0项正式训练。以上均不改变当前完成模型数10项或全文未完成的结论。
@@ -153,7 +155,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **显式原生激活重计算GPU七阶段通过，完整训练运行中**；[证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)保留原360/bf16及模型／目标／优化器，原未启用版本显存失败保留。独立作者YAML未发布，最终测试和完整报告仍欠 |
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
-| EgoEMG ViT-S+S | [8ch/WL12000 配置][fusion-vits]；发布评价为16槽/WL7790，[五配置实际合成与初始化规则](../results/fusion-recipe-audit-20261028.md)已核对 | **未完整运行**；ViT-S旧版原生完整实验已完成。下一步固定具体训练配方、验证人口与初始化身份，记录8→16首卷积跳过及其他匹配键；不能将原strict=False部分初始化写成全分支严格恢复，或将cotrain-S一概改为0.02。旧RN18 builder/schema不能直接代表新融合 |
+| EgoEMG ViT-S+S | [原生16槽/WL7790构造](fusion-literal.md)、[五配置来源审计](../results/fusion-recipe-audit-20261028.md) | **CPU构造/初始化/严格重载工程验证完成，尚未完整训练**；25,855,037参数，174+4视觉张量完整传输、105EMG匹配/5跳过，原训练模式loss/backward/AdamW及新进程复推通过。当前两分支是明确未训练的工程状态，不能替代真实best初始化；联合数据/划分、GPU/150轮完整fit和最终报告仍欠，见[证据](../results/native-fusion-construction-cpu-20261028.json) |
 | EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini恢复、普通源原批量fit/FP32两模式与报告工程核验通过**；[入口证据](../results/emg2pose-direct-native-fit-engineering.json)保留原320/12/bf16/250cosine及原Sampler补齐，合成分角色两轮/32更新/六状态恢复和原生选best已核验。完整源、真正250轮训练及最终测试仍欠 |
 | EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成mini原批量恢复和新fit入口工程验收**；合成角色没有benchmark或完整人口意义，正式250轮/最终评价仍未完成 |
 | EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成mini原批量恢复和新fit入口工程验收**；没有完整科研结果，不能用EgoEMG-L或工程数值填表 |

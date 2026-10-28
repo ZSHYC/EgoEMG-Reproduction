@@ -1,0 +1,117 @@
+{
+  "actual_successful_transient_recovery_observed": true,
+  "actual_unified_exec_exit_code": 1,
+  "automatic_whole_job_restart": false,
+  "completed_file_receipts": [
+    {
+      "bytes": 66161725,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "filename": "mocap_webcam_tracked.dat",
+      "reused_existing": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40",
+      "url": "https://drive.google.com/uc?id=1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "verified_at": "2026-10-28T02:43:34.488014+00:00"
+    },
+    {
+      "bytes": 3175762800,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "filename": "mocap_mano_left_world_transform.dat",
+      "reused_existing": false,
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590",
+      "url": "https://drive.google.com/uc?id=1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "verified_at": "2026-10-28T02:53:07.512326+00:00"
+    }
+  ],
+  "error_category": "TLS unexpected EOF",
+  "error_type": "DownloadError",
+  "expected_selected_bytes": 37778344975,
+  "finished_utc": "2026-10-28T03:10:16.572267+00:00",
+  "fixed_budget_reset_at_later_committed_offset_observed": true,
+  "format": "egoemg_geometry_bounded_actual_interruption_v1",
+  "frozen_sources_sha256_unchanged": true,
+  "full_geometry_complete": false,
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "later_three_failures_at_one_offset_stopped": true,
+  "new_committed_bytes_in_attempt": 1040337776,
+  "observed_preserved_sizes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 1365245952,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T03:18:52.965862+00:00",
+  "occlusion_complete": false,
+  "old_failed_attempt_and_quota_documents_preserved": true,
+  "original_owner_pid_start_independently_nonlive": true,
+  "raw_snapshot_sha256": "28b0d65aa9ba16693efa7c6b2862ba47049c8bb293973ca48c4dbe200026499a",
+  "retry_events": [
+    {
+      "exception_type": "SSLError",
+      "failure_number": 1,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:09:48.088430+00:00",
+      "offset": 1348468736,
+      "wait_seconds": 1,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 1,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:10:03.484256+00:00",
+      "offset": 1365245952,
+      "wait_seconds": 1,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 2,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:10:09.523849+00:00",
+      "offset": 1365245952,
+      "wait_seconds": 2,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 3,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:10:16.560344+00:00",
+      "offset": 1365245952,
+      "wait_seconds": 0,
+      "will_retry": false
+    }
+  ],
+  "retry_policy": {
+    "attempts_per_stalled_offset": 3,
+    "backoff_seconds": [
+      1,
+      2
+    ],
+    "reset": "strict complete chunk progress only"
+  },
+  "retry_statistics": {
+    "mocap_mano_left_world_transform.dat": {
+      "exhausted": false,
+      "last_failure_offset": null,
+      "scheduled_retries": 0,
+      "transient_failures": 0
+    },
+    "mocap_mano_right_world_transform.dat": {
+      "exhausted": true,
+      "last_failure_offset": 1365245952,
+      "scheduled_retries": 3,
+      "transient_failures": 4
+    }
+  },
+  "selected_files": 8,
+  "state_actual_exit_code": 1,
+  "verified_chunk_committed_after_first_retry_bytes": 16777216
+}

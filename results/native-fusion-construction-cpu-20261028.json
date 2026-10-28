@@ -4,6 +4,14 @@
   "actual_fresh_process_prediction_exact": true,
   "actual_independent_collector_strict_restore": true,
   "checks": {
+    "complete_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "340237ed74b467563c5f6f9d2c257a64837d7288126c58f40a6dbf3565dfe518",
+      "passed": 1436,
+      "seconds": 88.21,
+      "skipped": 780,
+      "warnings": 1
+    },
     "incomplete_initialization_receipt_red": {
       "deselected": 21,
       "failed": 2,
@@ -48,6 +56,7 @@
   "emg_matched_tensors": 105,
   "emg_skipped_tensors": 5,
   "format": "egoemg_original_native_fusion_cpu_engineering_v1",
+  "fresh_whole_plan_review_complete": false,
   "full_paper_complete": false,
   "gpu_qualified": false,
   "initialization_receipt_sha256": "3673830870c582a406274047df4e82952ab115192af2343cbd77e3d362a4f3af",
