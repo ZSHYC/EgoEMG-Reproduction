@@ -434,6 +434,8 @@ def _owned(root,context,process=None):
 def _qualification_dependencies(paths,fit,identity,native,replay,context):
     if type(paths) is not dict or set(paths)!={'input_admission','fit','native','replay'}:
         raise ValueError('raw input admission and three owned GPU producer artifact paths required')
+    if native['fit_result_sha256']!=fit['sha256'] or replay['fit_result_sha256']!=fit['sha256']:
+        raise ValueError('matching raw CUDA qualification fit and both validation passes required')
     if (fit['scope']!='cuda_engineering' or fit['completed_epochs']!=2 or fit['optimizer_executions']!=4 or
         identity['policy']['precision']!='bf16-mixed' or identity['policy']['batch_size_by_role']!={r:18 for r in train.ROLES} or
         identity['cohort']['registered_full_legacy'] is not True or identity['cohort']['counts']!=train.FULL_COUNTS or
@@ -475,8 +477,6 @@ def _qualification_dependencies(paths,fit,identity,native,replay,context):
 def qualify_wilor(fit,native,replay,output):
     context=_Evidence();fit_path=_path(fit);result,identity,cohort,assets,checkpoint=context.fit(fit_path)
     a=_read_pass(native,context);b=_read_pass(replay,context)
-    if a['fit_result_sha256']!=result['sha256'] or b['fit_result_sha256']!=result['sha256']:
-        raise ValueError('matching raw CUDA qualification fit and validation required')
     source=os.environ.get('EGOEMG_WILOR_QUALIFICATION_CONTEXT')
     if not source:raise ValueError('raw owned CUDA qualification context artifact required')
     source=_path(source);context.guard.add(source);paths=_json(source)

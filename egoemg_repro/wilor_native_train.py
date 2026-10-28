@@ -10,6 +10,7 @@ import json
 import math
 import os
 import random
+import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -229,6 +230,13 @@ def _validate_rng(value,*,cpu):
         for tensor in [value['torch'],*value['cuda']]:
             if not isinstance(tensor,torch.Tensor) or tensor.dtype!=torch.uint8 or tensor.ndim!=1 or not tensor.numel() or tensor.device.type!='cpu':
                 raise ValueError('typed CPU/native CUDA RNG states required')
+        # Pinned torch2.2.2 CUDAGeneratorImpl::get_state: uint64 seed followed
+        # by int64 Philox offset; its setter requires offset divisible by4.
+        # Inspect bytes on CPU, without constructing/restoring a CUDA generator.
+        for tensor in value['cuda']:
+            if (tensor.numel()!=16 or not tensor.is_contiguous() or
+                int.from_bytes(bytes(tensor.tolist())[8:],sys.byteorder)%4):
+                raise ValueError('complete pinned CUDA RNG seed/Philox state required')
         random.Random(0).setstate(value['python']);np.random.RandomState(0).set_state(value['numpy'])
         torch.Generator(device='cpu').set_state(value['torch'])
     except (KeyError,TypeError,ValueError,RuntimeError) as exc:raise ValueError('native saved RNG state malformed') from exc
@@ -380,6 +388,37 @@ def _saved_optimizer(checkpoint,identity,epochs,steps):
     for k in ('optimizer_states','lr_schedulers'):_finite(checkpoint[k])
 
 
+def _validate_loops(loops,*,epochs,steps,batches,val_batches):
+    """Pinned Lightning2.5 native automatic-optimization checkpoint boundary."""
+    def progress(total,current,fields=('ready','completed')):
+        return dict(total={k:total for k in fields},current={k:current for k in fields})
+    def batch(total,current,last):
+        return dict(**progress(total,current,('ready','completed','started','processed')),is_last_batch=last)
+    expected=dict(fit_loop={
+        'state_dict':{},'epoch_loop.state_dict':{'_batches_that_stepped':steps},
+        'epoch_loop.batch_progress':batch(steps,batches,True),
+        'epoch_loop.scheduler_progress':progress(epochs,1),
+        'epoch_loop.automatic_optimization.state_dict':{},
+        'epoch_loop.automatic_optimization.optim_progress':{'optimizer':{
+            'step':progress(steps,batches),'zero_grad':progress(steps,batches,('ready','completed','started'))}},
+        'epoch_loop.manual_optimization.state_dict':{},
+        'epoch_loop.manual_optimization.optim_step_progress':progress(0,0),
+        'epoch_loop.val_loop.state_dict':{},
+        'epoch_loop.val_loop.batch_progress':batch(val_batches,val_batches,True),
+        # ModelCheckpoint saves after epoch processed, before epoch completed.
+        'epoch_progress':{k:dict(ready=epochs,started=epochs,processed=epochs,completed=epochs-1)
+                          for k in ('total','current')}},
+        validate_loop={'state_dict':{},'batch_progress':batch(0,0,False)},
+        test_loop={'state_dict':{},'batch_progress':batch(0,0,False)},
+        predict_loop={'state_dict':{},'batch_progress':progress(0,0,('ready','completed','started','processed'))})
+    # Canonical JSON comparison also distinguishes bool/float from int counters.
+    try:
+        if type(loops) is not dict or _hash(loops)!=_hash(expected):
+            raise ValueError('complete native Lightning loop structure/counters differ')
+    except (TypeError,OverflowError) as exc:
+        raise ValueError('malformed native Lightning checkpoint loops') from exc
+
+
 def _validate_checkpoint(checkpoint,identity,records):
     from .vision_literal_runtime import _schema,vision_state_sha256
     try:
@@ -411,6 +450,8 @@ def _validate_checkpoint(checkpoint,identity,records):
                 not math.isfinite(row['train_loss']) or not math.isfinite(v['val_mae']) or v['forward_batches']!=v_batches or
                 v['cuda_forward_batches']!=(v_batches if gpu else 0) or v['forward_device']!=('cuda:0' if gpu else 'cpu') or
                 v['input_and_module_device_agreed'] is not True):raise ValueError('native WiLoR epoch coverage/update/device/finite values differ')
+        _validate_loops(checkpoint['loops'],epochs=epochs,steps=records[-1]['optimizer_executions'],batches=batches,
+                        val_batches=math.ceil(val/identity['policy']['batch_size_by_role']['val']))
         construction=identity['construction'];state=checkpoint['state_dict'];schema=_schema(state)
         if (schema!=construction['model_schema'] or len([k for k in state if k.startswith('model.backbone.')])!=404 or
             sum(math.prod(schema[n]['shape']) for n in construction['parameter_names'])!=631631657 or
