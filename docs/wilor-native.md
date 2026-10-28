@@ -1,6 +1,12 @@
 # WiLoR 原生22角实验
 
-当前正在实现[完整WiLoR计划](superpowers/plans/2026-10-28-wilor-native.md)。Tasks1–3的配置、真实资产/模型、完整输入绑定、连续fit和严格最佳权重读取已完成。原生完整评价/报告、GPU资格、一次新实现审查、完整30轮和独立测试仍需逐项完成。全论文完成设置数不会因配置或工程检查增加。
+当前正在实现[完整WiLoR计划](superpowers/plans/2026-10-28-wilor-native.md)。Tasks1–3的配置、真实资产/模型、完整输入绑定、连续fit和严格最佳权重读取已完成；Task4的评价、独立复算和报告入口现已通过真实CPU工程验收。原batch18/BF16 GPU资格、一次新实现审查、完整30轮和全量独立测试仍需逐项完成。全论文完成设置数不会因配置或工程检查增加。
+
+Task4评价源码7910238。[真实CPU评价链](../results/wilor-native-eval-cpu-20261028.json)复用已完成的原631,631,657参数模型和原生best；没有重新训练。验证和测试各选择每手首窗及原repeat2，共4消费/2唯一手样本，测试原索引明确为`[0,3,6,9]`；不是完整legacy测试集。原生Trainer和新进程独立前向的typed预测均精确一致，22角/生成标签mask/缺图样本/重复消费与唯一样本统计保持完整；每角色含2个缺图消费，不能只在有图子集上冒充全部结果。验证先冻结，再测试；PNG/SVG曲线由另一个进程从真实epoch日志逐字节重生一致，实际曲线已目视检查。报告显著标记工程验证，合成样本的误差不能作为科学成绩。
+
+原7个评价/报告阶段成功。最后负例测试的私有驱动因尝试覆盖已复制sidecar而exit1；保留失败，只在独立目录修正测试副本写入并重做记录校验，未修改生产源码、重跑模型评价或训练。恢复阶段exit0，11种被改写记录均拒绝，输入在绘图后变化时拒绝发布且没有completion。24个相关进程全部实际退出，原始检查点、预测、报告与226份冻结成员由独立读者完整hash重验未变。[检查证据](../results/wilor-native-eval-cpu-validation-20261028.json)：本机284原生/相关检查通过，服务器2项真实保留链集成检查通过，完整轻量1,601通过/1,229可选依赖跳过；均exit0且来源未变。完整GPU/30轮入口仍然关闭，科学完成设置数不增加。
+
+[工程曲线](../results/wilor-native-eval-cpu-20261028/training-curves.png)、[完整22角统计](../results/wilor-native-eval-cpu-20261028/metrics.json)与[报告](../results/wilor-native-eval-cpu-20261028/metrics.md)均公开。后续正式运行使用`run_wilor_pass`分别进行val/native、val/replay、test/native和test/replay；每个pass独立进程运行，replay显式引用原生pass。`freeze_wilor_validation`必须在测试前完成，`publish_wilor_report`发布后由新进程`verify_wilor_report`重开原始链核验。默认`require_full=True`拒绝工程fit，只有明确的工程验收才使用`False`。GPU工程/full角色必须消费完整3,152验证与8,612测试，原batch18，末批分别2和8；CPU四项选择不能升级为GPU或全量资格。
 
 Task3最终绑定源码8013690。[两轮真实CPU验收](../results/wilor-native-fit-cpu-20261028.json)使用原631,631,657参数模型、真实404张量初始化和普通合成memmap/LMDB：B1/FP32，每轮2训练/2验证、共4次实际更新；三个完整原生检查点共22,739,889,583字节，模型/优化器/调度器/全局RNG/覆盖及冻结状态均核验。另进程严格重载原生best后，全部两个验证样本的typed预测和原生MAE精确一致，不重开预训练权重、不增加更新；第三个独立读者重开原始链，11种实际检查点损坏均拒绝。三个阶段实际exit0、八个所属进程退出，原始文件和111份冻结成员再次hash未变。这个合成工程过程不是准确率结果。
 

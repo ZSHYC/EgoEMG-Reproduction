@@ -1,0 +1,72 @@
+{
+  "actual_server_retained_integration_checks": {
+    "actual_checks": 2,
+    "actual_exit_code": 0,
+    "actual_owned_processes_nonlive": 2,
+    "actual_sources_and_report_dependencies_unchanged": true,
+    "format": "actual_retained_native_wilor_cpu_integration_tests_v1",
+    "full_paper_complete": false,
+    "scientific_eligible": false,
+    "seconds": 116.83144434913993,
+    "source_commit": "7910238c43af89fb62655cfc3a98772995230a1c"
+  },
+  "actual_source_and_owners_independently_reopened": true,
+  "checked_utc": "2026-10-28T17:53:02.528704+00:00",
+  "format": "native_wilor_eval_cpu_validation_v1",
+  "full_paper_complete": false,
+  "local_checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "7910238c43af89fb62655cfc3a98772995230a1c",
+      "actual_passed": 1601,
+      "actual_skipped": 1229,
+      "all_recorded_sources_and_nonlive_owners_verified": true,
+      "log_sha256": "cb4c9f96be1c7bc47370ead50877649d2a9efd37a45c3bb63485f2dbcb4e357e",
+      "seconds": 91.52518267300911,
+      "sources_sha256": {
+        "configs/wilor-assets.json": "0d5834c66b69a8c245bb340ce93869bc153cb6cfdc330efe8fc0ba494f821250",
+        "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+        "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+        "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+        "egoemg_repro/wilor_literal.py": "2c31460ce384d8b7ec268f2c09f09e77a1492cf0bdb1e6767f04a47ecd081ee2",
+        "egoemg_repro/wilor_literal_runtime.py": "c802cdbe4b11dbb6ca7beed881b6c655c9ccfb7db7751f3078b7334661da5730",
+        "egoemg_repro/wilor_native_eval.py": "ccdf1d613cfe3f5aeacd07140276b89f26cdfe2bb0e50cede9fe3e961ec4815f",
+        "egoemg_repro/wilor_native_train.py": "8dd3244b9d3bc1fbcd0e1133371b14c17deea6aaa422f373785dfcc54905942a",
+        "tests/test_wilor_literal.py": "7ba09f6605ed44afc3c494420325b29bc5cd4f4e55eebf28edc8d3394e509faf",
+        "tests/test_wilor_literal_runtime.py": "7d3cce77d616bd14ab38eeea3ecd590d493dd44cca7d9079a00106c5412455ba",
+        "tests/test_wilor_native_eval.py": "36be13bdd30065b74e345455c39e869f531a1e73e9659177c58729b549d7becd",
+        "tests/test_wilor_native_train.py": "891f4f81e3e26654672a541c2a04a3090847ec747c740fd289eefdfd3c1643e9",
+        "upstream/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+        "upstream/egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899"
+      }
+    },
+    "native": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "7910238c43af89fb62655cfc3a98772995230a1c",
+      "actual_passed": 284,
+      "actual_skipped": 2,
+      "all_recorded_sources_and_nonlive_owners_verified": true,
+      "log_sha256": "d6b7f62236cfe246917cb9e9f2136a13b04d54dfd522ad4f162480ba1bdab914",
+      "seconds": 122.03124753700104,
+      "sources_sha256": {
+        "configs/wilor-assets.json": "0d5834c66b69a8c245bb340ce93869bc153cb6cfdc330efe8fc0ba494f821250",
+        "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+        "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+        "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+        "egoemg_repro/wilor_literal.py": "2c31460ce384d8b7ec268f2c09f09e77a1492cf0bdb1e6767f04a47ecd081ee2",
+        "egoemg_repro/wilor_literal_runtime.py": "c802cdbe4b11dbb6ca7beed881b6c655c9ccfb7db7751f3078b7334661da5730",
+        "egoemg_repro/wilor_native_eval.py": "ccdf1d613cfe3f5aeacd07140276b89f26cdfe2bb0e50cede9fe3e961ec4815f",
+        "egoemg_repro/wilor_native_train.py": "8dd3244b9d3bc1fbcd0e1133371b14c17deea6aaa422f373785dfcc54905942a",
+        "tests/test_wilor_literal.py": "7ba09f6605ed44afc3c494420325b29bc5cd4f4e55eebf28edc8d3394e509faf",
+        "tests/test_wilor_literal_runtime.py": "7d3cce77d616bd14ab38eeea3ecd590d493dd44cca7d9079a00106c5412455ba",
+        "tests/test_wilor_native_eval.py": "36be13bdd30065b74e345455c39e869f531a1e73e9659177c58729b549d7becd",
+        "tests/test_wilor_native_train.py": "891f4f81e3e26654672a541c2a04a3090847ec747c740fd289eefdfd3c1643e9",
+        "upstream/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+        "upstream/egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899"
+      }
+    }
+  },
+  "scientific_eligible": false,
+  "source_commit": "7910238c43af89fb62655cfc3a98772995230a1c",
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311"
+}

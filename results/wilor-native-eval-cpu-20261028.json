@@ -1,0 +1,119 @@
+{
+  "actual_completion_absent_after_late_change": true,
+  "actual_corruption_cases_rejected": [
+    "scope",
+    "prediction_digest",
+    "selected_best",
+    "native_mae",
+    "pid_bool",
+    "before_fit",
+    "device",
+    "source",
+    "layout",
+    "same_process",
+    "before_profile"
+  ],
+  "actual_cuda_initialized": false,
+  "actual_evaluation_samples_per_role": 4,
+  "actual_generated_mask_preserved": true,
+  "actual_independent_png_svg_regeneration_exact": true,
+  "actual_late_generation_rejected": true,
+  "actual_missing_crop_samples_per_role": 2,
+  "actual_model_parameters": 631631657,
+  "actual_native_train_epochs": 2,
+  "actual_native_train_updates": 4,
+  "actual_original_raw_fit_and_checkpoints_unchanged": true,
+  "actual_owned_processes_nonlive": 24,
+  "actual_owned_stages": {
+    "audit": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": true,
+      "seconds": 61.296412591822445
+    },
+    "freeze": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 57.65446160919964
+    },
+    "report": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 60.03673562500626
+    },
+    "test-native": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 83.34262331482023
+    },
+    "test-replay": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 82.71872593602166
+    },
+    "val-native": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 82.9732768079266
+    },
+    "val-replay": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 81.77898958791047
+    },
+    "verify": {
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "original_driver_failure_preserved": false,
+      "seconds": 59.30100095877424
+    }
+  },
+  "actual_pretrained_reopened": false,
+  "actual_retained_integration_checks": 2,
+  "actual_seven_native_stages_and_separate_audit_exit_zero": true,
+  "actual_stage_members_unchanged": 226,
+  "actual_test_follows_frozen_validation": true,
+  "actual_test_source_indices": [
+    0,
+    3,
+    6,
+    9
+  ],
+  "actual_typed_native_validation_and_test_replays_exact": true,
+  "actual_unique_samples_per_role": 2,
+  "actual_val_source_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "bundle_sha256": "57d2a8f786a6b3b57b314a87c59c0cfb987b6c7fca88120f2730b9aaaef241f0",
+  "finished_utc": "2026-10-28T17:52:31.279711+00:00",
+  "format": "actual_native_wilor_selected_cpu_evaluation_report_v1",
+  "full_paper_complete": false,
+  "independent_reopened_utc": "2026-10-28T17:53:45.301326+00:00",
+  "native_prediction_or_model_reruns": 0,
+  "new_train_updates": 0,
+  "original_driver_failure_preserved": true,
+  "original_evaluation_actual_exit_code": 1,
+  "original_fit_source_commit": "8013690386fa7da4e65bd660788c0b8991125f8c",
+  "recovery_actual_exit_code": 0,
+  "report_files_sha256": {
+    "curve-data.json": "7b911aee17362f4540b750dd4262f0238711bf8f657e135009deb2f4ae4213ac",
+    "metrics.json": "edd6903154588c63d9e9f00e81bdf677d69d1c252afe8fe7d342ba3a2f32de3a",
+    "metrics.md": "05175125baa551ee74e628d060ed0a14bf0c9e543021bd269209ead33cf1275e",
+    "training-curves.png": "a2f9324a5307e01f4891160a8a2480186db2655a2f50afa314c4a940c8d918d4",
+    "training-curves.svg": "e76d93d3bd5b497c594dc90461c651d2ced466f0bdbce5bd5ef68f4f8f60ef92"
+  },
+  "report_sha256": "2cda9481cd0c2af3aec07457eea8a918a4a9aa863f266f38b3646e8fd248b465",
+  "scientific_eligible": false,
+  "scope": "bounded ordinary synthetic engineering fixture; not full cohort or scientific score",
+  "source_commit": "7910238c43af89fb62655cfc3a98772995230a1c",
+  "started_utc": "2026-10-28T17:36:11.330822+00:00"
+}

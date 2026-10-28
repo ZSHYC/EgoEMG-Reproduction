@@ -1,0 +1,57 @@
+{
+  "epochs": [
+    {
+      "epoch": 0,
+      "global_step": 2,
+      "model_sha256": "b5f423c51c8df8a7ceda43214f06a52ab247541ad3fc745e0f4c1a563825cba5",
+      "optimizer_executions": 2,
+      "train_batches": 2,
+      "train_loss": 0.9201769232749939,
+      "train_samples": 2,
+      "validation": {
+        "cuda_forward_batches": 0,
+        "forward_batches": 2,
+        "forward_device": "cpu",
+        "input_and_module_device_agreed": true,
+        "prediction_sha256": "caadc6dc9e1d1d3bba4ef632f0bb739b78f44155c11d0ee7ac8ee473d170497b",
+        "samples": 2,
+        "val_mae": 0.2736937999725342
+      }
+    },
+    {
+      "epoch": 1,
+      "global_step": 4,
+      "model_sha256": "cbff757c3a04787df03d76b890f09301be03bca640d13e37567bcccf87821a14",
+      "optimizer_executions": 4,
+      "train_batches": 2,
+      "train_loss": 0.6414668560028076,
+      "train_samples": 2,
+      "validation": {
+        "cuda_forward_batches": 0,
+        "forward_batches": 2,
+        "forward_device": "cpu",
+        "input_and_module_device_agreed": true,
+        "prediction_sha256": "fb5c2229793f02a801a31a16d494e20b3b8ab45b535d4dd61f545e616e7e6ffc",
+        "samples": 2,
+        "val_mae": 0.24708181619644165
+      }
+    }
+  ],
+  "fit_result_sha256": "64d3831e54129a6384622a7f72b38976de71079fd68fa4a3fe9e6f5bb3b679ec",
+  "format": "native_wilor_curve_data_v1",
+  "full_paper_complete": false,
+  "journal_sha256": "ef0aa782e050c8bf10548136b140f0460cb2ec3cf011b065dc57e95598b94277",
+  "scientific_eligible": false,
+  "scope": "cpu_engineering",
+  "selected_best": {
+    "checkpoint_sha256": "d749e50cef4c162a82ab4c5f7794e1f6f9f9a7af27c82d77d2e406df93a818cf",
+    "epoch": 1,
+    "file": "vit-small-epoch=001-val_mae=0.2471.ckpt",
+    "model_sha256": "cbff757c3a04787df03d76b890f09301be03bca640d13e37567bcccf87821a14",
+    "score": 0.24708181619644165,
+    "validation_prediction_sha256": "fb5c2229793f02a801a31a16d494e20b3b8ab45b535d4dd61f545e616e7e6ffc"
+  },
+  "selected_epoch_zero_based": 1,
+  "training_unit": "native sample-weighted composite loss; effective fingertip weight0.02",
+  "validation_unit": "native sample-weighted val_mae, radians; checkpoint selection"
+}
