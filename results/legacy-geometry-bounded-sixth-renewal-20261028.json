@@ -1,0 +1,27 @@
+{
+  "actual_fresh_probes": 5,
+  "actual_new_bytes": 134217728,
+  "actual_owner_pid_start_live": true,
+  "actual_prior_owner_nonlive": true,
+  "completed_files": 3,
+  "expected_selected_bytes": 37778344975,
+  "format": "actual_legacy_geometry_sixth_bounded_renewal_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "manual_cooldown_seconds": 683.703993,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 2348810240,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T07:39:43.673733+00:00",
+  "preserved_failed_attempt_files": 18,
+  "retry_events_total": 0,
+  "scope": "live bounded continuation, not completed geometry",
+  "selected_files": 8
+}
