@@ -1,0 +1,81 @@
+{
+  "actual_reviewer_checked": {
+    "light_passed": 1475,
+    "native_passed": 56,
+    "optional_dependency_skips": 1092,
+    "related_passed": 330,
+    "source_test_hashes": 7
+  },
+  "base": "d72fddbc0a7391feea3bc274900140f462533fd3",
+  "critical": 0,
+  "declined_rulings": [
+    {
+      "behavior": "stochastic resumed/fresh-fresh trajectory equivalence",
+      "decision": "excluded new claim; keep old failed gate unchanged"
+    },
+    {
+      "behavior": "six-rank BatchNorm equivalence",
+      "decision": "retain explicit single-rank limitation; no equivalence claim"
+    },
+    {
+      "behavior": "legacy/PDF merged-data equivalence",
+      "decision": "keep unresolved wholepaper requirement and disclosure"
+    },
+    {
+      "behavior": "full scientific accuracy/termination",
+      "decision": "must run and verify full experiment; not established"
+    },
+    {
+      "behavior": "other models/downloads/wholepaper",
+      "decision": "remain required active work outside this review"
+    },
+    {
+      "behavior": "unchanged helpers",
+      "decision": "used boundaries reviewed; no repeated completed-project review"
+    },
+    {
+      "behavior": "coordinated adversarial raw rewrite",
+      "decision": "trusted local raw artifacts, not authenticated adversarial store; ordinary corruption still rejects"
+    },
+    {
+      "behavior": "future resources/uninterrupted execution",
+      "decision": "launch-time and continuous guards; no guarantee"
+    },
+    {
+      "behavior": "remote evidence regeneration",
+      "decision": "actual prior remote owner/hash checks independently collected by parent; reviewer avoids rerun"
+    }
+  ],
+  "findings": [
+    {
+      "disposition": "correct current-status prose; preserve immutable historical evidence",
+      "finding": "Contradictory historical/current GPU status",
+      "id": "M1",
+      "line": 7,
+      "path": "docs/neuropose-native.md",
+      "severity": "minor"
+    },
+    {
+      "disposition": "deferred coverage enhancement; appropriate post-step production logic and strict actual-state readers remain, no demonstrated defect",
+      "finding": "No direct new-witness skipped-GradScaler-attempt regression",
+      "id": "M2",
+      "line": 94,
+      "path": "tests/test_neuropose_native_train.py",
+      "severity": "minor"
+    }
+  ],
+  "format": "native_neuropose_final_implementation_review_v1",
+  "full_paper_complete": false,
+  "full_training_started": false,
+  "head": "35c379b5c7f47429ac7a0040f93c120af7d9e6e9",
+  "important": 0,
+  "minor": 2,
+  "no_gpu_or_duplicate_tests": true,
+  "no_second_review": true,
+  "no_source_changes_required": true,
+  "read_only_review": true,
+  "ready_for_one_full_fresh_native_experiment": true,
+  "reviewer": "/root/neuropose_native_final_review",
+  "reviewer_model": "gpt-6-astra",
+  "scientific_eligible": false
+}
