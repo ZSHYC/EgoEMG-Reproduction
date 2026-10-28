@@ -166,3 +166,157 @@ def test_exact_wilor_policy_separates_scopes_and_preserves_complete_native_budge
 @pytest.mark.parametrize('scope',[True,None,'wilor','gpu','Full'])
 def test_invalid_scope_rejects_without_importing_model(scope):
     with pytest.raises(ValueError,match='scope'):api().wilor_policy(scope=scope)
+
+
+@pytest.mark.parametrize('qualification',[None,True,{'passed':True}])
+def test_full_fit_requires_raw_new_cuda_qualification_before_data_model_or_output(tmp_path,qualification):
+    with pytest.raises(ValueError,match='qualification|artifact'):
+        api().fit_wilor(tmp_path/'missing-data',tmp_path/'missing-crops',upstream=tmp_path/'missing',
+            config=None,assets=None,output=tmp_path/'out',qualification=qualification)
+    assert not (tmp_path/'out').exists()
+
+
+def test_json_passed_summary_cannot_become_a_full_cuda_qualification(tmp_path):
+    p=tmp_path/'summary.json';p.write_text('{"passed":true}')
+    with pytest.raises(ValueError,match='qualification|artifact'):
+        api().fit_wilor(None,None,upstream=None,config=None,assets=None,output=tmp_path/'out',qualification=p)
+    assert not (tmp_path/'out').exists()
+
+
+@pytest.mark.parametrize('value',[True,{},'old-qualification'])
+def test_cpu_fit_never_inherits_a_cuda_or_old_model_permit(tmp_path,value):
+    with pytest.raises(ValueError,match='CPU|qualification'):
+        api().fit_wilor(None,None,upstream=None,config=None,assets=None,output=tmp_path/'out',
+            scope='cpu_engineering',qualification=value)
+    assert not (tmp_path/'out').exists()
+
+
+def test_existing_owned_fit_is_rejected_before_data_or_model_access(tmp_path):
+    output=tmp_path/'owned';output.mkdir();marker=output/'preserved';marker.write_bytes(b'preserve')
+    with pytest.raises(FileExistsError):
+        api().fit_wilor(None,None,upstream=None,config=None,assets=None,output=output,scope='cpu_engineering')
+    assert marker.read_bytes()==b'preserve'
+
+
+@pytest.mark.parametrize('extra',[{'resume':True},{'batch_size':1},{'precision':'32-true'},{'max_epochs':1},{'stop_after_epoch':1}])
+def test_caller_cannot_replace_the_recipe_or_enable_continuation(tmp_path,extra):
+    with pytest.raises(TypeError):
+        api().fit_wilor(None,None,upstream=None,config=None,assets=None,output=tmp_path/'out',**extra)
+
+
+@pytest.mark.parametrize('reader',['read_wilor_fit','reopen_wilor_best'])
+@pytest.mark.parametrize('flag',[1,None,'full'])
+def test_fit_read_requirement_is_strict_bool_before_io(reader,flag):
+    with pytest.raises(ValueError,match='bool'):getattr(api(),reader)(None,require_full=flag)
+
+
+def budget_records(policy,n):
+    train,val=(202020,3152) if policy['scope']=='full' else ((2,2) if policy['scope']=='cpu_engineering' else (36,3152))
+    batches=(train+policy['batch_size_by_role']['train']-1)//policy['batch_size_by_role']['train']
+    rows=[dict(epoch=i,optimizer_executions=(i+1)*batches,global_step=(i+1)*batches,
+        train_samples=train,train_batches=batches,train_loss=.5,
+        validation=dict(samples=val,val_mae=.25)) for i in range(n)]
+    return train,val,rows
+
+
+@pytest.mark.parametrize('scope',['full','cpu_engineering','cuda_engineering'])
+def test_budget_predicate_requires_the_entire_original_or_engineering_budget(scope):
+    m=api();p=m.wilor_policy(scope=scope);train,val,rows=budget_records(p,p['max_epochs'])
+    assert m.wilor_stage_complete(p,rows,train_samples=train,val_samples=val,interrupted=False) is True
+    assert m.wilor_stage_complete(p,rows[:-1],train_samples=train,val_samples=val,interrupted=False) is False
+    assert m.wilor_stage_complete(p,rows,train_samples=train,val_samples=val,interrupted=True) is False
+
+
+@pytest.mark.parametrize('damage',['epoch','counter','global_step','train','validation','batches','train_nonfinite','val_nonfinite',
+    'bool_counter','policy_budget','policy_precision','policy_batch','extra_epoch'])
+def test_counter_coverage_nonfinite_or_resealed_policy_changes_cannot_complete(damage):
+    from egoemg_repro.classic_emg import _hash
+    m=api();p=m.wilor_policy();train,val,rows=budget_records(p,30)
+    if damage=='epoch':rows[-1]['epoch']=True
+    elif damage=='counter':rows[-1]['optimizer_executions']-=1
+    elif damage=='global_step':rows[-1]['global_step']+=1
+    elif damage=='train':rows[-1]['train_samples']-=1
+    elif damage=='validation':rows[-1]['validation']['samples']-=1
+    elif damage=='batches':rows[-1]['train_batches']-=1
+    elif damage=='train_nonfinite':rows[-1]['train_loss']=float('inf')
+    elif damage=='val_nonfinite':rows[-1]['validation']['val_mae']=float('nan')
+    elif damage=='bool_counter':rows[-1]['optimizer_executions']=True
+    elif damage=='policy_budget':p['max_epochs']=29
+    elif damage=='policy_precision':p['precision']='32-true'
+    elif damage=='policy_batch':p['batch_size_by_role']['train']=1
+    else:rows.append(copy.deepcopy(rows[-1]))
+    p['sha256']=_hash({k:v for k,v in p.items() if k!='sha256'})
+    assert m.wilor_stage_complete(p,rows,train_samples=train,val_samples=val,interrupted=False) is False
+
+
+def test_cpu_rng_snapshot_does_not_query_visible_cuda(monkeypatch):
+    torch=pytest.importorskip('torch')
+    def forbidden(*a,**k):raise AssertionError('CPU scope cannot query CUDA')
+    monkeypatch.setattr(torch.cuda,'is_available',forbidden);monkeypatch.setattr(torch.cuda,'get_rng_state_all',forbidden)
+    value=api()._rng_packet(cpu=True)
+    assert value['cuda']==[] and value['generators']=={} and value['torch'].dtype==torch.uint8
+    api()._validate_rng(value,cpu=True)
+
+
+@pytest.mark.parametrize('damage',['missing','empty_cpu','bad_cpu_dtype','fake_cuda','python','numpy','extra_generator'])
+def test_corrupted_global_native_rng_is_rejected_without_restoring_it(damage):
+    torch=pytest.importorskip('torch');m=api();v=m._rng_packet(cpu=True);before=torch.get_rng_state().clone()
+    if damage=='missing':del v['numpy']
+    elif damage=='empty_cpu':v['torch']=torch.empty(0,dtype=torch.uint8)
+    elif damage=='bad_cpu_dtype':v['torch']=v['torch'].to(torch.int64)
+    elif damage=='fake_cuda':v['cuda']=[v['torch']]
+    elif damage=='python':v['python']=(1,2,3)
+    elif damage=='numpy':v['numpy']=('bad',)
+    else:v['generators']={'invented':v['torch']}
+    with pytest.raises(ValueError,match='RNG|rng'):m._validate_rng(v,cpu=True)
+    assert torch.equal(torch.get_rng_state(),before)
+
+
+def test_fit_batch_checks_actual_native_indices_center_mask_shapes_and_full_input_finiteness(inputs):
+    import torch
+    m=api();c=admitted(inputs);p=m.wilor_policy(scope='cpu_engineering')
+    batches=list(m.native_wilor_loaders(c,scope='cpu_engineering')['val']);seen=set()
+    assert m._batch(c,p,batches[0],'val',seen,2)==1 and seen=={0}
+    assert m._batch(c,p,batches[1],'val',seen,2)==1 and seen=={0,1}
+    for damage in ('index_dtype','out_of_range','wrong_order','image_shape','image_nonfinite','target_nonfinite',
+        'mask_dtype','vision_mask_dtype','emg_shape','center','hand','repeat','unique','window','episode','dataset'):
+        b=copy.deepcopy(batches[0])
+        if damage=='index_dtype':b['vision_sample_index']=b['vision_sample_index'].float()
+        elif damage=='out_of_range':b['vision_sample_index'][0]=2
+        elif damage=='wrong_order':b=copy.deepcopy(batches[1])
+        elif damage=='image_shape':b['vision_img']=b['vision_img'][:,:,:128,:]
+        elif damage=='image_nonfinite':b['vision_img'][0,0,0,0]=float('nan')
+        elif damage=='target_nonfinite':b['joint_angles'][0,0,0]=float('inf')
+        elif damage=='mask_dtype':b['label_valid_mask']=b['label_valid_mask'].float()
+        elif damage=='vision_mask_dtype':b['vision_valid_mask']=b['vision_valid_mask'].float()
+        elif damage=='emg_shape':b['emg']=torch.zeros(1,8,0)
+        elif damage=='center':b['center'][0]+=1
+        elif damage=='hand':b['target_hand_index'][0]=1
+        elif damage=='repeat':b['vision_repeat_index'][0]=1
+        elif damage=='unique':b['vision_unique_sample_index'][0]=100
+        elif damage=='window':b['vision_window_index'][0]=100
+        elif damage=='episode':b['episode'][0]=100
+        else:b['dataset_name']=['other']
+        with pytest.raises(ValueError):m._batch(c,p,b,'val',set(),2)
+    with pytest.raises(ValueError):m._batch(c,p,batches[0],'val',{0},2)
+
+
+@pytest.mark.parametrize('checkpoint',[None,True,{}, {'native_wilor':{}}, {'state_dict':{}}])
+def test_incomplete_native_checkpoint_never_falls_back_to_a_summary(checkpoint):
+    with pytest.raises(ValueError,match='checkpoint|native|complete'):
+        api()._validate_checkpoint(checkpoint,{},[])
+
+
+def test_fit_source_generation_is_captured_before_content_hashing(tmp_path,monkeypatch):
+    pytest.importorskip('pytorch_lightning');pytest.importorskip('timm')
+    m=api();paths=list(m._sources());original_sources=m._sources
+    # Use ordinary small source files; no positive model/data/CUDA identity.
+    for name in paths:
+        p=tmp_path/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'original source\n')
+    monkeypatch.setattr(m,'ROOT',tmp_path)
+    def changed_and_restored_during_hash():
+        value=original_sources();p=tmp_path/'egoemg_repro/wilor_native_train.py';raw=p.read_bytes()
+        p.write_bytes(raw+b'# transient change\n');p.write_bytes(raw)
+        return value
+    monkeypatch.setattr(m,'_sources',changed_and_restored_during_hash)
+    with pytest.raises(ValueError,match='changed|stamp'):m._capture_fit_sources()
