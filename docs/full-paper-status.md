@@ -1,6 +1,8 @@
 # 全论文复现状态与证据清单
 
-2026-10-28新增：[逐关节与逐手势细分分析](../results/paper-analysis/README.md)已用五个冻结best完成新推理和退出后独立核验。S/M/L整体及手/split/组件/用户完整轨迹通过原baseline；RN18/S/融合共2,792中心，排18未分配后2,774请求，59类中58类融合优于视觉。保留有效角mask/插值中心/180pi与无mask/token中点/57.3两公式、四个预定义人口；全部推理仍为原bf16/high，官方公式视图不等于原默认FP32入口。Table12/14/15、Figure12参考与清晰展示共63产物字节重复一致，旧版0.01/数据与PDF等价边界保留；完整托管检查与一次最终整体审查仍待新提交观察。实查08:44：EMG2Pose全部462,824,048,640字节已到齐，但完整receipt尚未落盘，原下载两个拥有者实际存活且在读archive.tar做哈希，源码准备和三模型队列仍等待；尚未开始250轮科学训练。
+北京时间2026-10-28 09:06更新：约462.8GB的EMG2Pose完整原包已实际下载完成并计算接收字节SHA256，原下载四个进程正常退出；[接收证据](../results/emg2pose-full-archive-acquisition.json)明确作者校验和不可用、完整语料尚未准入。现有源准备四个进程实际活动，转换前独立校验已读完462.8GB，已进入原文件保存；三模型队列等待原准备完成，0项正式250轮训练开始。DINO-L已完成52轮验证、原训练进程活动。逐关节/手势分析已通过[一次独立整体审查](../results/paper-analysis-final-review.json)，0项问题；新托管轻量检查发现旧预取测试时序假设错误，已确定性RED→GREEN，相关63项、完整轻量1408项通过，新托管验证仍待观察。全文目标仍未完成。
+
+北京时间2026-10-28 08:44历史快照：[逐关节与逐手势细分分析](../results/paper-analysis/README.md)已用五个冻结best完成新推理和退出后独立核验。S/M/L整体及手/split/组件/用户完整轨迹通过原baseline；RN18/S/融合共2,792中心，排18未分配后2,774请求，59类中58类融合优于视觉。保留有效角mask/插值中心/180pi与无mask/token中点/57.3两公式、四个预定义人口；全部推理仍为原bf16/high，官方公式视图不等于原默认FP32入口。Table12/14/15、Figure12参考与清晰展示共63产物字节重复一致，旧版0.01/数据与PDF等价边界保留；完整托管检查与一次最终整体审查仍待新提交观察。实查08:44：EMG2Pose全部462,824,048,640字节已到齐，但完整receipt尚未落盘，原下载两个拥有者实际存活且在读archive.tar做哈希，源码准备和三模型队列仍等待；尚未开始250轮科学训练。
 
 北京时间2026-10-28 07:48[实际快照](../results/progress-snapshot-2026-10-28.json)：已有10项声明协议下的完整训练/验证选模/测试结果（7项legacy、VEMG、DINO-S/B），不等于10项PDF原表等价复现；两组测试为2,792和4,306唯一手中心，不能混成受控排行榜。DINO-L原训练/控制进程活动、完成50轮验证。服务器完整EMG2Pose实际收到416,402,112,512/462,824,048,640字节（约89.97%），原四进程活动、尚无完整receipt；原源准备控制器仍等待。三模型等待队列已实际运行但0科学训练开始。全文、官方配方补齐、逐手势/关节/遮挡/定性及标注链仍未完成。
 
@@ -226,7 +228,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | raw 与 markers | 官方 legacy 公共目录已定位；双手 raw 约 4.234GB，双手 marker+valid 约 36.124GB | 本次清单未确认这些大数组已下载；需实际 receipt/hash/读取，不能以 HEAD 成功代替 |
 | 遮挡几何 | 必要 pose、world/camera 变换、tracked、marker-valid、β 约 37.778GB，再加校准与尺寸证据 | 未获取完整必要字段；需合法 MANO 模型和 legacy webcam→current head 字段映射，不能静默 β=0 或尺寸 fallback |
 | current v3 | [ASSET_SETUP][asset-setup]写当前百度路径与 preview/checksums；[LICENSE][official-license]仍写完整 current release 未发布 | 当前目录实物、完整 manifest/checksums 与 v1 队列未闭合。官方 CLI 路线需百度登录，不将“链接可打开”写成“全量已匿名下载” |
-| EMG2Pose | [Meta 官方数据与代码][emg2pose]给匿名 S3；完整包 462,824,048,640 bytes（约431GiB），metadata 与30文件 mini 已完整取得并校验 | 完整数据尚未取得。[直接转换](../egoemg_repro/emg2pose_data.py)已通过mini全字段验收；[分块xz归档](../egoemg_repro/emg2pose_archive.py)已通过独立审阅，正式全量接收已启动且首块后新块提交成功，仍明确incomplete。动态容量不足将停止并保留可恢复进度，不能缩小cohort；首块压缩比不保证全量容量。不能同时保存全tar/H5/Zarr/memmap |
+| EMG2Pose | [Meta 官方数据与代码][emg2pose]给匿名 S3；完整包 462,824,048,640 bytes（约431GiB），metadata 与30文件 mini 已完整取得并校验 | 完整原包现已取得并记录[接收证据](../results/emg2pose-full-archive-acquisition.json)，完整源准备与准入仍在进行。[直接转换](../egoemg_repro/emg2pose_data.py)已通过mini全字段验收；[分块xz归档](../egoemg_repro/emg2pose_archive.py)已通过独立审阅，正式全量接收已启动且首块后新块提交成功，仍明确incomplete。动态容量不足将停止并保留可恢复进度，不能缩小cohort；首块压缩比不保证全量容量。不能同时保存全tar/H5/Zarr/memmap |
 | EMG2Pose 发布权重 | Meta 参考权重对应其 classic 模型；EgoEMG 作者 EMGFormer 权重是另一资产 | 当前代码 val/test 已修复不追溯清洗旧选模史；不得以旧 released checkpoint 或 mini 替代三个新完整实验 |
 | MANO | 限定项目范围查找已发现左右 MANO 模型文件；[官方许可][mano]与具体格式兼容性尚待核验；安装 smplx 不等于完成资产验收 | 不能继续称模型完全不存在或必须重新下载；须核验现有文件的格式、版本、许可与 WiLoR/标注/遮挡接口，不再分发模型或公开私有位置 |
 | markers2mano | [推理/模型加载入口][m2m]与[质量评价入口][m2m-eval]已发布，.gitignore 排除 markers2mano；默认 checkpoint 为作者私有运行 | 缺模型包、11 源训练预处理/采样清单、训练入口/配置/增强、train/val 来源划分、v51 权重公开来源。MANO→UmeTrack mapper 训练不能补这个缺口 |

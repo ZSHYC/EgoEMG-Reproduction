@@ -54,8 +54,17 @@
     "public_artifacts": 63
   },
   "format": "egoemg_joint_gesture_analysis_validation_v1",
-  "fresh_whole_plan_implementation_review_complete": false,
+  "fresh_whole_plan_implementation_review_complete": true,
   "full_paper_complete": false,
+  "hosted_run_observed": {
+    "failure": "test fixture assumes first GET entered after second GET finishes; legal thread scheduling disproves implication",
+    "head_commit": "536b90fb2e9bdb708096410b8456bd1cae3d189e",
+    "light_conclusion": "failure",
+    "light_job_id": 122563202302,
+    "official_cpu_job_id": 122563202010,
+    "official_cpu_status_at_20261028T010302Z": "in_progress",
+    "run_id": 40611301707
+  },
   "light_full": {
     "actual_exit_code": 0,
     "log_sha256": "b150c808ee9c1427908433bea748f6637d1c9f62bc69b1f818cbbb0f1e12ddf2",
@@ -65,6 +74,29 @@
     "warnings": 1
   },
   "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "prefetch_fixture_correction": {
+    "forced_delayed_first_request_red": {
+      "failed": 1,
+      "log_sha256": "a75dab70b47c29785fe107d600111bff5bbfe879a16ccdded37416aa22c5940a",
+      "passed": 1,
+      "seconds": 0.25
+    },
+    "new_hosted_verification_pending": true,
+    "production_source_changed": false,
+    "relevant_green": {
+      "log_sha256": "e8f176cc33dcce3e032730342cf053b390248c433cd5deb1e5e30ed4670bda93",
+      "passed": 63,
+      "seconds": 2.01
+    },
+    "scope": "condition synchronization plus explicit late-first-GET schedule; original writer ordering, memory bound and received bytes still checked",
+    "whole_light_green": {
+      "log_sha256": "0ea4da707f6a14912d0ec6e04c140000bd17d0eafe8ffe86d2aaafa07ad89ed4",
+      "passed": 1408,
+      "seconds": 89.52,
+      "skipped": 736,
+      "warnings": 1
+    }
+  },
   "producer_files_sha256": {
     "egoemg_repro/paper_analysis.py": "9762be3e41e33ec65a72ed7c7b66c62f3d39baffade7a3b8e9d5309fa498e549",
     "scripts/paper/collect_joint_gesture_errors.py": "4b6c7830896c5c0227253a914236fcf7804d6ed34ad0179664d9b96b4bfcf99f",
@@ -72,5 +104,6 @@
     "tests/test_paper_analysis.py": "fe25d5c6bc61d2bc3bd616f37b1b06507961e2801fd14e82314a653b7a0516ec",
     "tests/test_paper_collection.py": "bb7b7ad58e7bc874167cdb01f29c8c1442b911b4588b0d23167219afc4019db2"
   },
-  "training_or_checkpoint_selection_repeated": false
+  "training_or_checkpoint_selection_repeated": false,
+  "whole_plan_review_record": "results/paper-analysis-final-review.json"
 }

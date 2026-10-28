@@ -2,17 +2,19 @@
 
 ## 无需用户下载百度网盘的继续路线
 
-用户无法下载百度网盘，当前不再等待该手动步骤。已有 legacy 数据支持现有实验族，EMGFormer-L、ResNet-50/152 已进入正式训练；对应数据版本与作者当前发布的等价性仍待核验。
+用户无法下载百度网盘，当前不再等待该手动步骤。已有 legacy 数据支持现有实验族，EMGFormer-L、ResNet-50/152 已完成完整旧版实验；对应数据版本与作者当前发布的等价性仍待核验。
 
 EMG2Pose 另有 [Meta 官方公开数据源](https://github.com/facebookresearch/emg2pose)，无需百度账号：
 
 | 资产 | 官方链接 | 已核验字节数 / 当前用途 |
 | --- | --- | --- |
-| 完整原始 tar | [emg2pose_dataset.tar](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset.tar) | 462,824,048,640；完整三模型实验所需，尚未完整获取 |
+| 完整原始 tar | [emg2pose_dataset.tar](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset.tar) | 462,824,048,640；已于2026-10-28在服务器完整接收并计算SHA256，原始文件保存/盘点/转换准入进行中 |
 | mini tar | [emg2pose_dataset_mini.tar](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset_mini.tar) | 647,198,208；已完整下载、逐成员校验并安全提取，30 个 HDF5 均为原 val，只用于工程验收 |
 | 完整元数据 CSV | [emg2pose_metadata.csv](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_metadata.csv) | 5,674,462；已校验，25,253 个唯一 filename |
 
-mini tar 的本次接收 SHA256 为 `d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d`，这是本次传输身份，不是作者提供的校验和。完整裸包约 431 GiB，不能直接按当前本机空间保存全 tar 与多份转换中间文件。[分块xz无损归档](../egoemg_repro/emg2pose_archive.py)已实现并通过独立审阅；全量接收已于2026-10-26启动，逐块验证原始/压缩SHA256、精确Range和源身份，已有首块之后的新块提交，仍为 incomplete。当前接收设置340 GiB归档预算与15 GiB动态空闲余量；预算或可用容量不足时停止并保留可恢复进度，不减少全量成员。mini的[直接转换和官方reader验收](../results/emg2pose-mini-data.md)已经完成；尚未宣称全量容量、获取或训练完成。
+mini tar 的本次接收 SHA256 为 `d7400e98508ccbb2139c2d78e552867b23501f637456546fd6680f3fe7fec50d`。完整包本次接收 SHA256 为 `c406e3dfe1e1aa516a2904ad406b918b41e9c653ac136a4dd9e9c36efcc91361`；二者都是本次接收字节身份，作者未提供可认证的参考校验和。[完整接收证据](../results/emg2pose-full-archive-acquisition.json)记录原下载实际exit0和全部拥有进程退出。
+
+现有原始源控制器正在保存全部原文件、核对25,253份来源、保留所有原始字节并转换，完整科学队列等待实际准入成功后才开始S/M/L各250轮。尚无这三项正式结果。服务器流程只在原文件完整、可精确重建TAR后回收自己的冗余TAR，保持资源余量；不删除其他项目数据。此前本机分块xz备份因预计容量不足已停止，原不完整进度保留，不作为完整数据。
 
 ## 当前官方百度发布
 

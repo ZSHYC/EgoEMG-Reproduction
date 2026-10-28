@@ -62,4 +62,4 @@
 
 - [x] Generate Table12 group records and59-class Table14/15/family data directly from unrounded sufficient statistics; sort unrounded Vision−Fusion gain, include explicitempty classes andview/protocol identity.
 - [x] Plot paired Vision/Fusion scatter with pointsizeN andverifiedfamilycolors from exactly the same table. State old population and native-formula differences, no PDFN/54of59/precision substitution.
-- [ ] Independently recompute totals and weighted family results; inspectPNG, repeat render for byte identity, verify public fields/identities, update coverage and publish. Do not markfull-papercomplete.
+- [x] Independently recompute totals and weighted family results; inspectPNG, repeat render for byte identity, verify public fields/identities, update coverage and publish. Do not markfull-papercomplete.

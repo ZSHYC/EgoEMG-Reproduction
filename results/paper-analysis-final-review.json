@@ -1,0 +1,62 @@
+{
+  "base_commit": "dacd2d10dc3e1534a6bf6274836b67086de97143",
+  "declined_to_judge": [
+    {
+      "cost_if_wrong": "Incorrect scope could cause false scientific completion.",
+      "ruling": "Keep full-paper goal active and legacy outputs explicitly non-equivalent; this review accepts only the disaggregation implementation.",
+      "scope": "Full-paper completion and PDF/current-release numerical equivalence"
+    },
+    {
+      "cost_if_wrong": "An undiscovered original training defect would remain an experiment limitation.",
+      "ruling": "Retain original training records and their limits; this analysis adds no training-correctness claim.",
+      "scope": "Original training beyond reused provenance and validation selection"
+    },
+    {
+      "cost_if_wrong": "Incorrect original labels could bias every derived result.",
+      "ruling": "Reuse frozen data identity and baseline checks; label regeneration and complete release qualification remain required work.",
+      "scope": "Underlying legacy label and crop authenticity"
+    },
+    {
+      "cost_if_wrong": "An integration defect could remain despite focused checks.",
+      "ruling": "Keep unverified until actual terminal job logs are read; record the observed lightweight failure and test-only correction separately.",
+      "scope": "New whole-native hosted CI outcome"
+    },
+    {
+      "cost_if_wrong": "Stale process observations could misstate progress.",
+      "ruling": "Use separately refreshed actual PID/start observations for full-source preparation, the full scientific queue and DINO-L; these are not covered by the code review.",
+      "scope": "Unrelated live jobs and remaining experiments"
+    },
+    {
+      "cost_if_wrong": "Different fonts or rendering libraries may alter presentation bytes.",
+      "ruling": "Claim repeated-byte identity only in the recorded environment; cross-machine portability is not qualified.",
+      "scope": "Cross-machine byte-identical rendering"
+    }
+  ],
+  "findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "format": "egoemg_joint_gesture_whole_implementation_review_v1",
+  "fresh_independent_review_complete": true,
+  "full_paper_complete": false,
+  "gpu_rerun_by_reviewer": false,
+  "head_commit": "536b90fb2e9bdb708096410b8456bd1cae3d189e",
+  "ready_for_legacy_analysis_integration": true,
+  "reviewer_fresh_numerical_checks": {
+    "passed": 28,
+    "seconds": 0.06
+  },
+  "reviewer_fresh_remote_process_observation": false,
+  "verified_public_artifacts": 63,
+  "verified_scope": [
+    "all three production modules and both test files",
+    "historical source overlay and strict provenance gate",
+    "joint sums/counts from22angles",
+    "both formulas across all four population views",
+    "all eight class CSVs against JSON",
+    "fixed-upstream families and weighted means",
+    "public privacy projection",
+    "representative full-range presentation plots"
+  ]
+}

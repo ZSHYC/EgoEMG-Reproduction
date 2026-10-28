@@ -195,11 +195,26 @@ def test_route_refuses_ambient_or_remote_credentials(prefetch, route):
         prefetch.ExplicitRoute(route)
 
 
-def test_two_workers_out_of_order_are_bounded_and_writer_stays_ordered(prefetch, source, tmp_path):
+@pytest.mark.parametrize('first_get_after_second', [False, True])
+def test_two_workers_out_of_order_are_bounded_and_writer_stays_ordered(
+        prefetch, source, tmp_path, monkeypatch, first_get_after_second):
     first_gate, second_finished = threading.Event(), threading.Event()
+    first_requested, first_request_allowed = threading.Event(), threading.Event()
+    if first_get_after_second:
+        def delayed_factory():
+            session = source.factory()
+            original = session.request
+            def request(method, url, **kwargs):
+                if method == 'GET' and kwargs['headers']['Range'] == 'bytes=0-4095':
+                    assert first_request_allowed.wait(3), 'first request was not released'
+                return original(method, url, **kwargs)
+            session.request = request
+            return session
+        monkeypatch.setattr(prefetch, '_new_session', delayed_factory)
     def hook(start, response):
         if start == 0:
             response.gate = first_gate
+            first_requested.set()
         original = response.iter_content
         def content(chunk_size):
             yield from original(chunk_size)
@@ -214,9 +229,16 @@ def test_two_workers_out_of_order_are_bounded_and_writer_stays_ordered(prefetch,
                              raw_memory_budget_bytes=32_768)
         try:
             assert second_finished.wait(2), 'second worker did not independently finish'
+            if first_get_after_second:
+                assert [c[2]['headers']['Range'] for c in source.calls if c[0] == 'GET'] == ['bytes=4096-8191']
+            first_request_allowed.set()
+            # Completion of the later range does not establish that the first
+            # worker has entered its HTTP request. Observe both before counting.
+            assert first_requested.wait(2), 'first worker did not enter its request'
             gets = [call for call in source.calls if call[0] == 'GET']
             assert len(gets) == 2  # no third range while first delivery is blocked
         finally:
+            first_request_allowed.set()
             first_gate.set()
         m = future.result(timeout=5)
     assert source.completed[:2] == [4096, 0]
