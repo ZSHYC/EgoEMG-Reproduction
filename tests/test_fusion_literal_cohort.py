@@ -163,3 +163,55 @@ def test_changed_inputs_reject_before_native_loader_factory(files,monkeypatch):
     def forbidden(*args,**kwargs):raise AssertionError('input change must reject before factory')
     monkeypatch.setattr(datamodule,'make_data_module',forbidden)
     with pytest.raises(ValueError,match='stamp|changed'):api().native_fusion_loaders(c)
+
+
+@pytest.mark.parametrize('role,hand,damage',[('train','left','strides'),('val','right','strides'),('test','left','strides'),('val','right','offset')])
+def test_same_memmap_object_layout_mutation_cannot_bypass_guard(files,role,hand,damage):
+    c=admit(files);ds=c.datasets[role];view=ds.views[0 if hand=='left' else 1]
+    array=view._frame_memmaps[f'emg_{hand}_filtered_paper']
+    before=ds[len(ds.windows) if hand=='right' else 0]['emg'].copy() if role=='val' and damage=='strides' else None
+    if damage=='strides':array.strides=(0,4)
+    else:array.offset+=4
+    if before is not None:
+        after=ds[len(ds.windows)]['emg']
+        assert np.count_nonzero(before!=after)==58656
+    with pytest.raises(ValueError,match='binding|mapping|changed'):c.check()
+
+
+@pytest.mark.parametrize('when',['before_add','after_add'])
+def test_atomic_replacement_cannot_hash_new_file_while_scanning_old_mapping(files,monkeypatch,when):
+    m=api();target=files[0]/'emg_right_filtered.dat';replacement=files[0].parent/'replacement-right.dat'
+    np.full((9*W,8),np.nan,dtype='float32').tofile(replacement)
+    original=m._StatGuard.add;events=[]
+    def add(guard,path):
+        if Path(path)==target and not events:
+            events.append(when)
+            if when=='before_add':replacement.replace(target)
+            result=original(guard,path)
+            if when=='after_add':replacement.replace(target)
+            return result
+        return original(guard,path)
+    monkeypatch.setattr(m._StatGuard,'add',add)
+    with pytest.raises(ValueError,match='nonfinite|stamp|changed|binding'):admit(files)
+    assert events==[when]
+
+
+def test_preexisting_crop_environment_cannot_hide_an_atomic_source_replacement(files,tmp_path):
+    first=admit(files);assert first.datasets['val'][0]['vision_valid_mask'].tolist()==[True]
+    alternate=tmp_path/'alternate';replacement=crop_store(alternate,flat=True,corrupt=True)
+    replacement.replace(files[1]/'episode_000000.data.mdb')
+    with pytest.raises(ValueError,match='cache|reader|changed|binding'):admit(files)
+
+
+def test_unchanged_registered_crop_cache_allows_same_process_strict_reopen(files):
+    first=admit(files);before=first.datasets['val'][0]['vision_img'].copy()
+    reopened=admit(files,expected=copy.deepcopy(first.identity));reopened.check()
+    assert np.array_equal(reopened.datasets['val'][0]['vision_img'],before)
+
+
+def test_unknown_preexisting_crop_environment_requires_fresh_admission_process(files):
+    m=reader_api();data,crops,cfg,norm=files
+    ds=m.FusionLiteralDataset(data,m.build_fusion_partitions(m.LegacyStore(data)),crops,
+        upstream=UPSTREAM,config=cfg,normalization=norm,role='val')
+    assert ds[0]['vision_valid_mask'].tolist()==[True]
+    with pytest.raises(ValueError,match='cache|reader|binding'):admit(files)

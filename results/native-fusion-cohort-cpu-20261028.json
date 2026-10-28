@@ -114,9 +114,9 @@
     "production_ready": false,
     "protocol_sha256": "4324b72a5b3d41a2b5ca46c13d4d7bbb067b301dd408c1a474cbddf20bd92169",
     "reader_bindings_sha256": {
-      "test": "dd7ce7f2d3127052b48819a9eaa640d77e3ef508a57793c839e1073f2c6fcebd",
-      "train": "d81168a86e13f23cba638a739807a5b88cc6bdb3fe394bc4f2099db16706b225",
-      "val": "b33c5395ceed322151f982666e9b615ec924dd7b7d5b764910a808f11e2d8f36"
+      "test": "32bc60ab961aa351357f7a3141d6e8314b20ea966bf2f0122ee18269588aed13",
+      "train": "5f4f6c39f54d06d4c53a5028e7935ff5fbc142a1d468002a9cca5ca23a0b6f9a",
+      "val": "e4b08475cefb4f7165ad1e7c9cb891332ebb753304b6661397dcb2ab1dc76f28"
     },
     "repeat_by_role": {
       "test": 2,
@@ -125,7 +125,7 @@
     },
     "scientific_eligible": false,
     "scope": "complete actual input bytes and numeric footprint/population only; no training/test permit",
-    "sha256": "9352ea98b8b59db076799522ecaa294ecaa50f382ad387c71ab0d5a3ba843741",
+    "sha256": "26e5478172fcdea3ef7acb8cc8e2d09be9e98b6920ce5e411cb45e2aad9de53b",
     "sources_sha256": {
       "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
       "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
@@ -134,7 +134,7 @@
       "egoemg_repro/crops.py": "1aa0871d6ede77d93988d455d0930e1f42470c1a92a47cfc8e49252bbfc0695e",
       "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
       "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
-      "egoemg_repro/fusion_literal_cohort.py": "5ba93e342a8d5e372ab8d8ccf767e099494889847faae6f2c35e77934e1299e7",
+      "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
       "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
       "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
       "egoemg_repro/vision_literal.py": "738a4e81e6988f08d39768991b1192dd0295b9da870a63d89a7461a927adc5a0",
@@ -565,41 +565,43 @@
   "checks": {
     "complete_light": {
       "actual_exit_code": 0,
-      "log_sha256": "691ccabb91f538e480ff5288eedf24421f3930af8162980c962d92aa70459cc7",
+      "log_sha256": "2f7adb77f757bfd75df4c887dc2102dfb7c897e948efe9d37641f536d3f97363",
       "passed": 1437,
-      "seconds": 87.01,
-      "skipped": 852,
+      "seconds": 87.14,
+      "skipped": 861,
       "warnings": 1
     },
-    "crop_binding_green": {
+    "final_findings_green": {
       "actual_exit_code": 0,
-      "deselected": 31,
-      "log_sha256": "c766931820c40d8b1f5b0070ee6dcf6bb0af6d8cd0065bf6a8823656ace6800c",
-      "passed": 2,
-      "seconds": 7.05
+      "deselected": 33,
+      "log_sha256": "99eb850b352a30cf06d742c967810d68a4f87f833eee8ce7938940b8de570da2",
+      "passed": 9,
+      "seconds": 23.05
     },
-    "crop_binding_red": {
+    "final_findings_red": {
       "actual_exit_code": 1,
-      "deselected": 31,
-      "failed": 2,
-      "log_sha256": "538861da5e51fbf1394716a8e854ce39f33c28488779c240f4d6dc90ad1ef965",
-      "seconds": 7.62
+      "deselected": 33,
+      "failed": 6,
+      "log_sha256": "6e9cee418c8b22bcc33e289fba9d327ff46beae4307195b1f0b84cdbfd2931c1",
+      "passed": 2,
+      "seconds": 25.74
     },
     "independent_collector": {
       "actual_exit_code": 0,
       "log_sha256": "7f35a43524545c6613aea104a58a6ff622a93af65dedf092e70b025f57862bb5"
     },
-    "missing_module_red": {
-      "actual_exit_code": 1,
-      "failed": 31,
-      "log_sha256": "9fdb100242903af38215ea85219960b148b9596effc14d621ce14ae35397461a",
-      "seconds": 8.95
-    },
     "related_native": {
       "actual_exit_code": 0,
-      "log_sha256": "14069f1cda92528093193129a6b0e4c58027da0299eb278bff92783ead427aa9",
-      "passed": 73,
-      "seconds": 121.66
+      "log_sha256": "a7cf0f5d2817e3e86ca3b0f81e8eb8fdd823e22cb75df771e7086ecbe8774847",
+      "passed": 82,
+      "seconds": 143.55
+    },
+    "unknown_crop_cache_red": {
+      "actual_exit_code": 1,
+      "deselected": 41,
+      "failed": 1,
+      "log_sha256": "46e1d59637e0cc7495a5706d20f96595533bc88e306fff898690ffcff9cf96a3",
+      "seconds": 4.87
     }
   },
   "collector_script_sha256": "baa9ec1276f21791d6d0c67127bc88243ee857e3f79afff95fd9f706b8c9e2dd",
@@ -608,11 +610,12 @@
   "format": "egoemg_native_fusion_complete_input_cpu_engineering_v1",
   "full_paper_complete": false,
   "model_constructed": false,
-  "observed_utc": "2026-10-28T04:28:53.275956+00:00",
+  "observed_utc": "2026-10-28T05:14:40.592441+00:00",
   "optimizer_updates": 0,
+  "prior_source_evidence": "results/native-fusion-cohort-prereview-cpu-20261028.json",
   "production_ready": false,
-  "real_full_server_admission_complete": true,
-  "real_full_server_admission_evidence": "results/native-fusion-cohort-full-20261028.json",
+  "real_full_server_admission_complete": false,
+  "real_full_server_admission_evidence": null,
   "scientific_eligible": false,
-  "whole_plan_review_complete": false
+  "whole_plan_review_complete": true
 }

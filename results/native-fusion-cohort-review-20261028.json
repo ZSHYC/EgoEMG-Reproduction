@@ -1,0 +1,97 @@
+{
+  "approved_spec": "docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md",
+  "author_fix_passes": 1,
+  "base_commit": "0493844021261d4aea87922e946250305f114668",
+  "execution_rulings": [
+    "Ruling: Execute this necessary complete-input subsystem inline under the already approved official-code/full-paper route and server/publication authorization \u2014 no new user preference or experimental architecture is introduced \u2014 cost if wrong: a labelled admission subsystem needs correction, never silent change to old results.",
+    "Ruling: Preserve explicit unified-stat substitution and old filtered aliases from reviewed reader; full content checks cannot upgrade them to merged-source/train-only/PDF equivalence \u2014 actual source records and known namespace failure remain binding \u2014 cost if wrong: data-version or pooled-stat mismatch can bias later comparison, which remains separately labelled.",
+    "Ruling: Full input qualification still does not complete scientific fusion; trained-branch provenance, GPU/recovery/full150epoch/selection/test/report remain required \u2014 this is the actual next prerequisite, not a substitute result \u2014 cost if wrong: a later integration defect may remain untested and completed model count must not increase now.",
+    "Ruling: Correct the prior future-work wording that required both initializer branches to be validation-best: canonical f7fusion config explicitly names vision last.ckpt and EMG best.ckpt, so preserve those declared roles for own trained initializers, while final fusion selection still uses independent validation best \u2014 source priority in approved spec overrides the plan shorthand; this does not infer unpublished author-file internals \u2014 cost if wrong: own last may be a weaker warm start and cannot prove byte-equivalence to author weights; retain explicit provenance and adaptation limits. No prior result or running source is changed.",
+    "Ruling: Reject unknown or stale shared LMDB environments rather than closing another consumer cache or accepting a current path hash for an old mapping; standalone qualification workers are already fresh processes \u2014 reason: existing shared reader has no inode-generation witness \u2014 cost: callers that warmed a crop through another adapter must use a fresh admission process, while unchanged registered same-process reopen remains supported.",
+    "Ruling: Reviewer declined unchanged construction/joint-reader/sharedStatGuard/range-control/live-job correctness; preserve their frozen sources and own separate evidence rather than expanding this review \u2014 cost: this review cannot certify those implementations, no original healthy owner is restarted.",
+    "Ruling: Reviewer declined publisher authentication, physically merged corpus, PDF equivalence and pooled-norm suitability; keep all explicit limitations and false eligibility flags \u2014 cost: this admission cannot claim paper numerical equivalence.",
+    "Ruling: Reviewer declined exhaustive JPEG decode/image semantics; retain complete crop byte hashes plus original fatal decode behavior \u2014 cost: a bad image may only be discovered when consumed, before scientific completion it must be handled without silent sample drops.",
+    "Ruling: Reviewer declined GPU capacity, trained initializers, recovery, full fit, selection and report; these remain mandatory future work \u2014 cost: current scientific completed-setting count remains10.",
+    "Ruling: Reviewer declined finiteness after stochastic transforms/model execution; raw full possible footprints remain this task scope \u2014 cost: real GPU training still needs its own finite forward/backward/update qualification.",
+    "Ruling: Reviewer declined automatic checks inside later loader iteration; maintain explicit checks at admission/loader boundaries and require future fit integration \u2014 cost: this module alone cannot protect an unchecked later long-running fit.",
+    "Ruling: Reviewer declined malicious replacement of private methods/guards; this is a trusted task API, not a process security boundary \u2014 cost: hostile in-process code can defeat private state and is outside the scientific provenance claim."
+  ],
+  "fixed_source_real_server_qualified": false,
+  "format": "egoemg_native_fusion_complete_input_whole_plan_review_v1",
+  "fresh_independent_review_complete": true,
+  "full_paper_complete": false,
+  "implementation_checks": {
+    "complete_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "2f7adb77f757bfd75df4c887dc2102dfb7c897e948efe9d37641f536d3f97363",
+      "passed": 1437,
+      "seconds": 87.14,
+      "skipped": 861,
+      "warnings": 1
+    },
+    "final_findings_green": {
+      "actual_exit_code": 0,
+      "deselected": 33,
+      "log_sha256": "99eb850b352a30cf06d742c967810d68a4f87f833eee8ce7938940b8de570da2",
+      "passed": 9,
+      "seconds": 23.05
+    },
+    "final_findings_red": {
+      "actual_exit_code": 1,
+      "deselected": 33,
+      "failed": 6,
+      "log_sha256": "6e9cee418c8b22bcc33e289fba9d327ff46beae4307195b1f0b84cdbfd2931c1",
+      "passed": 2,
+      "seconds": 25.74
+    },
+    "independent_collector": {
+      "actual_exit_code": 0,
+      "log_sha256": "7f35a43524545c6613aea104a58a6ff622a93af65dedf092e70b025f57862bb5"
+    },
+    "related_native": {
+      "actual_exit_code": 0,
+      "log_sha256": "a7cf0f5d2817e3e86ca3b0f81e8eb8fdd823e22cb75df771e7086ecbe8774847",
+      "passed": 82,
+      "seconds": 143.55
+    },
+    "unknown_crop_cache_red": {
+      "actual_exit_code": 1,
+      "deselected": 41,
+      "failed": 1,
+      "log_sha256": "46e1d59637e0cc7495a5706d20f96595533bc88e306fff898690ffcff9cf96a3",
+      "seconds": 4.87
+    }
+  },
+  "original_findings": {
+    "critical": 0,
+    "important": 2,
+    "minor": 0
+  },
+  "plan": "docs/superpowers/plans/2026-10-28-native-fusion-cohort.md",
+  "production_ready": false,
+  "ready_for_complete_input_subsystem": false,
+  "resolved_findings": [
+    {
+      "issue": "same mapped object can change strides or offset without object/path/shape changes",
+      "resolution": "bind complete strides, mode and offset and require native readonly C layout with offset0"
+    },
+    {
+      "issue": "payload registered after opening can hash new inode but scan stale mapping",
+      "resolution": "register all numeric payload generations before partitions/readers and require registered crop-cache generation before cache reuse"
+    }
+  ],
+  "reviewed_head_commit": "408fe0fffb802501964eab212b7285bd22d3aba5",
+  "reviewer": "native_fusion_cohort_final_review",
+  "reviewer_fresh_test_report": {
+    "actual_exit_code": 0,
+    "passed": 33,
+    "seconds": 84.98
+  },
+  "scientific_eligible": false,
+  "second_review_dispatched": false,
+  "source_files_sha256": {
+    "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+    "tests/test_fusion_literal_cohort.py": "84eb111a41b21370d2de8dbd69587b861cc99177429023edd503842a6b8ec9b9"
+  },
+  "unresolved_blocking_findings": 0
+}

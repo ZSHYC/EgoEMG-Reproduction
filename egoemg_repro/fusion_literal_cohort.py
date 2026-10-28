@@ -4,23 +4,26 @@ from __future__ import annotations
 import copy
 from dataclasses import dataclass,field
 import hashlib
+import os
 from pathlib import Path
 from types import MappingProxyType
 
 import numpy as np
 
+from . import crops as crop_io
 from .classic_emg import _activate,_file_hash,_hash
 from .classic_emg_cohort import _StatGuard,_safe,_source_paths
 from .data import LegacyStore,union_intervals
 from .fusion_literal import _validated,fusion_protocol
-from .fusion_literal_data import FusionLiteralDataset,build_fusion_partitions,fusion_normalization,NORM_ASSET
-from .vision_literal_data import _crop_path
+from .fusion_literal_data import FusionLiteralDataset,build_fusion_partitions,fusion_normalization,NORM_ASSET,_emg_schema
+from .vision_literal_data import _crop_path,_schema as _point_schema
 
 ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
 ROLES=('train','val','test')
 FORMAT='original_fusion_full_content_admission_v1'
 MAX_CHUNK_ROWS=262144
+_CROP_GENERATIONS={}
 FULL_COUNTS=dict(train=395276,val=3152,test=8612)
 MANIFEST_SHA='ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09'
 METADATA_SHA='cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57'
@@ -47,6 +50,38 @@ def _physical(ds,name):
     if name=='image_head_frame_index':return ds.frame_mapping_field
     if name.startswith('emg_') and name.endswith('_filtered_paper'):return name.removesuffix('_paper')
     return name
+
+
+def _numeric_paths(store):
+    # Register generations before partitions or readers open any numeric map.
+    # These existing schema checks inspect descriptors and file sizes only.
+    frame=_point_schema(store);_emg_schema(store)
+    names=['frame_split_id','generated_label_valid',frame]
+    for hand in ('left','right'):
+        names.extend((f'generated_joint_angles_{hand}',f'mocap_{hand}_wrist_pitch',
+            f'mocap_{hand}_wrist_yaw',f'emg_{hand}_filtered'))
+    return {'field:'+name:_safe(store.root/store.fields[name].get('filename',name+'.dat')) for name in names}
+
+
+def _crop_paths(store,partitions,crops):
+    databases={};paths={}
+    for episode in sorted({w['episode'] for w in partitions['windows']}):
+        database=_crop_path(crops,store.episodes[episode]['id'])
+        payload=_safe(database/'data.mdb' if database.is_dir() else database)
+        paths[f'crop:{episode:06d}']=payload;databases[database]=payload
+    return paths,databases
+
+
+def _bind_crop_generations(databases,guard):
+    # Shared py-lmdb environments can outlive an atomic file replacement. An
+    # existing environment is reusable only when this admission layer observed
+    # its file generation before its first open. Do not close another consumer's
+    # cache: an unknown/stale environment requires a fresh admission process.
+    for database,payload in databases.items():
+        key=(os.getpid(),str(database));generation=guard.paths[payload]
+        if key in crop_io._READERS and _CROP_GENERATIONS.get(key)!=generation:
+            raise ValueError('fusion crop reader cache generation binding is unknown or changed')
+        _CROP_GENERATIONS[key]=generation
 
 
 def _input_paths(datasets):
@@ -92,7 +127,10 @@ def _reader_binding(ds,paths):
             if (not isinstance(array,np.memmap) or array.flags.writeable or
                 _safe(array.filename)!=paths['field:'+physical] or array is not ds.store.field(physical)):
                 raise ValueError('fusion reader array mapping binding changed')
-            arrays[name]=dict(field=physical,shape=list(array.shape),dtype=str(array.dtype))
+            if array.mode!='r' or array.offset!=0 or not array.flags.c_contiguous:
+                raise ValueError('fusion reader array mapping layout changed')
+            arrays[name]=dict(field=physical,shape=list(array.shape),dtype=str(array.dtype),
+                strides=list(array.strides),offset=int(array.offset),mode=array.mode)
         views.append(dict(kind=_kind(view),native=_kind(view.native),hand=view.target_hand,
             layout=view.emg_layout,positions=view._emg2pose_channel_indices,interpolate=view.channel_interpolate,
             preference=view.emg_field_preference,norm_mode=view.norm_mode,mean=view._emg_mean,std=view._emg_std,
@@ -175,11 +213,16 @@ def admit_fusion_cohort(data,crops,*,upstream,config,normalization,expected=None
         expected.get('sha256')!=_hash({k:v for k,v in expected.items() if k!='sha256'})):
         raise ValueError('invalid expected fusion input receipt')
     sources=_sources(root);guard=_StatGuard([data/'manifest.json',data/'metadata.npz',*sources.values()])
-    partitions=build_fusion_partitions(LegacyStore(data))
+    store=LegacyStore(data);guard.check()
+    paths={'metadata:manifest':store.manifest_path,'metadata:episodes':store.metadata_path,**_numeric_paths(store)}
+    for path in paths.values():guard.add(path)
+    guard.check();partitions=build_fusion_partitions(store);guard.check()
+    crop_paths,databases=_crop_paths(store,partitions,crops);paths.update(crop_paths)
+    for path in crop_paths.values():guard.add(path)
+    guard.check();_bind_crop_generations(databases,guard)
     datasets={r:FusionLiteralDataset(data,partitions,crops,upstream=root,config=config,normalization=normalization,role=r) for r in ROLES}
     if any(not len(ds) for ds in datasets.values()):raise ValueError('all full fusion roles must be nonempty')
-    paths=_input_paths(datasets)
-    for path in paths.values():guard.add(path)
+    if _input_paths(datasets)!=paths:raise ValueError('fusion preopened input path binding differs')
     guard.check();source_hashes={k:_stream_sha(p,guard) for k,p in sources.items()}
     payload={k:_stream_sha(p,guard) for k,p in paths.items()};sizes={k:p.stat().st_size for k,p in paths.items()}
     finite=_finite(datasets,chunk_rows,guard);counts={r:len(ds) for r,ds in datasets.items()}
