@@ -2,6 +2,8 @@
 
 当前正在实现[完整WiLoR计划](superpowers/plans/2026-10-28-wilor-native.md)。Task1配置契约与Task2真实资产/原生模型及优化器入口已完成。完整输入绑定、连续fit、GPU资格、一次新实现审查、完整30轮和独立测试报告仍需逐项完成。全论文完成设置数不会因配置或工程检查增加。
 
+Task3数据边界代码现已实现，绑定源码9ace68b，30项普通memmap/LMDB检查通过（98.42秒）：完整比较WiLoR与原视觉S的数据配置，再调用原读取器，外层单独绑定WiLoR来源。核验实际payload、训练抖动范围、repeat2/左右顺序、原生成mask和缺图归一化黑输入；改动输入、读取器字段或重封错误摘要均拒绝。CPU工程加载为B1、各角色最多两个样本；正式和CUDA工程入口要求真实注册完整队列并保持B18。完整数据内容重验/另进程重开会在本文件fit代码冻结后执行，避免计划内源码增加使收据失效；连续fit/readers、两轮原生CPU和GPU资格仍未完成。这里的30通过不替代Task2已发布的检查身份，也不表示Task3整体完成。
+
 [配方来源审计](../results/wilor-angle-recipe-audit-20261028.md)核对了所附PDF第22页与固定官方源码。原仓库有WiLoR模块，独立视觉WiLoR训练YAML缺失；此处明确派生自官方视觉ViT-S配方，整份替换模块参数，再应用论文WiLoR的batch18、初始LR1e-5和30epochs。BF16、weight_decay0.01、梯度裁剪1、val_mae选模/top3+last/patience30等分别标为继承字段。
 
 ```python

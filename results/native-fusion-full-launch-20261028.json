@@ -1,0 +1,49 @@
+{
+  "actual_complete_emg_export_tensors": 110,
+  "actual_completed_emg150_accepted": true,
+  "actual_current_phase": "preflight",
+  "actual_current_phase_worker_and_guardian_live": {
+    "guardian": true,
+    "worker": true
+  },
+  "actual_emg150_updates": 36450,
+  "actual_emg_export_sha256": "4b60c5e4b2cd6ff0ad30a75e5a97ec2baca2741ca76fdf7a7086742f1b66c654",
+  "actual_emg_validation_best_epoch": 133,
+  "actual_full_fit_completed": false,
+  "actual_gpu_fit_started": false,
+  "actual_launch_resources": {
+    "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+    "initial_available_memory_bytes": 895415066624,
+    "initial_gpu_free_bytes": 85081456640,
+    "initial_output_disk_free_bytes": 70269427712
+  },
+  "actual_matching_recorder_and_controller_live": true,
+  "actual_qualified_production_files_identical": 82,
+  "actual_workflow_started_utc": "2026-10-28T15:48:05.128421+00:00",
+  "bundle_sha256": "59b5ed5f525f22efba7867bd19f47cff22d10da28ae9c1a06cb2040a7718ebf8",
+  "final_new_implementation_review_counts": {
+    "critical": 0,
+    "important": 0,
+    "minor": 1
+  },
+  "format": "actual_qualified_source_trained_branch_fusion_full_workflow_launch_v1",
+  "frozen_members_verified": 90,
+  "full_paper_complete": false,
+  "handoff_independent_reopen_completed": false,
+  "implicit_retry": false,
+  "observed_utc": "2026-10-28T15:52:16.040903+00:00",
+  "planned_original_full_recipe": {
+    "batch_size_all_roles": 200,
+    "early_stopping": false,
+    "epochs": 150,
+    "optimizer_executions_expected": 296550,
+    "precision": "bf16-mixed",
+    "test_consumed": 8612,
+    "test_unique": 4306,
+    "train_consumed": 395276,
+    "val_consumed": 3152
+  },
+  "scientific_eligible": false,
+  "source_commit": "9ace68b9ed189a2eee4a6c5d71502426e8841166",
+  "trained_vision_initialization": "completed124epoch ViT-S native last; existing fully verified source"
+}
