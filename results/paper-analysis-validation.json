@@ -61,8 +61,17 @@
     "head_commit": "536b90fb2e9bdb708096410b8456bd1cae3d189e",
     "light_conclusion": "failure",
     "light_job_id": 122563202302,
+    "official_cpu_conclusion": "failure",
+    "official_cpu_failed": 1,
+    "official_cpu_failure": "fixture requires bitwise equality of differently ordered float64 sums; observed one-ULP sum and degree difference",
     "official_cpu_job_id": 122563202010,
+    "official_cpu_log_sha256": "fd605ed9ffab4b54eb7d439314613eae6500b824c5304e5d5d50a3786e4ad699",
+    "official_cpu_passed": 2510,
+    "official_cpu_seconds": 3224.8,
+    "official_cpu_skipped": 3,
+    "official_cpu_status": "completed",
     "official_cpu_status_at_20261028T010302Z": "in_progress",
+    "official_cpu_warnings": 194,
     "run_id": 40611301707
   },
   "light_full": {
@@ -74,6 +83,37 @@
     "warnings": 1
   },
   "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "post_ci_fp64_fixture_correction": {
+    "actual_native_green": {
+      "log_sha256": "bb606c376297c2f6f5551aad04e43f4736fddf46ad5096e90de559c5ccce4c3b",
+      "passed": 120,
+      "seconds": 17.02,
+      "warnings": 20
+    },
+    "actual_red": {
+      "deselected": 2,
+      "failed": 1,
+      "log_sha256": "ef83f88efa1025555cba2892b326da45bd94a9182f708cf60724c2d04c98db08",
+      "passed": 1,
+      "seconds": 2.91,
+      "warnings": 5
+    },
+    "actual_whole_light_green": {
+      "log_sha256": "4c60ace3fa66b46bd45820c9aec8481972cd1063a0c8b9c07bd0c203af40dee9",
+      "passed": 1408,
+      "seconds": 90.69,
+      "skipped": 737,
+      "warnings": 2
+    },
+    "corrected_test_sha256": "6c804748d3adc37271be7961c076cebd8cfbb1195ac2949229a33bf631acdc25",
+    "fixture_only_comparison": "same keys/exact counts;64ULP absolute allowance for float64 sum and degrees",
+    "forced_roundoff_ulps": 8,
+    "new_hosted_full_verification_pending": true,
+    "production_source_changed": false,
+    "recorded_original_gpu_analysis_producers_and_results_unchanged": true,
+    "scientific_baseline_gate_changed": false,
+    "scientific_gate": "valid counts exact;1e-4degree absolute MAE"
+  },
   "prefetch_fixture_correction": {
     "forced_delayed_first_request_red": {
       "failed": 1,

@@ -1,0 +1,42 @@
+{
+  "actual_exit_code": 0,
+  "actual_exit_observation_sha256": "70cfe779524d654a0865d8f77491fb9d8fcb0cc71ed3a09b6598fbe8a79e5f52",
+  "all_two_arrays_complete": true,
+  "arrays": [
+    {
+      "bytes": 2117175200,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1qXtxPoeqL5BtFSbfZmDqQ4bPHXnn50RD",
+      "filename": "emg_left_raw.dat",
+      "sha256": "cc4cbb1645344369046cefe974ea3983ab93014538ef6a6736ebf5aa34654147",
+      "url": "https://drive.google.com/uc?id=1qXtxPoeqL5BtFSbfZmDqQ4bPHXnn50RD",
+      "verified_at": "2026-10-28T01:27:49.623262+00:00"
+    },
+    {
+      "bytes": 2117175200,
+      "checksum_basis": "local_transfer",
+      "drive_id": "117OV16PopMlpDawLOD9rD4I3ua81Jm-N",
+      "filename": "emg_right_raw.dat",
+      "sha256": "d159823626d80cd3ab8a46ab0d4a4ef232010a10154385b87259b94f4f3aeaed",
+      "url": "https://drive.google.com/uc?id=117OV16PopMlpDawLOD9rD4I3ua81Jm-N",
+      "verified_at": "2026-10-28T01:52:32.300968+00:00"
+    }
+  ],
+  "both_preserved_prefix_tails_verified_before_resume": true,
+  "checksum_scope": "actual locally received complete byte arrays; original source publishes no authenticated bulk reference",
+  "format": "egoemg_legacy_full_raw_bilateral_received_v1",
+  "full_bilateral_preprocessing_complete": false,
+  "full_paper_complete": false,
+  "manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+  "observed_utc": "2026-10-28T01:56:34.673120+00:00",
+  "original_process_independently_nonlive": true,
+  "partial_prefixes_preserved": true,
+  "publisher_authenticated_bulk_checksum_available": false,
+  "raw_actual_state_sha256": "2a1e10c94ce1fecfa9e330c80e14ce356e4962ba3774cf261d475e7ce7f3b8ab",
+  "source_files_sha256": {
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "tmp/legacy-raw-direct-20261028.py": "5d3930758dcacc009e5652f4dbcb6ec9848482ab3eadff12ee8b4c9bc05f838a"
+  },
+  "total_received_bytes": 4234350400
+}

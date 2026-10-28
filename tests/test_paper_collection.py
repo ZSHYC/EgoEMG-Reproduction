@@ -2,6 +2,7 @@
 import copy
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import random
@@ -11,8 +12,10 @@ import numpy as np
 import pytest
 
 
-@pytest.mark.parametrize('kind',['emg','vision','fusion'])
-def test_original_collection_uses_frozen_centers_and_actual_output_time_semantics(tmp_path,kind):
+@pytest.mark.parametrize('kind,force_reduction_roundoff',[
+    ('emg',False),('emg',True),('vision',False),('fusion',False)])
+def test_original_collection_uses_frozen_centers_and_actual_output_time_semantics(
+        tmp_path,kind,force_reduction_roundoff):
     torch=pytest.importorskip('torch');pytest.importorskip('hydra');pytest.importorskip('lmdb')
     upstream=os.environ.get('EGOEMG_UPSTREAM')
     if not upstream:pytest.skip('set EGOEMG_UPSTREAM for original-model collection')
@@ -66,6 +69,10 @@ def test_original_collection_uses_frozen_centers_and_actual_output_time_semantic
         checkpoint['best']['provenance']=copy.deepcopy(provenance)
         dataset=train.build_datasets(data,partition,norm,config,crops=crops)['test']
         saved=train.evaluate(model,DataLoader(dataset,batch_size=2),'cpu',config)
+        if force_reduction_roundoff:
+            overall=saved['sampling']['trajectory']['overall']
+            for key in ('absolute_error_sum_rad','mae_deg'):
+                for _ in range(8):overall[key]=math.nextafter(overall[key],math.inf)
         summary=artifacts['summary.json'];summary.update(provenance=provenance,test=saved)
         for name,value in [('provenance.json',provenance),('summary.json',summary),
                            ('partitions.json',partition),('normalization.json',norm)]:
@@ -85,7 +92,14 @@ def test_original_collection_uses_frozen_centers_and_actual_output_time_semantic
         assert result['baseline_verification']['agreement']
         if kind=='emg':
             assert result['trajectory_baseline_verified']
-            assert result['joint_groups']['overall']==saved['sampling']['trajectory']['overall']
+            actual=result['joint_groups']['overall'];expected=saved['sampling']['trajectory']['overall']
+            assert set(actual)==set(expected)
+            assert actual['valid_angle_count']==expected['valid_angle_count']
+            # Per-angle NumPy and pooled Torch sums associate the same float64
+            # terms differently. Limit this fixture allowance to roundoff; the
+            # production count-exact/1e-4-degree baseline gate stays unchanged.
+            for metric in ('absolute_error_sum_rad','mae_deg'):
+                assert actual[metric]==pytest.approx(expected[metric],rel=0,abs=64*math.ulp(expected[metric]))
         else:assert result['trajectory_baseline_verified'] is None and result['joint_groups'] is None
         rows=json.loads((output/'records.json').read_text())['records']
         assert len(rows)==2 and [r['crop_present'] for r in rows]==[True,False]
