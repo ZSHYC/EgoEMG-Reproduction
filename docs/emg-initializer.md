@@ -65,4 +65,4 @@ loaders = native_emg_initializer_loaders(cohort)
 
 `export_emg_initializer_best`只导出原回调实际选中的best全部状态张量，并绑定来源检查点、数据划分、验证分数与逐张量字节/shape/dtype清单；默认拒绝工程或未完成150轮模型。不会用last替代best。[独立CPU整链证据](../results/emg-initializer-runtime-cpu-20261028.json)记录新进程重新核验原工程fit、全部数据与110张量导出，并重推最后一轮完整验证预测精确一致。14项训练/恢复/导出检查通过，包含两个真正独立进程的工程轮次和恢复、六状态及整套冻结验证一致、原失败和历史日志保留，以及被改动的最佳权重/历史/覆盖统计拒绝。
 
-真实batch260 GPU资格、完整150轮与验证best最终验收仍未完成；整个初始化实现的一次最终整体审查也仍待完成。[后续完整计划](superpowers/plans/2026-10-28-fusion-compatible-emg-initializer.md)保持这些要求。以上工程检查没有产生新的论文测试精度。
+[真实GPU工程资格](../results/emg-initializer-runtime-gpu-20261028.json)已实际完成98.84秒exit0：两个GPU进程分别完整重验真实16.54GB数值队列，保持官方batch260/bf16，两轮各520训练手样本/582完整验证手样本，合计4次更新；新进程六状态及完整冻结验证均精确一致。第三个独立CPU进程重开实际fit与110张量best导出通过，所有8个拥有进程已独立确认退出、83个固定成员不变，A800峰值allocated/reserved为12.74/14.61GB。这是明确520样本的工程训练，不是全63,026训练人口或150轮。完整150轮与验证best最终验收仍未完成；整个初始化实现的一次最终整体审查也仍待完成。[后续完整计划](superpowers/plans/2026-10-28-fusion-compatible-emg-initializer.md)保持这些要求。以上工程检查没有产生新的论文测试精度。
