@@ -1,0 +1,811 @@
+{
+  "all_four_independent_owners_exited": true,
+  "all_seven_recorded_sources_unchanged": true,
+  "cuda_initialized": false,
+  "final_raw_reader_recovery": {
+    "actual_exit_code": 0,
+    "new_prediction_restarts": 0,
+    "new_training_updates": 0,
+    "seconds": 6.763663736986928
+  },
+  "fit_epochs": 2,
+  "fit_optimizer_updates": 2,
+  "fit_result_sha256": "0d57ef580f07b6fb617945518bacb756fecd8c1c2641190c1f39b880203c0110",
+  "format": "public_native_neuropose_cpu_evaluation_proof_v1",
+  "full_paper_complete": false,
+  "independent_additional_test_replay": {
+    "actual_exit_code": 0,
+    "pass_sha256": "d3667a8525b098dad433790c5d24be543c28255fe8b7e775cb52e230bf2a658e",
+    "samples": 2
+  },
+  "independent_report_verifier": {
+    "actual_exit_code": 0,
+    "exact_png_and_svg_regeneration": true,
+    "report_sha256": "daec8ffca6f6390f431dbee1ce7d0fca937a3983b324a02424c6d06e0bb11df2"
+  },
+  "limitations": [
+    "Tiny ordinary memmap fixture only; not full1576/4306 or CUDA qualification.",
+    "Old failed resumed-trajectory gate remains failed and unchanged.",
+    "Actual CUDA qualification, final review and full native training remain required."
+  ],
+  "native_and_independent_validation_and_test_exact": true,
+  "original_fit_all_files_byte_preserved": true,
+  "original_model_parameters": 6354969,
+  "original_parent_failure": {
+    "actual_exit_code": 1,
+    "cause": "collector project-root import path omitted during final parent read",
+    "no_training_or_prediction_restart": true,
+    "original_state_and_logs_preserved": true,
+    "original_two_children_succeeded": true
+  },
+  "plot_visually_inspected": true,
+  "prediction_dtype": "torch.float32",
+  "public_report": {
+    "agreement_policy": {
+      "center_index": 3895,
+      "native_loss_aggregation": "sample-count weighted original per-batch composite loss",
+      "native_loss_atol": 1e-07,
+      "native_loss_rtol": 2e-06,
+      "original_angles": 22,
+      "pooled_aggregation": "float64 absolute-error sum / exact valid-angle count; degrees",
+      "prediction": "exact_typed_prediction_replay_v1",
+      "trajectory_length": 7790
+    },
+    "completed_epochs": 2,
+    "counts": {
+      "test": 2,
+      "train": 2,
+      "val": 2
+    },
+    "curve_data": {
+      "epochs": [
+        {
+          "attempts": 1,
+          "epoch": 0,
+          "optimizer_executions": 1,
+          "train_batches": 1,
+          "train_loss": 1.161383867263794,
+          "train_samples": 2,
+          "validation": {
+            "model_sha256": "d45e8e6ecad92603d4fc357d8d04059a2164b4106e72372016e70e3431250acc",
+            "prediction_sha256": "c4c7b9628d9613a59ee48bb58a22a9daf4db98ad8032076dab4331bc942941b0",
+            "samples": 2,
+            "val_loss": 0.422825425863266
+          }
+        },
+        {
+          "attempts": 2,
+          "epoch": 1,
+          "optimizer_executions": 2,
+          "train_batches": 1,
+          "train_loss": 0.7914885878562927,
+          "train_samples": 2,
+          "validation": {
+            "model_sha256": "7bc22652cddbd6810d8197a2ff3aaacd2bdc31a2db69ef48b24ad5743dbe5ce8",
+            "prediction_sha256": "87804d1b0b387e03301419221f45ee7cec5f0f0ef0a3a8063d17c1e55cb8172e",
+            "samples": 2,
+            "val_loss": 0.5221860408782959
+          }
+        }
+      ],
+      "fit_result_sha256": "0d57ef580f07b6fb617945518bacb756fecd8c1c2641190c1f39b880203c0110",
+      "format": "native_neuropose_curve_data_v1",
+      "journal_sha256": "091a924ec5a77d09566dd46935ff9a0ef714dd7d6a865683a041af0f0183f276",
+      "scope": "cpu_engineering",
+      "selected_best": {
+        "checkpoint_sha256": "92a1e99c387abf1b0c21223ef6135acd4691cb43065e0ac33dd07d9953b586f0",
+        "epoch": 0,
+        "file": "neuropose-egoemg-epoch=000-val_loss=0.4228.ckpt",
+        "model_sha256": "d45e8e6ecad92603d4fc357d8d04059a2164b4106e72372016e70e3431250acc",
+        "score": 0.422825425863266,
+        "validation_prediction_sha256": "c4c7b9628d9613a59ee48bb58a22a9daf4db98ad8032076dab4331bc942941b0"
+      },
+      "selected_epoch_zero_based": 0,
+      "training_unit": "native sample-weighted composite loss",
+      "validation_unit": "native sample-weighted composite loss (val_loss); checkpoint selection"
+    },
+    "evaluation_sources": {
+      "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+      "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+      "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+      "egoemg_repro/neuropose_native_eval.py": "835572ef96a321c93c94724609587039babbc5324766848de0c4d72402aa8dd6",
+      "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927"
+    },
+    "fit_result_sha256": "0d57ef580f07b6fb617945518bacb756fecd8c1c2641190c1f39b880203c0110",
+    "format": "native_neuropose_completed_report_v1",
+    "full_paper_complete": false,
+    "limitations": [
+      "Legacy release, not demonstrated equivalent to the PDF or unavailable merged data.",
+      "One CUDA rank/global batch256 differs from the declared six-rank BatchNorm statistics.",
+      "No checkpoint continuation or stochastic training-trajectory equivalence claim.",
+      "CPU/CUDA engineering has no scientific score; the complete paper remains unfinished."
+    ],
+    "native_metrics": {
+      "test_derivatives/acc": 0.008550561964511871,
+      "test_derivatives/jerk": 0.015953056514263153,
+      "test_derivatives/vel": 0.006146552972495556,
+      "test_landmark/all": 9.63754653930664,
+      "test_landmark/fingertip": 16.81015396118164,
+      "test_loss": 0.4228270649909973,
+      "test_mae": 0.08662398159503937,
+      "test_mae_per_finger/index": 0.11439959704875946,
+      "test_mae_per_finger/middle": 0.04522441700100899,
+      "test_mae_per_finger/pinky": 0.07207033783197403,
+      "test_mae_per_finger/ring": 0.09310973435640335,
+      "test_mae_per_finger/thumb": 0.1417529582977295,
+      "test_mae_per_pd/distal": 0.13764987885951996,
+      "test_mae_per_pd/mid": 0.0701100155711174,
+      "test_mae_per_pd/proximal": 0.08274286240339279,
+      "test_mae_wrist/deviation": 0.022945037111639977,
+      "test_mae_wrist/flexion": 0.01655452325940132
+    },
+    "native_metrics_units": "original native composite loss; MAE radians; landmarks meters; native derivatives separate",
+    "native_test_sha256": "5020a13fedbab05308311c39b5c57495182a8c562f68c3c4c6787f9ec9d67baf",
+    "optimizer_executions": 2,
+    "plot_runtime": {
+      "backend": "Agg",
+      "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "freetype_version": "2.6.1",
+      "matplotlib_version": "3.9.4",
+      "svg_hashsalt": "egoemg-native-neuropose-v1"
+    },
+    "policy": {
+      "batch_size": 2,
+      "checkpoint_continuation_supported": false,
+      "counts": null,
+      "engineering_train_limit": 4,
+      "mode": "min",
+      "monitor": "val_loss",
+      "num_workers": 0,
+      "patience": 50,
+      "scientific_eligible": false,
+      "scope": "cpu_engineering",
+      "trainer": {
+        "accelerator": "cpu",
+        "accumulate_grad_batches": 1,
+        "check_val_every_n_epoch": 1,
+        "deterministic": false,
+        "devices": 1,
+        "gradient_clip_val": 0,
+        "limit_test_batches": 1.0,
+        "limit_train_batches": 1.0,
+        "limit_val_batches": 1.0,
+        "log_every_n_steps": 50,
+        "max_epochs": 2,
+        "max_steps": -1,
+        "num_sanity_val_steps": 0,
+        "precision": "32-true",
+        "val_check_interval": 1.0
+      },
+      "training_trajectory_agreement_claimed": false,
+      "variant": "neuropose"
+    },
+    "population": {
+      "counts_describe": "released metadata subject keys, not independently verified natural-person identities",
+      "cross_role_user_intersection_counts": {
+        "train_test": 1,
+        "train_val": 1,
+        "val_test": 1
+      },
+      "episode_records": 1,
+      "train_test_user_intersection_by_split": {
+        "both": 0,
+        "gesture": 0,
+        "user": 1
+      },
+      "unique_subjects_by_role": {
+        "test": 1,
+        "train": 1,
+        "val": 1
+      }
+    },
+    "scientific_eligible": false,
+    "scope": "cpu_engineering",
+    "selected_best": {
+      "checkpoint_sha256": "92a1e99c387abf1b0c21223ef6135acd4691cb43065e0ac33dd07d9953b586f0",
+      "epoch": 0,
+      "file": "neuropose-egoemg-epoch=000-val_loss=0.4228.ckpt",
+      "model_sha256": "d45e8e6ecad92603d4fc357d8d04059a2164b4106e72372016e70e3431250acc",
+      "score": 0.422825425863266,
+      "validation_prediction_sha256": "c4c7b9628d9613a59ee48bb58a22a9daf4db98ad8032076dab4331bc942941b0"
+    },
+    "sha256": "daec8ffca6f6390f431dbee1ce7d0fca937a3983b324a02424c6d06e0bb11df2",
+    "statistics": {
+      "alignment": {
+        "input_length": 7790,
+        "left_context": 0,
+        "original_center": 3895,
+        "output_center": 3895,
+        "output_length": 7790,
+        "right_context": 0
+      },
+      "center": {
+        "by_component": {
+          "fingers": {
+            "absolute_error_sum_rad": 3.730607893317938,
+            "mae_deg": 5.343702182632727,
+            "valid_angle_count": 40
+          },
+          "wrist": {
+            "absolute_error_sum_rad": 0.07929163798689842,
+            "mae_deg": 1.1357690518321186,
+            "valid_angle_count": 4
+          }
+        },
+        "by_finger": {
+          "index": {
+            "absolute_error_sum_rad": 0.9148144870996475,
+            "mae_deg": 6.551876143529363,
+            "valid_angle_count": 8
+          },
+          "middle": {
+            "absolute_error_sum_rad": 0.36108450032770634,
+            "mae_deg": 2.5860772395459706,
+            "valid_angle_count": 8
+          },
+          "pinky": {
+            "absolute_error_sum_rad": 0.5763204656541348,
+            "mae_deg": 4.12759129112453,
+            "valid_angle_count": 8
+          },
+          "ring": {
+            "absolute_error_sum_rad": 0.7444982323795557,
+            "mae_deg": 5.332075821287319,
+            "valid_angle_count": 8
+          },
+          "thumb": {
+            "absolute_error_sum_rad": 1.1338902078568935,
+            "mae_deg": 8.120890417676458,
+            "valid_angle_count": 8
+          }
+        },
+        "by_hand": {
+          "left": {
+            "absolute_error_sum_rad": 1.87750652898103,
+            "mae_deg": 4.889690914494073,
+            "valid_angle_count": 22
+          },
+          "right": {
+            "absolute_error_sum_rad": 1.9323930023238063,
+            "mae_deg": 5.032634699716726,
+            "valid_angle_count": 22
+          }
+        },
+        "by_hand_split": {
+          "left": {
+            "user": {
+              "absolute_error_sum_rad": 1.87750652898103,
+              "mae_deg": 4.889690914494073,
+              "valid_angle_count": 22
+            }
+          },
+          "right": {
+            "user": {
+              "absolute_error_sum_rad": 1.9323930023238063,
+              "mae_deg": 5.032634699716726,
+              "valid_angle_count": 22
+            }
+          }
+        },
+        "by_joint": [
+          {
+            "absolute_error_sum_rad": 0.35301861725747585,
+            "index": 0,
+            "mae_deg": 10.113238429198768,
+            "name": "THUMB_CMC_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.07683497108519077,
+            "index": 1,
+            "mae_deg": 2.201159781095573,
+            "name": "THUMB_CMC_AA",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.21912582777440548,
+            "index": 2,
+            "mae_deg": 6.2774925568919935,
+            "name": "THUMB_MCP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.48491079173982143,
+            "index": 3,
+            "mae_deg": 13.891670903519495,
+            "name": "THUMB_IP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.3084483239799738,
+            "index": 4,
+            "mae_deg": 8.836393580968181,
+            "name": "INDEX_MCP_AA",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.13447491265833378,
+            "index": 5,
+            "mae_deg": 3.8524224728564476,
+            "name": "INDEX_MCP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.10269707627594471,
+            "index": 6,
+            "mae_deg": 2.9420545194723626,
+            "name": "INDEX_PIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.36919417418539524,
+            "index": 7,
+            "mae_deg": 10.576634000820457,
+            "name": "INDEX_DIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.03427913971245289,
+            "index": 8,
+            "mae_deg": 0.9820250154314224,
+            "name": "MIDDLE_MCP_AA",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.08799121249467134,
+            "index": 9,
+            "mae_deg": 2.520762555091732,
+            "name": "MIDDLE_MCP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.191922003403306,
+            "index": 10,
+            "mae_deg": 5.4981603953524285,
+            "name": "MIDDLE_PIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.046892144717276096,
+            "index": 11,
+            "mae_deg": 1.3433609923082996,
+            "name": "MIDDLE_DIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.29250083677470684,
+            "index": 12,
+            "mae_deg": 8.379531725617843,
+            "name": "RING_MCP_AA",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.026828788220882416,
+            "index": 13,
+            "mae_deg": 0.7685881672534295,
+            "name": "RING_MCP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.17552871443331242,
+            "index": 14,
+            "mae_deg": 5.02852726019293,
+            "name": "RING_PIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.24963989295065403,
+            "index": 15,
+            "mae_deg": 7.151656132085074,
+            "name": "RING_DIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.12115317024290562,
+            "index": 16,
+            "mae_deg": 3.4707826647742235,
+            "name": "PINKY_MCP_AA",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.2180847581475973,
+            "index": 17,
+            "mae_deg": 6.24766810899431,
+            "name": "PINKY_MCP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.011712400242686272,
+            "index": 18,
+            "mae_deg": 0.33553555093696225,
+            "name": "PINKY_PIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.22537013702094555,
+            "index": 19,
+            "mae_deg": 6.456378839792624,
+            "name": "PINKY_DIP_FE",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.03326333872973919,
+            "index": 20,
+            "mae_deg": 0.9529244608640542,
+            "name": "wrist_pitch",
+            "valid_angle_count": 2
+          },
+          {
+            "absolute_error_sum_rad": 0.04602829925715923,
+            "index": 21,
+            "mae_deg": 1.3186136428001831,
+            "name": "wrist_yaw",
+            "valid_angle_count": 2
+          }
+        ],
+        "by_pd_group": {
+          "distal": {
+            "absolute_error_sum_rad": 1.3760071406140924,
+            "mae_deg": 7.883940173705189,
+            "valid_angle_count": 10
+          },
+          "mid": {
+            "absolute_error_sum_rad": 0.7009860221296549,
+            "mae_deg": 4.016354056569336,
+            "valid_angle_count": 10
+          },
+          "proximal": {
+            "absolute_error_sum_rad": 1.6536147305741906,
+            "mae_deg": 4.737257250128192,
+            "valid_angle_count": 20
+          }
+        },
+        "by_split": {
+          "user": {
+            "absolute_error_sum_rad": 3.8098995313048363,
+            "mae_deg": 4.961162807105399,
+            "valid_angle_count": 44
+          }
+        },
+        "by_user": {
+          "user_001": {
+            "absolute_error_sum_rad": 3.8098995313048363,
+            "mae_deg": 4.961162807105399,
+            "valid_angle_count": 44
+          }
+        },
+        "invalid_angle_count": 0,
+        "mode": "center",
+        "overall": {
+          "absolute_error_sum_rad": 3.8098995313048363,
+          "mae_deg": 4.961162807105399,
+          "valid_angle_count": 44
+        },
+        "user_summary": {
+          "aggregation": "unweighted per-user means; population standard deviation (ddof=0)",
+          "mean_mae_deg": 4.961162807105399,
+          "std_mae_deg": 0.0,
+          "user_count": 1
+        }
+      },
+      "format": "classic_private_angle_statistics_v1",
+      "samples": 2,
+      "scientific_eligible": false,
+      "scope": "arithmetic only; no inference, coverage, selected-best or calibration qualification",
+      "trajectory": {
+        "by_component": {
+          "fingers": {
+            "absolute_error_sum_rad": 29075.83390690293,
+            "mae_deg": 5.346349706960569,
+            "valid_angle_count": 311600
+          },
+          "wrist": {
+            "absolute_error_sum_rad": 615.4031397029757,
+            "mae_deg": 1.1315790309396758,
+            "valid_angle_count": 31160
+          }
+        },
+        "by_finger": {
+          "index": {
+            "absolute_error_sum_rad": 7129.3827140927315,
+            "mae_deg": 6.554613928931925,
+            "valid_angle_count": 62320
+          },
+          "middle": {
+            "absolute_error_sum_rad": 2818.385758808814,
+            "mae_deg": 2.591168309042378,
+            "valid_angle_count": 62320
+          },
+          "pinky": {
+            "absolute_error_sum_rad": 4491.423211868852,
+            "mae_deg": 4.12932596352981,
+            "valid_angle_count": 62320
+          },
+          "ring": {
+            "absolute_error_sum_rad": 5802.598794538528,
+            "mae_deg": 5.334794947605211,
+            "valid_angle_count": 62320
+          },
+          "thumb": {
+            "absolute_error_sum_rad": 8834.043427594006,
+            "mae_deg": 8.12184538569352,
+            "valid_angle_count": 62320
+          }
+        },
+        "by_hand": {
+          "left": {
+            "absolute_error_sum_rad": 14631.1411600844,
+            "mae_deg": 4.891484641924258,
+            "valid_angle_count": 171380
+          },
+          "right": {
+            "absolute_error_sum_rad": 15060.095886521507,
+            "mae_deg": 5.034892830902173,
+            "valid_angle_count": 171380
+          }
+        },
+        "by_hand_split": {
+          "left": {
+            "user": {
+              "absolute_error_sum_rad": 14631.1411600844,
+              "mae_deg": 4.891484641924258,
+              "valid_angle_count": 171380
+            }
+          },
+          "right": {
+            "user": {
+              "absolute_error_sum_rad": 15060.095886521507,
+              "mae_deg": 5.034892830902173,
+              "valid_angle_count": 171380
+            }
+          }
+        },
+        "by_joint": [
+          {
+            "absolute_error_sum_rad": 2750.7261086441576,
+            "index": 0,
+            "mae_deg": 10.115853441704402,
+            "name": "THUMB_CMC_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 597.4532770179212,
+            "index": 1,
+            "mae_deg": 2.197147062219981,
+            "name": "THUMB_CMC_AA",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1708.1767193712294,
+            "index": 2,
+            "mae_deg": 6.281856012995781,
+            "name": "THUMB_MCP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 3777.687322560698,
+            "index": 3,
+            "mae_deg": 13.892525025853917,
+            "name": "THUMB_IP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 2404.668081756681,
+            "index": 4,
+            "mae_deg": 8.843217728785456,
+            "name": "INDEX_MCP_AA",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1046.6724224500358,
+            "index": 5,
+            "mae_deg": 3.8491599704185493,
+            "name": "INDEX_MCP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 799.5873183272779,
+            "index": 6,
+            "mae_deg": 2.9404992742192864,
+            "name": "INDEX_PIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 2878.4548915587366,
+            "index": 7,
+            "mae_deg": 10.585578742304406,
+            "name": "INDEX_DIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 270.02768437564373,
+            "index": 8,
+            "mae_deg": 0.9930325203090545,
+            "name": "MIDDLE_MCP_AA",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 686.8274948289618,
+            "index": 9,
+            "mae_deg": 2.525822638462316,
+            "name": "MIDDLE_MCP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1496.2812960706651,
+            "index": 10,
+            "mae_deg": 5.5026061122730345,
+            "name": "MIDDLE_PIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 365.24928353354335,
+            "index": 11,
+            "mae_deg": 1.3432119651251084,
+            "name": "MIDDLE_DIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 2282.1196760199964,
+            "index": 12,
+            "mae_deg": 8.392543374820832,
+            "name": "RING_MCP_AA",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 208.85881377756596,
+            "index": 13,
+            "mae_deg": 0.7680827049783915,
+            "name": "RING_MCP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1366.7788469456136,
+            "index": 14,
+            "mae_deg": 5.026358116671423,
+            "name": "RING_PIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1944.8414577953517,
+            "index": 15,
+            "mae_deg": 7.152195593950197,
+            "name": "RING_DIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 943.0980766750872,
+            "index": 16,
+            "mae_deg": 3.468263123259808,
+            "name": "PINKY_MCP_AA",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1700.88650823012,
+            "index": 17,
+            "mae_deg": 6.255046107338218,
+            "name": "PINKY_MCP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 90.74606937170029,
+            "index": 18,
+            "mae_deg": 0.33372058937097643,
+            "name": "PINKY_PIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 1756.692557591945,
+            "index": 19,
+            "mae_deg": 6.460274034150241,
+            "name": "PINKY_DIP_FE",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 257.919506739825,
+            "index": 20,
+            "mae_deg": 0.9485044409684187,
+            "name": "wrist_pitch",
+            "valid_angle_count": 15580
+          },
+          {
+            "absolute_error_sum_rad": 357.48363296315074,
+            "index": 21,
+            "mae_deg": 1.3146536209109327,
+            "name": "wrist_yaw",
+            "valid_angle_count": 15580
+          }
+        ],
+        "by_pd_group": {
+          "distal": {
+            "absolute_error_sum_rad": 10722.925513040274,
+            "mae_deg": 7.886757072276774,
+            "valid_angle_count": 77900
+          },
+          "mid": {
+            "absolute_error_sum_rad": 5461.570250086486,
+            "mae_deg": 4.017008021106101,
+            "valid_angle_count": 77900
+          },
+          "proximal": {
+            "absolute_error_sum_rad": 12891.33814377617,
+            "mae_deg": 4.740816867229701,
+            "valid_angle_count": 155800
+          }
+        },
+        "by_split": {
+          "user": {
+            "absolute_error_sum_rad": 29691.237046605907,
+            "mae_deg": 4.963188736413215,
+            "valid_angle_count": 342760
+          }
+        },
+        "by_user": {
+          "user_001": {
+            "absolute_error_sum_rad": 29691.237046605907,
+            "mae_deg": 4.963188736413215,
+            "valid_angle_count": 342760
+          }
+        },
+        "invalid_angle_count": 0,
+        "mode": "trajectory",
+        "overall": {
+          "absolute_error_sum_rad": 29691.237046605907,
+          "mae_deg": 4.963188736413215,
+          "valid_angle_count": 342760
+        },
+        "user_summary": {
+          "aggregation": "unweighted per-user means; population standard deviation (ddof=0)",
+          "mean_mae_deg": 4.963188736413215,
+          "std_mae_deg": 0.0,
+          "user_count": 1
+        }
+      }
+    },
+    "stop_reason": "engineering-two-epochs",
+    "test_replay_sha256": "d3667a8525b098dad433790c5d24be543c28255fe8b7e775cb52e230bf2a658e",
+    "training_sources": {
+      "configs/neuropose.json": "a1a22af156d3fa1fe60bde71cce0ed63cacbe49049d622e49e714bda6e9800cb",
+      "configs/vemg2pose.json": "8d12a4ce68fc6f9f4e3a97777af08fd48fc2b48d5d16a54ecf56cc44dfd05c69",
+      "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+      "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+      "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+      "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+      "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+      "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+      "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+      "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+      "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+      "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927",
+      "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+      "tools/classic_capacity.py": "b890de97c1ebafcb5ddb88dde91785a40a439dce904e919e433f82f8389f7d87"
+    },
+    "underlying_counts": {
+      "test": 2,
+      "train": 2,
+      "val": 2
+    },
+    "validation_profile_sha256": "1829a58dd4ef03f7377c8a01f2023cc6685c42c9efa9cf7eda0076fabfab6355",
+    "variant": "neuropose"
+  },
+  "report_files_sha256": {
+    "curve-data.json": "811cdfcf48d82cc82e584c90f192ec2ee46621886fe27e4eb5d910e4e7d6ac31",
+    "metrics.json": "fe84a0fb4ef102e9ef2221c7d999f5e7afb5c0aac3e6ce1f3a3a2a1b2dbdb9d0",
+    "metrics.md": "f53696f1d2032f6fbbfccd0592145d6e2fc5a1574c40f2c20db13fb1d1c6b46a",
+    "training-curves.png": "20a1923acbf6d6be85619143ba858ea346c4215a1849f68fe3e7978ff0bd71bd",
+    "training-curves.svg": "804e301596139e1abcf047b35d5f732e9e7be202f5c28c25076b098acfc93cce"
+  },
+  "scientific_eligible": false,
+  "scope": "cpu_engineering",
+  "source_commit": "4f9a3cbcce119644d3403e7f164d18dcd180f732",
+  "typed_prediction_shape_per_batch": [
+    2,
+    22,
+    7790
+  ],
+  "underlying_hand_samples": {
+    "test": 2,
+    "train": 2,
+    "val": 2
+  }
+}

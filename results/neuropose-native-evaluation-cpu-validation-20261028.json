@@ -1,0 +1,113 @@
+{
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "e32c278e7e67ed6070aa4e30d32b56f79ac328fd",
+      "all_recorded_sources_unchanged": true,
+      "command": [
+        "/home/zshyc/.codex/worktrees/egoemg-full-paper/EgoEMG/tmp/unit-light-env/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "--basetemp=/tmp/ego-nn-light",
+        "--tb=short"
+      ],
+      "log_sha256": "f45b21b3ea3f77947ca878641fa59185cab569cd604c1417c18154f737a3ad89",
+      "optional_dependency_skips": 1091,
+      "passed": 1475,
+      "seconds": 96.55104511498939,
+      "source_bytes_committed_at": "4f9a3cbcce119644d3403e7f164d18dcd180f732",
+      "sources_sha256": {
+        "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+        "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+        "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+        "egoemg_repro/neuropose_native_eval.py": "835572ef96a321c93c94724609587039babbc5324766848de0c4d72402aa8dd6",
+        "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927",
+        "tests/test_neuropose_native_eval.py": "fc0535b09defbda1387291c073b94ed03fd489cf2b94d90d8d3021329bb57199",
+        "tests/test_neuropose_native_train.py": "b8f61b42b3a62b292aa94165779e272f98dbb40936aaafdc6fdaa55902d91216"
+      }
+    },
+    "native": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "e32c278e7e67ed6070aa4e30d32b56f79ac328fd",
+      "all_recorded_sources_unchanged": true,
+      "command": [
+        "/home/zshyc/EgoEMG/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_neuropose_native_train.py",
+        "tests/test_neuropose_native_eval.py",
+        "--basetemp=/tmp/ego-nn2-native",
+        "--tb=short"
+      ],
+      "log_sha256": "f3898722d61d8d4c0adff9f57793e3290ec0ad9d631052892afa067570341d82",
+      "optional_dependency_skips": 0,
+      "passed": 55,
+      "seconds": 152.5586302150041,
+      "source_bytes_committed_at": "4f9a3cbcce119644d3403e7f164d18dcd180f732",
+      "sources_sha256": {
+        "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+        "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+        "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+        "egoemg_repro/neuropose_native_eval.py": "835572ef96a321c93c94724609587039babbc5324766848de0c4d72402aa8dd6",
+        "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927",
+        "tests/test_neuropose_native_eval.py": "fc0535b09defbda1387291c073b94ed03fd489cf2b94d90d8d3021329bb57199",
+        "tests/test_neuropose_native_train.py": "b8f61b42b3a62b292aa94165779e272f98dbb40936aaafdc6fdaa55902d91216"
+      }
+    },
+    "related": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "e32c278e7e67ed6070aa4e30d32b56f79ac328fd",
+      "all_recorded_sources_unchanged": true,
+      "command": [
+        "/home/zshyc/EgoEMG/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_classic_emg_data.py",
+        "tests/test_classic_emg_report.py",
+        "tests/test_classic_emg_formal.py::test_actual_callbacks_select_first_minimum_loss_despite_opposite_mae_and_unequal_batches",
+        "tests/test_classic_emg_formal.py::test_termination_requires_real_patience_or_completed_hundred_epochs",
+        "tests/test_classic_emg_formal.py::test_external_partial_or_nonfinite_stop_is_not_training_completion",
+        "tests/test_classic_emg_formal.py::test_coverage_checks_real_order_unique_ids_and_unequal_batch_weighting",
+        "tests/test_classic_emg_formal.py::test_partial_duplicate_reordered_or_regrouped_validation_is_ineligible",
+        "--basetemp=/tmp/ego-nn2-related",
+        "--tb=short"
+      ],
+      "log_sha256": "45f2f85dff942802299fcebb2880658bee3be3f5963a2ed15174fdcd8c1ef399",
+      "optional_dependency_skips": 0,
+      "passed": 330,
+      "seconds": 32.5283801619662,
+      "source_bytes_committed_at": "4f9a3cbcce119644d3403e7f164d18dcd180f732",
+      "sources_sha256": {
+        "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+        "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+        "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+        "egoemg_repro/neuropose_native_eval.py": "835572ef96a321c93c94724609587039babbc5324766848de0c4d72402aa8dd6",
+        "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927",
+        "tests/test_neuropose_native_eval.py": "fc0535b09defbda1387291c073b94ed03fd489cf2b94d90d8d3021329bb57199",
+        "tests/test_neuropose_native_train.py": "b8f61b42b3a62b292aa94165779e272f98dbb40936aaafdc6fdaa55902d91216"
+      }
+    }
+  },
+  "format": "public_native_neuropose_cpu_evaluation_validation_v1",
+  "four_independent_evaluation_owners_exited": true,
+  "full_paper_complete": false,
+  "scientific_eligible": false,
+  "six_test_owners_independently_exited": true,
+  "source_commit": "4f9a3cbcce119644d3403e7f164d18dcd180f732",
+  "tdd": {
+    "all_corrected_before_final_green": true,
+    "initial_guard_missing_detected": true,
+    "missing_actual_device_detected": true,
+    "missing_actual_fitter_detected": true,
+    "missing_evaluation_entry_detected": true,
+    "missing_report_and_qualification_detected": true,
+    "resealed_scaler_and_pre_fit_started_time_detected": true
+  }
+}

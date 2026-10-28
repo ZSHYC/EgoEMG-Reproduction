@@ -57,4 +57,4 @@ verify_neuropose_report(replay_test, report)
 
 测试统计保留全部22角/7790点/中心3895，按生成mask计算trajectory与center，含手、split、匿名用户、关节、手指和PD组；native批聚合指标单列。PNG/SVG曲线来自真实journal和所选checkpoint轮次，两个纵轴都是原生复合损失，val_loss不是角度MAE。独立report验证重新生成两种图并核对字节，completion最后写入；报告准备期间原输入或journal变化会拒绝发布。
 
-本路径新评价实现的最终CPU检查与独立报告实证正在完成。实际GPU资格、一次新实现最终审查、全数据100轮上限/50轮patience训练及完整科学报告仍未完成。
+[新评价CPU实证](../results/neuropose-native-evaluation-cpu-20261028.json)绑定源码4f9a3cb：原厂小队列native验证/测试及独立进程预测精确一致，额外新进程复算2测试手样本并生成报告，另一新进程重开原始证据、精确重绘PNG/SVG；原fit文件字节未变、无CUDA和新增训练。初次汇总父进程因项目根目录导入路径遗漏exit1，原状态/日志保留，两次子进程均exit0；修正收尾的独立父进程exit0且未重跑预测。[检查实证](../results/neuropose-native-evaluation-cpu-validation-20261028.json)为55原生、330相关与1475轻量通过/1091可选依赖跳过，均actualexit0，七个源码/测试摘要一致、六个检查拥有者和四个独立校验拥有者均已退出。[工程曲线](../results/neuropose-native-evaluation-cpu-curves-20261028.png)已目视检查。实际GPU资格、一次新实现最终审查、全数据100轮上限/50轮patience训练及完整科学报告仍未完成。
