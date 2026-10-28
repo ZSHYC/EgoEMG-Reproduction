@@ -195,12 +195,15 @@ class FusionInitializers:
     _guard: object=field(repr=False)
     _seal: str=field(repr=False)
     _runtime_binding: str=field(repr=False)
+    producer_sources: dict|None=field(default=None,repr=False)
+    _producer_binding: str=field(default='',repr=False)
 
     def check(self,*,require_full=False):
         if type(require_full) is not bool:raise ValueError('explicit full handoff requirement must be boolean')
         self._guard.check();self._cohort.check()
         if (self.identity.get('sha256')!=self._seal or _hash({k:v for k,v in self.identity.items() if k!='sha256'})!=self._seal or
             self.identity['sources_sha256']!=_sources() or _runtime_seal(self.runtime_kwargs)!=self._runtime_binding or
+            _hash(self.producer_sources)!=self._producer_binding or
             self.identity['fusion_cohort_sha256']!=self._cohort.identity['sha256'] or
             self.identity['fusion_partition_content_sha256']!=self._cohort.identity['partition_content_sha256']):
             raise ValueError('fusion initializer identity/source/runtime binding changed')
@@ -208,7 +211,7 @@ class FusionInitializers:
             raise ValueError('engineering handoff cannot initialize full fusion training')
 
 
-def _assemble(cohort,kwargs,vision,emg,*,scope,guards=()):
+def _assemble(cohort,kwargs,vision,emg,*,scope,guards=(),producer_sources=None):
     guard=_StatGuard([ROOT/name for name in LOCAL_SOURCES])
     for child in guards:
         for path in child.paths:guard.add(path)
@@ -219,7 +222,8 @@ def _assemble(cohort,kwargs,vision,emg,*,scope,guards=()):
         fusion_partition_content_sha256=cohort.identity['partition_content_sha256'],sources_sha256=_sources(),
         vision=copy.deepcopy(vision),emg=copy.deepcopy(emg))
     identity['sha256']=_hash(identity)
-    result=FusionInitializers(identity,copy.copy(kwargs),cohort,guard,identity['sha256'],_runtime_seal(kwargs))
+    result=FusionInitializers(identity,copy.copy(kwargs),cohort,guard,identity['sha256'],_runtime_seal(kwargs),
+        copy.deepcopy(producer_sources),_hash(producer_sources))
     result.check(require_full=scope=='full');return result
 
 
@@ -255,4 +259,6 @@ def admit_fusion_initializers(cohort,*,vision_fit,vision_source_root,emg_fit,emg
         raise ValueError('EMG producer did not reserve this exact future fusion partition')
     cohort.check();vg.check();eg.check()
     kwargs=dict(vision_checkpoint=vision,vision_sha256=vs['checkpoint_sha256'],emg_checkpoint=emg,emg_sha256=es['checkpoint_sha256'])
-    return _assemble(cohort,kwargs,vs,es,scope='full',guards=(vg,eg))
+    sources={name:str(_safe(path)) for name,path in dict(vision_fit=vision_fit,vision_source_root=vision_source_root,
+        emg_fit=emg_fit,emg_export=emg_export).items()}
+    return _assemble(cohort,kwargs,vs,es,scope='full',guards=(vg,eg),producer_sources=sources)

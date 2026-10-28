@@ -55,6 +55,14 @@ def test_unregistered_cohort_cannot_enter_full_handoff(files,branch_files,tmp_pa
             emg_fit=tmp_path/'missing-emg',emg_export=branch_files['emg_checkpoint'])
 
 
+def test_private_producer_locators_are_sealed_separately_from_safe_lineage(files,branch_files):
+    from dataclasses import replace
+    c=admit(files);b=api().engineering_fusion_initializers(c,**branch_files)
+    assert b.producer_sources is None and 'producer_sources' not in b.identity
+    altered=replace(b,producer_sources={'emg_fit':'different'})
+    with pytest.raises(ValueError,match='binding|source|identity'):altered.check()
+
+
 def partition(*,train=(),val=(),test=()):
     return dict(windows=[dict(role=role,footprint_start=a,footprint_end=b) for role,spans in
         [('train',train),('val',val),('test',test)] for a,b in spans],

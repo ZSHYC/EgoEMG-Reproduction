@@ -42,7 +42,25 @@ optimizer_identity = fusion_optimizer_identity(
 
 实际旧版完整输入为395,276训练、3,152验证、8,612测试次手样本消费；测试仅有4,306个唯一手样本。原缺图行为保留，完整评价需分开all/crop-present、重复消费/唯一人口及有效角分母。当前缺失的合并语料、旧标签、整episode滤波、公开归一化和单rank/workers0适配仍需披露，不能宣称PDF原表数值等价。
 
-正式fit/eval接口和最终实测证据在上述计划后续任务中实现、核验。完整兼容EMG150轮尚在运行，当前没有新的ViT-S融合最终MAE。
+正式fit入口已接入；GPU资格、完整150轮、最终测试与报告仍按上述计划继续。完整兼容EMG150轮尚在运行，当前没有新的ViT-S融合最终MAE。
+
+## 完整训练与恢复接口
+
+`fusion_literal_train.fit_fusion`已接入原生完整轮次循环。full模式使用完整注册输入、真实完成的双分支交接和独立冻结cohort receipt，保留395,276训练/3,152验证次消费、原batch200/bf16/150轮；禁止工程截断或早停。`cpu_engineering`只训练前4个工程样本、batch2/两轮，`cuda_engineering`保留batch200/两轮、最多400个训练样本；两者均消费各自已准入队列的全部验证样本，不是论文成绩。
+
+```python
+from egoemg_repro.fusion_literal_train import fit_fusion, read_fusion_fit
+
+result = fit_fusion(
+    cohort, branches, output,
+    scope='full', cohort_receipt=frozen_cohort_receipt,
+)
+verified = read_fusion_fit(output)
+```
+
+中断后重新准入同一数据和分支，再以`resume=True`调用。恢复必须先重推整个冻结验证集，并核对模型、优化器、scheduler、原生loop、callbacks和RNG六类状态；原生迭代器重建仍可能改变后续训练RNG轨迹，不承诺与不中断训练逐位相同。旧未完成结果原字节另存；未提交的日志尾部另存后回到最后完整检查点。若原生检查点已完成预算，只补做完整验证与选模验收、生成结果，不再更新参数；已有有效完成结果会拒绝重训。
+
+私有fit身份同时记录数据/crop/upstream位置、完整config、分支文件及独立封存的producer位置。`read_fusion_fit`重新hash和扫描实际完整输入，并重新打开两个真实producer；不会只接纳一份自报完成的summary。该复核在结果重开时执行，不在每个训练batch重hash61.38GB。原native选中best、完整轮次记录、覆盖分母和checkpoint实际张量还需再次一致。上述私有位置应保留，公开报告只应包含安全摘要；最终测试/报告接口仍由计划Task3完成。
 
 ## 已完成的交接工程证据
 
