@@ -1,0 +1,39 @@
+{
+  "actual_current_production_sources_match_staged": true,
+  "actual_full30_started": false,
+  "actual_guard_bytes": 50465865728,
+  "actual_matching_live": true,
+  "actual_observation_injected": false,
+  "actual_qualification_complete": false,
+  "actual_staged_members_verified": 113,
+  "bundle_sha256": "ca2d3c2814dfec2a7213e0a2526c76e712dc6d369dc0ba42606d960e173de9d0",
+  "current_input_identity_sha256": "adca6170baf5303d6a8eb8cbf408e99147e3d3b4586c6aed94f55a625db60693",
+  "format": "actual_reviewed_native_wilor_gpu_qualification_one_shot_launch_v1",
+  "full_paper_complete": false,
+  "initial_available_memory_bytes": 892587155456,
+  "initial_output_disk_free_bytes": 75458977792,
+  "observed_utc": "2026-10-28T19:29:01.747344+00:00",
+  "policy": {
+    "batch_size": 18,
+    "epochs": 2,
+    "optimizer_updates": 4,
+    "precision": "bf16-mixed",
+    "train_samples_per_epoch": 36,
+    "validation_samples_per_epoch": 3152
+  },
+  "scientific_eligible": false,
+  "source_commit": "f993556155d4d646fe08f6f99c9f87f5163d39f2",
+  "state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 3604862,
+      "start_ticks": "404304707"
+    },
+    "started_utc": "2026-10-28T19:29:01.727243+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 3604861,
+      "start_ticks": "404304704"
+    }
+  }
+}

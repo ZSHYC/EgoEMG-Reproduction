@@ -1,0 +1,52 @@
+{
+  "actual_current_free_bytes": 75463540736,
+  "actual_meets_original_engineering_guard": true,
+  "actual_meets_original_full_start_guard": true,
+  "actual_total_kernel_compared_shared_bytes": 30518210560,
+  "batch_model_precision_or_guard_changes": false,
+  "files_deleted": 0,
+  "files_renamed": 0,
+  "format": "actual_unchanged_full_input_extent_sharing_post_exit_v1",
+  "full_paper_complete": false,
+  "independently_reopened_utc": "2026-10-28T19:29:00.774310+00:00",
+  "new_model_updates": 0,
+  "original_engineering_guard_bytes": 50465865728,
+  "original_full_guard_bytes": 59055800320,
+  "scientific_eligible": false,
+  "source_logical_bytes_written": 0,
+  "sources": {
+    "joint_angles.dat": {
+      "actual_all_nine_source_stat_fields_unchanged": true,
+      "actual_complete_source_sha256_before_after_equal": true,
+      "actual_existing_readonly_consumers_untouched": true,
+      "actual_inventory_and_sharing_owners_nonlive": true,
+      "actual_kernel_compared_shared_bytes": 28522311680,
+      "actual_no_live_source_writer_at_start": true,
+      "actual_sharing_exit_code": 0,
+      "finished_utc": "2026-10-28T19:28:50.418457+00:00",
+      "raw_inventory_sha256": "61b726de283f54229a3f75e4eca8a3eccbe5d1b6dda5c1646e30bef564974de7",
+      "raw_state_sha256": "44ec4a8f022222dd9b8ba6db1660887beb611ac98131d97eb1ef41b9d4e7e263",
+      "seconds": 366.4187992620282,
+      "source_logical_bytes": 243464181280,
+      "source_sha256": "83b456472426a8b5f06ee3d4e337d8a3eb51b68b9a8e9dce44304e5748794796",
+      "started_utc": "2026-10-28T19:22:43.999794+00:00"
+    },
+    "valid_mask.dat": {
+      "actual_all_nine_source_stat_fields_unchanged": true,
+      "actual_complete_source_sha256_before_after_equal": true,
+      "actual_existing_readonly_consumers_untouched": true,
+      "actual_inventory_and_sharing_owners_nonlive": true,
+      "actual_kernel_compared_shared_bytes": 1995898880,
+      "actual_no_live_source_writer_at_start": true,
+      "actual_sharing_exit_code": 0,
+      "finished_utc": "2026-10-28T19:26:43.195356+00:00",
+      "raw_inventory_sha256": "1027e63666cae40185e6ae395c3d2b54d74fbd778c7f943089a2fed83ac79780",
+      "raw_state_sha256": "3a91aaa42de4dd34c768de67fb7ff819f2e553dfc861a6d91ae6fe363747f187",
+      "seconds": 20.961451598908752,
+      "source_logical_bytes": 3043302266,
+      "source_sha256": "8a680b10dc073b012e67064edea6fa9d95cf60c1f628cfe323cbc31e96065f48",
+      "started_utc": "2026-10-28T19:26:22.234027+00:00"
+    }
+  },
+  "training_processes_stopped": 0
+}
