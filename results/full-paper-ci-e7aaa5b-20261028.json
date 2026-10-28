@@ -1,0 +1,36 @@
+{
+  "conclusion": "success",
+  "format": "egoemg_pinned_full_native_hosted_ci_v1",
+  "full_paper_complete": false,
+  "head_sha": "e7aaa5be0b5987dac3bf80161b27aa0d5f68b778",
+  "later_construction_ci": {
+    "final_success_observed": false,
+    "head_sha": "4ce04322fa3d3fcfb952beb1a0982ae2195a456c",
+    "last_observed_status": "in_progress",
+    "run_id": 40628902547
+  },
+  "light": {
+    "job_id": 122604009012,
+    "log_sha256": "64d311ae6b5897f3ae347c1b07e803d4a4598ceab87d8234cdd84fd5f10732de",
+    "passed": 1450,
+    "seconds": 139.84,
+    "skip_scope": "optional runtime dependencies",
+    "skipped": 722,
+    "warnings": 1
+  },
+  "native": {
+    "job_id": 122604009171,
+    "log_sha256": "04a90fb14e6a9fa8857a1c96298ddd4273d5cafa95d3b895dc37917c5d06dbcb",
+    "passed": 2540,
+    "pip_check_passed": true,
+    "seconds": 3241.86,
+    "skip_scope": "actual CUDA only",
+    "skipped": 3,
+    "warnings": 198
+  },
+  "observed_utc": "2026-10-28T03:58:39.365380+00:00",
+  "run_id": 40623861415,
+  "scientific_results_changed": false,
+  "scope": "exact historical e7aaa5b source; excludes subsequent native fusion construction and joint-reader additions",
+  "status": "completed"
+}

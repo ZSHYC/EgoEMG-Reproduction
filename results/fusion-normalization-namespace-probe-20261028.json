@@ -1,0 +1,40 @@
+{
+  "format": "pinned_original_fusion_normalization_namespace_probe_v1",
+  "full_paper_complete": false,
+  "gpu_initialized": false,
+  "model_constructed": false,
+  "observed_utc": "2026-10-28T03:33:52.449252+00:00",
+  "official_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "original_norm_method_executed": true,
+  "production_ready": false,
+  "raw_data_loaded": false,
+  "records": [
+    {
+      "error_type": "KeyError",
+      "file_present": true,
+      "filename": "per_dataset_norm_stats.json",
+      "missing_dataset_key": "egoemg_unified__filtered_paper and egoemg_unified",
+      "original_method_succeeded": false,
+      "source_sha256": "b787a1ef98d48f434cb808e0e61e49c1ee0c09fae5b7ca9fc6a05ba4b14ee122"
+    },
+    {
+      "error_type": "KeyError",
+      "file_present": true,
+      "filename": "per_dataset_norm_stats_repro_filtered_paper_alias.json",
+      "missing_dataset_key": "egoemg_unified__filtered_paper and egoemg_unified",
+      "original_method_succeeded": false,
+      "source_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a"
+    },
+    {
+      "actual_mean": 0.00011658444197544563,
+      "actual_std": 10.839283499203331,
+      "file_present": true,
+      "filename": "per_dataset_norm_stats_unified.json",
+      "original_method_succeeded": true,
+      "source_sha256": "6a0d029147fd3f4befef5c33f82c9044606de5a8b335b15ffa434ad3767701f5"
+    }
+  ],
+  "scientific_eligible": false,
+  "scope": "actual original normalization-method namespace probe only; no corpus/training qualification",
+  "source_unchanged": true
+}
