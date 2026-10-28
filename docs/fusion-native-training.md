@@ -71,3 +71,28 @@ verified = read_fusion_fit(output)
 [真实视觉分支半链](../results/native-fusion-initializer-vision-half-20261028.json)使用冻结源码91a879a，在新服务器目录中实际100.05秒exit0。54个输入文件/61,379,659,366字节重新hash及完整数值扫描通过；原ViT-S124轮完整读取、实际last的SHA和52个共同payload精确核对。重新构造全部可能训练输入，与新融合**整个验证区间**及测试输入的交集都为0。四个拥有进程独立确认退出、84固定成员逐项未变；无模型构造、CUDA或优化更新。
 
 新交接/原生构造与优化器76项、相关配置/数据及强化冻结读取器88项均通过；完整轻量1,460通过/1,000可选依赖跳过。两组原生检查含一个重复的冻结读取器用例，不把它算成两个独立用例。工程分支和真正的工程producer均无法升级为full。尚未完成兼容EMG150轮的正式接纳，因此该证据明确`full_two_branch_handoff_complete=false`，也不是新融合训练或精度。
+
+## 冻结评价与独立复算接口（CPU已验证）
+
+新增 `fusion_literal_eval` 使用融合训练自身的验证best，保持原生validation/test步骤、22角生成mask、缺图处理和完整repeat2消费。`evaluate_fusion(..., role='val')`先运行原生验证；在另一个进程调用 `verify_fusion_evaluation`执行新预测，再以 `freeze_fusion_validation`封存验证配对和事先声明的精确输入/预测一致规则。测试角色必须显式提供这个更早完成且属于同一fit的profile；测试原生pass完成后还需另一个进程重新推理，不能只重读同一份预测文件。
+
+```python
+from egoemg_repro.fusion_literal_eval import (
+    evaluate_fusion, verify_fusion_evaluation, freeze_fusion_validation,
+    publish_fusion_report,
+)
+
+# 每次独立复算在新的进程中执行；以下示意各阶段的参数。
+evaluate_fusion(cohort, fit, val_native, role='val')
+verify_fusion_evaluation(cohort, fit, val_native, val_replay)
+freeze_fusion_validation(val_native, val_replay, profile)
+evaluate_fusion(cohort, fit, test_native, role='test', profile=profile)
+verify_fusion_evaluation(cohort, fit, test_native, test_replay, profile=profile)
+publish_fusion_report(fit, test_native, test_replay, report)
+```
+
+固定原生batch200/bf16；CPU工程显式为batch2。保存实际样本索引、左右手、窗口、中心、原始目标/mask、图像有效性及EMG+RGB逐样本内容指纹。原repeat2在不同batch边界处也必须配对同一个输入；完整消费与唯一首遍分别统计，原样本加权批量弧度MAE与float64有效角度加权度数MAE分列。报告保留左右手、split、匿名用户、22角和指组统计，用户交集按实际metadata重新构造，不能声称严格未见自然人测试。
+
+`publish_fusion_report`默认只接纳真实完整训练。仅在显式`require_full=False`（CLI `--engineering`）时允许工程报告，且不设置科学完成。公共目录同时含metrics.json/metrics.md、实际完整epoch journal派生的curve-data.json及PNG/SVG曲线；曲线中的训练复合loss和验证弧度MAE分轴显示。最终completion.json在重新核验原始证据后最后写入，已有目录禁止覆盖。重新核验还独立重开完整fit和原始预测，不能通过改summary、换成last或重封图片摘要代替真实曲线。
+
+实际CPU检查已完成：31项评价检查、122项原生模型/数据及训练策略回归、完整轻量1,460通过/1,051可选依赖跳过均actual exit0；6个测试拥有者独立核对已退出，10个源码/测试摘要未变。包含真实两轮工程fit、验证与测试的新进程预测、完整4/12消费、6唯一测试样本、原缺图mask保留及错误best/未冻结测试/改日志/改图片拒绝。追加独立collector和真实完整数据/GPU检查继续；ViT-S融合完整150轮和最终科学误差仍欠。曲线核验要求匹配报告记录的Matplotlib/FreeType/字体内容环境。
