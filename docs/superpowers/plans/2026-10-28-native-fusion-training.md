@@ -64,11 +64,11 @@
 - `fit_fusion(cohort, initializers, output, *, scope='full', resume=False, stop_after_epoch=None, cohort_receipt=None) -> dict` owns original callbacks/logger/loops and all six restoration classes, accepts full only with a registered input receipt and a full verified handoff.
 - `read_fusion_fit(output, *, require_full=True) -> dict` independently validates durable native files, all epochs/populations, original selection and actual 150-epoch termination.
 
-- [ ] Step 1: Write tests for original policy, real CPU two-epoch native updates/complete validation, independent process restoration and exact frozen validation, changed sources/lineage, engineering upgrade rejection, partial epoch, uncommitted journal tail, stale incomplete result and completed-checkpoint finalization without any extra update.
-- [ ] Step 2: Run and record expected RED before implementation.
-- [ ] Step 3: Implement using corrected initializer fit/storage primitives as established patterns; keep fusion-specific coverage, lineage, native optimizer groups and original forward/loss. Save original callback best/last and refuse last fallback. Preserve seed-before-factory as an explicit reproducibility correction, not the original train entry order.
-- [ ] Step 4: Run related native fit tests and bare light suite; generate independent CPU engineering receipts in fresh processes with no scientific score.
-- [ ] Step 5: Commit with recorded commands/results and public execution limits.
+- [x] Step 1: Write tests for original policy, real CPU two-epoch native updates/complete validation, independent process restoration and exact frozen validation, changed sources/lineage, engineering upgrade rejection, partial epoch, uncommitted journal tail, stale incomplete result and completed-checkpoint finalization without any extra update.
+- [x] Step 2: Run and record expected RED before implementation.
+- [x] Step 3: Implement using corrected initializer fit/storage primitives as established patterns; keep fusion-specific coverage, lineage, native optimizer groups and original forward/loss. Save original callback best/last and refuse last fallback. Preserve seed-before-factory as an explicit reproducibility correction, not the original train entry order.
+- [x] Step 4: Run related native fit tests and bare light suite; generate independent CPU engineering receipts in fresh processes with no scientific score.
+- [x] Step 5: Commit with recorded commands/results and public execution limits.
 
 ### Task 3: Frozen selected-best evaluation and report
 

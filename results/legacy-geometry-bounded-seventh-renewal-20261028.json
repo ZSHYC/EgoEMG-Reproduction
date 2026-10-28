@@ -1,0 +1,42 @@
+{
+  "actual_fresh_strict_probes": 5,
+  "actual_matching_old_tail_probes": 1,
+  "actual_new_bytes": 67108864,
+  "actual_pid_start_live": true,
+  "actual_target_consumers_before_launch": [],
+  "all_prior_failure_files_preserved": true,
+  "automatic_whole_job_retry": false,
+  "complete_selected_files": 3,
+  "expected_selected_bytes": 37778344975,
+  "format": "legacy_geometry_bounded_intake_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "manual_cooldown_seconds": 4260.181235,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 2785017856,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T09:06:21.587428+00:00",
+  "one_shot_renewal": true,
+  "original_strict_downloader_sources_unchanged": true,
+  "preserved_prior_failure_files": 21,
+  "prior_owners_actual_nonlive": true,
+  "retry_events_total": 0,
+  "retry_policy": {
+    "attempts_per_stalled_offset": 3,
+    "backoff_seconds": [
+      1,
+      2
+    ],
+    "reset": "strict complete chunk progress only"
+  },
+  "selected_files": 8,
+  "started_utc": "2026-10-28T09:01:12.014622+00:00",
+  "status": "downloading"
+}

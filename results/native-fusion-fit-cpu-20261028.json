@@ -1,0 +1,62 @@
+{
+  "actual_code_sources_sha256": {
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/fusion_initializer_handoff.py": "9fdf4842d12b61ed5092746b06a0284af4a2abca91c93a388c67fcda930b5f80",
+    "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+    "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+    "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7"
+  },
+  "actual_completed_budget_missing_result_simulated": true,
+  "actual_full_validation_samples_per_epoch": [
+    4,
+    4
+  ],
+  "actual_gpu_qualification_complete": false,
+  "actual_native_selected_best_file": "vits-s-16ch-wl7790-epoch=001-val_mae=1.0212.ckpt",
+  "actual_native_selected_best_sha256": "d95b8684de304bdcd789bc1dbab1c8292fb53ddf0639657ff96b189992770d41",
+  "actual_optimizer_updates": 4,
+  "actual_relevant_sources_match_commit": true,
+  "actual_train_samples_per_epoch": [
+    4,
+    4
+  ],
+  "additional_updates_during_missing_result_recovery": 0,
+  "all_original_checkpoints_epoch_journal_logs_unchanged_during_missing_result_recovery": true,
+  "complete_admitted_synthetic_population": {
+    "test": 12,
+    "train": 308,
+    "val": 4
+  },
+  "complete_strict_reload_tensors": 298,
+  "completed_epochs": 2,
+  "cuda_initialized": false,
+  "exact_original_result_bytes_preserved": true,
+  "final_fusion_test_score_available": false,
+  "fixture_scope": "synthetic real memmaps/LMDB and trusted untrained native branch fixtures; not a scientific benchmark",
+  "format": "native_fusion_epoch_restore_and_independent_cpu_engineering_v1",
+  "full150_fusion_training_complete": false,
+  "full_paper_complete": false,
+  "full_two_branch_handoff_complete": false,
+  "independent_complete_validation_replay_exact": true,
+  "independent_validation_prediction_sha256": "7a9adcdb515a257266fbfc49d8ca118d96e863bf35a6e83038b3ef105132f074",
+  "last_checkpoint_sha256": "d95b8684de304bdcd789bc1dbab1c8292fb53ddf0639657ff96b189992770d41",
+  "missing_result_recovery_full_validation_exact": true,
+  "model_constructed": true,
+  "original_resume_frozen_validation_exact": true,
+  "scientific_eligible": false,
+  "seconds": 29.688975982018746,
+  "six_state_resume_exact": {
+    "callbacks": true,
+    "loops": true,
+    "model": true,
+    "optimizer": true,
+    "rng": true,
+    "scheduler": true
+  },
+  "utc": "2026-10-28T08:57:56.237642+00:00",
+  "verified_source_commit": "aaadf5236f5edd48380c27ebf3ced8842580de6a",
+  "whole_new_fusion_implementation_review_complete": false
+}

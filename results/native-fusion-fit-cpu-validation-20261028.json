@@ -1,0 +1,54 @@
+{
+  "actual_all_four_test_owners_independently_nonlive": true,
+  "actual_all_recorded_test_sources_unchanged": true,
+  "actual_code_and_test_sources_sha256": {
+    "egoemg_repro/fusion_initializer_handoff.py": "9fdf4842d12b61ed5092746b06a0284af4a2abca91c93a388c67fcda930b5f80",
+    "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+    "tests/test_fusion_initializer_handoff.py": "a758e69ddc45ccd57c9a720104062e183da9fa36108c824380657385ee758e98",
+    "tests/test_fusion_literal_train.py": "f12db863fc3cfd0b2197a5b81185439910ca0f3717f89164ff0a914d5051322c"
+  },
+  "actual_full_bare_light": {
+    "actual_exit_code": 0,
+    "optional_skipped": 1020,
+    "passed": 1460,
+    "seconds": 91.02,
+    "warnings": 1
+  },
+  "actual_gpu_qualification_complete": false,
+  "actual_native_tests": {
+    "actual_exit_code": 0,
+    "passed": 43,
+    "seconds": 265.12,
+    "warnings": 2
+  },
+  "core_proof_sha256": "3349e08d9ac10576748a6bf1cca3040f9b0a0ae28144cba38fcd67edfec76d2b",
+  "final_fusion_test_score_available": false,
+  "format": "native_fusion_fit_cpu_publication_validation_v1",
+  "full150_fusion_training_complete": false,
+  "full_paper_complete": false,
+  "independent_cpu_collector_actual_exit_code": 0,
+  "independent_cpu_collector_script_sha256": "9db0579113b51195d6d26b10899267d327914a27586befe0c0bdce86b9900de8",
+  "preserved_failures": [
+    {
+      "completion_claimed": false,
+      "kind": "interrupted native/light sessions"
+    },
+    {
+      "actual_exit_code": 1,
+      "kind": "long harness temp directory exceeded Unix socket path limit",
+      "production_or_test_source_changed": false,
+      "resolved_by": "short task-specific temporary root; full suite rerun passed",
+      "test": "tests/test_legacy_derived_worker.py::test_offline_transport_keeps_real_local_unix_ipc_available"
+    },
+    {
+      "actual_exit_code": 1,
+      "kind": "first independent collector pointed to an expired default pytest fixture",
+      "model_or_data_opened": false,
+      "resolved_by": "retained current native fixture; new collector exit0"
+    }
+  ],
+  "scientific_eligible": false,
+  "utc": "2026-10-28T09:02:00.761074+00:00",
+  "verified_source_commit": "aaadf5236f5edd48380c27ebf3ced8842580de6a",
+  "whole_new_fusion_implementation_review_complete": false
+}
