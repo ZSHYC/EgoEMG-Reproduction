@@ -34,4 +34,23 @@ train = EmgInitializerDataset(data, partitions, upstream=upstream,
 
 [CPU证据](../results/emg-initializer-input-cpu-20261028.json)仅使用合成的真实memmap文件：与完整原生构造的读取器逐字节对照两手、训练/验证、可选标签、腕角换算、完整mask和RNG。初次35项缺模块检查失败后实现通过；增加边界检查并连同原融合配置/读取回归共87项通过。独立新进程读取4个完整轨迹样本、确认构造RNG及所有输入文件不变，无模型/CUDA。原生加载器实际执行了batch260配置下的最后3样本不足批次，不证明真实260样本GPU容量。
 
-当前只有配置和完整轨迹读取接入。真实完整输入hash、全可能轨迹数值检查、原生模型/批量增强/优化/状态恢复、真实batch260 GPU资格、完整150轮与验证best验收仍未完成。先前融合的中心目标扫描不能覆盖这里的完整轨迹；本页和CPU证据均不增加已完成科学设置数量。[后续完整计划](superpowers/plans/2026-10-28-fusion-compatible-emg-initializer.md)保持这些要求。
+## 完整数值输入入口
+
+`admit_emg_initializer_cohort`已实现完整数值文件hash，以及每个角色全部可能抖动窗口的双手EMG和22维完整目标轨迹扫描。它在任何数值映射建立前登记文件身份，绑定原生窗口索引、元数据、手、变换、归一化及只读映射布局；`expected`需要新一轮实际内容重算。声明且消费的手势、腕角有效性字段同样纳入文件身份，不要求未消费的图像数据库。
+
+```python
+from egoemg_repro.emg_initializer_cohort import (
+    admit_emg_initializer_cohort, native_emg_initializer_loaders,
+)
+
+cohort = admit_emg_initializer_cohort(data, upstream=upstream,
+    config=cfg, normalization=norm)
+cohort.check()
+loaders = native_emg_initializer_loaders(cohort)
+```
+
+两个角色均调用官方batch260加载器，单rank/workers0、repeat1、全局RNG、原生collate和最后不足批次。检查目前在显式入口边界执行，后续训练仍需接入相应守卫。
+
+[独立CPU数值入口证据](../results/emg-initializer-cohort-cpu-20261028.json)为28项检查通过，以及两个真正新进程对合成真实文件的完整hash/轨迹扫描：16文件、328训练/4验证手样本，两次记录逐字节一致且实际退出0。最后可能抖动位置的EMG、非中心指角及腕角NaN（含mask=false）、文件替换时序、索引/步长/offset修改、伪造记录及有限值改动均有拒绝用例。未消费目标上的NaN保留。没有模型、GPU或优化更新。
+
+真实数据的完整数值准入、原生模型/批量增强/优化/状态恢复、真实batch260 GPU资格、完整150轮与验证best验收仍未完成。先前融合的中心目标扫描不能覆盖这里的完整轨迹；本页和两个CPU证据均不增加已完成科学设置数量。[后续完整计划](superpowers/plans/2026-10-28-fusion-compatible-emg-initializer.md)保持这些要求。
