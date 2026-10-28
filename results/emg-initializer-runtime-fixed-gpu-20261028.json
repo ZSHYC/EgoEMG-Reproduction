@@ -1,0 +1,58 @@
+{
+  "actual_all_eight_owned_consumers_nonlive": true,
+  "actual_batch_size": 260,
+  "actual_complete_engineering_epochs": 2,
+  "actual_complete_validation_samples_per_epoch": [
+    582,
+    582
+  ],
+  "actual_exit_code": 0,
+  "actual_fresh_process_six_state_restore": {
+    "callbacks": true,
+    "loops": true,
+    "model": true,
+    "optimizer": true,
+    "rng": true,
+    "scheduler": true
+  },
+  "actual_frozen_full_validation_exact": true,
+  "actual_independent_cpu_reopen": true,
+  "actual_optimizer_updates": 4,
+  "actual_peak_allocated_bytes": 12735739392,
+  "actual_peak_reserved_bytes": 14608760832,
+  "actual_precision": "bf16-mixed",
+  "actual_selected_best_tensor_count": 110,
+  "actual_source_best_checkpoint_sha256": "581f85e967540f978fcbb3fe3e7ef4cff6484cb6c759cb2386c54d5f6b332b07",
+  "actual_training_samples_per_engineering_epoch": [
+    520,
+    520
+  ],
+  "all_immutable_members_unchanged": true,
+  "bundle_sha256": "46d2a026d76cda97c7a119936adf4778c995de0b7221af3d72f47848129bc551",
+  "format": "actual_full_legacy_original_emg_initializer_gpu_engineering_v1",
+  "full150epoch_training": false,
+  "full_counts": {
+    "train": 63026,
+    "val": 582
+  },
+  "full_paper_complete": false,
+  "gpu_name": "NVIDIA A800-SXM4-80GB",
+  "minimum_actual_disk_free_bytes": 95899840512,
+  "minimum_actual_memory_available_bytes": 947653201920,
+  "native_checkpoint_selection": "val_mae/min, top3+last",
+  "native_cosine_T_max": 150,
+  "native_cosine_eta_min": 5e-06,
+  "native_no_early_stopping": true,
+  "observed_utc": "2026-10-28T07:35:28.288381+00:00",
+  "original_full_numeric_identity_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+  "parent_torch_unimported": true,
+  "production_ready": false,
+  "raw_actual_evidence_sha256": "a12562178f20a59aaa9be92d82562340ff8dd5f3d09c942d11b683bc16a32411",
+  "real_full_corpus_admission_recomputed_in_both_gpu_processes": true,
+  "resource_observation_injected": false,
+  "scientific_eligible": false,
+  "scope": "real full numeric corpus admitted; explicitly bounded520sample two-epoch engineering training, complete582sample validation; not full150 training or paper score",
+  "seconds": 99.22677225805819,
+  "source_commit": "68d91d87b54bf197cf7214fe4a6be9230a80dc4a",
+  "source_members_verified": 83
+}
