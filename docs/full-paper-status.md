@@ -161,7 +161,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **显式原生激活重计算GPU七阶段通过，完整训练运行中**；[证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)保留原360/bf16及模型／目标／优化器，原未启用版本显存失败保留。独立作者YAML未发布，最终测试和完整报告仍欠 |
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **真实权重与CPU接入已完成**，见[证据](../results/wilor-pretrained-cpu.md)：固定源码/配置/mean/完整权重、404主干tensor及严格离线重载已实际核验；未做cohort优化、GPU容量和完整训练，独立22角训练配方仍需明确 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
-| EgoEMG ViT-S+S | [原生16槽/WL7790构造](fusion-literal.md)、[五配置来源审计](../results/fusion-recipe-audit-20261028.md) | **CPU构造/初始化/严格重载工程验证完成，尚未完整训练**；25,855,037参数，174+4视觉张量完整传输、105EMG匹配/5跳过，原训练模式loss/backward/AdamW及新进程复推通过。当前两分支是明确未训练的工程状态，不能替代真实best初始化；联合数据/划分、GPU/150轮完整fit和最终报告仍欠，见[证据](../results/native-fusion-construction-cpu-20261028.json) |
+| EgoEMG ViT-S+S | [原生16槽/WL7790构造](fusion-literal.md)、[五配置来源审计](../results/fusion-recipe-audit-20261028.md) | **CPU构造/初始化/严格重载工程验证完成，尚未完整训练**；25,855,037参数，174+4视觉张量完整传输、105EMG匹配/5跳过，原训练模式loss/backward/AdamW及新进程复推通过。当前两分支是明确未训练的工程状态，不能替代真实best初始化；原联合数据/stride400隔离划分已[通过CPU和真实六点读取检查](fusion-literal-data.md)，完整内容/有限性准入、GPU/150轮完整fit和最终报告仍欠，见[构造证据](../results/native-fusion-construction-cpu-20261028.json) |
 | EMG2Pose EMGFormer-S | [官方 EMG2Pose S 配置][e2p-s]，16通道、20角、独立数据协议 | **真实mini恢复、普通源原批量fit/FP32两模式与报告工程核验通过**；[入口证据](../results/emg2pose-direct-native-fit-engineering.json)保留原320/12/bf16/250cosine及原Sampler补齐，合成分角色两轮/32更新/六状态恢复和原生选best已核验。完整源、真正250轮训练及最终测试仍欠 |
 | EMG2Pose EMGFormer-M | [官方 EMG2Pose M 配置][e2p-m] | **同样完成mini原批量恢复和新fit入口工程验收**；合成角色没有benchmark或完整人口意义，正式250轮/最终评价仍未完成 |
 | EMG2Pose EMGFormer-L | [官方 EMG2Pose L 配置][e2p-l] | **同样完成mini原批量恢复和新fit入口工程验收**；没有完整科研结果，不能用EgoEMG-L或工程数值填表 |
@@ -199,7 +199,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | Figure 3，p.5 | (a)82手β箱线图；(b)参与者×手势split矩阵 | **(a)聚合展示图、(b)协议示意与真实旧发布矩阵已生成并核验**；[手形统计](../results/dataset-statistics/shape-statistics.md)、[41键×60类矩阵及计数](../results/dataset-statistics/split-matrix.md)。三标签全396,970,350字节重哈希及逐项对账，556多标签格、全帧Train∩User/Both各5键；与模型中心队列1/1分开 | (a)隐藏单点/离群点是展示适配，官方[β脚本][beta]另画左右柱图。(b)左为PDF概念、右为真实旧版帧标签；保留raw/未分配与交集，不证明PDF人口等价，不声称逐像素重画 |
 | Figure 4，p.6 | EMGFormer remapping/TDS/RoPE/head/增强架构 | **按实际源码的架构图及三模型形状已生成并核验**；[图/记录](../results/dataset-statistics/emgformer-architecture.md)为原样12,000点/8目标手通道、两TDS stage/globalSE/非因果RoPE/ReLU头；三模型各另测7,790诊断长度，重复绘图逐字节一致 | 仅声明配置中的Rotation/ToTensor，不等于完成PDF全部增强、实际归一化或合并训练数据；PDF7790ms/通道/头激活差异分列，图不是新精度结果 |
 | Figure 5，p.6 | 256 crop→ResNet/ViT→池化/角度头 | **RN18 部分完整运行；图未重生**，E1；[真实实现][vit] | 全部 7 backbone 构造与初始化；具体头激活由实际类裁决，不能以一张通用图代表七项实验 |
-| Figure 6，p.7 | 视觉预测+EMG 时间池化残差融合 | **RN18+S 已核验（legacy）；ViT-S+S 未运行，图未重生**，E1/E2 | 两对独立来源、真实形状、零残差等价性与架构图；官方极小正态初始化与本项目精确零适配分别记 |
+| Figure 6，p.7 | 视觉预测+EMG 时间池化残差融合 | **RN18+S 已核验（legacy）；ViT-S+S 原生CPU构造/真实点读已检查，完整训练未完成、图未重生**，E1/E2 | 两对独立来源、真实形状、零残差等价性与架构图；官方极小正态初始化与本项目精确零适配分别记 |
 | Figure 7，p.9 | 自遮挡、深度歧义、运动模糊三类同例 GT/EMG/Vision/Fusion 定性图 | **未实现**；E1 已有三模型，尚无关联误差的渲染图 | 固定样本与选择规则、同一角度/mesh 空间、合法模型与相机/视角、逐例未舍入 MAE/有效分母；论文单例数值不填本项目图 |
 | Figure 8，p.17 | markers2mano 图 Transformer 架构 | **未复现；外部依赖**；[官方推理入口][m2m]存在，模型包未随仓库发布 | 实际图谱/PE/参数/权重、forward 与 778 顶点重建；脚本 fallback 宽度/层数不是已核验论文训练配方 |
 | Figure 9，p.18 | marker 训练的 8 类增强可视化 | **未实现** | 实际变换概率、参数、组合顺序、固定 seed 前后 marker/mesh；EMG channel rotation 不能替代 marker 增强 |
@@ -231,7 +231,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D15，§4.3/C.1 | 左右 remapping、dropout/frequency mask/noise/jitter 等 EMG 增强 | **现有仅声明的官方 rotation 适配**；不能称覆盖 PDF 全部增强。classic 默认/with_aug 与实际归一化由 resolved 配置裁决，缺真实新配方训练 |
 | D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M/L legacy完整运行已核验**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
 | D17，§4.4/C.2 | 7 视觉模型的真实主干、初始化、角度头、损失和训练 | **RN18/RN50/RN152 legacy完整，DINO-S/B原生/派生配方旧队列完整**，见模型表；L仍完整训练，WiLoR尚无完整训练；真实预训练来源与缺失独立配方继续分列 |
-| D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy 已核验，ViT-S+S 未运行**；E1/E2。精确零是明确适配，官方极小正态与 PDF zero 的区别保留 |
+| D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy 已核验，ViT-S+S 原生CPU构造/初始化/时间池化优化器已核验、真实best来源与完整训练仍欠**；E1/E2。精确零是明确适配，官方极小正态与 PDF zero 的区别保留 |
 | D19，D.6 Eq.4 | camera-space 自遮挡 z-buffer、5×5邻域/5mm、三角面积加权 | **[官方算法][occlusion]存在，本项目未运行**；缺 GT pose/β/faces/world→camera/K/真实尺寸与 validity；不得以 crop 遮挡或 2D 框重叠替代 |
 | D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **未运行**，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
 
