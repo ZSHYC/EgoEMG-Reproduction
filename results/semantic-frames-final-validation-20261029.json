@@ -1,0 +1,73 @@
+{
+  "declined_to_judge_rulings": [
+    {
+      "behavior": "unchanged model math/training/GPU behavior",
+      "cost_if_wrong": "old model defects remain outside this statistical result",
+      "ruling": "retain existing original job identities and independent prior evidence; this unit never imports models"
+    },
+    {
+      "behavior": "annotation accuracy, literal-mask/generator/PDF equivalence",
+      "cost_if_wrong": "coverage would be misread as stronger scientific evidence",
+      "ruling": "explicitly unclaimed; released-mask counts only"
+    },
+    {
+      "behavior": "final export/publication",
+      "cost_if_wrong": "public artifacts could diverge from verified counts",
+      "ruling": "executor checks exact projection, privacy, hashes and remote ref before reporting published"
+    }
+  ],
+  "execution": {
+    "all_input_nine_attributes_unchanged_after_both": true,
+    "all_six_recorded_owners_closed": true,
+    "failed_initial_capsule_actual_exit_code": 1,
+    "failed_initial_capsule_large_payloads_opened": 0,
+    "failed_initial_capsule_reason": "missing unchanged data.py dependency during semantic-source admission",
+    "full_paper_complete": false,
+    "independent_actual_exit_code": 0,
+    "independent_all12_complete_payload_hashes_exact": true,
+    "independent_all_integer_aggregates_exact": true,
+    "independent_bundle_sha256": "47c9a93fa68a56d8800200321a511f3ea279df59e8a1ee67072f7dc098bfc187",
+    "independent_immutable_source_members_unchanged": 3,
+    "independent_private_replay_sha256": "ac19fd538b1fa920e5e341d804fba8fa12cb0e51a44ebf5a8d3791d183c21a1a",
+    "independent_seconds": 51.171028908807784,
+    "new_model_settings_completed": 0,
+    "new_model_training": false,
+    "original33508frozen_center_bytes_exact": true,
+    "original_shared157records_exact": true,
+    "producer_actual_exit_code": 0,
+    "producer_bundle_sha256": "d32c95cff11a0d745a77b4370d46f4129ef7a382a45f8f1a29c9f8ef9de794e9",
+    "producer_immutable_source_members_unchanged": 8,
+    "producer_private_audit_sha256": "7e541c75c9faabbd61888175baeafe1d6aa0c9a8f44b24db0941f7db4e4dfb54",
+    "producer_seconds": 46.316487460397184,
+    "recovery": "new isolated capsule adds missing unchanged dependency; no production algorithm changed",
+    "source_payload_bytes": 12306080850
+  },
+  "final_test_log_sha256": "4d62600e2780b036e33ab48edf099c2a38dde21d1b681d50af82a4b47628b538",
+  "final_tests_passed": 93,
+  "format": "full_frame_validity_final_validation_v1",
+  "full_paper_complete": false,
+  "markdown_sha256": "f9b0714f002de4a782df650d1796a6f9a10edf1ba707fd845651cc4cebd31c3f",
+  "new_scientific_model_settings_completed": 0,
+  "optional_skip_reason": "existing center-to-LegacyDataset comparison requires Torch, absent in the light NoTorch environment",
+  "optional_skipped_tests": 1,
+  "original_tests_passed": 91,
+  "public_projection_sha256": "7e370b9735121391ea5a71421d8ff3efc118857747071d27778f2c454c1202e0",
+  "replay_source_change": {
+    "counter_logic_ast_exact": true,
+    "executed_replay_source_sha256": "b6a9d879b36b1ae2fb2b8895a52c4b06a173fb556f61d7e5b92bf8cb10b1bf4e",
+    "only_early_optimization_rejection_added": true,
+    "published_replay_source_sha256": "9b304bed2ef9657045bbdb45515c95a41f03a2921ef6b449a1d5cb3f0488b044"
+  },
+  "review": {
+    "critical": 0,
+    "finding": "optimized Python removes replay assertions",
+    "fix": "explicit fail-closed rejection of sys.flags.optimize before any input reads",
+    "important": 1,
+    "important_fixed": true,
+    "minor": 0,
+    "verification": "2 optimized-mode cases RED to GREEN; final93passed1optionalskip; no repeated full scan or review"
+  },
+  "reviewed_scope": "only the new full-frame statistical unit",
+  "source_sha256": "8e5da62395a9198ce697811596e99cd595ba82ebbf0573dbeffe186420e08068",
+  "test_source_sha256": "27ee73d73403a8fda20a6be051a099ac0106a3fc0eecb7c50f87139ad7315dcc"
+}
