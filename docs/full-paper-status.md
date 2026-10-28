@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+最新实施（北京时间2026-10-29 05:17）：[原生MANO→UmeTrack IK工程链](../results/native-mano-umetrack-ik-cpu-20261029.md)已跑通固定官方L-BFGS函数：两个合成48维姿态、真实合法MANO/原UmeTrack资产，61次原始外层更新/1,399次closure，目标3473.369→21.466mm²；另一进程不重优化，直接重做FK/矩阵指数对齐，最终目标及两姿态距离精确一致。两个实际exit0/均退出，200源码及资产身份未变，无CUDA或模型训练；完整真实帧标签、腕角与遮挡仍欠，科学设置仍10。保留原IK内部β=0/flat_hand_mean=True/20指角+零腕角，与参与者β遮挡链区分；历史CLI限位路径不存在，CPU函数调用显式取实际原UmeTrack资产，未改上游。NeuroPose原进程21:16UTC完成49轮/19,497实际模型更新，其他原训练继续；几何仍4/8。
+
 最新实施（北京时间2026-10-29 05:03）：[WiLoR首个完整轮次及原始检查点核验](../results/wilor-native-full-first-epoch-20261029.json)完成：202,020训练/3,152验证、11,224实际更新，原完整30轮继续。独立CPU读者对真实7,579,991,738字节原生检查点调用已资格生产校验，完整sanity2训练循环、176验证批、模型/冻结摘要、393项AdamW状态及CUDA随机字节均通过；14.80秒exit0、无新模型/更新/CUDA。另一次私有读者导入路径错误exit1发生在检查点加载前，失败保留，仅修检查脚本；四个记录的读者/SSH进程均退出，113冻结成员及当前检查点九项属性未变。完整30轮、最终测试与报告仍欠，科学设置仍10。
 
 最新实施（北京时间2026-10-29 04:58）：[双手全部41段filtered逐值对账](../results/dataset-statistics/emg-fft-full-comparison.md)已补齐D04此前缺口，共1,058,587,600个float32值，99.999705%位模式相同；左右各2,595/524值不同，最大绝对差4.768e-7/9.537e-7（原存储单位）。两个CPU比较实际exit0，独立重开并核对41段/8通道归约、两首段、完整输入SHA与九项属性，五个所属进程退出。无完整数组复制、FFT重跑、模型导入或训练输入改写；不增加模型完成设置（仍10），也不证明独立单位标定、split隔离滤波或PDF等价。WiLoR/NeuroPose等原训练继续；右手几何最终文件仍未落盘。
@@ -270,21 +272,21 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D02，§3.1/A.3 | EMG/IMU/mocap/双视频的采样、时间戳软同步与线性插值、校准诊断 | **部分工程证据**：E3 有中心映射与 crop 覆盖，新校准 JSON 已读取；缺全部模态、视频原生尺寸、stale/delta 分布和同步核验。原文未报告统一同步误差数值，不凭空新增该论文结果 |
 | D03，A.3 | release schema、投影框/左手翻转/256 crop、全模态盘点 | **legacy 获取与读取已核验**，E3/E4/E5；缺从 mocap+全帧重生 crop、当前 v3 manifest/checksums 与原 v1 队列对应。选择性清单不是完整 release |
 | D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **旧版双手各41段原官方FFT重生成、独立复核及全量新旧filtered数值对照完成**；[重生成](../results/dataset-statistics/emg-fft-bilateral-full.md)：每手66,161,725行/8通道，合计4.234GB有限输出。[频率/首段对照](../results/dataset-statistics/emg-fft-first-episode.md)与[全1,058,587,600值对账](../results/dataset-statistics/emg-fft-full-comparison.md)均完成，左右最大差4.768e-7/9.537e-7，输入SHA/九项属性未变；不声称逐字节相同。独立单位标定、当前发布/PDF等价仍未证明，保留整episode非局部依赖 |
-| D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；缺 raw markers/valid、合法 MANO 模型和实际重建产物 |
+| D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；[合法MANO资产已验收](../results/mano-existing-native-asset-admission-20261029.json)，仍缺完整raw markers/valid、标注模型及实际逐帧重建产物 |
 | D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部发布缺口**；推理脚本导入未发布的 markers2mano 包；缺真实训练架构/图谱/配置/权重。不得以未训练替身验收 |
 | D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **来源调查，不是采样完成**；下节逐源列访问情况。缺精确样本清单、采样 seed/权重、版本与来源划分；图中比例不是实采数据 |
 | D08，B.1.3 | 50% 不增强；8 类为 bone length、global scale、近邻 swap、dropout 插值、neighbor blend、Gaussian noise、局部 drift、spike outlier | **未实现**；缺官方变换训练代码、精确参数/组合与概率、确定性检查和图9产物；不能用姿态模型 EMG 增强替代 |
 | D09，B.1.3 Eq.2 | vertex MSE + 5×marker MSE 的 annotator 训练、选模与质量评价 | **未运行**；缺训练入口、schedule、选择规则、权重与完整曲线。姿态基线 L1+tip 损失不等于该训练 |
 | D10，§3.2/B.1.3 | marker/vertex 误差、invalid rate、InterHand 子集与重投影质量 | **未重测**；论文 aggregate 只作参考，缺单位、有效帧判据、数据划分与误差分布。3.2mm 的正文 per-marker/附录 per-vertex 名称矛盾待裁决；不是角度真值精度 |
 | D11，B.2 | 腕带 marker 构系、FE/RU 几何公式、左右符号、退化帧/有效性 | **仅消费 released 腕角**，E5 单位转换已核对；未从原 marker 重生成，缺原始腕带/手 marker、顺序/正交化/阈值及可确认生成入口 |
-| D12，B.3 Eq.3 | MANO→UmeTrack landmark IK、对齐/限位/L-BFGS、收敛/残差 | **官方可读实现存在，未重生成**，见[batch_ik_mesh.py][ik]；其 mapper 训练不是 D06。缺 MANO pose/β/transform 与合法模型；legacy 元数据描述另一算法，不可当同一链路 |
+| D12，B.3 Eq.3 | MANO→UmeTrack landmark IK、对齐/限位/L-BFGS、收敛/残差 | **[原生函数/真实模型资产CPU工程链及独立几何重算已通过](../results/native-mano-umetrack-ik-cpu-20261029.md)**：两个合成姿态、原61次L-BFGS外层更新/1,399closure，保留内部β=0/flat mean/固定对齐/20指角与零腕角；完整实际帧标签仍未重生成。缺左右完整MANO pose、有效性/左右convention准入与全量隔离输出；CLI限位路径适配已明确，原源码未改。legacy 元数据的另一算法不能当同一链路；其 mapper 训练也不是 D06 |
 | D13，§3.3/A.2 | 每参与者左右各一β、82手统计 | **实际统计与聚合图已核验（legacy）**，见[产物](../results/dataset-statistics/shape-statistics.md)；metadata引用行去重，每行左右各一次。episode/参与者自然人身份的独立证明仍缺，不能将逐帧重复值当独立手 |
 | D14，§3.4/§4.2 Eq.1 | split、MAE、逐用户 SD、加权 Avg、轨迹/中心区别 | **legacy 部分已核验**，E1/E2/E3/E5；与 PDF 队列不等价；需所有新模型逐项复核。± 是跨用户 SD，不是多 seed 误差条 |
 | D15，§4.3/C.1 | 左右 remapping、dropout/frequency mask/noise/jitter 等 EMG 增强 | **现有仅声明的官方 rotation 适配**；不能称覆盖 PDF 全部增强。classic 默认/with_aug 与实际归一化由 resolved 配置裁决，缺真实新配方训练 |
 | D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M/L legacy完整运行已核验**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
 | D17，§4.4/C.2 | 7 视觉模型的真实主干、初始化、角度头、损失和训练 | **RN18/RN50/RN152 legacy完整，DINO-S/B原生/派生配方旧队列完整**，见模型表；L仍完整训练，WiLoR尚无完整训练；真实预训练来源与缺失独立配方继续分列 |
-| D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy 已核验，ViT-S+S 原生CPU构造/初始化/时间池化优化器已核验、真实best来源与完整训练仍欠**；E1/E2。精确零是明确适配，官方极小正态与 PDF zero 的区别保留 |
-| D19，D.6 Eq.4 | camera-space 自遮挡 z-buffer、5×5邻域/5mm、三角面积加权 | **[官方算法][occlusion]存在，本项目未运行**；缺 GT pose/β/faces/world→camera/K/真实尺寸与 validity；不得以 crop 遮挡或 2D 框重叠替代 |
+| D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy已核验；ViT-S+S原生CPU/GPU、真实训练分支交接及[结构图](../results/dataset-statistics/vision-fusion-architecture.md)已核验**。EMG为完成150轮的验证best133，视觉为完成124轮的last（按原加载规则）；完整融合仍在训练，最终测试/报告未完成。精确零是legacy明确适配，原生极小正态与PDF zero区别保留 |
+| D19，D.6 Eq.4 | camera-space 自遮挡 z-buffer、5×5邻域/5mm、三角面积加权 | **[官方算法][occlusion]存在，本项目尚未完成逐帧运行**；MANO/β/面片资产已验收，仍缺完整GT pose/world→camera/K适用性/真实尺寸与validity闭合。D12原生IK固定β=0不许可遮挡链缺β时默认0；不得以crop遮挡或2D框重叠替代 |
 | D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **未运行**，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
 
 ## 资产与外部依赖

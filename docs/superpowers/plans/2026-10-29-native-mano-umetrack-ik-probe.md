@@ -1,0 +1,10 @@
+# Native MANO to UmeTrack IK engineering validation
+
+**Scope:** Advance D12 of the [approved full-paper design](../specs/2026-10-26-full-paper-reproduction-design.md) using the actual fixed official `batch_ik_mesh.py` optimizer. Complete frame-level label regeneration remains pending the complete original pose arrays and its own data admission.
+
+- [x] Admit the original manotorch source at `a2a70c591f91551078b7bb2af9b5d9f275b626e0`, existing licensed MANO-right asset, original Chumpy0.70 and the fixed EgoEMG/UmeTrack geometry sources. Keep all libraries unchanged and isolated from active training runtimes.
+- [x] Call the unmodified official `optimize_batch` on CPU with deterministic synthetic zero/nonzero poses, original landmark objective and default 200 outer-iteration budget / 50-step L-BFGS / original stopping rules. Preserve its internal beta=0, flat mean, alignment, joint limits and optional global/translation optimization. Adapt only asset locations and process-local removed Python/NumPy names required by the original Chumpy.
+- [x] Observe original L-BFGS steps/closures without changing the returned update, retain final raw parameters, independently recompute the final geometric objective, finite/limit checks and loss reduction. Record actual IK updates separately from zero scientific-model training updates.
+- [x] Independently reopen outputs and confirm source/assets unchanged and probe processes exited; publish the source-first differences, run evidence and remaining full-data boundaries. Do not promote synthetic geometry or the CPU function call to whole-data labeling, full CLI support, participant-beta geometry, wrist labels or benchmark accuracy.
+
+Source facts already verified: the historical CLI's limits path uses a nonexistent `emg2pose/UmeTrack` directory; the original kinematics loader uses the actual `egoemg/UmeTrack` asset. The function-level CPU caller supplies the latter explicitly, without editing upstream or touching generated legacy angle arrays. The manotorch version is an explicitly pinned reproduction dependency; the paper release does not pin its author's external checkout.

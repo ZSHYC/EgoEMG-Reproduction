@@ -1,0 +1,642 @@
+{
+  "actual_independent_replay_exit_code": 0,
+  "actual_producer_exit_code": 0,
+  "actual_two_probe_owners_nonlive": true,
+  "bound_original_source_files": 200,
+  "complete_scientific_settings_added": 0,
+  "dependency_admission": {
+    "chumpy_all20_original_source_files_match": true,
+    "chumpy_pypi_sdist_sha256": "a0275c2018784ca1302875567dc81761f5fd469fab9f3ac0f3e7c39e9180350a",
+    "manotorch_all25admitted_files_unchanged": true,
+    "manotorch_original_admission_sha256": "1967ee5da31015c1889e5c86771486c44a4484e3b949b97a7cc69cb023694172",
+    "manotorch_repository": "https://github.com/lixiny/manotorch",
+    "manotorch_revision": "a2a70c591f91551078b7bb2af9b5d9f275b626e0",
+    "package_setup_executed": false,
+    "prior_genuine_mano_asset_admission_sha256": "719e057ccf0d694422a7745770d0cf3b6c3554e76c985877c80f9778b66d8a7e",
+    "shared_training_runtime_modified": false
+  },
+  "format": "egoemg_native_mano_umetrack_ik_cpu_closed_evidence_v1",
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "independent_postexit_all_sources_and_asset_attributes_unchanged": true,
+  "independent_replay": {
+    "cuda_initialized": false,
+    "final_landmark_squared_distance_mm2": 21.4661865234375,
+    "final_objective_typed_exact": true,
+    "format": "egoemg_original_native_ik_independent_geometry_replay_v1",
+    "full_frame_labels_regenerated": false,
+    "full_paper_complete": false,
+    "independent_direct_umetrack_skin_landmarks": true,
+    "independent_matrix_exp_alignment": true,
+    "new_ik_optimizer_steps": 0,
+    "original_mano_layer_constructions": 1,
+    "per_pose_distances_exact": true,
+    "per_pose_mean_landmark_distance_mm": [
+      3.900157928466797,
+      4.200440406799316
+    ],
+    "per_pose_rms_landmark_distance_mm": [
+      4.52651834487915,
+      4.737405300140381
+    ],
+    "private_state_sha256": "4bfd65d7cc7189d7be6486b896253ad5bf28397ad9be207561e6a60a98ab576f",
+    "producer_exited": true,
+    "producer_result_sha256": "3caa9ba69b60b359ea6153702ee1892900dd29406ba0db475767c27ea7b9b3b9",
+    "scientific_model_updates": 0,
+    "script_sha256": "d921ff051e75bf728c123e167a49717fe0b13602a4b4d643382bf322157c661c",
+    "seconds": 0.8336369679891504,
+    "source_asset_nine_attributes_unchanged": true
+  },
+  "native_probe": {
+    "actual_ik_closure_evaluations": 1399,
+    "actual_ik_outer_steps": 61,
+    "actual_limits_asset": "egoemg/UmeTrack/dataset/generic_hand_model.json",
+    "actual_native_mano_layer_constructions": 1,
+    "actual_original_step_return_preserved": true,
+    "actual_returned_finger_angle_shape": [
+      2,
+      20
+    ],
+    "angles_finite_and_within_original_limits": true,
+    "compatibility_names_restored_in_process": [
+      "numpy.bool",
+      "numpy.int",
+      "numpy.float",
+      "numpy.complex",
+      "numpy.object",
+      "numpy.unicode",
+      "numpy.str",
+      "inspect.getargspec"
+    ],
+    "cpu_function_call_not_full_gpu_cli": true,
+    "cuda_initialized": false,
+    "dataset_labels_written": false,
+    "explicit_dependency_pin_not_author_checkout": true,
+    "final_landmark_squared_distance_mm2": 21.4661865234375,
+    "format": "egoemg_original_native_mano_umetrack_ik_cpu_probe_v1",
+    "full_frame_label_regeneration_complete": false,
+    "full_paper_complete": false,
+    "ik_step_trace": [
+      {
+        "closure_calls_so_far": 55,
+        "outer_step": 1,
+        "returned_pre_step_loss": 3473.36865234375
+      },
+      {
+        "closure_calls_so_far": 117,
+        "outer_step": 2,
+        "returned_pre_step_loss": 39.07556915283203
+      },
+      {
+        "closure_calls_so_far": 179,
+        "outer_step": 3,
+        "returned_pre_step_loss": 23.100444793701172
+      },
+      {
+        "closure_calls_so_far": 241,
+        "outer_step": 4,
+        "returned_pre_step_loss": 22.376731872558594
+      },
+      {
+        "closure_calls_so_far": 303,
+        "outer_step": 5,
+        "returned_pre_step_loss": 22.019269943237305
+      },
+      {
+        "closure_calls_so_far": 366,
+        "outer_step": 6,
+        "returned_pre_step_loss": 21.723398208618164
+      },
+      {
+        "closure_calls_so_far": 428,
+        "outer_step": 7,
+        "returned_pre_step_loss": 21.644691467285156
+      },
+      {
+        "closure_calls_so_far": 491,
+        "outer_step": 8,
+        "returned_pre_step_loss": 21.5397891998291
+      },
+      {
+        "closure_calls_so_far": 554,
+        "outer_step": 9,
+        "returned_pre_step_loss": 21.522319793701172
+      },
+      {
+        "closure_calls_so_far": 616,
+        "outer_step": 10,
+        "returned_pre_step_loss": 21.51646614074707
+      },
+      {
+        "closure_calls_so_far": 681,
+        "outer_step": 11,
+        "returned_pre_step_loss": 21.51389503479004
+      },
+      {
+        "closure_calls_so_far": 743,
+        "outer_step": 12,
+        "returned_pre_step_loss": 21.506671905517578
+      },
+      {
+        "closure_calls_so_far": 775,
+        "outer_step": 13,
+        "returned_pre_step_loss": 21.49661636352539
+      },
+      {
+        "closure_calls_so_far": 837,
+        "outer_step": 14,
+        "returned_pre_step_loss": 21.492246627807617
+      },
+      {
+        "closure_calls_so_far": 900,
+        "outer_step": 15,
+        "returned_pre_step_loss": 21.4864559173584
+      },
+      {
+        "closure_calls_so_far": 963,
+        "outer_step": 16,
+        "returned_pre_step_loss": 21.482524871826172
+      },
+      {
+        "closure_calls_so_far": 1025,
+        "outer_step": 17,
+        "returned_pre_step_loss": 21.47381591796875
+      },
+      {
+        "closure_calls_so_far": 1087,
+        "outer_step": 18,
+        "returned_pre_step_loss": 21.467844009399414
+      },
+      {
+        "closure_calls_so_far": 1117,
+        "outer_step": 19,
+        "returned_pre_step_loss": 21.46660614013672
+      },
+      {
+        "closure_calls_so_far": 1123,
+        "outer_step": 20,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1129,
+        "outer_step": 21,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1135,
+        "outer_step": 22,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1141,
+        "outer_step": 23,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1147,
+        "outer_step": 24,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1153,
+        "outer_step": 25,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1159,
+        "outer_step": 26,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1165,
+        "outer_step": 27,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1171,
+        "outer_step": 28,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1177,
+        "outer_step": 29,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1183,
+        "outer_step": 30,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1189,
+        "outer_step": 31,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1196,
+        "outer_step": 32,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1203,
+        "outer_step": 33,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1210,
+        "outer_step": 34,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1217,
+        "outer_step": 35,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1224,
+        "outer_step": 36,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1231,
+        "outer_step": 37,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1238,
+        "outer_step": 38,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1245,
+        "outer_step": 39,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1252,
+        "outer_step": 40,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1259,
+        "outer_step": 41,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1266,
+        "outer_step": 42,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1273,
+        "outer_step": 43,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1280,
+        "outer_step": 44,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1287,
+        "outer_step": 45,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1294,
+        "outer_step": 46,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1301,
+        "outer_step": 47,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1308,
+        "outer_step": 48,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1315,
+        "outer_step": 49,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1322,
+        "outer_step": 50,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1329,
+        "outer_step": 51,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1336,
+        "outer_step": 52,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1343,
+        "outer_step": 53,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1350,
+        "outer_step": 54,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1357,
+        "outer_step": 55,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1364,
+        "outer_step": 56,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1371,
+        "outer_step": 57,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1378,
+        "outer_step": 58,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1385,
+        "outer_step": 59,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1392,
+        "outer_step": 60,
+        "returned_pre_step_loss": 21.4661865234375
+      },
+      {
+        "closure_calls_so_far": 1399,
+        "outer_step": 61,
+        "returned_pre_step_loss": 21.4661865234375
+      }
+    ],
+    "independently_recomputed_final_loss_exact": true,
+    "initial_landmark_squared_distance_mm2": 3473.369140625,
+    "mano_joint_shape": [
+      2,
+      21,
+      3
+    ],
+    "mano_right_sha256": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767",
+    "mano_vertex_shape": [
+      2,
+      778,
+      3
+    ],
+    "manotorch_revision": "a2a70c591f91551078b7bb2af9b5d9f275b626e0",
+    "native_cli_limits_path_exists": false,
+    "native_flat_hand_mean": true,
+    "native_internal_beta_zero": true,
+    "native_lbfgs_max_iter_per_step": 50,
+    "native_loss": "landmark",
+    "native_outer_budget": 200,
+    "new_scientific_model_updates": 0,
+    "nine_input_attributes_unchanged": true,
+    "numpy": "1.26.4",
+    "participant_beta_geometry_validated": false,
+    "peak_rss_bytes": 439767040,
+    "per_pose_mean_landmark_distance_mm": [
+      3.900157928466797,
+      4.200440406799316
+    ],
+    "per_pose_rms_landmark_distance_mm": [
+      4.52651834487915,
+      4.737405300140381
+    ],
+    "pose_global_orientation_zeroed": true,
+    "private_state_sha256": "4bfd65d7cc7189d7be6486b896253ad5bf28397ad9be207561e6a60a98ab576f",
+    "python": "3.12.14",
+    "script_sha256": "35b2f83205ac0c6aa5e5ab2946238c9133367fa03e0632f96d27fda086dbe9c8",
+    "seconds": 5.496033611008897,
+    "source_files_sha256": {
+      "chumpy/chumpy/__init__.py": "f3521d4948776a6e6f2b54c5b02b28c4645c549493d36ef234637121e82d8875",
+      "chumpy/chumpy/api_compatibility.py": "77a7b63ec80e5c168efe77595635aa83632e350179d056787562e2dd3734755b",
+      "chumpy/chumpy/ch.py": "269f2a1cf22bf5ab0a659f7d0ebb516858d8aef70dc8c7a4e0537e84355b39e1",
+      "chumpy/chumpy/ch_ops.py": "7f53badde6669a34074c2a6e5bbea4dbcd234e5f805dfc67a34aa8b30f3b80bd",
+      "chumpy/chumpy/ch_random.py": "d83ea446a0f772c053c3bcaccd468b6c8323ecc07464609d209ad42f5fbfaa0c",
+      "chumpy/chumpy/extras.py": "062554d4514eb119a8665ff70e02b1afcfe7d9aff6b50b45c21e49ecc4a5ff4d",
+      "chumpy/chumpy/linalg.py": "697fc203be296b84641b236ad6dfe92357bf6c65cfddac311ce65de6d281cc1f",
+      "chumpy/chumpy/logic.py": "e837fa51e081dd7c6c2ac3b9559476b5be1615998d48f806c4f77e809248fce7",
+      "chumpy/chumpy/monitor.py": "7b0d58012ec709b44e6d6352901ac4d0c07c07792036eb3377a359597c74ebde",
+      "chumpy/chumpy/np_tensordot.py": "831962dac3321c68bb8c45c56cbec80bea419a95d450060daeac1bac89975271",
+      "chumpy/chumpy/optimization.py": "c4823b3103b2909bc77f912ed6fd0afae5b4257e2bf6130c11d905d7b8094c58",
+      "chumpy/chumpy/optimization_internal.py": "f897f988d4895c70a5fa472f40bd57ee0029472ed849bd32c58c1617ab8812a6",
+      "chumpy/chumpy/reordering.py": "0b3fb26aa7877f489691a9b231e4f03a993744aa0a47e6b14424f2e181fc1091",
+      "chumpy/chumpy/test_ch.py": "7f9c55b63eff2a8c5a4464545e567078f1477baa3356538eb24838c8d0f37aa9",
+      "chumpy/chumpy/test_inner_composition.py": "917ee7f8fabe12fb231b20a94136beea08467e997e7b803b010864c17f9f9f5b",
+      "chumpy/chumpy/test_linalg.py": "40ef748b6fd7444cb2ce65a9a0942a2e38db477fe0be6e98c9c6f50f4e46600e",
+      "chumpy/chumpy/test_optimization.py": "53be466055f70105e0aa87666d03e55160b198b82b0fb4f0a0fe394ed4c955d1",
+      "chumpy/chumpy/testing.py": "69e87e92da98dc48b1ad5f7960083ac6637b566f20d2ef46257f2d33a632dd43",
+      "chumpy/chumpy/utils.py": "1c2df6f8a2c7ebbf7e64737d924f6c178ea5954891f2d8678a1693b6b50db48a",
+      "chumpy/chumpy/version.py": "54161735d6f3260eed2a79ac3b7fdc16c5a2724cf590b3f023fe93fabddf46a9",
+      "egoemg/egoemg/UmeTrack/__init__.py": "b1d86766784dbd6c6cefd09b5cd88363df997fde5c4871423912ebe69342ad8b",
+      "egoemg/egoemg/UmeTrack/dataset/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/dataset/generic_hand_model.json": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31",
+      "egoemg/egoemg/UmeTrack/lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/lib/batched_dataset/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/lib/batched_dataset/data_transform.py": "5dbebfd2f3be64d3abfbe0d21c62d8fef4f4bab852f8d538e719ee7137be8af0",
+      "egoemg/egoemg/UmeTrack/lib/batched_dataset/sample.py": "36dda5c100a3e0df762806e2b57945a8aea93c7661fa2cfcfd7a7df092dad76c",
+      "egoemg/egoemg/UmeTrack/lib/common/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/lib/common/affine.py": "c143da5abae45990ba20156174ebcec30055bc74ffb5229f5a9c25c8b5ce3fdb",
+      "egoemg/egoemg/UmeTrack/lib/common/camera.py": "8899de028c593ec5d1db96d5455867328592ddf9af45bc078f011b5aafa833cc",
+      "egoemg/egoemg/UmeTrack/lib/common/crop.py": "13e70b06b52a37002621095d9691fca51086fcf5969c8922e93110939db3c4c4",
+      "egoemg/egoemg/UmeTrack/lib/common/hand.py": "f225e339e8b73de258c2bf87072a7af3f857b4ffed68532159f60417b0a88136",
+      "egoemg/egoemg/UmeTrack/lib/common/hand_skinning.py": "307b322fbfc785346325737f831b61c581e45bd1a819444d71a5e13895c43d6e",
+      "egoemg/egoemg/UmeTrack/lib/common/metric_utils.py": "118cfdffd9fe7dc09e1b602da319610916595fdfb6fd40d99e31ce77d5851242",
+      "egoemg/egoemg/UmeTrack/lib/common/pytorch3d_transforms_so3.py": "8392acd6c420e24f576c34c8deafbac8b52a41dc8343dccc42084af2b959e9a1",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/async_dataset.py": "e928e94c0d91364619a84b939b46aca1b0da6998eca219786677fed5b5039192",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/async_utils.py": "9d0897a7221fca6df2420a59c4481f4a6857c42273eeedce80769298697928c5",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/bundles.py": "6b3977ff4650f466134af742586bd58e62f6bd5fde4b65370199d5d48340a218",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/dataset_util.py": "eac31487ae34e619109d7dff66bd1b88c815a5761c62f19f5af84d0e6a935409",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/fs.py": "942b740734fd50004773070f0d0177b537319cc6f9e2116d3772eb9d3ff95d30",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/idxbinfile.py": "7e57c4d51a01f2702e4399614ac4b19c980608a40cffdc393e16121338eca7c1",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/nested_async.py": "f48224bca0d57e7601e9e029347aef4c2feef9fcc5743f3bdcf02c1b5edcb3d0",
+      "egoemg/egoemg/UmeTrack/lib/data_utils/split.py": "652658a80f86dae0b83ffdd5d18a09c84ccb45ac51763ba00ade7eae1a9bd146",
+      "egoemg/egoemg/UmeTrack/lib/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/lib/models/backbone_resnet.py": "61d96191fdb883bd4e3a3caa3ec31ec3cc6949e393cf896c5f790e52b6251c10",
+      "egoemg/egoemg/UmeTrack/lib/models/feature_extractor.py": "d3975330ce1e43de6c1f57776c2c7f171d2b3bb57a2778db629f26459748111d",
+      "egoemg/egoemg/UmeTrack/lib/models/model_loader.py": "a27731e0d7ac8a4a55f3d8058baa33d804ea5364f4ddaf7ea67abf6ea6977a87",
+      "egoemg/egoemg/UmeTrack/lib/models/model_opts.py": "d28ac1b419d6459c016cc5fb668e5324a6cd19a2b4e52cda71d528c614312396",
+      "egoemg/egoemg/UmeTrack/lib/models/model_utils.py": "8702eb9a7ee5e0b3262502c2a5f0d23cb82a7bef3152af62f738d69bad01976f",
+      "egoemg/egoemg/UmeTrack/lib/models/regressor.py": "650c5f02c81c02087477b87d343ffd36f9a9d585dd2e0778fda76654e1b96b5b",
+      "egoemg/egoemg/UmeTrack/lib/models/skeleton_encoder.py": "5f5f52962995a348aef6c2695b069df5d85cc2aa5f7fe7d53511c1d8a02fc1d5",
+      "egoemg/egoemg/UmeTrack/lib/models/temporal.py": "4dd5f6c6ed69df580fc61f377ba75201f2fd48cc35f57066361db5271a6af726",
+      "egoemg/egoemg/UmeTrack/lib/models/umetrack_model.py": "9747694a6a88479e8eb33bea455e85b1a7ffd165805872ae3572f8e49a291a23",
+      "egoemg/egoemg/UmeTrack/lib/tracker/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "egoemg/egoemg/UmeTrack/lib/tracker/perspective_crop.py": "f0a87828f3bd6899eeb4435d3c8e4cf667614e886763e9d05e627f5628c085d6",
+      "egoemg/egoemg/UmeTrack/lib/tracker/tracker.py": "47463eb07bf5ad52377aa63afb5c0146501b77229ac794aaacedae6ec2496c2a",
+      "egoemg/egoemg/UmeTrack/lib/tracker/tracking_result.py": "7712ecf7ce65b9208bc41fa4458d9dfe0fc123a7dbdae52f64daaab6c616f3ba",
+      "egoemg/egoemg/UmeTrack/lib/tracker/video_pose_data.py": "b1d08ec7ce9dc773ceca67a8e2c9d39569e2999aee67cd77861606c3cd297428",
+      "egoemg/egoemg/UmeTrack/load_eval.py": "56e6c98c2b92fdbadc7628a4b29f5cdf6c31064ec66291d9d11474630ee7cadd",
+      "egoemg/egoemg/UmeTrack/run_eval_known_skeleton.py": "707719eea40107a78161925e7033dd7fefea5ee286442e77baee6b956de0b76f",
+      "egoemg/egoemg/UmeTrack/run_eval_unknown_skeleton.py": "db95f7f020e3b53c5a2e4132511f060ad9365b79568a68b0c269d73ff22bac3a",
+      "egoemg/egoemg/UmeTrack/run_inference_torch_data.py": "fd465513c536f504ebde80a4a882f6d2d1f85d4315ff77dca0f70a8032c6d155",
+      "egoemg/egoemg/UmeTrack/setup.py": "0a1c5c56dba0233c43bc51979f2cfd3ee02dac3b4f66b7660b3b4d90ecf658c7",
+      "egoemg/egoemg/__init__.py": "5a1b9bf6c9d9aa4ff9361b2fd6efd069b1c9f2c71fc716624e0ee2fae2adf9a4",
+      "egoemg/egoemg/_train_utils.py": "b510bbb938d5d82e03016c8009cb26e94f4e38a34995ec038ee89a2b576604f1",
+      "egoemg/egoemg/callbacks.py": "43152c5854516a05f3fb41aba3a2fd726cc27e358c4488cb0be10d0ca3dda0a6",
+      "egoemg/egoemg/center_frame.py": "9ed981e3652d94a25d4607ff3e0eb3802b0f279077eccafe933773026aeb085a",
+      "egoemg/egoemg/compute_emg_stats.py": "4f5153dc973f15cb88fad1d136a95c3922473adaf23df8a44b403641e4fd53c5",
+      "egoemg/egoemg/constants.py": "01f4ad9d6be5b587d46d28b01c2325d584a593a63bd14c79dd0f8e2a1e561099",
+      "egoemg/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+      "egoemg/egoemg/datasets/__init__.py": "e168ce63b697a3101bb671038f103d44434de36b1f57877d82a259a524741b98",
+      "egoemg/egoemg/datasets/egoemg_incre_dataset.py": "e7798013bd0429232728e7b5bd6ca878a29cb173d39fefc0cffd50b433ea0ff3",
+      "egoemg/egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+      "egoemg/egoemg/datasets/egoemg_vision_dataset.py": "206f661f698a189b9181a060573d8ec5630df466c0e84dc6af62ffba63e9fdc2",
+      "egoemg/egoemg/datasets/emg2pose_dataset.py": "82fbd93849b906543f6f0705b8ca220b40ff81e3ee26175527c2a2d3124f2cc6",
+      "egoemg/egoemg/datasets/emg2pose_dataset_legacy.py": "b1f6b81ca1f4b4dbefaa0bc63a42181ff52ba807bd8c157b8d2278443feb1ff8",
+      "egoemg/egoemg/datasets/emg2qwerty_dataset.py": "b417ed9c1aa44cd60b998caa30fe8c99df95b30309630758e07d4ed47aa4e245",
+      "egoemg/egoemg/datasets/grabmyo_dataset.py": "b666336e6d1f46c6ce2efb98340a2646be1d9ab2da9e4bdb7f05ccb0b244a074",
+      "egoemg/egoemg/datasets/layout_utils.py": "34293ab35a3138f4bd04847bf604968536d8720d9f2302d88f2a03db25ac50e8",
+      "egoemg/egoemg/datasets/multisession_emg2pose_dataset_legacy.py": "8ad51a7d9ef7a7f8f498a679694deab0b9e7ade54a96faed95a5fe8d47c94d34",
+      "egoemg/egoemg/datasets/myoki_dataset.py": "e786bf7cdaf2df984242e81a458bdf938c30a83c8b582dbf89cd06deba0629b8",
+      "egoemg/egoemg/datasets/ninapro_dataset.py": "af7333581723bdca606c4404be227dc576db49e2d03b6cd481337d54d5df3b71",
+      "egoemg/egoemg/datasets/ninapro_memmap_dataset.py": "a2a9aa660b7b08dff9a319d0b94560a1db76dff84b5bd23c3cfe2f6db4cfa649",
+      "egoemg/egoemg/datasets/pimforce_dataset.py": "840e2f842bb3375cc0d1cee8455d43c78e1b4ce61355b810cbd65d47d9f271e4",
+      "egoemg/egoemg/datasets/pimforce_memmap_dataset.py": "a6494e9a80103d2ec6d6fd18805add391eaa1a919d2017d3583ecd4e722bea1b",
+      "egoemg/egoemg/datasets/posture_dataset.py": "78d77998a39f9f0f434433e88e88c622bc87b47ec4fceeeb2e37eaff50b8d726",
+      "egoemg/egoemg/datasets/pretrain_wrapper.py": "0d833b3161a8a7bf956123d0a8263d6a5d59d52a7facd781083aba3c68f9c75f",
+      "egoemg/egoemg/datasets/putemg_dataset.py": "07b10078358bfada1d31a15dd41cba9a79f713c31e3868aaf33c1d7895dd2d7c",
+      "egoemg/egoemg/geometry.py": "15f8ddeb412952a1f792622124bfb0c4bfd9e91a9b675656e2760759260c34b3",
+      "egoemg/egoemg/keystroke_utils.py": "61ee8a2d1b2a8eee451be06defdbc5a495e6dfb30dd92b2aba9a015862a2945f",
+      "egoemg/egoemg/kinematics.py": "85289667f02c93332205512c5b49ce01698b5a133c344f9a58533a1844c6fc9f",
+      "egoemg/egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+      "egoemg/egoemg/lightning_pretrain.py": "303b84b0d3fcf7d886182dd9893313569e9a347987acf9ae6f547f9d6562ac83",
+      "egoemg/egoemg/mano.py": "2b9da8721b52958a96d17aab47205ff43d4d855b15fa77837b339eef92ac3e25",
+      "egoemg/egoemg/metrics.py": "85aac28fc2cac11e4714bf6a18a52b2faeccc488d6135202aae8a8e974e95309",
+      "egoemg/egoemg/models/__init__.py": "81d5601b0b833e68577295506c818669709c605cdf736d0f56892518c5c4cfe0",
+      "egoemg/egoemg/models/decoders/__init__.py": "64d768f0cd0b16e8c90d5ba80ebea134fe9a848214735bebc400891c0684a30f",
+      "egoemg/egoemg/models/decoders/channel_time_rope_transformer.py": "4558bea99909d2c7f43be1bbe1cb49ba86e0cc6ca25f62b6da5a06d3424f364a",
+      "egoemg/egoemg/models/decoders/lstm.py": "ed3c52e76f6cf1d831afee1e76974d2a44663e95d6081f0cbf877c8799f04b8b",
+      "egoemg/egoemg/models/decoders/mlp.py": "e1bb010be818e6d7808b5f363426a57e84f2c78bf36dae820298bed9b9f9689a",
+      "egoemg/egoemg/models/decoders/transformer.py": "404cdd80951869517bebc7996f9c42a77214c0bf33762fe4f405abe7c1c4dcaa",
+      "egoemg/egoemg/models/featurizers/__init__.py": "1adc09a6452cccf2414358bc02263c015d05c43ddfbc1c042805c22f7ce25553",
+      "egoemg/egoemg/models/featurizers/cnn.py": "146e924d8e70b7ecba6658eb175d339611dd30d02b6f6886c66feccbf745ef09",
+      "egoemg/egoemg/models/featurizers/neuropose.py": "8ffacb25a68d2693e41934a4fcc1d5f2c8cd27bcf9452ed5a6d69daaf861eac4",
+      "egoemg/egoemg/models/featurizers/patch_cnn.py": "1f54b455a21ec62ba0d33c56a2230f46312e1ccd9a7cefd26d170e29a9ebacd7",
+      "egoemg/egoemg/models/featurizers/sensingdynamics.py": "24d8c63cd6245776b0c36003c220d6810f41bec7d1ed449ceedc53126f196b1e",
+      "egoemg/egoemg/models/featurizers/tds.py": "560b0cb7f17024e55e22eecb258cd56655ed3581b2a2f66889476aaeaaf8b37d",
+      "egoemg/egoemg/models/heads/__init__.py": "49931a5c87573c7f766eb805d8b359a81532d759728c3361dd0a9fe1f92ed58c",
+      "egoemg/egoemg/models/heads/classification.py": "59c81cba0204714db37139f0c15c9b794c587565362ab647d7af434ce35c045f",
+      "egoemg/egoemg/models/heads/mlp.py": "ee34214295dcc0dde6fd0c512bbfd483d9463d425fbac07912c83fc2b475ce19",
+      "egoemg/egoemg/models/modules/__init__.py": "a396f5a49127c8b707732c2677f34367705b172acddfa659c7e2c8e84446422c",
+      "egoemg/egoemg/models/modules/_pooling.py": "f5ff23e6878b4f50e6eabc586b77df33c844aa4377dc815aaee8e4f65d61cb06",
+      "egoemg/egoemg/models/modules/_vision_constants.py": "5bec67a9503601368879f7a76aaa9637bd8bf6b917f33cb4a786671179853fbb",
+      "egoemg/egoemg/models/modules/base.py": "b19dbbfe77db813f20553ded787bb7df1825cd48e529a2312e8c1caa3c83a54b",
+      "egoemg/egoemg/models/modules/emgformer.py": "1a1b2caded0a7d92a7f2a23a98c3b48398d001e15a0de20e5abda206a57cd093",
+      "egoemg/egoemg/models/modules/emgformer_pretrain.py": "1785d76c856e04ff8f4f10c408a259bcae53d5d5686d45dec11cdaa3d3c9aea4",
+      "egoemg/egoemg/models/modules/mid_fusion.py": "874cf1168b38c510835bd9b832dcb33ace4d0f8f45bb1eaeafa44a75ed7aeb49",
+      "egoemg/egoemg/models/modules/pose.py": "cdb0e6d4d2a815e7e803a9479fe832a6c14d7ef7c13ebdae8b22e55c3f26a04d",
+      "egoemg/egoemg/models/modules/resnet_vision.py": "a2c40c1ef84ec0463378b5d49a393a586ac97211d79afcff632f7eb6855c8d0a",
+      "egoemg/egoemg/models/modules/sensingdynamics.py": "66f6bda79416946832263eb3b8565213b2fc7457500e72e96455cd5b5836ee7e",
+      "egoemg/egoemg/models/modules/vision_mlp.py": "2381eef585cf5d23a4262dc988b8fbccb3550f3e4dcbce28abe90270d93837c5",
+      "egoemg/egoemg/models/modules/vit_vision.py": "aa93eb7a45534945cc596a188e571de19b8bee2ff57734823571dce79059058a",
+      "egoemg/egoemg/models/modules/wilor_vit.py": "4b3caa49b329e155040e7918721f45785964b563dbe1fe96369f9d2ef605b9dd",
+      "egoemg/egoemg/models/vit_freeze.py": "b7b3336872912f54ab731fba4453b03dd92b4b6527974637697da8640506a1d3",
+      "egoemg/egoemg/occlusion.py": "80725855e61ed1510d0c3359d197c15443550491ed5dd67b512206869d001c8d",
+      "egoemg/egoemg/realtime_local/__init__.py": "b01b191774cef34d33271738a29dec51f043bd9f08e4a031550174c591f53cf6",
+      "egoemg/egoemg/realtime_local/buffer.py": "fb20f7f14c81273fa0b40c63d5ef45507ab78ccfbaab832ebf3025486a41460a",
+      "egoemg/egoemg/realtime_local/mano_mapper.py": "7d67c5b7a4513fed55803f681b6a419da5d73dc6cbea479ffcb38e10e43a316f",
+      "egoemg/egoemg/realtime_local/mesh_visualizer.py": "5305d0cba607a6802ee97a2adf4e262858198c76c4473d6be13a1a0cb2b53b1a",
+      "egoemg/egoemg/realtime_local/online_full_adapt.py": "799f9e27ec378c2ce7b975834eb48f12188e91ae8471ce91e0d17ce107b225bb",
+      "egoemg/egoemg/realtime_local/pipeline.py": "110b5059afaa16ded6804816607c599319e9a7eec6031ec079f4d5f18254a503",
+      "egoemg/egoemg/realtime_local/preprocess.py": "9d47e41cd4d2127b236ade534d4aa178beb1a86a477855c6b28d5661c78ff4d6",
+      "egoemg/egoemg/realtime_local/serial.py": "a1a1acc474846be7201e535da1ce92027afec192b66be3f87965f5e87803fce3",
+      "egoemg/egoemg/realtime_local/small_model.py": "1d20cf6900eb1a136ba67f7380c3c85185654b18b42c927cb6593a645a18ce5d",
+      "egoemg/egoemg/test_analysis.py": "0d6f54e765b3e1c57eb3194b9f849555ca5f2b36cce2e11953c17df879eaecd6",
+      "egoemg/egoemg/test_analysis_fusion.py": "b30e6347ba1f253efedb80479ecb9464965b4e4264111c197bb6ec324335be92",
+      "egoemg/egoemg/tests/__init__.py": "005aa5697e714315744167af50496096dd54e286d693e0bfd60488dca62ee627",
+      "egoemg/egoemg/tests/scripts/create_test_hdf5.py": "af6c2a571606c9672a1d8e7ac8efd2dc736956664976265c821a28dfbd4ff8cc",
+      "egoemg/egoemg/tests/test_active_config_composition.py": "6beb9e37481973f24c35cf12d6619f508f0f2889d03ac7644578b35e14f62d67",
+      "egoemg/egoemg/tests/test_build_showee_memmap.py": "787de8a7ef5ee706272b375d07742c0dd97a585343ac17172ff761aa7112c63e",
+      "egoemg/egoemg/tests/test_cli_help_smoke.py": "e5e73c84201e174c2a11e82cfae02d50ab59c3442c76c1c7889cd9b32bcc7ddd",
+      "egoemg/egoemg/tests/test_data.py": "45fc53c3d5dfa679a4d9e302f54059863f61830e098f8cccdbb113307751f26d",
+      "egoemg/egoemg/tests/test_egoemg_imu_reorder.py": "0df8c3d14d31972141e5f4c788089b00d836a12cc9f2ed93425c1420c248833a",
+      "egoemg/egoemg/tests/test_egoemg_memmap_dataset.py": "80a79c7ae157f3636854b7b4db63127e0ae230cca3269c54debe48d06b2cef36",
+      "egoemg/egoemg/tests/test_eval_center_frame_e2e.py": "36468297b7e964d6f2eadc1e7bcaaf9e47e021539e4e8e91abe664cab00c0159",
+      "egoemg/egoemg/tests/test_frozen_visual_cross_attention.py": "a3b260181fefcfb91cc3179b415c9cca1da921571f033874978dbff06cad8795",
+      "egoemg/egoemg/tests/test_joint_token_fusion.py": "cefedfc5608576cf418d90f9d8c4d1b89c84358d4df609362bdd85248d28b233",
+      "egoemg/egoemg/tests/test_kinematics.py": "834282a8e852c89ac8c41f37caa9b12aa6160c6acbafe179863346fc418c5934",
+      "egoemg/egoemg/tests/test_memmap_v3_migration.py": "5d9cf2b9af28da5acd57aaf260dfec55ed674ded7475cffdb1ee9702e4620bb8",
+      "egoemg/egoemg/tests/test_metrics.py": "56363a2a2a25bbaae50827439902e3faf3c9b2f20bf412f30ebfcc62d467f2d9",
+      "egoemg/egoemg/tests/test_mid_fusion_forward_modes.py": "7b8c0f88698556ae7fffb16df462cd7e3296a608ce68cb76b69c3e1fe49a8ed5",
+      "egoemg/egoemg/tests/test_mid_fusion_selective_vision.py": "11709601f7758e9f80f151bd91a9f21fd6b3c85b42d6ef57876caf32bc264161",
+      "egoemg/egoemg/tests/test_mid_fusion_vision_lock.py": "1ea30a94477670b59e84e66ad3ce293d9aa47920eb3f718a9bae1f7c5e75fd9a",
+      "egoemg/egoemg/tests/test_pretrain_multitask_module.py": "eabdb44dc5d4ad6f6cd80bc2bd4efa3301cfb31c180a3457733b8e22f6268e4b",
+      "egoemg/egoemg/tests/test_pretrain_wrapper.py": "da0fae15af98b2aab94620856ba8a89006f22def3b240cc2132e7adbac196d81",
+      "egoemg/egoemg/tests/test_realtime_local.py": "77623641deb317eeec4d1804afd3fc2e62a51735ded939e905e4197f8220096e",
+      "egoemg/egoemg/tests/test_release_eval_helpers.py": "56871e2bf89ff8e3ba4b4c3ce2b69fa017975253abaea3b3a72a7ed2a4066de6",
+      "egoemg/egoemg/tests/test_rotary_attention_mask.py": "ec2278c99098cbde808d07645cf3f3065fbd38c8b11238c53718b76e99545a90",
+      "egoemg/egoemg/tests/test_sensingdynamics.py": "d4d9a00a668c386087b7581331f9629450f3ac78b7a6941537e161fd354db739",
+      "egoemg/egoemg/tests/test_session_shuffle_sampler.py": "53a3c7376e1572bd3884495eaf9da11edd1a3b457a90eaf16180179c30ec848f",
+      "egoemg/egoemg/tests/test_transforms.py": "f65fb5b6b2f4838e13022caa4543323adf96d4fcbd248f9406d0183be8f0d491",
+      "egoemg/egoemg/tests/test_visualization.py": "3fb6a6ee24186004af989422115271d490a052f35bd8d427bda658483e17a7a5",
+      "egoemg/egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e",
+      "egoemg/egoemg/train_pretrain.py": "44ff5ac7f7ab429d5e324a434bf3b095e357f1505a1d217e625fe6defeb62d63",
+      "egoemg/egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59",
+      "egoemg/egoemg/transforms_batch.py": "030bf002dcf0ac9db4d07b56418dfdde42f40cac9e047449d9e3c67a453eeb45",
+      "egoemg/egoemg/utils.py": "d8faf33e037b4decec3b7febcb2d3db1576dc83e74d36a8f4b4739a8aa5241d2",
+      "egoemg/egoemg/video_io.py": "68ca61090e25a7a77108b9490e5ae83e801ca405da018444956ad811e1a82a0e",
+      "egoemg/egoemg/visualization/__init__.py": "0aedbd4bf8b45c5f7fc5d96b10d436ff5d79317004e10539c70e13dcfb49d4ca",
+      "egoemg/egoemg/visualization/classic.py": "69f0d6d8caec747c443b7cf3b2295d979c4d066a4694edc2406ccf58ec4b42a3",
+      "egoemg/egoemg/visualization/egoemg_vis.py": "26bfe91e3aa12803b2a69a07aee8416804253c879ea57ddf7d30a7e40c13e9b0",
+      "egoemg/egoemg/visualization/mano_camera_params.py": "a67a231843f3d5a7db519d688606599cd4771c53c9a757c0353b96a3fab07163",
+      "egoemg/egoemg/visualization/mesh_renderer.py": "eb653e328e6f100777f99f45cbc1b83dcb352191c7aa53e5e6c8b9c9b65f7030",
+      "egoemg/egoemg/visualization/viz_utils.py": "0ae8f7241a960b8dcc7f33933742b5259374ea4dd52dd85f003bcc30ab70ee6a",
+      "egoemg/scripts/ik/batch_ik_mesh.py": "794fdfcb82a692812de4ca7a15fd4e41c0c3f3717424dd917fb05e4f9508da2c",
+      "manotorch/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "manotorch/mano/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "manotorch/mano/webuser/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "manotorch/mano/webuser/lbs.py": "0e84811bc9b73ff0b828b512af6c67dcc06925b7136532abd2ba265843418671",
+      "manotorch/mano/webuser/posemapper.py": "b54423c03258a071b2572934e5fc211058217c3482f66c4492d983a578098a10",
+      "manotorch/mano/webuser/serialization.py": "08df615e88a656c7b06a54cdbea6ff535b41ab98ab870f4a9d3530a2554ae70e",
+      "manotorch/mano/webuser/smpl_handpca_wrapper_HAND_only.py": "af624491c75f785687f470c6423b97e9e1c8e8cd6296771070daa982732dc9a0",
+      "manotorch/mano/webuser/verts.py": "9e59107c07e5c5313c1dfe78af1c4d87fb37e628fdf79f4810a4214d700872d6",
+      "manotorch/manotorch/__init__.py": "895c9d1470d378ec7e49c37e6b563164a0b74c276e56e1602f113958b43a82d7",
+      "manotorch/manotorch/anatomy_loss.py": "4fa581584b2a521545aeec7c75bc912c8ae7fae63b23a9385f66f9092bcbbce1",
+      "manotorch/manotorch/anchorlayer.py": "077035bee8f791d2f7a9b979488b3e6b22d72075def4ac14f06e88c53efcb63f",
+      "manotorch/manotorch/axislayer.py": "cd17ec19833b33a11231ddce6d7f72d8f11a8c06786204b0fd1b8b8ad0d5744e",
+      "manotorch/manotorch/manolayer.py": "9183fd6cef93c8904963eba25ffbbd3f0e4c068e29a511a28c4653133e63646b",
+      "manotorch/manotorch/upsamplelayer.py": "a7bd992e53a39ac2922855694cd567b1ec5f1800b9cd90f5606abde3bbbf1892",
+      "manotorch/manotorch/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "manotorch/manotorch/utils/anchorutils.py": "6787a9311eaa75752de668985859fc08fd546a9bb6fa1933fdf1daa38275e310",
+      "manotorch/manotorch/utils/geometry.py": "531fcd6c245bf6a00014bf9c5cf548a3fcab7dc2314608fcc8cca9e7c61bcbb6",
+      "manotorch/manotorch/utils/quatutils.py": "d4be00742870483d88130b4b1582eaab72cc748aa30798b6c265fc29cad7667e",
+      "manotorch/manotorch/utils/rodrigues.py": "01edb8a4c0e3882384f5c4fdfbef8678b877ad84df8551a9b52d8439f0ee1767",
+      "manotorch/manotorch/utils/visutils.py": "946452e140d6ca8976ea3ddcffed745a539a0d8de289e979395158df3e0d447f",
+      "manotorch/scripts/simple_anatomy_loss.py": "8d5beaf4f0765009b1acb51545d784c1e33ae59550d14a1476e933df2a66932b",
+      "manotorch/scripts/simple_app.py": "b7c84212c9cdeb94f18187e7f1d1616794b83e451ae156f0ee4f98f213c76754",
+      "manotorch/scripts/simple_compose.py": "0f00049eb022c05ef103845436b8d2438562ad17876114875414c313cb928384",
+      "manotorch/setup.py": "a45c619e73732689f7fe12dde1380183f88e65843f1a7ad98c8bcb3a1d611c98"
+    },
+    "source_files_unmodified": true,
+    "synthetic_input_poses": 2,
+    "torch": "2.2.2+cpu",
+    "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "wrist_labels_regenerated": false
+  },
+  "observed_utc": "2026-10-28T21:16:31.480528+00:00",
+  "private_artifact_sha256": {
+    "independent-replay-owner.json": "07f5a7f204af39aa3d08e9522058eb06542625470f5eaa5d54630178822fb75b",
+    "independent-replay.json": "70fc279429a2ed97964d045c4de28379deb41da64f559e0a105a6bafa405a8c6",
+    "owner.json": "1c61df582e0bb1f7a334e434a9d0a0ce23bdfd79e4a37babf1ea87d7b3ec6c8d",
+    "private-ik-state.npz": "4bfd65d7cc7189d7be6486b896253ad5bf28397ad9be207561e6a60a98ab576f",
+    "private-input-stamps.json": "d5a6df21e22d286e980c0cdf919e691c054004ef1d230c457dc3bc61cb437b5c",
+    "result.json": "3caa9ba69b60b359ea6153702ee1892900dd29406ba0db475767c27ea7b9b3b9"
+  },
+  "scientific_model_updates": 0
+}
