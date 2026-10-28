@@ -1,0 +1,50 @@
+{
+  "actual_complete_epochs": 2,
+  "actual_exit_path_reached": true,
+  "actual_fresh_process_six_state_restore": {
+    "callbacks": true,
+    "loops": true,
+    "model": true,
+    "optimizer": true,
+    "rng": true,
+    "scheduler": true
+  },
+  "actual_fresh_process_validation_exact": true,
+  "actual_independent_collector_validation_exact": true,
+  "actual_independent_fit_reopen": true,
+  "actual_native_tensor_count": 110,
+  "actual_train_samples_per_epoch": [
+    4,
+    4
+  ],
+  "actual_val_samples_per_epoch": [
+    4,
+    4
+  ],
+  "counts": {
+    "train": 328,
+    "val": 4
+  },
+  "cuda_initialized": false,
+  "engineering_batch": 2,
+  "exported_best_full_tensor_inventory_verified": true,
+  "format": "actual_original_emg_initializer_native_cpu_fit_restore_v1",
+  "full150epoch_training": false,
+  "full_paper_complete": false,
+  "native_cosine_T_max": 150,
+  "native_cosine_eta_min": 5e-06,
+  "native_no_early_stopping": true,
+  "optimizer_updates": 4,
+  "precision": "32-true",
+  "production_ready": false,
+  "scientific_eligible": false,
+  "scope": "explicit bounded synthetic CPU engineering only; real batch260/bf16 and full150 qualification pending",
+  "source_best_checkpoint_sha256": "052810224c439246393503cbce7de2545549df69f1e26523483b16b893dfe5e4",
+  "source_commit": "9de8c5434290b846303fda746da0a698b0487d2f",
+  "synthetic_real_file_fixture": true,
+  "tests": {
+    "all_initializer": 104,
+    "fit_restore_export": 14,
+    "runtime": 20
+  }
+}

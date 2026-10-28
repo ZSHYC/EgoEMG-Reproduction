@@ -63,6 +63,6 @@ loaders = native_emg_initializer_loaders(cohort)
 
 每轮记录实际唯一样本、更新数、完整验证预测摘要和模型状态；只有完整轮次才能保存恢复凭据。新进程恢复前先重推整个冻结验证集，之后核对模型、优化器、scheduler、原生loop、callbacks、全部RNG六类状态并从下一完整轮继续。原生迭代器重建可能改变恢复后RNG轨迹，因此不承诺与不中断训练逐位一致。只排除Lightning原生不恢复的ModelCheckpoint.current_score暂态字段。
 
-`export_emg_initializer_best`只导出原回调实际选中的best全部状态张量，并绑定来源检查点、数据划分、验证分数与逐张量字节/shape/dtype清单；默认拒绝工程或未完成150轮模型。不会用last替代best。14项训练/恢复/导出检查通过，包含两个真正独立进程的工程轮次和恢复、六状态及整套冻结验证一致、原失败和历史日志保留，以及被改动的最佳权重/历史/覆盖统计拒绝。
+`export_emg_initializer_best`只导出原回调实际选中的best全部状态张量，并绑定来源检查点、数据划分、验证分数与逐张量字节/shape/dtype清单；默认拒绝工程或未完成150轮模型。不会用last替代best。[独立CPU整链证据](../results/emg-initializer-runtime-cpu-20261028.json)记录新进程重新核验原工程fit、全部数据与110张量导出，并重推最后一轮完整验证预测精确一致。14项训练/恢复/导出检查通过，包含两个真正独立进程的工程轮次和恢复、六状态及整套冻结验证一致、原失败和历史日志保留，以及被改动的最佳权重/历史/覆盖统计拒绝。
 
 真实batch260 GPU资格、完整150轮与验证best最终验收仍未完成；整个初始化实现的一次最终整体审查也仍待完成。[后续完整计划](superpowers/plans/2026-10-28-fusion-compatible-emg-initializer.md)保持这些要求。以上工程检查没有产生新的论文测试精度。

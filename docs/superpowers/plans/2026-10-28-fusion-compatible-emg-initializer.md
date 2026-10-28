@@ -49,7 +49,7 @@ Create dedicated `emg_initializer_cohort.py`, `emg_initializer_runtime.py`, `emg
 
 ## Task 3: Real qualification, review, full150epoch execution and independent acceptance
 
-- [ ] Run appropriate native/local checks, then an independent CPU collector using real-file fixtures and a fresh restore process. Run the complete light suite once after final implementation; repeat only after a relevant change/failure.
+- [x] Run appropriate native/local checks, then an independent CPU collector using real-file fixtures and a fresh restore process. Run the complete light suite once after final implementation; repeat only after a relevant change/failure.
 - [x] Stage only committed source in a new isolated server directory. Complete real legacy numeric admission and fresh-process reopen; require63,026training/582validationhand samples or stop and diagnose the prospective discrepancy. Do not reduce populations to pass capacity checks.
 - [ ] On an actually available GPU, qualify native batch260/bf16 forward/backward/update, complete validation, an actual full engineering epoch and fresh-process six-state restoration. Preserve DINO-L and reserved EMG2Pose queue GPUs; inspect live availability first. Record real resource observations, not injected values or repeated-sample estimates.
 - [ ] One final whole-implementation review of the committed plan diff; accept material findings, one author TDD correction pass and affected real qualification if source changes; no re-review loop. Preserve review rulings and archive only this plan's own private workspace after completion.
