@@ -1,0 +1,253 @@
+{
+  "actual_comparison_exit_codes": {
+    "left": 0,
+    "right": 0
+  },
+  "actual_comparison_seconds": {
+    "left": 116.40869935898809,
+    "right": 106.5203246230376
+  },
+  "actual_local_driver_and_two_ssh_owners_nonlive": true,
+  "actual_two_remote_worker_owners_nonlive": true,
+  "all_41_episode_and_8_channel_integer_reductions_exact": true,
+  "comparison_script_sha256": "ce4cc789cac8bd4adf4a890517a5fdc1417e551a35a421b67463317416959fc2",
+  "complete_sha256s_match_prior_admitted_arrays": true,
+  "current_release_or_pdf_equivalence_proven": false,
+  "evidence_files_sha256": {
+    "results/dataset-statistics/emg-fft-bilateral-full.json": "9ef7a76cff8698ca365814a84c1ef56acbdedb60c66d2a005d6359c2f29f855d",
+    "results/native-fusion-cohort-fixed-full-identity-20261028.json": "7f557c2fc35a64d10e446eb6711d57d7454858295d296433059a22d84446d8e3"
+  },
+  "exact_byte_equivalence": false,
+  "fft_rerun": false,
+  "first_complete_episode_matches_prior_independent_comparison": true,
+  "float64_reduction_reconciliation": "per-hand/per-episode/channel positive sums within n_terms * float64 epsilon relative bound",
+  "format": "egoemg_full_bilateral_filtered_numeric_comparison_closed_v1",
+  "full_array_copies_created": 0,
+  "full_paper_complete": false,
+  "independent_collector_sha256": "12444ee650bd3b49a8dbb8b8b31763461264d602620dd7bc59c7e429aedfc26e",
+  "independent_hardware_units_calibrated": false,
+  "local_generated_and_remote_released_nine_attributes_unchanged": true,
+  "new_model_forwards": 0,
+  "observed_utc": "2026-10-28T20:56:13.783108+00:00",
+  "optimizer_updates": 0,
+  "per_hand_public_result_sha256": {
+    "left": "26687d7178b950712e1cb000e6e7d3cc3be1960c0b609af3b6619d25bb6eae97",
+    "right": "264157a0b170e7d571c50dee3d3228c590667b3f7ca99c72320684ffa2c18c1e"
+  },
+  "per_hand_summary": {
+    "left": {
+      "bitwise_unequal": 2595,
+      "channels": [
+        {
+          "bitwise_unequal": 283,
+          "channel": 0,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 1.8933486591138146e-14,
+          "numeric_unequal": 283,
+          "rms_difference": 2.8863585733911393e-11,
+          "sum_abs_difference": 1.2526721331340696e-06,
+          "sum_squared_difference": 5.5119768535524284e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 248,
+          "channel": 1,
+          "max_abs_difference": 4.76837158203125e-07,
+          "mean_abs_difference": 3.2821756468510795e-14,
+          "numeric_unequal": 248,
+          "rms_difference": 7.258950557154724e-11,
+          "sum_abs_difference": 2.1715440254865825e-06,
+          "sum_squared_difference": 3.4862176430574133e-13,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 355,
+          "channel": 2,
+          "max_abs_difference": 2.384185791015625e-07,
+          "mean_abs_difference": 3.194452546185504e-14,
+          "numeric_unequal": 355,
+          "rms_difference": 5.075886584322809e-11,
+          "sum_abs_difference": 2.113504908862751e-06,
+          "sum_squared_difference": 1.7046320086321153e-13,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 311,
+          "channel": 3,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 1.5402099134809002e-14,
+          "numeric_unequal": 311,
+          "rms_difference": 2.6560930556898107e-11,
+          "sum_abs_difference": 1.019029447379971e-06,
+          "sum_squared_difference": 4.667597435855002e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 246,
+          "channel": 4,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 1.527229644968076e-14,
+          "numeric_unequal": 246,
+          "rms_difference": 2.348368911211248e-11,
+          "sum_abs_difference": 1.0104414778222548e-06,
+          "sum_squared_difference": 3.6487109878741105e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 324,
+          "channel": 5,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 1.287755941778986e-14,
+          "numeric_unequal": 324,
+          "rms_difference": 2.1428411514861855e-11,
+          "sum_abs_difference": 8.520015448709728e-07,
+          "sum_squared_difference": 3.037993049454006e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 323,
+          "channel": 6,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 1.2403078806136892e-14,
+          "numeric_unequal": 323,
+          "rms_difference": 2.5635189399563032e-11,
+          "sum_abs_difference": 8.206090891249573e-07,
+          "sum_squared_difference": 4.347903342214901e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 505,
+          "channel": 7,
+          "max_abs_difference": 4.76837158203125e-07,
+          "mean_abs_difference": 3.031970777831357e-14,
+          "numeric_unequal": 505,
+          "rms_difference": 6.533585022895067e-11,
+          "sum_abs_difference": 2.0060041681091434e-06,
+          "sum_squared_difference": 2.824294068252399e-13,
+          "values": 66161725
+        }
+      ],
+      "max_abs_difference": 4.76837158203125e-07,
+      "mean_abs_difference": 2.124681376352926e-14,
+      "numeric_unequal": 2595,
+      "rms_difference": 4.376197711675012e-11,
+      "rows": 66161725,
+      "sum_abs_difference": 1.1245806794790703e-05,
+      "sum_squared_difference": 1.0136561886836972e-12,
+      "values": 529293800
+    },
+    "right": {
+      "bitwise_unequal": 524,
+      "channels": [
+        {
+          "bitwise_unequal": 52,
+          "channel": 0,
+          "max_abs_difference": 1.4901161193847656e-08,
+          "mean_abs_difference": 5.395450324308343e-16,
+          "numeric_unequal": 52,
+          "rms_difference": 2.176496836194617e-12,
+          "sum_abs_difference": 3.569723006080494e-08,
+          "sum_squared_difference": 3.1341725326605057e-16,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 39,
+          "channel": 1,
+          "max_abs_difference": 9.5367431640625e-07,
+          "mean_abs_difference": 2.4503057472556566e-14,
+          "numeric_unequal": 39,
+          "rms_difference": 1.319746241928559e-10,
+          "sum_abs_difference": 1.6211645501584826e-06,
+          "sum_squared_difference": 1.1523587075097099e-12,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 67,
+          "channel": 2,
+          "max_abs_difference": 2.384185791015625e-07,
+          "mean_abs_difference": 6.5707790462439224e-15,
+          "numeric_unequal": 67,
+          "rms_difference": 3.0315513927092256e-11,
+          "sum_abs_difference": 4.347340762933527e-07,
+          "sum_squared_difference": 6.080463557676555e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 54,
+          "channel": 3,
+          "max_abs_difference": 4.76837158203125e-07,
+          "mean_abs_difference": 1.2107861218892646e-14,
+          "numeric_unequal": 54,
+          "rms_difference": 6.036654760173561e-11,
+          "sum_abs_difference": 8.0107698430254e-07,
+          "sum_squared_difference": 2.411012698954884e-13,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 77,
+          "channel": 4,
+          "max_abs_difference": 4.76837158203125e-07,
+          "mean_abs_difference": 1.3859877512908939e-14,
+          "numeric_unequal": 77,
+          "rms_difference": 6.622542163895056e-11,
+          "sum_abs_difference": 9.169934045427652e-07,
+          "sum_squared_difference": 2.9017252165451154e-13,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 91,
+          "channel": 5,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 8.414040570570022e-15,
+          "numeric_unequal": 91,
+          "rms_difference": 2.2400650543656414e-11,
+          "sum_abs_difference": 5.566874383688969e-07,
+          "sum_squared_difference": 3.319923540485434e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 62,
+          "channel": 6,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 4.12188779095406e-15,
+          "numeric_unequal": 62,
+          "rms_difference": 1.8016455121231453e-11,
+          "sum_abs_difference": 2.7271120650596004e-07,
+          "sum_squared_difference": 2.147560998608467e-14,
+          "values": 66161725
+        },
+        {
+          "bitwise_unequal": 82,
+          "channel": 7,
+          "max_abs_difference": 1.1920928955078125e-07,
+          "mean_abs_difference": 1.0856825718155832e-14,
+          "numeric_unequal": 82,
+          "rms_difference": 2.8664454297666792e-11,
+          "sum_abs_difference": 7.183063175375537e-07,
+          "sum_squared_difference": 5.436184355038097e-14,
+          "values": 66161725
+        }
+      ],
+      "max_abs_difference": 9.5367431640625e-07,
+      "mean_abs_difference": 1.0121734295339103e-14,
+      "numeric_unequal": 524,
+      "rms_difference": 5.918089665877624e-11,
+      "rows": 66161725,
+      "sum_abs_difference": 5.357371207770356e-06,
+      "sum_squared_difference": 1.8537872408310615e-12,
+      "values": 529293800
+    }
+  },
+  "scope": "all41legacyepisodes_bothhands_all8channels",
+  "source_and_private_receipts_sha256": {
+    "compare_filtered_emg.py": "ce4cc789cac8bd4adf4a890517a5fdc1417e551a35a421b67463317416959fc2",
+    "left-comparison-owner.json": "b664f36f0fe1bc5637f68abd210f42935a606900d503e63d06e96c76c990396c",
+    "left-comparison.json": "26687d7178b950712e1cb000e6e7d3cc3be1960c0b609af3b6619d25bb6eae97",
+    "request.json": "b4d1ba25a6201fbf10e29459e402b5d31eeba3e117a5f1ba75a8c75c098ea838",
+    "right-comparison-owner.json": "64452906a79f15cbf134dc415b564eb5a7a4879adfed2b529871e495a497cd1d",
+    "right-comparison.json": "264157a0b170e7d571c50dee3d3228c590667b3f7ca99c72320684ffa2c18c1e"
+  },
+  "strict_partition_isolated_filtering": false,
+  "total_values_compared": 1058587600,
+  "training_inputs_modified": false
+}
