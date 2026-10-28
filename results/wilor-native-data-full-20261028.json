@@ -1,0 +1,37 @@
+{
+  "actual_admit_a_exit_code": 0,
+  "actual_admit_b_exit_code": 0,
+  "actual_all_six_owners_nonlive": true,
+  "actual_episode_records": 41,
+  "actual_flow_exit_code": 0,
+  "actual_full_counts": {
+    "test": 8612,
+    "train": 202020,
+    "val": 3152
+  },
+  "actual_independent_full_content_identities_equal": true,
+  "actual_payload_bytes": 57145308966,
+  "actual_payload_files": 52,
+  "actual_possible_center_nonfinite_entries": 0,
+  "actual_rng_unchanged": true,
+  "actual_unique_counts": {
+    "test": 4306,
+    "train": 101010,
+    "val": 1576
+  },
+  "admit_a_seconds": 79.37719736574218,
+  "admit_b_seconds": 78.12965565221384,
+  "all_111_frozen_members_rehashed_unchanged": true,
+  "all_actual_input_and_source_generations_unchanged": true,
+  "bundle_sha256": "09b994d013668ec55dd72de1fb0af25341a64e4d9539961588dc64d7b41bc3c3",
+  "cuda_initialized": false,
+  "format": "actual_native_wilor_complete_input_independent_numeric_admissions_v1",
+  "full_paper_complete": false,
+  "identity_sha256": "734a43eb1f9b06daa2994909b26609817c7adfa3c1b4ce5d29609d425bf27cdd",
+  "models_constructed": 0,
+  "observed_utc": "2026-10-28T16:45:26.603814+00:00",
+  "optimizer_updates": 0,
+  "scientific_eligible": false,
+  "scope": "complete available legacy WiLoR input only; not merged corpus/model/CUDA/full30epoch qualification",
+  "source_commit": "8013690386fa7da4e65bd660788c0b8991125f8c"
+}

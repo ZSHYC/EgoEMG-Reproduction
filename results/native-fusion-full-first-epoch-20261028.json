@@ -1,0 +1,143 @@
+{
+  "actual_complete_epochs_at_observation": 1,
+  "actual_completed_trained_branch_identity": {
+    "emg": {
+      "checkpoint_selection": "completed native EMG validation best; complete source-fit-bound export",
+      "checkpoint_sha256": "4b60c5e4b2cd6ff0ad30a75e5a97ec2baca2741ca76fdf7a7086742f1b66c654",
+      "cohort_binding": {
+        "cohort_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+        "partition_content_sha256": "452a4b16ec2edf1662f92708fa775353b36af517d20a8a6097f6faf7e3f1461d",
+        "producer_only_payload_files": [
+          "field:label_gesture_active",
+          "field:label_gesture_class",
+          "field:mocap_left_wrist_angles_valid",
+          "field:mocap_right_wrist_angles_valid"
+        ],
+        "shared_payload_files": 12,
+        "shared_payload_sha256": "49fd620112b6bc5cbc4644407fb7d05b64443744e42e5e10ae13cd2132eeec07"
+      },
+      "complete_source_tensors": 110,
+      "completed_epochs": 150,
+      "export_lineage_sha256": "413b8d5818a2c23964194a9db733700ceb102a9342ffe9226557605611c3062e",
+      "footprints": {
+        "holdout_union_rows": {
+          "test": 16771870,
+          "val": 6138520
+        },
+        "overlap_rows": {
+          "test": 0,
+          "val": 0
+        },
+        "train_union_rows": 41775270
+      },
+      "future_fusion_partition_content_sha256": "37623c78591368aab9ee7bcebe47850aa3eb978ce620a97309bbcbfb0211166d",
+      "model_state_sha256": "62449b78bfd44f7126654d1b72181ed2db96adff974cac559244020755c8bd66",
+      "optimizer_executions": 36450,
+      "selected_epoch": 133,
+      "selected_score": 0.2548760771751404,
+      "source_cohort_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+      "source_fit_identity_sha256": "377a2a280fca4b712294d951becd022b3979662737ef525e1a9909a6d99e020f",
+      "source_fit_result_sha256": "585ff068aac1426c66fca2c84c2dc2a14f5c0a85d5d9b56cbcbb49e62fc0a1fe",
+      "source_selected_checkpoint_sha256": "ff222ebc47478154a15a66f32529fe6e03ff937d2fbb09bccfe71a239890e140"
+    },
+    "format": "original_fusion_initializer_handoff_v1",
+    "full_paper_complete": false,
+    "fusion_cohort_sha256": "1b7bbca1836fc96cf8ea3e10d9a37c8db9a2edec327365ed55c1cae8289b2592",
+    "fusion_partition_content_sha256": "37623c78591368aab9ee7bcebe47850aa3eb978ce620a97309bbcbfb0211166d",
+    "producer_training_verified": true,
+    "scientific_eligible": false,
+    "scope": "full",
+    "sha256": "18a0c0818e58c83c765aa88b987274b69b8823e6b98970ae961edc7628dc45a7",
+    "sources_sha256": {
+      "egoemg_repro/emg_initializer_data.py": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+      "egoemg_repro/emg_initializer_train.py": "de1663ef5547b9b6dd49df197217681075e148afc1fa7aec22997aedf49e9c72",
+      "egoemg_repro/fusion_initializer_handoff.py": "9fdf4842d12b61ed5092746b06a0284af4a2abca91c93a388c67fcda930b5f80",
+      "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+      "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+      "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b"
+    },
+    "vision": {
+      "checkpoint_selection": "completed native vision last; not validation best",
+      "checkpoint_sha256": "7c3949607c1657bf1d727ab0aeaa21c7edc89977f5b25e6281d99ebe7a1896f4",
+      "cohort_binding": {
+        "cohort_sha256": "4580be4fcf98e1f5e683477db12bd2d2020a61cfd0a79755a2cea1171b2cecab",
+        "partition_content_sha256": "87d7e2008def6b7a475674232b180b3fbef6b104986994c9dc733d8662f4b95d",
+        "producer_only_payload_files": [],
+        "shared_payload_files": 52,
+        "shared_payload_sha256": "94cc1dd453b2ee58b99b2c81834667304a0322e59d5ac091b625830c26107df4"
+      },
+      "completed_epochs": 124,
+      "footprints": {
+        "holdout_union_rows": {
+          "test": 16771870,
+          "val": 6138520
+        },
+        "overlap_rows": {
+          "test": 0,
+          "val": 0
+        },
+        "train_union_rows": 42127839
+      },
+      "model_state_sha256": "2bc2e3e6f816cdb9ad6ee13cc56a7857da43a4d33f4b3fd0ad41b9f3ba42877f",
+      "optimizer_executions": 69688,
+      "producer_reader_sources_sha256": {
+        "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+        "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+        "egoemg_repro/vision_literal_cohort.py": "997cb2f7975f49b45b6313294b0dc3f20150f775bbfe65aa1c02857ace89b977",
+        "egoemg_repro/vision_literal_train.py": "e44dc947111bec3aa858fb5fc36493650cda24f2093915bcd133a2d090d070da"
+      },
+      "source_cohort_sha256": "4580be4fcf98e1f5e683477db12bd2d2020a61cfd0a79755a2cea1171b2cecab",
+      "source_fit_identity_file_sha256": "470f534eafd275755e6e1553376947b2ffd56793d0816132b02e9829448795cc",
+      "source_fit_identity_sha256": "c9101f7e0de6b5c00690c10265cf911fe0315e42fd011a5b519e28f22ccbfd29",
+      "source_fit_result_sha256": "d8baa9ef6adf118ba86cc03165e00a7e31c73e99bc05fcf42eb1e5a92bd80ce1"
+    }
+  },
+  "actual_first_complete_epoch": {
+    "epoch": 0,
+    "global_step": 1977,
+    "model_sha256": "7eb09d55555ab3d9d0db31525bd448d377e24f769edb8bfd670142685d4cccbe",
+    "optimizer_executions": 1977,
+    "train_batches": 1977,
+    "train_loss": 0.15491305562943414,
+    "train_samples": 395276,
+    "validation": {
+      "prediction_sha256": "59e454dc5f0d607d44465b27a69a32101afce88053e590f7e56663cba2fb560d",
+      "samples": 3152,
+      "val_mae": 0.10488645732402802
+    }
+  },
+  "actual_fit_worker_confirmed_gpu_consumer": true,
+  "actual_fit_worker_gpu_memory_mib": 17076,
+  "actual_handoff_and_independent_new_process_reopen_equal": true,
+  "actual_original_full_batch_size": 200,
+  "actual_precision": "bf16-mixed",
+  "actual_preflight_handoff_owned_stage_exits": [
+    {
+      "actual_exit_code": 0,
+      "actual_two_owners_exited": true,
+      "stage": "preflight"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_two_owners_exited": true,
+      "stage": "handoff"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_two_owners_exited": true,
+      "stage": "handoff-reopen"
+    }
+  ],
+  "actual_same_recorder_controller_fit_worker_guardian_live": true,
+  "all_90_immutable_members_rehashed_unchanged": true,
+  "bundle_sha256": "59b5ed5f525f22efba7867bd19f47cff22d10da28ae9c1a06cb2040a7718ebf8",
+  "format": "actual_native_full_trained_branch_fusion_handoff_and_first_epoch_v1",
+  "full_fusion_report_verified": false,
+  "full_paper_complete": false,
+  "full_training_terminated": false,
+  "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+  "observed_utc": "2026-10-28T16:28:29.714520+00:00",
+  "planned_full_epochs": 150,
+  "scientific_eligible": false,
+  "source_commit": "9ace68b9ed189a2eee4a6c5d71502426e8841166"
+}

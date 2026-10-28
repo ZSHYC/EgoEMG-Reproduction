@@ -46,6 +46,8 @@ optimizer_identity = fusion_optimizer_identity(
 
 [完整融合流程](../results/native-fusion-full-launch-20261028.json)已单次启动，90份冻结成员通过核验，82份生产源码与已资格版本逐字节一致。该启动证据的时点仍在CPU原始验收记录核对，尚未进入GPU模型训练或完成双分支交接。后续流程自动执行实际完整双分支交接及新进程重开、原150轮、完整fit独立验收、验证/复算/freeze、测试/复算、报告和另进程verify；持续核对实际资源、所属PID/start和来源，不隐式重启。完整训练/测试尚未完成，当前没有新的ViT-S融合最终MAE。
 
+[后续实际双分支交接与首个完整GPU轮次](../results/native-fusion-full-first-epoch-20261028.json)现已核验：preflight、handoff和新进程handoff-reopen均实际exit0，两个producer与未来融合验证/测试足迹交集均为零；当前fit的初始化描述与两次交接完全一致。首轮消费全部395,276训练/3,152验证，真实1,977次更新，四个所属PID/start仍存活，实际fit worker确认为指定GPU消费者。训练期`val_mae`以弧度保存；它不是最终测试结果。原150轮/最终选模/预测试freeze及全测试复算报告仍欠，科学完成设置数保持10。
+
 ## 完整训练与恢复接口
 
 `fusion_literal_train.fit_fusion`已接入原生完整轮次循环。full模式使用完整注册输入、真实完成的双分支交接和独立冻结cohort receipt，保留395,276训练/3,152验证次消费、原batch200/bf16/150轮；禁止工程截断或早停。`cpu_engineering`只训练前4个工程样本、batch2/两轮，`cuda_engineering`保留batch200/两轮、最多400个训练样本；两者均消费各自已准入队列的全部验证样本，不是论文成绩。
