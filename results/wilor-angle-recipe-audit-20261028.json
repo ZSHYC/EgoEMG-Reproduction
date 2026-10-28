@@ -1,0 +1,195 @@
+{
+  "actual_audit_execution": {
+    "actual_exit_code": 0,
+    "initial_exit_code": 1,
+    "initial_log_sha256": "96dea1ef340a048d23f95040efbcd691ab0db6d120c9007b930b760992c8c770",
+    "initial_structured_config_missing_key_failure_preserved": true,
+    "production_source_modified": false,
+    "successful_log_sha256": "963cf6204ccba5001250e2130d8b6a88d48c294372018b09c360060a4b955d1d"
+  },
+  "candidate_only": {
+    "batch_size": 18,
+    "callbacks": [
+      {
+        "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+        "filename": "vit-small-{epoch:03d}-{val_mae:.4f}",
+        "mode": "min",
+        "monitor": "val_mae",
+        "save_last": true,
+        "save_top_k": 3
+      },
+      {
+        "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+      },
+      {
+        "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+        "check_on_train_epoch_end": false,
+        "mode": "min",
+        "monitor": "val_mae",
+        "patience": 30
+      }
+    ],
+    "component_lr_scales": {
+      "backbone": 1.0,
+      "head": 1.0
+    },
+    "effective_loss_weights": {
+      "landmark/fingertip": 0.02,
+      "mae": 1.0
+    },
+    "eval_stride": 7790,
+    "full_module_mapping_replaced": true,
+    "inherited_precision_is_derivation": "bf16 is inherited from official fusion lineage; PDF explicitly applies bf16 sentence to generic backbones and does not independently specify WiLoR precision",
+    "optimizer": {
+      "_target_": "torch.optim.AdamW",
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "lr": 1e-05,
+      "weight_decay": 0.01
+    },
+    "origin": "explicit vision_vit_small recipe derivation plus paper WiLoR lr/batch/maxepochs; not the authors missing YAML or an admitted experiment",
+    "repeat": 2,
+    "scheduler": {
+      "frequency": 1,
+      "interval": "epoch",
+      "scheduler": {
+        "T_max": 30,
+        "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+        "eta_min": 1e-05
+      }
+    },
+    "seed": 42,
+    "train_stride": 780,
+    "trainer": {
+      "check_val_every_n_epoch": 1,
+      "devices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_model_summary": false,
+      "gradient_clip_val": 1,
+      "log_every_n_steps": 1,
+      "max_epochs": 30,
+      "precision": "bf16-mixed"
+    },
+    "unused_val_batch_size": 256,
+    "window_length": 7790
+  },
+  "cpu_model_evidence": "results/wilor-pretrained-cpu.json",
+  "format": "wilor_angle_recipe_source_audit_v1",
+  "full_paper_complete": false,
+  "helper_sha256": "6a242f3370b83dd16ed21730982e92c917c914ba4305378caee1091a8bff6905",
+  "matching_archived_fusion_experiments": [
+    "config/experiment/fusion/_archive/fusion_wilor_s_egoemg_only_augbest_50e.yaml",
+    "config/experiment/fusion/_archive/fusion_wilor_s_simple_frozen_augbest_30e.yaml",
+    "config/experiment/fusion/_archive/fusion_wilor_s_simple_unfrozen_augbest_30e.yaml"
+  ],
+  "new_data_or_gpu_qualification": false,
+  "new_model_constructed": false,
+  "new_model_updates": 0,
+  "observed_utc": "2026-10-28T13:49:33.204498+00:00",
+  "official_standalone_wilor_experiment_found": false,
+  "original_module": {
+    "actual_feature_dimension": 1280,
+    "head_activation": "GELU",
+    "head_dropout": 0.1,
+    "head_hidden": 512,
+    "input_rgb": [
+      3,
+      256,
+      256
+    ],
+    "original_height_crop": [
+      3,
+      192,
+      256
+    ],
+    "out_channels": 22,
+    "target": "egoemg.models.modules.wilor_vit.WiLoRViTPose",
+    "tuple_prediction": [
+      22,
+      1
+    ]
+  },
+  "pdf": {
+    "batch_size": 18,
+    "epochs": 30,
+    "lr": 1e-05,
+    "optimizer": "AdamW",
+    "page": 22,
+    "reported_backbone_dimension": 1576,
+    "reported_parameters_millions": 631.6,
+    "scheduler": "cosine",
+    "section": "C.2",
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+    "table": 8
+  },
+  "prospective_decision_required": "Declare inherited missing fields and constant-LR consequence before full entry; do not silently change eta_min or claim a decreasing schedule",
+  "scalar_scheduler_probe": {
+    "actual_exit_success": true,
+    "all_constant_1e_minus5": true,
+    "cohort_consumed": false,
+    "cuda_initialized": false,
+    "learning_rates": [
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05
+    ],
+    "model_constructed": false,
+    "optimizer_steps": 30,
+    "scope": "one scalar parameter with original optimizer/scheduler factory; not a WiLoR optimizer or training result",
+    "shape": [
+      1
+    ]
+  },
+  "scientific_eligible": false,
+  "source_commit": "5b7af1bd42c00b4d3d74469b544e7dc1f5bed0b2",
+  "sources_sha256": {
+    "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+    "config/experiment/fusion/vision_vit_small.yaml": "1c051a315dc074b186bf15482e394009bb3f2bec304b688e32c01bc2239aef02",
+    "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+    "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+    "config/module/wilor_vit.yaml": "983cf953f720c19199f7c7c57c0b35cc43f885e486a3706335d06147863a5e3a",
+    "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+    "egoemg/models/modules/wilor_vit.py": "4b3caa49b329e155040e7918721f45785964b563dbe1fe96369f9d2ef605b9dd",
+    "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e",
+    "egoemg/utils.py": "d8faf33e037b4decec3b7febcb2d3db1576dc83e74d36a8f4b4739a8aa5241d2"
+  },
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+}

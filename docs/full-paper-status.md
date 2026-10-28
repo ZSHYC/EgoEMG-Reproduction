@@ -2,7 +2,7 @@
 
 当前进度（北京时间2026-10-28 21:44）：[NeuroPose实际GPU资格](../results/neuropose-native-gpu-qualified-20261028.json)和[唯一一次新实现审查](../results/neuropose-native-final-review-20261028.json)完成，0Critical/0Important/2Minor；[完整原生训练已启动](../results/neuropose-native-full-launch-20261028.json)。完整101,714/1,576/4,306输入准入、已资格源码/运行时/来源绑定及107成员SHA核验通过，四个所属PID/start实际存活，训练worker确认为GPU消费者。保留原B256/16-mixed/max100/val_loss/patience50；完整终止、选best、预测试freeze和全测试独立复算仍待完成，科学完成数仍10。兼容融合的EMG初始化最近实查111/150轮，DINO-L80轮；EMG2Pose-S已实际GPU训练但首轮journal尚未完成，M/L仍在原队列后续。右手有效性文件继续下载，几何仍4/8。
 
-[Table1后续原始来源核对](../results/dataset-statistics/dataset-comparison-audit.md)现已确认EMG2Pose原论文的50个提示姿态类别定义、双腕各16通道及不追踪腕关节；NinaPro分库人数/rest/DB6采集差异分别记录。原表不改写，其他列与EgoEMG完整模态盘点仍欠。以下为各时点历史记录，不能将早期“尚欠”的步骤读作当前状态。
+[Table1后续原始来源核对](../results/dataset-statistics/dataset-comparison-audit.md)现已确认EMG2Pose原论文的50个提示姿态类别定义、双腕各16通道及不追踪腕关节；NinaPro分库人数/rest/DB6采集差异分别记录。原表不改写，其他列与EgoEMG完整模态盘点仍欠。[WiLoR配方只读核对](../results/wilor-angle-recipe-audit-20261028.md)进一步确认缺独立视觉YAML、代码1280维与原文1576维差异，以及继承eta_min1e-5会导致候选LR恒定；合成配置/CPU标量探测exit0，不是模型优化或新成绩。以下为各时点历史记录，不能将早期“尚欠”的步骤读作当前状态。
 
 2026-10-28新增：[NeuroPose原生连续训练入口](neuropose-native.md)已完成Task1源码a0e4f4f与CPU工程验收，保留原B256/16-mixed/max100/val_loss/patience50完整配方和原厂网络；新路径不提供中断续训，旧失败恢复轨迹门槛/源码/产物保持。[独立CPU复算](../results/neuropose-native-fit-cpu-20261028.json)真实6,354,969参数/两轮两更新/2训练2验证，另一个进程严格best重载后全部验证预测精确一致，actualexit0/无CUDA/新增更新0/原fit字节不变。[33+60原生和1,474轻量检查](../results/neuropose-native-fit-cpu-validation-20261028.json)最终均通过，保留并修正轻量runner环境误开Torch可选开关的旧失败，未改断言。完整验证/测试新进程复算、实际CUDA资格、一次新实现审查及NeuroPose完整100轮上限/原早停仍欠；没有新的科学成绩，完成设置数仍10，全文目标继续。
 
