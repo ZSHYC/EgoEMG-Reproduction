@@ -1,0 +1,83 @@
+{
+  "actual_exit_code": 1,
+  "actual_owner_nonlive": true,
+  "added_complete_chunk_bytes": 788529152,
+  "completed_files": [
+    {
+      "bytes": 66161725,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "filename": "mocap_webcam_tracked.dat",
+      "reused_existing": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40",
+      "url": "https://drive.google.com/uc?id=1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "verified_at": "2026-10-28T03:25:55.888075+00:00"
+    },
+    {
+      "bytes": 3175762800,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "filename": "mocap_mano_left_world_transform.dat",
+      "reused_existing": true,
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590",
+      "url": "https://drive.google.com/uc?id=1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "verified_at": "2026-10-28T03:26:00.156464+00:00"
+    }
+  ],
+  "expected_selected_bytes": 37778344975,
+  "finished_utc": "2026-10-28T03:45:29.230534+00:00",
+  "format": "legacy_geometry_actual_second_bounded_interruption_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 2153775104,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T04:00:27.486268+00:00",
+  "old_attempt_preserved": true,
+  "retry_events": [
+    {
+      "exception_type": "SSLError",
+      "failure_number": 1,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:45:16.153327+00:00",
+      "offset": 2153775104,
+      "wait_seconds": 1,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 2,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:45:22.193773+00:00",
+      "offset": 2153775104,
+      "wait_seconds": 2,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 3,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "observed_utc": "2026-10-28T03:45:29.225500+00:00",
+      "offset": 2153775104,
+      "wait_seconds": 0,
+      "will_retry": false
+    }
+  ],
+  "retry_statistics": {
+    "mocap_mano_right_world_transform.dat": {
+      "exhausted": true,
+      "last_failure_offset": 2153775104,
+      "scheduled_retries": 2,
+      "transient_failures": 3
+    }
+  },
+  "started_utc": "2026-10-28T03:25:55.787573+00:00",
+  "terminal_raw_evidence_sha256": "c65d3e597cdd3566de9bbb75f0abc3a98dfb3dc66a0e80867c49036aacdeaf39"
+}

@@ -339,6 +339,14 @@
     }
   ],
   "checks": {
+    "complete_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "e91289c2afa37caf857af10c96a0cd6ffe957c66c372d511facd0aa6b0bcb996",
+      "passed": 1437,
+      "seconds": 88.04,
+      "skipped": 819,
+      "warnings": 1
+    },
     "independent_collector": {
       "actual_exit_code": 0,
       "log_sha256": "4a699dfcd5cb03a83218844da36629d92b9bc7cb5adcf4284914b55069b53163"
