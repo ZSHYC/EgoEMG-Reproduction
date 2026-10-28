@@ -1,0 +1,43 @@
+{
+  "actual_completed_full_epochs": 0,
+  "actual_current_production_sources_equal_completed_qualifier": true,
+  "actual_current_stage": "fit",
+  "actual_full_fit_identity_created": false,
+  "actual_full_gpu_fit_started": false,
+  "actual_matching_live": true,
+  "actual_observation_injected": false,
+  "actual_staged_members_verified": 113,
+  "bundle_sha256": "a618f2723de7684d97fea60c2810cf914ac74651e288df6eb5884d0d6dfcdfd7",
+  "expected_policy": {
+    "batch_size": 18,
+    "epochs": 30,
+    "precision": "bf16-mixed",
+    "test_samples": 8612,
+    "test_unique_samples": 4306,
+    "train_samples": 202020,
+    "validation_samples": 3152
+  },
+  "format": "actual_native_wilor_full30_owned_workflow_launch_v1",
+  "full_paper_complete": false,
+  "initial_available_memory_bytes": 891604910080,
+  "initial_output_disk_free_bytes": 60267487232,
+  "input_identity_sha256": "adca6170baf5303d6a8eb8cbf408e99147e3d3b4586c6aed94f55a625db60693",
+  "observed_utc": "2026-10-28T19:56:36.283787+00:00",
+  "original_full_workspace_guard_bytes": 59055800320,
+  "qualification_sha256": "9a9973a2cd0c0b91a003ea231e3439659b2be9f117a58f7da18042402964e411",
+  "scientific_eligible": false,
+  "source_commit": "8a83e42fc33091843c98284aa726814d54c4c246",
+  "state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 3615786,
+      "start_ticks": "404470160"
+    },
+    "started_utc": "2026-10-28T19:56:36.264456+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 3615785,
+      "start_ticks": "404470157"
+    }
+  }
+}

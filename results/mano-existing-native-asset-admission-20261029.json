@@ -1,0 +1,162 @@
+{
+  "actual_accepted_completed_stage_members_rehashed": 24,
+  "actual_all_six_admission_producer_owners_nonlive": true,
+  "actual_cuda_initialized": false,
+  "actual_flow_exit_code": 0,
+  "actual_geometry_asset_results": {
+    "left": {
+      "actual_all_vertices_finite": true,
+      "actual_beta_sha256": "cfc2b56a47e5a912cfd03e576a27920fb2c43a0152fc73e28b74f5ac9063d865",
+      "actual_faces_shape": [
+        1538,
+        3
+      ],
+      "actual_metadata_referenced_beta_rows": 41,
+      "actual_vertex_sha256": "35f86dd2d2e7ad33bb8c2cebcbb3ab16329b47382ca3936c6f1216d6a1545b93",
+      "actual_vertices_shape": [
+        41,
+        778,
+        3
+      ],
+      "asset_sha256": "c4022f7083f2ca7c78b2b3d595abbab52debd32b09d372b16923a801f0ea6a30"
+    },
+    "right": {
+      "actual_all_vertices_finite": true,
+      "actual_beta_sha256": "48e6889f51db4cb45623731f7ae98a79f2d6498fa45048abb0b7c3fbd6af2628",
+      "actual_faces_shape": [
+        1538,
+        3
+      ],
+      "actual_metadata_referenced_beta_rows": 41,
+      "actual_vertex_sha256": "729794cd621926f929a40b267dc0d8d104ba93b19b92738fb5430573d2c08cee",
+      "actual_vertices_shape": [
+        41,
+        778,
+        3
+      ],
+      "asset_sha256": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767"
+    }
+  },
+  "actual_global_rng_unchanged": true,
+  "actual_original_input_asset_generations_unchanged": true,
+  "actual_prior_failed_stages_geometry_layers_constructed": 2,
+  "actual_prior_failures_preserved": {
+    "current": {
+      "actual_exit_code": 0,
+      "all_owned_processes_nonlive": true,
+      "immutable_members_rehashed": 24
+    },
+    "first": {
+      "actual_exit_code": 1,
+      "all_owned_processes_nonlive": true,
+      "immutable_members_rehashed": 22
+    },
+    "second": {
+      "actual_exit_code": 1,
+      "all_owned_processes_nonlive": true,
+      "immutable_members_rehashed": 24
+    }
+  },
+  "actual_right_buffers_vs_fixed_official_wilor_checkpoint": {
+    "J_regressor": {
+      "shape": [
+        16,
+        778
+      ],
+      "typed_exact": true
+    },
+    "faces_tensor": {
+      "shape": [
+        1538,
+        3
+      ],
+      "typed_exact": true
+    },
+    "hand_components_first6": {
+      "shape": [
+        6,
+        45
+      ],
+      "typed_exact": true
+    },
+    "hand_mean": {
+      "shape": [
+        45
+      ],
+      "typed_exact": true
+    },
+    "lbs_weights": {
+      "shape": [
+        778,
+        16
+      ],
+      "typed_exact": true
+    },
+    "parents": {
+      "shape": [
+        16
+      ],
+      "typed_exact": true
+    },
+    "pose_mean": {
+      "shape": [
+        48
+      ],
+      "typed_exact": true
+    },
+    "posedirs": {
+      "shape": [
+        135,
+        2334
+      ],
+      "typed_exact": true
+    },
+    "shapedirs": {
+      "shape": [
+        778,
+        3,
+        10
+      ],
+      "typed_exact": true
+    },
+    "v_template": {
+      "shape": [
+        778,
+        3
+      ],
+      "typed_exact": true
+    }
+  },
+  "actual_smplx_native_geometry_layers_constructed": 2,
+  "actual_source_members_rehashed": 70,
+  "actual_successful_stage_geometry_layers_constructed": 2,
+  "actual_total_geometry_layer_constructions_including_failed_stages": 4,
+  "count_interpretation": "41 distinct metadata-referenced beta rows per hand, not independently verified people",
+  "format": "actual_existing_mano_native_asset_cpu_admission_v1",
+  "full_paper_complete": false,
+  "independently_reopened_utc": "2026-10-28T19:54:33.487567+00:00",
+  "inspect_getargspec_backfilled": true,
+  "metadata_sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+  "new_optimizer_updates": 0,
+  "numpy_removed_aliases_backfilled": [
+    "bool",
+    "int",
+    "float",
+    "complex",
+    "object",
+    "unicode",
+    "str"
+  ],
+  "original_chumpy_source_members": 20,
+  "original_chumpy_source_sha256": "a0275c2018784ca1302875567dc81761f5fd469fab9f3ac0f3e7c39e9180350a",
+  "package_source_files_modified": false,
+  "prior_failure_causes": [
+    "driver assumed beta arrays were embedded in metadata; actual legacy uses separate beta files",
+    "driver asked state_dict for PCA components despite native use_pca=False; actual original np_hand_components preserves them"
+  ],
+  "scientific_eligible": false,
+  "scope": "CPU asset/geometry engineering admission using all actual41 betas per hand and explicitly synthetic nonzero poses; not frame geometry, annotation or occlusion results. Original occlusion code uses right MANO plus left mirror.",
+  "seconds": 3.5590666700154543,
+  "shared_environment_changed": false,
+  "source_archive_sha256": "50976831790ea9657d8110e0c94e50e90eaf35cd76169f0b27e5d32f3fcd951f"
+}

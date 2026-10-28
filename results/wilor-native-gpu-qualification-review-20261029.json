@@ -1,0 +1,116 @@
+{
+  "actual_all_eighteen_producer_owners_nonlive": true,
+  "actual_batch_size_by_role": {
+    "test": 18,
+    "train": 18,
+    "val": 18
+  },
+  "actual_collector_torch_unimported": true,
+  "actual_complete_epochs": 2,
+  "actual_complete_validation_samples": 3152,
+  "actual_cpu_qualification_reopen_exit_zero": true,
+  "actual_current_admitted_input_generations_unchanged": true,
+  "actual_evaluation_model_unchanged": true,
+  "actual_flow_exit_code": 0,
+  "actual_gpu_and_input_stage_members_rehashed": 225,
+  "actual_initial_workspace_free_bytes": 75458969600,
+  "actual_last_validation_batch_size": 2,
+  "actual_model_parameters": 631631657,
+  "actual_optimizer_executions": 4,
+  "actual_owned_stages": {
+    "fit": {
+      "actual_cuda_initialized": true,
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "seconds": 445.5800641919486
+    },
+    "qualify": {
+      "actual_cuda_initialized": false,
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "seconds": 259.1797295319848
+    },
+    "read-qualification": {
+      "actual_cuda_initialized": false,
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "seconds": 134.52464196598157
+    },
+    "val-native": {
+      "actual_cuda_initialized": true,
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "seconds": 174.16527136182413
+    },
+    "val-replay": {
+      "actual_cuda_initialized": true,
+      "actual_exit_code": 0,
+      "actual_owned_processes_nonlive": true,
+      "seconds": 169.9352639503777
+    }
+  },
+  "actual_precision": "bf16-mixed",
+  "actual_raw_checkpoint_files": {
+    "last.ckpt": {
+      "bytes": 7579985721,
+      "sha256": "19038595522f0d16db019bfa2ffdebda64ad5ec12b8a011bc80378473dccd8a4"
+    },
+    "vit-small-epoch=000-val_mae=0.3476.ckpt": {
+      "bytes": 7579984890,
+      "sha256": "850ace75c56a5902c0b2c819f56669f07cfb4437d893eb199228c83720159add"
+    },
+    "vit-small-epoch=001-val_mae=0.3462.ckpt": {
+      "bytes": 7579985721,
+      "sha256": "19038595522f0d16db019bfa2ffdebda64ad5ec12b8a011bc80378473dccd8a4"
+    }
+  },
+  "actual_retained_pretrained_tensors": 404,
+  "actual_train_samples_per_epoch": [
+    36,
+    36
+  ],
+  "actual_typed_new_process_validation_replay_exact": true,
+  "actual_validation_samples_per_epoch": [
+    3152,
+    3152
+  ],
+  "bundle_sha256": "ca2d3c2814dfec2a7213e0a2526c76e712dc6d369dc0ba42606d960e173de9d0",
+  "cohort_sha256": "adca6170baf5303d6a8eb8cbf408e99147e3d3b4586c6aed94f55a625db60693",
+  "evaluation_sources_sha256": {
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_eval.py": "63553900476855dc0cf9ecc2f97f841e33225470488066de39af23465565c581",
+    "egoemg_repro/wilor_literal_runtime.py": "c802cdbe4b11dbb6ca7beed881b6c655c9ccfb7db7751f3078b7334661da5730",
+    "egoemg_repro/wilor_native_eval.py": "bcf5d58e55e5542da00450fae3d88ca2e29bcc23977eae96632d362b30b8a3f7",
+    "egoemg_repro/wilor_native_train.py": "91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2"
+  },
+  "finished_utc": "2026-10-28T19:48:55.379698+00:00",
+  "fit_result_sha256": "f39374ff699cc287d5984d46cb8505831a326914d7a42f28d201d2f4ab345f7f",
+  "format": "actual_native_wilor_gpu_capacity_qualification_post_exit_v1",
+  "full_paper_complete": false,
+  "independently_reopened_utc": "2026-10-28T19:50:50.778315+00:00",
+  "journal_sha256": "0419054c2f2aebbda8d32c99ebce359a485b2425e0e3486be4c2c3601d215f9a",
+  "native_pass_sha256": "f2d3f2e7f809ba13b8b73e951f4d087a83e9cee37fa3da315917a5dec07526ef",
+  "original_workspace_guard_bytes": 50465865728,
+  "qualification_sha256": "9a9973a2cd0c0b91a003ea231e3439659b2be9f117a58f7da18042402964e411",
+  "replay_pass_sha256": "d5775a5a2374a7de5934fa92104650bc496b64e3a400fab1677648e8df57a910",
+  "scientific_eligible": false,
+  "scope": "Actual post-review two-epoch capacity/acceptance engineering proof for the exact recorded source; not full30 training or a scientific score. Later production source changes require new applicable qualification.",
+  "source_commit": "f993556155d4d646fe08f6f99c9f87f5163d39f2",
+  "started_utc": "2026-10-28T19:29:01.727243+00:00",
+  "training_sources_sha256": {
+    "configs/wilor-assets.json": "0d5834c66b69a8c245bb340ce93869bc153cb6cfdc330efe8fc0ba494f821250",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_cohort.py": "997cb2f7975f49b45b6313294b0dc3f20150f775bbfe65aa1c02857ace89b977",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7",
+    "egoemg_repro/wilor_literal.py": "2c31460ce384d8b7ec268f2c09f09e77a1492cf0bdb1e6767f04a47ecd081ee2",
+    "egoemg_repro/wilor_literal_runtime.py": "c802cdbe4b11dbb6ca7beed881b6c655c9ccfb7db7751f3078b7334661da5730",
+    "egoemg_repro/wilor_native_train.py": "91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2"
+  }
+}
