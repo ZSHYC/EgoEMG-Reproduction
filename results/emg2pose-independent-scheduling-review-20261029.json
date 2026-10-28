@@ -1,0 +1,19 @@
+{
+  "actual_qualifications_closed_at_review": false,
+  "critical": 0,
+  "final_request_and_live_resource_checks_still_required": true,
+  "format": "emg2pose_new_independent_schedule_single_review_v1",
+  "full_launch_permitted_by_review_only_after_actual_qualifications_closed_and_reopened": true,
+  "full_paper_complete": false,
+  "important": 0,
+  "minor": 1,
+  "minor_accepted": "mark existing-output safety checklist complete after accepting actual passing receipt",
+  "observed_utc": "2026-10-28T22:04:08.331529+00:00",
+  "old_production_model_review_repeated": false,
+  "public_worker_bytes_exact": true,
+  "review_read_only": true,
+  "reviewed_worker_sha256": "ad7742a9d3e7ec6b7ac6a15b7847b17fe7c9a7f9ab5bfa06aed673db084f1352",
+  "reviewer": "emg2pose_independent_schedule_review",
+  "safety_proof_sha256": "6f476a6db8ee1224d98ec51326091949788de1a3e06fd8b423cab32d5390e93e",
+  "scientific_settings_added": 0
+}

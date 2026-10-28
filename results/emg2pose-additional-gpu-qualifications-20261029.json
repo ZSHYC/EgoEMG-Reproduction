@@ -1,0 +1,321 @@
+{
+  "actual_collector_exit_code": 0,
+  "both_original_training_qualifications_resealed_or_relabeled": false,
+  "collector_cuda_initialized": false,
+  "final_json_line_index_zero_based": 24,
+  "format": "actual_emg2pose_additional_gpu_closed_qualifications_v1",
+  "full_paper_complete": false,
+  "independent_cpu_collection_seconds": 435.63633116707206,
+  "independent_cpu_collector_process_exit_observed": true,
+  "jobs": {
+    "large": {
+      "actual_exit_code": 0,
+      "all_60_recorded_owners_closed": true,
+      "bundle_sha256": "dc93cd05a2bf7f3fde0a45f1731c1b5dfd1ed762c8288201dd067982da225831",
+      "controller_qualification": {
+        "directory": "/data/shihao/egoemg-large-gpu-qualification-dc93cd05a2bf-20261029/private/qualification-output/controller",
+        "sha256": "9717f344ba091ce53e44e11fe48661d524af3ded5ca03d700756d03016b80564"
+      },
+      "controller_scope": "cuda_engineering",
+      "ended_utc": "2026-10-28T22:08:23.495407+00:00",
+      "engineering_source_is_full_scientific_data": false,
+      "engineering_source_rows": 5009750,
+      "evaluation_qualification": {
+        "directory": "/data/shihao/egoemg-large-gpu-qualification-dc93cd05a2bf-20261029/private/qualification-output/reports/large",
+        "sha256": "3727182051f2886e85719fc1dce71d977b2a5232b920f1ebee799444e2009969"
+      },
+      "full_model_training_started": false,
+      "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+      "immutable_source_members_unchanged": 146,
+      "independent_cpu_reopen_passed": true,
+      "nonprivate_members_identical_to_original": 143,
+      "original_controller_stages": 14,
+      "outer_stages": 15,
+      "per_device_evaluation_passes": [
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "native",
+          "pass_sha256": "37ca3af685316eef46e3dc6024e8af5b8fd3cdd2acdac6ab8443c9c1312db81c",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "replay",
+          "pass_sha256": "ed44423fdd32fcb8b67151455e8842164150842250fd3e65321b948a0e50cd59",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "native",
+          "pass_sha256": "7b8fb814dcdd3ffb1dfa3e3d068543c33e7d9637f61c2aa0a71aa8fd862cd6c4",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "replay",
+          "pass_sha256": "0bbaceefda65870e491fbb665cba3ef0aa112404d8151749a3493d96ef420550",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "native",
+          "pass_sha256": "fc0ffa314096aa178bc708834e845d47253756bd00ae18cb8903ae0c9aa983df",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "metadata_indices",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "replay",
+          "pass_sha256": "1d843de3d04291cebe090180c83b28bed95567dc78fbad260fb52af92b0cf417",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "metadata_indices",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "native",
+          "pass_sha256": "3295d2d676f61583702a41ae32fab42b37e0cee257d7cda0d526ea74df5b7f4c",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "metadata_indices",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+          "kind": "replay",
+          "pass_sha256": "813c4498a31d1cadde62cc5156cd85adbf3407c3f2543d333e2c107cc183db28",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "metadata_indices",
+          "workers": 12
+        }
+      ],
+      "renewed_qualifications_sha256": "1891684d36687c423fa6b28901ad1818b2744bb506d83169b2470143e76435a3",
+      "root": "/data/shihao/egoemg-large-gpu-qualification-dc93cd05a2bf-20261029",
+      "scientific_setting_completed": false,
+      "source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+      "started_utc": "2026-10-28T21:46:30.194568+00:00",
+      "training_qualification_reused_without_resealing": {
+        "directory": "/data/shihao/outputs/egoemg-full-paper-20261026/reviewed-qualification-20261027T225245615176/fits/large",
+        "sha256": "22051ed8fcdcdd7388edbcee11a7f7f571a41f9322c2866eb34020a90c0e3d03"
+      }
+    },
+    "middle": {
+      "actual_exit_code": 0,
+      "all_60_recorded_owners_closed": true,
+      "bundle_sha256": "1195aa3dae9a4dfe3844f94863ad06a254c69780a63feb2ed13290c0350bd471",
+      "controller_qualification": {
+        "directory": "/data/shihao/egoemg-middle-gpu-qualification-1195aa3dae9a-20261029/private/qualification-output/controller",
+        "sha256": "63344d441f8db75cad5c16b488eb0b571767192a2e2faf457dcd9cde15b12da7"
+      },
+      "controller_scope": "cuda_engineering",
+      "ended_utc": "2026-10-28T22:00:40.301029+00:00",
+      "engineering_source_is_full_scientific_data": false,
+      "engineering_source_rows": 5009750,
+      "evaluation_qualification": {
+        "directory": "/data/shihao/egoemg-middle-gpu-qualification-1195aa3dae9a-20261029/private/qualification-output/reports/middle",
+        "sha256": "f067b5822b862bf900b14fe9affee0239a5c30206d1319c3da6eeb4a47479ec7"
+      },
+      "full_model_training_started": false,
+      "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+      "immutable_source_members_unchanged": 146,
+      "independent_cpu_reopen_passed": true,
+      "nonprivate_members_identical_to_original": 143,
+      "original_controller_stages": 14,
+      "outer_stages": 15,
+      "per_device_evaluation_passes": [
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "native",
+          "pass_sha256": "cacca8e15203c15889bd00501a163525fa236b459344212e38b4ff87f0193588",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "replay",
+          "pass_sha256": "a7d6ab6c3607aa20c1ef3da5360fedbee2cbc81d8961a29c745e96a360406116",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "native",
+          "pass_sha256": "e1dbfaf1506c1b15a82792a53c2dfc988d2f55e835ad8a9f600d52e41066a2d5",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "replay",
+          "pass_sha256": "6a5abf26d868f88b380cac4123ce56d4fe4676aec756d2efb40051933cdfa45a",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "official_literal",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "native",
+          "pass_sha256": "c5bde4b24b78e822e7c77b64155940acbcb1d8c81d5b2d2e3bb15dd290cc4e41",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "metadata_indices",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "replay",
+          "pass_sha256": "aac88d6836f483f76203da8107d7e0e9475cb568b9f9bb9a9f368c2d83015f7b",
+          "precision": "32-true",
+          "role": "val",
+          "selection": "metadata_indices",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "native",
+          "pass_sha256": "8703009bf962e07f23f52592d745c4ebcee11ce820bb6a945f2c8304e6bd7afc",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "metadata_indices",
+          "workers": 12
+        },
+        {
+          "batches": [
+            320,
+            1
+          ],
+          "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+          "kind": "replay",
+          "pass_sha256": "9acf314180e6962d641685bd65f0a71511944c5efea2110f3ebb26cd34423a35",
+          "precision": "32-true",
+          "role": "test",
+          "selection": "metadata_indices",
+          "workers": 12
+        }
+      ],
+      "renewed_qualifications_sha256": "b8ea6060fa60a758bc621f6534fb93aebe6c71d0394b39d8f7225cbe5a135f14",
+      "root": "/data/shihao/egoemg-middle-gpu-qualification-1195aa3dae9a-20261029",
+      "scientific_setting_completed": false,
+      "source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+      "started_utc": "2026-10-28T21:46:30.244808+00:00",
+      "training_qualification_reused_without_resealing": {
+        "directory": "/data/shihao/outputs/egoemg-full-paper-20261026/reviewed-qualification-20261027T225245615176/fits/middle",
+        "sha256": "f87f560cb69e02ead43cbf00d28b0f599c592f8870abb23052e25ad35f755a19"
+      }
+    }
+  },
+  "local_result_parser_initial_exit_code": 1,
+  "local_result_parser_initial_failure": "upstream validation informational stdout precedes the final JSON; remote subprocess exited0 and all native checks passed",
+  "new_full_scientific_settings_completed": 0,
+  "normalization_only_no_repeated_model_or_reader": true,
+  "observed_utc": "2026-10-28T22:16:18.085709+00:00",
+  "preserved_prelaunch_failures": [
+    {
+      "actual_exit_code": 1,
+      "actual_model_processes_started": 0,
+      "original_failure_receipt_sha256": "a38093e879156b2109f6ca99edd4641b3b809a0bfc82a9dd2a4dc31b0f23aa8c",
+      "phase": "initial receipt construction",
+      "reason": "original manifest has no bundle_sha256; derive it from the immutable mapping",
+      "recovery": "verify146unchanged members; finish only missing receipt"
+    },
+    {
+      "actual_exit_code": 1,
+      "actual_model_processes_started": 0,
+      "phase": "second metadata preflight",
+      "reason": "fixed40GiB snapshot no longer accounts for newly written WiLoR checkpoint bytes",
+      "recovery": "reserve pending four-checkpoint budget plus3GiB while preserving original23GiB margin"
+    },
+    {
+      "actual_exit_code": 1,
+      "actual_model_processes_started": 0,
+      "phase": "GPU3 launch preflight",
+      "reason": "actual64369MiB available is below unchanged65536MiB admission",
+      "recovery": "preserve unstarted GPU3 capsule; qualify fresh isolated GPU5 request"
+    }
+  ],
+  "raw_collector_log_sha256": "206aebf4771a71bef54faf56ec0f848ddaf6e4ba3e24a57b012e61a5c0be07c9",
+  "unstarted_original_gpu3_capsule_preserved": true
+}

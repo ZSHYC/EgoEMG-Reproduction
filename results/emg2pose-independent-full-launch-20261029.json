@@ -1,0 +1,264 @@
+{
+  "actual_full_model_gpu_training_verified": false,
+  "actual_full_scientific_settings_added": 0,
+  "actual_observation_utc": "2026-10-28T22:18:28.212503+00:00",
+  "actual_original_small_queue": {
+    "actual_matching_owners_live": {
+      "child": true,
+      "wrapper": true
+    },
+    "queue_status": {
+      "completed_models": 0,
+      "full_paper_complete": false,
+      "size": "small",
+      "status": "full-experiment-running"
+    },
+    "state": {
+      "automatic_retry": false,
+      "child": {
+        "pid": 3339917,
+        "start_ticks": "399523314"
+      },
+      "started_utc": "2026-10-28T06:12:07.798753+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 3339916,
+        "start_ticks": "399523311"
+      }
+    }
+  },
+  "already_completed_declared_protocol_settings": 10,
+  "atomic_reserved_model_outputs_used": true,
+  "closed_gpu_qualification_public_proof_sha256": "54e991ae9be0d67b66d6b9045d7c359f5425d3c97dd4b465bb6a5028e86667f2",
+  "format": "actual_emg2pose_independent_full_launch_v1",
+  "full_paper_complete": false,
+  "future_three_model_aggregate_requires_actual_closed_full_model_reports": true,
+  "jobs": {
+    "large": {
+      "actual_data_free_bytes": 36302106624,
+      "actual_full_gpu_fit_verified": false,
+      "actual_full_request_sha256": "3c312193886922d5db91aa7afab6b51859781c5a06c103bf54b6bc34a603d33d",
+      "actual_host_available_bytes": 861813993472,
+      "actual_initial_observation": {
+        "actual_full_gpu_fit_verified": false,
+        "actual_matching_owners_live": {
+          "child": true,
+          "wrapper": true
+        },
+        "actual_model_output_claimed": false,
+        "full_controller_owners": {
+          "guardian": {
+            "actual_matching_live": true,
+            "identity": {
+              "pgrp": 3708703,
+              "pid": 3708703,
+              "sid": 3708703,
+              "start_ticks": "405317435",
+              "state": "R",
+              "uid": 1005
+            }
+          },
+          "worker": {
+            "actual_matching_live": true,
+            "identity": {
+              "pgrp": 3708708,
+              "pid": 3708708,
+              "sid": 3708708,
+              "start_ticks": "405317439",
+              "state": "R",
+              "uid": 1005
+            }
+          }
+        },
+        "full_controller_read_only_io": {
+          "rchar": 2973801234,
+          "read_bytes": 13783040,
+          "wchar": 97
+        },
+        "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+        "independent_state": {
+          "full_paper_complete": false,
+          "scientific_complete": false,
+          "scope": "full",
+          "size": "large",
+          "status": "full-controller-running"
+        },
+        "root": "/data/shihao/egoemg-large-independent-full-69a084995ac8-20261029",
+        "scientific_setting_complete": false,
+        "state": {
+          "automatic_retry": false,
+          "child": {
+            "pid": 3708688,
+            "start_ticks": "405317388"
+          },
+          "started_utc": "2026-10-28T22:17:48.545002+00:00",
+          "status": "running",
+          "wrapper": {
+            "pid": 3708687,
+            "start_ticks": "405317385"
+          }
+        }
+      },
+      "actual_launch_exit_code": 0,
+      "actual_matching_launch_owners_live": true,
+      "actual_prelaunch_gpu_free_bytes": 75009884160,
+      "actual_remaining_wilor_checkpoint_budget_bytes": 7714211000,
+      "actual_wilor_checkpoint_sizes": {
+        "last.ckpt": 7579992505,
+        "vit-small-epoch=000-val_mae=0.1315.ckpt": 7579991738,
+        "vit-small-epoch=001-val_mae=0.1116.ckpt": 7579992505
+      },
+      "additional_qualification_full_ml_budget_bytes": 3221225472,
+      "bundle_sha256": "69a084995ac8620ad7fd6ac30ee6b3e2ac526da74ea9708ae6b43a5535427cf9",
+      "full_paper_complete": false,
+      "full_training_complete": false,
+      "full_workflow_launched": true,
+      "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+      "immutable_member_count": 146,
+      "nonprivate_original_members": 143,
+      "observed_utc": "2026-10-28T22:17:48.565256+00:00",
+      "reserved_actual_output": "/data/shihao/outputs/egoemg-full-paper-20261026/emg2pose-full-queue-20261028T061208002698/large",
+      "reviewed_worker_sha256": "ad7742a9d3e7ec6b7ac6a15b7847b17fe7c9a7f9ab5bfa06aed673db084f1352",
+      "root": "/data/shihao/egoemg-large-independent-full-69a084995ac8-20261029",
+      "source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+      "stage_receipt_source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 3708688,
+          "start_ticks": "405317388"
+        },
+        "started_utc": "2026-10-28T22:17:48.545002+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 3708687,
+          "start_ticks": "405317385"
+        }
+      },
+      "unchanged_wilor_pre_save_margin_bytes": 24696061952
+    },
+    "middle": {
+      "actual_data_free_bytes": 36302106624,
+      "actual_full_gpu_fit_verified": false,
+      "actual_full_request_sha256": "b33c23fb8e99faaa20f4208d691f4acc4aecb2903e40f57f3bbdf127de71714e",
+      "actual_host_available_bytes": 861813993472,
+      "actual_initial_observation": {
+        "actual_full_gpu_fit_verified": false,
+        "actual_matching_owners_live": {
+          "child": true,
+          "wrapper": true
+        },
+        "actual_model_output_claimed": false,
+        "full_controller_owners": {
+          "guardian": {
+            "actual_matching_live": true,
+            "identity": {
+              "pgrp": 3708709,
+              "pid": 3708709,
+              "sid": 3708709,
+              "start_ticks": "405317441",
+              "state": "R",
+              "uid": 1005
+            }
+          },
+          "worker": {
+            "actual_matching_live": true,
+            "identity": {
+              "pgrp": 3708712,
+              "pid": 3708712,
+              "sid": 3708712,
+              "start_ticks": "405317444",
+              "state": "R",
+              "uid": 1005
+            }
+          }
+        },
+        "full_controller_read_only_io": {
+          "rchar": 3044032195,
+          "read_bytes": 1339392,
+          "wchar": 97
+        },
+        "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+        "independent_state": {
+          "full_paper_complete": false,
+          "scientific_complete": false,
+          "scope": "full",
+          "size": "middle",
+          "status": "full-controller-running"
+        },
+        "root": "/data/shihao/egoemg-middle-independent-full-a66c9c3bdc52-20261029",
+        "scientific_setting_complete": false,
+        "state": {
+          "automatic_retry": false,
+          "child": {
+            "pid": 3708690,
+            "start_ticks": "405317393"
+          },
+          "started_utc": "2026-10-28T22:17:48.596350+00:00",
+          "status": "running",
+          "wrapper": {
+            "pid": 3708689,
+            "start_ticks": "405317391"
+          }
+        }
+      },
+      "actual_launch_exit_code": 0,
+      "actual_matching_launch_owners_live": true,
+      "actual_prelaunch_gpu_free_bytes": 75007787008,
+      "actual_remaining_wilor_checkpoint_budget_bytes": 7714211000,
+      "actual_wilor_checkpoint_sizes": {
+        "last.ckpt": 7579992505,
+        "vit-small-epoch=000-val_mae=0.1315.ckpt": 7579991738,
+        "vit-small-epoch=001-val_mae=0.1116.ckpt": 7579992505
+      },
+      "additional_qualification_full_ml_budget_bytes": 3221225472,
+      "bundle_sha256": "a66c9c3bdc52c9dcb14bb18e29bafb8058d002bed5b27f01d866cf019ed4c49c",
+      "full_paper_complete": false,
+      "full_training_complete": false,
+      "full_workflow_launched": true,
+      "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+      "immutable_member_count": 146,
+      "nonprivate_original_members": 143,
+      "observed_utc": "2026-10-28T22:17:48.616960+00:00",
+      "reserved_actual_output": "/data/shihao/outputs/egoemg-full-paper-20261026/emg2pose-full-queue-20261028T061208002698/middle",
+      "reviewed_worker_sha256": "ad7742a9d3e7ec6b7ac6a15b7847b17fe7c9a7f9ab5bfa06aed673db084f1352",
+      "root": "/data/shihao/egoemg-middle-independent-full-a66c9c3bdc52-20261029",
+      "source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+      "stage_receipt_source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 3708690,
+          "start_ticks": "405317393"
+        },
+        "started_utc": "2026-10-28T22:17:48.596350+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 3708689,
+          "start_ticks": "405317391"
+        }
+      },
+      "unchanged_wilor_pre_save_margin_bytes": 24696061952
+    }
+  },
+  "original_production_modules_changed": false,
+  "original_serial_aggregate_status_rewritten": false,
+  "original_small_training_stopped_or_restarted": false,
+  "placeholder_success_artifacts_created": false,
+  "scientific_recipe": {
+    "batch_size": 320,
+    "early_stopping": false,
+    "evaluation_modes": [
+      "official_literal",
+      "metadata_indices"
+    ],
+    "evaluation_precision": "32-true",
+    "full_deadline_seconds": null,
+    "full_source_rows": 3043302266,
+    "full_source_sessions": 25253,
+    "max_epochs": 250,
+    "original_controller_stages": 14,
+    "training_precision": "bf16-mixed",
+    "workers": 12
+  }
+}

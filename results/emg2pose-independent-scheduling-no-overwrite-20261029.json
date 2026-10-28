@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "actual_file_exists_error_before_source_admission_and_gpu": true,
+      "existing_bytes_unchanged": true,
+      "existing_output_type": "directory"
+    },
+    {
+      "actual_file_exists_error_before_source_admission_and_gpu": true,
+      "existing_bytes_unchanged": true,
+      "existing_output_type": "ordinary_file"
+    }
+  ],
+  "completed_scientific_settings_added": 0,
+  "controller_core_sha256": {
+    "classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "emg2pose_check.py": "7c633a98d7528ed0c4e414ebc56e65ba306b1655693489282da9f1dddab5b2cf",
+    "emg2pose_direct_evaluate.py": "12c83fc36584455fc0dff9b410b75f6547ef10f3d70a25317b7b3c080dd2c144",
+    "emg2pose_direct_evaluation_data.py": "e0313a33a06cea042ad80e20f093341bdbeb3b3d58f66e9f8b6c63e7a912c395",
+    "emg2pose_direct_experiment.py": "03fd4baffd5086fd4147b9cf900da42a9c7e784e9ebec4e5467763dd375b499c",
+    "emg2pose_direct_recovery.py": "10e616029fc8b05e21598d6b24af44e3a7aae00e46415e1a9ac1653238f124e7",
+    "emg2pose_direct_report.py": "0926c93d23359b626c5b31bbdeb2d0d4d8ea202c308524c0b1829a5085e5f0a9",
+    "emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "emg2pose_direct_source.py": "ffd74770e3c32b028c392992266983e3bafeb5f1bb5310dc9f35419559cc347f",
+    "emg2pose_direct_train.py": "864cc36efe1bedf13cfc56ddeeb6872acd0c7ac57897975b5bb35a9f6c3c9b93",
+    "emg2pose_memory_evaluate.py": "54ec2a6deb3ce4aa4003bb766340c8baefb0c8cb9586fa0b9f91195742757ad9",
+    "emg2pose_memory_evaluation_data.py": "9be3a4e9e71d90f7e6a8ac374cfe17684a93d63521da4ff10cd4c1052b8dc4b3",
+    "emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "emg2pose_memory_recovery.py": "eaa6dd2b9f37671e58c6a53690af1f9121682d6a8dfd49e63f6f3c1723610eeb",
+    "emg2pose_memory_report.py": "9f409a7276f83ffe08fb77f5cca29658e7e232fe618832fde7e0ab21423276ed",
+    "emg2pose_memory_statistics.py": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "emg2pose_memory_train.py": "d91fad5a13c24848b749b3b09a36c8eb2d04a42436af6eb2fd5077cfbd1a492b"
+  },
+  "existing_queue_modified": false,
+  "format": "emg2pose_independent_schedule_no_overwrite_safety_v1",
+  "full_paper_complete": false,
+  "gpu_observations_injected": false,
+  "model_constructions": 0,
+  "original_queue_sha256": "d3022f659625f75f54e8682637be8fbdf9aae8822c6badb0278fddfc4d9c49ed",
+  "production_controller_sources_match_active_qualified_capsule": true,
+  "scientific_artifacts_created": 0,
+  "scope": "disposable negative safety probes only; not a scientific source or qualification",
+  "torch_imported": false
+}
