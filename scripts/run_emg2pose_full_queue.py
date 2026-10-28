@@ -52,7 +52,15 @@ def source_handoff(config):
     completion=read(source/'completion.json')
     if completion.get('cohort')!='full' or completion.get('full_corpus_complete') is not True or completion.get('pipeline_complete') is not True:
         raise ValueError('engineering or partial pipeline cannot supply full experiments')
-    driver._full_source(value['native_data_identity'])
+    # The producer returns raw numeric identity. Archive provenance is added
+    # only by open_source after deep admission; main applies the unchanged
+    # verified-source/archive gate there before any GPU or model work.
+    native=value['native_data_identity']
+    if (native.get('format')!='emg2pose_runtime_data_identity_v1' or native.get('cohort')!='full'
+            or native.get('full_corpus_complete') is not True or native.get('engineering_only') is not False
+            or native.get('file_count')!=25253
+            or native.get('counts',{}).get('split')!={'train':17136,'val':1950,'test':6167}):
+        raise ValueError('complete native25253original sessions and roles required at source handoff')
     expected={n:h for n,h in snapshot['files_sha256'].items() if n.startswith('egoemg_repro/')}
     if value.get('producer_files_sha256')!=expected:raise ValueError('full source producer binding differs')
     owned=value['actual_owned_stage'];actual=read(root/'private/owned-stage/stage-result.json')

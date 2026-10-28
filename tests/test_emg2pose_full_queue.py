@@ -93,3 +93,48 @@ def test_config_cannot_omit_child_owner_by_adding_an_unrelated_key(case,tmp_path
     q['source_launch']['state']={'wrapper':process_identity(),'unexpected':{}}
     path=tmp_path/'malformed.json';write(path,q)
     with pytest.raises(ValueError,match='owner'):m.read_config(path,sha(path))
+
+
+def completed_full_case(case,tmp_path):
+    root,config,state=case
+    for k in ('wrapper','child'):
+        state[k]=dict(state[k],start_ticks='0');config['source_launch']['state'][k]=state[k]
+    state.update(status='complete',actual_exit_code=0);write(root/'private/execution-state.json',state)
+    source=tmp_path/'actual-format-source';source.mkdir()
+    write(source/'completion.json',dict(cohort='full',full_corpus_complete=True,pipeline_complete=True))
+    write(root/'private/source-output.json',{'source':str(source)})
+    # This is the actual producer's numeric identity shape. Archive provenance
+    # belongs to VerifiedDirectSource, and is intentionally absent here.
+    native=dict(format='emg2pose_runtime_data_identity_v1',cohort='full',full_corpus_complete=True,
+        engineering_only=False,file_count=25253,rows=3043302266,counts={'split':{'train':17136,'val':1950,'test':6167}})
+    owned=dict(worker_exit_code=0,status='success',all_owned_consumers_exited=True,descriptor_bindings={},
+        worker=dict(state['wrapper']),guardian=dict(state['child']))
+    (root/'private/owned-stage').mkdir();write(root/'private/owned-stage/stage-result.json',owned)
+    result=dict(cohort='full',full_corpus_complete=True,source_path=str(source),
+        source_pipeline_completion_sha256=sha(source/'completion.json'),native_data_identity=native,
+        producer_files_sha256={},actual_owned_stage=owned)
+    write(root/'private/full-source-result.json',result)
+    return root,config,source,result
+
+
+def test_actual_raw_numeric_identity_handoff_succeeds_before_verified_archive_admission(case,tmp_path):
+    m=api();root,config,source,result=completed_full_case(case,tmp_path)
+    assert 'archive_bytes' not in result['native_data_identity']
+    handoff=m.source_handoff(config)
+    assert handoff['source_root']==str(source) and handoff['completion_sha256']==sha(source/'completion.json')
+    assert handoff['source_result_sha256']==sha(root/'private/full-source-result.json')
+    # Correcting the raw boundary must not relax the later verified-source gate.
+    with pytest.raises(ValueError,match='full source|25253'):m.driver._full_source(result['native_data_identity'])
+
+
+@pytest.mark.parametrize('damage',['format','cohort','incomplete','engineering','count','roles'])
+def test_raw_handoff_still_requires_complete_original_population(case,tmp_path,damage):
+    m=api();root,config,_,result=completed_full_case(case,tmp_path);native=result['native_data_identity']
+    if damage=='format':native['format']='emg2pose_verified_direct_data_identity_v1'
+    elif damage=='cohort':native['cohort']='mini'
+    elif damage=='incomplete':native['full_corpus_complete']=False
+    elif damage=='engineering':native['engineering_only']=True
+    elif damage=='count':native['file_count']=25252
+    else:native['counts']['split']['val']=1951
+    write(root/'private/full-source-result.json',result)
+    with pytest.raises(ValueError,match='native|full|25253'):m.source_handoff(config)
