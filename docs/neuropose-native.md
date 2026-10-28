@@ -4,7 +4,7 @@
 
 新模块 `neuropose_native_train` 保留原厂模型、16槽/7790点、22角完整轨迹、生成2维mask、固定scalar归一化与原增强次序。使用原 Lightning loss、AdamW/Cosine、val_loss/min/patience50 的选模/早停，以及 native top-one/last checkpoint。完整模式为101,714训练/1,576验证/4,306测试手样本，B256/16-mixed/GradScaler、max100epochs、单rank/workers0。单rank的全局批量与BatchNorm统计不等于原六rank，旧版数据也未证明与PDF/缺失合并数据等价。
 
-`fit_neuropose(..., scope='full')`必须先提供新的原始GPU资格文件，以及实际完整cohort、numeric与三阶capacity来源。完整入口仍等待评价/资格模块及真实GPU验收完成；调用者布尔值、旧失败记录、CPU工程结果、改summary或调batch/precision均不能打开完整训练。没有`resume`或覆盖已有输出的接口；失败/中断保留为不完整，不能自动重启或续训。
+`fit_neuropose(..., scope='full')`必须先提供新的原始GPU资格文件，以及实际完整cohort、numeric与三阶capacity来源。完整入口仍等待本路径真实GPU验收完成；调用者布尔值、旧失败记录、CPU工程结果、改summary或调batch/precision均不能打开完整训练。没有`resume`或覆盖已有输出的接口；失败/中断保留为不完整，不能自动重启或续训。
 
 ```python
 from egoemg_repro.neuropose_native_train import (
@@ -29,3 +29,32 @@ CPU工程为B2/32-true/两轮，最多前4个训练样本及该小队列全部�
 [CPU工程实证](../results/neuropose-native-fit-cpu-20261028.json)绑定源码a0e4f4f：原厂6,354,969参数，两轮/两次实际optimizer更新，小型普通memmap队列2训练/2验证/2测试手样本，只消费train/val。新进程严格重载真实best，再运行全部2个验证样本，与选中轮次的typed预测/输入摘要精确一致；父进程独立重开原始输入、checkpoint和journal，无CUDA，新增训练0，所有原fit文件字节未变。该过程实际10.84秒exit0，不是完整数据/GPU资格或最终科学误差。
 
 [检查与执行身份](../results/neuropose-native-fit-cpu-validation-20261028.json)记录最终33项原生、60项相关及完整轻量1,474通过/1,070可选依赖跳过，均actualexit0；五个源码/测试摘要未变，八个检查拥有者和独立验证两个拥有者均确认退出。7项状态绑定/非法布尔值追加RED后修正，另补配置先行拒绝和CPU RNG不触碰CUDA的RED→GREEN。初次轻量检查误开Torch可选集成开关导致两项失败，原日志/状态保留；只修正该环境变量后全套通过，没有改生产代码或断言去绕过失败。资格/评价/报告仍为计划Task2，实际GPU/唯一一次新实现审查/full100仍为Task3；旧恢复轨迹失败结论保持。
+
+
+评价模块 `neuropose_native_eval` 使用原生 Trainer 验证/测试及真正独立进程推理。保留六条有类型和批次顺序的 EMG、target、mask、sample、metadata、prediction 摘要链，以及统计量；不会保存整个多GB预测张量。原最佳权重、scaler、实际设备、进程身份、运行时、完整输入与来源均绑定，默认完整模式拒绝工程结果。训练 checkpoint 与结果记录实际 fitter 的 PID/start ticks，GPU资格需确认 fitter、native验证与独立复算进程均已退出。
+
+```python
+from egoemg_repro.neuropose_native_eval import (
+    run_neuropose_pass, freeze_neuropose_validation,
+    qualify_neuropose, publish_neuropose_report, verify_neuropose_report,
+)
+
+# Run native validation, then replay in ANOTHER process with the same fit.
+run_neuropose_pass(fit, native_val, role='val', kind='native')
+# In a separate process:
+run_neuropose_pass(fit, replay_val, role='val', kind='replay', reference=native_val)
+# Freeze only after both artifacts really exist and have been checked.
+freeze_neuropose_validation(native_val, replay_val, profile)
+# Full native test then another-process test replay both consume that profile.
+run_neuropose_pass(fit, native_test, role='test', kind='native', profile=profile)
+# In a separate process:
+run_neuropose_pass(fit, replay_test, role='test', kind='replay', reference=native_test, profile=profile)
+publish_neuropose_report(fit, native_test, replay_test, report)
+verify_neuropose_report(replay_test, report)
+```
+
+显式CPU/CUDA工程推理须传 `require_full=False`，报告标为工程验证。CUDA资格另用 `qualify_neuropose`，只接受原B256/16-mixed、两轮512训练及全部1,576验证的真实CUDA工程fit/native/replay；CPU、旧失败gate或布尔值不能替代。资格reader重开numeric runtime、完整cohort与三阶capacity来源，并与当前源码核对。
+
+测试统计保留全部22角/7790点/中心3895，按生成mask计算trajectory与center，含手、split、匿名用户、关节、手指和PD组；native批聚合指标单列。PNG/SVG曲线来自真实journal和所选checkpoint轮次，两个纵轴都是原生复合损失，val_loss不是角度MAE。独立report验证重新生成两种图并核对字节，completion最后写入；报告准备期间原输入或journal变化会拒绝发布。
+
+本路径新评价实现的最终CPU检查与独立报告实证正在完成。实际GPU资格、一次新实现最终审查、全数据100轮上限/50轮patience训练及完整科学报告仍未完成。

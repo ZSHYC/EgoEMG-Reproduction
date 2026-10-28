@@ -27,6 +27,11 @@ def _hash(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 
 
+def _process():
+    fields=Path('/proc/self/stat').read_text().rsplit(')',1)[1].split()
+    return dict(pid=os.getpid(),start_ticks=fields[19],uid=os.getuid())
+
+
 def _sha(path):
     h=hashlib.sha256()
     with Path(path).open('rb') as f:
@@ -218,6 +223,7 @@ def _observer_type():
             self.prepared=prepared;self.output=output;self.generators=generators or {};self.records=[]
             self.attempts=0;self.steps=0;self.boundary=False;self.phase=None;self.step_hook=None
             self.initial_model_sha256=storage.state_digest(prepared.module.state_dict())
+            self.execution=dict(process=_process(),started_ns=time.time_ns())
         def on_fit_start(self,trainer,module):self._observe(module)
         def on_validation_start(self,trainer,module):
             if not hasattr(self,'original_forward'):self._observe(module)
@@ -281,6 +287,7 @@ def _observer_type():
             checkpoint['native_neuropose']=dict(identity=self.prepared.identity,epoch_boundary=True,records=copy.deepcopy(self.records),
                 completed_epochs=len(self.records),attempts=self.attempts,optimizer_executions=self.steps,
                 initial_model_sha256=self.initial_model_sha256,
+                execution=self.execution,
                 rng=_rng_packet(self.generators,cpu=self.prepared.policy['scope']=='cpu_engineering'))
             storage._space(self.output,2*storage._payload_bytes(checkpoint)+storage.IO_OVERHEAD)
     return NativeObserver
@@ -311,6 +318,12 @@ def _read_epochs(output):
 def _validate_checkpoint(checkpoint,identity,records):
     from . import classic_emg_train as storage
     packet=checkpoint['native_neuropose'];epochs=len(records)
+    execution=packet.get('execution',{});process=execution.get('process',{})
+    if (set(execution)!={'process','started_ns'} or set(process)!={'pid','start_ticks','uid'} or
+        type(execution['started_ns']) is not int or execution['started_ns']<=0 or
+        type(process['pid']) is not int or process['pid']<=0 or type(process['uid']) is not int or
+        type(process['start_ticks']) is not str or not process['start_ticks'].isdigit()):
+        raise ValueError('actual native training process identity required')
     if (packet['identity']!=identity or packet['epoch_boundary'] is not True or packet['records']!=records or
         packet['completed_epochs']!=epochs or packet['optimizer_executions']!=records[-1]['optimizer_executions'] or
         packet['attempts']!=records[-1]['attempts'] or checkpoint['epoch']!=epochs-1 or
@@ -365,6 +378,8 @@ def _selection(output,identity,last,records):
     _validate_checkpoint(best,identity,records[:n]);score=records[n-1]['validation']['val_loss']
     if best['native_neuropose']['initial_model_sha256']!=last['native_neuropose']['initial_model_sha256']:
         raise ValueError('native selected best/last initialization differs')
+    if best['native_neuropose']['execution']!=last['native_neuropose']['execution']:
+        raise ValueError('native selected best/last fitter identity differs')
     if score!=min(row['validation']['val_loss'] for row in records) or float(monitor['best_model_score'])!=score:
         raise ValueError('actual native validation-loss minimum differs')
     return dict(file=path.name,checkpoint_sha256=_sha(path),epoch=n-1,score=score,
@@ -409,6 +424,7 @@ def fit_neuropose(data,*,upstream,config,partitions,output,scope='full',precondi
         last_model_sha256=storage.state_digest(last['state_dict']),last_checkpoint_sha256=_sha(output/'checkpoints/last.ckpt'),
         selected_best=_selection(output,prepared.identity,last,records),journal_sha256=_sha(output/'epochs.jsonl'),
         stop_reason=reason,full_training_terminated=scope=='full',seconds=time.monotonic()-started,
+        execution=last['native_neuropose']['execution'],finished_ns=time.time_ns(),
         scientific_eligible=False,full_paper_complete=False))
     _write(output/'fit-result.json',result);return read_neuropose_fit(output,require_full=scope=='full')
 
@@ -456,10 +472,18 @@ def _read_fit(output,*,require_full):
         last_model_sha256=storage.state_digest(last['state_dict']),last_checkpoint_sha256=_sha(output/'checkpoints/last.ckpt'),
         selected_best=selected,journal_sha256=_sha(output/'epochs.jsonl'),stop_reason=reason,full_training_terminated=policy['scope']=='full',
         initial_model_sha256=last['native_neuropose']['initial_model_sha256'],scientific_eligible=False,full_paper_complete=False)
-    if (any(result.get(k)!=v for k,v in expected.items()) or set(result)!=set(expected)|{'seconds','sha256'} or
+    expected['execution']=last['native_neuropose']['execution']
+    if (any(result.get(k)!=v for k,v in expected.items()) or set(result)!=set(expected)|{'seconds','sha256','finished_ns'} or
+        type(result.get('finished_ns')) is not int or result['finished_ns']<=expected['execution']['started_ns'] or
         not isinstance(result['seconds'],(int,float)) or not math.isfinite(result['seconds']) or result['seconds']<0 or
         result['optimizer_executions']<=0):raise ValueError('native fit result differs from raw checkpoint/journal/selection')
-    actual.guard.check();guard.check();return result,identity,last,guard
+    actual.guard.check()
+    # A report transaction retains the generations actually admitted above.
+    for path,stamp in actual.guard.paths.items():
+        if path in guard.paths and guard.paths[path]!=stamp:raise ValueError('native input/source generation changed while reading fit')
+        guard.paths[path]=stamp
+    guard.parents.update(actual.guard.parents)
+    guard.check();return result,identity,last,guard
 
 
 def read_neuropose_fit(output,*,require_full=True):
