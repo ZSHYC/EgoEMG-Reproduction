@@ -1,0 +1,107 @@
+{
+  "all_six_test_owners_independently_nonlive": true,
+  "collector_parent_failure": {
+    "actual_exit_code": 1,
+    "child_stages_restarted": 0,
+    "log_sha256": "db64741c9c04b135e748252cbf02063bd4365597b7a873d089c4f1e9564973ef",
+    "reason": "system Python lacked Torch after all three child stages succeeded",
+    "recovery": "independent finalization with matching native CPU interpreter; actual owners rechecked and raw reports reopened"
+  },
+  "core_file_sha256": "6165f70bf1f567868245d866aa3445e8c3c9391ba23ec4788cbda4a3a30151eb",
+  "current_source_checks": [
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "fda247cabd4f6244e9e463d143611169a0722c1ef75e629ca8cb4b952db11281",
+      "name": "task3-final-native",
+      "optional_skipped": 0,
+      "owners_independently_nonlive": true,
+      "passed": 31,
+      "seconds": 299.51,
+      "sources_sha256": {
+        "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+        "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+        "egoemg_repro/fusion_literal_eval.py": "aa7321912d6fc0f3fc134e1713c9e2b1e7d272a710f9a4f2d07061de46aa0002",
+        "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+        "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+        "tests/test_fusion_literal_cohort.py": "84eb111a41b21370d2de8dbd69587b861cc99177429023edd503842a6b8ec9b9",
+        "tests/test_fusion_literal_data.py": "dd033803a4bc4917825f55bbaaa8775c249aede5ffbd6efe9fd338cfb1488ee4",
+        "tests/test_fusion_literal_eval.py": "91506df015d6d87688e0c5a11841233f27241432dc3d9c7c42c56f6c899f85bc",
+        "tests/test_fusion_literal_runtime.py": "aa558beff80a4b351b2f5f1186f83337bb86ab190fa8aead0b8a31303d1e787d",
+        "tests/test_fusion_literal_train.py": "f12db863fc3cfd0b2197a5b81185439910ca0f3717f89164ff0a914d5051322c"
+      },
+      "state_sha256": "bacb52855ee567fc88e030ec6d21474f62c65d233d3e4210d62b2bb1f2e20546"
+    },
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "14d264a8ff402745874be90f2e8265bdce2a8f4b2521fcd2f43cabc086e3b29a",
+      "name": "task3-related-native",
+      "optional_skipped": 0,
+      "owners_independently_nonlive": true,
+      "passed": 122,
+      "seconds": 220.49,
+      "sources_sha256": {
+        "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+        "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+        "egoemg_repro/fusion_literal_eval.py": "aa7321912d6fc0f3fc134e1713c9e2b1e7d272a710f9a4f2d07061de46aa0002",
+        "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+        "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+        "tests/test_fusion_literal_cohort.py": "84eb111a41b21370d2de8dbd69587b861cc99177429023edd503842a6b8ec9b9",
+        "tests/test_fusion_literal_data.py": "dd033803a4bc4917825f55bbaaa8775c249aede5ffbd6efe9fd338cfb1488ee4",
+        "tests/test_fusion_literal_eval.py": "91506df015d6d87688e0c5a11841233f27241432dc3d9c7c42c56f6c899f85bc",
+        "tests/test_fusion_literal_runtime.py": "aa558beff80a4b351b2f5f1186f83337bb86ab190fa8aead0b8a31303d1e787d",
+        "tests/test_fusion_literal_train.py": "f12db863fc3cfd0b2197a5b81185439910ca0f3717f89164ff0a914d5051322c"
+      },
+      "state_sha256": "4d9e7ab980bca7c6161bd852808259deae4912b9f935d2ae9bbdbd9152a1c21d"
+    },
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "010a916a4025896e81c59e34617aab3f61c0db1e8c55e571a988f71060f44766",
+      "name": "task3-final-light",
+      "optional_skipped": 1051,
+      "owners_independently_nonlive": true,
+      "passed": 1460,
+      "seconds": 106.51,
+      "sources_sha256": {
+        "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+        "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+        "egoemg_repro/fusion_literal_eval.py": "aa7321912d6fc0f3fc134e1713c9e2b1e7d272a710f9a4f2d07061de46aa0002",
+        "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+        "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+        "tests/test_fusion_literal_cohort.py": "84eb111a41b21370d2de8dbd69587b861cc99177429023edd503842a6b8ec9b9",
+        "tests/test_fusion_literal_data.py": "dd033803a4bc4917825f55bbaaa8775c249aede5ffbd6efe9fd338cfb1488ee4",
+        "tests/test_fusion_literal_eval.py": "91506df015d6d87688e0c5a11841233f27241432dc3d9c7c42c56f6c899f85bc",
+        "tests/test_fusion_literal_runtime.py": "aa558beff80a4b351b2f5f1186f83337bb86ab190fa8aead0b8a31303d1e787d",
+        "tests/test_fusion_literal_train.py": "f12db863fc3cfd0b2197a5b81185439910ca0f3717f89164ff0a914d5051322c"
+      },
+      "state_sha256": "9881e1f16f6a04970e4c58846f38d975b47a3c432d070d6b1885334bc7a6cae9"
+    }
+  ],
+  "curve_binding_regression_red": {
+    "actual_exit_code": 1,
+    "failed": 2,
+    "log_sha256": "d48871b622e684039427da8a1e4d1838d20464a0d7cba2f90619e1a868e32e21"
+  },
+  "format": "actual_native_fusion_selected_eval_cpu_validation_v1",
+  "full_paper_complete": false,
+  "independent_child_stages": [
+    {
+      "actual_exit_code": 0,
+      "actual_owner_nonlive": true,
+      "name": "new-test-replay"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_owner_nonlive": true,
+      "name": "report"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_owner_nonlive": true,
+      "name": "verify"
+    }
+  ],
+  "independent_finalization_actual_exit_code": 0,
+  "preserved_first_native29_and_light_source_bound": true,
+  "scientific_eligible": false,
+  "source_commit": "c14e6f8880c669db32557997713b960217cd651f"
+}

@@ -1,0 +1,62 @@
+{
+  "actual_engineering_optimizer_updates": 4,
+  "actual_epoch_curves_sha256": "43c66b9138e57466cd44ff0d0971a7f41ae7f91b7bbb070b000533e80e64cb8c",
+  "actual_fresh_child_stages": [
+    {
+      "actual_exit_code": 0,
+      "actual_owner_nonlive": true,
+      "name": "new-test-replay"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_owner_nonlive": true,
+      "name": "report"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_owner_nonlive": true,
+      "name": "verify"
+    }
+  ],
+  "actual_independent_children": 3,
+  "actual_validation_best_used": true,
+  "child_stages_restarted": 0,
+  "completed_engineering_epochs": 2,
+  "format": "actual_native_fusion_selected_eval_cpu_engineering_v1",
+  "full_paper_complete": false,
+  "full_training_terminated": false,
+  "generated_label_mask_preserved": true,
+  "independent_finalization_seconds": 22.70367985998746,
+  "independent_parent_cpu_no_cuda": true,
+  "independent_pass_sha256": "ef58db77faa78765b8e27d2393bce1b6279c5fb078c68408c208f73ec3b67aa1",
+  "limits": "synthetic ordinary memmap/LMDB and genuine native model/branch tensors; two-epoch CPU engineering only; no real-cohort GPU qualification or new fusion scientific score",
+  "native_and_independent_prediction_sha256": "2090dd080e9bf92a01fa6931bd1b32f82c8cd336c74037e172ac31af3172eebf",
+  "native_and_pooled_aggregations_separate": true,
+  "native_and_replay_models_exact": true,
+  "native_pass_sha256": "f33d0ef918a78177b3d6e1c191e1848a08c93f929401d0950efed8be17b3de35",
+  "original_collector_parent_error": "system Python lacked Torch after all three successful child exits; finalized with matching native CPU interpreter",
+  "original_missing_crop_samples": 6,
+  "paired_multimodal_input_repeats_checked": true,
+  "pretest_validation_profile_sha256": "393127db311fc197e61b71b795f2613dee2d5052051a696c719215227d78df84",
+  "public_engineering_report_sha256": "e0b90503316fe8338ed99d68193c49581949f7770248481c43947340ed0691da",
+  "public_files_sha256": {
+    "completion.json": "2d009e75c3f58b8d7ed24ab049dc13b1004727c3cc14ae85bff6a657b4f19200",
+    "curve-data.json": "478c699324200a78dffb535f5beca1c627ed48e25b00f348aa536bbb4e1fac60",
+    "metrics.json": "332c24a1ad90de784dfc114c301e3f44e67d5572af6f391ff4121449442b62be",
+    "metrics.md": "3a48fc758c052841a0d99afc23627243c2a3938f8b369ffdef89265866abaeec",
+    "training-curves.png": "5f7dc67b7928630cacdb1dccd74dadaaa7242b25a01845eb1b2d08c3e4a5c8e2",
+    "training-curves.svg": "86f973d615534201e7d30a124fb1519d17e45acece4c21d9a926062695dff65a"
+  },
+  "scientific_eligible": false,
+  "selected_checkpoint_sha256": "ee8d6775d7fce301506ad92f4f59a08cab0d6d1c7ed8a5343e23abc1d7742dd6",
+  "selected_epoch_zero_based": 1,
+  "source_commit": "c14e6f8880c669db32557997713b960217cd651f",
+  "sources_sha256": {
+    "egoemg_repro/fusion_literal_eval.py": "aa7321912d6fc0f3fc134e1713c9e2b1e7d272a710f9a4f2d07061de46aa0002",
+    "tests/test_fusion_literal_eval.py": "91506df015d6d87688e0c5a11841233f27241432dc3d9c7c42c56f6c899f85bc"
+  },
+  "test_consumed_samples": 12,
+  "test_repeat_count": 2,
+  "test_unique_samples": 6,
+  "validation_consumed_samples": 4
+}

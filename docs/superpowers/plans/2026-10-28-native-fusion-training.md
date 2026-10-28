@@ -84,7 +84,7 @@
 
 - [x] Step 1: Write tests for real engineering selected-best evaluation/replay, all versus crop-present and unique versus repeated consumption, typed masks/22 angles/partial batches, unknown/duplicated samples, wrong-best and incomplete-fit refusal, test-before-freeze rejection, unpaired or engineering report rejection.
 - [x] Step 2: Observe RED, then implement original test/validation behavior plus independent float64 error sums/counts and hand/split/user/joint statistics. Retain missing-crop population and original generated mask. Keep native batch-weighted radians separate from pooled degrees.
-- [ ] Step 3: Run evaluation/fit/runtime/data regressions and bare light suite, then independent fresh-process CPU engineering replay. Commit honest evidence.
+- [x] Step 3: Run evaluation/fit/runtime/data regressions and bare light suite, then independent fresh-process CPU engineering replay. Commit honest evidence.
 
 ### Task 4: Actual GPU qualification, one review and full experiment
 

@@ -96,3 +96,10 @@ publish_fusion_report(fit, test_native, test_replay, report)
 `publish_fusion_report`默认只接纳真实完整训练。仅在显式`require_full=False`（CLI `--engineering`）时允许工程报告，且不设置科学完成。公共目录同时含metrics.json/metrics.md、实际完整epoch journal派生的curve-data.json及PNG/SVG曲线；曲线中的训练复合loss和验证弧度MAE分轴显示。最终completion.json在重新核验原始证据后最后写入，已有目录禁止覆盖。重新核验还独立重开完整fit和原始预测，不能通过改summary、换成last或重封图片摘要代替真实曲线。
 
 实际CPU检查已完成：31项评价检查、122项原生模型/数据及训练策略回归、完整轻量1,460通过/1,051可选依赖跳过均actual exit0；6个测试拥有者独立核对已退出，10个源码/测试摘要未变。包含真实两轮工程fit、验证与测试的新进程预测、完整4/12消费、6唯一测试样本、原缺图mask保留及错误best/未冻结测试/改日志/改图片拒绝。追加独立collector和真实完整数据/GPU检查继续；ViT-S融合完整150轮和最终科学误差仍欠。曲线核验要求匹配报告记录的Matplotlib/FreeType/字体内容环境。
+
+
+[独立CPU评价证据](../results/native-fusion-eval-cpu-20261028.json)绑定提交c14e6f8：另一个真实进程重新预测全部12个工程测试消费（6个唯一、6个缺图），与原生测试的typed输入/预测精确一致；报告和最终verify也在各自的新进程完成，三个实际子进程均exit0并独立确认退出。新父进程再次重开完整fit、验证profile、原始预测和实际epoch曲线，未初始化CUDA；只支持两轮/4更新的合成文件工程范围，不增加科学完成数。
+
+[检查记录](../results/native-fusion-eval-cpu-validation-20261028.json)另保留最初29项检查、追加两项curve绑定RED及最终31+122/完整轻量结果。最初collector在三个子进程成功后，用缺少Torch的system Python汇总时exit1；失败日志保留，之后使用匹配CPU解释器只完成独立最终核验，重启子阶段0、额外训练更新0。没有把第一次失败改记成成功。
+
+[真实数据/GPU资格流程](../results/native-fusion-training-gpu-launch-20261028.json)已从c14e6f8冻结86成员单次启动，先在两个新进程重验完整输入，再检查原batch200/bf16的训练、恢复、完整验证和独立评价。启动时四个实际拥有者存活，当前启动快照只证明正在输入核验；不证明GPU阶段或150轮已完成。资格用明确未训练EMG工程分支，完整融合仍须等待兼容EMG150的真实best接纳及最终整体审查。
