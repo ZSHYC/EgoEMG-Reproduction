@@ -1,0 +1,46 @@
+{
+  "actual_all_rsync_exit_zero": true,
+  "actual_complete_files": 4,
+  "actual_files": [
+    {
+      "bytes": 66161725,
+      "filename": "mocap_webcam_tracked.dat",
+      "remote_independent_sha256_matches": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40"
+    },
+    {
+      "bytes": 3175762800,
+      "filename": "mocap_mano_left_world_transform.dat",
+      "remote_independent_sha256_matches": true,
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590"
+    },
+    {
+      "bytes": 3175762800,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "remote_independent_sha256_matches": true,
+      "sha256": "255f49d3dfb0075b35ae2d10dc6e4021c4daf663fa72e420fcdcbab60fc8f76d"
+    },
+    {
+      "bytes": 1389396225,
+      "filename": "mocap_left_valid.dat",
+      "remote_independent_sha256_matches": true,
+      "sha256": "aa118a0903937465fd05321fd8388624320cf3fa4006b0e82eb6148188bdb740"
+    }
+  ],
+  "actual_independent_remote_sha256_recomputed_twice": true,
+  "actual_post_transfer_fresh_remote_reopen_all_four_sha256_match": true,
+  "actual_post_transfer_uncommitted_parts": 0,
+  "actual_transfer_owner_and_child_nonlive": true,
+  "actual_transferred_bytes": 7807083550,
+  "checksum_basis": "local transfer integrity, not publisher-authenticated bulk checksum",
+  "finished_utc": "2026-10-28T11:01:12.963507+00:00",
+  "format": "actual_four_complete_legacy_geometry_arrays_remote_transfer_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "local_completed_source_file_bytes_preserved": true,
+  "original_download_preserved": true,
+  "placement": "dedicated task directory on server data disk; system disk avoided",
+  "scientific_eligible": false,
+  "selected_files": 8,
+  "started_utc": "2026-10-28T10:51:29.491509+00:00"
+}

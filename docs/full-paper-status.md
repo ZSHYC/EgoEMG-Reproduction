@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+北京时间2026-10-28 19:04更新：[左手marker有效性文件](../results/geometry-browser-left-valid-complete-20261028.json)经浏览器正常完成，实际1,389,396,225字节/66,161,725×21个bool，全字节0/1及完整SHA核验通过，原下载保留；现4/8几何文件完整。[四文件服务器传输](../results/geometry-four-files-server-transfer-20261028.json)实际exit0，共7,807,083,550字节，两次完整远端SHA校验后再次独立重开均一致，实际拥有者退出、无未提交片段；几何整体准入及遮挡仍欠。右手有效性文件由用户确认正在下载，继续等待，无重复请求。[融合GPU资格流程](../results/native-fusion-gpu-report-failure-20261028.json)9阶段实际成功：原batch200/bf16两轮/4更新、六状态恢复及完整验证精确一致，完整3,152验证与8,612测试消费的新进程预测均精确一致；最后CPU报告因缺Matplotlib实际exit1，20个阶段拥有者已退出，86冻结成员未变。保留原失败，只在新任务目录补齐已声明的报告依赖并重做报告/独立verify；整个资格尚未完成，未增加科学完成数或启动新融合150轮。原兼容EMG150最近实查62轮/15,066更新，EMG2Pose S进入full-experiment-running，均原进程继续。
+
 北京时间2026-10-28 18:29补充：[新融合当前源码的两次全量输入重验](../results/native-fusion-training-readmission-20261028.json)各96.61/85.49秒actualexit0，54文件/61.38GB及完整有限足迹精确一致；对应四拥有者实际退出、86冻结成员未变。原资格控制器已进入prefix阶段，实际worker在指定GPU有CUDA上下文，完整资格仍未完成；新的融合正式150轮尚未开始。代码/CPU证据已推送8bf2a2c并独立核对GitHub ref。
 
 

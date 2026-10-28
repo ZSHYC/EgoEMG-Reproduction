@@ -1,0 +1,78 @@
+{
+  "actual_prior_ledger_entries_and_file_bytes_preserved": true,
+  "all_raw_bytes_boolean": true,
+  "bytes": 1389396225,
+  "checksum_basis": "local_transfer; no publisher-authenticated bulk reference",
+  "complete_files": 4,
+  "complete_selected_files": [
+    {
+      "bytes": 66161725,
+      "filename": "mocap_webcam_tracked.dat",
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40"
+    },
+    {
+      "bytes": 3175762800,
+      "filename": "mocap_mano_left_world_transform.dat",
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590"
+    },
+    {
+      "bytes": 3175762800,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "sha256": "255f49d3dfb0075b35ae2d10dc6e4021c4daf663fa72e420fcdcbab60fc8f76d"
+    },
+    {
+      "bytes": 1389396225,
+      "filename": "mocap_left_valid.dat",
+      "sha256": "aa118a0903937465fd05321fd8388624320cf3fa4006b0e82eb6148188bdb740"
+    }
+  ],
+  "drive_id": "1zfjeVu26P2YfmGYCqoadVlxq2xB1ajJM",
+  "dtype": "bool",
+  "filename": "mocap_left_valid.dat",
+  "format": "actual_browser_completed_geometry_validity_intake_v1",
+  "full_paper_complete": false,
+  "full_selection_bytes": 37778344975,
+  "geometry_admitted": false,
+  "invalid_entries": 52357643,
+  "normal_browser_completed_filename_observed": true,
+  "original_download_preserved": true,
+  "prefix_alone_uniquely_identifies_file": false,
+  "rows_all_markers_valid": 63647998,
+  "rows_any_marker_valid": 63675430,
+  "scientific_eligible": false,
+  "seconds": 18.343414885981474,
+  "selected_files": 8,
+  "server_transfer_complete": false,
+  "sha256": "aa118a0903937465fd05321fd8388624320cf3fa4006b0e82eb6148188bdb740",
+  "shape": [
+    66161725,
+    21
+  ],
+  "source_prefix_matches_prior_strict_public_probe": true,
+  "source_url": "https://drive.google.com/file/d/1zfjeVu26P2YfmGYCqoadVlxq2xB1ajJM/view",
+  "utc": "2026-10-28T10:47:51.578897+00:00",
+  "valid_entries": 1337038582,
+  "valid_entries_by_marker": [
+    63675414,
+    63675414,
+    63671429,
+    63671327,
+    63670473,
+    63675414,
+    63670474,
+    63669912,
+    63664491,
+    63675380,
+    63668125,
+    63667675,
+    63663502,
+    63674985,
+    63665604,
+    63664040,
+    63658617,
+    63675414,
+    63666022,
+    63661293,
+    63653577
+  ]
+}

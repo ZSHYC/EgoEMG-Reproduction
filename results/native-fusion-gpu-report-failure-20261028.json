@@ -1,0 +1,98 @@
+{
+  "actual_exit_code": 1,
+  "actual_optimizer_updates": 4,
+  "actual_recorder_controller_nonlive": true,
+  "actual_resume_all_six_states_exact": true,
+  "actual_resume_full_validation_exact": true,
+  "actual_successful_stages": 9,
+  "all_86_immutable_members_unchanged": true,
+  "bundle_sha256": "dfd8ae8af19b4d9a91d30ab0ba6db223bb6b49451ac90d1f90f2c79865b8e0b0",
+  "ended_utc": "2026-10-28T10:56:16.861716+00:00",
+  "engineering_epochs": 2,
+  "failed_stage_preserved": true,
+  "format": "actual_fusion_gpu_terminal_report_dependency_failure_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-10-28T11:03:00.904834+00:00",
+  "original_batch_size": 200,
+  "precision": "bf16-mixed",
+  "prefix_actual_gpu_peak_allocated_bytes": 16886108672,
+  "qualification_completed": false,
+  "raw_failure_log_sha256": "fedeebab89d626965b448eda20211fb0e269b0e9b33323eae721ee47028d3259",
+  "recovery_policy": "isolated pinned report dependencies; report and independent report verification only; preserve original source, training and prediction evidence",
+  "report_completed": false,
+  "root_error": "ModuleNotFoundError: No module named 'matplotlib'",
+  "scientific_eligible": false,
+  "source_commit": "c14e6f8880c669db32557997713b960217cd651f",
+  "stages": [
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "admit-a",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "admit-b",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "freeze",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "prefix",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 1,
+      "stage": "report",
+      "status": "failed"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "resume",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "test-native",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "test-replay",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "val-native",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "stage": "val-replay",
+      "status": "success"
+    }
+  ],
+  "started_utc": "2026-10-28T10:22:57.629204+00:00",
+  "test_consumed": 8612,
+  "test_native_and_replay_prediction_sha256": "c4a5e220c60ef0b7a83b3a76d98be24cba8bdbe349bf5aa45b399b341c820d8e",
+  "test_unique": 4306,
+  "train_consumed_per_epoch": [
+    400,
+    400
+  ],
+  "validation_consumed": 3152,
+  "validation_native_and_replay_prediction_sha256": "d2211108eceb2ef5e572e1d76ccd05b8f20eef3fa0636996a078452702b594b4"
+}

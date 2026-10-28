@@ -106,3 +106,9 @@ publish_fusion_report(fit, test_native, test_replay, report)
 
 
 [当前训练源码的两次全量输入重验](../results/native-fusion-training-readmission-20261028.json)已完成：两个新进程分别96.61秒/85.49秒actualexit0，54文件/61,379,659,366字节和完整有限足迹的身份记录精确一致；四个对应worker/guardian独立确认退出，86固定成员未变，无CUDA或模型更新。资格流程随后进入prefix阶段，原拥有进程继续；10:29UTC实际观察到它在指定GPU上持有CUDA上下文，仍不能据此宣称完整训练/恢复/评价资格已通过。一次最终整体审查及兼容EMG150完成后的full交接/150轮继续保留。
+
+### GPU阶段的实际终态与报告依赖修复
+
+[11:04UTC前独立核验的终态](../results/native-fusion-gpu-report-failure-20261028.json)：原流程10:56:16UTC实际exit1，只失败在最终CPU报告导入Matplotlib。前9阶段均实际exit0：两次全输入准入、原batch200/bf16的一轮prefix与恢复到两轮/4更新、完整验证原生与新进程预测、事前profile、完整测试原生与新进程预测。恢复六状态和完整验证精确一致，验证/测试分别3,152/8,612消费，typed输入与预测摘要精确一致；prefix实际峰值分配16,886,108,672字节。所有20个worker/guardian与原recorder/controller实际退出，86冻结成员重新核验未变。该结果仍未完成整个GPU资格，也不是完整训练成绩。
+
+根因是部署环境未安装项目已声明的`report`可选依赖，非模型或预测失败。新建隔离报告恢复目录，固定Matplotlib3.9.4及其依赖，只计划重做报告和新进程报告核验；旧失败日志、空报告目录、训练、预测与源文件均保留。不修改共享训练环境或已封存源码，不重启训练/预测，不改变一致门槛。恢复成功后再接纳完整工程资格及请求本计划唯一一次最终整体实现审查。
