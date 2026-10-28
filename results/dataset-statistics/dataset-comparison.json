@@ -74,6 +74,7 @@
     }
   ],
   "attached_pdf_sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+  "audit_scope": "Original values retained; primary-paper/official-document claims separated from this projects actual payload checks. All-column/all-modality verification remains incomplete.",
   "columns": [
     "dataset",
     "subjects",
@@ -87,6 +88,7 @@
   ],
   "complete_egoemg_multimodal_inventory_verified": false,
   "external_datasets_retrained": false,
+  "followup_observed_utc": "2026-10-28T13:45:52.871315+00:00",
   "format": "egoemg_table1_as_reported_and_primary_source_audit_v1",
   "full_paper_complete": false,
   "observed_utc": "2026-10-28T01:23:23.648977+00:00",
@@ -112,12 +114,24 @@
     },
     {
       "dataset": "NinaPro",
-      "finding": "The family is heterogeneous. DB8 also provides continuous calibrated kinematics, contradicting the blanket footnote that only DB1/2/5 provide continuous labels. DB5 uses two armbands on one forearm. Raw22glove signals are not automatically calibrated22DoF. Do not collapse movement/rest or per-database participant counts.",
+      "finding": "The family is heterogeneous. DB8 also provides continuous calibrated kinematics, contradicting the blanket footnote that only DB1/2/5 provide continuous labels. DB5 uses two armbands on one forearm. Raw22glove signals are not automatically calibrated22DoF. Do not collapse movement/rest or per-database participant counts. Follow-up primary DB3/DB6 pages also demonstrate a broader family:11amputees/up-to12electrodes and10intact users/14electrodes respectively. DB6 lists wearable eye tracking/field-of-view acquisition, but this does not prove a released synchronized hand-pose RGB benchmark. Interpret53 as52DB1movements plus rest; do not assign it to every subdatabase.",
+      "participant_count_interpretation": {
+        "DB1": 27,
+        "DB1_movement_classes_including_rest": 53,
+        "DB2": 40,
+        "DB2_movement_classes_including_rest": 50,
+        "DB3": 11,
+        "arithmetic_sum_of_database_entries": 78,
+        "blanket_family_range_not_established": true,
+        "inference_only": "27+40+11 explains a possible78entry aggregate; no claim that this is the EgoEMG authors intended denominator or independently de-duplicated participants"
+      },
       "source_ids": [
         "ninapro_db1",
         "ninapro_db2",
         "ninapro_db5",
-        "ninapro_db8"
+        "ninapro_db8",
+        "ninapro_db3",
+        "ninapro_db6"
       ],
       "verified_facts": {
         "DB1": {
@@ -134,12 +148,25 @@
           "movements_excluding_rest": 49,
           "subjects": 40
         },
+        "DB3": {
+          "emg_electrodes_up_to": 12,
+          "kinematic_device": "Cyberglove2",
+          "movements_excluding_rest_up_to": 49,
+          "population": "transradial amputees",
+          "subjects": 11
+        },
         "DB5": {
           "bilateral_emg": false,
           "emg_channels": 16,
           "glove_columns": 22,
           "glove_values": "uncalibrated",
           "movements_excluding_rest": 52,
+          "subjects": 10
+        },
+        "DB6": {
+          "acquisition_includes_wearable_eye_tracking_and_field_of_view": true,
+          "emg_channels": 14,
+          "grasp_types": 7,
           "subjects": 10
         },
         "DB8": {
@@ -193,15 +220,28 @@
     },
     {
       "dataset": "EMG2Pose",
-      "finding": "The official README confirms these corpus statistics. Table1 gesture50 was not independently established here;29stages and50gestures have different possible definitions and must not be substituted.",
+      "finding": "Primary paper Table1 explicitly reports50instructed-pose categories; this is distinct from29stages. Sections3.1/3.2/B.1 establish16channels on each wrist and simultaneous bilateral collection; B.4 explicitly excludes wrist tracking. The released training unit remains one hand per HDF5 file, not a32-channel model input. No independent reconstruction of50mutually exclusive frame labels is claimed.",
+      "primary_sections": [
+        "Table1 and its category-definition caption",
+        "Sections3.1/3.2",
+        "AppendixB.1/B.4"
+      ],
       "source_ids": [
-        "emg2pose"
+        "emg2pose",
+        "emg2pose_paper"
       ],
       "verified_facts": {
+        "bilateral_emg": true,
+        "channels_per_wrist": 16,
+        "gesture_definition": "primary Table1 counts instructed poses, with dataset-dependent category definitions; stages group lower-level gestures",
         "hdf5_files": 25253,
         "hours": 370,
+        "motion_capture_cameras": 26,
+        "prompted_gesture_categories_as_reported_in_primary_table1": 50,
         "stages": 29,
-        "subjects": 193
+        "subjects": 193,
+        "total_bilateral_channels_derived": 32,
+        "wrist_articulation_tracked": false
       }
     },
     {
@@ -219,11 +259,14 @@
   ],
   "primary_sources": {
     "emg2pose": "https://github.com/facebookresearch/emg2pose",
+    "emg2pose_paper": "https://arxiv.org/html/2412.02725v1",
     "jarque_bou_2019": "https://www.nature.com/articles/s41597-019-0285-1.pdf",
     "myoki": "https://elib.dlr.de/221692/1/s41597-025-05852-6.pdf",
     "ninapro_db1": "https://ninapro.hevs.ch/instructions/DB1.html",
     "ninapro_db2": "https://ninapro.hevs.ch/instructions/DB2.html",
+    "ninapro_db3": "https://ninapro.hevs.ch/instructions/DB3.html",
     "ninapro_db5": "https://ninapro.hevs.ch/instructions/DB5.html",
+    "ninapro_db6": "https://ninapro.hevs.ch/instructions/DB6.html",
     "ninapro_db8": "https://ninapro.hevs.ch/instructions/DB8.html",
     "pimforce": "https://arxiv.org/html/2410.23629v1"
   }
