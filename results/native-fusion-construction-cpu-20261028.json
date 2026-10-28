@@ -1,0 +1,466 @@
+{
+  "actual_collector_prediction_exact": true,
+  "actual_fresh_native_branch_construction_in_tests": true,
+  "actual_fresh_process_prediction_exact": true,
+  "actual_independent_collector_strict_restore": true,
+  "checks": {
+    "incomplete_initialization_receipt_red": {
+      "deselected": 21,
+      "failed": 2,
+      "log_sha256": "1e98b6d9e0f15e95afe64f25f591ab1f16678a41071bee2afd7de80f98330d50",
+      "seconds": 13.08
+    },
+    "independent_collector": {
+      "actual_exit_code": 0,
+      "log_sha256": "af972ab4bf698ec74e9c008bd71d5780b5fa57c5ebf79cc587509453a2c6d3d4"
+    },
+    "native_final": {
+      "actual_exit_code": 0,
+      "log_sha256": "da55d648fb60e05ea26011e84af8da1c70aeabdd1cb5148373ceeb8cc32eeaf5",
+      "passed": 64,
+      "seconds": 58.31,
+      "warnings": 8
+    },
+    "native_metadata_regressions": {
+      "log_sha256": "7fe06b6f19c77b3063ebd80fbcf939460f0a9454efa032bab0d313b46dfd1a2d",
+      "passed": 70,
+      "seconds": 19.3,
+      "warnings": 1
+    },
+    "task1_missing_module_red": {
+      "failed": 20,
+      "log_sha256": "cba2c8aa23ae55e5dd91ef8e2d5cb9aae979cc5f6887cf92907c89b7ce5e48c9",
+      "seconds": 3.03
+    },
+    "task2_missing_runtime_red": {
+      "errors": 16,
+      "failed": 5,
+      "log_sha256": "3ebd2c4f66c1a37c017e3cb795ff26671c187ee67434f0b39e57f30948918e5e",
+      "seconds": 8.35
+    }
+  },
+  "collector_optimizer_updates": 0,
+  "collector_script_sha256": "54bdcd130620e312ebf3f2782e12b6873b4dfa9cba24af57f128caafde5bc72d",
+  "complete_self_contained_identity_sha256": "cfb3f437086cd3d964177eca31acd4601d6122b999ca70989b7caa26c21e7759",
+  "complete_training_done": false,
+  "cuda_initialized": false,
+  "emg_initializer_scope": "random original8channel EMGFormer-S engineering initialization; no trained branch claim",
+  "emg_matched_tensors": 105,
+  "emg_skipped_tensors": 5,
+  "format": "egoemg_original_native_fusion_cpu_engineering_v1",
+  "full_paper_complete": false,
+  "gpu_qualified": false,
+  "initialization_receipt_sha256": "3673830870c582a406274047df4e82952ab115192af2343cbd77e3d362a4f3af",
+  "model_parameters": 25855037,
+  "native_dtype_conversion_checked_in_tests": true,
+  "native_first_convolution_skip": {
+    "reason": "shape_mismatch",
+    "source_dtype": "torch.float32",
+    "source_key": "model.featurizer.layers.0.conv.0.weight",
+    "source_shape": [
+      256,
+      8,
+      11
+    ],
+    "target_key": "featurizer.layers.0.conv.0.weight",
+    "target_shape": [
+      256,
+      16,
+      11
+    ]
+  },
+  "observed_utc": "2026-10-28T03:24:43.486519+00:00",
+  "optimizer_groups": [
+    {
+      "lr": 0.0001,
+      "name": "featurizer",
+      "parameter_elements": 1692688,
+      "parameter_tensors": 68,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "decoder",
+      "parameter_elements": 1647104,
+      "parameter_tensors": 38,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "vision_proj",
+      "parameter_elements": 98560,
+      "parameter_tensors": 2,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "fusion_proj",
+      "parameter_elements": 393984,
+      "parameter_tensors": 4,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "head",
+      "parameter_elements": 142870,
+      "parameter_tensors": 4,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "head_vision",
+      "parameter_elements": 208406,
+      "parameter_tensors": 4,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "vision_backbone",
+      "parameter_elements": 21654912,
+      "parameter_tensors": 174,
+      "weight_decay": 0.01
+    },
+    {
+      "lr": 0.0001,
+      "name": "_unassigned",
+      "parameter_elements": 16513,
+      "parameter_tensors": 4,
+      "weight_decay": 0.01
+    }
+  ],
+  "original_training_mode_cpu_loss_backward_and_one_optimizer_step_tested": true,
+  "prediction_dtype": "torch.float32",
+  "prediction_shape": [
+    1,
+    22,
+    1
+  ],
+  "predictions_finite": true,
+  "production_ready": false,
+  "protocol": {
+    "batch_size_by_role": {
+      "test": 200,
+      "train": 200,
+      "val": 200
+    },
+    "batch_size_semantics": "native make_data_module passes batch_size only; all roles use self.batch_size",
+    "callbacks": [
+      {
+        "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+        "filename": "vits-s-16ch-wl7790-{epoch:03d}-{val_mae:.4f}",
+        "mode": "min",
+        "monitor": "val_mae",
+        "save_last": true,
+        "save_top_k": 3
+      },
+      {
+        "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+      }
+    ],
+    "component_lr_scales": {
+      "decoder": 1.0,
+      "featurizer": 1.0,
+      "fusion_proj": 1.0,
+      "head": 1.0,
+      "head_vision": 1.0,
+      "vision_backbone": 1.0,
+      "vision_proj": 1.0
+    },
+    "data_admission": "not performed; independent legacy roles require a separate explicit identity",
+    "declared_dataset_names": {
+      "test": [
+        "egoemg_unified",
+        "egoemg_unified"
+      ],
+      "train": [
+        "egoemg_unified",
+        "egoemg_unified"
+      ],
+      "val": [
+        "egoemg_unified",
+        "egoemg_unified"
+      ]
+    },
+    "declared_training_corpus": "physically_merged_egoemg_showee_incre",
+    "declared_validation_splits": [
+      "user",
+      "gesture",
+      "both"
+    ],
+    "effective_loss_weights": {
+      "delta_reg": 0.0,
+      "landmark/fingertip": 0.02,
+      "mae": 1.0
+    },
+    "emg_initialization_rule": "native allowed-prefix exact-name/shape transfer; mismatches recorded and skipped",
+    "format": "original_fusion_execution_contract_v1",
+    "full_paper_complete": false,
+    "initialization_admission": "not performed; runtime must verify both local branch files",
+    "jitter_by_role": {
+      "test": false,
+      "train": true,
+      "val": false
+    },
+    "layout": {
+      "channel_indices": [
+        10,
+        12,
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "channel_interpolate": false,
+      "input_channels": 16,
+      "name": "emg2pose_interpolate16",
+      "placement": "native place_sparse_channels; zero-fill missing slots",
+      "source_channels": 8
+    },
+    "lr_scheduler": {
+      "frequency": 1,
+      "interval": "epoch",
+      "scheduler": {
+        "T_max": 150,
+        "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+        "eta_min": 1e-05
+      }
+    },
+    "matmul_precision": "high",
+    "module": {
+      "_target_": "egoemg.models.modules.mid_fusion.MidFusionPoseFormer",
+      "cross_attention_dim": 256,
+      "cross_attention_dropout": 0.1,
+      "cross_attention_ffn_dim": 512,
+      "cross_attention_max_vision_grid_size": 16,
+      "cross_attention_num_heads": 8,
+      "decoder": {
+        "_target_": "egoemg.models.decoders.transformer.TransformerDecoder",
+        "activation": "relu",
+        "causal": false,
+        "dropout": 0.15,
+        "ffn_dim": 512,
+        "in_channels": 256,
+        "model_dim": 256,
+        "norm_first": true,
+        "num_heads": 4,
+        "num_layers": 3,
+        "out_proj": true,
+        "pos_encoding": "rope"
+      },
+      "emg_feat_dim": 256,
+      "featurizer": {
+        "_target_": "egoemg.models.featurizers.tds.TdsNetwork",
+        "conv_blocks": [
+          {
+            "_target_": "egoemg.models.featurizers.tds.Conv1dBlock",
+            "in_channels": 16,
+            "kernel_size": 11,
+            "out_channels": 256,
+            "stride": 5
+          },
+          {
+            "_target_": "egoemg.models.featurizers.tds.Conv1dBlock",
+            "in_channels": 256,
+            "kernel_size": 5,
+            "out_channels": 256,
+            "stride": 2
+          }
+        ],
+        "se": {
+          "enable": true,
+          "mode": "global",
+          "reduction": 4,
+          "residual": true
+        },
+        "tds_stages": [
+          {
+            "_target_": "egoemg.models.featurizers.tds.TdsStage",
+            "channels": 8,
+            "feature_width": 32,
+            "in_channels": 256,
+            "in_conv_kernel_width": 9,
+            "in_conv_stride": 5,
+            "kernel_width": 5,
+            "num_blocks": 1
+          },
+          {
+            "_target_": "egoemg.models.featurizers.tds.TdsStage",
+            "channels": 8,
+            "feature_width": 32,
+            "in_channels": 256,
+            "in_conv_kernel_width": 3,
+            "in_conv_stride": 1,
+            "kernel_width": 3,
+            "num_blocks": 1
+          }
+        ]
+      },
+      "force_zero_emg": false,
+      "freeze_vision_branch": false,
+      "freeze_vision_head": false,
+      "fusion_mode": "center_supervised",
+      "fusion_proj_dim": 256,
+      "head": {
+        "_target_": "egoemg.models.heads.mlp.MLPHead",
+        "activation": "relu",
+        "dropout": 0.1,
+        "hidden_sizes": [
+          512
+        ],
+        "in_channels": 256,
+        "out_channels": 22
+      },
+      "input_emg_length": null,
+      "lock_vision_batch_norm": false,
+      "mano_model_path": null,
+      "moddrop_prob": 0.0,
+      "out_channels": 22,
+      "provide_initial_pos": false,
+      "skip_vision_backbone": false,
+      "token_dim": 256,
+      "token_dropout": 0.1,
+      "token_ffn_dim": 512,
+      "token_max_vision_grid_size": 16,
+      "token_num_heads": 8,
+      "token_num_layers": 3,
+      "vision_backbone_type": "vit_small",
+      "vision_embed_dim": 384,
+      "vision_freeze": {},
+      "vision_pretrained_checkpoint": "<explicit local vision branch checkpoint>",
+      "vision_trainable_prefixes": null
+    },
+    "optimizer": {
+      "_target_": "torch.optim.AdamW",
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "lr": 0.0001,
+      "weight_decay": 0.01
+    },
+    "production_ready": false,
+    "raw_loss_weights": {
+      "delta_reg": 0.0,
+      "fingertip_distance": 0.01,
+      "landmark/fingertip": 0.01,
+      "mae": 1.0
+    },
+    "recipe_origin": "pinned_author_training_recipe_under_released_evaluation",
+    "repeat_by_role": {
+      "test": 2,
+      "train": 2,
+      "val": 2
+    },
+    "repeat_semantics": "native _build_dataset repeats every role after left/right concatenation",
+    "residual_initialization": "native last Linear normal(std=1e-5), zero bias; not exact-zero weights",
+    "scientific_eligible": false,
+    "seed": 42,
+    "seed_policy": "original setup_runtime before native factory; native branch and residual initialization retained",
+    "sha256": "4324b72a5b3d41a2b5ca46c13d4d7bbb067b301dd408c1a474cbddf20bd92169",
+    "sources_sha256": {
+      "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+      "config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+      "config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+      "config/experiment/fusion/fusion_vits_s_center_16ch_wl7790.yaml": "cc993c360a6cbaefb2a0811e795b7260e1203d14569b1cbbec86eb8f5aef1de1",
+      "config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+      "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+      "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+      "config/module/decoder/transformer/preset/small.yaml": "341c82b2cdbe845a262b29b03abfbb67a5c2f2e5fda2f849f4647418423ad52e",
+      "config/module/featurizer/tds_slim_16ch.yaml": "2fa0e2edccad5baf1d79deb9808b6dcdf45196bd6b2469be42100132fc768021",
+      "config/module/head/mlp.yaml": "44652bee68480f9f94fa24b4550755ec766bbd05d57a21f19d0d065d93084a4c",
+      "config/module/mid_fusion.yaml": "cc7839062a4e1211d33ede8a87af38a896a0bed76d6f626de89d7747138c02ce",
+      "config/transforms/emgformer_regression_aug_extended.yaml": "62dca2bda541cc2e37e027ec1c79674d2804ebc7ac7a1351a78dffa6c4880d4d",
+      "egoemg/_train_utils.py": "b510bbb938d5d82e03016c8009cb26e94f4e38a34995ec038ee89a2b576604f1",
+      "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+      "egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+      "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+      "egoemg/models/modules/mid_fusion.py": "874cf1168b38c510835bd9b832dcb33ace4d0f8f45bb1eaeafa44a75ed7aeb49",
+      "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e"
+    },
+    "trainer": {
+      "check_val_every_n_epoch": 1,
+      "devices": [
+        0
+      ],
+      "enable_model_summary": false,
+      "gradient_clip_val": 1,
+      "log_every_n_steps": 1,
+      "max_epochs": 150,
+      "precision": "bf16-mixed"
+    },
+    "unused_declared_val_batch_size": 100,
+    "upstream_experiment": "fusion/fusion_vits_s_center_16ch_wl7790",
+    "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "window": {
+      "eval_length": 7790,
+      "eval_stride": 7790,
+      "train_length": 7790,
+      "train_stride": 400
+    }
+  },
+  "real_data_loaded": false,
+  "scheduler": {
+    "T_max": 150,
+    "class_name": "CosineAnnealingLR",
+    "eta_min": 1e-05
+  },
+  "scientific_eligible": false,
+  "source_files_sha256": {
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
+    "egoemg_repro/fusion_literal_runtime.py": "bc0ce946eed77608026b75e5d6de2d607b5b3945bd13e7408c36837a6bf66b72",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "runtime/timm.models.vision_transformer": "e2aef9233ffe42c86e71255b7cb1c5ed66a451ba4ac6ab513c5995129d94b34f",
+    "runtime/torch.nn.modules.module": "41e667d7e848b3f83e9e5a44d360d03ad129c1ff09f8f7c603d7c3ba59ce5f2a",
+    "runtime/torch.optim.adamw": "520ecdefab1cf3c639e25a43402313da01c84be774c701ff48de783069b6d968",
+    "runtime/torch.optim.lr_scheduler": "094871b05b83f57fdecad4722b212c48ff1caf47a806629249b268744b90f70b",
+    "upstream/config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+    "upstream/config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+    "upstream/config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+    "upstream/config/experiment/fusion/fusion_vits_s_center_16ch_wl7790.yaml": "cc993c360a6cbaefb2a0811e795b7260e1203d14569b1cbbec86eb8f5aef1de1",
+    "upstream/config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+    "upstream/config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+    "upstream/config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+    "upstream/config/module/decoder/transformer/preset/small.yaml": "341c82b2cdbe845a262b29b03abfbb67a5c2f2e5fda2f849f4647418423ad52e",
+    "upstream/config/module/featurizer/tds_slim_16ch.yaml": "2fa0e2edccad5baf1d79deb9808b6dcdf45196bd6b2469be42100132fc768021",
+    "upstream/config/module/head/mlp.yaml": "44652bee68480f9f94fa24b4550755ec766bbd05d57a21f19d0d065d93084a4c",
+    "upstream/config/module/mid_fusion.yaml": "cc7839062a4e1211d33ede8a87af38a896a0bed76d6f626de89d7747138c02ce",
+    "upstream/config/transforms/emgformer_regression_aug_extended.yaml": "62dca2bda541cc2e37e027ec1c79674d2804ebc7ac7a1351a78dffa6c4880d4d",
+    "upstream/egoemg/_train_utils.py": "b510bbb938d5d82e03016c8009cb26e94f4e38a34995ec038ee89a2b576604f1",
+    "upstream/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+    "upstream/egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+    "upstream/egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+    "upstream/egoemg/metrics.py": "85aac28fc2cac11e4714bf6a18a52b2faeccc488d6135202aae8a8e974e95309",
+    "upstream/egoemg/models/decoders/transformer.py": "404cdd80951869517bebc7996f9c42a77214c0bf33762fe4f405abe7c1c4dcaa",
+    "upstream/egoemg/models/featurizers/tds.py": "560b0cb7f17024e55e22eecb258cd56655ed3581b2a2f66889476aaeaaf8b37d",
+    "upstream/egoemg/models/modules/_pooling.py": "f5ff23e6878b4f50e6eabc586b77df33c844aa4377dc815aaee8e4f65d61cb06",
+    "upstream/egoemg/models/modules/_vision_constants.py": "5bec67a9503601368879f7a76aaa9637bd8bf6b917f33cb4a786671179853fbb",
+    "upstream/egoemg/models/modules/base.py": "b19dbbfe77db813f20553ded787bb7df1825cd48e529a2312e8c1caa3c83a54b",
+    "upstream/egoemg/models/modules/mid_fusion.py": "874cf1168b38c510835bd9b832dcb33ace4d0f8f45bb1eaeafa44a75ed7aeb49",
+    "upstream/egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e",
+    "upstream/egoemg/utils.py": "d8faf33e037b4decec3b7febcb2d3db1576dc83e74d36a8f4b4739a8aa5241d2"
+  },
+  "source_genuine_dino_asset": {
+    "bytes": 88240510,
+    "filename": "model.safetensors",
+    "repo": "timm/vit_small_patch14_dinov2.lvd142m",
+    "revision": "4610ca143709d58a633b6397a74412c2c3842454",
+    "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081"
+  },
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "vision_head_scope": "random original pose-head engineering initialization; no task-trained vision claim",
+  "vision_transfer": {
+    "backbone_tensors": 174,
+    "comparison": "complete key/shape match and exact values after native target-dtype conversion",
+    "head_tensors": 4,
+    "loaded_backbone_state_sha256": "5c4855875758cfa0c403fb607e23f3933ddbdbdb9455c599f5555932ecb42757",
+    "loaded_head_state_sha256": "4281c8249a825daebe1c69522340d567dfc877bcdd787e965ab213149dce6318",
+    "source_backbone_state_sha256": "5c4855875758cfa0c403fb607e23f3933ddbdbdb9455c599f5555932ecb42757",
+    "source_head_state_sha256": "4281c8249a825daebe1c69522340d567dfc877bcdd787e965ab213149dce6318"
+  }
+}
