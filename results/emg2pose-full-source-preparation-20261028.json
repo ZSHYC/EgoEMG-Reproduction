@@ -1,0 +1,103 @@
+{
+  "actual_controller_seconds": 41520.78575986205,
+  "actual_exit_code": 0,
+  "actual_stage_exit_code": 0,
+  "actual_wrapper_controller_nonlive": true,
+  "all_immutable_members_unchanged": true,
+  "all_original_bits_reconstructable": true,
+  "all_owned_source_consumers_exited": true,
+  "cohort": "full",
+  "complete_original_files_retained": true,
+  "cuda_initialized": false,
+  "format": "actual_complete_original_emg2pose_source_preparation_v1",
+  "full_corpus_complete": true,
+  "full_paper_complete": false,
+  "logical_converted_bytes": 465625246698,
+  "native_data_identity": {
+    "angle_dimensions": 20,
+    "cohort": "full",
+    "completion_sha256": "9222d0816bbeea9b79da62dda838b937d98eec4793a19bef3cf31354270181ae",
+    "converter_sha256": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "counts": {
+      "generalization": {
+        "none": 17136,
+        "stage": 3539,
+        "user": 3790,
+        "user_stage": 788
+      },
+      "side": {
+        "left": 12654,
+        "right": 12599
+      },
+      "split": {
+        "test": 6167,
+        "train": 17136,
+        "val": 1950
+      }
+    },
+    "embedded_snapshot_sha256": "653554ce0847b078fe6094904104c728f39acf496dbf0b4cc463542bad785f69",
+    "engineering_only": false,
+    "fields": {
+      "emg": {
+        "bytes": 194771345024,
+        "dtype": "<f4",
+        "filename": "emg.dat",
+        "sha256": "7217cb7eada93ee8e11a455bf2644de9c789d753e80d089663dacd607161cf7d",
+        "shape": [
+          3043302266,
+          16
+        ]
+      },
+      "joint_angles": {
+        "bytes": 243464181280,
+        "dtype": "<f4",
+        "filename": "joint_angles.dat",
+        "sha256": "83b456472426a8b5f06ee3d4e337d8a3eb51b68b9a8e9dce44304e5748794796",
+        "shape": [
+          3043302266,
+          20
+        ]
+      },
+      "time": {
+        "bytes": 24346418128,
+        "dtype": "<f8",
+        "filename": "time.dat",
+        "sha256": "be97a36e36623d1e2802a53e7262fc8aa45ffdf972ba62951ad52e493430fee9",
+        "shape": [
+          3043302266
+        ]
+      },
+      "valid_mask": {
+        "bytes": 3043302266,
+        "dtype": "|b1",
+        "filename": "valid_mask.dat",
+        "sha256": "8a680b10dc073b012e67064edea6fa9d95cf60c1f628cfe323cbc31e96065f48",
+        "shape": [
+          3043302266
+        ]
+      }
+    },
+    "file_count": 25253,
+    "format": "emg2pose_runtime_data_identity_v1",
+    "full_corpus_complete": true,
+    "input_channels": 16,
+    "manifest_sha256": "f8d2be5280d0c5482f20b36fe214da5b09d4c87cd49365fd47338f690a02d6e2",
+    "metadata_csv_sha256": "0e7ad04a79a0f162385d22ec8d6f43af9b8360978ca11ef9d601bbf9594b09e6",
+    "metadata_sha256": "3e6acd0a1f3b11be8b3b0f859ba79636ce865b77d3b71e63cead73be7b09c09d",
+    "present_splits": [
+      "test",
+      "train",
+      "val"
+    ],
+    "rows": 3043302266,
+    "source_receipt_sha256": "653554ce0847b078fe6094904104c728f39acf496dbf0b4cc463542bad785f69"
+  },
+  "observed_utc": "2026-10-28T05:57:40.232501+00:00",
+  "optimization_performed": false,
+  "raw_private_evidence_sha256": "8abda1743793463cf53309d632bbf9f5647aee2d085f38f0d19866df0d30049e",
+  "redundant_original_tar_retired": true,
+  "scientific_eligible": false,
+  "scope": "complete original source preparation only; model training and final evaluation pending",
+  "source_bundle_sha256": "9e563c5aef665cb900d5aabbc41953912edaf38d0cd5ee41eab884ea871102d0",
+  "source_pipeline_completion_sha256": "028beb112c81d0e5fe9f552c7cc352c5a208974d7eacf4aeee7afa96608f31d0"
+}

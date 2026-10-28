@@ -1,0 +1,41 @@
+{
+  "actual_readonly_replay_exit_code": 0,
+  "actual_worker_guardian_live": true,
+  "actual_wrapper_controller_live": true,
+  "all_frozen_stage_members_unchanged": true,
+  "bundle_sha256": "4780cc623eba56b6d1eed6bf89bb5d4118ae4b03a0f24a873d678054cdfd00ff",
+  "changed_qualified_release_files": [
+    "scripts/run_emg2pose_full_queue.py",
+    "tests/test_emg2pose_full_queue.py"
+  ],
+  "correction": "validate raw schema/scope/roles early; preserve unchanged deep open_source and later verified archive gate",
+  "final_independent_review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "scope": "handoff correction and frozen recovery capsule only; not model outcomes"
+  },
+  "format": "actual_emg2pose_raw_source_handoff_fix_and_recovery_v1",
+  "full_paper_complete": false,
+  "models_started": [],
+  "original_failure": {
+    "actual_exit_code": 1,
+    "cause": "raw native identity was passed to verified archive gate before deep open_source enrichment",
+    "error": "full source requires complete25253original sessions and original roles",
+    "failure_files_preserved": 8,
+    "models_started": 0
+  },
+  "phase": "deep source admission before queue-status/model creation",
+  "qualification_pointers_unchanged": true,
+  "qualified_core_code_unchanged": true,
+  "queue_complete": false,
+  "recovery_observed_utc": "2026-10-28T06:24:52.081182+00:00",
+  "scientific_eligible": false,
+  "source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+  "tests": {
+    "light_optional_skipped": 926,
+    "light_passed": 1449,
+    "targeted_passed": 20
+  },
+  "verified_archive_gate_still_rejects_raw": true
+}
