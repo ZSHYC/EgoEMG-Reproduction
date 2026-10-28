@@ -367,6 +367,7 @@
   "collector_script_sha256": "b295885bd173fe1cb7cc2a6ebe1f43f72dfd28a1a8ef881c30474623b999d13c",
   "complete_corpus_hashed": false,
   "cuda_initialized": false,
+  "deferred_minor_regression_gap": true,
   "fixture_scope": "synthetic finite memmaps and real JPEG/LMDB files; not a complete actual corpus or training admission",
   "format": "original_fusion_joint_reader_cpu_engineering_v1",
   "full_paper_complete": false,
@@ -406,6 +407,11 @@
   "observed_utc": "2026-10-28T03:57:56.471382+00:00",
   "optimizer_updates": 0,
   "production_ready": false,
+  "review_original_findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 1
+  },
   "scientific_eligible": false,
   "source_files_sha256": {
     "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
@@ -413,5 +419,5 @@
     "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
     "tests/test_fusion_literal_data.py": "dd033803a4bc4917825f55bbaaa8775c249aede5ffbd6efe9fd338cfb1488ee4"
   },
-  "whole_plan_review_complete": false
+  "whole_plan_review_complete": true
 }

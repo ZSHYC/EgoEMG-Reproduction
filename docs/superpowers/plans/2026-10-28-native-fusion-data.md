@@ -37,7 +37,7 @@
 - [x] Write real memmap/LMDB/JPEG tests for stride400 full-jitter exclusion/repeat, original normalization missing-key/success, both hands/all roles bitwise point/EMG/RGB/mask comparison with real original dataset and original transforms, matching NumPy RNG; leftover0/1/17/400; zero-filled inactive slots have normalized scalar offset; crop aliases/missing frames/invalid wrist masks; wrong partitions/config/norm and missing/wrongdtype/wrongshape/short EMG and merged inputs. Expected: new module missing RED.
 - [x] Run new native tests and preserve actual RED; implement exact signatures above, original method delegation and role transforms, no upstream/old-reader changes. Derive source-bound descriptor by executing original _load_norm_stats with the pinned file, not a new normalization algorithm. Expected: all new tests pass; unchanged fixture files.
 - [x] Run new tests plus original vision-data/partition regressions under native dependencies; run full bare light pytest. Expected: actual exit0, no CUDA. Publish safe actual probe/CPU evidence with scope boundaries, document adaptations and mandatory full-content/GPU/fit work.
-- [ ] Commit the reader; run task-done full light; one fresh whole-plan review. Important findings enter one author RED→GREEN fix pass; no re-review. Preserve current training/download owners and public branch.
+- [x] Commit the reader; run task-done full light; one fresh whole-plan review. Important findings enter one author RED→GREEN fix pass; no re-review. Preserve current training/download owners and public branch.
 
 ## Subsequent required scientific work
 

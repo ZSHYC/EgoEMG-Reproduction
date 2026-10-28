@@ -1,0 +1,105 @@
+{
+  "approved_spec": "docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md",
+  "base_commit": "99ec0e70908b1b72a02928537865d73041a33ca6",
+  "declined_to_judge": [
+    {
+      "cost_if_wrong": "Unseen corrupt rows or a wrong population could bias results.",
+      "ruling": "Require actual complete payload hashes, full finite scans and full population identity before scientific fit.",
+      "scope": "full_real_corpus_admission"
+    },
+    {
+      "cost_if_wrong": "Version/corpus/normalization differences can prevent paper-table comparability.",
+      "ruling": "Keep physical aliases, explicit official asset substitution and legacy/merged/PDF limits disclosed; do not assert equivalence.",
+      "scope": "legacy_field_and_pooled_statistics_equivalence"
+    },
+    {
+      "cost_if_wrong": "Full initialization could be invalid despite a correct reader.",
+      "ruling": "Use separately reviewed construction and require real validation-best branch provenance later.",
+      "scope": "trained_branch_and_model_construction"
+    },
+    {
+      "cost_if_wrong": "Worker, numerical or resource failure at scale remains possible.",
+      "ruling": "Require actual worker/GPU batch200/bf16/recovery/full150epoch/selection/test qualification; reader proof grants none.",
+      "scope": "multiworker_gpu_recovery_full_science"
+    },
+    {
+      "cost_if_wrong": "Stalled acquisition or a later untested source could remain.",
+      "ruling": "Use separately verified operational exits/owners and exact historical CI head; reader review is not their validation.",
+      "scope": "geometry_and_historical_ci"
+    },
+    {
+      "cost_if_wrong": "Scoped reader completion must not be mistaken for paper completion.",
+      "ruling": "Preserve the entire active full-paper objective and all outstanding scientific/annotation requirements.",
+      "scope": "all_model_all_figure_completion"
+    }
+  ],
+  "deferred_minors": [
+    "Direct regression cases for normalization namespace/asset edits and missing/malformed/short center-label/wrist fields are not yet present; exact descriptor hashing and shared point-schema checks already enforce rejection."
+  ],
+  "execution_rulings": [
+    "Ruling: The already approved official-code/full-paper execution covers this necessary joint-reader subsystem; execute inline in the existing worktree and preserve branch publication, without another approval \u2014 the source method determines the implementation, not a new user preference \u2014 cost if wrong: this separately labelled adapter needs revision, existing scientific outputs are unchanged.",
+    "Ruling: Canonical recipe's egoemg_unified/filtered_paper namespace actually raises KeyError in its declared old stats file and the repro alias file; use the pinned same-revision per_dataset_norm_stats_unified.json and original loader with explicit descriptor \u2014 it is the author-provided unified namespace, not a newly estimated scalar \u2014 cost if wrong: scalar's full-data/merged-source sampling may differ from retained legacy training rows, so PDF/training-only equivalence remains unproven.",
+    "Ruling: Physical legacy filtered fields alias requested filtered_paper; per-sample lineage remains egoemg while norm namespace stays egoemg_unified \u2014 legacy has no dataset_source_id and cannot masquerade as physically merged training corpus \u2014 cost if wrong: field/version mismatch could bias errors; retain release and payload identities for full admission.",
+    "Ruling: Keep this plan to the original joint-reader subsystem and explicitly require complete-content/finite/population/trained-branch/GPU/150epoch/report work afterward \u2014 this makes the actual original fusion input executable rather than substituting dummy EMG \u2014 cost if wrong: later integration may expose a defect; no new scientific setting is declared now.",
+    "Final: Ruling: Complete real-corpus hashes/finite scans/population admission were outside review \u2014 require independent full admission before scientific fit; the actual six synthetic sample collector is only engineering \u2014 cost if wrong: unseen corrupt real rows or a wrong full population could bias results.",
+    "Final: Ruling: Legacy filtered-field/merged-corpus and pooled-stat training-only/PDF equivalence were outside review \u2014 keep physical aliases/substitution/legacy limits explicit, do not claim those equivalences \u2014 cost if wrong: cross-version normalization or corpus bias prevents paper-table comparability.",
+    "Final: Ruling: Trained branch provenance and construction correctness were outside this review \u2014 retain the separately reviewed construction subsystem and require real validation-best branch lineage later \u2014 cost if wrong: full fusion initialization could be invalid despite a correct reader.",
+    "Final: Ruling: Multiworker/spawn/GPU batch200/bf16/recovery/full fit/selection/test were outside review \u2014 require their actual integration qualification before scientific completion; current reader grants none \u2014 cost if wrong: numerical/resource/worker failures at full scale remain.",
+    "Final: Ruling: Geometry transfer and historical hosted CI were outside reader review \u2014 use separate actual handle/PID/exit evidence and exact CI head, not reader-review approval or historical green for this head \u2014 cost if wrong: stalled intake or an untested later source could remain.",
+    "Final: Ruling: All-model/all-figure paper completion was outside reader review \u2014 full objective remains active with all outstanding science and annotation tasks intact \u2014 cost if wrong: a scoped subsystem could be mistaken for full reproduction, explicitly forbidden."
+  ],
+  "fix_pass_required": false,
+  "format": "egoemg_native_fusion_joint_reader_whole_plan_review_v1",
+  "fresh_independent_review_complete": true,
+  "full_paper_complete": false,
+  "implementation_checks": {
+    "complete_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "e91289c2afa37caf857af10c96a0cd6ffe957c66c372d511facd0aa6b0bcb996",
+      "passed": 1437,
+      "seconds": 88.04,
+      "skipped": 819,
+      "warnings": 1
+    },
+    "independent_collector": {
+      "actual_exit_code": 0,
+      "log_sha256": "4a699dfcd5cb03a83218844da36629d92b9bc7cb5adcf4284914b55069b53163"
+    },
+    "new_and_existing_joint_vision_partition_tests": {
+      "actual_exit_code": 0,
+      "log_sha256": "d7f2ebc1b1e1a85db3034fc48e57d44c9be3610098064766913f6b3c18317869",
+      "passed": 43,
+      "seconds": 17.83
+    },
+    "new_module_red": {
+      "actual_exit_code": 1,
+      "failed": 25,
+      "log_sha256": "98a42ff1594077e44ef726dafb285bce4389712a286dbb337dbbdc11172e2c3a",
+      "seconds": 1.25
+    }
+  },
+  "original_findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 1
+  },
+  "plan": "docs/superpowers/plans/2026-10-28-native-fusion-data.md",
+  "production_ready": false,
+  "ready_for_reader_subsystem": true,
+  "reviewed_head_commit": "51d912f628001109f58817689969a7cbc16876d7",
+  "reviewer": "native_fusion_data_final_review",
+  "reviewer_fresh_test_report": {
+    "actual_exit_code": 0,
+    "passed": 43,
+    "seconds": 18.93
+  },
+  "scientific_eligible": false,
+  "second_review_dispatched": false,
+  "source_files_sha256": {
+    "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
+    "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "tests/test_fusion_literal_data.py": "dd033803a4bc4917825f55bbaaa8775c249aede5ffbd6efe9fd338cfb1488ee4"
+  },
+  "unresolved_blocking_findings": 0
+}

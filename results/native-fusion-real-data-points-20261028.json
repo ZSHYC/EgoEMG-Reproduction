@@ -1,0 +1,394 @@
+{
+  "actual_counts": {
+    "test": 8612,
+    "train": 395276,
+    "val": 3152
+  },
+  "actual_exit_code": 0,
+  "actual_full_partition_sha256": "b273a8e0ba5148410539cb120ee01efcf467b09b6ba50756c5baaf96adf78e95",
+  "actual_owner_independently_nonlive": true,
+  "actual_point_samples": [
+    {
+      "arrays": {
+        "emg": {
+          "dtype": "float32",
+          "sha256": "1fb375c34fdaa762130c048d3471f54a96b9cd6eb18884690bede14b3457c168",
+          "shape": [
+            16,
+            7790
+          ]
+        },
+        "emg_channel_mask": {
+          "dtype": "bool",
+          "sha256": "dfc6913092ec77b97882db27404cdd812fe4f92609964e27e7314ff472e5a9d1",
+          "shape": [
+            16
+          ]
+        },
+        "joint_angles": {
+          "dtype": "float32",
+          "sha256": "16e6fae67f7f3dad63ebef96779dc8a5caa67603ac6f9e3a2ada185a0ef5eeb9",
+          "shape": [
+            22,
+            1
+          ]
+        },
+        "label_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        },
+        "vision_img": {
+          "dtype": "float32",
+          "sha256": "5ad2ae7e698cff0711312b21b28c383d9e8b77bed285186792b2908e6ae9f96b",
+          "shape": [
+            3,
+            256,
+            256
+          ]
+        },
+        "vision_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "hand": "left",
+      "label_valid": true,
+      "role": "train",
+      "vision_valid": true
+    },
+    {
+      "arrays": {
+        "emg": {
+          "dtype": "float32",
+          "sha256": "96b374033d7b62a2be45edcd6acd8abfc0025eeb724296fdd8ce6fc8478d96fe",
+          "shape": [
+            16,
+            7790
+          ]
+        },
+        "emg_channel_mask": {
+          "dtype": "bool",
+          "sha256": "dfc6913092ec77b97882db27404cdd812fe4f92609964e27e7314ff472e5a9d1",
+          "shape": [
+            16
+          ]
+        },
+        "joint_angles": {
+          "dtype": "float32",
+          "sha256": "c24fd22b787c4316d2315d1b1164b3ad592079675d5b1eb3d6fdd1bd1f105a4f",
+          "shape": [
+            22,
+            1
+          ]
+        },
+        "label_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        },
+        "vision_img": {
+          "dtype": "float32",
+          "sha256": "fdb6c171a7adc70450a7a741cce7d74742ed13db5eb910755a413d7b2c09945b",
+          "shape": [
+            3,
+            256,
+            256
+          ]
+        },
+        "vision_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "hand": "right",
+      "label_valid": true,
+      "role": "train",
+      "vision_valid": true
+    },
+    {
+      "arrays": {
+        "emg": {
+          "dtype": "float32",
+          "sha256": "c606f4473cd08bb0704e49bbf6f768edca402ce10b8f9463614977c8b662566a",
+          "shape": [
+            16,
+            7790
+          ]
+        },
+        "emg_channel_mask": {
+          "dtype": "bool",
+          "sha256": "dfc6913092ec77b97882db27404cdd812fe4f92609964e27e7314ff472e5a9d1",
+          "shape": [
+            16
+          ]
+        },
+        "joint_angles": {
+          "dtype": "float32",
+          "sha256": "a791d14b12b7e4b5eea97305aa5abb074e4d70e5389984d86875cbc12bc0ac85",
+          "shape": [
+            22,
+            1
+          ]
+        },
+        "label_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        },
+        "vision_img": {
+          "dtype": "float32",
+          "sha256": "aa391ac9a617c02165f95b20769452caab86b4bf5136374327672eec5aa54d0e",
+          "shape": [
+            3,
+            256,
+            256
+          ]
+        },
+        "vision_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "hand": "left",
+      "label_valid": true,
+      "role": "val",
+      "vision_valid": true
+    },
+    {
+      "arrays": {
+        "emg": {
+          "dtype": "float32",
+          "sha256": "d0a03f6340e27bcbcc00f805aa91e775992fb1dcd8d326684e7cd65b61e6d0e7",
+          "shape": [
+            16,
+            7790
+          ]
+        },
+        "emg_channel_mask": {
+          "dtype": "bool",
+          "sha256": "dfc6913092ec77b97882db27404cdd812fe4f92609964e27e7314ff472e5a9d1",
+          "shape": [
+            16
+          ]
+        },
+        "joint_angles": {
+          "dtype": "float32",
+          "sha256": "a345dfcef5c275b1a087db693e57dfed9111561ce02ff063f21a7268e0bb7175",
+          "shape": [
+            22,
+            1
+          ]
+        },
+        "label_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        },
+        "vision_img": {
+          "dtype": "float32",
+          "sha256": "13b747ff2c6c982c21f586e13c36403116f3f216927e44cbb38389615c0bf7a5",
+          "shape": [
+            3,
+            256,
+            256
+          ]
+        },
+        "vision_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "hand": "right",
+      "label_valid": true,
+      "role": "val",
+      "vision_valid": true
+    },
+    {
+      "arrays": {
+        "emg": {
+          "dtype": "float32",
+          "sha256": "7b3e06a7012cea00a287d79ab572f0f8308d05f568f094115c2e4e599cda9c20",
+          "shape": [
+            16,
+            7790
+          ]
+        },
+        "emg_channel_mask": {
+          "dtype": "bool",
+          "sha256": "dfc6913092ec77b97882db27404cdd812fe4f92609964e27e7314ff472e5a9d1",
+          "shape": [
+            16
+          ]
+        },
+        "joint_angles": {
+          "dtype": "float32",
+          "sha256": "7e2022027d554aee2327543ca848db89384a75dd5c09877cafec6ae126a62243",
+          "shape": [
+            22,
+            1
+          ]
+        },
+        "label_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        },
+        "vision_img": {
+          "dtype": "float32",
+          "sha256": "99b3294735d6a67ae056e8427b79265783c57a50a9a2e6859e695969ad9ae9a9",
+          "shape": [
+            3,
+            256,
+            256
+          ]
+        },
+        "vision_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "hand": "left",
+      "label_valid": true,
+      "role": "test",
+      "vision_valid": true
+    },
+    {
+      "arrays": {
+        "emg": {
+          "dtype": "float32",
+          "sha256": "8ffe50d7876425eb56378910b792fa9edfe7ea067b19ba36f9ef852fa53b3632",
+          "shape": [
+            16,
+            7790
+          ]
+        },
+        "emg_channel_mask": {
+          "dtype": "bool",
+          "sha256": "dfc6913092ec77b97882db27404cdd812fe4f92609964e27e7314ff472e5a9d1",
+          "shape": [
+            16
+          ]
+        },
+        "joint_angles": {
+          "dtype": "float32",
+          "sha256": "cc3a6280ce27515b89c6136d8bc75e30e869bf9f1c04ea563345ece9b35bcc5e",
+          "shape": [
+            22,
+            1
+          ]
+        },
+        "label_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        },
+        "vision_img": {
+          "dtype": "float32",
+          "sha256": "b3244ecdfa31767732164fa912a2d2144a451a5a4c56afd2b8732dcd974511ae",
+          "shape": [
+            3,
+            256,
+            256
+          ]
+        },
+        "vision_valid_mask": {
+          "dtype": "bool",
+          "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "hand": "right",
+      "label_valid": true,
+      "role": "test",
+      "vision_valid": true
+    }
+  ],
+  "actual_source_files_verified": 73,
+  "actual_unique_counts": {
+    "test": 4306,
+    "train": 197638,
+    "val": 1576
+  },
+  "cuda_initialized": false,
+  "episode_records": 41,
+  "exit_reopen_receipt": {
+    "actual_owner_nonlive": true,
+    "log_sha256": "949fec85b435d0975734fa1b3f1a6134e524c83dd2635143d3f3270f7e227320",
+    "proof_sha256": "7c8a7e1fbc40be059462d17474db904c7ece3324599ccb83aaaf0e6c962ea4b3",
+    "source_files_reverified": 73
+  },
+  "finite_scope": "six requested hand windows and center values only",
+  "format": "original_fusion_actual_legacy_joint_points_v1",
+  "full_finite_scan_complete": false,
+  "full_paper_complete": false,
+  "full_payload_hashed": false,
+  "model_constructed": false,
+  "normalization": {
+    "asset": "upstream://assets/per_dataset_norm_stats_unified.json",
+    "asset_sha256": "6a0d029147fd3f4befef5c33f82c9044606de5a8b335b15ffa434ad3767701f5",
+    "canonical_declared_asset": "upstream://assets/per_dataset_norm_stats.json",
+    "canonical_declared_asset_sha256": "b787a1ef98d48f434cb808e0e61e49c1ee0c09fae5b7ca9fc6a05ba4b14ee122",
+    "canonical_declared_namespace_available": false,
+    "canonical_error_type": "KeyError",
+    "epsilon": 1e-06,
+    "estimated_from_project_train_rows": false,
+    "format": "fusion_fixed_normalization_v1",
+    "full_paper_complete": false,
+    "limitation": "legacy-only rows; public pooled-stat sampling is not the independent retained training rows or proof of merged-source/PDF equivalence",
+    "mean": 0.00011658444197544563,
+    "namespace": "egoemg_unified__filtered_paper",
+    "order": "float32 T,8; original zero-fill16; original fixed scalar; original role transforms; transpose16,T",
+    "physical_fields": {
+      "left": "emg_left_filtered",
+      "right": "emg_right_filtered"
+    },
+    "production_ready": false,
+    "requested_field_preference": "filtered_paper",
+    "sample_dataset_name": "egoemg",
+    "scientific_eligible": false,
+    "sha256": "5eb2cbca3904ca98d2edf2abc9f77e8a1845087a31b04e03b14cddb11e8cec1c",
+    "sources_sha256": {
+      "egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+      "egoemg/datasets/layout_utils.py": "34293ab35a3138f4bd04847bf604968536d8720d9f2302d88f2a03db25ac50e8",
+      "egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59"
+    },
+    "std": 10.839283499203331,
+    "substitution": "explicit same-revision official unified-stat asset; canonical model config is unchanged"
+  },
+  "observed_utc": "2026-10-28T04:06:20.722729+00:00",
+  "optimizer_updates": 0,
+  "probe_script_sha256": "94d6a406ac3d07d29cfda646289ccdd60776517ba4771d3241941dec90cde6df",
+  "production_ready": false,
+  "reader_source_sha256": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+  "scientific_eligible": false
+}
