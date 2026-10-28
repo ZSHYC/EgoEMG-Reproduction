@@ -1,0 +1,41 @@
+{
+  "actual_owner_pid_start_matching_live": true,
+  "actual_status": "downloading",
+  "complete_files_count": 2,
+  "current_asset": "mocap_mano_right_world_transform.dat",
+  "expected_assets": 8,
+  "expected_selected_bytes": 37778344975,
+  "format": "egoemg_geometry_bounded_actual_progress_v1",
+  "full_geometry_complete": false,
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "independently_rehashed_complete_files": [
+    {
+      "bytes": 66161725,
+      "filename": "mocap_webcam_tracked.dat",
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40"
+    },
+    {
+      "bytes": 3175762800,
+      "filename": "mocap_mano_left_world_transform.dat",
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590"
+    }
+  ],
+  "new_committed_bytes_from_renewal": 369249136,
+  "observed_received_sizes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 694157312,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T02:54:55.205680+00:00",
+  "occlusion_complete": false,
+  "publisher_authenticated_bulk_sha256_available": false,
+  "raw_snapshot_sha256": "047e044b257eb54383c0c432cedfdefc260e31ea6ebde1602f7f4748b5b3dd95",
+  "receipt_integrity_only": true,
+  "retry_events_observed": 0
+}

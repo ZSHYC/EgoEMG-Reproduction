@@ -39,6 +39,19 @@
     }
   ],
   "eventual_full_geometry_complete": false,
+  "execution_rulings": [
+    "Ruling: Existing approved design explicitly authorizes routine reversible implementation and data acquisition. This is recovery of the same requested data after actual SSLEOF, not a new experimental design or preference; execute inline without another approval. Cost if wrong is a bounded retry of a public read, never different data or relaxed admission.",
+    "Ruling: Original first-failure-stop was an operational choice, not a user constraint. Reset a fixed3attempt budget only when strict complete chunks advance; do not retry protocol/resource/permanentTLS errors. Cost if wrong is a stopped incomplete transfer retaining all bytes; final size/hash/receipt gates remain unchanged.",
+    "Ruling: Add a separate module, leaving original download.py/range_download.py and existing frozen jobs byte-identical. Code-plan completion is distinct from full geometry acquisition: all8 actual complete receipts and owner exit remain outstanding in the full-paper objective. Cost if wrong is a missing late-network failure, never a claim that live acquisition is complete.",
+    "Final: Ruling: eventual_completion_all8 \u2014 Keep full selection active until all8 complete receipts and actual owner exit; renewed progress is not completion. \u2014 Cost if wrong: Late failure leaves incomplete acquisition.",
+    "Final: Ruling: real_world_transient_retry_success \u2014 No actual retry event in the reviewed snapshot; distinguish eight offline fault probes from field recovery. \u2014 Cost if wrong: Network-specific failure may remain untested.",
+    "Final: Ruling: geometry_camera_schema_and_occlusion \u2014 Require downstream complete array/geometry/camera admission and actual occlusion outputs. \u2014 Cost if wrong: Unqualified input could bias downstream results.",
+    "Final: Ruling: publisher_authenticated_bulk_provenance \u2014 Local transfer hashes only; no authenticated publisher reference is available. \u2014 Cost if wrong: Wrong upstream bytes cannot be ruled out by a local hash alone.",
+    "Final: Ruling: simultaneous_writers \u2014 Exclusive ownership remains a caller precondition; startup consumer scan and metadata checks are defensive. \u2014 Cost if wrong: Violating ownership could corrupt a partial during an active native call.",
+    "Final: Ruling: historical_science_and_other_live_jobs \u2014 Preserve historical scientific limits and separately observe actual PID/start for existing jobs; no rerun or new review claim. \u2014 Cost if wrong: An unrelated defect or stale status could remain undiscovered.",
+    "Final: Ruling: future_network_storage \u2014 Use actual launch observations and ongoing native capacity checks, without a future availability guarantee. \u2014 Cost if wrong: A later network/storage failure can stop acquisition with preserved partials.",
+    "Final: Ruling: Continue the existing user-authorized public branch publication and preserve this worktree; no merge/menu/new PR is needed for this routine continuation. \u2014 Prior user authorization explicitly covers public code/results and necessary implementation. \u2014 Cost if wrong: publication location would need correction; no main merge or destructive cleanup occurs."
+  ],
   "findings": {
     "critical": 0,
     "important": 0,

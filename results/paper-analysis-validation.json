@@ -22,7 +22,8 @@
     "seconds": 12.79,
     "warnings": 17
   },
-  "current_whole_native_hosted_ci_verified": false,
+  "current_whole_native_hosted_ci_scope": "Actual terminal success at test-only correction29041be; unchanged scientific analysis producer files/results remain qualified separately. Later bounded range recovery module is not covered by this older run.",
+  "current_whole_native_hosted_ci_verified": true,
   "exact_legacy_cpu_local": {
     "actual_exit_code": 0,
     "log_sha256": "bdb50d25a15b07f66c799a835020fd64cec74ca2ec2979edcb47f3538bf53a44",
@@ -108,6 +109,7 @@
     "corrected_test_sha256": "6c804748d3adc37271be7961c076cebd8cfbb1195ac2949229a33bf631acdc25",
     "fixture_only_comparison": "same keys/exact counts;64ULP absolute allowance for float64 sum and degrees",
     "forced_roundoff_ulps": 8,
+    "formerly_pending_native_job_id": 122585267145,
     "hosted_light_verified": {
       "conclusion": "success",
       "head_commit": "29041be3ac51a74ecc187a88ecff1e0dcfdbc49e",
@@ -120,8 +122,22 @@
       "status": "completed",
       "warnings": 1
     },
-    "new_hosted_full_verification_pending": true,
-    "pending_native_job_id": 122585267145,
+    "hosted_native_verified": {
+      "actual_skips": "three tests requiring real CUDA",
+      "conclusion": "success",
+      "head_commit": "29041be3ac51a74ecc187a88ecff1e0dcfdbc49e",
+      "job_id": 122585267145,
+      "log_sha256": "797292389ab497c09212d02cb02898d74ce1e8cffaf2a642bf2bf525f5afc16a",
+      "observed_utc": "2026-10-28T02:52:47.917182+00:00",
+      "passed": 2513,
+      "pip_check_passed": true,
+      "run_id": 40618108625,
+      "seconds": 2719.34,
+      "skipped": 3,
+      "status": "completed",
+      "warnings": 198
+    },
+    "new_hosted_full_verification_pending": false,
     "production_source_changed": false,
     "recorded_original_gpu_analysis_producers_and_results_unchanged": true,
     "scientific_baseline_gate_changed": false,
@@ -133,6 +149,15 @@
       "log_sha256": "a75dab70b47c29785fe107d600111bff5bbfe879a16ccdded37416aa22c5940a",
       "passed": 1,
       "seconds": 0.25
+    },
+    "formerly_pending_scope": "full pinned CPU job122568912421; light is actually verified",
+    "historical_full_run_observed": {
+      "conclusion": "failure",
+      "job_id": 122568912421,
+      "later_passing_run_id": 40618108625,
+      "old_failure_not_relabelled_success": true,
+      "run_id": 40613032562,
+      "status": "completed"
     },
     "hosted_light_verified": {
       "conclusion": "success",
@@ -146,8 +171,7 @@
       "status": "completed",
       "warnings": 1
     },
-    "new_hosted_verification_pending": true,
-    "pending_scope": "full pinned CPU job122568912421; light is actually verified",
+    "new_hosted_verification_pending": false,
     "production_source_changed": false,
     "relevant_green": {
       "log_sha256": "e8f176cc33dcce3e032730342cf053b390248c433cd5deb1e5e30ed4670bda93",
