@@ -123,6 +123,50 @@ def test_real_original_loss_backward_and_every_optimizer_parameter_are_retained(
     optimizer.step();p.check();assert not torch.cuda.is_initialized()
 
 
+def test_verified_native_optimizer_retains_temporal_attention_and_cosine_ownership(fusion_packet):
+    p,_=restored(fusion_packet);configured=p.module.configure_optimizers()
+    optimizer=configured['optimizer'];scheduler=configured['lr_scheduler']['scheduler']
+    observation=api().fusion_optimizer_identity(p,optimizer,scheduler)
+    assert [g['name'] for g in observation['groups']]==[
+        'featurizer','decoder','vision_proj','fusion_proj','head','head_vision','vision_backbone','_unassigned']
+    names=[n for g in observation['groups'] for n in g['parameter_names']]
+    assert len(names)==len(set(names))==len(list(p.module.parameters()))
+    assert set(names)=={n for n,x in p.module.named_parameters() if x.requires_grad}
+    assert all(n.startswith('model.temporal_attn.') for n in observation['groups'][-1]['parameter_names'])
+    assert observation['groups'][-1]['parameter_names']
+    assert all(g['lr']==.0001 and g['weight_decay']==.01 for g in observation['groups'])
+    assert observation['scheduler']['T_max']==150 and observation['scheduler']['eta_min']==1e-5
+    assert scheduler.optimizer is optimizer and not observation['scientific_eligible']
+    assert not optimizer.state
+    optimizer.step();scheduler.step()
+    next_observation=api().fusion_optimizer_identity(p,optimizer,scheduler)
+    assert next_observation['scheduler']['last_epoch']==1
+    assert all(1e-5<g['lr']<.0001 for g in next_observation['groups'])
+
+
+@pytest.mark.parametrize('damage',['temporal_missing','duplicate','foreign','group_name','group_lr',
+    'initial_lr','weight_decay','betas','foreach','scheduler_owner','scheduler_budget','scheduler_floor','scheduler_rates'])
+def test_native_optimizer_gate_rejects_altered_coverage_or_recipe(fusion_packet,damage):
+    import torch
+    p,_=restored(fusion_packet);configured=p.module.configure_optimizers()
+    optimizer=configured['optimizer'];scheduler=configured['lr_scheduler']['scheduler'];groups=optimizer.param_groups
+    if damage=='temporal_missing':groups[-1]['params'].pop()
+    elif damage=='duplicate':groups[-1]['params'].append(groups[0]['params'][0])
+    elif damage=='foreign':groups[-1]['params'][0]=torch.nn.Parameter(torch.ones_like(groups[-1]['params'][0]))
+    elif damage=='group_name':groups[-1]['name']='temporal_attn'
+    elif damage=='group_lr':groups[-1]['lr']=.0002
+    elif damage=='initial_lr':groups[-1]['initial_lr']=.0002
+    elif damage=='weight_decay':groups[-1]['weight_decay']=0.
+    elif damage=='betas':groups[-1]['betas']=(.8,.999)
+    elif damage=='foreach':groups[-1]['foreach']=True
+    elif damage=='scheduler_owner':scheduler.optimizer=torch.optim.AdamW([torch.nn.Parameter(torch.ones(1))])
+    elif damage=='scheduler_budget':scheduler.T_max=2
+    elif damage=='scheduler_floor':scheduler.eta_min=0.
+    elif damage=='scheduler_rates':scheduler._last_lr[-1]=.0002
+    with pytest.raises(ValueError,match='optimizer|scheduler|component|AdamW|coverage'):
+        api().fusion_optimizer_identity(p,optimizer,scheduler)
+
+
 def test_fresh_native_factory_is_seeded_and_offline_with_provided_branches(branch_files,monkeypatch):
     pytest.importorskip('torch');import torch,requests
     from egoemg_repro.fusion_literal import compose_fusion

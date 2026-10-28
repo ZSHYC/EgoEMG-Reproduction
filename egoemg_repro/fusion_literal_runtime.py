@@ -10,6 +10,7 @@ from contextlib import contextmanager
 import copy
 from dataclasses import dataclass
 import importlib
+import math
 import os
 from pathlib import Path
 import stat
@@ -285,3 +286,44 @@ def build_fusion_runtime(upstream,config,*,vision_checkpoint=None,vision_sha256=
     result=PreparedFusion(module,identity,'fresh_local_branch_initialization' if fresh else 'strict_self_contained_restore',
         fusion_state_sha256(module.state_dict()),root,copy.deepcopy(config),assets)
     result.check();return result
+
+
+def fusion_optimizer_identity(prepared,optimizer,scheduler):
+    """Observe original component AdamW/cosine, including temporal attention."""
+    import torch
+    prepared.check()
+    if type(optimizer) is not torch.optim.AdamW or type(scheduler) is not torch.optim.lr_scheduler.CosineAnnealingLR:
+        raise ValueError('native fusion AdamW and cosine scheduler required')
+    if (scheduler.optimizer is not optimizer or scheduler.T_max!=150 or scheduler.eta_min!=1e-5 or
+        type(scheduler.last_epoch) is not int or not 0<=scheduler.last_epoch<=150):
+        raise ValueError('native fusion scheduler ownership/budget differs')
+    labels=('featurizer','decoder','vision_proj','fusion_proj','head','head_vision','vision_backbone','_unassigned')
+    named=dict(prepared.module.named_parameters());by_id={id(p):n for n,p in named.items() if p.requires_grad}
+    if len(by_id)!=len(named):raise ValueError('native fusion recipe does not freeze optimizer parameters')
+    expected={label:[] for label in labels}
+    for name in named:
+        label=next((key for key in labels[:-1] if name.startswith('model.'+key+'.')),'_unassigned')
+        expected[label].append(name)
+    if (any(not expected[label] for label in labels) or len(optimizer.param_groups)!=len(labels) or
+        scheduler.base_lrs!=[.0001]*len(labels)):
+        raise ValueError('native fusion component count/base learning rates differ')
+    rate=1e-5+(.0001-1e-5)*(1+math.cos(math.pi*scheduler.last_epoch/150))/2
+    groups=[];seen=[]
+    for label,group in zip(labels,optimizer.param_groups):
+        names=[by_id.get(id(p)) for p in group['params']]
+        if (group.get('name')!=label or names!=expected[label] or group.get('initial_lr')!=.0001 or
+            not math.isclose(group['lr'],rate,rel_tol=1e-10,abs_tol=1e-14) or group['weight_decay']!=.01 or
+            tuple(group['betas'])!=(.9,.999) or group['eps']!=1e-8 or group['amsgrad'] is not False or
+            any(group.get(k,False) is not False for k in ('maximize','capturable','differentiable')) or
+            any(group.get(k) is not None for k in ('foreach','fused'))):
+            raise ValueError('native fusion component membership or AdamW hyperparameters differ')
+        seen.extend(names);groups.append(dict(name=label,parameter_names=names,lr=group['lr'],initial_lr=group['initial_lr'],
+            weight_decay=group['weight_decay'],betas=list(group['betas']),eps=group['eps'],amsgrad=group['amsgrad']))
+    if len(seen)!=len(set(seen)) or set(seen)!=set(by_id.values()):
+        raise ValueError('fusion optimizer must cover each trainable parameter exactly once')
+    if len(scheduler._last_lr)!=len(labels) or any(not math.isclose(x,rate,rel_tol=1e-10,abs_tol=1e-14) for x in scheduler._last_lr):
+        raise ValueError('fusion scheduler stored rates differ from native component groups')
+    result=dict(format='original_fusion_optimizer_observation_v1',groups=groups,
+        scheduler=dict(type='CosineAnnealingLR',T_max=150,eta_min=1e-5,last_epoch=scheduler.last_epoch,interval='epoch',frequency=1),
+        scientific_eligible=False)
+    result['sha256']=_hash(result);return result
