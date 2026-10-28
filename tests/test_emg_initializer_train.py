@@ -101,10 +101,90 @@ def test_selected_best_export_has_every_native_tensor_and_exact_source_bytes(nat
     for name,value in exported['state_dict'].items():assert torch.equal(value,native['state_dict'][name]),name
     assert receipt['source_checkpoint_sha256']==result['selected_best']['checkpoint_sha256']
     assert receipt['selection']=='actual native val_mae/min best; no last fallback' and not receipt['full_initializer']
-    assert m.read_emg_initializer_export(dest)==receipt
+    assert m.read_emg_initializer_export(dest,source_fit=out,require_full=False)==receipt
     key=next(iter(exported['state_dict']));exported['state_dict'][key].reshape(-1)[0]+=.25
     torch.save(exported,dest)
+    with pytest.raises(ValueError):m.read_emg_initializer_export(dest,source_fit=out,require_full=False)
+
+
+def test_export_reader_requires_an_independent_selected_fit_reference(native_runs,tmp_path):
+    _,out,_,_,_=native_runs;m=api();dest=tmp_path/'unanchored.pt'
+    m.export_emg_initializer_best(out,dest,require_full=False)
     with pytest.raises(ValueError):m.read_emg_initializer_export(dest)
+
+
+@pytest.mark.parametrize('damage',['missing_tensor','invented_tensor','missing_lineage','checkpoint_lineage','fit_lineage','relabel_full'])
+def test_resealed_export_cannot_invent_schema_or_change_selected_fit_lineage(native_runs,tmp_path,damage):
+    import torch
+    from egoemg_repro.classic_emg import _hash
+    _,out,_,_,_=native_runs;m=api();dest=tmp_path/'changed.pt';m.export_emg_initializer_best(out,dest,require_full=False)
+    value=torch.load(str(dest),map_location='cpu',weights_only=False);receipt=value['emg_initializer_lineage']
+    if damage=='missing_tensor':value['state_dict'].pop(next(iter(value['state_dict'])))
+    elif damage=='invented_tensor':value['state_dict']={'invented':torch.ones(1)}
+    elif damage=='missing_lineage':receipt.pop('source_checkpoint_sha256')
+    elif damage=='checkpoint_lineage':receipt['source_checkpoint_sha256']='0'*64
+    elif damage=='fit_lineage':receipt['source_fit_identity_sha256']='0'*64
+    elif damage=='relabel_full':receipt['full_initializer']=True
+    receipt['tensor_inventory']=m._inventory(value['state_dict'])
+    from egoemg_repro.emg_initializer_runtime import emg_initializer_state_sha256
+    receipt['state_sha256']=emg_initializer_state_sha256(value['state_dict'])
+    receipt['sha256']=_hash({k:v for k,v in receipt.items() if k!='sha256'});torch.save(value,dest)
+    with pytest.raises(ValueError):m.read_emg_initializer_export(dest,source_fit=out,require_full=False)
+
+
+@pytest.mark.parametrize('when',['after_checkpoint','after_journal'])
+def test_three_process_recovery_preserves_stale_result_and_uses_latest_complete_epoch(native_runs,when):
+    root,_,data,env,_=native_runs;m=api();out=root/('interrupted-'+when)
+    base=[sys.executable,'-B','-m','egoemg_repro.emg_initializer_train','fit','--data',str(data),'--upstream',str(UPSTREAM),
+        '--output',str(out),'--scope','cpu_engineering']
+    prefix=subprocess.run(base+['--stop-after-epoch','1'],cwd=ROOT,env=env,capture_output=True,text=True,timeout=180)
+    assert prefix.returncode==0,prefix.stderr[-5000:]
+    old=(out/'fit-result.json').read_bytes()
+    code='''import runpy,sys
+from pathlib import Path
+import egoemg_repro.emg_initializer_train as m
+when=sys.argv[1]
+if when=='after_checkpoint':
+ original=m._write
+ def failed(path,value,**kw):
+  if Path(path).name=='fit-result.json' and kw.get('replace'):raise RuntimeError('intended result replacement interruption')
+  return original(path,value,**kw)
+ m._write=failed
+else:
+ original=m.InitializerFitWitness.on_train_epoch_end
+ def failed(self,trainer,module):
+  result=original(self,trainer,module)
+  if self.completed_epochs==2:raise RuntimeError('intended journal-before-checkpoint interruption')
+  return result
+ m.InitializerFitWitness.on_train_epoch_end=failed
+sys.argv=['emg_initializer_train',*sys.argv[2:]]
+m.main()
+'''
+    crashed=subprocess.run([sys.executable,'-B','-c',code,when,*base[4:],'--resume'],cwd=ROOT,env=env,capture_output=True,text=True,timeout=180)
+    (root/('interrupted-'+when+'.stderr')).write_text(crashed.stderr)
+    assert crashed.returncode!=0 and 'intended ' in crashed.stderr
+    assert (out/'fit-result.json').read_bytes()==old
+    checkpoint_sha=hashlib.sha256((out/'checkpoints/last.ckpt').read_bytes()).hexdigest()
+    recovered=subprocess.run(base+['--resume'],cwd=ROOT,env=env,capture_output=True,text=True,timeout=180)
+    (root/('recovered-'+when+'.stderr')).write_text(recovered.stderr)
+    assert recovered.returncode==0,recovered.stderr[-6000:]
+    final=m.read_emg_initializer_fit(out,require_full=False)
+    assert final['completed_epochs']==2 and final['optimizer_executions']==4 and final['stage_complete']
+    assert any(p.read_bytes()==old for p in out.glob('historical-fit-result-*.json'))
+    if when=='after_checkpoint':
+        assert final['completion_recovered_from_native_checkpoint'] is True
+        assert hashlib.sha256((out/'checkpoints/last.ckpt').read_bytes()).hexdigest()==checkpoint_sha
+    else:
+        assert final['resume_start_exact']=={k:True for k in ('model','optimizer','scheduler','callbacks','loops','rng')}
+        assert final['resume_validation_exact'] and list(out.glob('uncommitted-epochs-*.jsonl'))
+
+
+def test_completed_native_budget_still_cannot_be_retrained(native_runs):
+    _,out,data,env,_=native_runs;before=(out/'fit-result.json').read_bytes()
+    p=subprocess.run([sys.executable,'-B','-m','egoemg_repro.emg_initializer_train','fit','--data',str(data),
+        '--upstream',str(UPSTREAM),'--output',str(out),'--scope','cpu_engineering','--resume'],cwd=ROOT,env=env,capture_output=True,text=True,timeout=180)
+    assert p.returncode!=0 and 'completed initializer cannot be retrained' in p.stderr
+    assert (out/'fit-result.json').read_bytes()==before
 
 
 @pytest.mark.parametrize('damage',['history','last','best','coverage','selected_score'])

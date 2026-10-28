@@ -144,6 +144,16 @@ def test_native_260_loaders_use_original_collation_global_rng_and_repeat1(files)
     assert got['emg'].shape==(4,8,W) and got['joint_angles'].shape==(4,22,W) and torch.equal(after,torch.get_rng_state())
 
 
+@pytest.mark.parametrize('field',['_emg_mean','_emg_std'])
+@pytest.mark.parametrize('replacement',['float64','list'])
+def test_equal_valued_norm_with_different_computational_type_rejects_before_consumption(files,field,replacement):
+    c=admit(files);view=c.datasets['val'].views[0];old=getattr(view,field)
+    changed=old.astype(np.float64) if replacement=='float64' else old.tolist()
+    assert np.array_equal(np.asarray(changed),old)
+    setattr(view,field,changed)
+    with pytest.raises(ValueError,match='binding|changed'):c.check()
+
+
 @pytest.mark.parametrize('chunk',[True,0,-1,262145,1.5])
 def test_strict_scan_chunk_bounds(files,chunk):
     with pytest.raises(ValueError,match='chunk'):admit(files,chunk_rows=chunk)

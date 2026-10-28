@@ -255,8 +255,13 @@ def _frozen_validation(prepared,cohort,policy,loader,device):
 
 
 def read_emg_initializer_fit(output,*,require_full=True):
-    import torch
     output=_safe(output);identity=_json(output/'identity.json');result=_json(output/'fit-result.json')
+    return _validate_fit(output,identity,result,require_full=require_full)
+
+
+def _validate_fit(output,identity,result,*,require_full):
+    """Validate a candidate against native durable files before publishing it."""
+    import torch
     _check_seal(identity,FORMAT);_check_seal(result,FORMAT);_check_seal(identity['policy'],'original_emg_initializer_fit_policy_v1')
     if (result['identity_sha256']!=identity['sha256'] or identity['fit_sources_sha256']!=_sources() or
         identity['native_loop_sources_sha256']!=_loop_sources() or result['scientific_eligible'] is not False or
@@ -298,11 +303,53 @@ def read_emg_initializer_fit(output,*,require_full=True):
     return result
 
 
+def _historical_result(output,identity):
+    path=output/'fit-result.json'
+    if not path.exists():return
+    raw=path.read_bytes();value=_json(path);_check_seal(value,FORMAT)
+    if (value['identity_sha256']!=identity['sha256'] or value['scope']!=identity['policy']['scope'] or
+        type(value['stage_complete']) is not bool or value['scientific_eligible'] is not False or value['full_paper_complete'] is not False):
+        raise ValueError('prior initializer result does not belong to this owned fit')
+    if value['stage_complete']:
+        read_emg_initializer_fit(output,require_full=False)
+        raise ValueError('completed initializer cannot be retrained/reselected')
+    # An incomplete result describes an older observation, not necessarily the
+    # latest checkpoint. Preserve exact bytes before reconciling durable state.
+    import hashlib
+    historical=output/('historical-fit-result-'+hashlib.sha256(raw).hexdigest()+'.json')
+    if historical.exists():
+        if historical.read_bytes()!=raw:raise ValueError('historical initializer result changed')
+    else:
+        with historical.open('xb') as f:f.write(raw);f.flush();os.fsync(f.fileno())
+
+
+def _completed_checkpoint_result(output,identity,checkpoint,device,validation_exact,recovery_started):
+    import torch
+    packet=checkpoint['emg_initializer_fit'];records=packet['records'];policy=identity['policy']
+    if len(records)!=policy['max_epochs'] or not emg_initializer_stage_complete(policy,records):
+        raise ValueError('saved initializer budget is not complete')
+    native=_native_callback(checkpoint,'ModelCheckpoint{');best=Path(native['best_model_path'])
+    if best.parent!=output/'checkpoints' or best.name=='last.ckpt':raise ValueError('saved native best location differs')
+    result=_sealed(dict(format=FORMAT,identity_sha256=identity['sha256'],scope=policy['scope'],completed_epochs=len(records),
+        optimizer_executions=checkpoint['global_step'],stage_complete=True,full_training_terminated=policy['scope']=='full',
+        scientific_eligible=False,full_paper_complete=False,resume_start_exact=None,resume_validation_exact=validation_exact,
+        completion_recovered_from_native_checkpoint=True,additional_optimizer_updates_during_recovery=0,
+        final_model_state_sha256=emg_initializer_state_sha256(checkpoint['state_dict']),last_checkpoint_sha256=_file_hash(output/'checkpoints/last.ckpt'),
+        selected_best=dict(file=best.name,score=float(native['best_model_score']),checkpoint_sha256=_file_hash(best),validated=True),
+        train_samples_per_epoch=[r['train_samples'] for r in records],val_samples_per_epoch=[r['validation']['samples'] for r in records],
+        cuda_initialized=torch.cuda.is_initialized(),runtime_device=device,elapsed_fit_seconds=0.,elapsed_recovery_seconds=time.monotonic()-recovery_started,
+        bitwise_training_trajectory_guaranteed=False,
+        rng_restore_contract='complete saved budget independently accepted; no new training or optimizer restoration attempted',
+        callback_restore_policy='selected state read from original native checkpoint'))
+    _validate_fit(output,identity,result,require_full=policy['scope']=='full')
+    _write(output/'fit-result.json',result,replace=True);return result
+
+
 def fit_emg_initializer(cohort,output,*,scope='full',resume=False,stop_after_epoch=None,cohort_receipt=None):
     import torch
     from omegaconf import OmegaConf
     from pytorch_lightning.callbacks import ModelCheckpoint
-    cohort.check();policy=emg_initializer_fit_policy(cohort.upstream,cohort.config,scope=scope)
+    recovery_started=time.monotonic();cohort.check();policy=emg_initializer_fit_policy(cohort.upstream,cohort.config,scope=scope)
     receipt_path,binding=_receipt(cohort,cohort_receipt,scope=='full')
     if scope=='full' and (cohort.identity['metadata_matches_registered_legacy_release'] is not True or cohort.identity['counts']!=FULL_COUNTS):
         raise ValueError('full initializer requires complete registered legacy fold')
@@ -317,10 +364,11 @@ def fit_emg_initializer(cohort,output,*,scope='full',resume=False,stop_after_epo
             identity=_json(output/'identity.json');_check_seal(identity,FORMAT)
             if (identity['policy']!=policy or identity['cohort']!=cohort.identity or identity['fit_sources_sha256']!=_sources() or
                 identity['native_loop_sources_sha256']!=_loop_sources() or identity['cohort_receipt']!=binding):raise ValueError('initializer resume source/config/cohort differs')
-            if (output/'fit-result.json').exists() and read_emg_initializer_fit(output,require_full=False)['stage_complete']:
-                raise ValueError('completed initializer cannot be retrained/reselected')
+            _historical_result(output,identity)
             checkpoint=torch.load(str(output/'checkpoints/last.ckpt'),map_location='cpu',weights_only=False);p=checkpoint['emg_initializer_fit']
             if p['identity']!=identity or p['epoch_boundary'] is not True:raise ValueError('owned complete initializer epoch required')
+            if (type(p['completed_epochs']) is not int or not 1<=p['completed_epochs']<=policy['max_epochs'] or
+                len(p['records'])!=p['completed_epochs']):raise ValueError('saved initializer epoch is outside owned budget')
             carry=_epoch_bytes(p['records'],identity['sha256']);path=output/'epochs.jsonl';raw=path.read_bytes()
             if not raw.startswith(carry):raise ValueError('initializer checkpoint/journal prefix differs')
             if len(raw)>len(carry):
@@ -347,6 +395,8 @@ def fit_emg_initializer(cohort,output,*,scope='full',resume=False,stop_after_epo
             replay=_frozen_validation(prepared,cohort,policy,loaders['val'],device)
             validation_exact=replay==checkpoint['emg_initializer_fit']['records'][-1]['validation']
             if not validation_exact:raise ValueError('fresh initializer frozen validation differs before continuation')
+            if checkpoint['emg_initializer_fit']['completed_epochs']==policy['max_epochs']:
+                return _completed_checkpoint_result(output,identity,checkpoint,device,validation_exact,recovery_started)
         witness=InitializerFitWitness(prepared,cohort,identity,output,stop_after_epoch,receipt_path)
         from egoemg._train_utils import build_callbacks,build_logger
         callbacks=build_callbacks(cohort.config)+[witness]
@@ -380,6 +430,7 @@ def fit_emg_initializer(cohort,output,*,scope='full',resume=False,stop_after_epo
             bitwise_training_trajectory_guaranteed=False,
             rng_restore_contract='exact after native restore_training_state, before iterator reconstruction; resumed global loader RNG can diverge from uninterrupted training',
             callback_restore_policy='native fields except ModelCheckpoint.current_score, not restored by native Lightning'))
+        _validate_fit(output,identity,result,require_full=scope=='full' and done)
         _write(output/'fit-result.json',result,replace=resume);read_emg_initializer_fit(output,require_full=scope=='full' and done)
         return result
     finally:fcntl.flock(lock,fcntl.LOCK_UN);os.close(lock)
@@ -389,29 +440,41 @@ def _inventory(state):
     return {name:dict(**_schema({name:tensor})[name],sha256=emg_initializer_state_sha256({name:tensor})) for name,tensor in state.items()}
 
 
-def read_emg_initializer_export(path):
+def _selected_export(output,result):
     import torch
+    output=_safe(output);identity=_json(output/'identity.json');best=output/'checkpoints'/result['selected_best']['file']
+    guard=_StatGuard([best,output/'identity.json',output/'fit-result.json',output/'epochs.jsonl',output/'checkpoints/last.ckpt'])
+    value=torch.load(str(best),map_location='cpu',weights_only=False);guard.check();state=value['state_dict']
+    receipt=_sealed(dict(format='original_emg_initializer_selected_export_v1',
+        source_fit_identity_sha256=identity['sha256'],source_checkpoint_sha256=_file_hash(best),
+        source_cohort_sha256=identity['cohort']['sha256'],future_fusion_partition_content_sha256=identity['cohort']['future_fusion_partition_content_sha256'],
+        selected_epoch=value['emg_initializer_fit']['completed_epochs']-1,selected_score=result['selected_best']['score'],
+        selection='actual native val_mae/min best; no last fallback',full_initializer=result['full_training_terminated'],
+        scientific_eligible=False,full_paper_complete=False,state_sha256=emg_initializer_state_sha256(state),tensor_inventory=_inventory(state)))
+    guard.check();return state,receipt,guard
+
+
+def read_emg_initializer_export(path,*,source_fit=None,require_full=True):
+    import torch
+    if source_fit is None:raise ValueError('independent verified selected initializer fit required for export admission')
+    result=read_emg_initializer_fit(source_fit,require_full=require_full)
+    expected_state,expected,guard=_selected_export(source_fit,result)
     value=torch.load(str(_safe(path)),map_location='cpu',weights_only=False);receipt=value['emg_initializer_lineage']
     _check_seal(receipt,'original_emg_initializer_selected_export_v1')
-    if (set(value)!={'state_dict','emg_initializer_lineage'} or _inventory(value['state_dict'])!=receipt['tensor_inventory'] or
-        emg_initializer_state_sha256(value['state_dict'])!=receipt['state_sha256']):raise ValueError('initializer export native tensor bytes differ')
+    if (set(value)!={'state_dict','emg_initializer_lineage'} or receipt!=expected or
+        _schema(value['state_dict'])!=_schema(expected_state) or _inventory(value['state_dict'])!=expected['tensor_inventory'] or
+        emg_initializer_state_sha256(value['state_dict'])!=expected['state_sha256']):raise ValueError('initializer export complete native state/selected-fit lineage differs')
+    guard.check()
     return receipt
 
 
 def export_emg_initializer_best(output,destination,*,require_full=True):
     import torch
     result=read_emg_initializer_fit(output,require_full=require_full);output=_safe(output);destination=_safe(destination,exists=False)
-    best=output/'checkpoints'/result['selected_best']['file'];identity=_json(output/'identity.json')
-    guard=_StatGuard([best,output/'identity.json',output/'fit-result.json']);value=torch.load(str(best),map_location='cpu',weights_only=False);guard.check()
-    state=value['state_dict'];receipt=_sealed(dict(format='original_emg_initializer_selected_export_v1',
-        source_fit_identity_sha256=identity['sha256'],source_checkpoint_sha256=_file_hash(best),
-        source_cohort_sha256=identity['cohort']['sha256'],future_fusion_partition_content_sha256=identity['cohort']['future_fusion_partition_content_sha256'],
-        selected_epoch=value['emg_initializer_fit']['completed_epochs']-1,selected_score=result['selected_best']['score'],
-        selection='actual native val_mae/min best; no last fallback',full_initializer=result['full_training_terminated'],
-        scientific_eligible=False,full_paper_complete=False,state_sha256=emg_initializer_state_sha256(state),tensor_inventory=_inventory(state)))
+    state,receipt,guard=_selected_export(output,result)
     with destination.open('xb') as f:torch.save(dict(state_dict=state,emg_initializer_lineage=receipt),f);f.flush();os.fsync(f.fileno())
     guard.check()
-    if read_emg_initializer_export(destination)!=receipt:raise ValueError('initializer export reopen differs')
+    if read_emg_initializer_export(destination,source_fit=output,require_full=require_full)!=receipt:raise ValueError('initializer export reopen differs')
     return receipt
 
 

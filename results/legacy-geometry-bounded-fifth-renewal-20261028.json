@@ -1,0 +1,35 @@
+{
+  "actual_fresh_probes": 5,
+  "actual_new_bytes": 16777216,
+  "actual_owner_pid_start_live": true,
+  "actual_prior_owner_nonlive": true,
+  "actual_received_including_prefix_bytes": 7726310173,
+  "completed_files": 3,
+  "expected_selected_bytes": 37778344975,
+  "format": "actual_legacy_geometry_fifth_bounded_renewal_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "manual_cooldown_seconds": 3125.757607,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 1308622848,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T06:39:41.884978+00:00",
+  "original_downloader_sources": {
+    "assets_geometry_manifest.json": "af77d8d7a7cf137eca8f361db9e8feb4dd763b5c24869999c70b56f105024eb6",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "egoemg_repro/range_recovery.py": "626417e1680bcd487da7a12edd0a76a2d1d5b74bf55707ae78526349e41acd13",
+    "tmp/legacy-geometry-bounded-fifth-20261028.py": "d240c5ad09726a83f27b8e41b7c5debcb15b4ff901795f6f3726ac55e2447b92"
+  },
+  "preserved_failed_attempt_files": 15,
+  "retry_events_total": 0,
+  "scope": "live bounded continuation snapshot; partial receive is not final checksum or complete geometry",
+  "selected_files": 8
+}

@@ -60,7 +60,13 @@ def _transform(value):
     return dict(kind=_kind(value),attributes=vars(value))
 
 
-def _value(value):return value.tolist() if isinstance(value,np.ndarray) else value
+def _value(value):
+    # Equal Python values do not imply equal native NumPy computation: float64
+    # normalization changes rounding before the original float32 conversion.
+    if isinstance(value,np.ndarray):
+        return dict(kind=_kind(value),dtype=value.dtype.str,shape=list(value.shape),
+            strides=list(value.strides),values=value.tolist())
+    return value
 
 
 def _reader_binding(ds,paths):
