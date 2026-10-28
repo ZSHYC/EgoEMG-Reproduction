@@ -1,0 +1,45 @@
+{
+  "actual_test_launch_heads": {
+    "light": "0010ce755174a7c600564499c1ab75fddea0508a",
+    "native": "0010ce755174a7c600564499c1ab75fddea0508a"
+  },
+  "all_four_actual_test_owners_exited": true,
+  "all_seven_sources_unchanged": true,
+  "format": "actual_native_wilor_configuration_validation_v1",
+  "full_paper_complete": false,
+  "initial_collector_failure_preserved": {
+    "actual_exit_code": 1,
+    "before_fresh_child": true,
+    "model_or_prediction_restarted": false,
+    "production_source_changed": false,
+    "reason": "outer git-show lookup for nested ignored upstream source; corrected to the pinned upstream Git repository"
+  },
+  "light": {
+    "actual_exit_code": 0,
+    "optional_dependency_skipped": 1119,
+    "passed": 1475,
+    "seconds": 88.02152327995282
+  },
+  "log_sha256": {
+    "light": "174b7643d0211c3f7700b6ed7e14566020f2fed155027e65b59a2a28edb4e22f",
+    "native": "9b7c97c4e2fbd5b399e81c2288347cb51da2cf15f8a9cb1a2b71d6f36fdc6418"
+  },
+  "native": {
+    "actual_exit_code": 0,
+    "passed": 50,
+    "scope": "27WiLoR config and23unchanged originalvision contract checks",
+    "seconds": 13.506856966996565
+  },
+  "new_model_updates": 0,
+  "scientific_eligible": false,
+  "source_content_commit": "028250c24773be74f05059d37803310bbb2c2ad0",
+  "sources_sha256": {
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/vision_literal.py": "738a4e81e6988f08d39768991b1192dd0295b9da870a63d89a7461a927adc5a0",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/wilor_literal.py": "2c31460ce384d8b7ec268f2c09f09e77a1492cf0bdb1e6767f04a47ecd081ee2",
+    "tests/test_wilor_literal.py": "7ba09f6605ed44afc3c494420325b29bc5cd4f4e55eebf28edc8d3394e509faf",
+    "upstream/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6"
+  }
+}

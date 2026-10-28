@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+最新实施（北京时间2026-10-28 22:10）：[WiLoR独立配置契约](wilor-native.md)Task1已完成，[新进程配置实证](../results/wilor-native-config-20261028.json)未导入Torch或构造模型，50原生配置/相关检查和1,475轻量检查通过（1,119真实可选依赖跳过），七来源摘要一致、实际拥有者退出。完整原生模型/输入/GPU/30轮/独立测试仍欠，设置数保持10。已有NeuroPose同进程完成3个完整轮次/1,194实际更新，兼容融合EMG初始化120/150轮/29,160更新，DINO-L81轮；其余原训练与右手几何下载继续，几何仍4/8。
+
 当前进度（北京时间2026-10-28 21:52）：[NeuroPose实际GPU资格](../results/neuropose-native-gpu-qualified-20261028.json)和[唯一一次新实现审查](../results/neuropose-native-final-review-20261028.json)完成，0Critical/0Important/2Minor；[完整原生训练已启动](../results/neuropose-native-full-launch-20261028.json)。完整101,714/1,576/4,306输入准入、已资格源码/运行时/来源绑定及107成员SHA核验通过，四个所属PID/start实际存活，训练worker确认为GPU消费者。保留原B256/16-mixed/max100/val_loss/patience50；完整终止、选best、预测试freeze和全测试独立复算仍待完成，科学完成数仍10。[首个完整轮次](../results/neuropose-native-full-first-epoch-20261028.json)已完成全部101,714训练/1,576验证及398实际更新，原进程继续；val_loss是复合损失，尚非最终MAE。兼容融合的EMG初始化最近实查114/150轮，DINO-L80轮；EMG2Pose-S已实际GPU训练但首轮journal尚未完成，M/L仍在原队列后续。右手有效性文件继续下载，几何仍4/8。
 
 [Table1后续原始来源核对](../results/dataset-statistics/dataset-comparison-audit.md)现已确认EMG2Pose原论文的50个提示姿态类别定义、双腕各16通道及不追踪腕关节；NinaPro分库人数/rest/DB6采集差异分别记录。原表不改写，其他列与EgoEMG完整模态盘点仍欠。[WiLoR配方只读核对](../results/wilor-angle-recipe-audit-20261028.md)进一步确认缺独立视觉YAML、代码1280维与原文1576维差异，以及继承eta_min1e-5会导致候选LR恒定；合成配置/CPU标量探测exit0，不是模型优化或新成绩。以下为各时点历史记录，不能将早期“尚欠”的步骤读作当前状态。

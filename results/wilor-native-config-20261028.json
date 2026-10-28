@@ -1,0 +1,230 @@
+{
+  "actual_fresh_process_exit_code": 0,
+  "actual_fresh_process_exited": true,
+  "asset_read": false,
+  "dataset_constructed": false,
+  "format": "actual_native_wilor_configuration_proof_v1",
+  "full_paper_complete": false,
+  "model_constructed": false,
+  "new_model_updates": 0,
+  "observed_utc": "2026-10-28T14:09:50.846589+00:00",
+  "protocol": {
+    "archived_fusion_experiments": [
+      "config/experiment/fusion/_archive/fusion_wilor_s_egoemg_only_augbest_50e.yaml",
+      "config/experiment/fusion/_archive/fusion_wilor_s_simple_frozen_augbest_30e.yaml",
+      "config/experiment/fusion/_archive/fusion_wilor_s_simple_unfrozen_augbest_30e.yaml"
+    ],
+    "base_experiment": "fusion/vision_vit_small",
+    "batch_size_by_role": {
+      "test": 18,
+      "train": 18,
+      "val": 18
+    },
+    "batch_size_semantics": "native make_data_module passes batch_size only; every role uses self.batch_size",
+    "callbacks": [
+      {
+        "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+        "filename": "vit-small-{epoch:03d}-{val_mae:.4f}",
+        "mode": "min",
+        "monitor": "val_mae",
+        "save_last": true,
+        "save_top_k": 3
+      },
+      {
+        "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+      },
+      {
+        "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+        "check_on_train_epoch_end": false,
+        "mode": "min",
+        "monitor": "val_mae",
+        "patience": 30
+      }
+    ],
+    "component_lr_scales": {
+      "backbone": 1.0,
+      "head": 1.0
+    },
+    "data_admission": "none; legacy-only data and independent jitter-safe validation need separate content binding",
+    "declared_dataset_names": {
+      "test": [
+        "egoemg_unified",
+        "egoemg_unified"
+      ],
+      "train": [
+        "egoemg_unified",
+        "egoemg_unified"
+      ],
+      "val": [
+        "egoemg_unified",
+        "egoemg_unified"
+      ]
+    },
+    "declared_training_corpus": "physically_merged_egoemg_showee_incre",
+    "declared_validation_splits": [
+      "user",
+      "gesture",
+      "both"
+    ],
+    "derivation": {
+      "batch_size": "paper Table8 value18",
+      "lr": "paper C.2/Table8 value1e-5",
+      "max_epochs": "paper Table8 value30",
+      "module": "replace complete mapping with original module/wilor_vit; no pretrained file admitted",
+      "other_fields": "unchanged original vision-S inheritance; not an author standalone WiLoR recipe"
+    },
+    "distributed_scope": "trainer metadata retains original six-device declaration; no single-rank equivalence or execution claim",
+    "effective_loss_weights": {
+      "landmark/fingertip": 0.02,
+      "mae": 1.0
+    },
+    "format": "native_wilor_execution_contract_v1",
+    "full_paper_complete": false,
+    "inherited_fields": [
+      "weight_decay",
+      "precision",
+      "gradient_clip_val",
+      "callbacks",
+      "component_lr_scales",
+      "seed",
+      "data_window_stride_repeat_jitter",
+      "effective_loss_aliases",
+      "unused_val_batch_size"
+    ],
+    "jitter_by_role": {
+      "test": false,
+      "train": true,
+      "val": false
+    },
+    "lr_scheduler": {
+      "frequency": 1,
+      "interval": "epoch",
+      "scheduler": {
+        "T_max": 30,
+        "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+        "eta_min": 1e-05
+      }
+    },
+    "mask_semantics": "original generated center label mask for all22 angles; no per-angle legacy cleanup",
+    "missing_crop_semantics": "original normalized black RGB with vision-invalid flag; label mask unchanged",
+    "model_expectations": {
+      "backbone_feature_dimension": 1280,
+      "frozen_backbone_components": [
+        "pose_emb",
+        "shape_emb",
+        "cam_emb",
+        "decpose",
+        "decshape",
+        "deccam"
+      ],
+      "frozen_parameters": 52499,
+      "head_activation": "GELU",
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "original_height_crop": [
+        3,
+        192,
+        256
+      ],
+      "parameters": 631631657,
+      "prediction": [
+        22,
+        1
+      ],
+      "trainable_parameters": 631579158
+    },
+    "module": {
+      "_target_": "egoemg.models.modules.wilor_vit.WiLoRViTPose",
+      "head_dropout": 0.1,
+      "head_hidden": 512,
+      "out_channels": 22,
+      "pretrained_path": null
+    },
+    "official_standalone_experiment_found": false,
+    "optimizer": {
+      "_target_": "torch.optim.AdamW",
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "lr": 1e-05,
+      "weight_decay": 0.01
+    },
+    "paper_reference": {
+      "code_disagreement": "retain code1280 feature and GELU head; not paper1576 or generic ReLU",
+      "filename": "EgoEMG.pdf",
+      "page": 22,
+      "precision_scope": "paper BF16 sentence explicitly names generic vision; WiLoR BF16 is inherited code derivation",
+      "reference_kind": "fixed transcription of supplied PDF, not runtime PDF read",
+      "reported_backbone_dimension": 1576,
+      "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+      "table": 8
+    },
+    "pretrained_admission": "required before any native fresh model; configuration is not an asset permit",
+    "production_ready": false,
+    "raw_loss_weights": {
+      "fingertip_distance": 0.01,
+      "landmark/fingertip": 0.01,
+      "mae": 1.0
+    },
+    "recipe_origin": "explicit_small_recipe_paper_derivation",
+    "repeat_by_role": {
+      "test": 2,
+      "train": 2,
+      "val": 2
+    },
+    "repeat_semantics": "native _build_dataset repeats every role after left/right concatenation",
+    "scheduler_behavior": "constant_initial_lr_equals_eta_min",
+    "scientific_eligible": false,
+    "seed": 42,
+    "seed_policy": "original setup_runtime before native factory; this contract does not construct a runtime",
+    "sha256": "937bb56c9166a1ab0ca21f02b72ca6ecba8e2bfad5a9100fb895b174fb8136b2",
+    "sources_sha256": {
+      "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+      "config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+      "config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+      "config/experiment/fusion/vision_vit_small.yaml": "1c051a315dc074b186bf15482e394009bb3f2bec304b688e32c01bc2239aef02",
+      "config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+      "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+      "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+      "config/module/wilor_vit.yaml": "983cf953f720c19199f7c7c57c0b35cc43f885e486a3706335d06147863a5e3a",
+      "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+      "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+      "egoemg/models/modules/wilor_vit.py": "4b3caa49b329e155040e7918721f45785964b563dbe1fe96369f9d2ef605b9dd",
+      "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e"
+    },
+    "trainer": {
+      "check_val_every_n_epoch": 1,
+      "devices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_model_summary": false,
+      "gradient_clip_val": 1,
+      "log_every_n_steps": 1,
+      "max_epochs": 30,
+      "precision": "bf16-mixed"
+    },
+    "unused_declared_val_batch_size": 256,
+    "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "window": {
+      "eval_length": 7790,
+      "eval_stride": 7790,
+      "train_length": 7790,
+      "train_stride": 780
+    }
+  },
+  "scientific_eligible": false,
+  "scope": "source-bound prospective metadata only; genuine model/data/CUDA/full experiment still required",
+  "source_commit": "028250c24773be74f05059d37803310bbb2c2ad0",
+  "torch_imported": false
+}
