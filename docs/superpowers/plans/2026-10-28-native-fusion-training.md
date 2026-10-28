@@ -46,11 +46,11 @@
 - `FusionInitializers.check()` binds all producer files/sources, the admitted cohort, and its own immutable content seal. `.runtime_kwargs` provides the four branch arguments to `build_fusion_runtime`; `.identity` carries safe lineage, actual selection and overlap counts without private paths.
 - `fusion_optimizer_identity(prepared, optimizer, scheduler) -> dict` verifies original groups/rates/defaults, exact trainable coverage, cosine150/1e-5 and scheduler ownership, returns a sealed name/schema identity without changing the optimizer.
 
-- [ ] Step 1: Write tests for genuine engineering handoff and scope refusal; actual overlapping interval unions including jitter-only overlap; missing/incomplete producer fit; forged export; altered pinned historical reader; mismatched metadata/partition/payload; missing, duplicated and foreign optimizer parameters; changed group name/rate/defaults and scheduler. Do not fabricate a full-trained positive.
-- [ ] Step 2: Run the new tests and observe missing API/behavior failures. Record the command and actual RED result in the ledger.
-- [ ] Step 3: Implement the above interfaces using existing producer readers, `_StatGuard`, `_admit`, `LegacyStore`, partition builders and union arithmetic. Support the known published old ViT-S reader by its exact SHA256 `e44dc947111bec3aa858fb5fc36493650cda24f2093915bcd133a2d090d070da`; a current-reader path must satisfy the current producer's own source checks. Never mutate current vision module globals or saved reports.
-- [ ] Step 4: Run new and related native tests, then bare light suite. Independently run the actual old ViT-S producer half on CPU with no CUDA/model construction; full two-branch admission remains pending actual EMG150 completion.
-- [ ] Step 5: Commit source, tests, documentation and honest partial evidence; record task completion and unresolved actual full-handoff dependency.
+- [x] Step 1: Write tests for genuine engineering handoff and scope refusal; actual overlapping interval unions including jitter-only overlap; missing/incomplete producer fit; forged export; altered pinned historical reader; mismatched metadata/partition/payload; missing, duplicated and foreign optimizer parameters; changed group name/rate/defaults and scheduler. Do not fabricate a full-trained positive.
+- [x] Step 2: Run the new tests and observe missing API/behavior failures. Record the command and actual RED result in the ledger.
+- [x] Step 3: Implement the above interfaces using existing producer readers, `_StatGuard`, `_admit`, `LegacyStore`, partition builders and union arithmetic. Support the known published old ViT-S reader by its exact SHA256 `e44dc947111bec3aa858fb5fc36493650cda24f2093915bcd133a2d090d070da`; a current-reader path must satisfy the current producer's own source checks. Never mutate current vision module globals or saved reports.
+- [x] Step 4: Run new and related native tests, then bare light suite. Independently run the actual old ViT-S producer half on CPU with no CUDA/model construction; full two-branch admission remains pending actual EMG150 completion.
+- [x] Step 5: Commit source, tests, documentation and honest partial evidence; record task completion and unresolved actual full-handoff dependency.
 
 ### Task 2: Native complete fusion fit and interruption recovery
 
