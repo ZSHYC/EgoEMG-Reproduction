@@ -1,0 +1,46 @@
+{
+  "actual_test_launch_heads": {
+    "light": "a52a0baf0df35426641d3bf583d1b384d6b3715f",
+    "native": "a52a0baf0df35426641d3bf583d1b384d6b3715f"
+  },
+  "all_four_final_test_owners_exited": true,
+  "all_prior_failed_flows_preserved": true,
+  "all_ten_retained_prefix_replay_owners_exited": true,
+  "all_ten_source_test_files_unchanged": true,
+  "cpu_engineering_only": true,
+  "earlier_four_failed_owners_exited": true,
+  "format": "actual_native_wilor_runtime_cpu_validation_v1",
+  "full_paper_complete": false,
+  "independent_native_cpu_raw_reader_exit_code": 0,
+  "light": {
+    "actual_exit_code": 0,
+    "optional_dependency_skipped": 1171,
+    "passed": 1501,
+    "seconds": 88.51990681001917
+  },
+  "log_sha256": {
+    "light": "ac9627992fcf9e26cc8c204a88b28a2e1701acbaf2ac8edbf9951d3877197721",
+    "native": "dd061700871b21778fdf22f5b0f2620cc1e2d7c039f47e4659a98fd0ac4ed782"
+  },
+  "native": {
+    "actual_exit_code": 0,
+    "passed": 128,
+    "scope": "78runtime/27WiLoRconfiguration/23unchanged vision configuration checks",
+    "seconds": 14.0049442689633
+  },
+  "production_source_changes_for_engineering_driver_repairs": false,
+  "scientific_eligible": false,
+  "source_content_commit": "a52a0baf0df35426641d3bf583d1b384d6b3715f",
+  "sources_sha256": {
+    "configs/wilor-assets.json": "0d5834c66b69a8c245bb340ce93869bc153cb6cfdc330efe8fc0ba494f821250",
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/wilor_literal.py": "2c31460ce384d8b7ec268f2c09f09e77a1492cf0bdb1e6767f04a47ecd081ee2",
+    "egoemg_repro/wilor_literal_runtime.py": "c802cdbe4b11dbb6ca7beed881b6c655c9ccfb7db7751f3078b7334661da5730",
+    "tests/test_wilor_literal.py": "7ba09f6605ed44afc3c494420325b29bc5cd4f4e55eebf28edc8d3394e509faf",
+    "tests/test_wilor_literal_runtime.py": "7d3cce77d616bd14ab38eeea3ecd590d493dd44cca7d9079a00106c5412455ba",
+    "upstream/egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+    "upstream/egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899"
+  }
+}

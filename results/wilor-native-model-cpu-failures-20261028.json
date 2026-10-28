@@ -1,0 +1,53 @@
+{
+  "core_model_loss_precision_or_tolerance_changed": false,
+  "diagnoses": [
+    {
+      "actual_original_forward_characterization_hook_exit_code": 1,
+      "actual_original_forward_characterization_method_exit_code": 0,
+      "original_source_sha256": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+      "phase": "first native observation",
+      "reason": "original EmgPredictionModule.forward calls self.model.forward directly, bypassing nn.Module forward hooks",
+      "repair": "private temporary wrapper calls and returns the unmodified bound forward; restore original method in finally"
+    },
+    {
+      "actual_path_characterization_exit_code": 1,
+      "actual_string_characterization_exit_code": 0,
+      "phase": "second-flow restore before model construction",
+      "reason": "Torch2.2 mmap requires a string filename, private driver passed pathlib.Path",
+      "repair": "new restore-only stage uses str(packet), retained completed native update/validation/packet; no training restart"
+    }
+  ],
+  "first_forward_observer_failure": {
+    "actual_exit_code": 1,
+    "all_110_members_unchanged": true,
+    "all_four_owned_processes_exited": true,
+    "bundle_sha256": "b8086e002655686583ad22235aecde1cca4bd83b3bdb160156824ce9e90aae51",
+    "engineering_receipt_published": false,
+    "full_paper_complete": false,
+    "native_postconstruction_marker_reached": true,
+    "scientific_eligible": false,
+    "source_commit": "a52a0baf0df35426641d3bf583d1b384d6b3715f",
+    "worker_log_sha256": "a386da218d3f591598198d2c03ce2ad96b7705061a8082612a803fb62476228b"
+  },
+  "format": "actual_native_wilor_cpu_engineering_failures_v1",
+  "full_paper_complete": false,
+  "old_failed_jobs_still_failed": true,
+  "scientific_eligible": false,
+  "second_restore_path_failure": {
+    "actual_exit_code": 1,
+    "actual_fresh_exit_code": 0,
+    "actual_native_optimizer_steps": 1,
+    "actual_native_validation_predictions_exact": true,
+    "actual_native_validation_samples": 2,
+    "actual_restore_exit_code": 1,
+    "all_110_stage_members_unchanged": true,
+    "all_six_owners_exited": true,
+    "bundle_sha256": "2bfe612cc5bf734b3632b338cc1ca8949988a0260c8eeb18fcaccd4c5117c40d",
+    "full_paper_complete": false,
+    "retained_packet_bytes": 7579750462,
+    "retained_packet_sha256": "624a27a82d25d65ff738414d0cc193f661937ac14d2e7641151b881466bd51df",
+    "scientific_eligible": false,
+    "source_commit": "a52a0baf0df35426641d3bf583d1b384d6b3715f"
+  },
+  "source_commit": "a52a0baf0df35426641d3bf583d1b384d6b3715f"
+}

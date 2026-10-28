@@ -1,6 +1,6 @@
 # 全论文复现状态与证据清单
 
-最新实施（北京时间2026-10-28 22:10）：[WiLoR独立配置契约](wilor-native.md)Task1已完成，[新进程配置实证](../results/wilor-native-config-20261028.json)未导入Torch或构造模型，50原生配置/相关检查和1,475轻量检查通过（1,119真实可选依赖跳过），七来源摘要一致、实际拥有者退出。完整原生模型/输入/GPU/30轮/独立测试仍欠，设置数保持10。已有NeuroPose同进程完成3个完整轮次/1,194实际更新，兼容融合EMG初始化120/150轮/29,160更新，DINO-L81轮；其余原训练与右手几何下载继续，几何仍4/8。
+最新实施（北京时间2026-10-28 23:31）：[WiLoR原生模型/优化器入口](wilor-native.md)Task2已完成，[真实CPU原始包独立核验](../results/wilor-native-model-cpu-20261028.json)确认631,631,657参数、404个真实预训练张量精确匹配、一次原生更新及新进程严格全状态重载后两样本预测精确一致；保存的原始包及来源均重新核验，新增恢复更新0。128原生/相关和1,501轻量检查通过（1,171真实可选依赖跳过），实际退出、来源未变；[驱动失败与独立恢复](../results/wilor-native-model-cpu-failures-20261028.json)保留。完整输入/fit/GPU/30轮/独立测试仍欠，设置数保持10。NeuroPose原进程已完成11完整轮次/4,378实际更新，兼容融合EMG初始化145/150轮/35,235更新，DINO-L83轮；其余原训练与右手几何下载继续，几何仍4/8。
 
 当前进度（北京时间2026-10-28 21:52）：[NeuroPose实际GPU资格](../results/neuropose-native-gpu-qualified-20261028.json)和[唯一一次新实现审查](../results/neuropose-native-final-review-20261028.json)完成，0Critical/0Important/2Minor；[完整原生训练已启动](../results/neuropose-native-full-launch-20261028.json)。完整101,714/1,576/4,306输入准入、已资格源码/运行时/来源绑定及107成员SHA核验通过，四个所属PID/start实际存活，训练worker确认为GPU消费者。保留原B256/16-mixed/max100/val_loss/patience50；完整终止、选best、预测试freeze和全测试独立复算仍待完成，科学完成数仍10。[首个完整轮次](../results/neuropose-native-full-first-epoch-20261028.json)已完成全部101,714训练/1,576验证及398实际更新，原进程继续；val_loss是复合损失，尚非最终MAE。兼容融合的EMG初始化最近实查114/150轮，DINO-L80轮；EMG2Pose-S已实际GPU训练但首轮journal尚未完成，M/L仍在原队列后续。右手有效性文件继续下载，几何仍4/8。
 
