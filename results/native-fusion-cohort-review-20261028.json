@@ -14,9 +14,12 @@
     "Ruling: Reviewer declined GPU capacity, trained initializers, recovery, full fit, selection and report; these remain mandatory future work \u2014 cost: current scientific completed-setting count remains10.",
     "Ruling: Reviewer declined finiteness after stochastic transforms/model execution; raw full possible footprints remain this task scope \u2014 cost: real GPU training still needs its own finite forward/backward/update qualification.",
     "Ruling: Reviewer declined automatic checks inside later loader iteration; maintain explicit checks at admission/loader boundaries and require future fit integration \u2014 cost: this module alone cannot protect an unchecked later long-running fit.",
-    "Ruling: Reviewer declined malicious replacement of private methods/guards; this is a trusted task API, not a process security boundary \u2014 cost: hostile in-process code can defeat private state and is outside the scientific provenance claim."
+    "Ruling: Reviewer declined malicious replacement of private methods/guards; this is a trusted task API, not a process security boundary \u2014 cost: hostile in-process code can defeat private state and is outside the scientific provenance claim.",
+    "Ruling: Source-specific actual saved vision-cohort hash and partition independently matched reconstructed zero input overlap; legacy EMG initializer overlap641,552validation rows/68of788centers plus32,030testinputrows makes direct newfold reuse unacceptable \u2014 retrain using original cotrain-S recipe with fixed futurefusion holdouts \u2014 cost: extra150epoch initializer run, missing Incre source still disclosed and no effect on original completed-protocol results."
   ],
-  "fixed_source_real_server_qualified": false,
+  "fixed_source_commit": "32f10bd443e9a61fe4d5bb997de68225701f6d75",
+  "fixed_source_real_server_qualified": true,
+  "fixed_source_server_evidence": "results/native-fusion-cohort-fixed-full-20261028.json",
   "format": "egoemg_native_fusion_complete_input_whole_plan_review_v1",
   "fresh_independent_review_complete": true,
   "full_paper_complete": false,
@@ -62,6 +65,7 @@
       "seconds": 4.87
     }
   },
+  "old_source_full_server_evidence_preserved": true,
   "original_findings": {
     "critical": 0,
     "important": 2,
@@ -69,7 +73,7 @@
   },
   "plan": "docs/superpowers/plans/2026-10-28-native-fusion-cohort.md",
   "production_ready": false,
-  "ready_for_complete_input_subsystem": false,
+  "ready_for_complete_input_subsystem": true,
   "resolved_findings": [
     {
       "issue": "same mapped object can change strides or offset without object/path/shape changes",

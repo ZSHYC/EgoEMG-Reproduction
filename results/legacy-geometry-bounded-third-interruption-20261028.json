@@ -1,0 +1,113 @@
+{
+  "actual_exit_code": 1,
+  "actual_owner_matching_live": false,
+  "actual_predecessor_files_unchanged": true,
+  "actual_tool_handle_exit_code": 1,
+  "completed_file_count": 3,
+  "completed_files": [
+    {
+      "bytes": 66161725,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "filename": "mocap_webcam_tracked.dat",
+      "reused_existing": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40",
+      "url": "https://drive.google.com/uc?id=1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "verified_at": "2026-10-28T04:00:28.093916+00:00"
+    },
+    {
+      "bytes": 3175762800,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "filename": "mocap_mano_left_world_transform.dat",
+      "reused_existing": true,
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590",
+      "url": "https://drive.google.com/uc?id=1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "verified_at": "2026-10-28T04:00:32.349248+00:00"
+    },
+    {
+      "bytes": 3175762800,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1zohAWlpTvgpZI7AVX4MrVTXj3zHA7ZWh",
+      "filename": "mocap_mano_right_world_transform.dat",
+      "reused_existing": false,
+      "sha256": "255f49d3dfb0075b35ae2d10dc6e4021c4daf663fa72e420fcdcbab60fc8f76d",
+      "url": "https://drive.google.com/uc?id=1zohAWlpTvgpZI7AVX4MrVTXj3zHA7ZWh",
+      "verified_at": "2026-10-28T04:52:43.439799+00:00"
+    }
+  ],
+  "current_asset": "generated_mano_left_pose.dat",
+  "error": "Transfer interrupted for generated_mano_left_pose.dat; resume by rerunning: HTTPSConnectionPool(host='drive.usercontent.google.com', port=443): Max retries exceeded with url: /download?id=14DB4oE64wgom4hCVqzF3-ZGR0PkwUbme&export=download&confirm=t (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))",
+  "error_type": "DownloadError",
+  "expected_selected_bytes": 37778344975,
+  "finished_utc": "2026-10-28T05:00:06.439794+00:00",
+  "format": "legacy_geometry_bounded_terminal_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "independent_new_right_world_file_sha256": "255f49d3dfb0075b35ae2d10dc6e4021c4daf663fa72e420fcdcbab60fc8f76d",
+  "initial_sizes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 2153775104,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "new_binary_bytes": 1172982640,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 150994944,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T05:17:49.926509+00:00",
+  "prior_attempt_sha256": {
+    "tmp/legacy-geometry-bounded-20261028-state.json": "28b0d65aa9ba16693efa7c6b2862ba47049c8bb293973ca48c4dbe200026499a",
+    "tmp/legacy-geometry-bounded-20261028.log": "be2d19eda757ca3140a0f2e70d5026d00135ee82c05fa1a2bca8fe70840b128d",
+    "tmp/legacy-geometry-bounded-20261028.py": "5b871273d922f3e757cd93e51f2e760e1b11b1e0ca172a4dc1191b037a1217bf",
+    "tmp/legacy-geometry-bounded-second-20261028-state.json": "3d5464c1b9928b733f29d72f1991ce6064847555f40bd8160a4daeb62497c4b8",
+    "tmp/legacy-geometry-bounded-second-20261028.log": "5b84680bffb95d6dadf8be12e218446bbb39178523f6d42ba692968a6c885755",
+    "tmp/legacy-geometry-bounded-second-20261028.py": "4d31ae5874aa5185aa4f5d1c94af3cd1907a01877c8d1e9c842d70a5a18ea4c0",
+    "tmp/legacy-geometry-direct-20261028-state.json": "b503f843bbd519acc3632bf3c5301ae0061a0596a562f5ed871311a8a1e41ac7",
+    "tmp/legacy-geometry-direct-20261028.log": "c01720755435bb843e150b2a9ff285a05175d0b60637ddb3ad413e9b5183e04f",
+    "tmp/legacy-geometry-direct-20261028.py": "8c1477127e4dc681311cb6b8d94331dd632ea76662bcba43abca034b3327747e"
+  },
+  "raw_state_sha256": "9f699cfdb82cea0dd5d730f1bca4d2609cb85ed70140d513717d8a966bc7e1df",
+  "retry_events": [
+    {
+      "exception_type": "SSLError",
+      "failure_number": 1,
+      "filename": "generated_mano_left_pose.dat",
+      "observed_utc": "2026-10-28T04:59:53.339132+00:00",
+      "offset": 150994944,
+      "wait_seconds": 1,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 2,
+      "filename": "generated_mano_left_pose.dat",
+      "observed_utc": "2026-10-28T04:59:59.380604+00:00",
+      "offset": 150994944,
+      "wait_seconds": 2,
+      "will_retry": true
+    },
+    {
+      "exception_type": "SSLError",
+      "failure_number": 3,
+      "filename": "generated_mano_left_pose.dat",
+      "observed_utc": "2026-10-28T05:00:06.422537+00:00",
+      "offset": 150994944,
+      "wait_seconds": 0,
+      "will_retry": false
+    }
+  ],
+  "retry_events_total": 3,
+  "status": "failed"
+}

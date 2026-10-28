@@ -1,0 +1,94 @@
+{
+  "canonical_batch": 260,
+  "canonical_dataset_repeat": 1,
+  "canonical_effective_loss_weights": {
+    "landmark/fingertip": 0.01,
+    "mae": 1.0
+  },
+  "canonical_lr": 0.0005,
+  "canonical_max_epochs": 150,
+  "cuda_initialized": false,
+  "current_fusion_partition_sha256": "37623c78591368aab9ee7bcebe47850aa3eb978ce620a97309bbcbfb0211166d",
+  "discarded": {
+    "full_jitter_footprint_not_all_train": 554,
+    "native_center_not_train": 13889,
+    "overlaps_fusion_holdout": 8788
+  },
+  "experiment": "emgformer/regression_egoemg_incre_cotrain_wl12000_small",
+  "format": "fusion_compatible_emg_initializer_recipe_feasibility_v1",
+  "full_paper_complete": false,
+  "missing_incre_training_source": true,
+  "model_constructed": false,
+  "native_normalization": {
+    "left": {
+      "dtype": "float32",
+      "mean": [
+        -7.231502723026306e-13,
+        1.448950443135033e-12,
+        -1.6892440571347755e-11,
+        -1.252661689654655e-11,
+        -1.2940328496247044e-11,
+        9.326261117548196e-12,
+        -2.8426799109082523e-11,
+        -3.779553493094001e-12
+      ],
+      "shape": [
+        8
+      ],
+      "std": [
+        3.821516513824463,
+        4.0033464431762695,
+        4.532995700836182,
+        3.3738908767700195,
+        4.099949836730957,
+        4.044180393218994,
+        4.2281413078308105,
+        5.456417560577393
+      ]
+    },
+    "right": {
+      "dtype": "float32",
+      "mean": [
+        1.5540511585920846e-11,
+        -1.920762576768098e-10,
+        3.077472998658237e-11,
+        -7.338346076635194e-12,
+        -3.7279259540445864e-11,
+        2.417382787001099e-11,
+        3.4983644453534524e-11,
+        -1.1016149797926644e-11
+      ],
+      "shape": [
+        8
+      ],
+      "std": [
+        12.625292778015137,
+        29.244260787963867,
+        12.783987045288086,
+        14.19461441040039,
+        14.211451530456543,
+        13.55282974243164,
+        17.53721809387207,
+        14.340578079223633
+      ]
+    }
+  },
+  "normalization_asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+  "observed_utc": "2026-10-28T05:21:36.751370+00:00",
+  "optimizer_updates": 0,
+  "policy": "native episode-grid WL12000/stride1200/jitter range; exclude complete fusion validation intervals and test footprints; all possible train rows official train; val12000 wholly within fixed fusion validation intervals",
+  "probe_script_sha256": "1d5b579a262069188a253f1655d6bb2a4d8a14151e228a92e74fb1a68dfff521",
+  "production_ready": false,
+  "prospective_train_hand_samples": 63026,
+  "prospective_train_window_count": 31513,
+  "prospective_train_windows_sha256": "502e242e845e8f0e43b2cfc09f9ee73b7875111bcd6926afaff92e41dca66900",
+  "prospective_val_hand_samples": 582,
+  "prospective_val_window_count": 291,
+  "prospective_val_windows_sha256": "6e095e20194c1e1f03067599a8afa0d0adc4a41c98520b76c2091ec506378586",
+  "recipe_file_sha256": "15f6990ee4d0c7596c636bbe094054962f8513e1dd483dcf5a38f3ced71cb14b",
+  "scientific_eligible": false,
+  "scope": "readonly recipe and prospective fixed-holdout population feasibility, not an implemented or trained initializer",
+  "source_commit": "32f10bd443e9a61fe4d5bb997de68225701f6d75",
+  "test_role_used_for_initializer_training": false,
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+}

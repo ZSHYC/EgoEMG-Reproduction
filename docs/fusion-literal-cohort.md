@@ -43,4 +43,12 @@ loaders = native_fusion_loaders(cohort)
 
 [首次完整输入证据](../results/native-fusion-cohort-full-20261028.json)与[首次完整安全身份](../results/native-fusion-cohort-full-identity-20261028.json)绑定修复前源码`0de56c2`，记录两次独立进程完整hash/扫描：54文件共61,379,659,366bytes，首次176.65秒、新进程105.07秒，身份逐字节一致。双手EMG并集65,171,929行/1,042,750,864元素，所有可能中心39,530,541行/1,739,343,804目标元素均有限。两个阶段及外层进程已独立确认退出，77个固定源码/执行文件前后hash不变；原生三角色batch200/workers0、RNG不变、无模型/CUDA。总链287.43秒actual exit0。
 
-随后一次整体审查发现两项Important：映射布局可在同一对象上改变、输入文件在映射建立后才登记。新增回归检查同时覆盖共享图像缓存的旧映射；原失败及上述旧源码全量证据保留，不把它们重标成修复后的资格。修复后的完整服务器核验需另行执行，仍未因此完成融合训练。
+随后[一次整体审查](../results/native-fusion-cohort-review-20261028.json)发现两项Important：映射布局可在同一对象上改变、输入文件在映射建立后才登记。一次作者修复通过9项定向检查、82项相关原生检查及完整轻量1,437项检查（861项可选依赖跳过）。新增回归同时覆盖共享图像缓存的旧映射，原失败、[旧CPU证据](../results/native-fusion-cohort-prereview-cpu-20261028.json)及上述旧源码全量证据保留；没有第二次审查。
+
+[修复后完整服务器证据](../results/native-fusion-cohort-fixed-full-20261028.json)与[新安全身份](../results/native-fusion-cohort-fixed-full-identity-20261028.json)独立绑定提交`32f10bd`。两次全量核验分别126.67秒、87.58秒，整体219.83秒actual exit0；同样54文件/61,379,659,366bytes及全部有限足迹，记录逐字节一致。77个固定成员核对不变，两个阶段及外层共6进程实际PID/start均独立确认退出；无模型/CUDA/参数更新。这完成完整输入子系统，不等于完成融合训练。
+
+## 初始化划分检查
+
+[实际保存分区的兼容性检查](../results/fusion-initializer-footprint-compatibility-20261028.json)发现，旧EMG-S训练输入与新融合验证输入重叠641,552行（包含68/788个验证中心），与新测试输入重叠32,030行。因此不能直接用旧EMG权重为新融合初始化。已保存的原生ViT-S训练分区与新融合验证/测试输入均无行重叠；该结论只针对输入行，不消除整episode滤波依赖。
+
+下一步按官方声明的cotrain-S初始化配方重训EMG：保持8通道/12,000点/stride1,200、完整轨迹监督、原抖动、batch260、150轮和验证MAE选best；训练输入排除当前融合的全部验证区间与测试窗口。原生归一化读取实际选中每手8维向量，dataset_repeat构造默认值为1，不能沿用融合的repeat2。[只读可行性记录](../results/fusion-compatible-emg-recipe-feasibility-20261028.json)得到31,513个训练窗口/63,026个手样本与291个验证窗口/582个手样本，尚未实现或训练新初始化模型。缺失Incre来源的限制继续保留，旧完成实验的结果不因此改写。

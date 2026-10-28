@@ -1,0 +1,30 @@
+{
+  "conclusion": "success",
+  "format": "egoemg_pinned_full_native_hosted_ci_v1",
+  "full_paper_complete": false,
+  "head_sha": "75119de5ece402572003a7ab2fa780fd90d18be6",
+  "light": {
+    "job_id": 122626199097,
+    "log_sha256": "24e3b9262cf818081e1a17ab92b6270e402c09e164312941d44202ac9058a111",
+    "passed": 1452,
+    "seconds": 140.76,
+    "skip_scope": "optional runtime dependencies",
+    "skipped": 804,
+    "warnings": 1
+  },
+  "native": {
+    "job_id": 122626198993,
+    "log_sha256": "b3b2b11fc8076e5cfb742cb42ac3ecb5ed141ab1d9c9017e47ac396c250666b4",
+    "passed": 2624,
+    "pip_check_passed": true,
+    "seconds": 3054.88,
+    "skip_scope": "actual CUDA only",
+    "skipped": 3,
+    "warnings": 208
+  },
+  "observed_utc": "2026-10-28T05:15:30.671719+00:00",
+  "run_id": 40630723446,
+  "scientific_results_changed": false,
+  "scope": "exact historical75119de joint-reader source; excludes subsequent complete fusion admission and final review corrections",
+  "status": "completed"
+}

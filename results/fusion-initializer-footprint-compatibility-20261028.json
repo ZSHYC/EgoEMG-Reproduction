@@ -1,0 +1,56 @@
+{
+  "actual_label_or_prediction_values_evaluated": false,
+  "actual_vision_training_cohort_file_sha256": "011196848befc7a6f120937719464413ba12ec490a544f939064c04f65a26b36",
+  "cuda_initialized": false,
+  "format": "actual_initializer_training_footprint_compatibility_probe_v1",
+  "full_paper_complete": false,
+  "legacy_emg_initializer_checkpoint_sha256": "be50bf2a1eb262c49d68fb17bbb4f56043ed14c100f68ebab326ca97d601b365",
+  "legacy_emg_s_reuse_for_current_fusion_allowed": false,
+  "model_constructed": false,
+  "native_vision_last_checkpoint_sha256": "7c3949607c1657bf1d727ab0aeaa21c7edc89977f5b25e6281d99ebe7a1896f4",
+  "new_fusion_partition_content_sha256": "37623c78591368aab9ee7bcebe47850aa3eb978ce620a97309bbcbfb0211166d",
+  "next_required_action": "train a new official EMG initializer whose complete possible training footprints exclude the current fusion validation and test footprints",
+  "observed_utc": "2026-10-28T04:55:02.072114+00:00",
+  "old_completed_results_invalidated": false,
+  "old_emg_partition_content_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+  "old_saved_partition_reconstructed_exact": true,
+  "optimizer_updates": 0,
+  "probe_script_sha256": "86ae239f09d732130ba311ab96f568b9e866a0f8077fba59117397385fbcc8f3",
+  "production_ready": false,
+  "raw_probe_sha256": "da6233a955757c099682a26213fb720fdb154f3a7c9fb37e1e8c75556e4106ab",
+  "raw_probe_source_commit": "0de56c27470b06335c39a8258d4f205a2b590dbd",
+  "records": [
+    {
+      "current_role": "val",
+      "current_target_center_rows": 788,
+      "initializer_family": "legacy_emg_s",
+      "initializer_training_input_contains_target_center_rows": 68,
+      "initializer_training_input_overlap_rows": 641552
+    },
+    {
+      "current_role": "test",
+      "current_target_center_rows": 2153,
+      "initializer_family": "legacy_emg_s",
+      "initializer_training_input_contains_target_center_rows": 0,
+      "initializer_training_input_overlap_rows": 32030
+    },
+    {
+      "current_role": "val",
+      "current_target_center_rows": 788,
+      "initializer_family": "native_vision_s",
+      "initializer_training_input_contains_target_center_rows": 0,
+      "initializer_training_input_overlap_rows": 0
+    },
+    {
+      "current_role": "test",
+      "current_target_center_rows": 2153,
+      "initializer_family": "native_vision_s",
+      "initializer_training_input_contains_target_center_rows": 0,
+      "initializer_training_input_overlap_rows": 0
+    }
+  ],
+  "scientific_eligible": false,
+  "scope": "actual saved partition/input-row compatibility only; no target or prediction values; no claim of isolated whole-episode filtering",
+  "vision_partition_content_sha256": "87d7e2008def6b7a475674232b180b3fbef6b104986994c9dc733d8662f4b95d",
+  "vision_saved_training_partition_reconstructed_exact": true
+}

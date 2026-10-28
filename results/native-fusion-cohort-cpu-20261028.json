@@ -614,8 +614,8 @@
   "optimizer_updates": 0,
   "prior_source_evidence": "results/native-fusion-cohort-prereview-cpu-20261028.json",
   "production_ready": false,
-  "real_full_server_admission_complete": false,
-  "real_full_server_admission_evidence": null,
+  "real_full_server_admission_complete": true,
+  "real_full_server_admission_evidence": "results/native-fusion-cohort-fixed-full-20261028.json",
   "scientific_eligible": false,
   "whole_plan_review_complete": true
 }

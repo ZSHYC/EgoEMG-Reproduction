@@ -1,0 +1,130 @@
+{
+  "actual_owner_pid_start_live": true,
+  "actual_preexisting_target_consumers": 0,
+  "completed_files": [
+    {
+      "bytes": 66161725,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "filename": "mocap_webcam_tracked.dat",
+      "reused_existing": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40",
+      "url": "https://drive.google.com/uc?id=1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "verified_at": "2026-10-28T05:18:22.387109+00:00"
+    },
+    {
+      "bytes": 3175762800,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "filename": "mocap_mano_left_world_transform.dat",
+      "reused_existing": true,
+      "sha256": "d95ef663de4586a336814bff7d6617e9edef5b6565baa95c3fd3275d58a3b590",
+      "url": "https://drive.google.com/uc?id=1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "verified_at": "2026-10-28T05:18:26.563985+00:00"
+    },
+    {
+      "bytes": 3175762800,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1zohAWlpTvgpZI7AVX4MrVTXj3zHA7ZWh",
+      "filename": "mocap_mano_right_world_transform.dat",
+      "reused_existing": true,
+      "sha256": "255f49d3dfb0075b35ae2d10dc6e4021c4daf663fa72e420fcdcbab60fc8f76d",
+      "url": "https://drive.google.com/uc?id=1zohAWlpTvgpZI7AVX4MrVTXj3zHA7ZWh",
+      "verified_at": "2026-10-28T05:18:30.708454+00:00"
+    }
+  ],
+  "current_asset": "generated_mano_left_pose.dat",
+  "format": "actual_legacy_geometry_bounded_renewal_snapshot_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "initial_sizes": {
+    "generated_mano_left_pose.dat": 150994944,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "manual_cooldown_seconds": 1095.538115,
+  "new_binary_bytes": 234881024,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 385875968,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T05:23:24.149602+00:00",
+  "preserved_prior_attempt_files": {
+    "tmp/legacy-geometry-bounded-20261028-state.json": "28b0d65aa9ba16693efa7c6b2862ba47049c8bb293973ca48c4dbe200026499a",
+    "tmp/legacy-geometry-bounded-20261028.log": "be2d19eda757ca3140a0f2e70d5026d00135ee82c05fa1a2bca8fe70840b128d",
+    "tmp/legacy-geometry-bounded-20261028.py": "5b871273d922f3e757cd93e51f2e760e1b11b1e0ca172a4dc1191b037a1217bf",
+    "tmp/legacy-geometry-bounded-second-20261028-state.json": "3d5464c1b9928b733f29d72f1991ce6064847555f40bd8160a4daeb62497c4b8",
+    "tmp/legacy-geometry-bounded-second-20261028.log": "5b84680bffb95d6dadf8be12e218446bbb39178523f6d42ba692968a6c885755",
+    "tmp/legacy-geometry-bounded-second-20261028.py": "4d31ae5874aa5185aa4f5d1c94af3cd1907a01877c8d1e9c842d70a5a18ea4c0",
+    "tmp/legacy-geometry-bounded-third-20261028-state.json": "9f699cfdb82cea0dd5d730f1bca4d2609cb85ed70140d513717d8a966bc7e1df",
+    "tmp/legacy-geometry-bounded-third-20261028.log": "0f8954e7e570744c9a7853107a8e12d188e390f4ff763319fd83122dc64f6a39",
+    "tmp/legacy-geometry-bounded-third-20261028.py": "b532c02821378d04c1ed19b48b6897e4a6970b818bc54f887dc9377469c64145",
+    "tmp/legacy-geometry-direct-20261028-state.json": "b503f843bbd519acc3632bf3c5301ae0061a0596a562f5ed871311a8a1e41ac7",
+    "tmp/legacy-geometry-direct-20261028.log": "c01720755435bb843e150b2a9ff285a05175d0b60637ddb3ad413e9b5183e04f",
+    "tmp/legacy-geometry-direct-20261028.py": "8c1477127e4dc681311cb6b8d94331dd632ea76662bcba43abca034b3327747e"
+  },
+  "prior_owner_actual_nonlive": true,
+  "probes": [
+    {
+      "bytes": 1048576,
+      "end": 150994943,
+      "filename": "generated_mano_left_pose.dat",
+      "preserved_tail_equal": true,
+      "sha256": "302dfbf70f6e8322ec258ec4e92b139d2d1635dfe3607a524bfa75922ac98a33",
+      "start": 149946368
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "generated_mano_right_pose.dat",
+      "preserved_tail_equal": null,
+      "sha256": "8e9b1103b375fd1afbdfa7b7fe21bc3e70eb90dab8f95321ea25b52568614941",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "mocap_webcam_transform.dat",
+      "preserved_tail_equal": null,
+      "sha256": "fd2a259db07b22afdc3151f80069d0ea0c68d874e0fc5918ef70d20e719e7e17",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "mocap_left_valid.dat",
+      "preserved_tail_equal": null,
+      "sha256": "1f86a3e994bfa5f87c1932cd1312b160af37d05704c68b1fc92272cbd657139a",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "mocap_right_valid.dat",
+      "preserved_tail_equal": null,
+      "sha256": "1f86a3e994bfa5f87c1932cd1312b160af37d05704c68b1fc92272cbd657139a",
+      "start": 0
+    }
+  ],
+  "raw_actual_snapshot_sha256": "d3c15cd6ba6df571eaf21ee48489372903d098c70d5e8d5dc6d553c4e01d1f49",
+  "retry_events_total": 0,
+  "source_sha256": {
+    "assets_geometry_manifest.json": "af77d8d7a7cf137eca8f361db9e8feb4dd763b5c24869999c70b56f105024eb6",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "egoemg_repro/range_recovery.py": "626417e1680bcd487da7a12edd0a76a2d1d5b74bf55707ae78526349e41acd13",
+    "tmp/legacy-geometry-bounded-fourth-20261028.py": "aab7078b309e68adfd0f67ec26e0f22bed23200cbc4eabc9b46bd2000569bca2"
+  },
+  "status": "downloading"
+}
