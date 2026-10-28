@@ -1,0 +1,298 @@
+{
+  "audit_scope": "static pinned-source reconciliation with previously retained native execution evidence",
+  "checkpoints_loaded": false,
+  "cuda_initialized": false,
+  "datasets_loaded": false,
+  "format": "egoemg_pinned_vision_fusion_architecture_v1",
+  "full_paper_complete": false,
+  "fusion": {
+    "concat_shape": [
+      "B",
+      512,
+      1
+    ],
+    "emg_feature_shape": [
+      "B",
+      256,
+      146
+    ],
+    "exact_zero_residual_not_guaranteed": true,
+    "full_training_complete": false,
+    "fusion_mode": "center_supervised",
+    "fusion_projection": "Conv1d512->512 k1; GELU; Dropout0.1; Conv1d512->256 k1",
+    "input_shape": [
+      "B",
+      16,
+      7790
+    ],
+    "layout": {
+      "channel_indices": [
+        10,
+        12,
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "channel_interpolate": false,
+      "input_channels": 16,
+      "name": "emg2pose_interpolate16",
+      "placement": "native place_sparse_channels; zero-fill missing slots",
+      "source_channels": 8
+    },
+    "output_shape": [
+      "B",
+      22,
+      1
+    ],
+    "prediction": "vision_pose + residual",
+    "prior_actual_native_construction_parameters": 25855037,
+    "recipe": "fusion/fusion_vits_s_center_16ch_wl7790",
+    "residual_head": "MLPHead256->512; ReLU; Dropout0.1; Linear512->22",
+    "residual_last_bias_initialization": 0.0,
+    "residual_last_weight_initialization": {
+      "distribution": "normal",
+      "mean": 0.0,
+      "std": 1e-05
+    },
+    "retained_first_full_epoch_proves_trained_branch_handoff": true,
+    "retained_trained_emg_initializer": {
+      "completed_epochs": 150,
+      "selected_epoch": 133,
+      "selection": "completed native EMG validation best; complete source-fit-bound export"
+    },
+    "retained_trained_vision_initializer": {
+      "completed_epochs": 124,
+      "selection": "completed native vision last; not validation best"
+    },
+    "temporal_attention": "Linear256->64; Tanh; Linear64->1; softmax over time; weighted sum",
+    "token_length_basis": "pinned convolution arithmetic; reconciled with prior 8-channel diagnostic, not a new 16-channel forward",
+    "token_length_derivation": [
+      7790,
+      1556,
+      776,
+      154,
+      150,
+      148,
+      146
+    ],
+    "validity_gate": "any(dim=1) if temporal mask; multiply feature before head and projection",
+    "vision_feature_dimension": 384,
+    "vision_head": "Linear384->512; ReLU; Dropout0.1; Linear512->22",
+    "vision_projection": [
+      384,
+      256
+    ],
+    "window_seconds": 3.895
+  },
+  "new_model_forwards": 0,
+  "newly_constructed_models": 0,
+  "optimizer_updates": 0,
+  "renderer_sha256": "74d79619224c6dd5ab005cebf550521c6857d17a069249e8ca71cd56ada27cc8",
+  "retained_evidence_files_sha256": {
+    "results/dataset-statistics/emgformer-architecture.json": "aa3fce3fe5760e2c4b885c5e2412533f16a48528ae0702d60ac233d1b9fa6366",
+    "results/native-fusion-construction-cpu-20261028.json": "c893d27e78b193d6b66af44ab18fedec2ddb314fa996fbbcb43ee1f44c93b29c",
+    "results/native-fusion-construction-initialization-20261028.json": "92c7c087e9fdb59378fe332524230baa39e024d30028c702d50f208f65f57664",
+    "results/native-fusion-full-first-epoch-20261028.json": "3a6b0339abbcd4f2d52a1b182c3aea77d39510fb59c50496b8ca63b88e933f37",
+    "results/vision-literal-base-gpu-engineering.json": "e08d54b04a87512368132803189076dcba8c9059b2790dd08da26c28124a9483",
+    "results/vision-literal-gpu-engineering.json": "1473f267285ea3be4e2a4f5663df010d8959d1bab34110d931087cffe755be19",
+    "results/vision-literal-large-checkpoint-gpu-engineering.json": "543e8da09fd818d829485866446d8b2c1dcecade4658a7fcdeef94978e1ff7e2",
+    "results/wilor-native-gpu-qualification-review-20261029.json": "6e5e8b27f7c549aa21efc139e5b6eac5df0d43504c8c0bda7e1a8826d7dcebcb",
+    "results/wilor-native-model-cpu-20261028.json": "ee8f413f278910fa348fa601365240786896126d12cf850b1b97824309c9be16"
+  },
+  "scientific_complete": false,
+  "source_bundle_sha256": "7cd2be9ecdaf1e650df93c39485b2f2f39721377df41279a7d69a4a4e135c357",
+  "source_files_sha256": {
+    "config/experiment/fusion/fusion_vits_s_center_16ch_wl7790.yaml": "cc993c360a6cbaefb2a0811e795b7260e1203d14569b1cbbec86eb8f5aef1de1",
+    "config/module/decoder/transformer/preset/small.yaml": "341c82b2cdbe845a262b29b03abfbb67a5c2f2e5fda2f849f4647418423ad52e",
+    "config/module/featurizer/tds_slim_16ch.yaml": "2fa0e2edccad5baf1d79deb9808b6dcdf45196bd6b2469be42100132fc768021",
+    "config/module/head/mlp.yaml": "44652bee68480f9f94fa24b4550755ec766bbd05d57a21f19d0d065d93084a4c",
+    "config/module/mid_fusion.yaml": "cc7839062a4e1211d33ede8a87af38a896a0bed76d6f626de89d7747138c02ce",
+    "egoemg/models/featurizers/tds.py": "560b0cb7f17024e55e22eecb258cd56655ed3581b2a2f66889476aaeaaf8b37d",
+    "egoemg/models/heads/mlp.py": "ee34214295dcc0dde6fd0c512bbfd483d9463d425fbac07912c83fc2b475ce19",
+    "egoemg/models/modules/_pooling.py": "f5ff23e6878b4f50e6eabc586b77df33c844aa4377dc815aaee8e4f65d61cb06",
+    "egoemg/models/modules/_vision_constants.py": "5bec67a9503601368879f7a76aaa9637bd8bf6b917f33cb4a786671179853fbb",
+    "egoemg/models/modules/mid_fusion.py": "874cf1168b38c510835bd9b832dcb33ace4d0f8f45bb1eaeafa44a75ed7aeb49",
+    "egoemg/models/modules/resnet_vision.py": "a2c40c1ef84ec0463378b5d49a393a586ac97211d79afcff632f7eb6855c8d0a",
+    "egoemg/models/modules/vit_vision.py": "aa93eb7a45534945cc596a188e571de19b8bee2ff57734823571dce79059058a",
+    "egoemg/models/modules/wilor_vit.py": "4b3caa49b329e155040e7918721f45785964b563dbe1fe96369f9d2ef605b9dd"
+  },
+  "source_regions": [
+    {
+      "ast_sha256": "2de3ca1f142b591b8cff62634ddb6311b88742d7febd48a7eca6bf09e2913897",
+      "end_line": 85,
+      "file": "egoemg/models/modules/resnet_vision.py",
+      "start_line": 31,
+      "symbol": "ResNetVisionPose.__init__"
+    },
+    {
+      "ast_sha256": "33c1a9af9c113375727beb1cac4e46151b6095ac9c58a2841cfcc32da16d6ec1",
+      "end_line": 110,
+      "file": "egoemg/models/modules/resnet_vision.py",
+      "start_line": 87,
+      "symbol": "ResNetVisionPose.forward"
+    },
+    {
+      "ast_sha256": "b91e710b7bb1abe0434c3f557accd0afe4f67f1e1a926ded5d7fe75809551675",
+      "end_line": 63,
+      "file": "egoemg/models/modules/vit_vision.py",
+      "start_line": 25,
+      "symbol": "VisionViTPose.__init__"
+    },
+    {
+      "ast_sha256": "1693297d50160b10682a156888fa09d0d6f29881c3e7a630138c1e6bbcedb24a",
+      "end_line": 87,
+      "file": "egoemg/models/modules/vit_vision.py",
+      "start_line": 65,
+      "symbol": "VisionViTPose.forward"
+    },
+    {
+      "ast_sha256": "b0e45c41dedc7d1fa3da9ef67a879ab08d2829f8a579b5d7b82dd23b33a74e4b",
+      "end_line": 59,
+      "file": "egoemg/models/modules/wilor_vit.py",
+      "start_line": 38,
+      "symbol": "WiLoRViTPose.__init__"
+    },
+    {
+      "ast_sha256": "92428b0d5ed64107805d76fc9c6b95bfee2715ffddde922dbc06cd06035751b1",
+      "end_line": 124,
+      "file": "egoemg/models/modules/wilor_vit.py",
+      "start_line": 105,
+      "symbol": "WiLoRViTPose._extract_feature"
+    },
+    {
+      "ast_sha256": "038d6df58f03a84544642571cc381b1a6008c36591068b74980f437cdec4b8fd",
+      "end_line": 638,
+      "file": "egoemg/models/modules/mid_fusion.py",
+      "start_line": 384,
+      "symbol": "MidFusionPoseFormer.__init__"
+    },
+    {
+      "ast_sha256": "5e63cb4195412c9767c9aee8a32ba38ce212a985799d959042050d14421ab8eb",
+      "end_line": 734,
+      "file": "egoemg/models/modules/mid_fusion.py",
+      "start_line": 666,
+      "symbol": "MidFusionPoseFormer._forward_center_supervised"
+    },
+    {
+      "ast_sha256": "5ca54b7323f657397fe593f4471fec28e116721a8f0b63c940983b41209b76a3",
+      "end_line": 36,
+      "file": "egoemg/models/modules/_pooling.py",
+      "start_line": 30,
+      "symbol": "TemporalAttentionPool.__init__"
+    },
+    {
+      "ast_sha256": "aa5d660a0beea747df07658359e2bbd5aa3e16ed52f1497252b8db6c7451de51",
+      "end_line": 42,
+      "file": "egoemg/models/modules/_pooling.py",
+      "start_line": 38,
+      "symbol": "TemporalAttentionPool.forward"
+    },
+    {
+      "ast_sha256": "83e85698bf46476369070c2b0dad04ee5ea450f990a472632e63bfadbf907864",
+      "end_line": 46,
+      "file": "egoemg/models/modules/mid_fusion.py",
+      "start_line": 35,
+      "symbol": "_init_residual_branch"
+    }
+  ],
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "vision": {
+    "dinov2_pool": "timm backbone(img) vector; no additional pooling in EgoEMG wrapper",
+    "dinov2_variants": {
+      "vit_base": {
+        "dimension": 768,
+        "timm_model": "vit_base_patch14_dinov2"
+      },
+      "vit_large": {
+        "dimension": 1024,
+        "timm_model": "vit_large_patch14_dinov2"
+      },
+      "vit_small": {
+        "dimension": 384,
+        "timm_model": "vit_small_patch14_dinov2"
+      }
+    },
+    "heads": {
+      "resnet_vision": {
+        "activation": "ReLU",
+        "dropout": 0.1,
+        "first_linear_arguments": [
+          "backbone_dim",
+          "head_hidden"
+        ],
+        "hidden": 512,
+        "layers": [
+          "nn.Linear",
+          "nn.ReLU",
+          "nn.Dropout",
+          "nn.Linear"
+        ]
+      },
+      "vit_vision": {
+        "activation": "ReLU",
+        "dropout": 0.1,
+        "first_linear_arguments": [
+          "backbone_dim",
+          "head_hidden"
+        ],
+        "hidden": 512,
+        "layers": [
+          "nn.Linear",
+          "nn.ReLU",
+          "nn.Dropout",
+          "nn.Linear"
+        ]
+      },
+      "wilor_vit": {
+        "activation": "GELU",
+        "dropout": 0.1,
+        "first_linear_arguments": [
+          "1280",
+          "head_hidden"
+        ],
+        "hidden": 512,
+        "layers": [
+          "nn.Linear",
+          "nn.GELU",
+          "nn.Dropout",
+          "nn.Linear"
+        ]
+      }
+    },
+    "input_shape": [
+      "B",
+      3,
+      256,
+      256
+    ],
+    "num_center_frames": 1,
+    "output_shape": [
+      "B",
+      22,
+      1
+    ],
+    "resnet_pool": "AdaptiveAvgPool2d((1,1)), flatten",
+    "resnet_variants": {
+      "resnet152": 2048,
+      "resnet18": 512,
+      "resnet50": 2048
+    },
+    "wilor": {
+      "backbone_input_shape": [
+        "B",
+        3,
+        192,
+        256
+      ],
+      "feature_dimension": 1280,
+      "input_height_crop": [
+        32,
+        -32
+      ],
+      "pool": "last 4D returned map, AdaptiveAvgPool2d((1,1)), flatten"
+    }
+  }
+}

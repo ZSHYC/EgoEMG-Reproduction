@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "matplotlib": "3.9.4",
+    "numpy": "1.26.4",
+    "pillow": "11.0.0"
+  },
+  "facts_sha256": "16a1274eb2a0581c56f4f2b59f6bc1f7b6b553b9f1555db2fce412d7610e3564",
+  "format": "egoemg_vision_fusion_architecture_render_v1",
+  "full_paper_complete": false,
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "outputs": {
+    "fusion-architecture": {
+      "png": "b5f1412369b01c36ac85b2cb447d3de93a44d1a6f30a9f96c779b606bf3e3d5a",
+      "svg": "8bf3602d43657b6f1142dd19acc1df92748143aaafcbcd5b95e8e866c2a42061"
+    },
+    "vision-architecture": {
+      "png": "590677e9bfae8302b1783e94b90cbe3994ebc2a98f3ea27ea636f59c9523feae",
+      "svg": "380d82e8902c2b7c7e6b0d99c359c0fdd6f13c21833aa525b933e96f21816adb"
+    }
+  },
+  "python": "3.12.14",
+  "renderer_sha256": "74d79619224c6dd5ab005cebf550521c6857d17a069249e8ca71cd56ada27cc8"
+}

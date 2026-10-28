@@ -1,0 +1,58 @@
+{
+  "actual_stages": [
+    {
+      "actual_exit_code": 0,
+      "seconds": 0.10375129303429276,
+      "stage": "independent-source-audit"
+    },
+    {
+      "actual_exit_code": 0,
+      "seconds": 0.9772373460000381,
+      "stage": "independent-render"
+    }
+  ],
+  "artifacts": [
+    {
+      "bytes": 343450,
+      "file": "results/dataset-statistics/vision-architecture.png",
+      "independent_process_bytes_exact": true,
+      "sha256": "590677e9bfae8302b1783e94b90cbe3994ebc2a98f3ea27ea636f59c9523feae"
+    },
+    {
+      "bytes": 129003,
+      "file": "results/dataset-statistics/vision-architecture.svg",
+      "independent_process_bytes_exact": true,
+      "sha256": "380d82e8902c2b7c7e6b0d99c359c0fdd6f13c21833aa525b933e96f21816adb"
+    },
+    {
+      "bytes": 419249,
+      "file": "results/dataset-statistics/fusion-architecture.png",
+      "independent_process_bytes_exact": true,
+      "sha256": "b5f1412369b01c36ac85b2cb447d3de93a44d1a6f30a9f96c779b606bf3e3d5a"
+    },
+    {
+      "bytes": 150530,
+      "file": "results/dataset-statistics/fusion-architecture.svg",
+      "independent_process_bytes_exact": true,
+      "sha256": "8bf3602d43657b6f1142dd19acc1df92748143aaafcbcd5b95e8e866c2a42061"
+    },
+    {
+      "bytes": 856,
+      "file": "results/dataset-statistics/vision-fusion-architecture-render.json",
+      "independent_process_bytes_exact": true,
+      "sha256": "7291bbbde75c448ef0d8446202d0c822804d7e992b93f8e037587b5bf9a971a9"
+    }
+  ],
+  "format": "egoemg_vision_fusion_architecture_validation_v1",
+  "full_paper_complete": false,
+  "independent_audit_bytes_exact": true,
+  "new_model_forwards": 0,
+  "new_models": 0,
+  "optimizer_updates": 0,
+  "scientific_complete": false,
+  "training_jobs_modified": false,
+  "visual_inspection": {
+    "fusion_png": "validity fork, attention, projection and residual sum inspected; no clipping or overlap",
+    "vision_png": "all three distinct family paths, labels and arrows inspected; no clipping or overlap"
+  }
+}
