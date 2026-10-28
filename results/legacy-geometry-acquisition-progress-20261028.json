@@ -1,0 +1,45 @@
+{
+  "actual_exec_session_observed_terminal": true,
+  "actual_exit_code": 1,
+  "actual_pid_start_live": false,
+  "actual_private_state_sha256": "b503f843bbd519acc3632bf3c5301ae0061a0596a562f5ed871311a8a1e41ac7",
+  "automatic_retry": false,
+  "completed_files": [
+    {
+      "bytes": 66161725,
+      "filename": "mocap_webcam_tracked.dat",
+      "reused_existing": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40"
+    }
+  ],
+  "current_asset": "mocap_mano_left_world_transform.dat",
+  "expected_selected_bytes": 37778344975,
+  "format": "egoemg_legacy_geometry_actual_intake_progress_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "geometry_fully_acquired": false,
+  "new_verified_binary_bytes_committed": 754974720,
+  "next_step": "bounded transient-only per-offset recovery, unchanged protocol/size/type/hash gates, and fresh tail validation before a new owned attempt",
+  "observed_file_bytes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 2840068096,
+    "mocap_mano_right_world_transform.dat": 660602880,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T02:14:49.951831+00:00",
+  "occlusion_experiment_complete": false,
+  "old_and_new_binary_prefix_preserved": true,
+  "preserved_binary_tails_bitwise_checked": true,
+  "reason": "TLS connection ended unexpectedly during a new range request; strict transfer stopped on first exception",
+  "source_files_sha256": {
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "tmp/legacy-geometry-direct-20261028.py": "8c1477127e4dc681311cb6b8d94331dd632ea76662bcba43abca034b3327747e"
+  },
+  "status": "failed",
+  "strict_asset_probes_passed": 7
+}

@@ -39,6 +39,8 @@ EMG2Pose 官方 [assemble_emg2pose_parts.sh](https://github.com/zhenqis123/EgoEM
 
 ## 历史 legacy 选择性获取
 
+2026-10-28补充：双手raw各2,117,175,200bytes已完整接收，原下载进程实际退出0；[接收记录](../results/raw-emg-full-acquisition-20261028.json)与[双手41段原官方FFT重生成](../results/dataset-statistics/emg-fft-bilateral-full.md)均已核验。它们是初始21文件以外的独立获取与处理，不改写旧版训练或证明当前发布等价。
+
 From the installed source checkout, run:
 
 ```sh
