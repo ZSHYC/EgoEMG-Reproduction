@@ -69,3 +69,5 @@ verify_neuropose_report(replay_test, report)
 [实际原B256/FP16 GPU资格](../results/neuropose-native-gpu-qualified-20261028.json)已完成：冻结两轮/4次更新的原工程权重，新源native与另一进程完整验证全部1576样本（6×256+40），有类型的输入/预测精确一致；7批均实际CUDA:0计算，native收尾CPU与replay收尾CUDA分别保留。最后CPU资格reader重开原始fit/来源/runtime/cohort/numeric/capacity全部通过，三阶段exit0、全部8个所属进程退出、107个stage成员及原fit全部字节未变，新增训练0。旧错误运行保持失败。该资格供完整训练准入使用，没有最终科学成绩。
 
 完整流程绑定源码3cbe04b（训练/评价字节保持已资格版本），101,714/1,576/4,306完整手样本、原B256/16-mixed/max100/patience50；九个独立阶段依次完成fit、CPU重开验收、完整验证native/replay、预测试freeze、完整测试native/replay、报告及另一进程verify。报告使用已经离线核验的隔离绘图库，仅在两个CPU报告阶段附加到环境；实际NumPy1.26.4/Matplotlib3.9.4/Lightning2.5.0.post0导入已核验，无CUDA初始化、无共享环境修改。此启动证据不是训练终止或科学成绩；仍须实际完整终止与独立测试链。
+
+[首轮完整实证](../results/neuropose-native-full-first-epoch-20261028.json)：同一实际训练进程完成全部101,714训练、1,576验证，398次尝试/398次实际AdamW更新；原生val_loss为1.19947934（复合损失，非角度MAE）。最佳检查点已由原生回调保存；四个拥有者实际存活、107成员字节及完整准入身份再次核对不变。原进程继续，最终完整训练与测试仍未完成。

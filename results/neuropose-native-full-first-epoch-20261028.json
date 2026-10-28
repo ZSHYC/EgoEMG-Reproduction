@@ -1,0 +1,88 @@
+{
+  "actual_all_four_owned_pid_start_live": true,
+  "actual_complete_validation_epochs": 1,
+  "actual_completed_epoch_optimizer_executions": 398,
+  "actual_full_input_admission_complete": true,
+  "actual_owned_gpu_memory_mib": 18366,
+  "actual_owned_worker_is_gpu_compute_consumer": true,
+  "all_107_immutable_stage_members_unchanged": true,
+  "automatic_retry": false,
+  "bundle_sha256": "ea3ecb334a289ca1f54661a052752eb4b2c3118642fe8a0455a26a9548bc90f4",
+  "current_training_sources_equal_actual_qualified_sources": true,
+  "first_complete_epoch": {
+    "attempts": 398,
+    "epoch": 0,
+    "optimizer_executions": 398,
+    "train_batches": 398,
+    "train_loss": 1.1925394239203821,
+    "train_samples": 101714,
+    "validation": {
+      "model_sha256": "c7164e84a0dbc5aec3be0e37c8b01ec024040502136fa5fabb23fba2c1113fe7",
+      "prediction_sha256": "84ff5e41b73ff1b0d55df927f2a9a5f705cb0044a2ae6a9dd9c09db3ef5db247",
+      "samples": 1576,
+      "val_loss": 1.199479341506958
+    }
+  },
+  "format": "actual_native_neuropose_full_first_epoch_v1",
+  "full_identity_sha256": "5a3c6a93025fa39e739f7078149d10f6b9c59359273f2a6c73909c01223c9014",
+  "full_paper_complete": false,
+  "full_test_complete": false,
+  "full_training_complete": false,
+  "observed_utc": "2026-10-28T13:52:41.197398+00:00",
+  "original_full_counts": {
+    "test": 4306,
+    "train": 101714,
+    "val": 1576
+  },
+  "planned_independent_stages": [
+    "fit",
+    "accept",
+    "val-native",
+    "val-replay",
+    "freeze",
+    "test-native",
+    "test-replay",
+    "report",
+    "verify"
+  ],
+  "policy": {
+    "batch_size": 256,
+    "checkpoint_continuation_supported": false,
+    "counts": {
+      "test": 4306,
+      "train": 101714,
+      "val": 1576
+    },
+    "engineering_train_limit": null,
+    "mode": "min",
+    "monitor": "val_loss",
+    "num_workers": 0,
+    "patience": 50,
+    "scientific_eligible": false,
+    "scope": "full",
+    "trainer": {
+      "accelerator": "gpu",
+      "accumulate_grad_batches": 1,
+      "check_val_every_n_epoch": 1,
+      "deterministic": false,
+      "devices": 1,
+      "gradient_clip_val": 0,
+      "limit_test_batches": 1.0,
+      "limit_train_batches": 1.0,
+      "limit_val_batches": 1.0,
+      "log_every_n_steps": 50,
+      "max_epochs": 100,
+      "max_steps": -1,
+      "num_sanity_val_steps": 0,
+      "precision": "16-mixed",
+      "val_check_interval": 1.0
+    },
+    "training_trajectory_agreement_claimed": false,
+    "variant": "neuropose"
+  },
+  "raw_cuda_qualification_sha256": "ce957e875972b1bc7858c114c3b62f317a34ed160481b94eb3038bfb5fbd2d88",
+  "scientific_eligible": false,
+  "scope": "actual fresh full native CUDA fit; counts and completed epochs are a live snapshot, not a scientific result",
+  "source_commit": "3cbe04b3557a355b398633dae84cc16fbb37c326",
+  "started_utc": "2026-10-28T13:39:57.560646+00:00"
+}
