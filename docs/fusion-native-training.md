@@ -103,3 +103,6 @@ publish_fusion_report(fit, test_native, test_replay, report)
 [检查记录](../results/native-fusion-eval-cpu-validation-20261028.json)另保留最初29项检查、追加两项curve绑定RED及最终31+122/完整轻量结果。最初collector在三个子进程成功后，用缺少Torch的system Python汇总时exit1；失败日志保留，之后使用匹配CPU解释器只完成独立最终核验，重启子阶段0、额外训练更新0。没有把第一次失败改记成成功。
 
 [真实数据/GPU资格流程](../results/native-fusion-training-gpu-launch-20261028.json)已从c14e6f8冻结86成员单次启动，先在两个新进程重验完整输入，再检查原batch200/bf16的训练、恢复、完整验证和独立评价。启动时四个实际拥有者存活，当前启动快照只证明正在输入核验；不证明GPU阶段或150轮已完成。资格用明确未训练EMG工程分支，完整融合仍须等待兼容EMG150的真实best接纳及最终整体审查。
+
+
+[当前训练源码的两次全量输入重验](../results/native-fusion-training-readmission-20261028.json)已完成：两个新进程分别96.61秒/85.49秒actualexit0，54文件/61,379,659,366字节和完整有限足迹的身份记录精确一致；四个对应worker/guardian独立确认退出，86固定成员未变，无CUDA或模型更新。资格流程随后进入prefix阶段，原拥有进程继续；10:29UTC实际观察到它在指定GPU上持有CUDA上下文，仍不能据此宣称完整训练/恢复/评价资格已通过。一次最终整体审查及兼容EMG150完成后的full交接/150轮继续保留。

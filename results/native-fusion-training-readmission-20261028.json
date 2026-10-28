@@ -1,0 +1,48 @@
+{
+  "actual_distinct_new_processes": 2,
+  "actual_four_admission_owners_nonlive": true,
+  "actual_full_payload_bytes": 61379659366,
+  "actual_full_payload_files": 54,
+  "actual_identity_records_exact": true,
+  "all_full_numeric_footprints_finite": true,
+  "all_immutable_members_unchanged": true,
+  "bundle_sha256": "dfd8ae8af19b4d9a91d30ab0ba6db223bb6b49451ac90d1f90f2c79865b8e0b0",
+  "cohort_identity_sha256": "1b7bbca1836fc96cf8ea3e10d9a37c8db9a2edec327365ed55c1cae8289b2592",
+  "consumed_samples": {
+    "test": 8612,
+    "train": 395276,
+    "val": 3152
+  },
+  "cuda_initialized": false,
+  "format": "actual_native_fusion_current_training_source_full_input_readmission_v1",
+  "full_paper_complete": false,
+  "immutable_members": 86,
+  "new_fusion_full150_started": false,
+  "observed_utc": "2026-10-28T10:27:59.751621+00:00",
+  "partition_content_sha256": "37623c78591368aab9ee7bcebe47850aa3eb978ce620a97309bbcbfb0211166d",
+  "scientific_eligible": false,
+  "source_commit": "c14e6f8880c669db32557997713b960217cd651f",
+  "stages": [
+    {
+      "actual_exit_code": 0,
+      "actual_worker_and_guardian_nonlive": true,
+      "name": "admit-a",
+      "result_file_sha256": "32ac3dc180785d644166a931731e0aa5f28bfe4d4908469707811cc7c7ef1abe",
+      "seconds": 96.61181208398193,
+      "terminal_stage_receipt_sha256": "b0958e0752c16bfd7ecd93c88d49f626f7bf7cbe5e36d1bf6568a1e23e3035a0"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_worker_and_guardian_nonlive": true,
+      "name": "admit-b",
+      "result_file_sha256": "aae4b34a84360cb7b693658185c1b8a2c7e55d8e179c47d47f6dce3d240c2382",
+      "seconds": 85.48813113989308,
+      "terminal_stage_receipt_sha256": "4b029706f966755a8c830ec7564755e7dd70496c1d963375a41db536fd00a7c0"
+    }
+  ],
+  "unique_samples": {
+    "test": 4306,
+    "train": 197638,
+    "val": 1576
+  }
+}

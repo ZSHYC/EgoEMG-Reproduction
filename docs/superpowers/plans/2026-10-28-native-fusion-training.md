@@ -92,7 +92,7 @@
 - Task-owned stage/worker/controller/observer scripts and frozen manifests in ignored scratch.
 - `results/native-fusion-*-20261028.json`, final `results/original-fusion/vit-small-emg-small/` and current status documentation.
 
-- [ ] Step 1: Revalidate the actual complete cohort under final affected sources in independent processes. Check any proposed normalization representation fix with a real changed-input regression before changing the old reader; preserve old receipts and never rewrite them.
+- [x] Step 1: Revalidate the actual complete cohort under final affected sources in independent processes. Check any proposed normalization representation fix with a real changed-input regression before changing the old reader; preserve old receipts and never rewrite them.
 - [ ] Step 2: On a newly observed free GPU run original batch200/bf16 bounded train, independent native restore, complete validation and evaluation/replay qualification. No smaller batch, reduced model or loosened tolerance to force admission.
 - [ ] Step 3: Request one fresh-context review of the entire new implementation; grade by actual scientific/user effect. Fix accepted Critical/Important findings once with RED→GREEN and a green suite; ledger deferred minors and every ruling. No second review.
 - [ ] Step 4: When compatible EMG150 has actually completed and independent best-export acceptance has passed, perform full two-branch handoff and freeze its exact lineage, input receipt, final source and GPU qualification. Launch original full150 once with resource guards.
