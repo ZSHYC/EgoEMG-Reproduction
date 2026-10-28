@@ -54,7 +54,7 @@
 - [x] For each size, execute actual source factory, train-mode trajectory loss/backward and one original AdamW/cosine update on fixed synthetic full-length input, freeze complete learned state privately. Expected: finite nonzero gradients/changed state, source config0.02, no data/GPU/full-budget claim.
 - [x] Fresh process strictly reloads all three and independently computes same eval predictions/typed-state digest. Expected: exact outputs and source hashes, actual owners closed, no extra optimization in replay.
 - [x] One fresh new-component review, one fix pass for material findings with targeted RED→GREEN; no repeated old model internals review.
-- [ ] Verify public evidence/source bindings and scope, commit/push/ref verification. Expected: this component ready; full0.02 data/cohort/200epoch/selected-best test/report and all remaining paper requirements remain pending.
+- [x] Verify public evidence/source bindings and scope, commit/push/ref verification. Code/evidence commit `ba77fd3202768110c2387645b4786f1865bdfa53` pushed successfully; independent GitHub API ref matched exactly. Expected: this component ready; full0.02 data/cohort/200epoch/selected-best test/report and all remaining paper requirements remain pending.
 
 ## Downstream requirements retained
 
