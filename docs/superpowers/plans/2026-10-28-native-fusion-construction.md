@@ -33,9 +33,9 @@
 
 **Interfaces:** `compose_fusion(upstream)` returns exact bound Hydra config. `_validated(upstream,config)` returns(root,resolved_original_dict). `fusion_protocol(upstream,config)` returns sealed safe metadata with original module, optimizer, callbacks, effective loss and executed loader semantics; CONTEXT_KEY=`_literal_fusion`.
 
-- [ ] Write cases for exact native Hydra equivalence;16-slot/WL/stride/repeat/loss/optimizer/callback values; actual native datamodule batch/repeat witness; private environment path redaction; edits to model/layout/norm/initializers/trainer/types and binding; missing/unapproved upstream. Run RED before module exists.
-- [ ] Implement exact source composition/binding using existing approved source/hash activation helpers. Redact only declared path-valued module initializers in public metadata; never alter actual config. Include full source hashes and distinguish declared merged corpus from unavailable data admission.
-- [ ] Run new contract and existing vision/classic metadata checks with native runtime. Expected: all pass, no CUDA/model/data construction from contract. Run light suite, commit, task-done.
+- [x] Write cases for exact native Hydra equivalence;16-slot/WL/stride/repeat/loss/optimizer/callback values; actual native datamodule batch/repeat witness; private environment path redaction; edits to model/layout/norm/initializers/trainer/types and binding; missing/unapproved upstream. Run RED before module exists.
+- [x] Implement exact source composition/binding using existing approved source/hash activation helpers. Redact only declared path-valued module initializers in public metadata; never alter actual config. Include full source hashes and distinguish declared merged corpus from unavailable data admission.
+- [x] Run new contract and existing vision/classic metadata checks with native runtime. Expected: all pass, no CUDA/model/data construction from contract. Run light suite, commit, task-done.
 
 ### Task 2: Original construction, branch transfer and self-contained restore
 
@@ -43,10 +43,10 @@
 
 **Interfaces:** `build_fusion_runtime(upstream,config,*,vision_checkpoint=None,vision_sha256=None,emg_checkpoint=None,emg_sha256=None,state=None,expected_initialization=None)` returns `PreparedFusion` with module/identity/mode/loaded_state_sha256/check(). Fresh mode requires both regular local files and hashes; restore requires state+expected_initialization exclusively. Identity records protocol/source/runtime/schema plus all matched/skipped initializer tensor names and byte hashes. Learned weights may change; check() guards config/source/assets/identity.
 
-- [ ] Use a real native pretrained DINO-S-format engineering fixture from existing genuine-cache fixture and an explicitly random original EMG-S fixture. Record their engineering scope. Add failing tests for exact vision backbone/head transfer, complete native EMG prefix/shape loading, residual initialization, original forward/loss/optimizer, offline factory, initializer damage and strict fresh-process restore; no model substitutes.
-- [ ] Run missing-module RED. Implement source-bound two-mode native factory wrapper. Hash files with bounded reads; check stamps before/after loading. Reject partial vision transfer, nonfinite/typed-invalid tensors and empty EMG featurizer/decoder transfer. Keep original EMG mismatch skips and compare every matched tensor exactly after construction. Clear initializer paths only for explicit restore and temporarily disable pretrained downloading for its native random factory before strict full-state load.
-- [ ] Verify exact native near-zero residual rule rather than forcing exact zero; native center prediction shape1×22×1, real finite CPU forward/loss/backward and original optimizer component membership. Report unqualified status and all initializer-source limitations.
-- [ ] Run relevant native/contract/runtime regressions and full light suite; unchanged frozen-source SHA and no CUDA. Commit, task-done, then one fresh whole-plan review. Any important fix uses RED→GREEN without re-review.
+- [x] Use a real native pretrained DINO-S-format engineering fixture from existing genuine-cache fixture and an explicitly random original EMG-S fixture. Record their engineering scope. Add failing tests for exact vision backbone/head transfer, complete native EMG prefix/shape loading, residual initialization, original forward/loss/optimizer, offline factory, initializer damage and strict fresh-process restore; no model substitutes.
+- [x] Run missing-module RED. Implement source-bound two-mode native factory wrapper. Hash files with bounded reads; check stamps before/after loading. Reject partial vision transfer, nonfinite/typed-invalid tensors and empty EMG featurizer/decoder transfer. Keep original EMG mismatch skips and compare every matched tensor exactly after construction. Clear initializer paths only for explicit restore and temporarily disable pretrained downloading for its native random factory before strict full-state load.
+- [x] Verify exact native near-zero residual rule rather than forcing exact zero; native center prediction shape1×22×1, real finite CPU forward/loss/backward and original optimizer component membership. Report unqualified status and all initializer-source limitations.
+- [x] Run relevant native/contract/runtime regressions and full light suite; unchanged frozen-source SHA and no CUDA. Commit, task-done, then one fresh whole-plan review. Any important fix uses RED→GREEN without re-review.
 
 ## Following required fusion work
 

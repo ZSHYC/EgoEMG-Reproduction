@@ -236,3 +236,73 @@ def test_guard_checks_initializer_stability_but_not_learned_parameter_bytes(bran
     p.check()
     with path.open('ab') as f:f.write(b'x')
     with pytest.raises(ValueError):p.check()
+
+
+@pytest.mark.parametrize('damage',['stripped_audit','source_key','source_dtype','native_prefix','source_overlap',
+    'skip_reason','skip_shape','missing_match','missing_skip','missing_inventory','normalized_duplicate'])
+def test_resealed_transfer_receipt_requires_complete_native_source_inventory(fusion_packet,branch_files,monkeypatch,damage):
+    pytest.importorskip('torch')
+    from egoemg_repro.fusion_literal import compose_fusion
+    from egoemg_repro.classic_emg import _hash
+    from egoemg_repro.vision_literal_runtime import _schema,vision_state_sha256
+    data=load(fusion_packet);identity=copy.deepcopy(data['identity']);init=identity['initialization'];transfer=init['emg_transfer']
+    if damage=='stripped_audit':
+        for item in transfer['matched']:item.pop('source_key');item.pop('source_dtype')
+        transfer['skipped']=[{'reason':x['reason']} for x in transfer['skipped']]
+    elif damage=='source_key':transfer['matched'][0]['source_key']='model.unrecorded_tensor'
+    elif damage=='source_dtype':transfer['matched'][0].pop('source_dtype')
+    elif damage=='native_prefix':
+        item=next(x for x in transfer['skipped'] if x['reason']=='not_backbone_prefix' and x['source_shape']==x['target_shape'])
+        transfer['skipped'].remove(item);item.pop('reason');item.pop('target_shape')
+        target='model.'+item['target_key'];item['target_dtype']=identity['model_schema'][target]['dtype']
+        item['loaded_sha256']=vision_state_sha256({item['target_key']:data['state_dict'][target]});transfer['matched'].append(item)
+    elif damage=='source_overlap':transfer['skipped'].append(dict(transfer['matched'][0],reason='missing_target'))
+    elif damage=='skip_reason':transfer['skipped'][0]['reason']='missing_target'
+    elif damage=='skip_shape':transfer['skipped'][0]['target_shape']=[1]
+    elif damage=='missing_match':transfer['matched'].pop(0)
+    elif damage=='missing_skip':transfer['skipped'].pop(0)
+    elif damage=='missing_inventory':init.pop('emg_source_schema',None)
+    elif damage=='normalized_duplicate':
+        inventory=init.setdefault('emg_source_schema',_schema(load(branch_files['emg_checkpoint'])['state_dict']))
+        key=next(iter(inventory));inventory[key.removeprefix('model.')]=copy.deepcopy(inventory[key])
+    identity['sha256']=_hash({k:v for k,v in identity.items() if k!='sha256'})
+    import egoemg.train as native
+    def forbidden(*args,**kwargs):raise AssertionError('malformed complete audit must reject before factory')
+    monkeypatch.setattr(native,'make_lightning_module',forbidden)
+    with pytest.raises(ValueError):api().build_fusion_runtime(UPSTREAM,compose_fusion(UPSTREAM),
+        state=data['state_dict'],expected_initialization=identity)
+
+
+@pytest.mark.parametrize('when',['after_setup','inside_factory'])
+@pytest.mark.parametrize('mutation',['remove','replace'])
+def test_initializer_disappearance_or_replacement_never_uses_pretrained_fallback(branch_files,tmp_path,monkeypatch,when,mutation):
+    pytest.importorskip('torch');import timm,requests
+    from egoemg_repro.fusion_literal import compose_fusion
+    import egoemg.train as native
+    import egoemg._train_utils as native_utils
+    args=dict(branch_files);path=tmp_path/'owned-vision.pt';replacement=tmp_path/'replacement.pt'
+    shutil.copyfile(args['vision_checkpoint'],path);shutil.copyfile(path,replacement);args['vision_checkpoint']=path
+    original_setup=native_utils.setup_runtime;original_factory=native.make_lightning_module;original_create=timm.create_model
+    factories=[];pretrained=[]
+    def mutate():
+        if mutation=='remove':path.unlink()
+        else:replacement.replace(path)
+    def setup(config):
+        original_setup(config)
+        if when=='after_setup':mutate()
+    def factory(config):
+        factories.append(True)
+        if when=='inside_factory':mutate()
+        return original_factory(config)
+    def create(*args,**kwargs):
+        pretrained.append(kwargs.get('pretrained'))
+        assert kwargs.get('pretrained') is False,'admitted local initializer must never trigger pretrained fallback'
+        return original_create(*args,**kwargs)
+    def no_network(*args,**kwargs):raise AssertionError('construction race must not cause network requests')
+    monkeypatch.delenv('EGOEMG_NO_PRETRAINED_DOWNLOAD',raising=False)
+    monkeypatch.setattr(native_utils,'setup_runtime',setup);monkeypatch.setattr(native,'make_lightning_module',factory)
+    monkeypatch.setattr(timm,'create_model',create);monkeypatch.setattr(requests.adapters.HTTPAdapter,'send',no_network)
+    with pytest.raises(ValueError):api().build_fusion_runtime(UPSTREAM,compose_fusion(UPSTREAM),**args)
+    if when=='after_setup':assert not factories and not pretrained
+    else:assert factories==[True] and pretrained==[False]
+    assert 'EGOEMG_NO_PRETRAINED_DOWNLOAD' not in os.environ

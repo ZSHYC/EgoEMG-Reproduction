@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+北京时间2026-10-28 11:51更新：原生ViT-S融合构造的一次独立整体审查完成，原2项Important已在一次TDD修复中处理：完整110项EMG来源清单/原加载决策/逐项覆盖核验，以及fresh/restore工厂均禁预训练联网回退并在setup后复查文件身份。15项定向检查、82项相关原生检查、完整轻量1,436通过/795可选跳过均actual exit0；新进程collector严格恢复预测精确一致、无CUDA。[审查与修复证据](../results/native-fusion-construction-review-20261028.json)、[更新CPU证据](../results/native-fusion-construction-cpu-20261028.json)。这是构造工程完成，真实联合数据/GPU/150轮训练与测试仍欠，完成模型数仍10。11:46实查DINO-L58轮、原训练进程活动，完整EMG2Pose源准备与等待队列均活动且0模型正式开始。
+
 北京时间2026-10-28 11:30更新：[原生ViT-S融合构造](fusion-literal.md)已完成CPU工程验证：25,855,037参数、174视觉backbone+4head张量完整传输、105项EMG匹配/5项跳过，原训练模式loss/backward/一次AdamW更新、全部参数及时间注意力组、FP16初始化→FP32原生转换、新进程严格重载/预测精确一致；64项相关原生及完整轻量1,436通过/780可选跳过，独立collector实际exit0，[证据](../results/native-fusion-construction-cpu-20261028.json)。一次整体审查待完成；初始化是明确的工程状态，无数据/GPU/完整训练或新增精度，完成模型数仍10。几何[第一次有限续传实际退出1](../results/legacy-geometry-bounded-interruption-20261028.json)：新增1,040,337,776bytes，一次实网重试后成功16MiB，再在后续偏移连续三次EOF停止。冷却938.8秒后[第二次显式续传](../results/legacy-geometry-bounded-second-renewal-20261028.json)六项预检/一份旧尾部对照通过，原六份失败文件保留，新拥有者实际活动并新增167,772,160bytes，2/8完成；完整几何/遮挡仍欠。11:24实查DINO-L57轮、EMG2Pose源准备与三模型等待队列原进程均活动、0正式训练开始。
 
 北京时间2026-10-28 10:55补充：[几何续传实际进度](../results/legacy-geometry-bounded-progress-20261028.json)已新增369,249,136bytes，左手world transform完整3,175,762,800bytes通过原最终门槛及独立SHA复算，连同tracked共2/8文件完成，原拥有者仍活动、正在接收右手；其余数组/几何准入/遮挡未完成。[ViT-S融合配方审计](../results/fusion-recipe-audit-20261028.md)实际合成五配置：发布评价为16槽补零/7,790点，8通道S到16槽融合的首卷积不匹配会由原strict=False加载器跳过；cotrain-S有效指尖系数0.01，独立S与融合0.02，不能用一个配方概括。该审计无新forward、加载或训练结果。

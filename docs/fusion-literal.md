@@ -32,7 +32,9 @@ prepared.check()
 
 EMG初始化仍调用官方`_load_pretrained_backbone`：仅加载允许前缀中名称和shape都相同的张量。8→16首卷积权重按原算法跳过；不扩展、不补造，也不声称整个分支严格恢复。`identity.initialization.emg_transfer`列出所有匹配和跳过项及原因，匹配项另记实际加载摘要。原`load_state_dict`的目标dtype转换规则保留；比较转换后的精确值，原输入dtype与摘要另外保留。
 
-原残差末层继续使用标准差1e-5的正态权重与零bias，初始化后没有强制置零。TemporalAttentionPool仍在原优化器的`_unassigned`组，所有可训练参数应恰好出现一次。文件缺失或SHA错误会在构造前拒绝，避免落入原factory的随机/联网初始化兜底；来源文件在构造前后和后续`check()`时核对稳定性。
+完整初始化记录另外保存所有EMG来源张量的keys/shapes/dtypes清单。重载时重新依据来源清单、模型完整schema和原前缀规则推导每项应加载还是跳过，要求全部来源恰好出现一次，并核对原名、规范化目标名、dtype、跳过原因及目标shape；仅重新计算记录摘要不能绕过这些结构检查。记录并非对任意恶意重写内容的密码学认证。
+
+原残差末层继续使用标准差1e-5的正态权重与零bias，初始化后没有强制置零。TemporalAttentionPool仍在原优化器的`_unassigned`组，所有可训练参数应恰好出现一次。文件缺失或SHA错误会在构造前拒绝；原setup完成后、进入factory前再次检查文件身份。fresh和restore均临时启用官方禁下载标志，退出时恢复环境原值；即便文件在factory内部消失也不会转为联网初始化，随后传输核验或文件身份检查会拒绝。来源文件在构造后和后续`check()`时继续核对稳定性。
 
 ## 保存并独立重载完整融合状态
 

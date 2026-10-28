@@ -1,0 +1,136 @@
+{
+  "approved_spec": "docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md",
+  "base_commit": "e7aaa5be0b5987dac3bf80161b27aa0d5f68b778",
+  "checks": {
+    "complete_light": {
+      "actual_exit_code": 0,
+      "log_sha256": "feac949509bbbe236906eb9dc6f0e7651b49dbbaa41ba54b664655ee688e8e3f",
+      "passed": 1436,
+      "seconds": 90.33,
+      "skipped": 795,
+      "warnings": 2
+    },
+    "independent_collector": {
+      "actual_exit_code": 0,
+      "log_sha256": "af972ab4bf698ec74e9c008bd71d5780b5fa57c5ebf79cc587509453a2c6d3d4"
+    },
+    "native_final": {
+      "actual_exit_code": 0,
+      "log_sha256": "e190a3b8e7d2939032a6d046ad9c7dec566a5e34a79c1a251e62991bf901778c",
+      "passed": 82,
+      "seconds": 55.83,
+      "warnings": 10
+    },
+    "review_findings_green": {
+      "actual_exit_code": 0,
+      "deselected": 24,
+      "log_sha256": "a45389525f481b3c597f174c62c6980fd54488c5d0188783248af1321d04c334",
+      "passed": 15,
+      "seconds": 19.92,
+      "warnings": 4
+    },
+    "review_findings_red": {
+      "actual_exit_code": 1,
+      "deselected": 24,
+      "failed": 14,
+      "log_sha256": "9c81a41a990d3e66a9a29159fc19e10cd31fc2e768ab8e62eeffb31cd1ee46dc",
+      "passed": 1,
+      "seconds": 21.35,
+      "warnings": 6
+    }
+  },
+  "declined_to_judge": [
+    {
+      "cost_if_wrong": "Integration/accuracy defects could remain until full execution.",
+      "ruling": "Keep full150epoch/validation selection/test and full-paper scope required; construction cannot increment completed settings.",
+      "scope": "full_training_and_frozen_test"
+    },
+    {
+      "cost_if_wrong": "Unqualified initialization could invalidate comparison.",
+      "ruling": "Engineering initializers remain untrained; require task-trained validation-best lineage.",
+      "scope": "trained_branch_provenance"
+    },
+    {
+      "cost_if_wrong": "Wrong preprocessing or sample leakage could bias results.",
+      "ruling": "Bind joint original data/augmentation/independent cohorts and explicitly resolve the actual normalization namespace mismatch in the data phase.",
+      "scope": "joint_data_and_normalization"
+    },
+    {
+      "cost_if_wrong": "Numerical or capacity failure at full scale.",
+      "ruling": "Require independent actual GPU qualification and full recovery; CPU proof grants no GPU/scientific admission.",
+      "scope": "gpu_batch200_bf16_distributed_recovery"
+    },
+    {
+      "cost_if_wrong": "Incomplete data could postpone full scientific work.",
+      "ruling": "Use separately timestamped actual PID/start/IO and complete-vs-partial observations; do not restart healthy jobs.",
+      "scope": "live_jobs_downloads_full_hashes"
+    },
+    {
+      "cost_if_wrong": "Fidelity loss would require correction and a distinct run.",
+      "ruling": "Preserve original source and valid native transfer; wrapper rejects unintended external fallback.",
+      "scope": "pinned_author_algorithm_and_loaders"
+    },
+    {
+      "cost_if_wrong": "Untrusted pickle can execute code and intentionally fabricated full provenance is not authenticated.",
+      "ruling": "Trusted task-owned checkpoints only; receipt checks provide structural integrity, not adversarial authentication.",
+      "scope": "hostile_pickle_and_deliberate_provenance_forgery"
+    }
+  ],
+  "deferred_minors": [],
+  "execution_rulings": [
+    "Ruling: The user already selected official code, approved the full-paper scope and authorized routine implementation/training/publication. Canonical released16slot fusion is an implementation choice answered by official README and actual source, not a new design preference; execute inline without renewed approval. Cost if wrong: a separately labelled engineering subsystem would need revision, never silent modification of scientific results.",
+    "Ruling: This is the construction subsystem of the full fusion experiment, not a substitute completion criterion. Coupled data/full150epoch/GPU/final reports remain required and this phase cannot increment completed model count. Cost if wrong: a missing integration defect could remain; the full goal stays active.",
+    "Task2 Ruling: Preserve native load_state_dict dtype conversion during branch transfer and compare exact converted values; record both source/loaded hashes rather than silently requiring identical source dtype. Strict complete-state restore remains exact dtype/schema. \u2014 Original loaders match shape and copy to model dtype; changing that would alter the requested algorithm. \u2014 Cost if wrong: a conversion edge could require further qualification; raw input hashes/dtypes remain recorded.",
+    "Final: Ruling: Always activate the original EGOEMG_NO_PRETRAINED_DOWNLOAD flag around both fresh and restored factory calls, with unchanged valid local paths and target-dtype copy semantics \u2014 this prevents a missing admitted file from selecting an unrequested initializer; original source already supports the flag \u2014 cost if wrong: invalid local inputs fail instead of falling back, while legitimate fresh initializer transfers must remain verified by native tests.",
+    "Final: Ruling: Full fusion training, validation-selected checkpoints, frozen-test accuracy and full-paper completion were outside this construction review \u2014 keep all as required subsequent scientific work; this code cannot increment10completed settings \u2014 cost if wrong: untested integration or accuracy defects remain until full execution.",
+    "Final: Ruling: Trained branch provenance was outside the review \u2014 random original EMG and random vision pose head remain engineering-only; require task-trained validation-best lineage before scientific fusion training \u2014 cost if wrong: unqualified initialization could invalidate scientific comparison.",
+    "Final: Ruling: Joint data/augmentation/cohort independence and normalization namespace were outside this review \u2014 preserve original source and explicitly bind those in the following data phase, including the actually observed canonical-stat KeyError; no silent config substitution now \u2014 cost if wrong: wrong preprocessing or sample leakage would bias the full result.",
+    "Final: Ruling: GPU batch200/bf16/distributed/full-training recovery were outside the CPU review \u2014 actual GPU admission and full recovery remain mandatory before a scientific run; no CPU-to-GPU qualification claim \u2014 cost if wrong: resource or numerical failure at scale.",
+    "Final: Ruling: Current download/job liveness and full data hashes were not inspected by the reviewer \u2014 use separately timestamped actual PID/start/IO observations, retain complete/partial distinctions, and wait on the same healthy owners \u2014 cost if wrong: delayed or incomplete data may postpone scientific work.",
+    "Final: Ruling: Changes to pinned author algorithm and inherited loaders were declined \u2014 upstream remains unchanged; this wrapper checks outcomes and disallows unintended external fallback while preserving valid native transfer behavior \u2014 cost if wrong: fidelity would be lost, requiring correction and a new distinct run.",
+    "Final: Ruling: Hostile pickle and cryptographic authenticity of deliberately forged identities were outside scope \u2014 local checkpoints remain trusted task-owned inputs; structural and accidental receipt corruption is nevertheless rejected \u2014 cost if wrong: untrusted pickle could execute code or fabricated full provenance could be accepted; no adversarial authenticity guarantee is made.",
+    "Final: Ruling: Continue the existing user-authorized public branch publication and preserve this worktree \u2014 prior explicit public repository/training/full-paper authorization covers these routine non-destructive fixes; no main merge or new PR is needed \u2014 cost if wrong: publication location may need correction; existing scientific outputs remain unchanged."
+  ],
+  "fixes": [
+    {
+      "cases": 11,
+      "finding": "Incomplete source transfer receipt accepted after resealing",
+      "regression": "test_resealed_transfer_receipt_requires_complete_native_source_inventory"
+    },
+    {
+      "cases": 4,
+      "finding": "Fresh initializer disappearance can trigger pretrained download",
+      "previously_failing_cases": 3,
+      "regression": "test_initializer_disappearance_or_replacement_never_uses_pretrained_fallback"
+    }
+  ],
+  "format": "egoemg_native_fusion_construction_whole_plan_review_v1",
+  "fresh_independent_review_complete": true,
+  "full_paper_complete": false,
+  "observed_utc": "2026-10-28T03:49:18.076051+00:00",
+  "one_author_tdd_fix_pass_complete": true,
+  "original_findings": {
+    "critical": 0,
+    "important": 2,
+    "minor": 0
+  },
+  "plan": "docs/superpowers/plans/2026-10-28-native-fusion-construction.md",
+  "production_ready": false,
+  "public_identity_sha256": "92c7c087e9fdb59378fe332524230baa39e024d30028c702d50f208f65f57664",
+  "reviewed_head_commit": "a41e8aa8159a8b839098a674651c8a550cb161de",
+  "reviewer": "native_fusion_construction_final_review",
+  "scientific_eligible": false,
+  "scope": "construction/configuration/CPU transfer and strict restore only; no trained branch, real data, GPU admission, full fit or new accuracy",
+  "second_review_dispatched": false,
+  "source_files_sha256": {
+    "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
+    "egoemg_repro/fusion_literal_runtime.py": "3364f5b6e2dc4eb6823108758c78f652fbde0cf94f8fb3c8267457d9c708963e",
+    "tests/test_fusion_literal.py": "8d17c22855d1e7f5584373b26f12cb2aad5d2ee000db4d1c0aacf1a12e861a19",
+    "tests/test_fusion_literal_runtime.py": "5d1dcf26cc434267d7a76311e8a58f26126b315519950994bdadfd9dd2d14754"
+  },
+  "unresolved_findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  }
+}

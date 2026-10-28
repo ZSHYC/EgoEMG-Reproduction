@@ -6,6 +6,44 @@
   "checks": {
     "complete_light": {
       "actual_exit_code": 0,
+      "log_sha256": "feac949509bbbe236906eb9dc6f0e7651b49dbbaa41ba54b664655ee688e8e3f",
+      "passed": 1436,
+      "seconds": 90.33,
+      "skipped": 795,
+      "warnings": 2
+    },
+    "independent_collector": {
+      "actual_exit_code": 0,
+      "log_sha256": "af972ab4bf698ec74e9c008bd71d5780b5fa57c5ebf79cc587509453a2c6d3d4"
+    },
+    "native_final": {
+      "actual_exit_code": 0,
+      "log_sha256": "e190a3b8e7d2939032a6d046ad9c7dec566a5e34a79c1a251e62991bf901778c",
+      "passed": 82,
+      "seconds": 55.83,
+      "warnings": 10
+    },
+    "review_findings_green": {
+      "actual_exit_code": 0,
+      "deselected": 24,
+      "log_sha256": "a45389525f481b3c597f174c62c6980fd54488c5d0188783248af1321d04c334",
+      "passed": 15,
+      "seconds": 19.92,
+      "warnings": 4
+    },
+    "review_findings_red": {
+      "actual_exit_code": 1,
+      "deselected": 24,
+      "failed": 14,
+      "log_sha256": "9c81a41a990d3e66a9a29159fc19e10cd31fc2e768ab8e62eeffb31cd1ee46dc",
+      "passed": 1,
+      "seconds": 21.35,
+      "warnings": 6
+    }
+  },
+  "checks_before_final_review": {
+    "complete_light": {
+      "actual_exit_code": 0,
       "log_sha256": "340237ed74b467563c5f6f9d2c257a64837d7288126c58f40a6dbf3565dfe518",
       "passed": 1436,
       "seconds": 88.21,
@@ -49,17 +87,19 @@
   },
   "collector_optimizer_updates": 0,
   "collector_script_sha256": "54bdcd130620e312ebf3f2782e12b6873b4dfa9cba24af57f128caafde5bc72d",
-  "complete_self_contained_identity_sha256": "cfb3f437086cd3d964177eca31acd4601d6122b999ca70989b7caa26c21e7759",
+  "complete_self_contained_identity_sha256": "92c7c087e9fdb59378fe332524230baa39e024d30028c702d50f208f65f57664",
   "complete_training_done": false,
   "cuda_initialized": false,
   "emg_initializer_scope": "random original8channel EMGFormer-S engineering initialization; no trained branch claim",
   "emg_matched_tensors": 105,
   "emg_skipped_tensors": 5,
+  "emg_source_inventory_tensors": 110,
   "format": "egoemg_original_native_fusion_cpu_engineering_v1",
-  "fresh_whole_plan_review_complete": false,
+  "fresh_and_restore_factories_pretrained_download_disabled": true,
+  "fresh_whole_plan_review_complete": true,
   "full_paper_complete": false,
   "gpu_qualified": false,
-  "initialization_receipt_sha256": "3673830870c582a406274047df4e82952ab115192af2343cbd77e3d362a4f3af",
+  "initialization_receipt_sha256": "aaa5befa4f8fdde1f42dd9457bc73258a47ff166c338b1c11738d8758a82290a",
   "model_parameters": 25855037,
   "native_dtype_conversion_checked_in_tests": true,
   "native_first_convolution_skip": {
@@ -78,7 +118,7 @@
       11
     ]
   },
-  "observed_utc": "2026-10-28T03:24:43.486519+00:00",
+  "observed_utc": "2026-10-28T03:48:12.993626+00:00",
   "optimizer_groups": [
     {
       "lr": 0.0001,
@@ -412,6 +452,7 @@
     }
   },
   "real_data_loaded": false,
+  "review_findings_addressed_in_one_tdd_pass": true,
   "scheduler": {
     "T_max": 150,
     "class_name": "CosineAnnealingLR",
@@ -422,7 +463,7 @@
     "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
     "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
     "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
-    "egoemg_repro/fusion_literal_runtime.py": "bc0ce946eed77608026b75e5d6de2d607b5b3945bd13e7408c36837a6bf66b72",
+    "egoemg_repro/fusion_literal_runtime.py": "3364f5b6e2dc4eb6823108758c78f652fbde0cf94f8fb3c8267457d9c708963e",
     "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
     "runtime/timm.models.vision_transformer": "e2aef9233ffe42c86e71255b7cb1c5ed66a451ba4ac6ab513c5995129d94b34f",
     "runtime/torch.nn.modules.module": "41e667d7e848b3f83e9e5a44d360d03ad129c1ff09f8f7c603d7c3ba59ce5f2a",

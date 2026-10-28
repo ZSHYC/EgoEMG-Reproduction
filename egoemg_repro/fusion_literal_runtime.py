@@ -47,6 +47,13 @@ def _stamp(path):
     return (s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns)
 
 
+def _check_assets(assets):
+    for path,before in assets:
+        try:after=_stamp(path)
+        except OSError as exc:raise ValueError('admitted fusion initializer disappeared') from exc
+        if before!=after:raise ValueError('admitted fusion initializer changed')
+
+
 def _admit(path,digest):
     if type(digest) is not str or len(digest)!=64 or any(c not in '0123456789abcdef' for c in digest):
         raise ValueError('explicit lowercase initializer SHA256 required')
@@ -123,6 +130,7 @@ def _verify_emg(model,state,names):
 
 def _saved_initialization(identity):
     """Require the complete transfer receipt, beyond its content checksum."""
+    import torch
     def digest(value):
         return type(value) is str and len(value)==64 and all(c in '0123456789abcdef' for c in value)
     try:
@@ -145,15 +153,40 @@ def _saved_initialization(identity):
             not isinstance(matched,list) or not isinstance(skipped,list) or
             not all(any(x['target_key'].startswith(prefix) for x in matched) for prefix in ('featurizer.','decoder.'))):
             raise ValueError('incomplete native EMG transfer receipt')
-        targets=[]
-        for item in matched:
-            target='model.'+item['target_key'];targets.append(target)
-            if (target not in schema or item['source_shape']!=schema[target]['shape'] or
-                item['target_dtype']!=schema[target]['dtype'] or not digest(item['loaded_sha256'])):
-                raise ValueError('matched EMG receipt differs from complete schema')
-        if len(set(targets))!=len(targets):raise ValueError('duplicate EMG transfer receipt')
-        if any(item['reason'] not in ('not_backbone_prefix','missing_target','shape_mismatch') for item in skipped):
-            raise ValueError('invalid skipped EMG receipt')
+        inventory=init['emg_source_schema'];normalized={}
+        if not isinstance(inventory,dict) or not inventory:raise ValueError('complete EMG source inventory required')
+        for source,descriptor in inventory.items():
+            if type(source) is not str or not source or not isinstance(descriptor,dict):
+                raise ValueError('invalid EMG source descriptor')
+            shape=descriptor['shape'];dtype=descriptor['dtype']
+            if (type(shape) is not list or any(type(n) is not int or n<0 for n in shape) or
+                type(dtype) is not str or not dtype.startswith('torch.') or
+                not isinstance(getattr(torch,dtype[6:],None),torch.dtype)):
+                raise ValueError('invalid EMG source shape/dtype')
+            target=source[6:] if source.startswith('model.') else source
+            if not target or target in normalized:raise ValueError('ambiguous normalized EMG source inventory')
+            normalized[target]=source
+        seen=set()
+        for loaded,items in ((True,matched),(False,skipped)):
+            for item in items:
+                source=item['source_key'];target=item['target_key']
+                if source not in inventory or source in seen or normalized.get(target)!=source:
+                    raise ValueError('duplicate or inconsistent EMG source transfer receipt')
+                seen.add(source);descriptor=inventory[source];destination=schema.get('model.'+target)
+                if item['source_shape']!=descriptor['shape'] or item['source_dtype']!=descriptor['dtype']:
+                    raise ValueError('EMG transfer source differs from inventory')
+                if not target.startswith(_PREFIXES):reason='not_backbone_prefix'
+                elif destination is None:reason='missing_target'
+                elif descriptor['shape']!=destination['shape']:reason='shape_mismatch'
+                else:reason=None
+                if loaded:
+                    if (reason is not None or item['target_dtype']!=destination['dtype'] or
+                        not digest(item['loaded_sha256'])):
+                        raise ValueError('matched EMG receipt differs from native loading rule')
+                elif (reason is None or item['reason']!=reason or
+                    item['target_shape']!=(destination['shape'] if destination is not None else None)):
+                    raise ValueError('skipped EMG receipt differs from native loading rule')
+        if seen!=set(inventory):raise ValueError('EMG transfer receipt does not cover every source tensor')
     except (KeyError,TypeError,AttributeError) as exc:
         raise ValueError('incomplete fusion initialization receipt') from exc
 
@@ -187,10 +220,7 @@ class PreparedFusion:
             _sources(self._root,protocol)!=self.identity['sources_sha256'] or
             _versions()!=self.identity['runtime_versions']):
             raise ValueError('prepared fusion source/config/runtime identity changed')
-        for path,before in self._assets:
-            try:after=_stamp(path)
-            except OSError as exc:raise ValueError('admitted fusion initializer disappeared') from exc
-            if before!=after:raise ValueError('admitted fusion initializer changed')
+        _check_assets(self._assets)
 
 
 def build_fusion_runtime(upstream,config,*,vision_checkpoint=None,vision_sha256=None,
@@ -229,14 +259,14 @@ def build_fusion_runtime(upstream,config,*,vision_checkpoint=None,vision_sha256=
     effective.module.vision_pretrained_checkpoint=str(vision) if fresh else None
     effective.pretrained_emg_checkpoint=str(emg) if fresh else None
     setup_runtime(effective)
-    with _restore_offline(not fresh):module=native.make_lightning_module(effective)
+    _check_assets(assets)
+    with _restore_offline(True):module=native.make_lightning_module(effective)
     if type(module).__module__!='egoemg.lightning' or type(module.model).__name__!='MidFusionPoseFormer':
         raise ValueError('original fusion module class differs')
     if fresh:
         vision_transfer=_verify_vision(module.model,backbone,head)
         emg_transfer=_verify_emg(module.model,es,enames)
-        for path,before in assets:
-            if _stamp(path)!=before:raise ValueError('initializer changed during native construction')
+        _check_assets(assets)
         identity=dict(format='original_fusion_module_construction_v1',scientific_eligible=False,
             production_ready=False,full_paper_complete=False,scope='native construction/transfer only; no data or training admission',
             protocol_sha256=protocol['sha256'],sources_sha256=sources,runtime_versions=versions,
@@ -244,7 +274,8 @@ def build_fusion_runtime(upstream,config,*,vision_checkpoint=None,vision_sha256=
             initial_state_sha256=fusion_state_sha256(module.state_dict()),
             initialization=dict(vision_file=dict(bytes=vstamp[2],sha256=vision_sha256,state_sha256=fusion_state_sha256(vs)),
                 emg_file=dict(bytes=estamp[2],sha256=emg_sha256,state_sha256=fusion_state_sha256(es)),
-                vision_transfer=vision_transfer,emg_transfer=emg_transfer,initializer_training_provenance_verified=False,
+                vision_transfer=vision_transfer,emg_source_schema=_schema(es),emg_transfer=emg_transfer,
+                initializer_training_provenance_verified=False,
                 residual_rule='original normal(std=1e-5) last weight and zero bias; not overwritten'))
         identity['sha256']=_hash(identity)
     else:
