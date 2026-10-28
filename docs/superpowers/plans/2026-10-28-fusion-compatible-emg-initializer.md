@@ -32,10 +32,10 @@
 
 Create `egoemg_repro/emg_initializer_literal.py`, `egoemg_repro/emg_initializer_data.py`, their tests and a concise Chinese guide.
 
-- [ ] RED before implementation: exact untouched original composition/config rejection; actual native per-hand normalization selection and asset binding; original default repeat1/batch260; effective loss aliases and complete source hashes.
-- [ ] RED for all-role complete possible-footprint separation, episode/center/grid/jitter boundary cases, validation containment, prospective counts, invalid/empty roles and deterministic partition seals. Test an actual crossing anchor and last possible jitter offset.
-- [ ] Execute the unchanged native full-window `EgoEmgMemmapDataset.__getitem__` through an IO/metadata context. Reuse source metadata defaults only where the original does; alias legacy filtered names explicitly. Compare real small files against a genuine complete native fixture with identical seeded RNG, both hands, full22×12000trajectory/mask, transforms, missing optional labels and final partial native collation. No synthetic training data may enter the scientific run.
-- [ ] GREEN new tests plus relevant existing reader/source regressions. Publish source-bound synthetic evidence with no scientific eligibility. Do not use its finite scan to admit real data.
+- [x] RED before implementation: exact untouched original composition/config rejection; actual native per-hand normalization selection and asset binding; original default repeat1/batch260; effective loss aliases and complete source hashes.
+- [x] RED for all-role complete possible-footprint separation, episode/center/grid/jitter boundary cases, validation containment, prospective counts, invalid/empty roles and deterministic partition seals. Test an actual crossing anchor and last possible jitter offset.
+- [x] Execute the unchanged native full-window `EgoEmgMemmapDataset.__getitem__` through an IO/metadata context. Reuse source metadata defaults only where the original does; alias legacy filtered names explicitly. Compare real small files against a genuine complete native fixture with identical seeded RNG, both hands, full22×12000trajectory/mask, transforms, missing optional labels and final partial native collation. No synthetic training data may enter the scientific run.
+- [x] GREEN new tests plus relevant existing reader/source regressions. Publish source-bound synthetic evidence with no scientific eligibility. Do not use its finite scan to admit real data. Actual35missing-module RED;35initial native GREEN,42new plus45existing fusion checks=87passed. Independent new-process collector4fulltrajectory fixturepoints/unchanged constructionRNG/inputfiles/no model/CUDA. Real full admission/fit still pending.
 
 ## Task 2: Complete actual numeric cohort and original model/fit/recovery
 
