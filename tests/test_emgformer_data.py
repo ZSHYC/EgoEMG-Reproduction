@@ -180,3 +180,37 @@ def test_native_full_and_center_wrist_rounding_ignores_stored_validity(tmp_path,
     else:
         assert got['joint_angles'][20,0]==np.float32(np.deg2rad(float(pitch[center])))
         assert got['joint_angles'][20,0]!=0 and got['label_valid_mask'][0]
+
+
+@pytest.mark.parametrize('role',['train','val','test'])
+@pytest.mark.parametrize('hand',['left','right'])
+def test_pickle_rebuilds_process_local_native_views_and_preserves_values_rng(tmp_path,role,hand):
+    import pickle
+    m=api();torch=pytest.importorskip('torch');source(tmp_path);ds=dataset(tmp_path,role)
+    packet=pickle.dumps(ds);restored=pickle.loads(packet)
+    assert len(packet)<1024**2 and restored.views is not ds.views
+    assert restored.store is not ds.store and not restored.views[0]._frame_memmaps['emg_left_filtered_paper'].flags.writeable
+    index=0 if hand=='left'else len(ds.windows)
+    np.random.seed(42);torch.manual_seed(42);want=ds[index];after_native=np.random.get_state();torch_after=torch.get_rng_state()
+    np.random.seed(42);torch.manual_seed(42);got=restored[index];after_restored=np.random.get_state()
+    for key in ('emg','emg_channel_mask','joint_angles','label_valid_mask'):
+        assert got[key].shape==want[key].shape and got[key].dtype==want[key].dtype and got[key].tobytes()==want[key].tobytes()
+    assert np.array_equal(after_native[1],after_restored[1])and after_native[2:]==after_restored[2:]
+    assert torch.equal(torch_after,torch.get_rng_state()) and got['split']==want['split']
+
+
+def test_bounded_six_spawn_workers_read_and_exit(tmp_path):
+    m=api();torch=pytest.importorskip('torch');source(tmp_path,webcam=True);ds=dataset(tmp_path,'val')
+    loader=m.native_emgformer_loader(ds)
+    loader.multiprocessing_context='spawn';loader.timeout=40
+    iterator=iter(loader);workers=list(iterator._workers)
+    try:
+        batch=next(iterator)
+        assert len(workers)==6 and batch['emg'].shape==(len(ds),8,W)
+        assert batch['joint_angles'].shape==(len(ds),22,1)
+        assert batch['emgformer_sample_index'].tolist()==list(range(len(ds)))
+        want=ds[0]
+        assert batch['emg'][0].numpy().tobytes()==want['emg'].tobytes()
+        assert batch['joint_angles'][0].numpy().tobytes()==want['joint_angles'].tobytes()
+    finally:iterator._shutdown_workers()
+    assert all(w.exitcode is not None and not w.is_alive()for w in workers)

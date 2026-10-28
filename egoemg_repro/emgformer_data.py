@@ -132,6 +132,14 @@ class EmgformerDataset:
             view._window_split_id=np.asarray([split_ids[w['split']]for w in self.windows],np.int32)
         self._partition_seal=_hash(self.partitions)
 
+    def __getstate__(self):
+        # Reopen process-local read-only views instead of pickling memmap payloads.
+        return dict(data=self.store.root,partitions=self.partitions,upstream=self.upstream,
+            config=self.config,normalization=self.normalization,role=self.role)
+
+    def __setstate__(self,state):
+        self.__init__(**state)
+
     def __len__(self):return 2*len(self.windows)
 
     def __getitem__(self,index):
