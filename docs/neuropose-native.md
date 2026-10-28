@@ -61,3 +61,5 @@ verify_neuropose_report(replay_test, report)
 
 
 第一次实际GPU验收的两轮512训练/全部1576验证、4次实际optimizer更新已经完成；随后native最佳权重验证在设备检查处失败，未形成GPU资格。[原始失败实证](../results/neuropose-native-gpu-device-teardown-failure-20261028.json)保留全部失败日志与真实已完成fit。原因是绑定版本Lightning的Strategy.teardown会把模型移回CPU，旧检查取了收尾设备；当前评价器在每一次forward记录真实EMG与模型设备，要求全批次一致，并单独保留收尾设备。此修改不改变模型、数据、精度、批量、损失或精确预测标准。新源评价须再次完成全部验证native/独立复算和资格重开，才能开始full；旧完整工程fit的原训练源码/字节不变，作为冻结权重复用，不重新训练。
+
+[设备记录修正的当前源码CPU实证](../results/neuropose-native-device-fixed-cpu-20261028.json)绑定cfbc24b：真实forward后移动模块的回归检查及全套56原生/330相关/1475轻量通过（1092项可选依赖跳过），均exit0。额外独立推理与另一进程重绘报告、父进程重开原始fit全部exit0，原fit字节不变、无CUDA/新增训练；PNG与已目视检查的工程曲线逐字节相同。实际GPU的全1576验证native/replay验收仍在进行，尚未取得资格或启动full。

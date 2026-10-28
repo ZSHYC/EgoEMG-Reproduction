@@ -1,0 +1,85 @@
+{
+  "actual_forward_devices": [
+    {
+      "cuda_initialized": false,
+      "device_type": "cpu",
+      "emg_device": "cpu",
+      "module_device": "cpu"
+    }
+  ],
+  "actual_six_test_owners_exited": true,
+  "checks": {
+    "light": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "b1794b64f691b0ec841583d4c59a41235f6b551f",
+      "all_recorded_sources_unchanged": true,
+      "log_sha256": "b041ee8b77469064a82dc9968da25a324a5cdafc595da359abb22aad5865c042",
+      "optional_dependency_skips": 1092,
+      "passed": 1475,
+      "seconds": 93.03088285896229
+    },
+    "native": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "b1794b64f691b0ec841583d4c59a41235f6b551f",
+      "all_recorded_sources_unchanged": true,
+      "log_sha256": "b295db426bb98c27cd232709af439fa9d707c63752d0a457458e13ddeea945f4",
+      "optional_dependency_skips": 0,
+      "passed": 56,
+      "seconds": 149.0489222750184
+    },
+    "related": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "b1794b64f691b0ec841583d4c59a41235f6b551f",
+      "all_recorded_sources_unchanged": true,
+      "log_sha256": "f59e07d81e2e9b6abd6d8d6fd6156d1e90ba365a074ab2b8a971f81c3058066d",
+      "optional_dependency_skips": 0,
+      "passed": 330,
+      "seconds": 31.517573282995727
+    }
+  },
+  "cuda_qualification": false,
+  "format": "public_native_neuropose_forward_device_cpu_proof_v1",
+  "full_paper_complete": false,
+  "full_training_started": false,
+  "independent": {
+    "actual_child_exit_codes": [
+      0,
+      0
+    ],
+    "actual_parent_exit_code": 0,
+    "all_three_owners_exited": true,
+    "cuda_initialized": false,
+    "exact_png_and_svg_regeneration": true,
+    "exact_typed_native_test_replay": true,
+    "fit_all_files_byte_preserved": true,
+    "new_training_updates": 0,
+    "pass_sha256": "109d7bb3322a2a239ebe2a7cbbcdcc892a5fd227f51a6680f9ff3f4eefa5f18e",
+    "plot_png_sha256": "20a1923acbf6d6be85619143ba858ea346c4215a1849f68fe3e7978ff0bd71bd",
+    "png_byte_equal_to_previously_visually_checked_cpu_curve": true,
+    "report_sha256": "90527d73803c342b025082a543ff4545a712c11ca27eaed51bb3e5b77291a4db",
+    "samples": 2,
+    "seconds": 25.651120293012355
+  },
+  "original_failed_job_preserved": true,
+  "pending": "New evaluator actual full1576 CUDA native/replay qualification, sole final review, full training/test/report.",
+  "post_pass_module_device_type": "cpu",
+  "retained_completed_gpu_training_will_not_be_repeated": true,
+  "scientific_eligible": false,
+  "scope": "cpu_engineering",
+  "source_commit": "cfbc24bcac04b59284cba6a82beebcf291ed8095",
+  "source_files_sha256": {
+    "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/neuropose_native_eval.py": "3af1e23656d69c630a1e7ad44af526bcdefe585b7735d26e4fd8f642b5efe140",
+    "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927",
+    "tests/test_neuropose_native_eval.py": "377bc7e72af889a6b972afc41b6db920711eb5d1b6237c08ee62150970a8c976",
+    "tests/test_neuropose_native_train.py": "b8f61b42b3a62b292aa94165779e272f98dbb40936aaafdc6fdaa55902d91216"
+  },
+  "tdd": {
+    "actual_old_gpu_native_validation_exit_code": 1,
+    "actual_two_targeted_cpu_failures_before_fix": true,
+    "lightning_teardown_moves_module_to_cpu": true,
+    "regression": "real forward receipt stays tied to actual input/module devices after module relocation"
+  }
+}
