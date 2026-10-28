@@ -1,0 +1,179 @@
+{
+  "actual_combined_engineering_qualification_complete": true,
+  "actual_gpu_peak_allocated_bytes": 16886108672,
+  "actual_native_and_new_process_test_prediction_sha256": "c4a5e220c60ef0b7a83b3a76d98be24cba8bdbe349bf5aa45b399b341c820d8e",
+  "actual_native_and_new_process_val_prediction_sha256": "d2211108eceb2ef5e572e1d76ccd05b8f20eef3fa0636996a078452702b594b4",
+  "actual_offline_dependency_install_exit_code": 0,
+  "actual_original_gpu_batch_size": 200,
+  "actual_selected_best_checkpoint_sha256": "6be7e6a91b26f28bec6fe6e3a69c47306f4766821076a4fadda8e31354700aca",
+  "actual_stages": [
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "admit-a",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "admit-b",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "freeze",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "prefix",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 1,
+      "flow": "original",
+      "stage": "report",
+      "status": "failed"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "resume",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "test-native",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "test-replay",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "val-native",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "original",
+      "stage": "val-replay",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "report-recovery",
+      "stage": "report",
+      "status": "success"
+    },
+    {
+      "actual_worker_and_guardian_nonlive": true,
+      "actual_worker_exit_code": 0,
+      "flow": "report-recovery",
+      "stage": "verify",
+      "status": "success"
+    }
+  ],
+  "actual_training_updates": 4,
+  "all_24_stage_worker_guardian_identities_nonlive": true,
+  "all_4_flow_recorder_controller_identities_nonlive": true,
+  "all_original_and_report_recovery_members_and_wheels_rehashed_unchanged": true,
+  "engineering_completed_epochs": 2,
+  "exact_full_restored_validation": true,
+  "exact_restored_six_states": true,
+  "fixed_agreement_policy": {
+    "native_aggregation": "sample-count weighted original per-batch masked L1, float32 accumulation",
+    "native_mae_atol_rad": 2e-06,
+    "native_mae_rtol": 2e-06,
+    "pooled_aggregation": "float64 absolute-error sum / exact valid-angle count",
+    "prediction": "exact typed prediction/target/mask/input replay",
+    "scope": "fixed before validation; no test-driven tolerance or checkpoint changes"
+  },
+  "format": "actual_original_fusion_full_cohort_gpu_engineering_qualification_v1",
+  "frozen_pretest_validation_profile_sha256": "ef825dc7c18884ac8eaac787669c8e9606add340b2ab56f004848536836b1ec5",
+  "full150_training_started": false,
+  "full_paper_complete": false,
+  "full_two_trained_branch_handoff_complete": false,
+  "independent_verify_seconds": 105.71006134198979,
+  "initializer_scope": "genuine completed ViT-S last plus explicitly untrained native EMG engineering tensors",
+  "observed_utc": "2026-10-28T11:26:50.727357+00:00",
+  "original_bundle_sha256": "dfd8ae8af19b4d9a91d30ab0ba6db223bb6b49451ac90d1f90f2c79865b8e0b0",
+  "original_failure_evidence": "native-fusion-gpu-report-failure-20261028.json",
+  "original_flow_actual_exit_code": 1,
+  "original_report_failure_preserved": true,
+  "pinned_report_dependencies": {
+    "Pillow": "11.0.0",
+    "contourpy": "1.3.1",
+    "cycler": "0.12.1",
+    "fonttools": "4.55.3",
+    "kiwisolver": "1.4.8",
+    "matplotlib": "3.9.4",
+    "numpy": "1.26.4",
+    "packaging": "24.2",
+    "pyparsing": "3.2.0",
+    "python-dateutil": "2.9.0.post0",
+    "six": "1.17.0"
+  },
+  "plot_runtime": {
+    "backend": "Agg",
+    "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+    "freetype_version": "2.6.1",
+    "matplotlib_version": "3.9.4",
+    "svg_hashsalt": "egoemg-original-fusion-v1"
+  },
+  "precision": "bf16-mixed",
+  "recovery_added_training_updates": 0,
+  "recovery_restarted_prediction_stages": 0,
+  "report_and_actual_epoch_curves_files_sha256": {
+    "curve-data.json": "b32faffe0678c34666856d1a3e348fc4dd6e52e9d91b9246253b2c539e4d9d2a",
+    "metrics.json": "a28c64f52ac7a6b5526b7519b112182055335c884f0ffa000a3cee0dd3a21808",
+    "metrics.md": "1074e15b642ee5a35cc3e4938055a1b9b82e76b2c7fbd023d58e5409023399eb",
+    "training-curves.png": "8367a339f73de620bd8ed69ce71a126bf19aa3e04738a2c9e0acd37f657a539f",
+    "training-curves.svg": "fd5c8724063ccb19d1d907a83847ebcc4fed8efd2b74e1047fd795ef4684959d"
+  },
+  "report_and_independent_report_verify_cpu_no_cuda": true,
+  "report_dependencies_wheels_sha256": {
+    "contourpy-1.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "3a04ecd68acbd77fa2d39723ceca4c3197cb2969633836ced1bea14e219d077c",
+    "cycler-0.12.1-py3-none-any.whl": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+    "fonttools-4.55.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "da9da6d65cd7aa6b0f806556f4985bcbf603bf0c5c590e61b43aa3e5a0f822d0",
+    "kiwisolver-1.4.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "3a96c0e790ee875d65e340ab383700e2b4891677b7fcd30a699146f9384a2bb0",
+    "matplotlib-3.9.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "aca90ed222ac3565d2752b83dbb27627480d27662671e4d39da72e97f657a423",
+    "numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "666dbfb6ec68962c033a450943ded891bed2d54e6755e35e5835d63f4f6931d5",
+    "packaging-24.2-py3-none-any.whl": "09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759",
+    "pillow-11.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "6f4dba50cfa56f910241eb7f883c20f1e7b1d8f7d91c750cd0b318bad443f4d5",
+    "pyparsing-3.2.0-py3-none-any.whl": "93d9577b88da0bbea8cc8334ee8b918ed014968fd2ec383e868fb8afb1ccef84",
+    "python_dateutil-2.9.0.post0-py2.py3-none-any.whl": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+    "six-1.17.0-py2.py3-none-any.whl": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
+  },
+  "report_recovery_actual_exit_code": 0,
+  "report_recovery_bundle_sha256": "5f92179eadacd930613ff5481c073a99d1404c0b4980c6b11e8b26679018a44a",
+  "report_seconds": 309.46596311498433,
+  "report_sha256": "a423b1d2608984d9ec5d688bb0a81c9a4aae767555203dd1c33864108163041f",
+  "scientific_eligible": false,
+  "source_commit": "c14e6f8880c669db32557997713b960217cd651f",
+  "test_consumed": 8612,
+  "test_unique": 4306,
+  "train_consumed_per_epoch": [
+    400,
+    400
+  ],
+  "validation_consumed": 3152
+}
