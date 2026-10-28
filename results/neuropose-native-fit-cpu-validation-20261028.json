@@ -1,0 +1,124 @@
+{
+  "actual_all_eight_test_owner_child_identities_nonlive": true,
+  "actual_durable_test_attempts": {
+    "light": {
+      "actual_exit_code": 1,
+      "actual_launch_head": "d72fddbc0a7391feea3bc274900140f462533fd3",
+      "seconds": 93.03566007700283,
+      "source_hashes_unchanged": true
+    },
+    "light-fixed": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "d72fddbc0a7391feea3bc274900140f462533fd3",
+      "seconds": 89.0204269469832,
+      "source_hashes_unchanged": true
+    },
+    "native": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "d72fddbc0a7391feea3bc274900140f462533fd3",
+      "seconds": 65.5242402679869,
+      "source_hashes_unchanged": true
+    },
+    "related": {
+      "actual_exit_code": 0,
+      "actual_launch_head": "d72fddbc0a7391feea3bc274900140f462533fd3",
+      "seconds": 23.017185999953654,
+      "source_hashes_unchanged": true
+    }
+  },
+  "actual_independent_collector_owner_child_nonlive": true,
+  "actual_independent_collector_parent_exit_code": 0,
+  "actual_test_launch_head": "d72fddbc0a7391feea3bc274900140f462533fd3",
+  "final_bare_light": {
+    "actual_exit_code": 0,
+    "optional_dependency_skips": 1070,
+    "passed": 1474,
+    "pytest_seconds": 88.14,
+    "warnings": 1
+  },
+  "final_native": {
+    "actual_exit_code": 0,
+    "passed": 33,
+    "pytest_seconds": 64.68,
+    "warnings": 19
+  },
+  "format": "native_neuropose_cpu_fit_validation_record_v1",
+  "full_paper_complete": false,
+  "initial_bare_failure": {
+    "actual_exit_code": 1,
+    "corrected_action": "unset only this opt-in for the genuine bare environment; rerun bare suite in a new attempt; no production/test assertion change",
+    "failed": 2,
+    "failed_log_state_preserved": true,
+    "passed": 1474,
+    "root_cause": "runner set EGOEMG_UPSTREAM in environment without Torch, opting two old Torch integration tests in",
+    "skipped": 1068
+  },
+  "new_cuda_qualified": false,
+  "old_formal_gate_source_unchanged": true,
+  "qualified_content_commit": "a0e4f4f06a5bc88eb03c5a806b6168fa5e5197d9",
+  "related_native": {
+    "actual_exit_code": 0,
+    "passed": 60,
+    "pytest_seconds": 22.1,
+    "warnings": 3
+  },
+  "scientific_eligible": false,
+  "second_review_requested": false,
+  "source_commit_semantics": "new files were tested before commit; exact recorded source/test bytes were then committed and independently executed at qualified_content_commit",
+  "sources_sha256": {
+    "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/neuropose_native_train.py": "27adac6ce882c0cd82b9a7e1ff0abfb1ef16dd0dd3b9091083de12bd91ce46a9",
+    "tests/test_neuropose_native_train.py": "b8f61b42b3a62b292aa94165779e272f98dbb40936aaafdc6fdaa55902d91216"
+  },
+  "tdd_history": [
+    {
+      "actual_exit_code": 1,
+      "deselected": 18,
+      "failed": 4,
+      "seconds": 0.1,
+      "stage": "missing-api-red"
+    },
+    {
+      "actual_exit_code": 0,
+      "passed": 22,
+      "seconds": 38.79,
+      "stage": "initial-native-green",
+      "tool_session": 64113,
+      "warnings": 19
+    },
+    {
+      "actual_exit_code": 1,
+      "deselected": 22,
+      "failed": 7,
+      "seconds": 25.86,
+      "stage": "saved-state-binding-red",
+      "tool_session": 64056
+    },
+    {
+      "actual_exit_code": 0,
+      "passed": 29,
+      "seconds": 55.73,
+      "stage": "saved-state-binding-green",
+      "tool_session": 83121,
+      "warnings": 19
+    },
+    {
+      "actual_exit_code": 1,
+      "deselected": 31,
+      "failed": 1,
+      "seconds": 1.97,
+      "stage": "variant-order-red",
+      "tool_session": 17834
+    },
+    {
+      "actual_exit_code": 1,
+      "deselected": 32,
+      "failed": 1,
+      "seconds": 0.77,
+      "stage": "cpu-no-cuda-rng-red",
+      "tool_session": 94245
+    }
+  ]
+}

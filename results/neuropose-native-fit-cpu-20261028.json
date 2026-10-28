@@ -1,0 +1,44 @@
+{
+  "actual_child_exit_code": 0,
+  "actual_child_nonlive": true,
+  "actual_complete_validation_samples_per_epoch": [
+    2,
+    2
+  ],
+  "actual_independent_fresh_child_count": 1,
+  "actual_journal_sha256": "091a924ec5a77d09566dd46935ff9a0ef714dd7d6a865683a041af0f0183f276",
+  "actual_new_child_validation_samples": 2,
+  "actual_optimizer_attempts": 2,
+  "actual_optimizer_executions": 2,
+  "actual_original_featurizer": "NeuroPose",
+  "actual_original_model_parameters": 6354969,
+  "actual_train_samples_per_epoch": [
+    2,
+    2
+  ],
+  "all_native_fit_files_preserved_byte_exact": true,
+  "batch_size": 2,
+  "child_cpu_no_cuda": true,
+  "completed_epochs": 2,
+  "engineering_scope": "cpu_engineering",
+  "format": "actual_native_neuropose_cpu_fit_and_fresh_best_replay_v1",
+  "full_paper_complete": false,
+  "full_training_terminated": false,
+  "limits": "ordinary small synthetic memmap corpus,2train/2val/2test underlying samples; only train/validation consumed; no CUDA or scientific NeuroPose result",
+  "native_and_fresh_replay_prediction_sha256": "c4c7b9628d9613a59ee48bb58a22a9daf4db98ad8032076dab4331bc942941b0",
+  "new_cuda_qualified": false,
+  "new_training_updates": 0,
+  "parent_cpu_no_cuda": true,
+  "parent_reopened_actual_checkpoint_and_full_inputs": true,
+  "precision": "32-true",
+  "scientific_eligible": false,
+  "seconds": 10.835275700024795,
+  "selected_checkpoint_sha256": "9ec4ad461d65ded338dafec6189db7f105b355d04ab9973461fa33bed1a14583",
+  "selected_epoch_zero_based": 0,
+  "source_commit": "a0e4f4f06a5bc88eb03c5a806b6168fa5e5197d9",
+  "sources_sha256": {
+    "egoemg_repro/neuropose_native_train.py": "27adac6ce882c0cd82b9a7e1ff0abfb1ef16dd0dd3b9091083de12bd91ce46a9",
+    "tests/test_neuropose_native_train.py": "b8f61b42b3a62b292aa94165779e272f98dbb40936aaafdc6fdaa55902d91216"
+  },
+  "strict_selected_model_sha256": "d45e8e6ecad92603d4fc357d8d04059a2164b4106e72372016e70e3431250acc"
+}
