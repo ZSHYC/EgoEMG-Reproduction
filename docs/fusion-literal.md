@@ -57,4 +57,4 @@ restored = build_fusion_runtime(
 
 CPU工程检查使用真实DINO-S预训练来源生成的原视觉格式状态（其姿态head仍是工程初始化）及原factory随机EMG-S状态，明确不冒充训练完成的分支。检查覆盖原forward/loss/backward/优化器、完整视觉与部分EMG传输、离线构造、新进程精确预测重载及损坏输入拒绝。输出始终为`scientific_eligible=false`、`production_ready=false`、`full_paper_complete=false`。
 
-完整融合实验仍须：绑定真实验证best分支和来源；原联合EMG/RGB读取、归一化、augmentation与jitter安全独立划分；完整数据核验；原batch200的GPU构造/训练/恢复验收；150轮完整预算与原选模；冻结测试及独立报告。旧版数据与声明的EgoEMG/ShowEE/Incre合并来源差异继续保留。此处的工程通过不能填写论文精度表。
+完整融合实验仍须：绑定真实已训练分支来源及官方配置声明的选择角色（视觉last、EMGbest）；原联合EMG/RGB读取、归一化、augmentation与jitter安全独立划分；完整数据核验；原batch200的GPU构造/训练/恢复验收；150轮完整预算与原选模；冻结测试及独立报告。旧版数据与声明的EgoEMG/ShowEE/Incre合并来源差异继续保留。此处的工程通过不能填写论文精度表。

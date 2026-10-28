@@ -611,7 +611,8 @@
   "observed_utc": "2026-10-28T04:28:53.275956+00:00",
   "optimizer_updates": 0,
   "production_ready": false,
-  "real_full_server_admission_complete": false,
+  "real_full_server_admission_complete": true,
+  "real_full_server_admission_evidence": "results/native-fusion-cohort-full-20261028.json",
   "scientific_eligible": false,
   "whole_plan_review_complete": false
 }

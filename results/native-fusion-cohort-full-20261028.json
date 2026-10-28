@@ -1,0 +1,129 @@
+{
+  "actual_all_owned_consumers_independently_nonlive": true,
+  "actual_complete_admission": {
+    "actual_exit_path_reached": true,
+    "actual_rng_unchanged": true,
+    "actual_sources_verified": 77,
+    "cuda_initialized": false,
+    "full_paper_complete": false,
+    "full_payload_files": 54,
+    "identity_file_sha256": "6eb4d33860bf601ad290efda34a07690bf4a6c1c16aa8a0e5a45a01d79dd1da4",
+    "identity_sha256": "0b3ea16ab38174e4bfdc898dc1d0af228469b43f0a6d19cfba5822554deace6f",
+    "logical_payload_bytes": 61379659366,
+    "mode": "admit",
+    "model_constructed": false,
+    "native_loader_batch": {
+      "test": 200,
+      "train": 200,
+      "val": 200
+    },
+    "native_workers": {
+      "test": 0,
+      "train": 0,
+      "val": 0
+    },
+    "observed_utc": "2026-10-28T04:35:05.460340+00:00",
+    "production_ready": false,
+    "scientific_eligible": false,
+    "seconds": 176.65347572416067
+  },
+  "actual_counts": {
+    "test": 8612,
+    "train": 395276,
+    "val": 3152
+  },
+  "actual_exit_code": 0,
+  "actual_identity_content_sha256": "0b3ea16ab38174e4bfdc898dc1d0af228469b43f0a6d19cfba5822554deace6f",
+  "actual_identity_file_sha256": "6eb4d33860bf601ad290efda34a07690bf4a6c1c16aa8a0e5a45a01d79dd1da4",
+  "actual_new_process_identity_exact": true,
+  "actual_new_process_reopen": {
+    "actual_exit_path_reached": true,
+    "actual_rng_unchanged": true,
+    "actual_sources_verified": 77,
+    "cuda_initialized": false,
+    "full_paper_complete": false,
+    "full_payload_files": 54,
+    "identity_file_sha256": "6eb4d33860bf601ad290efda34a07690bf4a6c1c16aa8a0e5a45a01d79dd1da4",
+    "identity_sha256": "0b3ea16ab38174e4bfdc898dc1d0af228469b43f0a6d19cfba5822554deace6f",
+    "logical_payload_bytes": 61379659366,
+    "mode": "reopen",
+    "model_constructed": false,
+    "native_loader_batch": {
+      "test": 200,
+      "train": 200,
+      "val": 200
+    },
+    "native_workers": {
+      "test": 0,
+      "train": 0,
+      "val": 0
+    },
+    "observed_utc": "2026-10-28T04:36:53.482634+00:00",
+    "production_ready": false,
+    "scientific_eligible": false,
+    "seconds": 105.06532688299194
+  },
+  "actual_owned_consumer_count": 4,
+  "actual_unique_counts": {
+    "test": 4306,
+    "train": 197638,
+    "val": 1576
+  },
+  "actual_wrapper_and_controller_independently_nonlive": true,
+  "all_immutable_members_unchanged": true,
+  "all_jpegs_predecoded": false,
+  "available_corpus": "legacy EgoEMG only; not declared physically merged EgoEMG/ShowEE/Incre",
+  "bundle_sha256": "fdc83c6fb6c82775bac16d4686e019a8f2c05149e9538967f2ec7b9133dbf2e5",
+  "consumed_emg_nonfinite_entries": 0,
+  "cuda_initialized": false,
+  "finite_footprints": {
+    "test": {
+      "consumed_emg_elements": 268349920,
+      "consumed_emg_nonfinite_entries": 0,
+      "possible_center_label_true_hand_rows": 4178,
+      "possible_center_rows": 2153,
+      "possible_center_target_elements": 94732,
+      "possible_center_target_nonfinite_entries": 0,
+      "unique_possible_emg_rows": 16771870
+    },
+    "train": {
+      "consumed_emg_elements": 676184624,
+      "consumed_emg_nonfinite_entries": 0,
+      "possible_center_label_true_hand_rows": 76123925,
+      "possible_center_rows": 39527600,
+      "possible_center_target_elements": 1739214400,
+      "possible_center_target_nonfinite_entries": 0,
+      "unique_possible_emg_rows": 42261539
+    },
+    "val": {
+      "consumed_emg_elements": 98216320,
+      "consumed_emg_nonfinite_entries": 0,
+      "possible_center_label_true_hand_rows": 1505,
+      "possible_center_rows": 788,
+      "possible_center_target_elements": 34672,
+      "possible_center_target_nonfinite_entries": 0,
+      "unique_possible_emg_rows": 6138520
+    }
+  },
+  "format": "actual_complete_fusion_legacy_input_admission_v1",
+  "full_paper_complete": false,
+  "logical_payload_bytes": 61379659366,
+  "minimum_actual_available_memory_bytes": 969528901632,
+  "minimum_actual_output_disk_free_bytes": 196705759232,
+  "model_constructed": false,
+  "observed_utc": "2026-10-28T04:37:51.993209+00:00",
+  "optimizer_updates": 0,
+  "parent_torch_unimported": true,
+  "payload_files": 54,
+  "possible_center_target_nonfinite_entries": 0,
+  "production_ready": false,
+  "publisher_authenticated_payload_reference_available": false,
+  "raw_actual_evidence_sha256": "fafeb0ff5116f83beb14ed2e49e5d166ad05abefed655c7934039585ef4f396c",
+  "resource_observation_count": 10,
+  "resource_observation_injected": false,
+  "scientific_eligible": false,
+  "seconds": 287.425208915025,
+  "source_commit": "0de56c27470b06335c39a8258d4f205a2b590dbd",
+  "source_members_verified": 77,
+  "whole_plan_review_complete": false
+}

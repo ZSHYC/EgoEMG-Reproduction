@@ -33,4 +33,8 @@ loaders = native_fusion_loaders(cohort)
 
 ## 仍需完成
 
-真实验证best分支来源、原生fusion训练/状态恢复及评价报告入口、实际batch200/bf16 GPU限定验收、150轮完整训练/验证选模/冻结测试/独立复算。这些未实际完成前，入口所有输出保持scientific_eligible/production_ready/full_paper_complete=false。
+真实已训练分支来源及官方配置声明的选择角色（视觉last、EMGbest）、原生fusion训练/状态恢复及评价报告入口、实际batch200/bf16 GPU限定验收、150轮完整训练/验证选模/冻结测试/独立复算。这些未实际完成前，入口所有输出保持scientific_eligible/production_ready/full_paper_complete=false。
+
+## 实际服务器核验
+
+[完整输入证据](../results/native-fusion-cohort-full-20261028.json)与[完整安全身份](../results/native-fusion-cohort-full-identity-20261028.json)记录两次独立进程完整hash/扫描：54文件共61,379,659,366bytes，首次176.65秒、新进程105.07秒，身份逐字节一致。双手EMG并集65,171,929行/1,042,750,864元素，所有可能中心39,530,541行/1,739,343,804目标元素均有限。两个阶段及外层进程已独立确认退出，77个固定源码/执行文件前后hash不变；原生三角色batch200/workers0、RNG不变、无模型/CUDA。总链287.43秒actual exit0。一次整体审查仍待完成，未因此完成融合训练。
