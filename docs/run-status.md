@@ -1,5 +1,7 @@
 # 运行状态
 
+最新实施（北京时间2026-10-29 03:21）：[WiLoR首次真实GPU工程验证](../results/wilor-native-gpu-qualification-20261029.json)已完成原batch18/BF16、两轮4更新、每轮36训练/全部3,152验证，独立进程typed重算精确一致，五阶段实际exit0。唯一新实现整体审查完成并修复两项重要校验（训练循环/GPU随机状态、验证结果与fit绑定）；[321项原生及1,632项轻量检查](../results/wilor-native-final-review-validation-20261029.json)、[真实CPU/GPU原始包新校验](../results/wilor-native-final-review-raw-20261029.json)和[当前源码两次完整输入重验](../results/wilor-native-data-full-review-20261029.json)均通过，源码8ee760f。修复前GPU实证保留为历史，不冒充当前许可；当前GPU资格/完整30轮/8,612测试及报告仍欠，科学完成设置仍10。19:20UTC实查：融合8轮/15,816更新、NeuroPose36轮/14,325实际更新、DINO-L89轮，EMG2Pose-S最近完整日志6轮/9,504更新，均原进程继续，M/L排队。[完成文件物理块共享](../results/owned-output-storage-sharing-20261029.json)保留全部字节/九项文件身份，内核比较共享22.789GB；当前数据盘约44.99GB，尚不足原47GiB工程门槛，另做只读存储分析。几何仍4/8，右手有效性正常最终文件尚未落盘，用户确认继续等；现有MANO压缩包内左右模型已找到、私下传至服务器并完整重算哈希，格式/几何接口仍须验收。
+
 北京时间2026-10-28 18:29补充：[新融合当前源码的两次全量输入重验](../results/native-fusion-training-readmission-20261028.json)各96.61/85.49秒actualexit0，54文件/61.38GB及完整有限足迹精确一致；对应四拥有者实际退出、86冻结成员未变。原资格控制器已进入prefix阶段，实际worker在指定GPU有CUDA上下文，完整资格仍未完成；新的融合正式150轮尚未开始。代码/CPU证据已推送8bf2a2c并独立核对GitHub ref。
 
 

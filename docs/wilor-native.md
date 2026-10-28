@@ -1,6 +1,12 @@
 # WiLoR 原生22角实验
 
-当前正在实现[完整WiLoR计划](superpowers/plans/2026-10-28-wilor-native.md)。Tasks1–3的配置、真实资产/模型、完整输入绑定、连续fit和严格最佳权重读取已完成；Task4的评价、独立复算和报告入口现已通过真实CPU工程验收。原batch18/BF16 GPU资格、一次新实现审查、完整30轮和全量独立测试仍需逐项完成。全论文完成设置数不会因配置或工程检查增加。
+当前正在执行[完整WiLoR计划](superpowers/plans/2026-10-28-wilor-native.md)。配置、真实资产/模型、完整输入绑定、原生fit、评价、独立复算和报告入口已完成工程验证。首次原batch18/BF16 GPU资格和唯一一次新实现审查已完成；审查的两项重要校验问题已修复，当前源码8ee760f。修复后的真实检查点验收和两次完整输入重验已通过；仍需当前源码的GPU资格、完整30轮和全量独立测试。全论文完成设置数仍为10。
+
+[首次真实GPU验证](../results/wilor-native-gpu-qualification-20261029.json)绑定修复前f6fab48：原631,631,657参数/404预训练张量，batch18/BF16，两轮实际4次更新，每轮36训练和全部3,152验证消费。独立进程重算的typed预测精确一致，末批2；训练、原生验证、独立重算、资格写入和另进程CPU读取五阶段均实际exit0，18个相关进程退出，224份GPU及输入冻结成员、三个检查点和预测完整重验。此为明确的旧源码工程证据，不是当前源码的许可或完整训练成绩。
+
+唯一整体审查发现0项Critical、2项Important、1项Minor。已补齐原生Lightning训练循环/批次/优化器/调度器/验证计数及16字节CUDA随机状态检查，并将验证与重算双方的fit身份检查移入共享资格读取边界。保留真实保存时序：第2轮检查点的epoch completed为1，不能误判为2。[修复检查](../results/wilor-native-final-review-validation-20261029.json)记录36失败/1通过的初始回归、37项定向通过，最终321项原生/相关通过和轻量1,632通过/1,235可选依赖跳过。[真实原始包验证](../results/wilor-native-final-review-raw-20261029.json)确认新校验接受原CPU/GPU完整检查点、拒绝缺失loops/错误GPU随机状态和三种错配fit，未训练、构造模型或初始化CUDA。单卡限制的报告措辞问题留为Minor，不另开整体审查。
+
+[修复后完整输入两次重验](../results/wilor-native-data-full-review-20261029.json)绑定8ee760f，52文件/57.15GB、全部可能中心有限，两个进程分别重新读取并得到相同身份；不是给旧GPU资格改标签。训练文件整份哈希改变会更新数据及训练身份，因此当前源码仍需新的实际GPU验证。[存储优化证据](../results/owned-output-storage-sharing-20261029.json)记录内核比较完全相同文件后共享22.789GB物理块，全部文件内容和inode/大小/mtime/ctime等九项属性保持；没有删除或重命名文件、修改配方或降低空间门槛。当前空间仍须满足原47GiB工程/55GiB完整运行要求。
 
 Task4评价源码7910238。[真实CPU评价链](../results/wilor-native-eval-cpu-20261028.json)复用已完成的原631,631,657参数模型和原生best；没有重新训练。验证和测试各选择每手首窗及原repeat2，共4消费/2唯一手样本，测试原索引明确为`[0,3,6,9]`；不是完整legacy测试集。原生Trainer和新进程独立前向的typed预测均精确一致，22角/生成标签mask/缺图样本/重复消费与唯一样本统计保持完整；每角色含2个缺图消费，不能只在有图子集上冒充全部结果。验证先冻结，再测试；PNG/SVG曲线由另一个进程从真实epoch日志逐字节重生一致，实际曲线已目视检查。报告显著标记工程验证，合成样本的误差不能作为科学成绩。
 
@@ -12,7 +18,7 @@ Task3最终绑定源码8013690。[两轮真实CPU验收](../results/wilor-native
 
 [完整实际输入的两次独立重验](../results/wilor-native-data-full-20261028.json)各79.38/78.13秒actualexit0：52文件/57,145,308,966字节，全部可能训练抖动中心的目标均有限、RNG未变、没有模型或CUDA。注册legacy实际202,020/3,152/8,612消费及101,010/1,576/4,306唯一人口一致，六个所属进程退出，连续输入/源码generation guard通过；[完整内容身份](../results/wilor-native-data-full-identity-20261028.json)保持数据资格范围。先前30项数据边界检查已经包含在最终80项fit/data检查内。
 
-[最终检查身份](../results/wilor-native-fit-cpu-validation-20261028.json)记录208项原生/相关检查和完整轻量1,552通过/1,200真实可选依赖跳过，均actualexit0、12份来源与实际拥有者核验通过。`fit_wilor`没有续训/覆盖或任意配方覆盖接口，完整模式在读取数据/模型前要求当前原始CUDA资格；`read_wilor_fit`重开原始epoch链及native best，`reopen_wilor_best`用自包含完整状态严格重载。完整GPU资格仍未执行，数据/CPU实证不能打开完整30轮入口；服务器检查点可用空间需要补足，相关目录信息已询问用户。
+[Task3检查身份](../results/wilor-native-fit-cpu-validation-20261028.json)记录当时208项原生/相关检查和完整轻量1,552通过/1,200真实可选依赖跳过，均actualexit0、12份来源与实际拥有者核验通过。`fit_wilor`没有续训/覆盖或任意配方覆盖接口，完整模式在读取数据/模型前要求当前原始CUDA资格；`read_wilor_fit`重开原始epoch链及native best，`reopen_wilor_best`用自包含完整状态严格重载。数据/CPU实证不能打开完整30轮入口；首次GPU证据及修复后所需资格见上文。
 
 [配方来源审计](../results/wilor-angle-recipe-audit-20261028.md)核对了所附PDF第22页与固定官方源码。原仓库有WiLoR模块，独立视觉WiLoR训练YAML缺失；此处明确派生自官方视觉ViT-S配方，整份替换模块参数，再应用论文WiLoR的batch18、初始LR1e-5和30epochs。BF16、weight_decay0.01、梯度裁剪1、val_mae选模/top3+last/patience30等分别标为继承字段。
 

@@ -1,0 +1,41 @@
+{
+  "actual_all_four_owned_processes_nonlive": true,
+  "actual_cross_fit_rejections": 3,
+  "actual_cuda_initialized": false,
+  "actual_current_source_gpu_qualification_complete": false,
+  "actual_finished_utc": "2026-10-28T19:16:13.250187+00:00",
+  "actual_flow_exit_code": 0,
+  "actual_frozen_stage_members_rehashed": 112,
+  "actual_genuine_historical_qualification_dependencies_accepted": true,
+  "actual_global_rng_unchanged": true,
+  "actual_retained_checkpoint_bytes_independently_rehashed": true,
+  "actual_retained_packets": {
+    "cpu": {
+      "actual_complete_retained_packet_accepted": true,
+      "actual_cuda_rng_one_byte_rejected": false,
+      "actual_missing_loops_rejected": true,
+      "checkpoint_bytes": 7579963450,
+      "checkpoint_sha256": "d749e50cef4c162a82ab4c5f7794e1f6f9f9a7af27c82d77d2e406df93a818cf",
+      "original_packet_generation_unchanged": true
+    },
+    "gpu": {
+      "actual_complete_retained_packet_accepted": true,
+      "actual_cuda_rng_one_byte_rejected": true,
+      "actual_missing_loops_rejected": true,
+      "checkpoint_bytes": 7579985721,
+      "checkpoint_sha256": "4c6f295a933106f0cad53e66104e5e8dc0cc032eb9f5eddcfbca194abe055529",
+      "original_packet_generation_unchanged": true
+    }
+  },
+  "actual_started_utc": "2026-10-28T19:15:43.916867+00:00",
+  "bundle_sha256": "90a0f8c1b6dd2e8fd561f5524dc43e21c3b5a0b97e07b07e0b7b595ed42300c9",
+  "format": "actual_native_wilor_review_semantic_raw_validation_v1",
+  "full_paper_complete": false,
+  "independently_reopened_utc": "2026-10-28T19:17:45.794744+00:00",
+  "models_constructed": 0,
+  "new_optimizer_updates": 0,
+  "scientific_eligible": false,
+  "scope": "New semantic validators tested on genuine retained packets; old-source artifacts remain historical, not current-source qualification.",
+  "seconds": 27.94441420584917,
+  "source_commit": "8ee760f956c60ceda17c2acdbf5f256466e01b15"
+}
