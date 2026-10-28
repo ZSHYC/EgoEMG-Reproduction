@@ -33,9 +33,9 @@
 
 **Interfaces:** `compose_emgformer(upstream,size='small')`; `emgformer_protocol(upstream,config)`; `emgformer_normalization(upstream,config)`. Sizes are small/middle/large; protocol records raw and effective losses, native source hashes and exact trainer/loader declarations. No factory/data read here, except explicit norm function.
 
-- [ ] RED: exact three resolved configs versus direct original Hydra, only private binding; batch500/max200/lr5e-5/eta1e-5/effective0.02 and native decoder sizes; mutation and unsupported-size refusal; native8channel per-hand normalization.
-- [ ] Run new test file in existing local original runtime. Expected: missing component failures before implementation.
-- [ ] Implement strict binding/alias aggregation and normalization via original loader. Expected: all Task1 tests pass.
+- [x] RED: exact three resolved configs versus direct original Hydra, only private binding; batch500/max200/lr5e-5/eta1e-5/effective0.02 and native decoder sizes; mutation and unsupported-size refusal; native8channel per-hand normalization.
+- [x] Run new test file in existing local original runtime. Expected: missing component failures before implementation.
+- [x] Implement strict binding/alias aggregation and normalization via original loader. Expected: all Task1 tests pass.
 
 ## Task 2: unchanged factory, complete state and optimizer
 
@@ -43,17 +43,17 @@
 
 **Interfaces:** `build_emgformer_runtime(upstream,config,*,state=None,expected_initialization=None)` returns PreparedEmgformer with module/identity/check()/mode/loaded_state_sha256. `emgformer_state_sha256(state)` reuses existing full typed-state digest. `emgformer_optimizer_identity(prepared,optimizer,scheduler)` validates every native parameter once and original AdamW/cosine200.
 
-- [ ] RED: three actual native models have expected counts and full `(B,22,11490)` aligned trajectories; setup before factory and deterministic seed42; strict same-output reload; actual train-mode loss/backward/update uses both aliases; invalid lineage/schema/config/state rejects before factory; optimizer missing/duplicate/lr/scheduler/eta refusal.
-- [ ] Implement minimal source/runtime/version/identity-bound wrapper. Keep all scientific/data/full-fit flags false.
-- [ ] Run Task1+2 tests. Expected: new relevant tests pass, no CUDA or asset downloads.
+- [x] RED: three actual native models have expected counts and full `(B,22,11490)` aligned trajectories; setup before factory and deterministic seed42; strict same-output reload; actual train-mode loss/backward/update uses both aliases; invalid lineage/schema/config/state rejects before factory; optimizer missing/duplicate/lr/scheduler/eta refusal.
+- [x] Implement minimal source/runtime/version/identity-bound wrapper. Keep all scientific/data/full-fit flags false.
+- [x] Run Task1+2 tests. Expected: new relevant tests pass, no CUDA or asset downloads.
 
 ## Task 3: independent CPU engineering and publication
 
 **Files:** isolated private CPU producer/replay; publish `results/native-emgformer-runtime-cpu-20261029.json` and docs/status only after actual proof; one fresh review of this NEW component.
 
-- [ ] For each size, execute actual source factory, train-mode trajectory loss/backward and one original AdamW/cosine update on fixed synthetic full-length input, freeze complete learned state privately. Expected: finite nonzero gradients/changed state, source config0.02, no data/GPU/full-budget claim.
-- [ ] Fresh process strictly reloads all three and independently computes same eval predictions/typed-state digest. Expected: exact outputs and source hashes, actual owners closed, no extra optimization in replay.
-- [ ] One fresh new-component review, one fix pass for material findings with targeted RED→GREEN; no repeated old model internals review.
+- [x] For each size, execute actual source factory, train-mode trajectory loss/backward and one original AdamW/cosine update on fixed synthetic full-length input, freeze complete learned state privately. Expected: finite nonzero gradients/changed state, source config0.02, no data/GPU/full-budget claim.
+- [x] Fresh process strictly reloads all three and independently computes same eval predictions/typed-state digest. Expected: exact outputs and source hashes, actual owners closed, no extra optimization in replay.
+- [x] One fresh new-component review, one fix pass for material findings with targeted RED→GREEN; no repeated old model internals review.
 - [ ] Verify public evidence/source bindings and scope, commit/push/ref verification. Expected: this component ready; full0.02 data/cohort/200epoch/selected-best test/report and all remaining paper requirements remain pending.
 
 ## Downstream requirements retained

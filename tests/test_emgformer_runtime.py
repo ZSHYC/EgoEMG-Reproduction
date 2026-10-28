@@ -117,3 +117,18 @@ def test_prepared_check_requires_actual_native_loss_weights(packet):
     p=api().build_emgformer_runtime(UPSTREAM,cfg,state=packet['state'],expected_initialization=packet['identity'])
     p.module.loss_weights['fingertip_distance']=0.
     with pytest.raises(ValueError):p.check()
+
+
+@pytest.mark.parametrize('flag,value',[('maximize',True),('foreach',True),('capturable',True),
+    ('differentiable',True),('fused',True)])
+def test_optimizer_execution_defaults_must_remain_native(packet,flag,value):
+    p=restore(packet);c=p.module.configure_optimizers();opt=c['optimizer'];scheduler=c['lr_scheduler']['scheduler']
+    opt.param_groups[0][flag]=value
+    with pytest.raises(ValueError):api().emgformer_optimizer_identity(p,opt,scheduler)
+
+
+def test_freezing_and_removing_native_parameter_cannot_shrink_expected_coverage(packet):
+    p=restore(packet);c=p.module.configure_optimizers();opt=c['optimizer'];scheduler=c['lr_scheduler']['scheduler']
+    opt.param_groups[0]['params'][0].requires_grad_(False)
+    opt.param_groups[0]['params'].pop(0)
+    with pytest.raises(ValueError):api().emgformer_optimizer_identity(p,opt,scheduler)

@@ -26,6 +26,7 @@ LOCAL = ('egoemg_repro/emgformer_runtime.py', 'egoemg_repro/emgformer_literal.py
 PACKAGES = ('torch', 'torchvision', 'numpy', 'timm', 'pytorch-lightning', 'hydra-core', 'omegaconf')
 RUNTIME = ('torch.optim.adamw', 'torch.optim.lr_scheduler', 'torch.nn.functional',
            'pytorch_lightning.core.module')
+EXECUTION_DEFAULTS = dict(maximize=False, foreach=None, capturable=False, differentiable=False, fused=None)
 
 
 def _sources(root, protocol):
@@ -78,6 +79,7 @@ class PreparedEmgformer:
                 or any(self.identity.get(k) is not False for k in ('scientific_eligible', 'production_ready', 'full_paper_complete'))
                 or _schema(self.module.state_dict()) != self.identity['model_schema']
                 or [n for n, _ in self.module.named_parameters()] != self.identity['parameter_names']
+                or any(not p.requires_grad for p in self.module.parameters())
                 or sum(p.numel() for p in self.module.parameters()) != PARAMETERS[self.identity['size']]):
             raise ValueError('prepared original EMGFormer source/config/runtime/schema changed')
 
@@ -132,17 +134,19 @@ def emgformer_optimizer_identity(prepared, optimizer, scheduler):
             or type(scheduler.last_epoch) is not int or not 0 <= scheduler.last_epoch <= horizon
             or scheduler.base_lrs != [initial] or len(optimizer.param_groups) != 1):
         raise ValueError('original EMGFormer cosine horizon/eta/group recipe differs')
-    named = {id(p): n for n, p in prepared.module.named_parameters() if p.requires_grad}
+    named = {id(p): n for n, p in prepared.module.named_parameters()}
     group = optimizer.param_groups[0]
     names = [named.get(id(p)) for p in group['params']]
     expected_lr = eta + (initial-eta)*(1+math.cos(math.pi*scheduler.last_epoch/horizon))/2
     if (names != list(named.values()) or any(n is None for n in names)
             or not math.isclose(group['lr'], expected_lr, rel_tol=1e-10, abs_tol=1e-14)
             or group['weight_decay'] != recipe['weight_decay'] or group['eps'] != recipe['eps']
-            or group['betas'] != tuple(recipe['betas']) or group['amsgrad'] is not recipe['amsgrad']):
+            or group['betas'] != tuple(recipe['betas']) or group['amsgrad'] is not recipe['amsgrad']
+            or any(k not in group or group[k] is not v for k, v in EXECUTION_DEFAULTS.items())):
         raise ValueError('original EMGFormer optimizer parameter coverage/options differ')
     return dict(format='original_egoemg_emgformer_optimizer_v1',
         groups=[dict(parameter_names=names, lr=group['lr'], weight_decay=group['weight_decay'],
-                     betas=list(group['betas']), eps=group['eps'])],
+                     betas=list(group['betas']), eps=group['eps'],
+                     execution_defaults={k: group[k] for k in EXECUTION_DEFAULTS})],
         scheduler=dict(T_max=scheduler.T_max, eta_min=scheduler.eta_min,
                        last_epoch=scheduler.last_epoch, base_lrs=scheduler.base_lrs))

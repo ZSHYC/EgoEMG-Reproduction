@@ -56,3 +56,22 @@ def test_native_per_hand_eight_float32_normalization_matches_original_loader():
         assert len(p['hands'][hand]['mean'])==8
     assert p['hands']['left']['std']!=p['hands']['right']['std']
     assert p['estimated_from_project_train_rows'] is False and p['dataset_admitted'] is False
+
+
+@pytest.mark.parametrize('size',['small','middle','large'])
+def test_protocol_records_declared_normalization_source(size):
+    cfg=api().compose_emgformer(UPSTREAM,size);p=api().emgformer_protocol(UPSTREAM,cfg)
+    assert p['normalization_source']==dict(declared_path=cfg.datamodule.per_dataset_norm_stats_path,
+        relative_path_base='approved upstream root',asset=api().NORM_ASSET,
+        asset_sha256=api()._file_hash(UPSTREAM/api().NORM_ASSET))
+
+
+@pytest.mark.parametrize('size',['small','middle','large'])
+def test_environment_cannot_silently_substitute_declared_normalization(size,tmp_path,monkeypatch):
+    monkeypatch.setenv('EGOEMG_ROOT',str(tmp_path/'missing-official-root'))
+    cfg=api().compose_emgformer(UPSTREAM,size)
+    api()._activate(UPSTREAM)
+    from egoemg.datasets.egoemg_memmap_dataset import EgoEmgMemmapDataset
+    def forbidden(*a,**kw):raise AssertionError('normalization loader reached despite different declaration')
+    monkeypatch.setattr(EgoEmgMemmapDataset,'_load_norm_stats',forbidden)
+    with pytest.raises(ValueError):api().emgformer_normalization(UPSTREAM,cfg)

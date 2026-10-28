@@ -62,6 +62,19 @@ def _validated(upstream, config):
         raise ValueError('invalid original EMGFormer configuration binding') from exc
 
 
+def _normalization_source(root, value):
+    declared = value['datamodule']['per_dataset_norm_stats_path']
+    if not isinstance(declared, str) or not declared:
+        raise ValueError('declared EMGFormer normalization source is missing')
+    candidate = Path(declared)
+    if not candidate.is_absolute():
+        candidate = root/candidate
+    if candidate.resolve() != (root/NORM_ASSET).resolve():
+        raise ValueError('declared EMGFormer normalization source differs from pinned asset')
+    return dict(declared_path=declared, relative_path_base='approved upstream root',
+                asset=NORM_ASSET, asset_sha256=_file_hash(candidate))
+
+
 def emgformer_protocol(upstream, config):
     root, size, value = _validated(upstream, config)
     effective = {}
@@ -81,6 +94,7 @@ def emgformer_protocol(upstream, config):
         window=dict(train_length=dm['window_length'], eval_length=dm['val_test_window_length'],
                     train_stride=dm['stride'], eval_stride=dm['val_test_stride']),
         declared_layout=value['egoemg_emg_layout'], requested_emg_field=value['egoemg_emg_field_preference'],
+        normalization_source=_normalization_source(root, value),
         declared_corpus='unified EgoEMG/ShowEE/Incre; this contract has not admitted those arrays',
         native_loader_executed=False, dataset_admitted=False, scientific_eligible=False,
         production_ready=False, full_paper_complete=False,
@@ -91,11 +105,12 @@ def emgformer_protocol(upstream, config):
 
 def emgformer_normalization(upstream, config):
     root, size, value = _validated(upstream, config)
+    source = _normalization_source(root, value)
     _activate(root)
     from egoemg.datasets.egoemg_memmap_dataset import EgoEmgMemmapDataset
     hands = {}
     for hand in ('left', 'right'):
-        view = SimpleNamespace(norm_mode='per-dataset', norm_stats_path=str(root/NORM_ASSET),
+        view = SimpleNamespace(norm_mode='per-dataset', norm_stats_path=str(root/source['asset']),
             dataset_name=value['eval_dataset_name'], emg_field_preference=value['egoemg_emg_field_preference'],
             emg_layout=value['egoemg_emg_layout'], target_hand=hand)
         EgoEmgMemmapDataset._load_norm_stats(view)
@@ -104,7 +119,7 @@ def emgformer_normalization(upstream, config):
                 or not np.isfinite(mean).all() or not np.isfinite(std).all() or np.any(std <= 0)):
             raise ValueError('original per-hand float32 eight-channel normalization differs')
         hands[hand] = dict(mean=mean.tolist(), std=std.tolist(), dtype='float32')
-    return dict(format='original_egoemg_emgformer_normalization_v1', size=size, asset=NORM_ASSET,
-                asset_sha256=_file_hash(root/NORM_ASSET), hands=hands,
+    return dict(format='original_egoemg_emgformer_normalization_v1', size=size, asset=source['asset'],
+                asset_sha256=source['asset_sha256'], declared_source=source, hands=hands,
                 epsilon=value['datamodule']['norm_eps'], estimated_from_project_train_rows=False,
                 dataset_admitted=False, scientific_eligible=False, production_ready=False, full_paper_complete=False)

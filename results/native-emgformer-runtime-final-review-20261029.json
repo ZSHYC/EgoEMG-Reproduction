@@ -1,0 +1,70 @@
+{
+  "current_cpu_proof_sha256": "d6a92071fa0c29e1782b0d079febfcbbda5ef58406440493910c17bf4a687789",
+  "current_source_sha256": {
+    "egoemg_repro/emgformer_literal.py": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
+    "egoemg_repro/emgformer_runtime.py": "7691be8aacfb6a6796225ee91be9a19643d585a83512134178aa8ea354513bbb",
+    "tests/test_emgformer_literal.py": "8aca1c889eb3e0b11042b08f958c7057834fca3aae16899326b06ecc5c616488",
+    "tests/test_emgformer_runtime.py": "1517db65b7f3052564c33f5b59cfb731832e91352ebcffa13beb85ea97d43e54"
+  },
+  "deferred_minors": [],
+  "format": "native_egoemg_emgformer_final_review_validation_v1",
+  "full_paper_complete": false,
+  "independent_review": {
+    "critical": 0,
+    "cuda_initialized": false,
+    "important": 3,
+    "minor": 0,
+    "optimizer_executions": 0,
+    "passes": 1,
+    "read_only": true,
+    "targeted_native_cpu_constructions": 1
+  },
+  "one_fix_pass": {
+    "final_tests_passed": 95,
+    "final_warnings": 68,
+    "fixed": [
+      "Validate and record native AdamW maximize/foreach/capturable/differentiable/fused execution defaults.",
+      "Preserve original all-parameter trainability and complete parameter order; freezing/removing cannot shrink expected coverage.",
+      "Record configured normalization declaration and resolve relative paths against approved upstream; reject alternate source before native read."
+    ],
+    "green_exit_code": 0,
+    "green_log_sha256": "becf2cc0dce0856ac59e4682ef860af8ebfc610563cffbff01a934d98d1bbe89",
+    "green_seconds": 64.71,
+    "red_exit_code": 1,
+    "red_log_sha256": "0632d4081e59efd2c2bd56bec22dcbdeb2fab7440666c947d4dbd78da9bde1e4",
+    "red_seconds": 23.18,
+    "regressions_observed_red": 24
+  },
+  "production_ready": false,
+  "reviewed_base": "04af5ff0c792c4c5de4c25f1ea28ac035dfeaeb6",
+  "reviewed_head": "7f9d0ef47b87ae4e681f67cf21e9d830b8460a80",
+  "rulings": [
+    {
+      "choice": "Exact separate native0.02 runtime; never reuse cotrain0.01 as these experiments.",
+      "cost_if_wrong": "Invalid source/scientific comparison, guarded by native same-forward objective tests.",
+      "reason": "Approved full-paper design and official-code precedence require distinct source recipe."
+    },
+    {
+      "choice": "Relevant new-component tests and one fresh new-component review only.",
+      "cost_if_wrong": "Integration concerns must be established by future real data/GPU/full-fit verification.",
+      "reason": "Unchanged prior model mathematics and suites already verified; no implementation edits there."
+    },
+    {
+      "choice": "Data/augmentation/RNG/GPU/full training/selection/evaluation remain required downstream.",
+      "cost_if_wrong": "CPU evidence cannot authorize scientific or PDF-equivalent completion.",
+      "reason": "This component only binds runtime and learned-state reload."
+    },
+    {
+      "choice": "Full optimizer/RNG resume is not this learned-state reload interface.",
+      "cost_if_wrong": "Future full trainer must implement and independently verify all resume state.",
+      "reason": "No training-resume checkpoint is exposed here."
+    },
+    {
+      "choice": "Trusted local state artifacts; arbitrary malicious Python graph authentication outside component.",
+      "cost_if_wrong": "Caller must not treat a supplied packet as an untrusted artifact verification service.",
+      "reason": "Frozen local source/config/schema/state-byte bindings are the declared boundary."
+    }
+  ],
+  "scientific_eligible": false,
+  "scientific_model_settings_added": 0
+}
