@@ -1,0 +1,51 @@
+{
+  "checkpoint_continuation_offered": false,
+  "date": "2026-10-28",
+  "evidence_basis": "retained previously executed diagnostic records reopened; no new CUDA experiment or raw-tensor recomputation in this decision collector",
+  "format": "prospective_native_neuropose_uninterrupted_execution_ruling_v1",
+  "full_batch_size": 256,
+  "full_early_stopping_patience": 50,
+  "full_max_epochs": 100,
+  "full_paper_complete": false,
+  "full_precision": "16-mixed",
+  "full_required_counts": {
+    "test": 4306,
+    "train": 101714,
+    "val": 1576
+  },
+  "implementation_choice_made_by": "implementer under existing approved full-paper execution authorization",
+  "inference": "the observed local future-training-trajectory epsilon failure does not require restoration; no specific-kernel cause or distributional equivalence established",
+  "native_model_data_loss_optimizer_batch_precision_stopping_unchanged": true,
+  "new_claim": "one fresh original full-budget/patience training experiment, preceded by actual original-batch backward and strict selected-model full-validation native/new-process exact replay",
+  "new_cuda_qualified": false,
+  "new_frozen_model_replay_policy": "exact typed original input/target/mask/prediction chains",
+  "new_full_neuropose_started": false,
+  "new_profile": "native_neuropose_uninterrupted_v1",
+  "new_training_trajectory_tolerance": null,
+  "observed_fresh_control": {
+    "after_second_epoch_bad_elements": 23122,
+    "all_consumed_inputs_equal": true,
+    "elements": 171380,
+    "final_rng_equal": true,
+    "initial_state_equal": true,
+    "max_abs_rad": 0.00286865234375,
+    "max_threshold_ratio": 2.7249462122069983,
+    "neither_run_resumed": true
+  },
+  "observed_resume_diagnosis": {
+    "after_second_epoch_bad_elements": 8,
+    "elements": 171380,
+    "max_abs_rad": 0.0015869140625,
+    "max_threshold_ratio": 1.5092114959469418,
+    "strict_restored_state_equal": true
+  },
+  "old_failed_gate_preserved": true,
+  "old_formal_source_sha256": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+  "old_runs_promoted": false,
+  "old_threshold_changed": false,
+  "retained_diagnostic_records_sha256": {
+    "fresh_control_diagnosis": "c0778ca7af98a59082714662bab0a3400610bbef3086d371c1d5f984fa249e72",
+    "resume_diagnosis": "efda519be70389e2e4bffb50803f8be2a7d025374519877d986469fe7ab57fe0"
+  },
+  "scientific_eligible": false
+}
