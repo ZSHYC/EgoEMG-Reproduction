@@ -1,0 +1,76 @@
+{
+  "actual_server": {
+    "actual_exit_code": 0,
+    "actual_successful_owned_stages": 7,
+    "all_immutable_members_unchanged": true,
+    "consumers_independently_nonlive": 14,
+    "first_package_preflight_rejected_before_gpu": true,
+    "first_rejection": "current DINO-expanded train/visual bytes differ from recorded legacy producers; exact Git producer bytes used in new immutable namespace; checks not relaxed",
+    "immutable_members": 94,
+    "independent_numeric_and_target_pair_checks": true,
+    "original_owners_independently_nonlive": true,
+    "parent_torch_unimported": true,
+    "raw_actual_evidence_sha256": "93dbe480edfee7b503464fea35c0290ca33a8ac0b78e9344bb51616777358122",
+    "resource_observations_injected": false,
+    "seconds": 139.31283055059612,
+    "stage_bundle_sha256": "6953da458ff0b5c855adeb5342aceaeebf91174d4c500065655167fc1ff256b5"
+  },
+  "current_source_native_checks": {
+    "actual_exit_code": 0,
+    "log_sha256": "d82f8a90d0a9ab65981dc4d7bd50e5ae7dd863483bdc2a6a4c5c4acaad9cf6c6",
+    "passed": 62,
+    "seconds": 12.79,
+    "warnings": 17
+  },
+  "current_whole_native_hosted_ci_verified": false,
+  "exact_legacy_cpu_local": {
+    "actual_exit_code": 0,
+    "log_sha256": "bdb50d25a15b07f66c799a835020fd64cec74ca2ec2979edcb47f3538bf53a44",
+    "passed": 31,
+    "seconds": 6.81,
+    "warnings": 7
+  },
+  "exact_legacy_source_pins": {
+    "commit": "7b805d428957e62cc93ff48f34e954c64159691e",
+    "files_sha256": {
+      "egoemg_repro/train.py": "f40f375d11bd535bd54edb4a6d98f399e3c74ea6c9f846ba94210a203e808418",
+      "egoemg_repro/visual.py": "588a18cfd0bbd106c6843fbbe6e436635784cd2b0ea7b59f3db33878ab1f084b"
+    }
+  },
+  "existing_data_and_checkpoints_unchanged": true,
+  "final_render": {
+    "actual_exit_codes": [
+      0,
+      0
+    ],
+    "all_63_repeat_bytes_identical": true,
+    "all_eight_presentation_pngs_visually_inspected": true,
+    "inference_precision_declared": "retained bfloat16/high; official formula is not a claim of running the original FP32 evaluation pipeline",
+    "native_lower_axis_clipping_disclosed": true,
+    "native_reference_source_label_overlap_disclosed": true,
+    "native_source_plots": 8,
+    "presentation_plots": 8,
+    "producer_manifest_sha256": "1cea9b6d5f3ae7bb924b9e274ff6e511d197c5286cb372a2673a69eaa930d090",
+    "public_artifacts": 63
+  },
+  "format": "egoemg_joint_gesture_analysis_validation_v1",
+  "fresh_whole_plan_implementation_review_complete": false,
+  "full_paper_complete": false,
+  "light_full": {
+    "actual_exit_code": 0,
+    "log_sha256": "b150c808ee9c1427908433bea748f6637d1c9f62bc69b1f818cbbb0f1e12ddf2",
+    "passed": 1407,
+    "seconds": 88.24,
+    "skipped": 736,
+    "warnings": 1
+  },
+  "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "producer_files_sha256": {
+    "egoemg_repro/paper_analysis.py": "9762be3e41e33ec65a72ed7c7b66c62f3d39baffade7a3b8e9d5309fa498e549",
+    "scripts/paper/collect_joint_gesture_errors.py": "4b6c7830896c5c0227253a914236fcf7804d6ed34ad0179664d9b96b4bfcf99f",
+    "scripts/paper/render_joint_gesture_analysis.py": "23a3fcba20c038f926c2f3084e17bae9768ce6017e0140c46954d2488a9c4ab9",
+    "tests/test_paper_analysis.py": "fe25d5c6bc61d2bc3bd616f37b1b06507961e2801fd14e82314a653b7a0516ec",
+    "tests/test_paper_collection.py": "bb7b7ad58e7bc874167cdb01f29c8c1442b911b4588b0d23167219afc4019db2"
+  },
+  "training_or_checkpoint_selection_repeated": false
+}

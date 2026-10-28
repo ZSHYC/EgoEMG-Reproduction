@@ -1,0 +1,19 @@
+\begin{table}[h]
+\centering
+\caption{Per-gesture-family modality comparison on \dataset{} (F-RN18+S fusion). Values are sample-weighted averages across all test splits; MAE is in degrees (lower is better). $\Delta = \text{MAE}_\text{vision} - \text{MAE}_\text{fusion}$; positive $\Delta$ indicates fusion improvement. Gesture families follow the vocabulary in Appendix~\ref{app:gesture_vocabulary}.}
+\label{tab:per_gesture_family}
+\footnotesize
+\setlength{\tabcolsep}{3.8pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{lrrrrrr}
+\toprule
+Gesture family & \#G & \#Samp. & Vis. & EMG & Fusion & $\Delta$ \\
+\midrule
+Single-hand & 30 & 1,502 & 8.0 & 17.0 & 6.8 & $\mathbf{+1.17}$ \\
+Symmetric bimanual & 17 & 773 & 7.0 & 15.6 & 6.3 & $+0.76$ \\
+Asymmetric bimanual & 12 & 395 & 7.7 & 15.6 & 6.9 & $+0.77$ \\
+\midrule
+Overall & 59 & 2,670 & 7.7 & 16.4 & 6.7 & $+0.99$ \\
+\bottomrule
+\end{tabular}
+\end{table}

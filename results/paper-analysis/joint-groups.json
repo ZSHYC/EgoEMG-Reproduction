@@ -1,0 +1,770 @@
+{
+  "emg-l": {
+    "aggregation": "sum radians absolute errors / valid angle-time count; overlapping groups are not additive",
+    "angles": [
+      {
+        "absolute_error_sum_rad": 6634181.160972946,
+        "index": 0,
+        "mae_deg": 12.212041304560232,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 8322542.007241382,
+        "index": 1,
+        "mae_deg": 15.319935389956084,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 8032442.268466081,
+        "index": 2,
+        "mae_deg": 14.785926760043036,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 7023590.687699008,
+        "index": 3,
+        "mae_deg": 12.928857006359742,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 4398120.258018215,
+        "index": 4,
+        "mae_deg": 8.095954112513958,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 10133074.056213375,
+        "index": 5,
+        "mae_deg": 18.652719290303093,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13125802.554487284,
+        "index": 6,
+        "mae_deg": 24.161662013973842,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5074305.667637954,
+        "index": 7,
+        "mae_deg": 9.340659970170428,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 3567045.4840486073,
+        "index": 8,
+        "mae_deg": 6.566131633954075,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13325705.754576227,
+        "index": 9,
+        "mae_deg": 24.529639022313766,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 15672952.944421018,
+        "index": 10,
+        "mae_deg": 28.850395260178345,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 6792956.262610879,
+        "index": 11,
+        "mae_deg": 12.50431069731432,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 3434355.6048656027,
+        "index": 12,
+        "mae_deg": 6.321879292035467,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 12884954.754856931,
+        "index": 13,
+        "mae_deg": 23.71831517043257,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 16315156.630030543,
+        "index": 14,
+        "mae_deg": 30.032548376638335,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5182533.416337104,
+        "index": 15,
+        "mae_deg": 9.539883009961484,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 7300593.127726987,
+        "index": 16,
+        "mae_deg": 13.438756443382282,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 16189976.79021988,
+        "index": 17,
+        "mae_deg": 29.80212033477856,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13194808.738360748,
+        "index": 18,
+        "mae_deg": 24.288686939474854,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5264065.065998353,
+        "index": 19,
+        "mae_deg": 9.689964511978545,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 9977939.414769392,
+        "index": 20,
+        "mae_deg": 18.383149518184588,
+        "valid_angle_count": 31098796
+      },
+      {
+        "absolute_error_sum_rad": 6425823.609112571,
+        "index": 21,
+        "mae_deg": 11.838804714422796,
+        "valid_angle_count": 31098796
+      }
+    ],
+    "groups": {
+      "distal": {
+        "absolute_error_sum_rad": 29337451.100283295,
+        "indices": [
+          3,
+          7,
+          11,
+          15,
+          19
+        ],
+        "mae_deg": 10.800735039156903,
+        "valid_angle_count": 155629420
+      },
+      "index": {
+        "absolute_error_sum_rad": 32731302.53635683,
+        "indices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "mae_deg": 15.062748846740329,
+        "valid_angle_count": 124503536
+      },
+      "mid": {
+        "absolute_error_sum_rad": 66341163.13576567,
+        "indices": [
+          2,
+          6,
+          10,
+          14,
+          18
+        ],
+        "mae_deg": 24.423843870061685,
+        "valid_angle_count": 155629420
+      },
+      "middle": {
+        "absolute_error_sum_rad": 39358660.44565673,
+        "indices": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "mae_deg": 18.11261915344013,
+        "valid_angle_count": 124503536
+      },
+      "pinky": {
+        "absolute_error_sum_rad": 41949443.72230597,
+        "indices": [
+          16,
+          17,
+          18,
+          19
+        ],
+        "mae_deg": 19.30488205740356,
+        "valid_angle_count": 124503536
+      },
+      "proximal": {
+        "absolute_error_sum_rad": 86190548.99874015,
+        "indices": [
+          0,
+          1,
+          4,
+          5,
+          8,
+          9,
+          12,
+          13,
+          16,
+          17
+        ],
+        "mae_deg": 15.865749199423007,
+        "valid_angle_count": 311258840
+      },
+      "ring": {
+        "absolute_error_sum_rad": 37817000.40609018,
+        "indices": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "mae_deg": 17.403156462266963,
+        "valid_angle_count": 124503536
+      },
+      "thumb": {
+        "absolute_error_sum_rad": 30012756.12437942,
+        "indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "mae_deg": 13.811690115229773,
+        "valid_angle_count": 124503536
+      },
+      "wrist_FE": {
+        "absolute_error_sum_rad": 9977939.414769392,
+        "indices": [
+          20
+        ],
+        "mae_deg": 18.383149518184588,
+        "valid_angle_count": 31098796
+      },
+      "wrist_RU": {
+        "absolute_error_sum_rad": 6425823.609112571,
+        "indices": [
+          21
+        ],
+        "mae_deg": 11.838804714422796,
+        "valid_angle_count": 31098796
+      }
+    },
+    "overall": {
+      "absolute_error_sum_rad": 198272926.25867108,
+      "mae_deg": 16.591132593184586,
+      "valid_angle_count": 684715272
+    }
+  },
+  "emg-m": {
+    "aggregation": "sum radians absolute errors / valid angle-time count; overlapping groups are not additive",
+    "angles": [
+      {
+        "absolute_error_sum_rad": 6523241.613405417,
+        "index": 0,
+        "mae_deg": 12.007826450559289,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 8252522.396001013,
+        "index": 1,
+        "mae_deg": 15.191044971704189,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 7812489.977656449,
+        "index": 2,
+        "mae_deg": 14.381043867154725,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 7129238.389505486,
+        "index": 3,
+        "mae_deg": 13.123330757812644,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 4329141.600105258,
+        "index": 4,
+        "mae_deg": 7.968979856139773,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 9665499.932212405,
+        "index": 5,
+        "mae_deg": 17.792020075630756,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 12991091.330612086,
+        "index": 6,
+        "mae_deg": 23.91368882930571,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5046894.929456199,
+        "index": 7,
+        "mae_deg": 9.290202941828593,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 3469574.9401050326,
+        "index": 8,
+        "mae_deg": 6.386710198250876,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13110314.303850675,
+        "index": 9,
+        "mae_deg": 24.13315161428468,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 15682952.509106996,
+        "index": 10,
+        "mae_deg": 28.86880221862729,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 6712164.531261942,
+        "index": 11,
+        "mae_deg": 12.355591219151103,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 3204052.949062528,
+        "index": 12,
+        "mae_deg": 5.897943695919698,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13110318.57321733,
+        "index": 13,
+        "mae_deg": 24.13315947323225,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 16736840.196708526,
+        "index": 14,
+        "mae_deg": 30.80877335584445,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5188825.133087404,
+        "index": 15,
+        "mae_deg": 9.551464651006087,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 6816095.307125862,
+        "index": 16,
+        "mae_deg": 12.546904494575593,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 16353158.37520536,
+        "index": 17,
+        "mae_deg": 30.102501076219458,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13415939.304041762,
+        "index": 18,
+        "mae_deg": 24.695738772440066,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5323443.717165779,
+        "index": 19,
+        "mae_deg": 9.799267306561763,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 9602130.553568052,
+        "index": 20,
+        "mae_deg": 17.690767033330363,
+        "valid_angle_count": 31098796
+      },
+      {
+        "absolute_error_sum_rad": 6542277.414863701,
+        "index": 21,
+        "mae_deg": 12.053356801190914,
+        "valid_angle_count": 31098796
+      }
+    ],
+    "groups": {
+      "distal": {
+        "absolute_error_sum_rad": 29400566.70047681,
+        "indices": [
+          3,
+          7,
+          11,
+          15,
+          19
+        ],
+        "mae_deg": 10.823971375272038,
+        "valid_angle_count": 155629420
+      },
+      "index": {
+        "absolute_error_sum_rad": 32032627.792385947,
+        "indices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "mae_deg": 14.741222925726209,
+        "valid_angle_count": 124503536
+      },
+      "mid": {
+        "absolute_error_sum_rad": 66639313.31812582,
+        "indices": [
+          2,
+          6,
+          10,
+          14,
+          18
+        ],
+        "mae_deg": 24.533609408674447,
+        "valid_angle_count": 155629420
+      },
+      "middle": {
+        "absolute_error_sum_rad": 38975006.284324646,
+        "indices": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "mae_deg": 17.93606381257849,
+        "valid_angle_count": 124503536
+      },
+      "pinky": {
+        "absolute_error_sum_rad": 41908636.70353876,
+        "indices": [
+          16,
+          17,
+          18,
+          19
+        ],
+        "mae_deg": 19.28610291244922,
+        "valid_angle_count": 124503536
+      },
+      "proximal": {
+        "absolute_error_sum_rad": 84833919.99029088,
+        "indices": [
+          0,
+          1,
+          4,
+          5,
+          8,
+          9,
+          12,
+          13,
+          16,
+          17
+        ],
+        "mae_deg": 15.616024190651654,
+        "valid_angle_count": 311258840
+      },
+      "ring": {
+        "absolute_error_sum_rad": 38240036.852075785,
+        "indices": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "mae_deg": 17.597835294000618,
+        "valid_angle_count": 124503536
+      },
+      "thumb": {
+        "absolute_error_sum_rad": 29717492.376568366,
+        "indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "mae_deg": 13.675811511807712,
+        "valid_angle_count": 124503536
+      },
+      "wrist_FE": {
+        "absolute_error_sum_rad": 9602130.553568052,
+        "indices": [
+          20
+        ],
+        "mae_deg": 17.690767033330363,
+        "valid_angle_count": 31098796
+      },
+      "wrist_RU": {
+        "absolute_error_sum_rad": 6542277.414863701,
+        "indices": [
+          21
+        ],
+        "mae_deg": 12.053356801190914,
+        "valid_angle_count": 31098796
+      }
+    },
+    "overall": {
+      "absolute_error_sum_rad": 197018207.97732526,
+      "mae_deg": 16.486139956188133,
+      "valid_angle_count": 684715272
+    }
+  },
+  "emg-s": {
+    "aggregation": "sum radians absolute errors / valid angle-time count; overlapping groups are not additive",
+    "angles": [
+      {
+        "absolute_error_sum_rad": 6529244.844333504,
+        "index": 0,
+        "mae_deg": 12.018877053832817,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 8313577.748200175,
+        "index": 1,
+        "mae_deg": 15.303434197266322,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 7747522.27243116,
+        "index": 2,
+        "mae_deg": 14.261452876130692,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 6946506.122778166,
+        "index": 3,
+        "mae_deg": 12.786961591098077,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 4502672.630733456,
+        "index": 4,
+        "mae_deg": 8.2884116084894,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 9473700.187423907,
+        "index": 5,
+        "mae_deg": 17.438959713134153,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 12709777.242793035,
+        "index": 6,
+        "mae_deg": 23.395852614610433,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5029177.41490984,
+        "index": 7,
+        "mae_deg": 9.257588966689188,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 3553082.846342245,
+        "index": 8,
+        "mae_deg": 6.540429545896278,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 12965381.55698965,
+        "index": 9,
+        "mae_deg": 23.866362895661467,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 15480653.570564786,
+        "index": 10,
+        "mae_deg": 28.49641519249672,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 6626186.239324561,
+        "index": 11,
+        "mae_deg": 12.197324444856255,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 3195677.952407084,
+        "index": 12,
+        "mae_deg": 5.882527203273477,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 12976027.589683596,
+        "index": 13,
+        "mae_deg": 23.885959856889027,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 16244355.01127194,
+        "index": 14,
+        "mae_deg": 29.902218457733472,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5144396.183648052,
+        "index": 15,
+        "mae_deg": 9.469680908219054,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 6569773.54067898,
+        "index": 16,
+        "mae_deg": 12.09348130442255,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 16181053.518944098,
+        "index": 17,
+        "mae_deg": 29.785694591382722,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 13170027.134331066,
+        "index": 18,
+        "mae_deg": 24.24306955811903,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 5242901.556660498,
+        "index": 19,
+        "mae_deg": 9.651007232411969,
+        "valid_angle_count": 31125884
+      },
+      {
+        "absolute_error_sum_rad": 9628938.606936969,
+        "index": 20,
+        "mae_deg": 17.740157637230286,
+        "valid_angle_count": 31098796
+      },
+      {
+        "absolute_error_sum_rad": 6436846.874800681,
+        "index": 21,
+        "mae_deg": 11.85911375147941,
+        "valid_angle_count": 31098796
+      }
+    ],
+    "groups": {
+      "distal": {
+        "absolute_error_sum_rad": 28989167.517321117,
+        "indices": [
+          3,
+          7,
+          11,
+          15,
+          19
+        ],
+        "mae_deg": 10.672512628654909,
+        "valid_angle_count": 155629420
+      },
+      "index": {
+        "absolute_error_sum_rad": 31715327.475860238,
+        "indices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "mae_deg": 14.595203225730794,
+        "valid_angle_count": 124503536
+      },
+      "mid": {
+        "absolute_error_sum_rad": 65352335.23139199,
+        "indices": [
+          2,
+          6,
+          10,
+          14,
+          18
+        ],
+        "mae_deg": 24.05980173981807,
+        "valid_angle_count": 155629420
+      },
+      "middle": {
+        "absolute_error_sum_rad": 38625304.213221245,
+        "indices": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "mae_deg": 17.775133019727683,
+        "valid_angle_count": 124503536
+      },
+      "pinky": {
+        "absolute_error_sum_rad": 41163755.75061464,
+        "indices": [
+          16,
+          17,
+          18,
+          19
+        ],
+        "mae_deg": 18.94331317158407,
+        "valid_angle_count": 124503536
+      },
+      "proximal": {
+        "absolute_error_sum_rad": 84260192.41573669,
+        "indices": [
+          0,
+          1,
+          4,
+          5,
+          8,
+          9,
+          12,
+          13,
+          16,
+          17
+        ],
+        "mae_deg": 15.51041379702482,
+        "valid_angle_count": 311258840
+      },
+      "ring": {
+        "absolute_error_sum_rad": 37560456.73701067,
+        "indices": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "mae_deg": 17.285096606528757,
+        "valid_angle_count": 124503536
+      },
+      "thumb": {
+        "absolute_error_sum_rad": 29536850.987743005,
+        "indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "mae_deg": 13.592681429581976,
+        "valid_angle_count": 124503536
+      },
+      "wrist_FE": {
+        "absolute_error_sum_rad": 9628938.606936969,
+        "indices": [
+          20
+        ],
+        "mae_deg": 17.740157637230286,
+        "valid_angle_count": 31098796
+      },
+      "wrist_RU": {
+        "absolute_error_sum_rad": 6436846.874800681,
+        "indices": [
+          21
+        ],
+        "mae_deg": 11.85911375147941,
+        "valid_angle_count": 31098796
+      }
+    },
+    "overall": {
+      "absolute_error_sum_rad": 194667480.64618745,
+      "mae_deg": 16.289435193832183,
+      "valid_angle_count": 684715272
+    }
+  }
+}

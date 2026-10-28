@@ -1,0 +1,154 @@
+{
+  "artifacts_sha256": {
+    "README.md": "e157780ad41d551c5d3e9ba22aeaf38e0751025c0a58dd7d5e98b87a7a13e51d",
+    "figure12-masked_pooled-all_test-all_requested.png": "bd71890a71f31e264177772c1f21851812cde19942c5de60661aaa0ec34b5495",
+    "figure12-masked_pooled-all_test-all_requested.svg": "7a6cd7040a4c0294b39c1a8ffccd1b597df07b28e4568d09b63a2914e6d2d37c",
+    "figure12-masked_pooled-all_test-crop_present.png": "f4d7597d49677e1847b83f517ec4919255fa522c2fee6768b2ef2293c957cced",
+    "figure12-masked_pooled-all_test-crop_present.svg": "ce8a4512c5db3bec6e258abcae12f04aff4eb8751778e13f418d8ebd4c141cf5",
+    "figure12-masked_pooled-gesture_only-all_requested.png": "d5ff1021ffa37ac9191384e4078eabff8b89a30fd29ca90e350d54bc15e53e4c",
+    "figure12-masked_pooled-gesture_only-all_requested.svg": "8ff86c4534d30c1957a72a580f23d3f9eb840de2b05da5a577aa8d1e82fc061e",
+    "figure12-masked_pooled-gesture_only-crop_present.png": "713b88101f910cee57848dabdb6f75d54ac6811ef8a84d67c00fc6f00c039cd0",
+    "figure12-masked_pooled-gesture_only-crop_present.svg": "5c8065c012c97bfa6c7d9e09d238d8dd199150546a506160b06f6575e0df00a2",
+    "figure12-official_unmasked-all_test-all_requested.png": "b5f6b15ded27825c10cd94cad225337df136522cfe19ea451acc17cf7db81d2f",
+    "figure12-official_unmasked-all_test-all_requested.svg": "253696fe7608167d9077e5d20f8e1fee26aee17d9fdbe2ef94bd7a7ed4b5a01b",
+    "figure12-official_unmasked-all_test-crop_present.png": "fef98137acb67b6f0cf805596665e74f84fd5743be9efd315fce7c633ee8b768",
+    "figure12-official_unmasked-all_test-crop_present.svg": "9b8524f80215fcfb85a0106978d0144e5c66e2691be3c7278282cc6aac1efed5",
+    "figure12-official_unmasked-gesture_only-all_requested.png": "98758e274469bda41c4dd821231bb03a013e9fdba2ad302f5b9c8736b3a22f9c",
+    "figure12-official_unmasked-gesture_only-all_requested.svg": "4d6a6c3d46f37ad13c540fe7913fe6ad53f05709853895098d3137a2b52773ac",
+    "figure12-official_unmasked-gesture_only-crop_present.png": "347c1801911c71bea3e7c24be2135d529bbd368276d864ce396ea2f59aa409db",
+    "figure12-official_unmasked-gesture_only-crop_present.svg": "39278981d4a8852fee0ed89addf5fcdb5083c21ebb9fcde13e75a98b577821eb",
+    "full-range-masked_pooled-all_test-all_requested.png": "9fd442f745dd7be5f7452dabd3022ff4c1ab9893b2501f50d69cb23fe6ede490",
+    "full-range-masked_pooled-all_test-all_requested.svg": "1f02ca07170584065eedc0f004eae3c69ab892a0e3f22d94836ccc78a6668f52",
+    "full-range-masked_pooled-all_test-crop_present.png": "765d9cdcf146aab39995f63c82ab01ee7af0f3e4b943a4b06f3ee6f96761cd55",
+    "full-range-masked_pooled-all_test-crop_present.svg": "ad3afb4e613ee5c8b49d8b1e599aa3603180a31a96c76dd6bc26dbcd02c0e260",
+    "full-range-masked_pooled-gesture_only-all_requested.png": "19de5c68bddf8585d6ffd9f15ca8baea2a80a1a5f15b6b0c8b53a2fb9de825a7",
+    "full-range-masked_pooled-gesture_only-all_requested.svg": "87d01cc48ec0e1093efc55c15faf9c2de6dc23c7d6c66d6898781d2bec533aa0",
+    "full-range-masked_pooled-gesture_only-crop_present.png": "fe1c31c95d8735edd8871fc65e02f793a24672523827dced336625ce197bfd96",
+    "full-range-masked_pooled-gesture_only-crop_present.svg": "41ca36a150732ab115b79c3143bef5f313be2ce301c532c7681e7e857fd483aa",
+    "full-range-official_unmasked-all_test-all_requested.png": "feb76c26b58b4bad600f1a4899930d8fce8c3bc6c19fcdd1f705862251c80b9a",
+    "full-range-official_unmasked-all_test-all_requested.svg": "372610d6690bdc72a141dc2bf79cc4c28d31be88d77dcf4fb0765b37537ffd66",
+    "full-range-official_unmasked-all_test-crop_present.png": "4eda7ec9794b5969ab520b37c75330cad9002c9e18ec100148b921f5a2490410",
+    "full-range-official_unmasked-all_test-crop_present.svg": "2ec8ee4a8a75a51c02da734114ee40622053bccbb7c88fa3bb7a715c2ae42824",
+    "full-range-official_unmasked-gesture_only-all_requested.png": "080f7cae194129da9cb2bad3112eee3ac14cbb7d2857316310e8fb0ddb1d13b1",
+    "full-range-official_unmasked-gesture_only-all_requested.svg": "72415e7fdf86ee506c25e97177a14f1371f74d055c5b73c0179bafedaccd14bc",
+    "full-range-official_unmasked-gesture_only-crop_present.png": "bc858489b36d63b3eac29936d1f2b6d3530247430be41d7ee01a9647bcd2bbf9",
+    "full-range-official_unmasked-gesture_only-crop_present.svg": "69b795fb767a94078c9bbf2ffb28c77ca2f4618a372d717174bac8c583862686",
+    "gesture-tables.json": "b01d4f6fa6f882c068c818fb084ec012b1e0f53d1d65cf71a411edb685c6fd89",
+    "joint-groups.json": "0f31f99aa70d73c5c48ed3323b5bf109197570e23cb2a62b9708c9d064ed5af3",
+    "native-table14-official_unmasked-all_test-all_requested.tex": "c0d835eb0384496a9c0ba438a5e9234e6cfb485c5f92fc1c8fe4fc90bd001331",
+    "native-table14-official_unmasked-all_test-crop_present.tex": "97857d9f6e58bfb599bc5146fcc9bb21a790c6dd1d1afc5a6e8cc49404ae43c5",
+    "native-table14-official_unmasked-gesture_only-all_requested.tex": "96856df860140585bfc49bca48c492b0e755c80c3f5dbd1bb747557f8097a87d",
+    "native-table14-official_unmasked-gesture_only-crop_present.tex": "4ae6943f43662ba81adfc903e3dbc22d41562d8d89bc1210cd4e8132093928c9",
+    "native-table15-official_unmasked-all_test-all_requested.tex": "e6c893b8ede65e4a554ca913732798d8f2731452972af62e80be17d62dca6188",
+    "native-table15-official_unmasked-all_test-crop_present.tex": "518a2178304a55b145dcf6c8e77a9a29f9aa53ed0a7ad51f33650bc2cabb8374",
+    "native-table15-official_unmasked-gesture_only-all_requested.tex": "1f7c913faf3e3bc511a84814b8659b362a5d8843c329fbf973ff979eba282573",
+    "native-table15-official_unmasked-gesture_only-crop_present.tex": "ced189c198943d4f01ed4b22a65131796d24cfa43738e2ec21e255acc56976d8",
+    "source-analysis.json": "ac10b42e1b186de6d57e376af266010fe4ba5a2260165de2ff14af3e79debf18",
+    "table12-legacy-pooled-joint-groups.csv": "d719e12ea4e4a8bd6c5b7135ea47a088e894887eefb1a9dd6a480b3ab649e6cc",
+    "table14-masked_pooled-all_test-all_requested.csv": "926fdfd9555a26712c83488e8c7a5bbdf38774b50547cb019748b1d7205e7b72",
+    "table14-masked_pooled-all_test-crop_present.csv": "fdce237f185987b1e95f6d9791714fdcd4b46bf7e78863e5d0cc960e47917f16",
+    "table14-masked_pooled-gesture_only-all_requested.csv": "64dcc75c1a312d1334761f62d49ae557588f9283d17c20e13abcbe225cb96cad",
+    "table14-masked_pooled-gesture_only-crop_present.csv": "a6dbaed95c2cfe281ed171379d9bc1f259744da4c63c44e186f865a1d64969be",
+    "table14-official_unmasked-all_test-all_requested.csv": "b4a55a22480bc1f0781c625a732d54949dd50a14d32ada8b2cb7b007b9ca6729",
+    "table14-official_unmasked-all_test-crop_present.csv": "28885df425085d0a98e303eb6a50022c956a436980dbe1fd03c02cbdc1d05d38",
+    "table14-official_unmasked-gesture_only-all_requested.csv": "479aa827a33614261b1af0df48f76ffda7bc3a7de56327879c8a8f385ca78a53",
+    "table14-official_unmasked-gesture_only-crop_present.csv": "53a0b911c87a86116433ddf5dfab8b8e216946456f988647877faed2dbc9d4cb",
+    "table15-masked_pooled-all_test-all_requested.csv": "20e4f6223055655ee82164f393bfaa7769c4141c136ae5ff6f19e0d1d6bb78b3",
+    "table15-masked_pooled-all_test-crop_present.csv": "662ebfa23e84d2b44e7a88a16153ea9b520f86025612a0de16abaf96120b44eb",
+    "table15-masked_pooled-gesture_only-all_requested.csv": "539d08e985f3f2123e7678230cd9611bd4f25f087afc8d220f20dfcdb3f1507e",
+    "table15-masked_pooled-gesture_only-crop_present.csv": "c4424add8613ee8ed0a6922a49b6025a6cc1fcb55edbf1b3ec5c848f6d2758a8",
+    "table15-official_unmasked-all_test-all_requested.csv": "7dfba12c26b12604ab88e41b8ebbe81dd9837b8ee7872a35b0d67bec11df4dc9",
+    "table15-official_unmasked-all_test-crop_present.csv": "a066e4ee1c3d7cba65b50f27b361e1dac65452fbdf8cbcf3c4ba7303451f8c79",
+    "table15-official_unmasked-gesture_only-all_requested.csv": "1374e07b99ff22ad393e1507fd2ef9537562266399171e228cac5c0d13095ccf",
+    "table15-official_unmasked-gesture_only-crop_present.csv": "3f07aa9007acdde5e2d100b99d1e4b5fc065fb0366957c0167c71b7a22aeb0f7",
+    "view-summary.json": "78576bc55dbe170be3e6e3ba36e6a96cc2625f42cf9e73979853dadaf43a4560"
+  },
+  "format": "egoemg_joint_gesture_render_v1",
+  "input_sha256": "ac10b42e1b186de6d57e376af266010fe4ba5a2260165de2ff14af3e79debf18",
+  "native_pdf_intermediates": [
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [],
+      "original_plotter_used": true,
+      "pdf_sha256": "b6f283f3314cadb3a9717282eb4fd9fdf6d917eb34dbe16a793530ad20eb3a67",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "official_unmasked",
+      "view": "all_test/all_requested"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [],
+      "original_plotter_used": true,
+      "pdf_sha256": "3e6fd5b4c2d6881445428e9e10f8844f5e74e130028e5720af5f6a565a84a9c2",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "masked_pooled",
+      "view": "all_test/all_requested"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [],
+      "original_plotter_used": true,
+      "pdf_sha256": "e683f31dd2fd224f4e2d9d85e93e2c8d0d326539f9d788145f6a911915fc6e1e",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "official_unmasked",
+      "view": "all_test/crop_present"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [],
+      "original_plotter_used": true,
+      "pdf_sha256": "be2360f17e2ec907b517b2d12a345d76a2a61f15cd4d38e76be8e8368d497621",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "masked_pooled",
+      "view": "all_test/crop_present"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [
+        43
+      ],
+      "original_plotter_used": true,
+      "pdf_sha256": "446888d51bef359949619e1e36a3a8bbc7d7cff413c1fcf00ad6e1dfe6681795",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "official_unmasked",
+      "view": "gesture_only/all_requested"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [
+        43
+      ],
+      "original_plotter_used": true,
+      "pdf_sha256": "6d42b6edefee763fdff73f636989b5d32971cfbbb154c568465fb06523339d67",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "masked_pooled",
+      "view": "gesture_only/all_requested"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [
+        43
+      ],
+      "original_plotter_used": true,
+      "pdf_sha256": "86e5defe7826ba6ec6c5404df9befcd8629d30ef088e0fceaa5e2422b9e33f50",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "official_unmasked",
+      "view": "gesture_only/crop_present"
+    },
+    {
+      "full_range_companion": true,
+      "native_axis_clipped_class_ids": [
+        43
+      ],
+      "original_plotter_used": true,
+      "pdf_sha256": "d637696f5339c243c552ea40c42cb111a5071c1313d368c3d6eb8718b6558e58",
+      "presentation_annotation_policy": "label negative gains and native-clipped points; crowded original top4 names remain in CSV/native reference",
+      "protocol": "masked_pooled",
+      "view": "gesture_only/crop_present"
+    }
+  ],
+  "official_plotter_sha256": "590b85ee7f1675e82ca7cf02fa72464b6c3c335b068467ff8d35484fd91ecf1d",
+  "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "renderer_sha256": "23a3fcba20c038f926c2f3084e17bae9768ce6017e0140c46954d2488a9c4ab9",
+  "scientific_boundary": "retained legacy selected-checkpoint analysis; not full-paper completion"
+}

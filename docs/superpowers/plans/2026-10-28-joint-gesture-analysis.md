@@ -49,10 +49,10 @@
 
 **Interfaces:** Consumes existing `audit.validate_artifacts`, `train.build_training_model/build_datasets`, original precision/batch/workers, retainedlast.pt embeddedvalidation-best. Produces private recordsJSON andpublic-safe identities/baseline agreements/whole-trajectory group table in an immutable output directory. Records include input-row/class/crop metadata privately; collector creates no optimizer and runsno_grad/eval.
 
-- [ ] Inspect actual retained run paths and verify checkpoints/configs/runtime hashes before deployment; never rely on filenames as source identity.
-- [ ] Implement collector to compute legacy aligned center, raw token midpoint diagnostic,22angle trajectory sums/counts, exact ordered sample/target/crop identities in one pass. For visual models trajectory is unavailable, not one-frame substituted as a trajectory experiment.
-- [ ] Run source-stable CPU fixture or original model alignment checks appropriate to new collector, then stage once with real256GiB host/15GiB disk reserves and a genuinely available GPU. Capture actual PID/start identities and exits; no rerun solely on observer timeout.
-- [ ] Run S/M/L/RN18/fusion selected models, verify baseline checks and exact sample/metadata/target/valid/crop joins. Source and checkpoints remain unchanged. Collect only actual successes.
+- [x] Inspect actual retained run paths and verify checkpoints/configs/runtime hashes before deployment; never rely on filenames as source identity.
+- [x] Implement collector to compute legacy aligned center, raw token midpoint diagnostic,22angle trajectory sums/counts, exact ordered sample/target/crop identities in one pass. For visual models trajectory is unavailable, not one-frame substituted as a trajectory experiment.
+- [x] Run source-stable CPU fixture or original model alignment checks appropriate to new collector, then stage once with real256GiB host/15GiB disk reserves and a genuinely available GPU. Capture actual PID/start identities and exits; no rerun solely on observer timeout.
+- [x] Run S/M/L/RN18/fusion selected models, verify baseline checks and exact sample/metadata/target/valid/crop joins. Source and checkpoints remain unchanged. Collect only actual successes.
 
 ### Task 3: Public tables and scatter
 
@@ -60,6 +60,6 @@
 
 **Interfaces:** Consumes Task1 arithmetic and Task2 privately completed outputs, emits numeric/Markdown/CSV tables andPNG/SVGFigure12. No raw user/sample/row/path fields may be copied into publicJSON.
 
-- [ ] Generate Table12 group records and59-class Table14/15/family data directly from unrounded sufficient statistics; sort unrounded Vision−Fusion gain, include explicitempty classes andview/protocol identity.
-- [ ] Plot paired Vision/Fusion scatter with pointsizeN andverifiedfamilycolors from exactly the same table. State old population and native-formula differences, no PDFN/54of59/precision substitution.
+- [x] Generate Table12 group records and59-class Table14/15/family data directly from unrounded sufficient statistics; sort unrounded Vision−Fusion gain, include explicitempty classes andview/protocol identity.
+- [x] Plot paired Vision/Fusion scatter with pointsizeN andverifiedfamilycolors from exactly the same table. State old population and native-formula differences, no PDFN/54of59/precision substitution.
 - [ ] Independently recompute totals and weighted family results; inspectPNG, repeat render for byte identity, verify public fields/identities, update coverage and publish. Do not markfull-papercomplete.

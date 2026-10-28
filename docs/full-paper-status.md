@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+2026-10-28新增：[逐关节与逐手势细分分析](../results/paper-analysis/README.md)已用五个冻结best完成新推理和退出后独立核验。S/M/L整体及手/split/组件/用户完整轨迹通过原baseline；RN18/S/融合共2,792中心，排18未分配后2,774请求，59类中58类融合优于视觉。保留有效角mask/插值中心/180pi与无mask/token中点/57.3两公式、四个预定义人口；全部推理仍为原bf16/high，官方公式视图不等于原默认FP32入口。Table12/14/15、Figure12参考与清晰展示共63产物字节重复一致，旧版0.01/数据与PDF等价边界保留；完整托管检查与一次最终整体审查仍待新提交观察。实查08:44：EMG2Pose全部462,824,048,640字节已到齐，但完整receipt尚未落盘，原下载两个拥有者实际存活且在读archive.tar做哈希，源码准备和三模型队列仍等待；尚未开始250轮科学训练。
+
 北京时间2026-10-28 07:48[实际快照](../results/progress-snapshot-2026-10-28.json)：已有10项声明协议下的完整训练/验证选模/测试结果（7项legacy、VEMG、DINO-S/B），不等于10项PDF原表等价复现；两组测试为2,792和4,306唯一手中心，不能混成受控排行榜。DINO-L原训练/控制进程活动、完成50轮验证。服务器完整EMG2Pose实际收到416,402,112,512/462,824,048,640字节（约89.97%），原四进程活动、尚无完整receipt；原源准备控制器仍等待。三模型等待队列已实际运行但0科学训练开始。全文、官方配方补齐、逐手势/关节/遮挡/定性及标注链仍未完成。
 
 2026-10-28新增：[全量队列与最终实现审查](../results/emg2pose-final-implementation-review-engineering.json)已完成一次独立代码审查，修复监护进程单独丢失遗留工作进程、原始保留文件缺损未被准入发现、独立入口输出污染上游三个问题。10项真实RED→GREEN，补充登记竞态/旧PID检查；本机125/436.87秒、服务器125/523.89秒、完整轻量1,379通过/733可选跳过均actual exit0。新版本还在服务器4.21秒只读核验已有5,009,750行工程源及原始保留字节，所有拥有者独立确认退出。全量固定S/M/L队列已提交且13项检查在两机通过；因源码身份改变，[受影响的GPU资格更新](../results/emg2pose-reviewed-runtime-qualification-engineering.json)已实际完成：S/M/L原320/12/bf16两轮及六状态恢复、两模式每pass321窗/320+1/12/FP32、报告与共享14阶段编排及退出后独立重读全部通过，61个实际受管理阶段/1,645.13秒exit0，122个worker/guardian和外层拥有者独立确认退出。对应a6a9f2e的[完整托管检查](../results/emg2pose-reviewed-whole-ci.json)现已实际成功：CPU2,480通过/3项真实CUDA跳过、pip check通过；轻量1,394通过/718可选跳过。全量队列于北京时间07:48一次实际启动，四个拥有进程PID/start均匹配，当前waiting-existing-full-source、0模型开始；它等待原下载与原转换完成，再执行S/M/L各250轮，不构成新论文精度。
@@ -122,6 +124,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | E6 | [动态运行记录](run-status.md)、[L 配方](../configs/emgformer_l.json) | 新 L 的短验收与生产运行、额外资产获取分别登记；配置和运行中状态均不是完整成绩 |
 | E7 | [词表](../results/dataset-semantics/gesture-vocabulary.json)、[22角语义](../results/dataset-semantics/joint-angle-semantics.json)、[实际帧覆盖](../results/dataset-semantics/coverage.json) | 60类/30·18·12族群、22维单位/mask/名义限位、157条class/split/activity聚合记录；帧审计实读并重哈希三个完整数组，导出层核对审计与守恒；不推断窗口或模型误差 |
 | E8 | [冻结中心覆盖](../results/dataset-semantics/center-coverage.json)与[范围/分母](../results/dataset-semantics/center-coverage.md) | 原12000窗口、train stride1200/eval12000；实际点读12字段共6,232,488bytes，33,508窗口/67,016手中心，178个role/split/class/activity cells；本次未全payload重hash，模型误差仍空 |
+| E9 | [逐关节/手势真实细分分析](../results/paper-analysis/README.md)、[验证记录](../results/paper-analysis-validation.json) | 五个保留best各完整2,792手中心；S/M/L完整轨迹baseline另行重推通过，22角/10组、59类/族群、四视图/两公式及Figure12已生成。7实际受管理阶段/139.31秒exit0，14消费者和外层拥有者独立确认退出；旧数据/0.01/bf16边界保留 |
 
 ## 全部主要模型设置
 
@@ -162,10 +165,10 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M/L细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
 | Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M/L中心结果已核验（legacy）**，E1/E2/E3及L独立结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
 | Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；普通源S/M/L原batch320 fit/FP32两模式与报告已工程核验，仍没有全源250轮成绩 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |
-| Table 12，D.4 p.24 | EgoEMG S/M/L 的 10 个逐指/关节组派生误差 | **未生成**；E5 只有整体 fingers/wrist；[官方分组][constants]存在 | 累积逐角误差和/分母后生成重叠的 proximal/mid/distal、五指、腕 FE/RU 组，按主轨迹协议聚合；现有汇总不能逆推出这 10 组 |
+| Table 12，D.4 p.24 | EgoEMG S/M/L 的10个逐指/关节组派生误差 | **完整legacy轨迹逐角/10组已生成并独立核验**；[真实分析](../results/paper-analysis/README.md)由三个验证best各2,792手窗口新推理，核对原整体/手/split/组件/用户轨迹baseline，保存22角及重叠组的误差和/分母 | 当前是legacy有效角时间pooled视图；官方0.02/unified训练、原表Avg/跨用户SD等价仍未证明，不能将组均值相加 |
 | Table 13，D.4 p.24 | EMG2Pose S/M/L 的 8 组派生误差，无两腕组 | **尚无正式结果，依赖 Table 11**；逐组/逐用户方法及三种权重的独立表格算术已实际核验，不替代完整数据/模型 | 三个完整模型与标准三 split 的逐角计数、同官方组映射及独立复算；无需为该表再训练三遍 |
-| Table 14，D.5 p.25 | RN18、S、RN18+S 在 59 类的 3 族群同中心比较 | **已有三个 checkpoint 与匹配人口，分析未实现**，E1/E2；[评价][gesture-eval]与[聚合][gesture-paper]源码存在 | 逐样本键、gesture/active/split/hand/crop/mask、三误差及 raw 排除记录；本项目 2,792 中心不能冒称原表 4,278 样本 |
-| Table 15，D.5 p.27 | 同 Table 14 底表生成 59 类 ID/name/N/三 MAE/Δ 与排序 | **未实现**；官方词表和表/散点生成入口存在 | 未舍入误差和/分母、按真实 Δ 排序、各族群人数与样本权重；原文 54/59 改善是参考结论，不是当前实测 |
+| Table 14，D.5 p.25 | RN18、S、RN18+S 在59类的3族群同中心比较 | **旧版匹配人口分析已生成并核验**；[底表/族群/图](../results/paper-analysis/README.md)为三独立best共2,792请求，排18未分配后2,774请求/2,690至少一角有效，59类；all/crop及all-test/gesture-only四视图、两公式分开，族群官方加权独立对账 | 旧0.01/bf16/训练区间归一化与PDF/current不等价；官方公式保留无mask/token中点/57.3，但不是默认FP32原入口；旧N非4,278，84全角无效请求明确记录 |
+| Table 15，D.5 p.27 | 同Table14底表生成59类ID/name/N/三MAE/Δ与排序 | **完整59类定义表及四视图/两公式CSV、JSON已生成并核验**；[实际表](../results/paper-analysis/README.md)在族内按未舍入Δ排序，空类null，raw50/未分配排除数保留；本次all-test两公式均58/59类融合改善 | 58/59是当前旧版单seed实测，不代填论文54/59；同一受控官方新配方及原人口等价仍欠 |
 
 Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,14,18]，distal=[3,7,11,15,19]；五指各占连续四维。各组重叠，不能把组均值相加还原总体。
 
@@ -184,7 +187,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | Figure 9，p.18 | marker 训练的 8 类增强可视化 | **未实现** | 实际变换概率、参数、组合顺序、固定 seed 前后 marker/mesh；EMG channel rotation 不能替代 marker 增强 |
 | Figure 10，p.18 | 11 源原始规模与约 712K 平衡混合物 | **来源调查已有，样本混合未重做** | 各源版本/许可/计数、确定性采样/去重/划分 manifest 与真实饼图；H2O/H2O-3D 身份待作者清单消歧 |
 | Figure 11，p.21 | 原 RGB 上 MANO 重投影及 UmeTrack/MANO 重建质量 | **未实现；外部资产依赖**；[IK][ik]与重投影相关官方入口已发布 | 随机抽样清单、原全帧/标定/变换、MANO 与 UmeTrack 资产、实际 overlay 和质量统计；crop 不能代替全帧重投影 |
-| Figure 12，p.26 | 59 类 Vision/Fusion 散点，点大小=N、颜色=族群 | **未实现，依赖 Table 15**；[官方生成入口][gesture-paper]存在 | 从同一未舍入底表自动生成散点/标注/表格，保留 raw 排除与样本数；不需新训练，但需真实派生评价 |
+| Figure 12，p.26 | 59类Vision/Fusion散点，点大小=N、颜色=族群 | **旧版真实底表的原脚本参考及清晰展示PNG/SVG已生成并核验**；[图与口径](../results/paper-analysis/README.md)四视图×两公式共8组，原始绘图PDF中间物/颜色/点面积原样，另供完整范围/清晰标注；63产物重复逐字节一致 | 原脚本Top4字重叠、负收益标注循环、2.5度下界裁掉gesture-only的PinkyHook均披露并给补图；不证明PDF人口/数值精确等价 |
 | Figure 13，p.26 | 密采样自遮挡与视觉/融合误差、收益趋势和相关 | **未实现；外部几何资产依赖**；[评价][occlusion-eval]、[几何算法][occlusion]、[绘图][occlusion-plot]存在 | 1/4 stride 的实际密网格、GT mesh/相机/分辨率与过滤、逐样本底表、bin/SEM/趋势/逐样本 Spearman；原文 17,168 个手样本不是现有 2,792 中心 |
 
 ## 数据、采集、标注与算法清单

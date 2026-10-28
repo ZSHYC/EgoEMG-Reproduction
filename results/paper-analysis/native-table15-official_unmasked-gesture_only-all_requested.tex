@@ -1,0 +1,40 @@
+\begin{table}[h]
+\centering
+\caption{Full per-gesture modality breakdown on \dataset{} (F-RN18+S fusion). MAE is in degrees. $\Delta = \text{MAE}_\text{vis} - \text{MAE}_\text{fus}$. Gestures grouped by family, sorted by descending $\Delta$ (largest fusion gain first) within each family. Gesture descriptions are provided in Appendix~\ref{app:gesture_vocabulary}.}
+\label{tab:per_gesture_full}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{rllrrrrr}
+\toprule
+ID & Name & Family & $N$ & Vis. & EMG & Fus. & $\Delta$ \\
+\midrule
+21 & PinkyBow & Single-hand & 14 & 8.2 & 13.3 & 6.1 & +2.14 \\
+27 & nocontact\_disperse\_palm & Single-hand & 16 & 8.0 & 14.2 & 5.9 & +2.11 \\
+17 & MiddleBow & Single-hand & 16 & 8.8 & 16.4 & 6.8 & +2.06 \\
+14 & IndexMiddleClaw & Single-hand & 16 & 9.4 & 18.6 & 7.6 & +1.78 \\
+18 & Nine & Single-hand & 184 & 9.6 & 20.9 & 8.1 & +1.50 \\
+20 & PinchMiddle & Single-hand & 182 & 7.0 & 13.9 & 6.1 & +0.97 \\
+19 & PalmYaw & Single-hand & 34 & 7.4 & 15.2 & 6.6 & +0.81 \\
+15 & JoystickCircle & Single-hand & 178 & 6.0 & 16.3 & 5.2 & +0.76 \\
+28 & nocontact\_free & Single-hand & 178 & 8.5 & 14.8 & 7.7 & +0.76 \\
+29 & nocontact\_grab & Single-hand & 6 & 6.6 & 14.7 & 6.1 & +0.48 \\
+16 & JoystickSlide & Single-hand & 12 & 4.5 & 18.4 & 4.2 & +0.30 \\
+\addlinespace[3pt]
+37 & Gaming & Symmetric bimanual & 20 & 9.9 & 21.8 & 8.6 & +1.23 \\
+36 & FistBump & Symmetric bimanual & 154 & 10.7 & 26.9 & 9.5 & +1.22 \\
+51 & Kiss & Symmetric bimanual & 10 & 6.8 & 14.8 & 6.0 & +0.89 \\
+52 & MiddleOppo & Symmetric bimanual & 146 & 6.6 & 11.7 & 5.8 & +0.75 \\
+42 & PalmStack & Symmetric bimanual & 140 & 5.9 & 11.0 & 5.3 & +0.59 \\
+44 & Prayer & Symmetric bimanual & 10 & 4.6 & 12.1 & 4.2 & +0.47 \\
+35 & FingerTipTouch & Symmetric bimanual & 6 & 3.9 & 13.4 & 3.5 & +0.44 \\
+46 & SymOpen & Symmetric bimanual & 8 & 5.3 & 9.9 & 5.1 & +0.25 \\
+\addlinespace[3pt]
+43 & PinkyHook & Asymmetric bimanual & 2 & 4.5 & 13.7 & 2.5 & +2.01 \\
+45 & Squeeze & Asymmetric bimanual & 142 & 7.4 & 14.0 & 6.6 & +0.80 \\
+55 & PairClaw & Asymmetric bimanual & 6 & 5.4 & 14.5 & 5.1 & +0.34 \\
+57 & Picture & Asymmetric bimanual & 16 & 6.8 & 15.2 & 6.6 & +0.25 \\
+41 & PalmRoll & Asymmetric bimanual & 6 & 5.1 & 12.7 & 5.2 & -0.10 \\
+\bottomrule
+\end{tabular}
+\end{table}

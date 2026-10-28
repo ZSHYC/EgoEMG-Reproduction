@@ -1,0 +1,75 @@
+\begin{table}[h]
+\centering
+\caption{Full per-gesture modality breakdown on \dataset{} (F-RN18+S fusion). MAE is in degrees. $\Delta = \text{MAE}_\text{vis} - \text{MAE}_\text{fus}$. Gestures grouped by family, sorted by descending $\Delta$ (largest fusion gain first) within each family. Gesture descriptions are provided in Appendix~\ref{app:gesture_vocabulary}.}
+\label{tab:per_gesture_full}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{rllrrrrr}
+\toprule
+ID & Name & Family & $N$ & Vis. & EMG & Fus. & $\Delta$ \\
+\midrule
+13 & IndexBow & Single-hand & 26 & 9.8 & 18.8 & 7.8 & +2.04 \\
+14 & IndexMiddleClaw & Single-hand & 38 & 9.8 & 19.1 & 7.8 & +2.01 \\
+12 & ILY & Single-hand & 26 & 9.8 & 21.7 & 7.9 & +1.97 \\
+26 & Thumb & Single-hand & 24 & 9.5 & 28.6 & 7.8 & +1.73 \\
+7 & ASL8 & Single-hand & 24 & 7.9 & 15.2 & 6.2 & +1.72 \\
+0 & ASL1 & Single-hand & 26 & 10.1 & 19.8 & 8.4 & +1.68 \\
+29 & nocontact\_grab & Single-hand & 30 & 9.6 & 19.9 & 8.0 & +1.63 \\
+8 & ASL9 & Single-hand & 24 & 7.1 & 15.6 & 5.5 & +1.61 \\
+10 & Claw5 & Single-hand & 26 & 8.0 & 16.2 & 6.5 & +1.57 \\
+11 & FreeAction & Single-hand & 22 & 8.6 & 15.5 & 7.1 & +1.53 \\
+18 & Nine & Single-hand & 207 & 9.5 & 21.3 & 8.0 & +1.53 \\
+27 & nocontact\_disperse\_palm & Single-hand & 38 & 8.4 & 16.1 & 7.0 & +1.46 \\
+21 & PinkyBow & Single-hand & 40 & 9.1 & 14.7 & 7.6 & +1.43 \\
+2 & ASL3 & Single-hand & 18 & 8.6 & 20.1 & 7.2 & +1.43 \\
+3 & ASL4 & Single-hand & 20 & 7.3 & 15.1 & 5.9 & +1.41 \\
+17 & MiddleBow & Single-hand & 38 & 9.5 & 16.2 & 8.1 & +1.40 \\
+9 & Claw3 & Single-hand & 26 & 9.0 & 16.9 & 7.6 & +1.40 \\
+5 & ASL6 & Single-hand & 23 & 9.2 & 14.9 & 7.9 & +1.31 \\
+25 & Rock & Single-hand & 24 & 9.3 & 18.7 & 8.0 & +1.31 \\
+4 & ASL5 & Single-hand & 20 & 6.0 & 13.0 & 4.8 & +1.16 \\
+20 & PinchMiddle & Single-hand & 200 & 6.9 & 13.8 & 6.0 & +0.97 \\
+6 & ASL7 & Single-hand & 24 & 7.7 & 15.0 & 6.8 & +0.90 \\
+28 & nocontact\_free & Single-hand & 178 & 7.8 & 14.9 & 6.9 & +0.88 \\
+23 & RingAndThumb & Single-hand & 20 & 8.9 & 15.2 & 8.0 & +0.86 \\
+19 & PalmYaw & Single-hand & 58 & 7.3 & 14.9 & 6.5 & +0.78 \\
+15 & JoystickCircle & Single-hand & 199 & 6.0 & 16.4 & 5.2 & +0.77 \\
+22 & Rest & Single-hand & 22 & 8.5 & 20.6 & 7.8 & +0.74 \\
+1 & ASL2 & Single-hand & 22 & 9.6 & 16.9 & 8.9 & +0.69 \\
+16 & JoystickSlide & Single-hand & 37 & 5.7 & 18.0 & 5.4 & +0.30 \\
+24 & RingBow & Single-hand & 22 & 8.0 & 16.2 & 7.9 & +0.11 \\
+\addlinespace[3pt]
+37 & Gaming & Symmetric bimanual & 30 & 8.7 & 21.4 & 7.0 & +1.73 \\
+36 & FistBump & Symmetric bimanual & 161 & 9.9 & 27.3 & 8.6 & +1.31 \\
+49 & Typing & Symmetric bimanual & 18 & 7.3 & 11.4 & 6.4 & +0.88 \\
+51 & Kiss & Symmetric bimanual & 30 & 7.1 & 14.0 & 6.3 & +0.76 \\
+31 & CrossHand & Symmetric bimanual & 14 & 6.2 & 11.2 & 5.4 & +0.75 \\
+52 & MiddleOppo & Symmetric bimanual & 163 & 6.4 & 11.6 & 5.6 & +0.74 \\
+30 & Clap & Symmetric bimanual & 8 & 6.6 & 11.1 & 6.0 & +0.63 \\
+42 & PalmStack & Symmetric bimanual & 150 & 5.3 & 11.0 & 4.7 & +0.61 \\
+32 & CrossStretch & Symmetric bimanual & 20 & 5.8 & 12.8 & 5.3 & +0.58 \\
+39 & HandRub & Symmetric bimanual & 20 & 6.7 & 13.4 & 6.2 & +0.51 \\
+44 & Prayer & Symmetric bimanual & 28 & 6.2 & 13.7 & 5.7 & +0.45 \\
+38 & HandClasp & Symmetric bimanual & 16 & 7.2 & 16.0 & 6.8 & +0.40 \\
+46 & SymOpen & Symmetric bimanual & 26 & 6.4 & 12.7 & 6.0 & +0.38 \\
+40 & IndexTapping & Symmetric bimanual & 24 & 6.1 & 12.2 & 5.9 & +0.19 \\
+48 & ThumbWrestle & Symmetric bimanual & 24 & 5.9 & 13.2 & 5.8 & +0.17 \\
+35 & FingerTipTouch & Symmetric bimanual & 23 & 5.5 & 11.2 & 5.5 & +0.00 \\
+47 & SymSwing & Symmetric bimanual & 18 & 6.9 & 14.6 & 7.2 & -0.25 \\
+\addlinespace[3pt]
+54 & Checky & Asymmetric bimanual & 12 & 13.2 & 23.7 & 11.2 & +2.00 \\
+58 & PinchWring & Asymmetric bimanual & 20 & 7.8 & 16.2 & 6.4 & +1.45 \\
+34 & FingerPullRight & Asymmetric bimanual & 20 & 8.2 & 15.1 & 6.8 & +1.35 \\
+43 & PinkyHook & Asymmetric bimanual & 24 & 8.9 & 15.5 & 7.9 & +0.99 \\
+57 & Picture & Asymmetric bimanual & 35 & 7.6 & 18.4 & 6.8 & +0.79 \\
+56 & PairOK & Asymmetric bimanual & 20 & 7.4 & 13.6 & 6.7 & +0.76 \\
+45 & Squeeze & Asymmetric bimanual & 158 & 7.3 & 14.3 & 6.6 & +0.71 \\
+33 & FingerPullLeft & Asymmetric bimanual & 14 & 6.8 & 14.5 & 6.2 & +0.61 \\
+55 & PairClaw & Asymmetric bimanual & 28 & 7.3 & 15.8 & 6.7 & +0.60 \\
+59 & ThumbOppo & Asymmetric bimanual & 22 & 7.7 & 18.6 & 7.3 & +0.46 \\
+41 & PalmRoll & Asymmetric bimanual & 28 & 5.7 & 12.8 & 5.4 & +0.35 \\
+53 & Beijing & Asymmetric bimanual & 14 & 11.5 & 19.8 & 11.3 & +0.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
