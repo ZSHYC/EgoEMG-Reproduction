@@ -82,3 +82,40 @@ Only small HTML partials confidently recognized by both the Google Drive quota t
 The helper reuses `Asset`, `download_one`, the existing 15 GiB storage reserve, exact final byte count, known/past SHA256 validation, atomic promotion and `acquisition_ledger.json`. It rechecks capacity for the selection and before each chunk request/write. After the complete file passes the byte/hash gate, it additionally opens that LMDB read-only, inspects a read transaction's statistics and closes the handle. A schema failure stops the helper even though the original transfer receipt remains available; that receipt alone is not proof of LMDB or center-key coverage. Actual center coverage and final experiment provenance still require the separate checks described in the [vision guide](vision.md) and [metric audit](metric-audit.md).
 
 This recovery adapter and its local fixtures are not evidence that the full 41-episode crop acquisition has finished. Publish completion only after every required real payload, receipt, database and center population has been verified. Do not replace quota-limited legacy assets with a newer preview or another cohort without a separately approved identity change.
+
+## Bounded transient recovery for the reviewed geometry selection
+
+[`assets_geometry_manifest.json`](../assets_geometry_manifest.json) records eight additional old-release files totaling **37,778,344,975 bytes**: both MANO poses and world transforms, the camera transform/tracked flag, and both marker-validity arrays. Its exact IDs, sizes, dtypes and shapes were checked against the pinned old release manifest. It does not contain raw marker positions, full videos or the current release. Complete transfer is a prerequisite for later geometry admission, not proof that the occlusion experiment has run.
+
+An actual geometry transfer stopped on a TLS unexpected EOF after committing 45 new complete 16 MiB chunks. [`range_recovery.py`](../egoemg_repro/range_recovery.py) adds `BoundedRangeDownloader`, a callable accepted by the original `download_one`, around the **unchanged** strict range reader. It retries connection interruption, timeout, chunked transport failure and the observed SSL EOF at most three times at one stalled committed offset, waiting 1 then 2 seconds. The budget resets only when complete strict chunks advance. Certificate/proxy/other SSL failures, HTTP quota/permission responses, invalid range/type/length/body, storage failure and cancellation stop immediately. Final size/hash checks, atomic promotion and the original acquisition ledger remain authoritative.
+
+Use one exclusively owned destination and stop any previous writer before renewal. The wrapper detects partial replacement, shrinkage or changes during backoff; it does not make concurrent writers supported. Each retry retains the native fresh anonymous session, TLS verification, no ambient auth/cookies/proxies and all exact HTTP checks. `statistics` and an optional `on_retry` callback expose bounded retry evidence; callback exceptions propagate.
+
+From the source checkout, after obtaining the old manifest through the metadata-only command above, a sequential intake can use:
+
+```python
+import hashlib
+import json
+from pathlib import Path
+from egoemg_repro.download import (
+    MIN_FREE_BYTES, download_one, ensure_capacity, read_inventory,
+    select_assets, validate_manifest_sizes,
+)
+from egoemg_repro.range_recovery import BoundedRangeDownloader
+
+inventory = read_inventory(Path("assets_geometry_manifest.json"))
+manifest_path = Path("/path/to/legacy/manifest.json")
+manifest_bytes = manifest_path.read_bytes()
+if hashlib.sha256(manifest_bytes).hexdigest() != inventory["release_manifest_sha256"]:
+    raise ValueError("The old release manifest does not match the reviewed selection")
+assets = select_assets(inventory)
+validate_manifest_sizes(json.loads(manifest_bytes), assets)
+destination = Path("/path/to/legacy-geometry")
+destination.mkdir(parents=True, exist_ok=True)
+ensure_capacity(destination, assets, reserve_bytes=MIN_FREE_BYTES)
+for asset in assets:
+    receive = BoundedRangeDownloader(asset)
+    download_one(asset, destination, downloader=receive, reserve_bytes=MIN_FREE_BYTES)
+```
+
+Before resuming historical partials, compare their preserved tails with fresh exact ranges from the same public IDs and reviewed totals. Keep failed attempts and quota documents. The real renewal also checks actual process ownership and aggregate disk capacity, and records source hashes, probe results and retry events in a separate one-shot state. Partial bytes or a live owner are never reported as eight completed files. Subsequent full array/geometry and camera checks are still required before the occlusion pipeline can consume them.

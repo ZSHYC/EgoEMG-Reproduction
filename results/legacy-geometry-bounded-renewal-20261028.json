@@ -1,0 +1,201 @@
+{
+  "actual_owned_entry_sha256": "5b871273d922f3e757cd93e51f2e760e1b11b1e0ca172a4dc1191b037a1217bf",
+  "actual_owner_pid_start_matching_live": true,
+  "actual_target_consumers_at_launch": 0,
+  "actual_transient_recovery_observed": false,
+  "complete_file_receipts_at_observation": [
+    {
+      "bytes": 66161725,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "filename": "mocap_webcam_tracked.dat",
+      "reused_existing": true,
+      "sha256": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40",
+      "url": "https://drive.google.com/uc?id=1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "verified_at": "2026-10-28T02:43:34.488014+00:00"
+    }
+  ],
+  "expected_selected_bytes": 37778344975,
+  "format": "legacy_geometry_bounded_renewal_actual_v1",
+  "fresh_exact_range_probes": [
+    {
+      "bytes": 1048576,
+      "end": 2840068095,
+      "filename": "mocap_mano_left_world_transform.dat",
+      "preserved_tail_equal": true,
+      "sha256": "8d205c9308876fbc28c3d5007ba689125febe428ae6256033ccffcb01fdd6a0c",
+      "start": 2839019520
+    },
+    {
+      "bytes": 1048576,
+      "end": 660602879,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "preserved_tail_equal": true,
+      "sha256": "530a9f8e96bcaa0d76b5db366e6ea4635b58b01adc97b36f90a720360a8d93e1",
+      "start": 659554304
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "generated_mano_left_pose.dat",
+      "preserved_tail_equal": null,
+      "sha256": "59d72ac6d0233b447be8d15b2d936412b1ac096cae376a22fe92117087ec80e3",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "generated_mano_right_pose.dat",
+      "preserved_tail_equal": null,
+      "sha256": "8e9b1103b375fd1afbdfa7b7fe21bc3e70eb90dab8f95321ea25b52568614941",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "mocap_webcam_transform.dat",
+      "preserved_tail_equal": null,
+      "sha256": "fd2a259db07b22afdc3151f80069d0ea0c68d874e0fc5918ef70d20e719e7e17",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "mocap_left_valid.dat",
+      "preserved_tail_equal": null,
+      "sha256": "1f86a3e994bfa5f87c1932cd1312b160af37d05704c68b1fc92272cbd657139a",
+      "start": 0
+    },
+    {
+      "bytes": 65536,
+      "end": 65535,
+      "filename": "mocap_right_valid.dat",
+      "preserved_tail_equal": null,
+      "sha256": "1f86a3e994bfa5f87c1932cd1312b160af37d05704c68b1fc92272cbd657139a",
+      "start": 0
+    }
+  ],
+  "full_geometry_acquisition_complete": false,
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "initial_capacity": {
+    "actual_observation_injected": false,
+    "free_bytes": 236597121024,
+    "remaining_selected_bytes": 34211512274,
+    "reserve_bytes": 16106127360
+  },
+  "initial_received_sizes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 2840068096,
+    "mocap_mano_right_world_transform.dat": 660602880,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "inventory_sha256": "af77d8d7a7cf137eca8f361db9e8feb4dd763b5c24869999c70b56f105024eb6",
+  "new_complete_committed_bytes": 16777216,
+  "observed_actual_sizes": {
+    "generated_mano_left_pose.dat": 0,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 2856845312,
+    "mocap_mano_right_world_transform.dat": 660602880,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "observed_utc": "2026-10-28T02:45:33.144721+00:00",
+  "occlusion_experiment_complete": false,
+  "partial_bytes_are_not_complete_assets": true,
+  "preserved_quota_documents": [
+    {
+      "bytes": 2040,
+      "filename": "generated_mano_left_pose.dat.part.quota.html.20261026",
+      "sha256": "f436a2ef4c31fdf2fee77219f07c0d3deab55c440e5047f6fd38b12c757e56ae"
+    },
+    {
+      "bytes": 2040,
+      "filename": "generated_mano_right_pose.dat.part.quota.html.20261026",
+      "sha256": "5fb8c4be7d7a124a5f728036e8fd645dd9ecdd90399ccb6b9633aa29e4b87029"
+    },
+    {
+      "bytes": 2040,
+      "filename": "mocap_webcam_transform.dat.part.quota.html.20261026",
+      "sha256": "e88820454b0a59b43dadd6718500d5060a3a728844a270a14d723a284282861a"
+    }
+  ],
+  "prior_attempt_actual_exit_code": 1,
+  "prior_attempt_failure": "TLS unexpected EOF after strict complete chunks; original state/log/script retained",
+  "prior_attempt_files_sha256_unchanged": true,
+  "prior_owner_independently_nonlive": true,
+  "publisher_authenticated_bulk_sha256_available": false,
+  "raw_state_evidence_sha256": "8bca93a2581130bfe3da692a0bfc0c38bafb28cf8c72a89e5d3e7cdc56d9cbc1",
+  "release_manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+  "retry_events_observed": 0,
+  "retry_policy": {
+    "attempts_per_stalled_offset": 3,
+    "backoff_seconds": [
+      1,
+      2
+    ],
+    "reset": "strict complete chunk progress only"
+  },
+  "retry_statistics_at_observation": {},
+  "selected_assets": [
+    {
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "expected_bytes": 66161725,
+      "filename": "mocap_webcam_tracked.dat"
+    },
+    {
+      "drive_id": "1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "expected_bytes": 3175762800,
+      "filename": "mocap_mano_left_world_transform.dat"
+    },
+    {
+      "drive_id": "1zohAWlpTvgpZI7AVX4MrVTXj3zHA7ZWh",
+      "expected_bytes": 3175762800,
+      "filename": "mocap_mano_right_world_transform.dat"
+    },
+    {
+      "drive_id": "14DB4oE64wgom4hCVqzF3-ZGR0PkwUbme",
+      "expected_bytes": 12703051200,
+      "filename": "generated_mano_left_pose.dat"
+    },
+    {
+      "drive_id": "1gABXRRmsjllrnSW4-qsQAwntfDN1nPRs",
+      "expected_bytes": 12703051200,
+      "filename": "generated_mano_right_pose.dat"
+    },
+    {
+      "drive_id": "1UuzEdEpQuIzqEsIQ1qn1tZxRLPbby3jm",
+      "expected_bytes": 3175762800,
+      "filename": "mocap_webcam_transform.dat"
+    },
+    {
+      "drive_id": "1zfjeVu26P2YfmGYCqoadVlxq2xB1ajJM",
+      "expected_bytes": 1389396225,
+      "filename": "mocap_left_valid.dat"
+    },
+    {
+      "drive_id": "14lCnNtA1kho2PADp5NexHJejoEEErsQs",
+      "expected_bytes": 1389396225,
+      "filename": "mocap_right_valid.dat"
+    }
+  ],
+  "source_sha256": {
+    "assets_geometry_manifest.json": "af77d8d7a7cf137eca8f361db9e8feb4dd763b5c24869999c70b56f105024eb6",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "egoemg_repro/range_recovery.py": "626417e1680bcd487da7a12edd0a76a2d1d5b74bf55707ae78526349e41acd13"
+  },
+  "status_at_observation": "downloading",
+  "validation": {
+    "complete_light_suite": "1435 passed, 737 optional skips, 1 warning in 92.65s; actual exit0",
+    "missing_module_red": "27 failed in 0.36s",
+    "new_and_original_transport_checks": "66 passed in 1.67s",
+    "original_transport_source_sha256_unchanged": true
+  }
+}

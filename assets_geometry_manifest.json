@@ -1,0 +1,111 @@
+{
+  "inventory_version": 1,
+  "release_format": "egoemg_v2_memmap",
+  "source_url": "https://drive.google.com/drive/folders/1325S0iBVvbT_OnFAeiacLSRjXoWbCPsl",
+  "inspected_date": "2026-10-28",
+  "total_rows": 66161725,
+  "num_episodes": 41,
+  "minimum_free_bytes": 16106127360,
+  "release_manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+  "selection_review_sha256": "0292fb425ba67e7d177e96b7101ab607a5eaec1e78ba3c9ee664eb86e1ef0926",
+  "selection_expected_bytes": 37778344975,
+  "purpose": "Full reviewed old-release geometry selection for later MANO/camera/validity and occlusion admission; not raw markers, full videos, current release or a completed scientific evaluation.",
+  "checksum_policy": "Bulk SHA256 records actual received local bytes. No publisher-authenticated bulk reference checksum is available.",
+  "files": [
+    {
+      "drive_id": "1MVf3Apy4mFNmPdVzfezk4D7ZM3BbVLOc",
+      "expected_bytes": 66161725,
+      "filename": "mocap_webcam_tracked.dat",
+      "group": "legacy_geometry",
+      "field": "mocap_webcam_tracked",
+      "dtype": "bool",
+      "shape": [
+        66161725
+      ]
+    },
+    {
+      "drive_id": "1IousPPYm8wPP9QT6htE1L1BP5puci1qt",
+      "expected_bytes": 3175762800,
+      "filename": "mocap_mano_left_world_transform.dat",
+      "group": "legacy_geometry",
+      "field": "mocap_mano_left_world_transform",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        12
+      ]
+    },
+    {
+      "drive_id": "1zohAWlpTvgpZI7AVX4MrVTXj3zHA7ZWh",
+      "expected_bytes": 3175762800,
+      "filename": "mocap_mano_right_world_transform.dat",
+      "group": "legacy_geometry",
+      "field": "mocap_mano_right_world_transform",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        12
+      ]
+    },
+    {
+      "drive_id": "14DB4oE64wgom4hCVqzF3-ZGR0PkwUbme",
+      "expected_bytes": 12703051200,
+      "filename": "generated_mano_left_pose.dat",
+      "group": "legacy_geometry",
+      "field": "generated_mano_left_pose",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        48
+      ]
+    },
+    {
+      "drive_id": "1gABXRRmsjllrnSW4-qsQAwntfDN1nPRs",
+      "expected_bytes": 12703051200,
+      "filename": "generated_mano_right_pose.dat",
+      "group": "legacy_geometry",
+      "field": "generated_mano_right_pose",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        48
+      ]
+    },
+    {
+      "drive_id": "1UuzEdEpQuIzqEsIQ1qn1tZxRLPbby3jm",
+      "expected_bytes": 3175762800,
+      "filename": "mocap_webcam_transform.dat",
+      "group": "legacy_geometry",
+      "field": "mocap_webcam_transform",
+      "dtype": "float32",
+      "shape": [
+        66161725,
+        12
+      ]
+    },
+    {
+      "drive_id": "1zfjeVu26P2YfmGYCqoadVlxq2xB1ajJM",
+      "expected_bytes": 1389396225,
+      "filename": "mocap_left_valid.dat",
+      "group": "legacy_geometry",
+      "field": "mocap_left_valid",
+      "dtype": "bool",
+      "shape": [
+        66161725,
+        21
+      ]
+    },
+    {
+      "drive_id": "14lCnNtA1kho2PADp5NexHJejoEEErsQs",
+      "expected_bytes": 1389396225,
+      "filename": "mocap_right_valid.dat",
+      "group": "legacy_geometry",
+      "field": "mocap_right_valid",
+      "dtype": "bool",
+      "shape": [
+        66161725,
+        21
+      ]
+    }
+  ]
+}
