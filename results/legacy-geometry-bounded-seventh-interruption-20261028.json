@@ -1,0 +1,45 @@
+{
+  "actual_exit_code": 1,
+  "actual_new_bytes": 83886080,
+  "actual_owner_pid_start_nonlive": true,
+  "actual_tool_handle_reaped_exit_code": 1,
+  "complete_selected_files": 3,
+  "current_asset": "generated_mano_left_pose.dat",
+  "error_type": "DownloadError",
+  "expected_selected_bytes": 37778344975,
+  "finished_utc": "2026-10-28T09:06:46.706361+00:00",
+  "format": "legacy_geometry_bounded_intake_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "observed_sizes": {
+    "generated_mano_left_pose.dat": 2801795072,
+    "generated_mano_right_pose.dat": 0,
+    "mocap_left_valid.dat": 0,
+    "mocap_mano_left_world_transform.dat": 3175762800,
+    "mocap_mano_right_world_transform.dat": 3175762800,
+    "mocap_right_valid.dat": 0,
+    "mocap_webcam_tracked.dat": 66161725,
+    "mocap_webcam_transform.dat": 0
+  },
+  "partial_bytes_preserved": true,
+  "reason": "bounded attempt terminated; preserved prefix; inspect recorded retry statistics before another renewal",
+  "retry_events_total": 3,
+  "retry_policy": {
+    "attempts_per_stalled_offset": 3,
+    "backoff_seconds": [
+      1,
+      2
+    ],
+    "reset": "strict complete chunk progress only"
+  },
+  "retry_statistics": {
+    "generated_mano_left_pose.dat": {
+      "exhausted": true,
+      "last_failure_offset": 2801795072,
+      "scheduled_retries": 2,
+      "transient_failures": 3
+    }
+  },
+  "started_utc": "2026-10-28T09:01:12.014622+00:00",
+  "status": "failed"
+}

@@ -1,0 +1,20 @@
+{
+  "actual_new_bytes_between_two_observations": 93759702,
+  "actual_open_file_writer_pid_start_verified_live": true,
+  "browser_normal_download_clicked": true,
+  "canonical_drive_id": "1zfjeVu26P2YfmGYCqoadVlxq2xB1ajJM",
+  "complete_download_verified": false,
+  "connected_fetch_actual_error_code": 413,
+  "connected_metadata_size_matches_manifest": true,
+  "connected_stored_binary_fetch_limit_bytes": 268435456,
+  "expected_bytes": 1389396225,
+  "expected_filename": "mocap_left_valid.dat",
+  "format": "geometry_browser_download_progress_v1",
+  "full_paper_complete": false,
+  "geometry_admitted": false,
+  "initial65536_bytes_match_previous_strict_source_probe": true,
+  "observed_utc": "2026-10-28T09:33:12.025237+00:00",
+  "partial_bytes_observed": 142065593,
+  "source_prefix_sha256": "1f86a3e994bfa5f87c1932cd1312b160af37d05704c68b1fc92272cbd657139a",
+  "temporary_not_final_file": true
+}
