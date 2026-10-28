@@ -17,19 +17,31 @@
     "all_four_actual_pid_start_live": true,
     "controller_status": "running",
     "latest_progress": {
-      "actual_bytes": 317830465064,
-      "phase": "copy",
+      "actual_bytes": 17187690920,
+      "phase": "verify",
       "total_bytes": 462824048640
     },
     "native_full_source_qualified": false,
-    "observed_utc": "2026-10-28T01:25:35.584651+00:00"
+    "observed_utc": "2026-10-28T01:35:36.102852+00:00",
+    "original_copy_phase_finished": true
   },
   "full_scientific_queue": {
     "actual_all_four_owners_live": true,
     "completed_models": 0,
     "models_started": [],
-    "observed_utc": "2026-10-28T01:25:35.582054+00:00",
+    "observed_utc": "2026-10-28T01:35:36.247914+00:00",
     "status": "waiting-existing-full-source"
+  },
+  "left_full_original_fft": {
+    "actual_independent_readback_exit_code": 0,
+    "actual_original_exit_code": 0,
+    "channels": 8,
+    "episodes": 41,
+    "full_bilateral_complete": false,
+    "nonfinite_values": 0,
+    "output_bytes": 2117175200,
+    "public_evidence": "results/dataset-statistics/emg-fft-left-full.json",
+    "rows": 66161725
   },
   "new_hosted_light": {
     "conclusion": "success",
@@ -44,7 +56,7 @@
     "warnings": 1
   },
   "new_whole_native_hosted_verified": false,
-  "observed_utc": "2026-10-28T01:26:21.899000+00:00",
+  "observed_utc": "2026-10-28T01:37:00.437690+00:00",
   "original_fft_check": {
     "actual_completed_episodes_per_hand": 1,
     "all_episodes_complete": false,
@@ -58,15 +70,21 @@
     "actual_pid_start_live": true,
     "ambient_credentials_used": false,
     "complete": false,
+    "completed_array_names": [
+      "emg_left_raw.dat"
+    ],
+    "completed_array_sha256": {
+      "emg_left_raw.dat": "cc4cbb1645344369046cefe974ea3983ab93014538ef6a6736ebf5aa34654147"
+    },
     "connector_raw_limit_bytes": 268435456,
     "direct_public_endpoint": true,
     "expected_bytes_per_array": 2117175200,
     "no_automatic_retry": true,
-    "observed_utc": "2026-10-28T01:25:35.763853+00:00",
+    "observed_utc": "2026-10-28T01:37:00.437690+00:00",
     "original_prefixes_tail_validated": true,
     "received_bytes_per_array": {
-      "emg_left_raw.dat": 1946157056,
-      "emg_right_raw.dat": 368050176
+      "emg_left_raw.dat": 2117175200,
+      "emg_right_raw.dat": 1055916032
     },
     "status": "downloading"
   },

@@ -1,6 +1,6 @@
 # 全论文复现状态与证据清单
 
-北京时间2026-10-28 09:25更新：[实际快照](../results/progress-snapshot-2026-10-28-continuation.json)核对全部原任务拥有者。EMG2Pose完整462.8GB已接收并计算SHA256，原文件保存进度317.8/462.8GB，四个准备进程实际活动；三模型队列仍等待，0项正式250轮训练开始。DINO-L已完成53轮验证、原训练进程活动。预取测试同步修正后，新托管轻量1423通过/721可选跳过，完整CPU检查仍在运行。新增[Table1原表与逐源审计](../results/dataset-statistics/dataset-comparison-audit.md)，记录MyoKi/PiMForce/NinaPro脚注的实际来源差异；[原官方FFT首段重算](../results/dataset-statistics/emg-fft-first-episode.md)完成左右各1/41段、12频率点，最大对照差约3e-8，未称全量。两份raw继续严格续传，完整全文目标仍未完成。
+北京时间2026-10-28 09:35更新：[原始左手全量预处理](../results/dataset-statistics/emg-fft-left-full.md)已完成并独立核验，原入口/读取器均exit0：41段、66,161,725行、8通道、2.117GB输出、NaN/Inf为0；右手raw仍严格续传，双手整体未完成。EMG2Pose完整原包的原文件保存已结束，现有四进程正逐字节verify保存结果，尚未完成转换准入，三模型队列0项正式训练开始。DINO-L最近实查53轮、原训练进程活动；新托管轻量1423通过，完整CPU检查仍在运行。[全部实际快照](../results/progress-snapshot-2026-10-28-continuation.json)与[Table1来源审计](../results/dataset-statistics/dataset-comparison-audit.md)已更新，全文目标仍未完成。
 
 北京时间2026-10-28 08:44历史快照：[逐关节与逐手势细分分析](../results/paper-analysis/README.md)已用五个冻结best完成新推理和退出后独立核验。S/M/L整体及手/split/组件/用户完整轨迹通过原baseline；RN18/S/融合共2,792中心，排18未分配后2,774请求，59类中58类融合优于视觉。保留有效角mask/插值中心/180pi与无mask/token中点/57.3两公式、四个预定义人口；全部推理仍为原bf16/high，官方公式视图不等于原默认FP32入口。Table12/14/15、Figure12参考与清晰展示共63产物字节重复一致，旧版0.01/数据与PDF等价边界保留；完整托管检查与一次最终整体审查仍待新提交观察。实查08:44：EMG2Pose全部462,824,048,640字节已到齐，但完整receipt尚未落盘，原下载两个拥有者实际存活且在读archive.tar做哈希，源码准备和三模型队列仍等待；尚未开始250轮科学训练。
 
@@ -128,7 +128,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | E8 | [冻结中心覆盖](../results/dataset-semantics/center-coverage.json)与[范围/分母](../results/dataset-semantics/center-coverage.md) | 原12000窗口、train stride1200/eval12000；实际点读12字段共6,232,488bytes，33,508窗口/67,016手中心，178个role/split/class/activity cells；本次未全payload重hash，模型误差仍空 |
 | E9 | [逐关节/手势真实细分分析](../results/paper-analysis/README.md)、[验证记录](../results/paper-analysis-validation.json) | 五个保留best各完整2,792手中心；S/M/L完整轨迹baseline另行重推通过，22角/10组、59类/族群、四视图/两公式及Figure12已生成。7实际受管理阶段/139.31秒exit0，14消费者和外层拥有者独立确认退出；旧数据/0.01/bf16边界保留 |
 | E10 | [Table1原表CSV/JSON与原始来源审计](../results/dataset-statistics/dataset-comparison-audit.md) | 六行原值及六数据源调查，PDF原表已逐行视觉核对；MyoKi/PiMForce/NinaPro脚注差异明示，剩余模态/计数定义未核实 |
-| E11 | [原官方FFT首段实际重算](../results/dataset-statistics/emg-fft-first-episode.md) | 固定原函数、12频率点/DC/空输入、左右各1,089,586行；与released最大差约3e-8且非字节相同。仅1/41段，无新训练或全量等价声明 |
+| E11 | [原官方FFT首段实际重算](../results/dataset-statistics/emg-fft-first-episode.md) | 固定原函数、12频率点及双手首段对照；另有[左手全部41段](../results/dataset-statistics/emg-fft-left-full.md)66,161,725行全量重生成与独立读取。右手raw/双手整体仍未完成，无新训练或当前发布等价声明 |
 
 ## 全部主要模型设置
 
@@ -203,7 +203,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D01，§3.1/A.3 | 原采集人数、人口、时长、prompt 与双手执行 | **部分来源核对**：E4 的 41 episodes、66,161,725 行只能说明发布记录，按 2kHz 约 9.189h；不能证明 >10h 原录制、性别/年龄或自然人去重。缺匿名人口/原采集记录；无需伪造重新招募 |
 | D02，§3.1/A.3 | EMG/IMU/mocap/双视频的采样、时间戳软同步与线性插值、校准诊断 | **部分工程证据**：E3 有中心映射与 crop 覆盖，新校准 JSON 已读取；缺全部模态、视频原生尺寸、stale/delta 分布和同步核验。原文未报告统一同步误差数值，不凭空新增该论文结果 |
 | D03，A.3 | release schema、投影框/左手翻转/256 crop、全模态盘点 | **legacy 获取与读取已核验**，E3/E4/E5；缺从 mocap+全帧重生 crop、当前 v3 manifest/checksums 与原 v1 队列对应。选择性清单不是完整 release |
-| D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **原官方函数首段实际重算与频域核验完成（1/41）**；[证据](../results/dataset-statistics/emg-fft-first-episode.md)：左右各1,089,586行/8通道、12频率点/DC/空输入通过，与released最大差约3e-8、非逐字节相同；未来脉冲实测证实整episode非局部依赖。两份raw严格续传中；全41段重生成、全量对照和独立单位标定仍欠，未宣称按分区独立滤波 |
+| D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **左手全部41段原始预处理重生成已完成，右手待完成**；[全量左手证据](../results/dataset-statistics/emg-fft-left-full.md)：66,161,725行/8通道/2.117GB输出全部有限、原入口及独立读取exit0；[双手首段频率/数值核验](../results/dataset-statistics/emg-fft-first-episode.md)最大差约3e-8且非字节相同。右手raw严格续传中，双手全量与全量对照/独立单位标定仍欠；保留官方整episode非局部依赖 |
 | D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；缺 raw markers/valid、合法 MANO 模型和实际重建产物 |
 | D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部发布缺口**；推理脚本导入未发布的 markers2mano 包；缺真实训练架构/图谱/配置/权重。不得以未训练替身验收 |
 | D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **来源调查，不是采样完成**；下节逐源列访问情况。缺精确样本清单、采样 seed/权重、版本与来源划分；图中比例不是实采数据 |

@@ -1,6 +1,6 @@
 # 运行状态
 
-北京时间2026-10-28 09:25更新：[实际快照](../results/progress-snapshot-2026-10-28-continuation.json)核对全部原任务拥有者。EMG2Pose完整462.8GB已接收并计算SHA256，原文件保存进度317.8/462.8GB，四个准备进程实际活动；三模型队列仍等待，0项正式250轮训练开始。DINO-L已完成53轮验证、原训练进程活动。预取测试同步修正后，新托管轻量1423通过/721可选跳过，完整CPU检查仍在运行。新增[Table1原表与逐源审计](../results/dataset-statistics/dataset-comparison-audit.md)，记录MyoKi/PiMForce/NinaPro脚注的实际来源差异；[原官方FFT首段重算](../results/dataset-statistics/emg-fft-first-episode.md)完成左右各1/41段、12频率点，最大对照差约3e-8，未称全量。两份raw继续严格续传，完整全文目标仍未完成。
+北京时间2026-10-28 09:35更新：[原始左手全量预处理](../results/dataset-statistics/emg-fft-left-full.md)已完成并独立核验，原入口/读取器均exit0：41段、66,161,725行、8通道、2.117GB输出、NaN/Inf为0；右手raw仍严格续传，双手整体未完成。EMG2Pose完整原包的原文件保存已结束，现有四进程正逐字节verify保存结果，尚未完成转换准入，三模型队列0项正式训练开始。DINO-L最近实查53轮、原训练进程活动；新托管轻量1423通过，完整CPU检查仍在运行。[全部实际快照](../results/progress-snapshot-2026-10-28-continuation.json)与[Table1来源审计](../results/dataset-statistics/dataset-comparison-audit.md)已更新，全文目标仍未完成。
 
 北京时间2026-10-28 08:44历史快照：[逐关节与逐手势细分分析](../results/paper-analysis/README.md)已用五个冻结best完成新推理和退出后独立核验。S/M/L整体及手/split/组件/用户完整轨迹通过原baseline；RN18/S/融合共2,792中心，排18未分配后2,774请求，59类中58类融合优于视觉。保留有效角mask/插值中心/180pi与无mask/token中点/57.3两公式、四个预定义人口；全部推理仍为原bf16/high，官方公式视图不等于原默认FP32入口。Table12/14/15、Figure12参考与清晰展示共63产物字节重复一致，旧版0.01/数据与PDF等价边界保留；完整托管检查与一次最终整体审查仍待新提交观察。实查08:44：EMG2Pose全部462,824,048,640字节已到齐，但完整receipt尚未落盘，原下载两个拥有者实际存活且在读archive.tar做哈希，源码准备和三模型队列仍等待；尚未开始250轮科学训练。
 
