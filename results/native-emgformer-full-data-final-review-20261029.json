@@ -34,6 +34,13 @@
   "production_ready": false,
   "proof_source_commit": "415deb92a026c470f9364fe9c94dd9e684b4425b",
   "proof_source_unchanged_after_review": true,
+  "publication": {
+    "branch": "codex/full-paper-reproduction",
+    "independent_github_api_ref_exact": true,
+    "push_exit_code": 0,
+    "source_unchanged_after_verification": true,
+    "verified_code_and_evidence_commit": "0efc6c6a7bf4e852e95796cc46a56fb2382c4173"
+  },
   "recorded_utc": "2026-10-29T00:25:11.509693+00:00",
   "reviewed_base": "60d58da543f4373c47acc5be825dd11b5c26a3fe",
   "reviewed_head": "2e4acbd76ee885110ffb38d51eb2d0718a39ce57",
