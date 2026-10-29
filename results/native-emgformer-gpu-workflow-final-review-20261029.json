@@ -11,7 +11,7 @@
   },
   "actual_final_new_suite": {
     "passed": 59,
-    "seconds": 1.46
+    "seconds": 1.42
   },
   "actual_full_training_started": false,
   "actual_gpu_qualified": false,
@@ -44,7 +44,9 @@
       "resolution": "Pre-Torch completed preflight validation and one-use phase authorization bound to live controller, guardian and actual registered worker"
     }
   ],
-  "fixed_source_cpu_preflight_complete": false,
+  "fixed_source_cpu_preflight_bundle_sha256": "11abfaf7af0292795ac7dc1118962296ab9d5090c2cb6f9fd8a3b57f04691edb",
+  "fixed_source_cpu_preflight_complete": true,
+  "fixed_source_cpu_preflight_result": "native-emgformer-gpu-workflow-review-fixed-cpu-preflight-20261029.json",
   "format": "native_emgformer_operational_review_resolution_public_v1",
   "full_paper_complete": false,
   "initial_findings": {
