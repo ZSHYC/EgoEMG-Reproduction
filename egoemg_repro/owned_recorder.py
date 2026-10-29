@@ -6,11 +6,22 @@ import os
 from egoemg_repro.emg2pose_memory_process import process_identity,same_process
 
 
-def recorder_owner(snapshot):
+def _compact(snapshot):
     if (type(snapshot)is not dict or set(snapshot)!={'pid','start_ticks'}or
             type(snapshot['pid'])is not int or snapshot['pid']<=0 or
             type(snapshot['start_ticks'])is not str or not snapshot['start_ticks'].isdigit()):
         raise ValueError('compact recorder PID/start identity is malformed')
+
+
+def recorded_process_live(snapshot):
+    """Check compact external recorder records without treating missing UID as exit."""
+    _compact(snapshot);actual=process_identity(snapshot['pid'])
+    return (actual is not None and actual['uid']==os.getuid()and
+        actual['start_ticks']==snapshot['start_ticks']and same_process(actual))
+
+
+def recorder_owner(snapshot):
+    _compact(snapshot)
     actual=process_identity(os.getppid())
     if (actual is None or actual['uid']!=os.getuid()or
             any(actual[k]!=snapshot[k]for k in('pid','start_ticks'))or not same_process(actual)):

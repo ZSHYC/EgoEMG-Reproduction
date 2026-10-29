@@ -40,3 +40,26 @@ def test_foreign_uid_cannot_be_accepted_even_when_pid_and_start_match(monkeypatc
     value=parent_snapshot();actual=process_identity(os.getppid());actual['uid']=os.getuid()+1
     module=api();monkeypatch.setattr(module,'process_identity',lambda pid:actual)
     with pytest.raises(ValueError):module.recorder_owner(value)
+
+
+def test_compact_external_training_owner_is_live_without_being_our_parent():
+    from egoemg_repro.emg2pose_memory_process import process_identity
+    me=process_identity();snapshot={k:me[k]for k in('pid','start_ticks')}
+    assert api().recorded_process_live(snapshot)is True
+    snapshot['start_ticks']=str(int(snapshot['start_ticks'])+1)
+    assert api().recorded_process_live(snapshot)is False
+
+
+def test_exited_recorded_child_is_closed_instead_of_being_inferred_from_missing_fields():
+    import subprocess,sys
+    from egoemg_repro.emg2pose_memory_process import process_identity
+    child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'])
+    try:
+        identity=process_identity(child.pid);snapshot={k:identity[k]for k in('pid','start_ticks')}
+        assert api().recorded_process_live(snapshot)is True
+    finally:child.terminate();child.wait(timeout=5)
+    assert api().recorded_process_live(snapshot)is False
+
+
+def test_malformed_record_cannot_be_misinterpreted_as_a_closed_training_owner():
+    with pytest.raises(ValueError):api().recorded_process_live({'pid':True,'start_ticks':'1'})
