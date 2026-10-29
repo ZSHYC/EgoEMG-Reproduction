@@ -24,3 +24,5 @@ NinaPro的“27–78”仍不能当作每个子库的人数范围：[DB1](https:
 MyoKi的[Methods与Data Records（pp.3、6、9）](https://elib.dlr.de/221692/1/s41597-025-05852-6.pdf)明确18列glove_calibrated以度为单位、含腕传感器17/18；标注webcam视频不公开。PiMForce的[§3.1/B.4.2/D.3.2](https://arxiv.org/html/2410.23629v1)区分磁感手指模块、20维手指目标与另行RGB实验；“20维不含腕关节”是按其完整角定义的推论，不能把RGB演示当作主数据集已发布egoRGB/RGB-D的证明。
 
 本轮7条逐字段判定在[JSON](dataset-comparison.json)的followup_cell_audit_20261029中。NinaPro家族统一行口径、PiMForce完整视觉发布盘点、EgoEMG全部模态实物仍未闭合；Table1不标为全部完成。原六行CSV及全部原表值保持不变。
+
+PiMForce[作者公开目录](https://www.dropbox.com/scl/fo/m7qye1l3ii6hlwgzlajyv/ADhaUZvH2eDJ3ggmGAlN5k0?dl=0&rlkey=eyt5gs66uimhiw3dismnylamw)另核实主ZIP显示7.64GB、独立PressureVision++基准58.96GB，主目录列User1–21；User1有三会话，抽查Session1仅见fsr/join/pps各22个CSV。[目录观察记录](pimforce-public-directory-observation-20261029.json)只证明可见文件清单，未下载压缩包或检查全部63会话，不能由此断言全数据没有图像。

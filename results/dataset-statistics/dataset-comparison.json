@@ -156,6 +156,7 @@
       "inference": false,
       "locator": "Sections3.1,B.4.2,D.3.2",
       "primary": "main sensor capture distinct from separate RGB inference experiments",
+      "public_release_observation": "Main7.64GB archive and separate58.96GB benchmark visible;21directory keys;one sampled session lists66CSVs. No complete image-absence claim.",
       "source_id": "pimforce",
       "status": "complete_release_visual_inventory_unresolved"
     }
@@ -364,6 +365,7 @@
       }
     }
   ],
+  "primary_release_observation": "pimforce-public-directory-observation-20261029.json",
   "primary_sources": {
     "emg2pose": "https://github.com/facebookresearch/emg2pose",
     "emg2pose_paper": "https://arxiv.org/html/2412.02725v1",
@@ -377,7 +379,8 @@
     "ninapro_db6": "https://ninapro.hevs.ch/instructions/DB6.html",
     "ninapro_db8": "https://ninapro.hevs.ch/instructions/DB8.html",
     "pimforce": "https://arxiv.org/html/2410.23629v1",
-    "pimforce_project": "https://pimforce.hcitech.org/"
+    "pimforce_project": "https://pimforce.hcitech.org/",
+    "pimforce_release": "https://www.dropbox.com/scl/fo/m7qye1l3ii6hlwgzlajyv/ADhaUZvH2eDJ3ggmGAlN5k0?rlkey=eyt5gs66uimhiw3dismnylamw&dl=0"
   },
   "source_access_notes_20261029": {
     "jarque_bou": "Publisher-indexed primary full text and PDF table extraction read; direct publisher fetch redirected to identity service and PMC returned browser challenge; no challenge bypass attempted.",
