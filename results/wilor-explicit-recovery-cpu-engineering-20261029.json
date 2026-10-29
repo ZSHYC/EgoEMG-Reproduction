@@ -1,0 +1,118 @@
+{
+  "actual_completed_engineering_epochs": 2,
+  "actual_controller_exit_code": 0,
+  "actual_controller_seconds": 472.32712065428495,
+  "actual_cpu_model_parameter_count": 631631657,
+  "actual_ended_utc": "2026-10-29T05:40:36.021072+00:00",
+  "actual_frozen_source_members": 115,
+  "actual_frozen_validation": {
+    "model_state_unchanged": true,
+    "parent_prediction_exact": true,
+    "prediction_sha256": "caadc6dc9e1d1d3bba4ef632f0bb739b78f44155c11d0ee7ac8ee473d170497b",
+    "samples": 2
+  },
+  "actual_models_constructed": 2,
+  "actual_native_restore": {
+    "actual": {
+      "callbacks": "44b51fef6f9aef32743837965d68707311b3eeac9bb0a3bec5356b9d035f8082",
+      "loops": "74d76704bc9ad804207f34e6aa757a3e635c8fa404c8664a9068426a5a844ac8",
+      "model": "f67137c318c72278ee9e4d09efb3d824fed4c8528780db1d334ff39be7b155f8",
+      "optimizer": "0ff4ba104c3a5c5d89bfa982522a8c8073c99a4bb497e3fbde185f34c35e6443",
+      "rng": "22f5fcb3b5725ca56bc71dbfe28c6db97bd1a36d1d19fc0a6df6854d94fc8fc7",
+      "scheduler": "1147d4c1e027908fe071cd0be81b0d7ee86221a00a87636791641c337e48d253"
+    },
+    "calls": 1,
+    "equal": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "expected": {
+      "callbacks": "44b51fef6f9aef32743837965d68707311b3eeac9bb0a3bec5356b9d035f8082",
+      "loops": "74d76704bc9ad804207f34e6aa757a3e635c8fa404c8664a9068426a5a844ac8",
+      "model": "f67137c318c72278ee9e4d09efb3d824fed4c8528780db1d334ff39be7b155f8",
+      "optimizer": "0ff4ba104c3a5c5d89bfa982522a8c8073c99a4bb497e3fbde185f34c35e6443",
+      "rng": "22f5fcb3b5725ca56bc71dbfe28c6db97bd1a36d1d19fc0a6df6854d94fc8fc7",
+      "scheduler": "1147d4c1e027908fe071cd0be81b0d7ee86221a00a87636791641c337e48d253"
+    },
+    "restored_before_iterator": true
+  },
+  "actual_new_resume_updates": 2,
+  "actual_new_tests": {
+    "dependency_deprecation_warnings": 14,
+    "passed": 84,
+    "seconds": 3.14
+  },
+  "actual_optimizer_updates": 4,
+  "actual_optimizers_constructed": 2,
+  "actual_prefix_epochs": 1,
+  "actual_selected_engineering_checkpoint": {
+    "checkpoint_sha256": "f6179ae959ca483c54e8b80965856526509cebd08f937ec5e814b7840d7bf1bf",
+    "epoch": 1,
+    "file": "vit-small-epoch=001-val_mae=0.2461.ckpt",
+    "model_sha256": "11cbcd8ac70f6b946179edac3d5a00d96a47b4d454c3354ff6aa7fa5d46aa3f0",
+    "score": 0.24610167741775513,
+    "validation_prediction_sha256": "c1d24794ec1e52b422fe3435d693357d71e10601d591b7e5b83dec8e48b86486"
+  },
+  "actual_started_utc": "2026-10-29T05:32:43.655931+00:00",
+  "all_eight_recorded_owners_closed": true,
+  "all_frozen_source_and_synthetic_fixture_bytes_and_nine_attributes_unchanged": true,
+  "all_frozen_source_sha256_unchanged": true,
+  "bundle_sha256": "6a46063e5416d0dfefdf6f3404c2d7e139986ec1625c5f32141f975a639e338b",
+  "durable_full_fit_started": false,
+  "final_review_complete": false,
+  "format": "actual_native_wilor_explicit_recovery_cpu_public_v1",
+  "full_paper_complete": false,
+  "independent_fresh_reader_result_equal": true,
+  "limitations": [
+    "Synthetic CPU engineering only: two native training batches per epoch; no scientific accuracy claim.",
+    "Checkpoint payloads for this engineering proof remain on volatile tmpfs; small execution receipts and frozen source are on persistent storage.",
+    "Full30 recovery from the real six-epoch parent has not started.",
+    "Recovered selected evaluation, replay, freeze, test, report and final whole-unit review are unfinished.",
+    "Nested recovery output and recursive interrupted-continuation lineage guards still need completion before general recovery use.",
+    "The user has no extra durable server storage and explicitly prioritized other experiments."
+  ],
+  "original_native_uninterrupted_reader_rejected_recovered_format": true,
+  "phases": {
+    "prefix": {
+      "actual_model_parameter_counts": [
+        631631657
+      ],
+      "actual_models_constructed": 1,
+      "actual_optimizer_updates": 2,
+      "actual_optimizers_constructed": 1,
+      "cuda_initialized": false,
+      "seconds": 131.63434153422713,
+      "worker_exit_code": 0
+    },
+    "read": {
+      "actual_model_parameter_counts": [],
+      "actual_models_constructed": 0,
+      "actual_optimizer_updates": 0,
+      "actual_optimizers_constructed": 0,
+      "cuda_initialized": false,
+      "seconds": 70.0336053990759,
+      "worker_exit_code": 0
+    },
+    "resume": {
+      "actual_model_parameter_counts": [
+        631631657
+      ],
+      "actual_models_constructed": 1,
+      "actual_optimizer_updates": 2,
+      "actual_optimizers_constructed": 1,
+      "cuda_initialized": false,
+      "seconds": 264.3947642301209,
+      "worker_exit_code": 0
+    }
+  },
+  "post_exit_collected_utc": "2026-10-29T05:55:14.576308+00:00",
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "503685d8e133dc8a23e7af879f3d12db84fdc117",
+  "uninterrupted_execution": false,
+  "volatile_engineering_output": true
+}

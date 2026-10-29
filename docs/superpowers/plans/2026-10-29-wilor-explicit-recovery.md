@@ -10,6 +10,8 @@
 
 **Spec:** docs/superpowers/specs/2026-10-29-wilor-explicit-recovery-design.md and the approved full-paper design2026-10-26.
 
+**Latest user direction (2026-10-29):** no additional durable server storage is available; prioritize other experiments. Retain the real six-epoch WiLoR parent and current CPU recovery proof. Task2 remains partially implemented and Task3 remains pending; this direction does not pause the full-paper goal or authorize full training on volatile storage.
+
 ## Global Constraints
 
 - Preserve closed wilor_native_train.py SHA91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2 and all prior model/data/eval/runtime bytes.
@@ -43,7 +45,7 @@
 
 - [ ] RED tests for existing output/concurrent claim, all native restoration domains, missing callback references, RNG restoration before iterator construction, exact selected validation/native checkpoint reload, incomplete budget and false uninterrupted completion.
 - [ ] Implement native callback path relocation plus verified copies, CheckpointIO bootstrap loader and passive restore boundary; initialize original observer prefix records/steps and delegate original callbacks/loader/model. New result/reader validates all raw state, prefix conservation and source/input generation.
-- [ ] Use a new current-source CPU prefix stopped deliberately only after original first-epoch last save, then fresh-process recovery to original2epoch budget. Assert original model count631631657,2new segment updates/4total, original/fresh state domains and frozen validation agree. Current source differs from retained old CPU proof; never retag that proof. Explicit bounded volatile workspace only until durable capacity is available.
+- [x] Use a new current-source CPU prefix stopped deliberately only after original first-epoch last save, then fresh-process recovery to original2epoch budget. Assert original model count631631657,2new segment updates/4total, original/fresh state domains and frozen validation agree. Current source differs from retained old CPU proof; never retag that proof. Explicit bounded volatile workspace only until durable capacity is available. Actual source503685d/bundle6a46063e5416, all three phases exit0, eight owners closed,115 members post-exit unchanged; public CPU receipt records the remaining boundaries and review work.
 - [ ] Run entire NEW recovery suite and independent actual raw/result reopen. Commit implementation and actual evidence.
 
 ### Task 3: recovered native/replay/profile/report chain and review

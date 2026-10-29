@@ -1,0 +1,73 @@
+{
+  "format": "actual_full_paper_active_training_snapshot_v1",
+  "full_paper_complete": false,
+  "interpretation": [
+    "Logged training steps are telemetry, not independently accepted completed epochs or final scores.",
+    "Each job retains its own official configuration, cohort and sampling population; the small and larger EMG2Pose epoch populations differ.",
+    "No interim training or validation value is a final test result.",
+    "The native EMGFormer attempt is terminal; it is not a background wait and was not retried."
+  ],
+  "jobs": {
+    "dino_l": {
+      "complete_validation_epochs": 108,
+      "last_complete_optimizer_executions": 60696,
+      "observed_utc": "2026-10-29T05:53:47.774081+00:00",
+      "scientific_setting_complete": false,
+      "status": "training"
+    },
+    "emg2pose_large": {
+      "complete_validation_epochs": 0,
+      "latest_logged_train_step": 3320,
+      "logged_epoch_zero_based": 0.0,
+      "native_train_batches_per_epoch": 7808,
+      "native_train_samples_per_epoch": 2498560,
+      "observed_utc": "2026-10-29T05:52:57.358735+00:00",
+      "scientific_setting_complete": false,
+      "status": "training"
+    },
+    "emg2pose_middle": {
+      "complete_validation_epochs": 0,
+      "latest_logged_train_step": 3200,
+      "logged_epoch_zero_based": 0.0,
+      "native_train_batches_per_epoch": 7808,
+      "native_train_samples_per_epoch": 2498560,
+      "observed_utc": "2026-10-29T05:52:57.358735+00:00",
+      "scientific_setting_complete": false,
+      "status": "training"
+    },
+    "emg2pose_small": {
+      "actual_fit_owner_matching_live": true,
+      "complete_validation_epochs": 18,
+      "latest_logged_train_step": 30009,
+      "logged_epoch_zero_based": 18.0,
+      "native_train_batches_per_epoch": 1584,
+      "native_train_samples_per_epoch": 506880,
+      "observed_utc": "2026-10-29T05:54:28.889880+00:00",
+      "scientific_setting_complete": false,
+      "status": "training"
+    },
+    "native_emgformer_full": {
+      "full200_started": false,
+      "scientific_setting_complete": false,
+      "status": "qualification_attempt_aborted_after_foreign_gpu_arrival"
+    },
+    "native_fusion": {
+      "complete_validation_epochs": 32,
+      "last_complete_optimizer_executions": 63264,
+      "observed_utc": "2026-10-29T05:52:07.451894+00:00",
+      "scientific_setting_complete": false,
+      "status": "training"
+    },
+    "wilor_full": {
+      "complete_validation_epochs": 6,
+      "full_continuation_started": false,
+      "optimizer_executions": 67344,
+      "original_checkpoint_preserved": true,
+      "scientific_setting_complete": false,
+      "status": "exited_for_insufficient_checkpoint_storage"
+    }
+  },
+  "latest_observed_utc": "2026-10-29T05:54:28.889880+00:00",
+  "scientific_settings_complete": 11,
+  "user_direction": "No additional durable server storage; prioritize other experiments and retain WiLoR state."
+}
