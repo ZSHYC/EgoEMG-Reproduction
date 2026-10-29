@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+最新实施（北京时间2026-10-29 09:53）：[NeuroPose原生完整实验](../results/original-classic/neuropose/README.md)全部九阶段实际exit0，73轮按原patience50早停、验证best第23轮；29,054尝试/29,043实际更新/11自然溢出跳步。测试4,306手样本的轨迹pooled MAE **16.358404°**、中心 **16.411552°**；原22角/7,790点轨迹、batch256/16-mixed/单rank保留。原生与独立val/test的typed预测/输入/目标/mask/元数据精确一致，另一进程验收报告及PNG/SVG曲线一致，[完成证据](../results/neuropose-native-full-completion-20261029.json)确认20拥有者退出/107冻结成员及外部依赖未变。完整12.22小时（训练11.29小时），已验证设置由10增至11；可用旧版人口/单rank与原六rank/BatchNorm差异保留，未证明PDF等价。EMGFormer评估入口一次审查发现三项重要校验欠缺，正在一次TDD修复，未获得全论文或新EMG科学资格。
+
 最新实施（北京时间2026-10-29 09:47）：[原生EMGFormer冻结评估入口](emgformer-native-evaluation.md)完成59项新检查（216.24秒）和[服务器当前源码aa72269七阶段CPU实证](../results/native-emgformer-selected-eval-cpu-20261029.json)：146.300秒，验证4/测试8合成手样本，原生与独立进程typed预测/输入/目标/掩码精确一致，验证冻结早于测试，公开报告从原始预测重算一致。4次Small模型加载、所有阶段0优化器创建/0训练更新，actualexit0/16拥有进程退出；原44b72b6检查点和合成输入全SHA/九属性、两来源目录冻结成员保持不变。保留原生每手窗口一次消费，区分原生批量样本加权与pooled有效角度指标，未伪造视觉重复或可见性。仅CPU工程，完整B500/6worker显卡资格/原200轮/真实测试仍欠，一次新组件审查待完成；科学设置仍10。
 
 最新实施（北京时间2026-10-29 09:19）：[原生EMGFormer训练入口](emgformer-native-training.md)的一次审查发现并修复原始训练状态缺失仍被接受的问题，54个篡改RED→GREEN、完整73项通过（153.92秒）。修复源码44b72b6另建98成员冻结目录，[服务器新证据](../results/native-emgformer-train-review-fixed-cpu-20261029.json)前缀33.521秒2更新/续训33.516秒再2更新/独立原始检查点重开2.970秒0模型0更新，所有阶段exit0/八拥有进程退出/16合成输入九属性未变；last与选优检查点的AdamW/调度器/原生循环/回调/RNG及六域内容均校验，保留原生processed=2/completed=1保存边界。未重跑旧95/58/59组件或真实全量扫描，修复前证据保留，未再次审查。仅CPU合成两轮，原生GPU资格/完整200/冻结测试仍欠，科学完成设置仍10。
@@ -224,7 +226,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
 | EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
 | EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **完整运行、已核验（原生配方／旧版数据单rank适配）**；[实际结果](../results/original-classic/vemg2pose/README.md)为62轮早停、10,535更新、4,306测试手样本，轨迹／中心16.452932°／16.347705°。目标手8ch/WL7790输出6000；原批量600、完整验证选模、原生test和独立复算／报告完成。六rank、原表数据和标注等价未证明 |
-| EgoEMG NeuroPose | [官方配置][neuropose]及真实 CNN 模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **新的原生fresh完整训练进行中**，最近36轮/14,325实际更新；原256/16-mixed/WL7790/零填16槽再归一化/全槽旋转/clip0/val_loss保留。旧续训限定检查8/171,380超限的失败仍保留、未降低容差；新路径不宣称续训等价，完整终止/测试/报告未完成 |
+| EgoEMG NeuroPose | [官方配置][neuropose]及真实CNN模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **[原生完整实验已完成](../results/original-classic/neuropose/README.md)**：73轮/29,043实际更新，原patience50早停、best第23轮；全测试轨迹16.358404°/中心16.411552°，验证冻结/独立精确复算/报告曲线验收均通过，20拥有者退出。原256/16-mixed/WL7790/全槽归一化旋转/clip0/val_loss保留，单rank与原六rank差异披露；不宣称续训轨迹或PDF数值等价 |
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |
 | EgoEMG ResNet-50 | [ResNetVisionPose][resnet]支持该 backbone；[派生配方](../configs/resnet50.json)，含角度头总参数24,568,406 | **150 epochs完整legacy实验与锁定复算完成**；23,700更新/150次full val，best第19,118步，全部中心6.640058°。独立YAML未发布，损失/队列/单卡配方与官方字面/PDF等价仍未证明，见[结果](../results/completed/resnet50/README.md) |
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **150 epochs完整legacy实验与锁定复算完成**；52,650更新/150次full val，验证选择第52,650步，全部/有图中心5.982738°/5.869706°。独立作者YAML未发布，保留损失/队列/派生配方限制，见[结果](../results/completed/resnet152/README.md) |
@@ -245,7 +247,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | ID / PDF 位置 | 性质与必须产物 | 状态、实际证据 | 尚欠与验收条件 |
 | --- | --- | --- | --- |
 | Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **六行原表CSV/JSON及逐源审计已生成**；[来源与差异](../results/dataset-statistics/dataset-comparison-audit.md)保留PDF原值，MyoKi三项、PiMForce交互数/参考文献、NinaPro脚注差异单列；未找到官方独立生成脚本 | 剩余列的逐项原始来源核验、NinaPro原表范围的作者口径与跨库身份、EgoEMG全模态实物盘点。已有原值表不证明全部事实已核实；无需重训这些引用研究 |
-| Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M/L有完整legacy结果，VEMG有原生配方/旧版队列完整结果**，E1/E2及各独立报告；NeuroPose尚未完整运行 | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
+| Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M/L有完整legacy结果，VEMG有原生配方/旧版队列完整结果**，E1/E2及各独立报告；NeuroPose已完整早停73轮并通过冻结测试/独立精确复算，轨迹16.358404° | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
 | Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7 视觉与 2 融合 | **RN18、RN50、RN152、RN18+S有完整legacy运行，ViT-S/B有原生/显式派生配方的旧版队列完整运行**，E1/E2/E3及[RN50](../results/completed/resnet50/README.md)；仍不等价于原表 | ViT-L、WiLoR、ViT-S+S尚无完整结果；ViT-B见[实际报告](../results/original-vision/vit-base/README.md)，ViT-S见[实际报告](../results/original-vision/vit-small/README.md)；所有模型逐条件用户SD、真实初始化/选择、匹配人口与官方字面配方仍须逐项核验 |
 | Table 4，A.1 p.15 | 60类完整词表与描述、30/18/12族群，数据定义 | **定义、实际帧与冻结中心覆盖已核验（legacy）**，E7/E8；完整词表保留raw50；中心有241未分配、66 raw，59类视图33,201窗口，与帧统计分开 | [全66,161,725行逐手/逐角mask统计已核验](../results/dataset-semantics/full-frame-validity.md)，保留60类/raw50/未分配行；不同新grid须另报，帧/中心覆盖不能填Table14/15模型误差N。PDF措辞差异单列 |
 | Table 5，A.2 p.16 | 作者82手、10维β统计 | **分析产物、已核验（legacy）**；[统计与来源](../results/dataset-statistics/shape-statistics.md)含50项官方重算和实际P5/P95，PDF显示48/50吻合 | 两个微小显示差异保留，原因未定；episode/beta行数不能独立证明人口身份。官方std(ddof0)和range优先，不能把range混称真正P95−P5 |
