@@ -253,3 +253,25 @@ def test_actual_owned_worker_admission_before_torch(capsule, failure):
         assert not (root/'admission-reached').exists()
     terminal=json.loads((root/'private/owned-qual-prefix/stage-result.json').read_text())
     assert terminal['all_owned_consumers_exited'] is True
+
+
+@pytest.mark.parametrize('change', [None, 'missing-reserved', 'unexpected-device'])
+def test_inventory_requires_independently_bound_reserved_devices(change):
+    from egoemg_repro.emgformer_resource import select_idle_emgformer_gpu
+    tree=ast.parse((REPO/'scripts/run_native_emgformer_controller.py').read_text())
+    node=next(n for n in tree.body if isinstance(n,ast.FunctionDef)and n.name=='inventory')
+    devices=[dict(index=i,uuid=f'GPU-{i:08x}-0000-0000-0000-{i:012x}',free_mib=70000,total_mib=81920)for i in range(8)]
+    devices[1]['uuid']=UUIDS[0];devices[3]['uuid']=UUIDS[1]
+    expected=[dict(index=d['index'],uuid=d['uuid'])for d in devices]
+    if change=='missing-reserved':devices.pop()
+    if change=='unexpected-device':devices.append(dict(index=8,uuid='GPU-88888888-0000-0000-0000-888888888888',free_mib=70000,total_mib=81920))
+    raw='\n'.join(f"{d['index']}, {d['uuid']}, {d['free_mib']}, {d['total_mib']}"for d in devices)
+    responses=iter([raw,''])
+    ns=dict(subprocess=SimpleNamespace(check_output=lambda *a,**k:next(responses)),time=time,
+        gpu_cache=[0.,None],CANDIDATES=UUIDS,select_idle_emgformer_gpu=select_idle_emgformer_gpu,
+        datetime=__import__('datetime'),request=dict(expected_gpu_inventory=expected))
+    exec(compile(ast.Module(body=[node],type_ignores=[]),'actual-controller-inventory','exec'),ns)
+    if change is None:assert len(ns['inventory'](force=True)['gpus'])==8
+    else:
+        with pytest.raises((AssertionError,ValueError),match='inventory'):
+            ns['inventory'](force=True)

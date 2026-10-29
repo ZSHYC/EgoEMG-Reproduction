@@ -35,6 +35,10 @@ def inventory(force=False):
   gpus=[]
   for line in raw.splitlines():
    i,u,f,t=[x.strip()for x in line.split(',')];gpus.append(dict(index=int(i),uuid=u,free_mib=int(f),total_mib=int(t)))
+  expected=request['expected_gpu_inventory']
+  assert len(expected)==8 and all(set(g)=={'index','uuid'}and type(g['index'])is int and type(g['uuid'])is str for g in expected),'expected complete GPU inventory differs'
+  assert {g['index']for g in expected}==set(range(8))and len({g['uuid']for g in expected})==8,'expected complete GPU inventory differs'
+  assert {(g['index'],g['uuid'])for g in gpus}=={(g['index'],g['uuid'])for g in expected},'actual complete GPU inventory changed'
   raw=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid,gpu_uuid','--format=csv,noheader,nounits'],text=True,timeout=15)
   apps=[]
   for line in raw.splitlines():

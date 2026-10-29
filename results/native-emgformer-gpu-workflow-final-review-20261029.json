@@ -1,12 +1,17 @@
 {
+  "actual_additional_inventory_regressions": {
+    "failed": 2,
+    "passed": 1,
+    "seconds": 0.07
+  },
   "actual_boundary_regression": {
     "failed": 1,
     "passed": 55,
     "seconds": 1.44
   },
   "actual_final_new_suite": {
-    "passed": 56,
-    "seconds": 1.42
+    "passed": 59,
+    "seconds": 1.46
   },
   "actual_full_training_started": false,
   "actual_gpu_qualified": false,
@@ -16,6 +21,7 @@
     "seconds": 0.23
   },
   "base_commit": "9f22cfa8d973af8b4ee20a75bd8ad5e53ace0a29",
+  "complete_inventory_executor_ruling": "Bind all eight actual index/UUID pairs at immutable staging; missing reserved or unexpected devices reject admission without widening GPU1/3 candidates.",
   "findings": [
     {
       "id": "I1",
@@ -49,11 +55,11 @@
   "new_operational_source_sha256": {
     "egoemg_repro/emgformer_execution.py": "8c43d0a5953cbacdf5830393f229bb771c16b4ade5c8d81609411bdc71f11cf9",
     "egoemg_repro/emgformer_resource.py": "8f769c9917ae0fc51d76589e065f31a220d22f5e3b6011255b4d87b347c5f1dc",
-    "scripts/run_native_emgformer_controller.py": "871dfd1e031b1368d067f5e4b9bf21c47648d6435c8a4aedf8e0e092ec4501bf",
+    "scripts/run_native_emgformer_controller.py": "6fc72ae94cb863aae2711774b264493b38c6dd3eecd761b908e710bf8e354aef",
     "scripts/run_native_emgformer_worker.py": "854d9abe151937b2913a45ac95649c38ed28fdc3198ea57a49c1dc1466cb0c05"
   },
   "old_model_suites_rerun": false,
-  "regression_log_sha256": "f98ae139c365622ec0e1d4c99459cfc1f2481eb90e29f4010c21aa799f3a60aa",
+  "regression_log_sha256": "1f16dd8a6af86d36968a8a9b821d1d85822d9de150ef5902dcccc23b6cb0c485",
   "remaining_findings": {
     "critical": 0,
     "important": 0,
