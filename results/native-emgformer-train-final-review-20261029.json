@@ -1,0 +1,74 @@
+{
+  "actual_review_reproduction": {
+    "baseline_recovery_accepted": true,
+    "cuda_initialized": false,
+    "damaged_independent_read_accepted": true,
+    "damaged_recovery_accepted": true,
+    "native_model_constructions": 0,
+    "optimizer_executions_claimed": 4,
+    "optimizer_updates": 0,
+    "original_files_byte_identical": true,
+    "removed_raw_fields": [
+      "optimizer_states",
+      "lr_schedulers",
+      "loops"
+    ]
+  },
+  "current_source_cpu_proof": "results/native-emgformer-train-review-fixed-cpu-20261029.json",
+  "current_source_cpu_proof_sha256": "1277f541a1a413093a6c2ac2c0626b60e6d5cd044c676c077346bbf840a40c0b",
+  "current_source_cpu_proof_status": "complete; actual prefix/resume/read/controller exit0 and all eight recorded owners closed",
+  "finding": "Stale-result completion recovery and independent checkpoint reading accepted missing raw optimizer, scheduler and loop state.",
+  "findings": {
+    "critical": 0,
+    "important": 1,
+    "minor": 0
+  },
+  "fix": "One shared native raw validator for resume before model construction, completed recovery before publication, independent last/selected acceptance; six-domain content hashes saved in original native checkpoints.",
+  "fixed_source_commit": "44b72b648707687f4f5fedb0a89060e710bc34d0",
+  "format": "native_emgformer_training_one_review_fix_validation_v1",
+  "fresh_component_review_count": 1,
+  "full_paper_complete": false,
+  "gpu_qualification_granted": false,
+  "original_closed_95_58_59_suites_not_repeated": true,
+  "original_closed_components_unchanged": [
+    "emgformer_runtime.py",
+    "emgformer_data.py",
+    "emgformer_cohort.py"
+  ],
+  "original_real_cohort_scans_not_repeated": true,
+  "re_review_count": 0,
+  "recorded_utc": "2026-10-29T01:17:51.727392+00:00",
+  "retained_original_pre_fix_cpu_proof": "results/native-emgformer-train-cpu-20261029.json",
+  "reviewed_base": "84e332e57fa992d2d4eea0dae604421833918f21",
+  "reviewed_head": "855841ef75ccbbb6ab3f8bd1d8126ecbf948d5c3",
+  "scientific_settings_added": 0,
+  "tests": {
+    "green": {
+      "complete_recovery_optimizer_updates": 0,
+      "exit_code": 0,
+      "log_sha256": "3c0c1523b1e85c084cfbd7acf5874aa05bf051c5b666dd9b9a6634bfcdf88e58",
+      "passed": 73,
+      "prefix_resume_optimizer_updates": 4,
+      "seconds": 153.92,
+      "warnings": 14
+    },
+    "red": {
+      "deselected": 19,
+      "exit_code": 1,
+      "failed": 54,
+      "log_sha256": "1e7238b9b85084438cd8d3ed0f4eb9257f02e17cefabcf666578fe392f9b00e1",
+      "models_constructed": 0,
+      "optimizer_updates": 0,
+      "seconds": 45.24,
+      "warnings": 14
+    }
+  },
+  "unresolved_material_findings": 0,
+  "validation_domains": [
+    "native parameter coverage/order/options, finite FP32 AdamW moments/nonnegative second moments/scalar steps",
+    "original AdamW declaration and cosine200 eta1e-5 rate/progress",
+    "raw epoch/global step, pinned native loop structure including processed=n/completed=n-1 save boundary",
+    "witness history, native EarlyStopping state, complete typed global RNG without CUDA initialization",
+    "model/optimizer/scheduler/callback/fit-loop/RNG content hashes; finite moment corruption rejected"
+  ]
+}
