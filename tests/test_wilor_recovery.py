@@ -121,3 +121,58 @@ def test_existing_native_fit_api_keeps_explicit_no_resume_contract(parent):
     from egoemg_repro.wilor_native_train import fit_wilor
     with pytest.raises(FileExistsError,match='no overwrite/resume'):
         fit_wilor(None,None,upstream=None,config=None,assets=None,output=parent,scope='cpu_engineering')
+
+
+@pytest.fixture
+def callback_packet(parent):
+    p=str(parent/'checkpoints/vit-small-epoch=000-val_mae=0.1000.ckpt')
+    key="ModelCheckpoint{'monitor': 'val_mae', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None}"
+    early="EarlyStopping{'monitor': 'val_mae', 'mode': 'min'}"
+    # Full native state_dict shapes; mode belongs to state_key, not state_dict.
+    checkpoint=dict(callbacks={key:dict(monitor='val_mae',best_model_score=.1,best_model_path=p,
+        current_score=.1,dirpath=str(parent/'checkpoints'),best_k_models={p:.1},
+        kth_best_model_path='',kth_value=float('inf'),last_model_path=''),
+        early:dict(wait_count=0,stopped_epoch=0,best_score=.1,patience=30)})
+    return checkpoint,[dict(validation=dict(val_mae=.1))],p
+
+
+def test_native_callback_mode_is_admitted_from_state_key(parent,callback_packet):
+    packet,records,path=callback_packet
+    assert api()._checkpoint_callbacks(packet,parent,records)=={Path(path):.1}
+
+
+@pytest.mark.parametrize('change', ['mode','monitor','bool-interval','duplicate-key','dirpath',
+    'best-score','topk-score','missing-best','early-best','early-wait','early-patience','bool-wait','bool-stopped'])
+def test_callback_state_cannot_forge_original_minimum_and_history(parent,callback_packet,change):
+    packet,records,path=callback_packet;callbacks=packet['callbacks']
+    key=next(k for k in callbacks if k.startswith('ModelCheckpoint'))
+    cb=callbacks[key];early=next(v for k,v in callbacks.items()if k.startswith('EarlyStopping'))
+    if change in ('mode','monitor','bool-interval'):
+        new=key.replace("'mode': 'min'","'mode': 'max'")if change=='mode'else (
+            key.replace("'monitor': 'val_mae'","'monitor': 'test_mae'")if change=='monitor'else
+            key.replace("'every_n_train_steps': 0","'every_n_train_steps': False"))
+        callbacks[new]=callbacks.pop(key)
+    elif change=='duplicate-key':callbacks[key+' ']=dict(cb)
+    elif change=='dirpath':cb['dirpath']=str(parent.parent/'other')
+    elif change=='best-score':cb['best_model_score']=.2
+    elif change=='topk-score':cb['best_k_models'][path]=.2
+    elif change=='missing-best':cb['best_model_path']=''
+    elif change=='early-best':early['best_score']=.2
+    elif change=='early-wait':early['wait_count']=1
+    elif change=='early-patience':early['patience']=29
+    elif change=='bool-wait':early['wait_count']=False
+    else:early['stopped_epoch']=False
+    with pytest.raises(ValueError,match='callback'):
+        api()._checkpoint_callbacks(packet,parent,records)
+
+
+def test_metadata_changed_during_parent_inspection_is_not_pinned_as_original(parent,monkeypatch):
+    module=api();original=module._producer
+    def producer(path):
+        result=original(path)
+        identity=json.loads((parent/'identity.json').read_text());identity.pop('sha256')
+        identity['counts']['train']=2;put(parent/'identity.json',seal(identity))
+        return result
+    monkeypatch.setattr(module,'_producer',producer)
+    with pytest.raises(ValueError,match='(metadata|parent).*changed'):
+        module._parent_metadata(parent)

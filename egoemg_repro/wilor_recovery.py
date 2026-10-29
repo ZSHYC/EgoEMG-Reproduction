@@ -1,6 +1,7 @@
 """Explicit native WiLoR recovery; historical fits retain their own identity."""
 from __future__ import annotations
 
+import ast
 import copy
 from dataclasses import dataclass
 import hashlib
@@ -79,7 +80,13 @@ def _producer(parent):
 
 def _parent_metadata(parent,checkpoint=None):
     """Cheap rejection only: this does not admit native checkpoint tensors."""
-    parent=_path(parent);identity=_json(parent/'identity.json')
+    parent=_path(parent)
+    metadata_paths=[parent/'identity.json',parent/'epochs.jsonl',
+        parent.parent/'owned-fit/started.json',parent.parent/'owned-fit/stage-result.json']
+    if not metadata_paths[-1].exists():
+        raise ValueError('parent fit has no terminal owned-stage evidence')
+    stamps={str(p):_stamp(p)for p in metadata_paths}
+    identity=_json(parent/'identity.json')
     if (type(identity) is not dict or identity.get('format')!='native_wilor_uninterrupted_fit_v1'
             or identity.get('sha256')!=_hash({k:v for k,v in identity.items() if k!='sha256'})
             or identity.get('scientific_eligible') is not False or identity.get('full_paper_complete') is not False):
@@ -122,8 +129,42 @@ def _parent_metadata(parent,checkpoint=None):
         if chosen not in paths:
             raise ValueError('explicit engineering checkpoint is outside parent checkpoints')
         paths=[chosen]
+    if any(_stamp(p)!=s for p,s in stamps.items()):
+        raise ValueError('parent metadata changed during inspection')
     return dict(parent=parent,identity=identity,records=records,journal_bytes=raw,
-        started=started,terminal=terminal,candidates=paths,raw_checkpoint_admitted=False)
+        started=started,terminal=terminal,candidates=paths,metadata_stamps=stamps,raw_checkpoint_admitted=False)
+
+
+def _checkpoint_callbacks(checkpoint,parent,records):
+    """The native selection mode is encoded in each callback's state key."""
+    try:
+        callbacks=checkpoint['callbacks'];states={}
+        expected={
+            'ModelCheckpoint':dict(monitor='val_mae',mode='min',every_n_train_steps=0,every_n_epochs=1,train_time_interval=None),
+            'EarlyStopping':dict(monitor='val_mae',mode='min')}
+        for name,fields in expected.items():
+            matches=[(k,v)for k,v in callbacks.items()if type(k)is str and k.startswith(name+'{')]
+            if len(matches)!=1:
+                raise ValueError('parent callback key is missing or duplicated')
+            key,value=matches[0]
+            if _hash(ast.literal_eval(key[len(name):]))!=_hash(fields):
+                raise ValueError('parent callback monitor/mode/interval differs')
+            states[name]=value
+        cb=states['ModelCheckpoint'];early=states['EarlyStopping'];n=len(records)
+        values=[r['validation']['val_mae']for r in records];best=min(values)
+        if (cb.get('monitor')!='val_mae' or Path(cb.get('dirpath',''))!=parent/'checkpoints'
+                or not isinstance(cb.get('best_k_models'),dict) or len(cb['best_k_models'])!=min(3,n)
+                or sorted(float(x)for x in cb['best_k_models'].values())!=sorted(values)[:3]
+                or type(cb['best_model_score'])is bool or float(cb['best_model_score'])!=best
+                or cb['best_model_path']not in cb['best_k_models'] or float(early['best_score'])!=best
+                or any(type(early.get(k))is not int for k in ('patience','wait_count','stopped_epoch'))
+                or early['patience']!=30 or early['wait_count']!=n-1-values.index(best) or early['stopped_epoch']!=0):
+            raise ValueError('parent native top3/early-stopping callback history differs')
+        required={_path(p):float(v)for p,v in cb['best_k_models'].items()}
+        if cb.get('last_model_path'):required.setdefault(_path(cb['last_model_path']),None)
+        return required
+    except (KeyError,TypeError,IndexError,AttributeError,SyntaxError) as exc:
+        raise ValueError('malformed parent native callback state')from exc
 
 
 @dataclass(frozen=True,eq=False)
@@ -151,7 +192,6 @@ def admit_wilor_recovery(parent,*,checkpoint=None):
     metadata=_parent_metadata(parent,checkpoint)
     from . import wilor_native_train as native
     from .classic_emg_cohort import _StatGuard
-    from .vision_literal_train import _native_callback
     from .wilor_literal_runtime import _versions
     source_guard,sources,loops=native._capture_fit_sources()
     parent=metadata['parent'];identity=metadata['identity'];scope=identity['policy']['scope']
@@ -164,6 +204,8 @@ def admit_wilor_recovery(parent,*,checkpoint=None):
         parent.parent/'owned-fit/started.json',parent.parent/'owned-fit/stage-result.json',
         Path(__file__),*metadata['candidates']])
     guard=native._guard_merge(source_guard,guard);guard.check()
+    if any(_stamp(p)!=s for p,s in metadata['metadata_stamps'].items()):
+        raise ValueError('parent metadata changed before native packet loading')
     import torch
     candidates={}
     for p in metadata['candidates']:
@@ -183,17 +225,7 @@ def admit_wilor_recovery(parent,*,checkpoint=None):
     owner=metadata['started']['worker'];process=raw['native_wilor']['execution']['process']
     if process!={k:owner[k]for k in ('pid','start_ticks','uid')}:
         raise ValueError('parent checkpoint process differs from its actual terminal owner')
-    cb=_native_callback(raw,'ModelCheckpoint{');early=_native_callback(raw,'EarlyStopping{')
-    values=[r['validation']['val_mae']for r in records];best=min(values)
-    if (cb.get('monitor')!='val_mae' or cb.get('mode')!='min' or Path(cb.get('dirpath',''))!=parent/'checkpoints'
-            or not isinstance(cb.get('best_k_models'),dict) or len(cb['best_k_models'])!=min(3,n)
-            or sorted(float(x)for x in cb['best_k_models'].values())!=sorted(values)[:3]
-            or float(cb['best_model_score'])!=best or cb['best_model_path']not in cb['best_k_models']
-            or float(early['best_score'])!=best or early.get('patience')!=30
-            or early.get('wait_count')!=n-1-values.index(best) or early.get('stopped_epoch')!=0):
-        raise ValueError('parent native top3/early-stopping callback history differs')
-    required={_path(p):float(v)for p,v in cb['best_k_models'].items()}
-    if cb.get('last_model_path'):required.setdefault(_path(cb['last_model_path']),None)
+    required=_checkpoint_callbacks(raw,parent,records)
     required.setdefault(selected,None);file_hashes={};callback_files={}
     for p,score in required.items():
         if p.parent!=parent/'checkpoints' or p not in candidates:
@@ -201,7 +233,7 @@ def admit_wilor_recovery(parent,*,checkpoint=None):
         epochs,packet=candidates[p]
         if epochs>n:
             raise ValueError('parent callback references a future checkpoint')
-        native._validate_checkpoint(packet,identity,metadata['records'][:epochs])
+        if p!=selected:native._validate_checkpoint(packet,identity,metadata['records'][:epochs])
         if (packet['native_wilor']['execution']!=raw['native_wilor']['execution'] or
                 (score is not None and metadata['records'][epochs-1]['validation']['val_mae']!=score)):
             raise ValueError('parent callback checkpoint owner/score differs')
