@@ -113,6 +113,7 @@ def test_public_engineering_report_is_sanitized_and_does_not_claim_full_training
 
 
 def test_population_intersections_come_from_actual_admitted_episode_metadata(tmp_path):
+    pytest.importorskip('torch')
     from test_vision_literal_data import sample_store,crop_store,config,release_fixture_readers
     from egoemg_repro.vision_literal_cohort import admit_vision_cohort
     np=pytest.importorskip('numpy');api();data=tmp_path/'data';crops=tmp_path/'crops'

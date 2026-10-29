@@ -179,8 +179,8 @@ def test_worker_has_no_formal_cli_or_implicit_checkpoint_search():
     assert all(set(value)=={'last.pt','best.pt'} for value in w.CHECKPOINTS.values())
 
 
-def test_offline_transport_keeps_real_local_unix_ipc_available(tmp_path):
-    w=api();address=str(tmp_path/'ipc.sock')
+def test_offline_transport_keeps_real_local_unix_ipc_available(tmp_path,monkeypatch):
+    w=api();monkeypatch.chdir(tmp_path);address='ipc.sock'
     with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as listener:
         listener.bind(address);listener.listen(1)
         with w.offline_transport(),socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as client:

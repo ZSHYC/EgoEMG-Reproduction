@@ -25,7 +25,7 @@ def test_recovered_test_requires_frozen_validation_before_fit_or_output(tmp_path
 
 @pytest.fixture
 def selected_recovery(tmp_path,monkeypatch):
-    import torch
+    torch=pytest.importorskip('torch')
     from egoemg_repro.classic_emg_cohort import _StatGuard
     from egoemg_repro.vision_literal_runtime import vision_state_sha256
     from egoemg_repro import wilor_recovery
@@ -59,7 +59,7 @@ def test_evaluation_uses_actual_continuation_device_without_resealing_historical
 
 
 def test_selected_raw_checkpoint_change_cannot_be_hidden_by_recovery_summary(selected_recovery):
-    import torch
+    torch=pytest.importorskip('torch')
     directory,_,_,_=selected_recovery
     torch.save({'state_dict':{'weight':torch.tensor([9.,2.])}},directory/'checkpoints/best.ckpt')
     with pytest.raises(ValueError):api()._Evidence().fit(directory)
@@ -72,6 +72,7 @@ def test_continuation_generation_is_guarded_after_evaluation_context_admission(s
 
 
 def test_new_pass_format_is_rejected_by_closed_uninterrupted_reader(tmp_path):
+    pytest.importorskip('torch')
     from egoemg_repro import wilor_native_eval
     m=api();(tmp_path/'pass.json').write_text(json.dumps(m._sealed(dict(format=m.FORMAT,scientific_eligible=False,full_paper_complete=False))))
     for n in('predictions.pt','native-metrics.json'):(tmp_path/n).write_text('{}')

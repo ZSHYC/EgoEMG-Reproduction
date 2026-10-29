@@ -33,6 +33,7 @@ def dataset(root,role,*,size='small',partitions=None,normalization=None):
 
 @pytest.mark.parametrize('size',['small','middle','large'])
 def test_exact_native_roles_and_missing_unified_namespace_are_explicit(size):
+    pytest.importorskip('pytorch_lightning')
     m=api();c=cfg(size);p=m.emgformer_data_contract(UPSTREAM,c)
     assert p['center_target_only_by_role']==dict(train=False,val=True,test=True)
     assert p['declared_normalization_namespace']=='egoemg_unified'

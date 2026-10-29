@@ -44,6 +44,7 @@ def test_unknown_size_rejects_before_source_access():
 
 
 def test_native_per_hand_eight_float32_normalization_matches_original_loader():
+    pytest.importorskip('torch')
     from types import SimpleNamespace
     cfg=api().compose_emgformer(UPSTREAM,'small');p=api().emgformer_normalization(UPSTREAM,cfg)
     from egoemg.datasets.egoemg_memmap_dataset import EgoEmgMemmapDataset
@@ -68,6 +69,7 @@ def test_protocol_records_declared_normalization_source(size):
 
 @pytest.mark.parametrize('size',['small','middle','large'])
 def test_environment_cannot_silently_substitute_declared_normalization(size,tmp_path,monkeypatch):
+    pytest.importorskip('torch')
     monkeypatch.setenv('EGOEMG_ROOT',str(tmp_path/'missing-official-root'))
     cfg=api().compose_emgformer(UPSTREAM,size)
     api()._activate(UPSTREAM)

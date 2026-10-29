@@ -180,9 +180,9 @@ def test_metadata_changed_during_parent_inspection_is_not_pinned_as_original(par
 
 @pytest.mark.parametrize('change',['source','loop-source','runtime','policy'])
 def test_current_source_and_runtime_mismatch_rejects_before_tensor_load(parent,monkeypatch,change):
+    torch=pytest.importorskip('torch')
     from egoemg_repro import wilor_native_train as native,wilor_literal_runtime as runtime
     from egoemg_repro.classic_emg_cohort import _StatGuard
-    import torch
     sources={'native-source':'a'*64};loops={'native-loop':'b'*64}
     versions=dict(python='3.11.12',packages={'torch':'2.2.2+cu118'})
     identity=json.loads((parent/'identity.json').read_text());identity.pop('sha256')
@@ -367,9 +367,9 @@ def test_native_parent_result_is_not_mistaken_for_a_continuation(parent):
 
 @pytest.mark.parametrize('marker',[None,{},dict(format='explicit_native_wilor_continuation_checkpoint_v1')])
 def test_raw_continuation_marker_cannot_be_removed_from_parent_metadata(parent,monkeypatch,marker):
+    torch=pytest.importorskip('torch')
     from egoemg_repro import wilor_native_train as native,wilor_literal_runtime as runtime
     from egoemg_repro.classic_emg_cohort import _StatGuard
-    import torch
     sources={'native-source':'a'*64};loops={'native-loop':'b'*64};versions={'runtime':'fixture inventory'}
     identity=json.loads((parent/'identity.json').read_text());identity.pop('sha256')
     identity.update(policy=native.wilor_policy(scope='full'),training_sources_sha256=sources,

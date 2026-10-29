@@ -120,6 +120,8 @@ def test_imported_wilor_from_another_root_is_rejected_without_replacing_modules(
 
 def test_imported_namespace_paths_must_all_belong_to_admitted_root(tmp_path,monkeypatch):
     m=api();runtime=tmp_path/'runtime';(runtime/'wilor').mkdir(parents=True)
+    # This case admits a fresh namespace, without a previously captured wrapper.
+    monkeypatch.delitem(sys.modules,'egoemg.models.modules.wilor_vit',raising=False)
     package=SimpleNamespace(__file__=None,__path__=[str(runtime/'wilor')]);monkeypatch.setitem(sys.modules,'wilor',package)
     m._check_import_roots(runtime,UPSTREAM)
     package.__path__.append(str(tmp_path/'different/wilor'))

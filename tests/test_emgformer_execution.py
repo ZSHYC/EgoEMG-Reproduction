@@ -102,6 +102,8 @@ def test_vacuous_review_cannot_authorize_gpu(capsule, role):
 
 def test_controller_detects_receipt_metadata_mutation(capsule, monkeypatch):
     ns = prefix(capsule, 'controller')
+    # The real controller is a fresh stdlib process, even in a Torch pytest run.
+    ns['sys'] = SimpleNamespace(modules={})
     ns['shutil'] = SimpleNamespace(disk_usage=lambda _: SimpleNamespace(free=1000*1024**3))
     real_path = ns['Path']
     ns['Path'] = lambda p: SimpleNamespace(read_text=lambda: 'MemAvailable: 999999999 kB') if p == '/proc/meminfo' else real_path(p)
@@ -152,7 +154,7 @@ def real_guard(root, snapshots, *, alive):
         if value == '/proc/meminfo':
             return SimpleNamespace(read_text=lambda: 'MemAvailable: 999999999 kB')
         return Path(value)
-    ns = dict(sys=sys, stamps={}, stamp=lambda _: None, Path=path,
+    ns = dict(sys=SimpleNamespace(modules={}), stamps={}, stamp=lambda _: None, Path=path,
         shutil=SimpleNamespace(disk_usage=lambda _: SimpleNamespace(free=1000*1024**3)),
         ROOT=root, mode='qual-prefix', phase_started=time.monotonic(), time=time,
         selected=dict(uuid=UUIDS[0]), inventory=inventory,
@@ -165,6 +167,14 @@ def real_guard(root, snapshots, *, alive):
 def snapshot(pid):
     return dict(gpus=[dict(uuid=UUIDS[0],free_mib=70000)], observed_utc='2026-10-29T00:00:00Z',
         applications=[] if pid is None else [dict(uuid=UUIDS[0],pid=pid)])
+
+
+def test_controller_guard_rejects_torch_before_gpu_observation(tmp_path):
+    guard, calls = real_guard(tmp_path, [snapshot(None), snapshot(None)], alive=False)
+    guard.__globals__['sys'] = SimpleNamespace(modules={'torch': object()})
+    with pytest.raises(AssertionError):
+        guard()
+    assert calls == []
 
 
 def test_reaped_owned_worker_refreshes_cached_nvml_instead_of_false_foreign(tmp_path):

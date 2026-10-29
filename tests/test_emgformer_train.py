@@ -24,6 +24,7 @@ def api():
 
 @pytest.mark.parametrize('size',['small','middle','large'])
 def test_full_policy_preserves_native200_500_six_callbacks_point_targets(size):
+    pytest.importorskip('pytorch_lightning')
     p=api().emgformer_fit_policy(UPSTREAM,cfg(size))
     assert p['max_epochs']==p['scheduler_T_max']==200 and p['scheduler_eta_min']==1e-5
     assert p['precision']=='bf16-mixed'and p['batch_size_by_role']==dict(train=500,val=500)
@@ -42,6 +43,7 @@ def test_unknown_scope_rejects(scope):
 
 
 def test_shortened_or_nonfinite_history_cannot_claim_full_completion():
+    pytest.importorskip('pytorch_lightning')
     m=api();p=m.emgformer_fit_policy(UPSTREAM,cfg());r=[dict(train_loss=1.,validation=dict(val_mae=.2))for _ in range(200)]
     assert m.emgformer_stage_complete(p,r)and not m.emgformer_stage_complete(p,r[:-1])
     r[-1]['validation']['val_mae']=float('nan');assert not m.emgformer_stage_complete(p,r)
@@ -52,6 +54,7 @@ def test_shortened_or_nonfinite_history_cannot_claim_full_completion():
 
 
 def test_owned_output_lock_rejects_before_model_or_checkpoint_creation(tmp_path):
+    pytest.importorskip('torch')
     import fcntl
     from egoemg_repro.emgformer_cohort import admit_emgformer_cohort
     from egoemg_repro.emgformer_literal import emgformer_normalization

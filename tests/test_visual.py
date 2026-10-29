@@ -347,6 +347,7 @@ def test_official_dinov2_small_constructs_at_256_without_pretrained_transport(mo
 
 @pytest.mark.parametrize('backbone', ['vit_huge', 'vit_unknown', None, 7, ['vit_small'], 'resnet18'])
 def test_invalid_vit_override_is_rejected_before_composition(tmp_path, monkeypatch, backbone):
+    pytest.importorskip('torch')
     hydra = pytest.importorskip('hydra')
     def forbidden(*args, **kwargs):
         pytest.fail('invalid ViT override reached Hydra/network construction')

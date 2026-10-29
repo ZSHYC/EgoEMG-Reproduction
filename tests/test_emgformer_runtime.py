@@ -11,7 +11,7 @@ def api():return importlib.import_module('egoemg_repro.emgformer_runtime')
 
 @pytest.fixture(scope='module',params=['small','middle','large'])
 def packet(request):
-    import torch
+    torch=pytest.importorskip('torch')
     torch.set_num_threads(2)
     size=request.param;cfg=literals().compose_emgformer(UPSTREAM,size)
     p=api().build_emgformer_runtime(UPSTREAM,cfg)
