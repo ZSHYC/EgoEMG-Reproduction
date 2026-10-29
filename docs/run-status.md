@@ -1,5 +1,7 @@
 # 运行状态
 
+最新运行核验（北京时间2026-10-29 12:05）：完整科学设置仍为11，全论文尚未完成。[原生EMGFormer执行流程](emgformer-gpu-execution.md)完成单次审查4项重要修正、新增59项检查和修正后CPU预检；[正式流程](../results/native-emgformer-reviewed-full-launch-20261029.json)已启动，本次预检63.527秒退出0，实际等待GPU1/3空闲，未创建模型或开始200轮。EMG2Pose-M/L已核对真实GPU fit（03:54:46 UTC），尚未完成首个验证轮；原S队列继续。融合28轮、DINO-L104轮的原训练拥有者在04:04:54 UTC仍活动。[WiLoR](../results/wilor-native-full-disk-failure-20261029.json)完成6轮后保存last时因磁盘保留量退出，原状态已保全、第6轮包通过完整校验，尚未恢复；重复包共享释放约7.58GB，但仍低于原55GiB新完整启动门槛。右手有效性文件继续等用户正常下载，几何4/8。
+
 最新来源核验（北京时间2026-10-29 10:37）：[Table1补充7条逐字段判定](../results/dataset-statistics/dataset-comparison-audit.md)确认Jarque-Bou原文列有两腕角、raw/processed EMG均7列（8为设备通道）；MyoKi的18列校准glove含腕角，标注视频明确不公开；PiMForce的20维手指目标与另行RGB实验分开。原表六行CSV及原值不变，主张与推论单列，未下载外部MAT或证明完整视觉发布。NinaPro统一口径、PiMForce全部视觉文件及EgoEMG全模态仍未闭合，Table1未标全完。科学设置仍11。服务器原任务活动；当前无符合空闲条件的原生EMG显卡，4/5仍为M/L保留且已有外部消费者；右手最终文件尚未出现。
 
 最新实施（北京时间2026-10-29 10:25）：[原生EMGFormer评估](emgformer-native-evaluation.md)的一次审查3项Important已全部修复：7个回归先RED，再于服务器完整66项通过（309.27秒）。修复版只公开原始预测能独立核验的原生MAE，参与者/episode统计绑定实际元数据与划分，未来前置记录在模型构造前拒绝。[新源码61a7170七阶段CPU证据](../results/native-emgformer-selected-eval-review-fixed-cpu-20261029.json)实际126.878秒、全部exit0/16拥有进程退出；4次Small推理加载、0优化器创建/0更新，验证4/测试8合成样本精确复算，原检查点和输入全SHA/九属性及冻结来源未变。历史证据保留、无再次审查。仍为CPU工程；原生B500/6worker/BF16资格、完整200轮及真实测试未完成，已验证完整设置仍11。WiLoR/融合/DINO-L/EMG2Pose原任务继续，右手有效性文件继续等用户正常下载完成。

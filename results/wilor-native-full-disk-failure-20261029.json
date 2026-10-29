@@ -1,0 +1,76 @@
+{
+  "actual_complete_epochs": 6,
+  "actual_controller_exit_code": 1,
+  "actual_failed_utc": "2026-10-29T02:55:24.090025+00:00",
+  "actual_failure": "OSError: classic output requires 15GiB reserve plus temporary payload space",
+  "actual_final_completed_validation": {
+    "cuda_forward_batches": 176,
+    "forward_batches": 176,
+    "forward_device": "cuda:0",
+    "input_and_module_device_agreed": true,
+    "prediction_sha256": "f864f76600eef11919fe4f1277bb6e0758073c6b8cc1de314ba92d368ea081fc",
+    "samples": 3152,
+    "val_mae": 0.09200914204120636
+  },
+  "actual_final_scientific_report_complete": false,
+  "actual_final_test_started": false,
+  "actual_full_training_terminated": false,
+  "actual_identical_pair_extent_sharing": {
+    "actual_bytes_shared": 7579992064,
+    "actual_data_disk_free_after": 32709226496,
+    "actual_data_disk_free_before": 25129410560,
+    "actual_exit_code": 0,
+    "actual_full_bytes_sha256_preserved": true,
+    "actual_inode_size_mtime_ctime_mode_uid_gid_nlink_preserved": true,
+    "files_deleted": 0,
+    "files_renamed": 0,
+    "new_model_updates": 0,
+    "seconds": 41.42714233882725
+  },
+  "actual_optimizer_executions": 67344,
+  "actual_readback": {
+    "complete_model_frozen_optimizer_scheduler_loop_rng_state_validated": true,
+    "cuda_initialized": false,
+    "new_model_constructions": 0,
+    "new_optimizer_updates": 0,
+    "observed_utc": "2026-10-29T04:04:04.544599+00:00",
+    "production_checkpoint_validator_accepted": true,
+    "raw_checkpoint_bytes_and_nine_attributes_unchanged": true,
+    "seconds": 15.09576692385599
+  },
+  "actual_resume_started": false,
+  "actual_space_still_below_fresh_full_start_reserve": true,
+  "actual_started_utc": "2026-10-28T19:56:36.264456+00:00",
+  "all_four_prior_owned_consumers_closed": true,
+  "automatic_retry": false,
+  "bundle_sha256": "a618f2723de7684d97fea60c2810cf914ac74651e288df6eb5884d0d6dfcdfd7",
+  "failure_boundary": "ModelCheckpoint last.ckpt save / on_save_checkpoint workspace reserve guard",
+  "format": "actual_native_wilor_full_disk_failure_and_preserved_checkpoint_v1",
+  "full_paper_complete": false,
+  "last_checkpoint": {
+    "completed_epochs": 5,
+    "global_step": 56120,
+    "sha256": "99c5b0bfac4982352deb42e769a7632455a953b76030a60e36f88e2f49e1a6f6"
+  },
+  "limitations": [
+    "Six complete training epochs are progress, not the planned full30 scientific setting.",
+    "The original fit API intentionally refuses implicit resume. Faithful explicit continuation and sufficient durable storage still require implementation/verification.",
+    "The last checkpoint lags the validated sixth-epoch packet; blindly resuming last.ckpt would repeat epoch6.",
+    "Existing full-data, population, single-rank and PDF-comparability differences remain."
+  ],
+  "original_batch_precision_model_or_reserve_changed": false,
+  "original_fresh_full_start_reserve_bytes": 59055800320,
+  "planned_max_epochs": 30,
+  "preserved_sixth_epoch_checkpoint": {
+    "bytes": 7579993785,
+    "completed_epochs": 6,
+    "epoch_boundary": true,
+    "file": "vit-small-epoch=005-val_mae=0.0920.ckpt",
+    "global_step": 67344,
+    "identity_sha256": "04df99adfa7611240276262218b111093080a47b49f7118b0c2d199cc9a161bd",
+    "sha256": "4835db65a180e4a8a389080f30728a07933af9a25aa2619b3854311774bf03eb"
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "8a83e42fc33091843c98284aa726814d54c4c246"
+}
