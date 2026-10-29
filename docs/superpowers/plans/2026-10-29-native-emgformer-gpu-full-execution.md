@@ -32,19 +32,19 @@
 
 ## Task 1: idle-device admission and immutable operational chain
 
-**Files:** create `egoemg_repro/emgformer_resource.py`, `tests/test_emgformer_resource.py`; operational scripts in this plan's workspace or `tmp/native-emgformer-gpu-full-*-20261029.py`.
+**Files:** create `egoemg_repro/emgformer_resource.py`, `tests/test_emgformer_resource.py`, `scripts/run_native_emgformer_worker.py`, `scripts/run_native_emgformer_controller.py`; immutable staging and collection receipts in this plan's workspace or `tmp/native-emgformer-gpu-full-*-20261029.py`.
 
 **Interface:** `select_idle_emgformer_gpu(gpus, applications, *, candidates)` receives complete typed NVML records and returns a copy of the first explicitly allowed idle record with free_mib>=65536, or None. Malformed/incomplete inventory raises ValueError. No Torch/CUDA import or hardware claims from synthetic tests.
 
 - [x] RED: idle versus foreign/own applications, fixed reserve boundary, ordered explicit candidates, excluded reservations, immutable input/returned copy, malformed/duplicate/partial inventory.
 - [x] Implement minimal helper and run the complete new helper suite. Expected:all cases pass without model/GPU construction; no old suites rerun.
-- [ ] Prepare one-shot operational worker/controller using existing APIs and owned-process guards. Phase order:CPU preflight;qual-prefix/resume/accept;qual val-native/val-replay/freeze/test-native/test-replay/report/verify;fresh full-fit/accept;full val-native/val-replay/freeze/test-native/test-replay/report/verify (20 phases total).
-- [ ] Bind all committed Python members, operational scripts, registered cohort receipt, upstream/runtime dependencies and physical inputs. Compile operational scripts and validate requests/source gates; record zero hardware claims from preparation.
+- [x] Prepare one-shot operational worker/controller using existing APIs and owned-process guards. Phase order:CPU preflight;qual-prefix/resume/accept;qual val-native/val-replay/freeze/test-native/test-replay/report/verify;fresh full-fit/accept;full val-native/val-replay/freeze/test-native/test-replay/report/verify (20 phases total).
+- [x] Bind all committed Python members, operational scripts, registered cohort receipt, upstream/runtime dependencies and physical inputs. Compile operational scripts and validate requests/source gates; record zero hardware claims from preparation.
 
 ## Task 2: CPU preflight and one operational review
 
-- [ ] Freeze current helper and closed core into a new private preflight-only capsule, separate from earlier proofs. Existing complete cohort producer identity is the expected receipt; new numerical admission is required by the existing fit/eval APIs, not a new qualification of unchanged mathematics.
-- [ ] Actual CPU preflight runs under owned-process/resource guards, rereads registered input, binds exact source/16 input bytes, and reports0 models/optimizers/updates/no CUDA. All owners must exit before collecting it. No training restart or synthetic fit recreation.
+- [x] Freeze current helper and closed core into a new private preflight-only capsule, separate from earlier proofs. Existing complete cohort producer identity is the expected receipt; new numerical admission is required by the existing fit/eval APIs, not a new qualification of unchanged mathematics.
+- [x] Actual CPU preflight runs under owned-process/resource guards, rereads registered input, binds exact source/16 input bytes, and reports0 models/optimizers/updates/no CUDA. All owners must exit before collecting it. No training restart or synthetic fit recreation.
 - [ ] One fresh reviewer examines helper, actual immutable operational scripts, preflight receipt and this plan. Material findings receive one observed regression RED→GREEN/fix pass; no re-review. No review of old model math or false GPU/science claims.
 
 ## Task 3: resource wait, actual qualification and complete run
