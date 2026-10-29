@@ -88,7 +88,79 @@
   ],
   "complete_egoemg_multimodal_inventory_verified": false,
   "external_datasets_retrained": false,
-  "followup_observed_utc": "2026-10-28T13:45:52.871315+00:00",
+  "followup_cell_audit_20261029": [
+    {
+      "as_reported": "8",
+      "dataset": "Jarque-Bou 2019",
+      "field": "emg_channels",
+      "inference": false,
+      "locator": "Data Records",
+      "primary": "8-channel instrument;7 raw and processed signal columns",
+      "source_id": "jarque_bou_2019_html",
+      "status": "different_device_and_payload_quantities"
+    },
+    {
+      "as_reported": "–",
+      "dataset": "Jarque-Bou 2019",
+      "field": "wrist_labels",
+      "inference": false,
+      "locator": "Tables2/3",
+      "primary": "WRIST_F and WRIST_A explicitly listed",
+      "source_id": "jarque_bou_2019_html",
+      "status": "contradicted_by_primary"
+    },
+    {
+      "as_reported": "egoRGB–;RGB-D–",
+      "dataset": "Jarque-Bou 2019",
+      "field": "visual_release",
+      "inference": false,
+      "locator": "Acquisition protocol and Environment/tasks",
+      "primary": "subject videos excluded;2 illustrative activity videos separate",
+      "source_id": "jarque_bou_2019_html",
+      "status": "participant_video_exclusion_documented;full_modality_payload_unverified"
+    },
+    {
+      "as_reported": "18(g);wrist–",
+      "dataset": "MyoKi",
+      "field": "pose_and_wrist_labels",
+      "inference": false,
+      "locator": "Sensor Layout p3 and Data Records p9",
+      "primary": "glove_calibrated matrix18 columns,degrees,includes2 wrist sensors",
+      "source_id": "myoki",
+      "status": "wrist_cell_contradicted;18_columns_source_supported"
+    },
+    {
+      "as_reported": "egoRGB–;RGB-D–",
+      "dataset": "MyoKi",
+      "field": "visual_release",
+      "inference": false,
+      "locator": "Experimental Setup p6",
+      "primary": "annotation webcam videos explicitly unpublished",
+      "source_id": "myoki",
+      "status": "video_exclusion_documented;no_complete_payload_inspection"
+    },
+    {
+      "as_reported": "20(g);wrist–",
+      "dataset": "PiMForce",
+      "field": "pose_and_wrist_labels",
+      "inference": true,
+      "locator": "Sections3.1 and B.4.2",
+      "primary": "magnetic glove;four angles per finger,20 total;no wrist articulation in listed target",
+      "source_id": "pimforce",
+      "status": "source_supported_target_definition"
+    },
+    {
+      "as_reported": "egoRGB–;RGB-D–",
+      "dataset": "PiMForce",
+      "field": "visual_release",
+      "inference": false,
+      "locator": "Sections3.1,B.4.2,D.3.2",
+      "primary": "main sensor capture distinct from separate RGB inference experiments",
+      "source_id": "pimforce",
+      "status": "complete_release_visual_inventory_unresolved"
+    }
+  ],
+  "followup_observed_utc": "2026-10-29T02:35:43.032442+00:00",
   "format": "egoemg_table1_as_reported_and_primary_source_audit_v1",
   "full_paper_complete": false,
   "observed_utc": "2026-10-28T01:23:23.648977+00:00",
@@ -100,7 +172,14 @@
   "primary_audit": [
     {
       "dataset": "Jarque-Bou 2019",
-      "finding": "Keep the eight-channel device distinct from seven recorded muscle areas; a device count is not proof of eight independent signal columns. Wrist-label classification not independently resolved in this audit.",
+      "finding": "Eight-channel hardware is distinct from the seven raw/processed EMG columns described in Data Records. Tables2/3 explicitly list wrist flexion and radial/ulnar deviation, contradicting the absent-wrist cell. Participant video recordings are excluded; two illustrative activity videos are separate. These are primary-document checks, not inspection of downloaded source MAT files.",
+      "primary_sections": [
+        "Acquisition protocol",
+        "Kinematic signal processing",
+        "Data Records",
+        "Tables2/3",
+        "Usage Notes"
+      ],
       "source_ids": [
         "jarque_bou_2019"
       ],
@@ -108,8 +187,17 @@
         "activities": 26,
         "anatomical_angles": 18,
         "device_emg_channels": 8,
+        "explicit_wrist_articulation_labels": true,
+        "illustrative_activity_videos_in_article": 2,
+        "main_subject_videos_excluded_for_privacy": true,
         "recorded_forearm_spots": 7,
-        "subjects": 22
+        "reported_processed_emg_columns": 7,
+        "reported_raw_emg_columns": 7,
+        "subjects": 22,
+        "wrist_angle_codes": [
+          "WRIST_F",
+          "WRIST_A"
+        ]
       }
     },
     {
@@ -182,17 +270,27 @@
     },
     {
       "dataset": "MyoKi",
-      "finding": "The original descriptor contradicts Table1 subjects36, EMG16 and absent wrist labels. It describes individual wrist flexion/extension and radial/ulnar calibration.",
+      "finding": "The descriptor contradicts subjects36/EMG16/absent-wrist cells. Data Records specifies raw and calibrated18-column glove matrices including wrist sensors17/18. The webcam is for annotation only and is explicitly unpublished. Primary-document schema, not downloaded MAT verification.",
+      "primary_sections": [
+        "Sensor Layout and wrist calibration p3",
+        "Experimental Setup p6",
+        "Data Records pp7-9"
+      ],
       "source_ids": [
         "myoki"
       ],
       "verified_facts": {
         "activities": 74,
+        "annotation_webcam_recorded": true,
+        "annotation_webcam_videos_published": false,
         "bilateral_emg": false,
+        "calibrated_glove_columns": 18,
+        "calibrated_glove_unit": "degrees",
         "emg_channels": 12,
         "excluded_from_original38": 3,
         "kinematic_channels": 18,
         "released_subjects": 35,
+        "right_arm_only": true,
         "wrist_channels": [
           17,
           18
@@ -201,12 +299,19 @@
     },
     {
       "dataset": "PiMForce",
-      "finding": "The official project paper has22interactions, not63. Its authors are Seo etal.; the attached EgoEMG bibliography names Shen/Hao/Fang/Lu with another title. Preserve the mismatch rather than silently treating it as the same verified citation.",
+      "finding": "The official paper has22interactions, not63, and a different bibliography identity. SectionB.4.2 defines20finger angles (four per finger); excluding wrist articulation from that target is a deduction from this exhaustive definition. RGB inference/qualitative webcam experiments are separate from the main sensor capture; no released egoRGB/RGB-D stream is established.",
+      "primary_sections": [
+        "Sections3.1/3.2",
+        "Figure7",
+        "AppendixB.3/B.4.2",
+        "AppendixD.3.2 separate webcam comparison"
+      ],
       "source_ids": [
         "pimforce"
       ],
       "verified_facts": {
         "emg_channels": 8,
+        "finger_angles_per_finger": 4,
         "glove_joint_angles": 20,
         "interaction_groups": [
           7,
@@ -214,6 +319,8 @@
           10
         ],
         "interactions": 22,
+        "listed_20d_pose_includes_wrist_articulation": false,
+        "pose_capture": "Quantum Mocap Metaglove magnetic finger tracking integrated with pressure glove",
         "sessions": 3,
         "subjects": 21
       }
@@ -261,6 +368,7 @@
     "emg2pose": "https://github.com/facebookresearch/emg2pose",
     "emg2pose_paper": "https://arxiv.org/html/2412.02725v1",
     "jarque_bou_2019": "https://www.nature.com/articles/s41597-019-0285-1.pdf",
+    "jarque_bou_2019_html": "https://www.nature.com/articles/s41597-019-0285-1",
     "myoki": "https://elib.dlr.de/221692/1/s41597-025-05852-6.pdf",
     "ninapro_db1": "https://ninapro.hevs.ch/instructions/DB1.html",
     "ninapro_db2": "https://ninapro.hevs.ch/instructions/DB2.html",
@@ -268,6 +376,13 @@
     "ninapro_db5": "https://ninapro.hevs.ch/instructions/DB5.html",
     "ninapro_db6": "https://ninapro.hevs.ch/instructions/DB6.html",
     "ninapro_db8": "https://ninapro.hevs.ch/instructions/DB8.html",
-    "pimforce": "https://arxiv.org/html/2410.23629v1"
+    "pimforce": "https://arxiv.org/html/2410.23629v1",
+    "pimforce_project": "https://pimforce.hcitech.org/"
+  },
+  "source_access_notes_20261029": {
+    "jarque_bou": "Publisher-indexed primary full text and PDF table extraction read; direct publisher fetch redirected to identity service and PMC returned browser challenge; no challenge bypass attempted.",
+    "limits": "No external participant MAT payloads or complete visual asset archives were acquired in this followup.",
+    "myoki": "Primary DLR-hosted PDF Methods and Data Records read.",
+    "pimforce": "Pinned arXiv v1 and official author project page read."
   }
 }

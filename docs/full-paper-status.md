@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+最新来源核验（北京时间2026-10-29 10:37）：[Table1补充7条逐字段判定](../results/dataset-statistics/dataset-comparison-audit.md)确认Jarque-Bou原文列有两腕角、raw/processed EMG均7列（8为设备通道）；MyoKi的18列校准glove含腕角，标注视频明确不公开；PiMForce的20维手指目标与另行RGB实验分开。原表六行CSV及原值不变，主张与推论单列，未下载外部MAT或证明完整视觉发布。NinaPro统一口径、PiMForce全部视觉文件及EgoEMG全模态仍未闭合，Table1未标全完。科学设置仍11。服务器原任务活动；当前无符合空闲条件的原生EMG显卡，4/5仍为M/L保留且已有外部消费者；右手最终文件尚未出现。
+
 最新实施（北京时间2026-10-29 10:25）：[原生EMGFormer评估](emgformer-native-evaluation.md)的一次审查3项Important已全部修复：7个回归先RED，再于服务器完整66项通过（309.27秒）。修复版只公开原始预测能独立核验的原生MAE，参与者/episode统计绑定实际元数据与划分，未来前置记录在模型构造前拒绝。[新源码61a7170七阶段CPU证据](../results/native-emgformer-selected-eval-review-fixed-cpu-20261029.json)实际126.878秒、全部exit0/16拥有进程退出；4次Small推理加载、0优化器创建/0更新，验证4/测试8合成样本精确复算，原检查点和输入全SHA/九属性及冻结来源未变。历史证据保留、无再次审查。仍为CPU工程；原生B500/6worker/BF16资格、完整200轮及真实测试未完成，已验证完整设置仍11。WiLoR/融合/DINO-L/EMG2Pose原任务继续，右手有效性文件继续等用户正常下载完成。
 
 最新实施（北京时间2026-10-29 09:53）：[NeuroPose原生完整实验](../results/original-classic/neuropose/README.md)全部九阶段实际exit0，73轮按原patience50早停、验证best第23轮；29,054尝试/29,043实际更新/11自然溢出跳步。测试4,306手样本的轨迹pooled MAE **16.358404°**、中心 **16.411552°**；原22角/7,790点轨迹、batch256/16-mixed/单rank保留。原生与独立val/test的typed预测/输入/目标/mask/元数据精确一致，另一进程验收报告及PNG/SVG曲线一致，[完成证据](../results/neuropose-native-full-completion-20261029.json)确认20拥有者退出/107冻结成员及外部依赖未变。完整12.22小时（训练11.29小时），已验证设置由10增至11；可用旧版人口/单rank与原六rank/BatchNorm差异保留，未证明PDF等价。EMGFormer评估入口一次审查发现三项重要校验欠缺，正在一次TDD修复，未获得全论文或新EMG科学资格。
@@ -248,7 +250,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 
 | ID / PDF 位置 | 性质与必须产物 | 状态、实际证据 | 尚欠与验收条件 |
 | --- | --- | --- | --- |
-| Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **六行原表CSV/JSON及逐源审计已生成**；[来源与差异](../results/dataset-statistics/dataset-comparison-audit.md)保留PDF原值，MyoKi三项、PiMForce交互数/参考文献、NinaPro脚注差异单列；未找到官方独立生成脚本 | 剩余列的逐项原始来源核验、NinaPro原表范围的作者口径与跨库身份、EgoEMG全模态实物盘点。已有原值表不证明全部事实已核实；无需重训这些引用研究 |
+| Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **六行原表CSV/JSON及逐源审计已生成**；[来源与差异](../results/dataset-statistics/dataset-comparison-audit.md)保留PDF原值，Jarque-Bou两腕角/7列与8通道设备、MyoKi人数/通道/腕角、PiMForce交互数/参考文献、NinaPro脚注差异单列；补7条逐字段来源判定，未找到官方独立生成脚本 | 剩余列的逐项原始来源核验、NinaPro原表范围的作者口径与跨库身份、EgoEMG全模态实物盘点。已有原值表不证明全部事实已核实；无需重训这些引用研究 |
 | Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M/L有完整legacy结果，VEMG有原生配方/旧版队列完整结果**，E1/E2及各独立报告；NeuroPose已完整早停73轮并通过冻结测试/独立精确复算，轨迹16.358404° | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
 | Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7 视觉与 2 融合 | **RN18、RN50、RN152、RN18+S有完整legacy运行，ViT-S/B有原生/显式派生配方的旧版队列完整运行**，E1/E2/E3及[RN50](../results/completed/resnet50/README.md)；仍不等价于原表 | ViT-L、WiLoR、ViT-S+S尚无完整结果；ViT-B见[实际报告](../results/original-vision/vit-base/README.md)，ViT-S见[实际报告](../results/original-vision/vit-small/README.md)；所有模型逐条件用户SD、真实初始化/选择、匹配人口与官方字面配方仍须逐项核验 |
 | Table 4，A.1 p.15 | 60类完整词表与描述、30/18/12族群，数据定义 | **定义、实际帧与冻结中心覆盖已核验（legacy）**，E7/E8；完整词表保留raw50；中心有241未分配、66 raw，59类视图33,201窗口，与帧统计分开 | [全66,161,725行逐手/逐角mask统计已核验](../results/dataset-semantics/full-frame-validity.md)，保留60类/raw50/未分配行；不同新grid须另报，帧/中心覆盖不能填Table14/15模型误差N。PDF措辞差异单列 |

@@ -1,5 +1,7 @@
 # 运行状态
 
+最新来源核验（北京时间2026-10-29 10:37）：[Table1补充7条逐字段判定](../results/dataset-statistics/dataset-comparison-audit.md)确认Jarque-Bou原文列有两腕角、raw/processed EMG均7列（8为设备通道）；MyoKi的18列校准glove含腕角，标注视频明确不公开；PiMForce的20维手指目标与另行RGB实验分开。原表六行CSV及原值不变，主张与推论单列，未下载外部MAT或证明完整视觉发布。NinaPro统一口径、PiMForce全部视觉文件及EgoEMG全模态仍未闭合，Table1未标全完。科学设置仍11。服务器原任务活动；当前无符合空闲条件的原生EMG显卡，4/5仍为M/L保留且已有外部消费者；右手最终文件尚未出现。
+
 最新实施（北京时间2026-10-29 10:25）：[原生EMGFormer评估](emgformer-native-evaluation.md)的一次审查3项Important已全部修复：7个回归先RED，再于服务器完整66项通过（309.27秒）。修复版只公开原始预测能独立核验的原生MAE，参与者/episode统计绑定实际元数据与划分，未来前置记录在模型构造前拒绝。[新源码61a7170七阶段CPU证据](../results/native-emgformer-selected-eval-review-fixed-cpu-20261029.json)实际126.878秒、全部exit0/16拥有进程退出；4次Small推理加载、0优化器创建/0更新，验证4/测试8合成样本精确复算，原检查点和输入全SHA/九属性及冻结来源未变。历史证据保留、无再次审查。仍为CPU工程；原生B500/6worker/BF16资格、完整200轮及真实测试未完成，已验证完整设置仍11。WiLoR/融合/DINO-L/EMG2Pose原任务继续，右手有效性文件继续等用户正常下载完成。
 
 最新实施（北京时间2026-10-29 09:53）：[NeuroPose原生完整实验](../results/original-classic/neuropose/README.md)全部九阶段实际exit0，73轮按原patience50早停、验证best第23轮；29,054尝试/29,043实际更新/11自然溢出跳步。测试4,306手样本的轨迹pooled MAE **16.358404°**、中心 **16.411552°**；原22角/7,790点轨迹、batch256/16-mixed/单rank保留。原生与独立val/test的typed预测/输入/目标/mask/元数据精确一致，另一进程验收报告及PNG/SVG曲线一致，[完成证据](../results/neuropose-native-full-completion-20261029.json)确认20拥有者退出/107冻结成员及外部依赖未变。完整12.22小时（训练11.29小时），已验证设置由10增至11；可用旧版人口/单rank与原六rank/BatchNorm差异保留，未证明PDF等价。EMGFormer评估入口一次审查发现三项重要校验欠缺，正在一次TDD修复，未获得全论文或新EMG科学资格。
