@@ -79,9 +79,19 @@ def _producer(parent):
     return started,result
 
 
+def _original_parent(parent):
+    if os.path.lexists(parent/'recovery-identity.json'):
+        raise ValueError('recovered parent lineage requires an explicit recursive continuation reader')
+    result=parent/'fit-result.json'
+    if result.exists():
+        value=_json(result)
+        if type(value)is not dict or str(value.get('format','')).startswith('explicit_native_wilor_'):
+            raise ValueError('recovered continuation cannot be admitted as an original parent')
+
+
 def _parent_metadata(parent,checkpoint=None):
     """Cheap rejection only: this does not admit native checkpoint tensors."""
-    parent=_path(parent)
+    parent=_path(parent);_original_parent(parent)
     metadata_paths=[parent/'identity.json',parent/'epochs.jsonl',
         parent.parent/'owned-fit/started.json',parent.parent/'owned-fit/stage-result.json']
     if not metadata_paths[-1].exists():
@@ -186,7 +196,7 @@ class AdmittedWilorRecovery:
                 or self.identity!=self.manifest['historical_identity']
                 or self.records!=self.manifest['prefix_records']):
             raise ValueError('parent recovery admission identity changed')
-        self.guard.check();_producer(self.parent)
+        self.guard.check();_original_parent(self.parent);_producer(self.parent)
 
 
 def admit_wilor_recovery(parent,*,checkpoint=None):
@@ -211,6 +221,8 @@ def admit_wilor_recovery(parent,*,checkpoint=None):
     candidates={}
     for p in metadata['candidates']:
         raw=torch.load(str(p),map_location='cpu',weights_only=False,mmap=True)
+        if type(raw)is not dict or 'explicit_wilor_recovery'in raw:
+            raise ValueError('recovered raw parent requires explicit recursive continuation lineage')
         packet=raw.get('native_wilor',{});n=packet.get('completed_epochs')
         if (type(n) is not int or not 1<=n<=len(metadata['records'])
                 or packet.get('identity')!=identity or packet.get('records')!=metadata['records'][:n]
@@ -292,9 +304,14 @@ def _filesystem_type(path):
     return max(candidates)[1]
 
 
-def _claim_recovery_output(output,*,full):
+def _claim_recovery_output(output,*,full,parent=None):
     if type(full)is not bool:raise ValueError('recovery output scope must be boolean')
     output=_path(output)
+    if parent is not None:
+        parent=_path(parent)
+        capsule=parent.parent.parent if parent.parent.name=='private'else parent.parent
+        if output.is_relative_to(capsule):
+            raise ValueError('recovery output must be outside the historical parent capsule')
     if output.exists():raise FileExistsError('recovery output exists; preserve the prior attempt')
     if full and _filesystem_type(output)in ('tmpfs','ramfs'):
         raise OSError('full WiLoR continuation requires durable checkpoint storage')
@@ -305,6 +322,30 @@ def _claim_recovery_output(output,*,full):
     output.mkdir(mode=0o700)
     _fsync_dir(output.parent)
     return output
+
+
+def _recovery_device_admission(historical,actual):
+    """Keep native hardware/runtime and reserves; record physical UUID changes."""
+    if type(historical)is not dict or type(actual)is not dict:
+        raise ValueError('actual native recovery device dictionaries required')
+    if historical.get('accelerator')=='cpu':
+        if _hash(historical)!=_hash(dict(accelerator='cpu',cuda_initialized=False))or _hash(actual)!=_hash(historical):
+            raise ValueError('CPU recovery device/runtime differs')
+    else:
+        fields={'accelerator','name','free_memory_before','total_memory','visible_device','cuda_runtime','cudnn'}
+        if set(historical)!=fields or set(actual)!=fields:
+            raise ValueError('complete original CUDA recovery device/runtime required')
+        for value in (historical,actual):
+            if (value['accelerator']!='gpu' or type(value['free_memory_before'])is not int
+                    or value['free_memory_before']<64*1024**3 or type(value['total_memory'])is not int
+                    or type(value['visible_device'])is not str
+                    or re.fullmatch(r'GPU-[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}',value['visible_device'])is None):
+                raise ValueError('native recovery CUDA UUID/device64GiB reserve differs')
+        retained=fields-{'visible_device','free_memory_before'}
+        if _hash({k:historical[k]for k in retained})!=_hash({k:actual[k]for k in retained}):
+            raise ValueError('native recovery GPU hardware/runtime differs')
+    return dict(historical_device=copy.deepcopy(historical),actual_device=copy.deepcopy(actual),
+        same_native_hardware_runtime=True,cuda_uuid_changed=historical.get('visible_device')!=actual.get('visible_device'))
 
 
 def _packet_snapshot(checkpoint):
@@ -440,12 +481,11 @@ def resume_wilor(admitted,output):
     import time
     import torch
     identity=admitted.identity;policy=identity['policy'];scope=policy['scope'];full=scope=='full'
-    output=_claim_recovery_output(output,full=full)
+    output=_claim_recovery_output(output,full=full,parent=admitted.parent)
     native._validate_checkpoint(admitted.checkpoint,identity,admitted.records)
     cfg=OmegaConf.create(identity['saved_config']);locations=identity['locations']
     device=native._runtime_device(policy);native._validated(locations['upstream'],cfg)
-    if device.get('visible_device')!=identity['runtime_device'].get('visible_device'):
-        raise ValueError('explicit recovery must retain its admitted CUDA UUID')
+    device_admission=_recovery_device_admission(identity['runtime_device'],device)
     cohort=native.admit_wilor_cohort(locations['data'],locations['crops'],upstream=locations['upstream'],config=cfg,
         expected=identity['cohort'],require_full=scope!='cpu_engineering')
     qualified=native._raw_qualification(locations['qualification'])if full else None
@@ -462,7 +502,7 @@ def resume_wilor(admitted,output):
         parent_admission=copy.deepcopy(admitted.manifest),parent_file_stamps={p:_stamp(p)for p in admitted.manifest['parent_files_sha256']},
         prefix_epochs=len(admitted.records),prefix_optimizer_executions=admitted.records[-1]['optimizer_executions'],
         callback_copies=copies,recovery_source_path=str(Path(__file__).resolve()),recovery_source_sha256=_sha(__file__),
-        new_process=native._process(),started_ns=time.time_ns(),actual_runtime_device=device,
+        new_process=native._process(),started_ns=time.time_ns(),actual_runtime_device=device,device_admission=device_admission,
         actual_current_input_admission_complete=True,uninterrupted_execution=False,scientific_eligible=False,full_paper_complete=False))
     _write(output/'recovery-identity.json',continuation)
     runtime=build_wilor_runtime(cohort.upstream,cfg,assets=assets,state=admitted.checkpoint['state_dict'],expected_initialization=identity['construction'])
@@ -544,6 +584,9 @@ def _read_recovery(output,*,require_full):
     parent=continuation['parent_admission']
     if parent.get('sha256')!=_hash({k:v for k,v in parent.items()if k!='sha256'})or parent['historical_identity']!=identity:
         raise ValueError('explicit recovery parent admission differs')
+    _original_parent(_path(parent['parent']))
+    if continuation.get('device_admission')!=_recovery_device_admission(identity['runtime_device'],continuation['actual_runtime_device']):
+        raise ValueError('explicit recovery device admission differs from historical hardware/runtime')
     for p,s in continuation['parent_file_stamps'].items():
         if _stamp(p)!=s:raise ValueError('explicit recovery parent generation changed')
         guard.add(p)

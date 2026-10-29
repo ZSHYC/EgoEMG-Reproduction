@@ -12,6 +12,8 @@
 
 **Latest user direction (2026-10-29):** no additional durable server storage is available; prioritize other experiments. Retain the real six-epoch WiLoR parent and current CPU recovery proof. Task2 remains partially implemented and Task3 remains pending; this direction does not pause the full-paper goal or authorize full training on volatile storage.
 
+**Updated user priority (2026-10-29, after storage cleanup):** prioritize ViT-L, WiLoR and ViT-S+EMGFormer-S. Noncore source-admission owners are stopped with all files retained. Sufficient durable DATA space is now available. Complete and verify the bounded Task2 recovery unit first, including same-hardware CUDA UUID portability, immutable historical capsule protection and explicit rejection of unsupported recursive parents; run one current-source actual CPU proof and one fresh-context review, then start the genuine six-epoch continuation on an admitted equivalent A800. Complete Task3 evaluation/report separately while full training runs. This supersedes the earlier storage-based WiLoR deprioritization and sequencing; unchanged native model/optimizer/loss/precision/batch/budget and final scientific gates remain binding.
+
 ## Global Constraints
 
 - Preserve closed wilor_native_train.py SHA91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2 and all prior model/data/eval/runtime bytes.
@@ -19,7 +21,7 @@
 - Original failed full capsule remains read-only. Parent epoch5(index0) is six complete epochs/67344updates, last is five; no blind last resume. Total full target336720updates, remaining269376.
 - Different explicit recovered format; no fabricated uninterrupted result or source retag. CPU/short engineering never increments scientific setting count.
 - Parent raw/journal/identity/source and input guards survive the whole transaction; fresh exclusive output and owned-process execution only. Preserve host256GiB/output15GiB/GPU8GiB and native checkpoint workspace guards.
-- Volatile engineering output is labeled and is not durable full-training capacity. Any occupied GPU is unavailable. Full GPU0 reservation remains within WiLoR, but actual consumer3882344currently blocks it; never stop foreign consumers or take other six jobs' reservations.
+- Volatile engineering output is labeled and is not durable full-training capacity. Equivalent A800 CUDA UUID migration must retain the exact native hardware/runtime profile and actual64GiB start/8GiB running reserve; record actual device separately from immutable historical identity. Sharing does not authorize signals to other consumers. The earlier GPU0-only idle preference is superseded by the updated human core priority.
 
 ## Review Focus
 

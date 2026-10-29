@@ -333,3 +333,81 @@ def test_checkpoint_copy_rejects_unbound_bytes_or_name(parent,tmp_path,change):
     with pytest.raises(ValueError,match='checkpoint'):
         api()._copy_callback_files({name:entry},output,guard=lambda:None)
     assert source.read_bytes()==data and not(output/'escaped.ckpt').exists()
+
+
+@pytest.mark.parametrize('relative',['new','checkpoints/new','../new','../../new'])
+def test_recovery_output_cannot_modify_the_original_capsule(tmp_path,relative):
+    original=tmp_path/'original/private/fit';original.mkdir(parents=True)
+    output=original/relative
+    with pytest.raises(ValueError,match='(parent|capsule|historical)'):
+        api()._claim_recovery_output(output,full=False,parent=original)
+    assert not output.exists()
+
+
+def test_recovery_output_in_a_separate_capsule_is_allowed(tmp_path):
+    original=tmp_path/'original/private/fit';original.mkdir(parents=True)
+    output=tmp_path/'new-fit'
+    assert api()._claim_recovery_output(output,full=False,parent=original)==output
+    assert output.is_dir() and list(original.iterdir())==[]
+
+
+@pytest.mark.parametrize('marker',['recovery-identity.json','fit-result.json'])
+def test_interrupted_continuation_cannot_be_laundered_as_original_parent(parent,marker):
+    value={'format':'explicit_native_wilor_continuation_identity_v1' if marker.startswith('recovery')
+           else 'explicit_native_wilor_recovered_fit_v1'}
+    put(parent/marker,value)
+    with pytest.raises(ValueError,match='(continuation|recovered|lineage)'):
+        api()._parent_metadata(parent)
+
+
+def test_native_parent_result_is_not_mistaken_for_a_continuation(parent):
+    put(parent/'fit-result.json',dict(format='native_wilor_uninterrupted_fit_v1'))
+    assert api()._parent_metadata(parent)['raw_checkpoint_admitted'] is False
+
+
+@pytest.mark.parametrize('marker',[None,{},dict(format='explicit_native_wilor_continuation_checkpoint_v1')])
+def test_raw_continuation_marker_cannot_be_removed_from_parent_metadata(parent,monkeypatch,marker):
+    from egoemg_repro import wilor_native_train as native,wilor_literal_runtime as runtime
+    from egoemg_repro.classic_emg_cohort import _StatGuard
+    import torch
+    sources={'native-source':'a'*64};loops={'native-loop':'b'*64};versions={'runtime':'fixture inventory'}
+    identity=json.loads((parent/'identity.json').read_text());identity.pop('sha256')
+    identity.update(policy=native.wilor_policy(scope='full'),training_sources_sha256=sources,
+        native_loop_sources_sha256=loops,construction=dict(runtime_versions=versions))
+    identity=seal(identity);put(parent/'identity.json',identity);journal(parent/'epochs.jsonl',identity)
+    monkeypatch.setattr(native,'_capture_fit_sources',lambda:(_StatGuard([]),sources,loops))
+    monkeypatch.setattr(runtime,'_versions',lambda:versions)
+    monkeypatch.setattr(torch,'load',lambda *a,**k:dict(explicit_wilor_recovery=marker))
+    with pytest.raises(ValueError,match='(continuation|recovered|lineage)'):
+        api().admit_wilor_recovery(parent)
+
+
+def runtime_device(uuid):
+    return dict(accelerator='gpu',name='NVIDIA A800-SXM4-80GB',free_memory_before=70*1024**3,
+        total_memory=80*1024**3,visible_device=uuid,cuda_runtime='11.8',cudnn=8700)
+
+
+def test_recovery_can_use_another_identical_a800_without_rewriting_history():
+    import copy
+    original=runtime_device('GPU-bb3b892e-454f-e10e-c305-5ab94db2c384')
+    current=runtime_device('GPU-07ce4138-60af-137b-b134-7f267cece52d');current['free_memory_before']=69*1024**3
+    old=copy.deepcopy(original)
+    value=api()._recovery_device_admission(original,current)
+    assert value['historical_device']==original and value['actual_device']==current
+    assert value['same_native_hardware_runtime'] is True and value['cuda_uuid_changed'] is True
+    assert original==old
+
+
+@pytest.mark.parametrize('field,value',[('name','other GPU'),('total_memory',40*1024**3),
+    ('free_memory_before',63*1024**3),('cuda_runtime','12.1'),('cudnn',True),('visible_device','cuda:0')])
+def test_recovery_device_portability_preserves_hardware_runtime_and_reserve(field,value):
+    old=runtime_device('GPU-bb3b892e-454f-e10e-c305-5ab94db2c384');new=dict(old)
+    new[field]=value
+    with pytest.raises(ValueError,match='(device|runtime|reserve|hardware|UUID)'):
+        api()._recovery_device_admission(old,new)
+
+
+def test_cpu_recovery_device_cannot_be_promoted_to_gpu():
+    with pytest.raises(ValueError,match='(device|runtime|hardware)'):
+        api()._recovery_device_admission(dict(accelerator='cpu',cuda_initialized=False),
+            runtime_device('GPU-bb3b892e-454f-e10e-c305-5ab94db2c384'))
