@@ -42,8 +42,8 @@
 
 ## Task 2: source-bound CPU integration proof
 
-- [ ] Freeze committed current source and a temporary synthetic-memmap CPU driver. Actual prefix/resume in new processes, separate checkpoint-only validation; preserve all outputs/process identities and zero-CUDA scope. No extra model training beyond the required fit integration.
-- [ ] Publish actual native point-forward/balanced hand coverage, full checkpoint restoration/selection/loop state and source hashes. GPU/full200/scientific metrics remain pending.
+- [x] Freeze committed current source and a temporary synthetic-memmap CPU driver. Actual prefix/resume in new processes, separate checkpoint-only validation; preserve all outputs/process identities and zero-CUDA scope. No extra model training beyond the required fit integration.
+- [x] Publish actual native point-forward/balanced hand coverage, full checkpoint restoration/selection/loop state and source hashes. GPU/full200/scientific metrics remain pending.
 
 ## Task 3: one fresh review and publication
 
