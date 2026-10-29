@@ -13,8 +13,9 @@ def stamp(p):
  s=Path(p).lstat();return[s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns,s.st_mode,s.st_uid,s.st_gid,s.st_nlink]
 def write(p,v):
  with Path(p).open('x')as f:json.dump(v,f,sort_keys=True,indent=2,allow_nan=False);f.write('\n');f.flush();os.fsync(f.fileno())
-stage=read(ROOT/'private/stage-receipt.json');request=read(ROOT/'private/request.json');mode=sys.argv[1]
-for n,h in stage['files_sha256'].items():assert sha(ROOT/n)==h,n
+from egoemg_repro.emgformer_execution import pin_stage,validate_review,authorize_worker
+stage,pinned=pin_stage(ROOT);stage_sha=pinned[str(ROOT/'private/stage-receipt.json')][0]
+request=read(ROOT/'private/request.json');mode=sys.argv[1];review_sha=None
 phase_modes=('preflight','qual-prefix','qual-resume','qual-accept','qual-val-native','qual-val-replay','qual-freeze',
  'qual-test-native','qual-test-replay','qual-report','qual-verify','full-fit','full-accept','full-val-native','full-val-replay',
  'full-freeze','full-test-native','full-test-replay','full-report','full-verify')
@@ -22,9 +23,8 @@ assert mode in phase_modes
 cpu=mode=='preflight'or mode.endswith(('-accept','-freeze','-report','-verify'))
 if request['execution_mode']=='preflight_only':assert mode=='preflight'
 else:
- review=read(ROOT/'private/final-review.json')
- assert review['critical']==review['important']==0 and review['second_review_requested']is False
- for n,h in review['sources_sha256'].items():assert sha(ROOT/n)==h,n
+ review_sha=validate_review(ROOT,stage)
+controller=authorize_worker(ROOT,stage,stage_sha,mode,review_sha)
 if not cpu:
  binding=read(ROOT/'private/gpu-binding.json');assert binding['uuid']in request['candidate_uuids']
  assert os.environ.get('CUDA_VISIBLE_DEVICES')==binding['uuid']
@@ -131,8 +131,9 @@ else:
  cohort.check()
 if cpu:assert constructs==optimizers==steps==0 and not torch.cuda.is_initialized()
 else:assert constructs==1 and torch.cuda.is_initialized()and forward_observations
-for n,h in stage['files_sha256'].items():assert sha(ROOT/n)==h,n
+for n,(h,s)in pinned.items():assert sha(n)==h and stamp(n)==s,n
 value=dict(format='actual_native_emgformer_gpu_workflow_phase_v1',phase=mode,source_commit=stage['source_commit'],seconds=time.monotonic()-started,
+ bundle_sha256=stage['bundle_sha256'],stage_receipt_sha256=stage_sha,controller=controller,
  actual_model_constructions=constructs,actual_model_parameter_counts=parameters,actual_optimizer_constructions=optimizers,actual_optimizer_updates=steps,
  actual_gpu_forward_observations=forward_observations,actual_cuda_initialized=torch.cuda.is_initialized(),
  actual_peak_gpu_allocated_bytes=torch.cuda.max_memory_allocated()if not cpu else 0,actual_peak_gpu_reserved_bytes=torch.cuda.max_memory_reserved()if not cpu else 0,

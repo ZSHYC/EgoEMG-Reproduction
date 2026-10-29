@@ -45,7 +45,7 @@
 
 - [x] Freeze current helper and closed core into a new private preflight-only capsule, separate from earlier proofs. Existing complete cohort producer identity is the expected receipt; new numerical admission is required by the existing fit/eval APIs, not a new qualification of unchanged mathematics.
 - [x] Actual CPU preflight runs under owned-process/resource guards, rereads registered input, binds exact source/16 input bytes, and reports0 models/optimizers/updates/no CUDA. All owners must exit before collecting it. No training restart or synthetic fit recreation.
-- [ ] One fresh reviewer examines helper, actual immutable operational scripts, preflight receipt and this plan. Material findings receive one observed regression RED→GREEN/fix pass; no re-review. No review of old model math or false GPU/science claims.
+- [x] One fresh reviewer examines helper, actual immutable operational scripts, preflight receipt and this plan. Material findings receive one observed regression RED→GREEN/fix pass; no re-review. No review of old model math or false GPU/science claims.
 
 ## Task 3: resource wait, actual qualification and complete run
 
@@ -54,3 +54,5 @@
 - [ ] Observe the existing handle and collect full raw completion/selected checkpoint/native and independent val/test/report verification when actually finished. Publish source-bound results/timing/counters and retain legacy/PDF limitations. Do not mark this or the full goal complete before that evidence exists.
 
 Ruling: this is routine execution of the approved whole-paper design and already implemented native recipe, so no repeated user design-approval round. Device restrictions and guarded engineering/full scope contain the cost of a mistaken scheduling assumption.
+
+Review resolution: exactly one review of9f22..2429004 found0Critical/4Important; one regression-fix pass observed17 initial failures plus one ownership-transition failure, then56 passed1.42s in the complete new operational/resource suite. No old model suites or source math reopened, no second review. The3166 CPU proof remains historical; a new fixed-source CPU preflight is required before GPU staging. See results/native-emgformer-gpu-workflow-final-review-20261029.json. The helper requires both explicit candidates; the executor will additionally bind the complete eight-device UUID inventory at staging and reject missing/extra devices without broadening candidates.

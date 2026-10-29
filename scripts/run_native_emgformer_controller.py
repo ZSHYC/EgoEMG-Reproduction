@@ -3,8 +3,9 @@ from pathlib import Path
 import datetime,hashlib,json,os,shutil,subprocess,sys,time
 if sys.flags.optimize:raise RuntimeError('native workflow requires normal Python')
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT));started=time.monotonic()
-from egoemg_repro.emg2pose_memory_process import run_owned_stage,same_process
+from egoemg_repro.emg2pose_memory_process import run_owned_stage,same_process,process_identity
 from egoemg_repro.emgformer_resource import select_idle_emgformer_gpu
+from egoemg_repro.emgformer_execution import pin_stage,validate_review,preflight_binding
 CANDIDATES=['GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae','GPU-20575323-8e23-b0b8-74b4-b987d870b0e3']
 def read(p):return json.loads(Path(p).read_text())
 def sha(p):
@@ -19,16 +20,14 @@ def write(p,v,replace=False):
  if not replace:assert not p.exists()
  with temporary.open('x')as f:json.dump(v,f,sort_keys=True,indent=2,allow_nan=False);f.write('\n');f.flush();os.fsync(f.fileno())
  os.replace(temporary,p)
-stage=read(ROOT/'private/stage-receipt.json');request=read(ROOT/'private/request.json')
+stage,pinned=pin_stage(ROOT);stage_sha=pinned[str(ROOT/'private/stage-receipt.json')][0]
+request=read(ROOT/'private/request.json');controller=process_identity();review_sha=None
 assert request['candidate_uuids']==CANDIDATES and request['size']=='small'
 assert request['execution_mode']in('preflight_only','full_after_qualification')
 if request['execution_mode']!='preflight_only':
- review=read(ROOT/'private/final-review.json')
- assert review['critical']==review['important']==0 and review['second_review_requested']is False
- for n,h in review['sources_sha256'].items():assert sha(ROOT/n)==h,n
-files={str(ROOT/n):h for n,h in stage['files_sha256'].items()}
-for n,h in files.items():assert sha(n)==h,n
-stamps={n:stamp(n)for n in files};external={};selected=None;mode='preflight';phase_started=time.monotonic();observations=[];owned=[];gpu_owners={}
+ review_sha=validate_review(ROOT,stage)
+files={n:v[0]for n,v in pinned.items()}
+stamps={n:v[1]for n,v in pinned.items()};external={};selected=None;mode='preflight';phase_started=time.monotonic();observations=[];owned=[];gpu_owners={}
 gpu_cache=[0.,None]
 def inventory(force=False):
  if force or time.monotonic()-gpu_cache[0]>=5:
@@ -53,10 +52,15 @@ def guard():
  if mode!='waiting':assert time.monotonic()-phase_started<(7*86400 if mode=='full-fit'else 7200),'bounded native phase exceeded'
  device_free=None
  if selected is not None:
-  current=inventory();device=next(g for g in current['gpus']if g['uuid']==selected['uuid']);device_free=device['free_mib']*1024**2
-  assert device_free>8*1024**3,'native GPU execution reserve lost'
-  apps=[a for a in current['applications']if a['uuid']==selected['uuid']]
+  current=inventory()
   path=ROOT/('private/owned-'+mode+'/started.json');owner=read(path)['worker']if path.exists()else None
+  # A reaped worker invalidates the cached application snapshot, not ownership.
+  if owner is not None and not same_process(owner):current=inventory(force=True)
+  apps=[a for a in current['applications']if a['uuid']==selected['uuid']]
+  if any(owner is None or app['pid']!=owner['pid']or not same_process(owner)for app in apps):
+   current=inventory(force=True);apps=[a for a in current['applications']if a['uuid']==selected['uuid']]
+  device=next(g for g in current['gpus']if g['uuid']==selected['uuid']);device_free=device['free_mib']*1024**2
+  assert device_free>8*1024**3,'native GPU execution reserve lost'
   for app in apps:
    assert owner is not None and same_process(owner)and app['pid']==owner['pid'],'foreign compute application arrived; preserve external consumer'
    if mode not in gpu_owners:gpu_owners[mode]=dict(observed_utc=current['observed_utc'],application=app,actual_owned_worker=owner)
@@ -70,12 +74,22 @@ def phase(name):
   snap=inventory(force=True);choice=select_idle_emgformer_gpu(snap['gpus'],snap['applications'],candidates=[selected['uuid']])
   assert choice is not None,'same admitted GPU is no longer idle with64GiB reserve'
  guard();env=dict(os.environ,CUDA_VISIBLE_DEVICES=''if cpu else selected['uuid'],OMP_NUM_THREADS='2',MKL_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',PYTHONDONTWRITEBYTECODE='1',CUBLAS_WORKSPACE_CONFIG=':4096:8')
+ authorization=ROOT/('private/authorization-'+name+'.json')
+ write(authorization,dict(phase=name,controller=controller,stage_receipt_sha256=stage_sha,review_sha256=review_sha,
+  preflight=None if name=='preflight'else preflight_binding(ROOT,stage,stage_sha,controller)))
+ files[str(authorization)]=sha(authorization);stamps[str(authorization)]=stamp(authorization)
+ env.update(EGOEMG_PHASE_AUTHORIZATION_SHA256=sha(authorization),EGOEMG_STAGE_RECEIPT_SHA256=stage_sha)
  print(json.dumps(dict(phase=name+'-start',utc=datetime.datetime.now(datetime.timezone.utc).isoformat())),flush=True)
  result=run_owned_stage([sys.executable,'-u','-B',str(ROOT/'private/runtime-worker.py'),name],ROOT/('private/owned-'+name),descriptors={},guard=guard,environment=env,poll_seconds=1)
  assert result['all_owned_consumers_exited']and all(not same_process(result[k])for k in('worker','guardian'));owned.append(result)
  if not cpu:assert name in gpu_owners,'actual same-worker NVML GPU ownership was not observed'
  if selected is not None:inventory(force=True)
- guard();return read(ROOT/('private/phase-'+name+'.json'))
+ guard();receipt_path=ROOT/('private/phase-'+name+'.json');receipt=read(receipt_path)
+ assert receipt['source_commit']==stage['source_commit']and receipt['bundle_sha256']==stage['bundle_sha256']
+ assert receipt['stage_receipt_sha256']==stage_sha and receipt['controller']==controller
+ for p in(receipt_path,ROOT/('private/owned-'+name+'/stage-result.json'),ROOT/('private/owned-'+name+'/started.json')):
+  files[str(p)]=sha(p);stamps[str(p)]=stamp(p)
+ return receipt
 guard();preflight=phase('preflight');external=preflight['result']['immutable_external_files_sha256']
 for n,s in preflight['result']['immutable_external_file_stamps'].items():
  assert stamp(n)==s,n;stamps[n]=s
