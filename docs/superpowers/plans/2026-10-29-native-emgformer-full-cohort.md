@@ -47,6 +47,8 @@
 
 ## Task 3: one review, material fixes and publication
 
-- [ ] One fresh-context review restricted to this component. Address Critical/Important once with observed RED→GREEN and the relevant new component suite; no re-review of unchanged models.
-- [ ] If source bindings change, retain old evidence and make a fresh actual source-bound full admission/reopen proof; never retag prior receipts.
+- [x] One fresh-context review restricted to this component. Address Critical/Important once with observed RED→GREEN and the relevant new component suite; no re-review of unchanged models.
+- [x] If source bindings change, retain old evidence and make a fresh actual source-bound full admission/reopen proof; never retag prior receipts.
 - [ ] Commit/push and independently verify GitHub ref. Update full-paper status and recovery ledger with still-active scope and next native trainer/qualification requirements.
+
+One final component review0C/0I/0M, no source changes, complete actual proof415deb9 remains valid. Publication push/ref verification pending.

@@ -1,0 +1,80 @@
+{
+  "current_complete_input_proof_sha256": "81dd94477b7bb3c51a5158afd5851641e5efae73a0dd3006b4981a3b277906c5",
+  "current_source_sha256": {
+    "egoemg_repro/emgformer_cohort.py": "c076a746abd25eb48fd4eb29135921c5cdeae8c083f9b38d423161a49fe25ea4",
+    "tests/test_emgformer_cohort.py": "bef81884b3301444c11cbd309da20c10d281cee0912267b2f3fc29146aaa5398"
+  },
+  "declined_to_judge": [
+    "Closed runtime1376203/reader2c93b7a mathematics; inspected helpers only for integration.",
+    "Actual full six-worker iteration/throughput and future trainer guard placement.",
+    "GPU capacity, model/optimizer execution,200epoch training,selection,frozen test/replay/scientific metrics.",
+    "Unified-corpus/PDF equivalence and missing canonical normalization key; limitations remain disclosed.",
+    "Present server state: review assessed retained collector evidence without repeating scans/live ownership checks."
+  ],
+  "deferred_minors": [],
+  "format": "native_egoemg_emgformer_full_cohort_final_review_v1",
+  "full_paper_complete": false,
+  "independent_review": {
+    "all_406_admitted_source_hashes_independently_checked": true,
+    "complete_server_scans_repeated": false,
+    "critical": 0,
+    "cuda_initialized": false,
+    "important": 0,
+    "minor": 0,
+    "models_constructed": 0,
+    "optimizer_executions": 0,
+    "passes": 1,
+    "read_only": true,
+    "ready_for_cpu_admission": true,
+    "retained_process_receipts_and_file_stamps_checked": true,
+    "tests_repeated": false
+  },
+  "material_fix_passes": 0,
+  "native_full_training_started": false,
+  "production_ready": false,
+  "proof_source_commit": "415deb92a026c470f9364fe9c94dd9e684b4425b",
+  "proof_source_unchanged_after_review": true,
+  "recorded_utc": "2026-10-29T00:25:11.509693+00:00",
+  "reviewed_base": "60d58da543f4373c47acc5be825dd11b5c26a3fe",
+  "reviewed_head": "2e4acbd76ee885110ffb38d51eb2d0718a39ce57",
+  "rulings": [
+    {
+      "choice": "Execute approved full-paper design inline without repeating design/execution approval.",
+      "cost_if_wrong": "Invalid downstream evidence, controlled by full hashes/consumption scans and one independent review.",
+      "reason": "Complete numeric admission was already required and authorized."
+    },
+    {
+      "choice": "Hash full files but check heldout target finiteness only at native centers; full possible train target trajectories remain required.",
+      "cost_if_wrong": "Misidentify unused NaNs as consumed or miss actual train/jitter-tail values.",
+      "reason": "Pinned native train full/val-test point semantics are authoritative."
+    },
+    {
+      "choice": "Local nine-attribute guard and all-role typed view bindings, without modifying old guards/helpers/live capsules.",
+      "cost_if_wrong": "An altered file generation or computation could invalidate admission.",
+      "reason": "Current input identity needs persistent bindings; unchanged earlier components remain closed."
+    },
+    {
+      "choice": "Reuse unchanged pure value/transform/physical-name helpers and bind their source.",
+      "cost_if_wrong": "Dependency changes invalidate identities; source hashes and mutation tests guard them.",
+      "reason": "Only helper representation reused; new data contract/full-point partition logic is separate."
+    },
+    {
+      "choice": "Preserve finite extremes under actual pinned statistics, correcting the overflow test assumption.",
+      "cost_if_wrong": "Would reject valid native data or silently change preprocessing.",
+      "reason": "Official per-hand standard deviations exceed1, so float32 maximum remains finite; no clipping/repair introduced."
+    }
+  ],
+  "scientific_eligible": false,
+  "scientific_model_settings_added": 0,
+  "tests": {
+    "exit_code": 0,
+    "initial_missing_component_red_failures": 59,
+    "initial_red_exit_code": 1,
+    "initial_red_log_sha256": "41c3dba224dfcaf151b666658278241fab56fdac059a6ec073efcb67935aaa88",
+    "initial_red_seconds": 37.17,
+    "log_sha256": "b4318a1eefe81b8e38a35af16d5618c1100d9078771fac80895d8c3962d84219",
+    "passed": 59,
+    "seconds": 401.03,
+    "warnings": 3
+  }
+}
