@@ -1,0 +1,98 @@
+{
+  "automatic_retry": false,
+  "cause": "Each original controller tripped its unchanged15GiB shared filesystem reserve around06:08UTC; no scientific completion.",
+  "data_free_bytes_at_failure_investigation": 6683107328,
+  "data_free_bytes_at_prior_0554_observation": 31435399168,
+  "format": "actual_five_full_training_shared_disk_stop_v1",
+  "full_paper_complete": false,
+  "growth_source_attributed": false,
+  "jobs": {
+    "dino_l": {
+      "complete_validation_epochs": 108,
+      "ended_utc": "2026-10-29T06:08:06.726702+00:00",
+      "full_training_complete": false,
+      "original_failed_state_retained": true,
+      "original_fit_worker_pid_missing": true,
+      "resumed_after_failure": false,
+      "status": "terminal_shared_disk_reserve_failure"
+    },
+    "emg2pose_large": {
+      "complete_validation_epochs": 0,
+      "ended_utc": "2026-10-29T06:08:06.706702+00:00",
+      "full_training_complete": false,
+      "original_failed_state_retained": true,
+      "original_fit_worker_pid_missing": true,
+      "resumed_after_failure": false,
+      "stale_nested_driver_status": {
+        "completed_stages": 1,
+        "name": "fit",
+        "scientific_complete": false,
+        "status": "running"
+      },
+      "status": "terminal_shared_disk_reserve_failure"
+    },
+    "emg2pose_middle": {
+      "complete_validation_epochs": 0,
+      "ended_utc": "2026-10-29T06:08:06.052345+00:00",
+      "full_training_complete": false,
+      "original_failed_state_retained": true,
+      "original_fit_worker_pid_missing": true,
+      "resumed_after_failure": false,
+      "stale_nested_driver_status": {
+        "completed_stages": 1,
+        "name": "fit",
+        "scientific_complete": false,
+        "status": "running"
+      },
+      "status": "terminal_shared_disk_reserve_failure"
+    },
+    "emg2pose_small": {
+      "complete_validation_epochs": 19,
+      "ended_utc": "2026-10-29T06:08:08.750157+00:00",
+      "full_training_complete": false,
+      "original_failed_state_retained": true,
+      "original_fit_worker_pid_missing": true,
+      "resumed_after_failure": false,
+      "status": "terminal_shared_disk_reserve_failure"
+    },
+    "fusion": {
+      "complete_validation_epochs": 32,
+      "ended_utc": "2026-10-29T06:08:03.962409+00:00",
+      "full_training_complete": false,
+      "original_failed_state_retained": true,
+      "original_fit_worker_pid_missing": true,
+      "resumed_after_failure": false,
+      "status": "terminal_shared_disk_reserve_failure"
+    }
+  },
+  "limitations": [
+    "A stale running JSON does not override terminal parent receipts and missing actual PID/start owners.",
+    "S19/DINO-L108/fusion32 are journal boundaries, not newly accepted final tests; complete raw checkpoint recovery gates remain necessary.",
+    "M/L have no completed first epoch; a restart must not be labeled checkpoint continuation.",
+    "Observed filesystem free change is distinct from kernel-compared shared byte count.",
+    "WiLoR remains deferred under the user priority; full-paper work remains active."
+  ],
+  "observed_utc": "2026-10-29T06:21:06.559260+00:00",
+  "scientific_settings_added": 0,
+  "scientific_settings_complete": 11,
+  "subsequent_content_preserving_extent_sharing": {
+    "actual_maintenance_owner_closed": true,
+    "all_nine_file_attributes_unchanged": true,
+    "all_seven_checkpoint_full_sha256_unchanged": true,
+    "checkpoint_payload_bytes_written": 0,
+    "completed": true,
+    "current_observed_free_bytes": 26896064512,
+    "files_deleted": 0,
+    "files_renamed": 0,
+    "filesystem_free_after_bytes": 26902974464,
+    "filesystem_free_before_bytes": 7636561920,
+    "kernel_compared_shared_bytes": 26295926784,
+    "observed_utc": "2026-10-29T06:56:10.990081+00:00",
+    "operation_source_sha256": "fc02227bbe5477c5ecdd4f3c94cfb52e1bb5ab987187ddb08a8de6906c52d730",
+    "private_terminal_state_value_sha256": "aee5fc78d8fde58f6259ad827757a55c00a3327ddab88c9310aacee620361cd8",
+    "restored_training_jobs": 0,
+    "scope": "Old WiLoR qualification packets and completed DINO-L capacity packets only; actual full-fit parents excluded.",
+    "seconds": 161.27676480496302
+  },
+  "training_manually_stopped_by_this_audit": false
+}

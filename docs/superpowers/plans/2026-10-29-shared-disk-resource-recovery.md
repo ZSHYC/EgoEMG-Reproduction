@@ -1,0 +1,11 @@
+# Shared disk resource recovery
+
+The original five full-training owners all exited around2026-10-29T06:08UTC when the shared DATA filesystem fell below their unchanged15GiB reserve. WiLoR had already stopped separately. Preserve every original terminal state and checkpoint; a stale nested `running` JSON is not a live process.
+
+This operational maintenance is within the approved full-paper scope and the user's direction to continue other experiments without another server disk. Reuse Linux content-preserving extent sharing; do not delete, truncate, rename or rewrite checkpoint payloads, change source identities, lower guards or stop foreign jobs.
+
+- [x] Freeze the known old/new WiLoR qualification packets and the completed DINO-L capacity packets. Check owner/regular-file/device identities, absence of active write descriptors and full SHA256 before sharing; exclude all actual full-training parents from mutation.
+- [x] Verify kernel FIDEDUPERANGE with deliberately equal and different disposable blocks, full before/after SHA and nine stat fields. Compare same-offset chunks of the admitted related qualification files. The kernel must skip different bytes; only equal ranges may share storage. Check protected file generation throughout and full SHA/nine attributes afterward. Preserve actual process identity and terminal evidence, with bounded logs. Actual86a33cbd52b9/161.277seconds exit0, seven complete SHA/nine-attribute identities unchanged and owner closed; kernel-compared shared26,295,926,784bytes, observed free7,636,561,920→26,902,974,464bytes.
+- [ ] Reobserve actual free capacity and closed maintenance owner. Report kernel-compared shared bytes separately from observed filesystem free change. Retain failed full-run states. Only after sufficient actual storage/device admission, resume an existing complete checkpoint with its already qualified native API in an explicit new execution; first-epoch M/L with no checkpoint require a separate disclosed fresh attempt. No blind restart, source retag or WiLoR full continuation.
+
+Publication must correct the earlier historical training snapshot. Full-paper goal remains active; this does not add a completed scientific setting.
