@@ -8,6 +8,8 @@
 
 > **当前运行状态 · 2026-10-29 16:54北京时间**：已有11项完整实验设置，全论文和PDF等价仍未证明。DINOv2-L恢复后的GPU训练继续；EMG2Pose-M/L正在新完整尝试的全量来源核验。S19轮和融合32轮检查点已核验、备份，并启动[显式恢复准备](results/native-small-fusion-explicit-recovery-20261029.json)：S正在完整数据准入，融合已完成数据与训练分支校验、等待原64GiB显存门槛，两项尚无新GPU更新。WiLoR完整续训仍暂缓，原生EMGFormer仍缺GPU资格。全部旧失败状态保留，详见[最新运行状态](docs/run-status.md)。
 
+> **结果与论文的差距：** [11项已完成MAE逐项对照](results/paper-comparison/README.md)包含Table2/3原表、当前结果和来源SHA。当前数值均高于论文，数据/协议未完全对齐；尚不能声称论文核心数值和全部模型优势已复现。
+
 > **新增协议审计：** 固定官方EgoEMG配置经Hydra合成与别名归约后，指尖项有效系数为0.02；既有legacy配方使用0.01。此前这一差异漏核，[实际11配置审计](results/official-loss-audit.md)已公开说明，旧结果与在跑legacy实验不能称为该官方损失的等价复现。EMG2Pose三项无此叠加，仍为0.01。
 
 新增[60类手势词表](results/dataset-semantics/gesture-vocabulary.md)、[22角语义](results/dataset-semantics/joint-angle-semantics.md)及[真实帧覆盖](results/dataset-semantics/coverage.md)已经独立核验；66,161,725个共享同步帧包含全部60类。帧数不等于窗口/手样本数，尚不构成逐手势模型误差结果。

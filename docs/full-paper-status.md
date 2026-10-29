@@ -2,6 +2,8 @@
 
 最新执行核验（北京时间2026-10-29 16:54）：[S及融合模型的显式恢复准备](../results/native-small-fusion-explicit-recovery-20261029.json)已启动，八个PID/start拥有者均实际活动。S真实19轮/30,096更新、融合真实32轮/63,264更新的检查点已按原源码/原生循环、模型与日志、AdamW步数及六输入状态域核验；各四份原始包以reflink保留，原文件九属性不变。S仍在完整来源重新准入；融合已通过完整队列及训练分支交接校验，正在等待原64GiB启动显存。两项尚无新GPU训练更新，原失败状态未改。[DINOv2-L](../results/dino-large-explicit-native-resume-20261029.json)同一GPU进程继续，当前新日志步号61,234，已提交完整轮次为108。[M/L新完整尝试](../results/emg2pose-ml-explicit-fresh-attempts-20261029.json)同一拥有者仍在全量来源准入，暂无GPU fit或完整轮次。WiLoR仍暂缓完整续训；原生EMGFormer的两张候选卡仍有计算消费者，尚无GPU资格。完整科学设置仍11，没有新增最终测试成绩，全论文目标继续。
 
+[核心MAE与论文原表的逐项数值参照](../results/paper-comparison/README.md)已补齐11个完成设置（Table2/3），原始JSON路径及完整SHA、CSV、论文PDF身份和同人口融合增益均保留。当前各项总体MAE数值均高于PDF；EMGFormer型号排序及ViT放大收益未复现。数据、窗口/损失、人口/掩码与聚合协议尚未一致，因此不能据此作为同条件排行榜；ViT-L、WiLoR、ViT-S融合、EMG2Pose标准基准及遮挡ρ/p仍缺最终结果。科学设置数不变。
+
 以下较早条目是各自时间点的历史记录。
 
 历史终态核验（2026-10-29 06:21UTC快照）：[共享磁盘保护导致五项原训练退出](../results/full-training-shared-disk-stop-20261029.json)，不是当前仍在运行。EMG2Pose-S最后19轮、DINO-L108轮、融合32轮；M/L未完成首轮。原失败状态保留，部分嵌套`running`文件已失效。内容保持的资格文件数据块共享已将观测可用空间从7.64GB提高至26.90GB，原七文件全SHA/九属性不变，实际完整训练父目录未参与；恢复仍待检查点与资源准入，尚无新训练或测试结果。完整科学设置仍11，全论文目标继续。
