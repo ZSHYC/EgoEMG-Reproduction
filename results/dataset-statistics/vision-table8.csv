@@ -1,0 +1,8 @@
+model,paper_parameters_millions,actual_total_parameters,actual_trainable_parameters,actual_frozen_parameters,actual_backbone_parameters,actual_head_parameters,paper_feature_dimension,actual_feature_dimension,paper_lr,actual_lr,paper_batch_size,actual_batch_size,paper_max_epochs,actual_max_epochs,actual_head_activation,recipe_origin,differences_from_paper
+ResNet-18,11.5,11450454,11450454,0,11176512,273942,512,512,0.001,0.0001,900,900,150,150,ReLU,legacy_wrapper_of_pinned_resnet18_recipe,learning_rate
+ResNet-50,23.5,24568406,24568406,0,23508032,1060374,2048,2048,0.001,0.0001,400,400,150,150,ReLU,explicit_legacy_resnet18_derivation,learning_rate;reported_rounded_total_parameters
+ResNet-152,58.2,59204182,59204182,0,58143808,1060374,2048,2048,0.001,0.0001,180,180,150,150,ReLU,explicit_legacy_resnet18_derivation,learning_rate;reported_rounded_total_parameters
+ViT-S/14,21.9,21863318,21863318,0,21654912,208406,384,384,0.0001,0.0001,360,360,150,150,ReLU,pinned_author_experiment,
+ViT-B/14,86.2,86182166,86182166,0,85777152,405014,768,768,0.0001,0.0001,160,360,150,150,ReLU,explicit_small_recipe_derivation,batch_size
+ViT-L/14,303.8,303833622,303833622,0,303297536,536086,1024,1024,0.0001,0.0001,50,360,150,150,ReLU,explicit_small_recipe_derivation,batch_size
+WiLoR,631.6,631631657,631579158,52499,630964499,667158,1576,1280,1e-05,1e-05,18,18,30,30,GELU,explicit_small_recipe_paper_derivation,feature_dimension

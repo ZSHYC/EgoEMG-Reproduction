@@ -19,9 +19,9 @@
 
 ## Steps
 
-- [ ] Read PDF p.22 Table8 and pinned original wrappers; collect saved actual configurations, initialization identities and named-tensor schemas. Verify completed ResNet checkpoint identities against their published reports and stable file attributes.
-- [ ] Independently verify seven counts using schema products and the four-tensor head formula `(d+1)*512+(512+1)*22`; reconcile complete tensor/buffer membership, WiLoR's unused native components and its total/trainable split. Preserve unexplained paper differences.
-- [ ] Publish `results/dataset-statistics/vision-table8.json`, `.csv` and `.md` with source digests and limitations; update Table8 status and run-status. Check CSV/JSON/Markdown agreement and source stability, commit and publish. No old model suites or closed model reviews are repeated.
+- [x] Read PDF p.22 Table8 and pinned original wrappers; collect saved actual configurations, initialization identities and named-tensor schemas. Verify completed ResNet checkpoint identities against their published reports and stable file attributes.
+- [x] Independently verify seven counts using schema products and the four-tensor head formula `(d+1)*512+(512+1)*22`; reconcile complete tensor/buffer membership, WiLoR's unused native components and its total/trainable split. Preserve unexplained paper differences. Three ResNet AdamW moment inventories additionally match every parameter shape/count and initial1e-4 LR; no optimizer was constructed.
+- [x] Publish `results/dataset-statistics/vision-table8.json`, `.csv`, `.md` and weight-free `vision-table8-inventory.json` with source digests and limitations; update Table8 status and run-status. Check CSV/JSON/Markdown agreement and source stability, commit and publish. No old model suites or closed model reviews are repeated. Independent public-inventory reduction checks all2,490tensor roles/shapes against seven rows, all three formats, head formula, AdamW moments, evidence hashes and local links; no new production component/model mathematics was introduced.
 
 ## Interpretation
 

@@ -1,0 +1,658 @@
+{
+  "actual_resnet_inventory": {
+    "all_three_nine_attributes_unchanged": true,
+    "checkpoints_match_published_digests": true,
+    "reader_exited": true,
+    "seconds": 2.3155432590283453
+  },
+  "cuda_initialized": false,
+  "evidence_files_sha256": {
+    "results/completed/resnet152/metrics.json": "cdf66338b9935fd6e60204b525b9cc97e419430503b79f0c9d3fa39c98f34514",
+    "results/completed/resnet18/metrics.json": "de64bb247399a3b1123c8c06c25afeb505f91379e301e3e51b85a0a87a49f9ed",
+    "results/completed/resnet50/metrics.json": "2d31bf8f64adbf201ee05972efd637acb0dd9839b571c7a324536e896e679541",
+    "results/dataset-statistics/vision-fusion-architecture.json": "828069d881a8032ab625d497d0f46ce0e0870e63617e6623b6b57e2743843993",
+    "results/dataset-statistics/vision-table8-inventory.json": "fef21fa45e3c1867676df0c273526fb6243b44f8dbf7e8719173f4eb54237de2",
+    "results/original-vision/vit-base/execution-contract.json": "c4231dc1cb27009d53b77641d6554b0237608bc58d04430962b696b70b7316cd",
+    "results/original-vision/vit-base/publication-manifest.json": "ccfa900919fe1bb27b0c795cf7dad64b346f85dd3c3ac22bdd38d01e97b0a76d",
+    "results/original-vision/vit-small/execution-contract.json": "07db85ad1e459e69e312406d74af26a393ddadab6f8266bfb3c6cd5ef1bfdc0c",
+    "results/original-vision/vit-small/publication-manifest.json": "1fac8518c67bc0217d50fa67118eb2ab5ea3a5a8d5f200a2f480b776b859ec8f",
+    "results/wilor-native-full-disk-failure-20261029.json": "cb5bbc7ecd9f63645410337e6374cb85c809de4dcdc22401def5cc809d8852b0",
+    "results/wilor-native-model-cpu-20261028.json": "ee8f413f278910fa348fa601365240786896126d12cf850b1b97824309c9be16"
+  },
+  "format": "seven_vision_baselines_table8_reconciliation_v1",
+  "full_paper_complete": false,
+  "independent_config_file_inventory": {
+    "vision_resnet152": false,
+    "vision_resnet18": true,
+    "vision_resnet50": false,
+    "vision_vit_base": false,
+    "vision_vit_large": false,
+    "vision_vit_small": true,
+    "vision_wilor": false
+  },
+  "limitations": [
+    "This is a configuration and parameter audit, not seven completed equivalent benchmark runs.",
+    "ResNet rows retain their completed legacy0.01 recipes, including data and validation differences.",
+    "ViT-B/L and WiLoR are explicit derived recipes because independent upstream YAML files are absent.",
+    "Paper batch convention across six RTX4090 ranks is not inferred to match the actual single-rank batch.",
+    "The exact reason for paper parameter discrepancies is unknown; the ResNet50 paper value matches its backbone-only count to one decimal, while the actual regressor includes a1060374parameter head.",
+    "WiLoR full30 has not resumed; its engineering CPU recovery is not a full scientific result."
+  ],
+  "new_forwards": 0,
+  "new_models_constructed": 0,
+  "new_optimizer_updates": 0,
+  "new_optimizers_constructed": 0,
+  "paper_page": 22,
+  "paper_pdf_sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+  "retained_private_evidence_sha256": {
+    "completed_resnet_schema_reader": "9b0a3621406cdfaf013daa4ec71ea7c7081816e7ee93307e9c838f410ad758fc",
+    "native_constructions_and_run_metadata": "dc3065aa9f74771256adb85b7efe808d5c0b207eb5bad7daf5c7b1d9e49c0d95",
+    "original_s_b_factory_schemas": "1e51155b1768d6971d085ff8424d151d7f0d07a09b884eaaebbfc1d986c07f0d"
+  },
+  "rows": [
+    {
+      "actual": {
+        "batch_size": 900,
+        "effective_fingertip_weight": 0.01,
+        "feature_dimension": 512,
+        "freeze_backbone": false,
+        "head_activation": "ReLU",
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "precision": "bfloat16",
+        "recipe_origin": "legacy_wrapper_of_pinned_resnet18_recipe",
+        "scientific_family": "legacy_0.01",
+        "selection": "independent validation best; completed fixed150 epochs",
+        "single_rank": true,
+        "workers": 4
+      },
+      "actual_parameters_millions_rounded_1dp": "11.5",
+      "counts": {
+        "backbone_parameters": 11176512,
+        "buffer_tensors": 60,
+        "frozen_parameters": 0,
+        "head_parameters": 273942,
+        "head_schema": {
+          "head.0.bias": [
+            512
+          ],
+          "head.0.weight": [
+            512,
+            512
+          ],
+          "head.3.bias": [
+            22
+          ],
+          "head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 64,
+        "parameters": 11450454,
+        "persistent_buffer_elements": 9620,
+        "trainable_parameters": 11450454
+      },
+      "differences_from_paper": [
+        "learning_rate"
+      ],
+      "dropout": 0.1,
+      "evidence": {
+        "checkpoint_bytes": 275111290,
+        "checkpoint_matches_published_selected_digest": true,
+        "checkpoint_nine_attributes_unchanged": true,
+        "checkpoint_sha256": "85acf8d823b95bee2754022916978d928c4d5d270e49edfe58844519adc924b7",
+        "kind": "completed_selected_checkpoint_tensor_inventory",
+        "optimizer_initial_lrs": [
+          0.0001
+        ],
+        "optimizer_moment_parameter_elements": 11450454,
+        "optimizer_moment_tensor_count": 64,
+        "public_report": "results/completed/resnet18/metrics.json"
+      },
+      "hidden": 512,
+      "initialization": {
+        "policy": "ImageNet1K_V1 backbone",
+        "pretrained_backbone_tensor_sha256": "4bd22a0de6dd2e02bdedae51844e261cf65a79154b3550d09faa069c15c8ddc2",
+        "pretrained_enum": "torchvision.models.ResNet18_Weights.IMAGENET1K_V1",
+        "pretrained_source_url": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
+        "seed": 42,
+        "torchvision_version": "0.17.2+cu118"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "ResNet-18",
+      "model": "resnet18",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 900,
+        "feature_dimension": 512,
+        "learning_rate": 0.001,
+        "max_epochs": 150,
+        "parameters_millions": "11.5"
+      }
+    },
+    {
+      "actual": {
+        "batch_size": 400,
+        "effective_fingertip_weight": 0.01,
+        "feature_dimension": 2048,
+        "freeze_backbone": false,
+        "head_activation": "ReLU",
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "precision": "bfloat16",
+        "recipe_origin": "explicit_legacy_resnet18_derivation",
+        "scientific_family": "legacy_0.01",
+        "selection": "independent validation best; completed fixed150 epochs",
+        "single_rank": true,
+        "workers": 4
+      },
+      "actual_parameters_millions_rounded_1dp": "24.6",
+      "counts": {
+        "backbone_parameters": 23508032,
+        "buffer_tensors": 159,
+        "frozen_parameters": 0,
+        "head_parameters": 1060374,
+        "head_schema": {
+          "head.0.bias": [
+            512
+          ],
+          "head.0.weight": [
+            512,
+            2048
+          ],
+          "head.3.bias": [
+            22
+          ],
+          "head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 163,
+        "parameters": 24568406,
+        "persistent_buffer_elements": 53173,
+        "trainable_parameters": 24568406
+      },
+      "differences_from_paper": [
+        "learning_rate",
+        "reported_rounded_total_parameters"
+      ],
+      "dropout": 0.1,
+      "evidence": {
+        "checkpoint_bytes": 590566448,
+        "checkpoint_matches_published_selected_digest": true,
+        "checkpoint_nine_attributes_unchanged": true,
+        "checkpoint_sha256": "92df5cec5a6753831910ef66f4744e590d7146c02dd1186855a93c3c59519934",
+        "kind": "completed_selected_checkpoint_tensor_inventory",
+        "optimizer_initial_lrs": [
+          0.0001
+        ],
+        "optimizer_moment_parameter_elements": 24568406,
+        "optimizer_moment_tensor_count": 163,
+        "public_report": "results/completed/resnet50/metrics.json"
+      },
+      "hidden": 512,
+      "initialization": {
+        "policy": "ImageNet1K_V1 backbone",
+        "pretrained_backbone_tensor_sha256": "59f1d3ed5c18d7feb94e45c87d1db718ad335f406a6f37ac340dd996950cdf48",
+        "pretrained_enum": "torchvision.models.ResNet50_Weights.IMAGENET1K_V1",
+        "pretrained_source_url": "https://download.pytorch.org/models/resnet50-0676ba61.pth",
+        "seed": 42,
+        "torchvision_version": "0.17.2+cu118"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "ResNet-50",
+      "model": "resnet50",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 400,
+        "feature_dimension": 2048,
+        "learning_rate": 0.001,
+        "max_epochs": 150,
+        "parameters_millions": "23.5"
+      }
+    },
+    {
+      "actual": {
+        "batch_size": 180,
+        "effective_fingertip_weight": 0.01,
+        "feature_dimension": 2048,
+        "freeze_backbone": false,
+        "head_activation": "ReLU",
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "precision": "bfloat16",
+        "recipe_origin": "explicit_legacy_resnet18_derivation",
+        "scientific_family": "legacy_0.01",
+        "selection": "independent validation best; completed fixed150 epochs",
+        "single_rank": true,
+        "workers": 4
+      },
+      "actual_parameters_millions_rounded_1dp": "59.2",
+      "counts": {
+        "backbone_parameters": 58143808,
+        "buffer_tensors": 465,
+        "frozen_parameters": 0,
+        "head_parameters": 1060374,
+        "head_schema": {
+          "head.0.bias": [
+            512
+          ],
+          "head.0.weight": [
+            512,
+            2048
+          ],
+          "head.3.bias": [
+            22
+          ],
+          "head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 469,
+        "parameters": 59204182,
+        "persistent_buffer_elements": 151579,
+        "trainable_parameters": 59204182
+      },
+      "differences_from_paper": [
+        "learning_rate",
+        "reported_rounded_total_parameters"
+      ],
+      "dropout": 0.1,
+      "evidence": {
+        "checkpoint_bytes": 1423466556,
+        "checkpoint_matches_published_selected_digest": true,
+        "checkpoint_nine_attributes_unchanged": true,
+        "checkpoint_sha256": "69c93c6601ade298c0ab2026393fbad32273fb05806e769affe096054fdf1240",
+        "kind": "completed_selected_checkpoint_tensor_inventory",
+        "optimizer_initial_lrs": [
+          0.0001
+        ],
+        "optimizer_moment_parameter_elements": 59204182,
+        "optimizer_moment_tensor_count": 469,
+        "public_report": "results/completed/resnet152/metrics.json"
+      },
+      "hidden": 512,
+      "initialization": {
+        "policy": "ImageNet1K_V1 backbone",
+        "pretrained_backbone_tensor_sha256": "9501269760055d7d5db3c1029d97d0185dcd7e2a64950b5fbcf2b3726ac7e4af",
+        "pretrained_enum": "torchvision.models.ResNet152_Weights.IMAGENET1K_V1",
+        "pretrained_source_url": "https://download.pytorch.org/models/resnet152-394f9c45.pth",
+        "seed": 42,
+        "torchvision_version": "0.17.2+cu118"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "ResNet-152",
+      "model": "resnet152",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 180,
+        "feature_dimension": 2048,
+        "learning_rate": 0.001,
+        "max_epochs": 150,
+        "parameters_millions": "58.2"
+      }
+    },
+    {
+      "actual": {
+        "activation_checkpoint_use_reentrant": null,
+        "activation_checkpointing": false,
+        "batch_size": 360,
+        "effective_fingertip_weight": 0.02,
+        "feature_dimension": 384,
+        "freeze_backbone": false,
+        "head_activation": "ReLU",
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "position_embedding_shape": [
+          1,
+          325,
+          384
+        ],
+        "precision": "bf16-mixed",
+        "recipe_origin": "pinned_author_experiment",
+        "scientific_family": "native_0.02_legacy_cohort",
+        "selection": "native val_mae/min; patience30; top3+last",
+        "single_rank": true,
+        "workers": 0
+      },
+      "actual_parameters_millions_rounded_1dp": "21.9",
+      "counts": {
+        "backbone_parameters": 21654912,
+        "construction_identity_sha256": "e20f74c3e9d7c350c06400ed1461749d79aca464dae2b228301586cdd3199def",
+        "feature_dimension": 384,
+        "frozen_parameters": 0,
+        "head_parameters": 208406,
+        "head_schema": {
+          "model.head.0.bias": [
+            512
+          ],
+          "model.head.0.weight": [
+            512,
+            384
+          ],
+          "model.head.3.bias": [
+            22
+          ],
+          "model.head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 178,
+        "parameters": 21863318,
+        "trainable_parameters": 21863318
+      },
+      "differences_from_paper": [],
+      "dropout": 0.1,
+      "evidence": {
+        "construction_identity_sha256": "e20f74c3e9d7c350c06400ed1461749d79aca464dae2b228301586cdd3199def",
+        "full_fit_identity_file_sha256": null,
+        "kind": "retained_original_factory_named_parameter_schema",
+        "protocol_sha256": "40e75a55ea914f360c4d15a218da6b2712898a4fab242f90870a767c0befb072"
+      },
+      "hidden": 512,
+      "initialization": {
+        "bytes": 88240510,
+        "filename": "model.safetensors",
+        "repo": "timm/vit_small_patch14_dinov2.lvd142m",
+        "revision": "4610ca143709d58a633b6397a74412c2c3842454",
+        "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "ViT-S/14",
+      "model": "vit_small",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 360,
+        "feature_dimension": 384,
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "parameters_millions": "21.9"
+      }
+    },
+    {
+      "actual": {
+        "activation_checkpoint_use_reentrant": null,
+        "activation_checkpointing": false,
+        "batch_size": 360,
+        "effective_fingertip_weight": 0.02,
+        "feature_dimension": 768,
+        "freeze_backbone": false,
+        "head_activation": "ReLU",
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "position_embedding_shape": [
+          1,
+          325,
+          768
+        ],
+        "precision": "bf16-mixed",
+        "recipe_origin": "explicit_small_recipe_derivation",
+        "scientific_family": "native_0.02_legacy_cohort",
+        "selection": "native val_mae/min; patience30; top3+last",
+        "single_rank": true,
+        "workers": 0
+      },
+      "actual_parameters_millions_rounded_1dp": "86.2",
+      "counts": {
+        "backbone_parameters": 85777152,
+        "construction_identity_sha256": "dcf7f678a361693f748d38476b6ad99e29d4ddb5943122e290f8e4aa7779f4e1",
+        "feature_dimension": 768,
+        "frozen_parameters": 0,
+        "head_parameters": 405014,
+        "head_schema": {
+          "model.head.0.bias": [
+            512
+          ],
+          "model.head.0.weight": [
+            512,
+            768
+          ],
+          "model.head.3.bias": [
+            22
+          ],
+          "model.head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 178,
+        "parameters": 86182166,
+        "trainable_parameters": 86182166
+      },
+      "differences_from_paper": [
+        "batch_size"
+      ],
+      "dropout": 0.1,
+      "evidence": {
+        "construction_identity_sha256": "dcf7f678a361693f748d38476b6ad99e29d4ddb5943122e290f8e4aa7779f4e1",
+        "full_fit_identity_file_sha256": null,
+        "kind": "retained_original_factory_named_parameter_schema",
+        "protocol_sha256": "d3c05870f8a2bde7b3f272091bb72a1a40c3d69f0635ce8e0a0eddb0183dd068"
+      },
+      "hidden": 512,
+      "initialization": {
+        "bytes": 346334872,
+        "filename": "model.safetensors",
+        "repo": "timm/vit_base_patch14_dinov2.lvd142m",
+        "revision": "4685c99dabffe5affac90bd99dbffd25801ae58d",
+        "sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "ViT-B/14",
+      "model": "vit_base",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 160,
+        "feature_dimension": 768,
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "parameters_millions": "86.2"
+      }
+    },
+    {
+      "actual": {
+        "activation_checkpoint_use_reentrant": false,
+        "activation_checkpointing": true,
+        "batch_size": 360,
+        "effective_fingertip_weight": 0.02,
+        "feature_dimension": 1024,
+        "freeze_backbone": false,
+        "head_activation": "ReLU",
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "position_embedding_shape": [
+          1,
+          325,
+          1024
+        ],
+        "precision": "bf16-mixed",
+        "recipe_origin": "explicit_small_recipe_derivation",
+        "scientific_family": "native_0.02_legacy_cohort",
+        "selection": "native val_mae/min; patience30; top3+last",
+        "single_rank": true,
+        "workers": 0
+      },
+      "actual_parameters_millions_rounded_1dp": "303.8",
+      "counts": {
+        "backbone_parameters": 303297536,
+        "construction_identity_sha256": "5baa247a8a3f59976b17c7f93033de35c67a22986bad2642d9d9aaa595976363",
+        "feature_dimension": 1024,
+        "frozen_parameters": 0,
+        "head_parameters": 536086,
+        "head_schema": {
+          "model.head.0.bias": [
+            512
+          ],
+          "model.head.0.weight": [
+            512,
+            1024
+          ],
+          "model.head.3.bias": [
+            22
+          ],
+          "model.head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 346,
+        "parameters": 303833622,
+        "trainable_parameters": 303833622
+      },
+      "differences_from_paper": [
+        "batch_size"
+      ],
+      "dropout": 0.1,
+      "evidence": {
+        "construction_identity_sha256": "5baa247a8a3f59976b17c7f93033de35c67a22986bad2642d9d9aaa595976363",
+        "full_fit_identity_file_sha256": "89b117d89d20fdd9bdb23579160a6c49bee982160c8ef09133a6e874965bfc6a",
+        "kind": "retained_original_factory_named_parameter_schema",
+        "protocol_sha256": "3e96bba4df9b5876df38ad492b0dbaf2890aa784429327cb97d275a07fdb7332"
+      },
+      "hidden": 512,
+      "initialization": {
+        "bytes": 1217502758,
+        "filename": "model.safetensors",
+        "repo": "timm/vit_large_patch14_dinov2.lvd142m",
+        "revision": "4741e1cafbf45415e77074bb0cb42dba76c8684a",
+        "sha256": "0424a5d1b515278cba3c6640ccbeaacc41de59d3a93df0dd5e494285eea2b355"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "ViT-L/14",
+      "model": "vit_large",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 50,
+        "feature_dimension": 1024,
+        "learning_rate": 0.0001,
+        "max_epochs": 150,
+        "parameters_millions": "303.8"
+      }
+    },
+    {
+      "actual": {
+        "backbone_input_rgb": [
+          3,
+          192,
+          256
+        ],
+        "batch_size": 18,
+        "effective_fingertip_weight": 0.02,
+        "feature_dimension": 1280,
+        "head_activation": "GELU",
+        "learning_rate": 1e-05,
+        "max_epochs": 30,
+        "precision": "bf16-mixed",
+        "recipe_origin": "explicit_small_recipe_paper_derivation",
+        "scheduler_behavior": "constant_initial_lr_equals_eta_min",
+        "scientific_family": "native_0.02_legacy_cohort",
+        "selection": "native val_mae/min; patience30; top3+last",
+        "single_rank": true,
+        "workers": 0
+      },
+      "actual_parameters_millions_rounded_1dp": "631.6",
+      "counts": {
+        "backbone_parameters": 630964499,
+        "construction_identity_sha256": "578d5d40340f7f95a5a0979eec5dc22a2d3705de82e956b32233eb64adc2e66a",
+        "feature_dimension": 1280,
+        "frozen_backbone_components": [
+          "pose_emb",
+          "shape_emb",
+          "cam_emb",
+          "decpose",
+          "decshape",
+          "deccam"
+        ],
+        "frozen_parameters": 52499,
+        "head_parameters": 667158,
+        "head_schema": {
+          "model.head.0.bias": [
+            512
+          ],
+          "model.head.0.weight": [
+            512,
+            1280
+          ],
+          "model.head.3.bias": [
+            22
+          ],
+          "model.head.3.weight": [
+            22,
+            512
+          ]
+        },
+        "parameter_tensors": 405,
+        "parameters": 631631657,
+        "trainable_parameters": 631579158
+      },
+      "differences_from_paper": [
+        "feature_dimension"
+      ],
+      "dropout": 0.1,
+      "evidence": {
+        "construction_identity_sha256": "578d5d40340f7f95a5a0979eec5dc22a2d3705de82e956b32233eb64adc2e66a",
+        "full_fit_identity_file_sha256": "d8a51a733675dd6f75f0b9a25265bed4e2910bb0dba71615d7d9dd509abc686f",
+        "kind": "retained_original_factory_named_parameter_schema",
+        "protocol_sha256": "937bb56c9166a1ab0ca21f02b72ca6ecba8e2bfad5a9100fb895b174fb8136b2"
+      },
+      "hidden": 512,
+      "initialization": {
+        "bytes": 2564989533,
+        "revision": "99fe3d7acff8104ecca1055df7467709506c2fa6",
+        "sha256": "3e97aafc7dd08d883a4cc5a027df61fdb6fda6136dbd1319405413862ada6bb2"
+      },
+      "input_rgb": [
+        3,
+        256,
+        256
+      ],
+      "label": "WiLoR",
+      "model": "wilor",
+      "output_angles": 22,
+      "paper": {
+        "batch_size": 18,
+        "feature_dimension": 1576,
+        "learning_rate": 1e-05,
+        "max_epochs": 30,
+        "parameters_millions": "631.6"
+      }
+    }
+  ],
+  "scientific_settings_added": 0,
+  "source_files_sha256": {
+    "config/experiment/fusion/vision_resnet18.yaml": "bcac43b6a10292940cd475b50e2456a3247faa303548f158f6e1e5796c402580",
+    "config/experiment/fusion/vision_vit_small.yaml": "1c051a315dc074b186bf15482e394009bb3f2bec304b688e32c01bc2239aef02",
+    "egoemg/models/modules/resnet_vision.py": "a2c40c1ef84ec0463378b5d49a393a586ac97211d79afcff632f7eb6855c8d0a",
+    "egoemg/models/modules/vit_vision.py": "aa93eb7a45534945cc596a188e571de19b8bee2ff57734823571dce79059058a",
+    "egoemg/models/modules/wilor_vit.py": "4b3caa49b329e155040e7918721f45785964b563dbe1fe96369f9d2ef605b9dd"
+  },
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+}

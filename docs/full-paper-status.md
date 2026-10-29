@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+2026-10-29新增分析：[Table8七模型配置/参数审计](../results/dataset-statistics/vision-table8.md)已完成实际来源对账：2,490张量的无权重公开形状清单独立还原总数/可训练数/回归头数，ResNet三个完成检查点与公开SHA及实际AdamW矩/初始学习率一致；保留原表值、缺失独立YAML、派生/legacy配方和未完成训练。此处不增加科学设置数，完整全文仍欠。
+
 最新运行核验（北京时间2026-10-29 13:54）：用户确认没有额外持久存储，要求优先其他实验。[实际日志快照](../results/active-training-user-priority-20261029.json)确认EMG2Pose-S已完成18个验证轮；M/L仍在首轮，原生事件分别记录到step3200/3320，每轮7808批次，训练持续推进；DINO-L已完成108轮、融合32轮，原任务仍活动。各模型自己的训练人口和官方配置分别保留，不能据这些中间日志声称完成测试或进行同协议排名。WiLoR保留真实六轮状态、暂不启动完整续训；新增[CPU恢复实证](../results/wilor-explicit-recovery-cpu-engineering-20261029.json)仅合成两轮/4更新/六域恢复与独立重开，后续评估及整体审查未完成。科学完整设置仍11，全论文仍进行中。
 
 最新运行核验（北京时间2026-10-29 12:38）：[WiLoR显式恢复父状态准入](wilor-recovery.md)通过，选择真实第6轮/67344更新，四份top3/last原始包经过生产校验，59.818秒/0模型/0更新/无CUDA，115冻结成员与原九项属性不变；真正续训、恢复后评估和整体审查仍待完成。原EMGFormer75c45流程在2144秒资源等待后准入GPU3，但其他用户随后启动新消费者，保护机制于04:35:27 UTC结束本次qual-prefix，原任务已终止、没有资格或200轮结果；[失败证据](../results/native-emgformer-first-resource-admission-abort-20261029.json)保留，未终止外部消费者。后续尝试需要新的资源准入。EMG2Pose-M/L在04:35:25 UTC仍为真实GPU fit、尚无首个完整验证轮。完整科学设置仍11，全论文仍进行中。
@@ -263,7 +265,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | Table 5，A.2 p.16 | 作者82手、10维β统计 | **分析产物、已核验（legacy）**；[统计与来源](../results/dataset-statistics/shape-statistics.md)含50项官方重算和实际P5/P95，PDF显示48/50吻合 | 两个微小显示差异保留，原因未定；episode/beta行数不能独立证明人口身份。官方std(ddof0)和range优先，不能把range混称真正P95−P5 |
 | Table 6，B.3 p.20 | 22 DoF语义、单位、左右约定和有效性，数据定义 | **语义表与冻结中心逐角mask已核验**，E7/E8；0–19手指rad、20腕FE/21腕RU磁盘deg，模型统一rad；实际中心1,420,084/1,474,352角有效。原literal与legacy20+2分列，腕名义限位未知 | [全帧逐角有效性已核验](../results/dataset-semantics/full-frame-validity.md)：2,804,767,094/2,911,115,900角度元素有效，两手独立腕掩码保留；标签重生成仍欠，legacy轴角投影不等价PDF landmark IK，腕限位仍未知 |
 | Table 7，C.1 p.21 | 作者 S/M/L 架构、参数与训练 GPU-hours | **三模型架构及总/可训练参数已统一实测**；[原工厂核验](../results/dataset-statistics/emgformer-architecture.md)：S3,460,134/M6,617,382/L16,320,806，三者均全参数可训练，六次CPU前向/状态不变及M独立对账通过；legacy完整运行另见E1/E6 | 官方新配方的实际完整训练用时、GPU数/型号/精度/验证开销仍欠；CPU前向或A800墙钟不能填原文4090 GPU-hours |
-| Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **RN18/RN50/RN152及DINO-S/B部分已核验**；S/B有实际源/真权重/参数与完整运行证据，L和WiLoR进展见模型表；其余配方/初始化未闭合；上表及[模型源码][resnet] | 每种实际 resolved 配置、256 输入/patch 策略、回归头、冻结状态、权重身份及参数量；PDF 超参和缺失独立 YAML 必须分栏 |
+| Table 8，C.2 p.22 | 7 个视觉 backbone 的配置与参数，非另加 7 次实验 | **七模型实际配置/参数审计已生成并核验**；[七行对照、精确整数及无权重形状清单](../results/dataset-statistics/vision-table8.md)保留原表值；ResNet已完成best的全SHA/九属性及实际AdamW矩形状对账，ViT/WiLoR原生构造身份逐参数计数。RN50/152完整模型24,568,406/59,204,182，WiLoR1280维/52,499冻结参数；LR与B/L批量差异分别披露 | 实际审计不证明原表数值全部吻合、论文六rank批量口径或全部视觉训练完成。RN50/152、ViT-B/L、WiLoR独立官方YAML未发布；已用派生配方和legacy损失不重标为完整官方字面实验。L/WiLoR完整训练与其报告仍欠 |
 | Table 9，D.1 p.23 | Table 2 五模型的逐手/逐 split 轨迹评价 | **S/M/L细分证据已有，完整表未生成**；E1 原训练器轨迹 by_hand_split；额外审计只复算中心 | 固定 best 生成五模型完整左右表与分母；无需另训左右两套模型，中心审计不能代替轨迹 |
 | Table 10，D.2 p.23 | S/M/L 中心帧 EMG 参照，为轨迹模型的派生评价 | **S/M/L中心结果已核验（legacy）**，E1/E2/E3及L独立结果 | 固定来源 checkpoint、TDS 中心对齐和同视觉 population、逐用户/样本计数；原文关于 L 最优条件的文字与显示数值不符，不作为验收约束 |
 | Table 11，D.3 pp.23–24 | 作者 EMG2Pose S/M/L 实测；† 基线是第三方原论文引用 | **作者三行未完整运行**；普通源S/M/L原batch320 fit/FP32两模式与报告已工程核验，仍没有全源250轮成绩 | 完整数据及 User/Stage/User+Stage 协议、20 维、16 通道、三训练及独立 val/test；引用 SensingDynamics/NeuroPose/vemg2pose/CLDM 的 † 数值应明确来源，不能声称本项目重训 |

@@ -1,5 +1,7 @@
 # 运行状态
 
+2026-10-29新增分析：[Table8七种视觉模型的配置与参数对账](../results/dataset-statistics/vision-table8.md)已生成JSON/CSV和2,490张量的无权重形状清单，可用标准库复算。ResNet三个完成best的SHA/九属性与原报告一致，实际AdamW矩的形状/元素数和初始1e-4学习率另行核对；ViT/WiLoR从已保存原生构造身份计数。明确记录RN50/152总参数与原表差异、WiLoR实际1280维及52,499冻结参数、ViT-B/L实际360批量；没有更改在跑配置或新增训练成绩，科学完整设置仍11。
+
 最新运行核验（北京时间2026-10-29 13:54）：用户没有额外持久存储，当前优先其他实验。EMG2Pose-S已完成18轮；M/L首轮日志分别到step3200/3320（每轮7808批次），DINO-L108轮、融合32轮，原训练继续。[实际训练快照](../results/active-training-user-priority-20261029.json)按观测时间分别记录，无最终测试成绩。WiLoR保留原六轮检查点，完整续训未启动；[新增CPU恢复实证](../results/wilor-explicit-recovery-cpu-engineering-20261029.json)仅合成工程两轮4次更新，后续评估及整体审查仍欠。已完成科学设置仍11，全论文仍进行中。
 
 最新运行核验（北京时间2026-10-29 12:38）：[WiLoR显式恢复父状态准入](wilor-recovery.md)通过，选择真实第6轮/67344更新，四份top3/last原始包经过生产校验，59.818秒/0模型/0更新/无CUDA，115冻结成员与原九项属性不变；真正续训、恢复后评估和整体审查仍待完成。原EMGFormer75c45流程在2144秒资源等待后准入GPU3，但其他用户随后启动新消费者，保护机制于04:35:27 UTC结束本次qual-prefix，原任务已终止、没有资格或200轮结果；[失败证据](../results/native-emgformer-first-resource-admission-abort-20261029.json)保留，未终止外部消费者。后续尝试需要新的资源准入。EMG2Pose-M/L在04:35:25 UTC仍为真实GPU fit、尚无首个完整验证轮。完整科学设置仍11，全论文仍进行中。
