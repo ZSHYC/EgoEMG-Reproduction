@@ -49,4 +49,6 @@
 ## Task 3: one final review/publication
 
 - [x] One fresh reviewer of this new unit; one material fix pass with observed RED→GREEN/full new suite, no re-review. If production source changes, fresh current-source proof required; keep historical evidence.
-- [ ] Publish source/proof/docs on own branch, independently verify remote ref, update full-goal recovery ledger. No full-paper completion claim.
+- [x] Publish source/proof/docs on own branch, independently verify remote ref, update full-goal recovery ledger. No full-paper completion claim.
+
+Final evidence: one review (0 Critical / 3 Important / 0 Minor), seven observed regressions RED→GREEN; complete66 checks309.27s on canonical CPU. Fixed source61a7170 has a separate126.878s seven-phase proof, all16 owners closed/0optimizerconstruction/0updates, original fit/input unchanged. Source/proof and NeuroPose results pushed and independent GitHub API verified at34629a15792839ebf269b690d84ffbb6ed92bab5; no re-review, no fullGPU/scientific claim.
