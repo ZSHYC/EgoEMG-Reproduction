@@ -1,0 +1,148 @@
+{
+  "automatic_retry": false,
+  "format": "actual_emg2pose_ml_explicit_fresh_full_attempts_v1",
+  "full_paper_complete": false,
+  "full_training_complete": false,
+  "jobs": {
+    "large": {
+      "actual_full_gpu_fit_verified": false,
+      "actual_initial_gpu_free_bytes": 75878105088,
+      "execution_directory": "egoemg-large-fresh-full-a3f81486fda9-20261029",
+      "experiment_output_exists": false,
+      "fresh_attempt_not_resume": true,
+      "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+      "io_counts_are_process_counters_not_completed_source_validation_bytes": true,
+      "new_complete_epochs": 0,
+      "observed_phase": "native_full_source_admission",
+      "old_complete_checkpoint_count": 0,
+      "old_complete_epochs": 0,
+      "owners": {
+        "guardian": {
+          "identity": {
+            "pgrp": 4072287,
+            "pid": 4072287,
+            "sid": 4072287,
+            "start_ticks": "408975657",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true
+        },
+        "recorder": {
+          "identity": {
+            "pid": 4072263,
+            "start_ticks": "408975613"
+          },
+          "matching_live": true
+        },
+        "source_worker": {
+          "identity": {
+            "pgrp": 4072290,
+            "pid": 4072290,
+            "sid": 4072290,
+            "start_ticks": "408975661",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true
+        },
+        "supervisor": {
+          "identity": {
+            "pid": 4072264,
+            "start_ticks": "408975616"
+          },
+          "matching_live": true
+        }
+      },
+      "retained_original_hdf5_open": true,
+      "source_worker_io": {
+        "cancelled_write_bytes": 0,
+        "rchar": 7311354991,
+        "read_bytes": 1844449280,
+        "syscr": 2681,
+        "syscw": 2,
+        "wchar": 97,
+        "write_bytes": 0
+      }
+    },
+    "middle": {
+      "actual_full_gpu_fit_verified": false,
+      "actual_initial_gpu_free_bytes": 74997301248,
+      "execution_directory": "egoemg-middle-fresh-full-a3f81486fda9-20261029",
+      "experiment_output_exists": false,
+      "fresh_attempt_not_resume": true,
+      "gpu_uuid": "GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a",
+      "io_counts_are_process_counters_not_completed_source_validation_bytes": true,
+      "new_complete_epochs": 0,
+      "observed_phase": "native_full_source_admission",
+      "old_complete_checkpoint_count": 0,
+      "old_complete_epochs": 0,
+      "owners": {
+        "guardian": {
+          "identity": {
+            "pgrp": 4072283,
+            "pid": 4072283,
+            "sid": 4072283,
+            "start_ticks": "408975651",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true
+        },
+        "recorder": {
+          "identity": {
+            "pid": 4072259,
+            "start_ticks": "408975608"
+          },
+          "matching_live": true
+        },
+        "source_worker": {
+          "identity": {
+            "pgrp": 4072286,
+            "pid": 4072286,
+            "sid": 4072286,
+            "start_ticks": "408975654",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true
+        },
+        "supervisor": {
+          "identity": {
+            "pid": 4072262,
+            "start_ticks": "408975611"
+          },
+          "matching_live": true
+        }
+      },
+      "retained_original_hdf5_open": true,
+      "source_worker_io": {
+        "cancelled_write_bytes": 0,
+        "rchar": 7311355005,
+        "read_bytes": 2278846464,
+        "syscr": 2681,
+        "syscw": 2,
+        "wchar": 97,
+        "write_bytes": 0
+      }
+    }
+  },
+  "observed_utc": "2026-10-29T08:29:02.186183+00:00",
+  "old_failed_states_retained": true,
+  "reason": "Prior disk-stop attempts had zero complete epochs and no raw complete checkpoint. These are explicitly new full attempts, not continuation.",
+  "recipe": {
+    "batch_size": 320,
+    "deadline_seconds": null,
+    "evaluation_modes": [
+      "official_literal",
+      "metadata_indices"
+    ],
+    "max_epochs": 250,
+    "precision": "bf16-mixed",
+    "scope": "full",
+    "workers": 12
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "training_source_and_qualification_reused_unchanged": true
+}

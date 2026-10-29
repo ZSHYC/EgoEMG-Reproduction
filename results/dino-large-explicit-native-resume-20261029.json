@@ -1,0 +1,131 @@
+{
+  "actual_resume": {
+    "committed_epoch_count": 108,
+    "controller": {
+      "pid": 4062826,
+      "start_ticks": "408895050",
+      "uid": 1005
+    },
+    "controller_matching_live": true,
+    "cuda_worker_observed_by_nvml": true,
+    "epoch_zero_based": 108,
+    "gpu_uuid": "GPU-6b41c390-53fc-6ccc-ea07-0648926ae5cb",
+    "last_logged_step_label": 60731,
+    "native_restore_gate": "unchanged source compares model/optimizer/scheduler/callbacks/loops/RNG and raises on mismatch before train updates; observed later train-step labels are runtime evidence that gate was passed",
+    "serialized_final_resume_start_exact_receipt_available": false,
+    "train_metric_rows": 36,
+    "worker": {
+      "pid": 4062857,
+      "start_ticks": "408895430",
+      "uid": 1005
+    },
+    "worker_matching_live": true
+  },
+  "capacity_qualification_repeated": false,
+  "execution_directory": "egoemg-dino-large-explicit-resume-0ee08f3b41eb-20261029",
+  "final_test_performed": false,
+  "format": "actual_dino_large_explicit_native_resume_v1",
+  "full_paper_complete": false,
+  "full_training_complete": false,
+  "input_domain_admission": {
+    "actual_parent_complete_epochs": 108,
+    "actual_parent_global_step": 60696,
+    "actual_restore_yet_observed": false,
+    "adam_parameter_states": 346,
+    "all_adam_step_counters_match": true,
+    "cuda_initialized": false,
+    "full_paper_complete": false,
+    "model_matches_epoch_journal": true,
+    "native_parameter_groups": [
+      {
+        "name": "head",
+        "parameter_tensors": 4
+      },
+      {
+        "name": "backbone",
+        "parameter_tensors": 342
+      }
+    ],
+    "observed_utc": "2026-10-29T08:13:11.789110+00:00",
+    "scientific_eligible": false,
+    "six_input_domain_sha256": {
+      "callbacks": "057f8c60dc0be54a839b6a319e15e5b37a34c3a8d2b86f3a5887b9d9ef993bce",
+      "loops": "2cc8e335366584655bc15652973b652417ef09cae279fd976c6b7cf807f67f94",
+      "model": "20f9699f5690f9e96f7acd2f0697b7d7f45ea89222fef1b4fab16d2bfb93641e",
+      "optimizer": "54fa3c918ca33b8dfa207731f550a34ceea032bcf1d7d8dda099d2becc18abc1",
+      "rng": "49caf04877f546024a966f28c77a2926cdc44e02a68a42143d8759176d8749f4",
+      "scheduler": "2214290c452a34ea1d824158a88e9fc34515064ddd79a4e160c56b6d45dc13a4"
+    },
+    "training_updates_in_this_admission": 0,
+    "witness_callback_matches_epoch_journal": true
+  },
+  "limitations": [
+    "Native resume may advance global loader RNG differently from uninterrupted training; no bitwise uninterrupted-trajectory claim.",
+    "Logged step labels are live CSV observations, not a newly committed complete epoch or final test score.",
+    "Other four original failed runs were not silently restarted.",
+    "The private admission probe incorrect one-parameter-group assumption was corrected against actual two-group checkpoint and frozen native optimizer validator; no training code changed."
+  ],
+  "observed_utc": "2026-10-29T08:20:08.877913+00:00",
+  "original_failed_state_retained": true,
+  "parent": {
+    "checkpoint_bytes": 3646735068,
+    "checkpoint_sha256": "0906a8852e7ba3218a583d6171336e57e4c84f2288564f9822d65b96dcbafe91",
+    "complete_epochs": 108,
+    "early_wait_count": 6,
+    "identity_sha256": "8bdf2d2e7b1be8e3eb85d3a17fcbceb541be30fd7c536f20e281ebda39084e3c",
+    "optimizer_executions": 60696,
+    "selected_best_score": 0.09762855619192123,
+    "uncommitted_journal_tail_bytes": 0
+  },
+  "preserved_parent_checkpoints": [
+    {
+      "bytes": 3646735068,
+      "file": "last.ckpt",
+      "mechanism": "XFS reflink; source payload unchanged",
+      "original_nine_attributes_unchanged": true,
+      "sha256": "0906a8852e7ba3218a583d6171336e57e4c84f2288564f9822d65b96dcbafe91"
+    },
+    {
+      "bytes": 3646722204,
+      "file": "vit-small-epoch=078-val_mae=0.0977.ckpt",
+      "mechanism": "XFS reflink; source payload unchanged",
+      "original_nine_attributes_unchanged": true,
+      "sha256": "5b1ad219798c5a052e38b8366e0e0083039f94aeaf2045893d56a68969934513"
+    },
+    {
+      "bytes": 3646729308,
+      "file": "vit-small-epoch=094-val_mae=0.0978.ckpt",
+      "mechanism": "XFS reflink; source payload unchanged",
+      "original_nine_attributes_unchanged": true,
+      "sha256": "a2ad3dcbda040250e80a4685ac6916a3dadd5c948b3884b1d16bde1f77ac5170"
+    },
+    {
+      "bytes": 3646732380,
+      "file": "vit-small-epoch=101-val_mae=0.0976.ckpt",
+      "mechanism": "XFS reflink; source payload unchanged",
+      "original_nine_attributes_unchanged": true,
+      "sha256": "7969b255c30ed1ea0dea2c7ec2bfcc5e3b981e75bfc29e10c4e0d524cad2c7df"
+    }
+  ],
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "scientific_settings_complete": 11,
+  "status": "actual_resumed_native_gpu_training",
+  "unchanged_recipe": {
+    "activation_checkpointing": true,
+    "batch_size_by_role": {
+      "test": 360,
+      "train": 360,
+      "val": 360
+    },
+    "early_stop_wait_count_preserved": 6,
+    "max_epochs": 150,
+    "parameter_groups": [
+      "head",
+      "backbone"
+    ],
+    "patience": 30,
+    "precision": "bf16-mixed",
+    "use_reentrant": false
+  }
+}
