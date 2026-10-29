@@ -23,7 +23,7 @@ from .classic_emg import _file_hash,_hash
 from .classic_emg_cohort import _safe,_StatGuard
 from .emgformer_literal import compose_emgformer,emgformer_protocol,emgformer_normalization
 from .emgformer_cohort import admit_emgformer_cohort,native_emgformer_loaders,FULL_COUNTS
-from .emgformer_runtime import build_emgformer_runtime,emgformer_optimizer_identity,emgformer_state_sha256
+from .emgformer_runtime import build_emgformer_runtime,emgformer_optimizer_identity,emgformer_state_sha256,EXECUTION_DEFAULTS
 from .vision_literal_runtime import _schema
 from .vision_literal_check import _native_restored_callbacks
 from .vision_literal_train import (_json,_write,_sealed,_check_seal,_read_epochs,_epoch_bytes,_native_callback,
@@ -36,7 +36,8 @@ SCOPES=('full','cpu_engineering','cuda_engineering')
 LOCAL_SOURCES=('egoemg_repro/emgformer_train.py','egoemg_repro/emgformer_runtime.py',
     'egoemg_repro/emgformer_cohort.py','egoemg_repro/emgformer_literal.py',
     'egoemg_repro/emgformer_data.py','egoemg_repro/classic_emg_train.py',
-    'egoemg_repro/vision_literal_runtime.py','egoemg_repro/vision_literal_train.py','egoemg_repro/vision_literal_check.py')
+    'egoemg_repro/vision_literal_runtime.py','egoemg_repro/vision_literal_train.py','egoemg_repro/vision_literal_check.py',
+    'egoemg_repro/wilor_native_train.py')
 
 
 def _sources():
@@ -56,6 +57,7 @@ def emgformer_fit_policy(upstream,config,*,scope='full'):
         batch_size_by_role={r:2 if cpu else 500 for r in ('train','val')},workers=0 if cpu else 6,
         prefetch_factor=None if cpu else 1,persistent_workers=not cpu,pin_memory=False,
         gradient_clip_val=protocol['trainer']['gradient_clip_val'],scheduler_T_max=200,scheduler_eta_min=1e-5,
+        native_optimizer=protocol['optimizer'],
         monitor=checkpoint['monitor'],monitor_mode=checkpoint['mode'],save_top_k=checkpoint['save_top_k'],save_last=checkpoint['save_last'],
         early_stopping=dict(monitor=native.monitor,mode=native.mode,patience=native.patience,state_key=native.state_key,
             check_on_train_epoch_end=native._check_on_train_epoch_end),native_callback_declarations=protocol['callbacks'],
@@ -112,6 +114,77 @@ def _checkpoint_snap(c):
     d=storage.state_digest
     return dict(model=d(c['state_dict']),optimizer=d(c['optimizer_states']),scheduler=d(c['lr_schedulers']),
         callbacks=d(_native_restored_callbacks(c['callbacks'])),loops=d(c['loops']['fit_loop']),rng=d(c['emgformer_fit']['rng']))
+
+
+def _validate_checkpoint(checkpoint,identity,records):
+    """Read all native saved state, without constructing a model or optimizer.
+
+    The six-domain snapshot protects actual moment/RNG bytes during stale-result
+    recovery; semantic checks also reconcile raw state with the epoch journal.
+    Reuse the pinned Lightning save-boundary/RNG validators, not WiLoR policy.
+    """
+    import torch
+    from omegaconf import OmegaConf
+    from .wilor_native_train import _validate_loops,_validate_rng
+    try:
+        c=checkpoint;p=c['emgformer_fit'];policy=identity['policy'];epochs=len(records)
+        batches=math.ceil(identity['train_samples']/policy['batch_size_by_role']['train']);steps=epochs*batches
+        if (p['format']!=FORMAT or p['identity']!=identity or p['epoch_boundary']is not True or p['records']!=records or
+            type(p['completed_epochs'])is not int or p['completed_epochs']!=epochs or not 1<=epochs<=policy['max_epochs']or
+            type(c['epoch'])is not int or c['epoch']!=epochs-1 or type(c['global_step'])is not int or c['global_step']!=steps or
+            c['pytorch-lightning_version']!=storage.pl.__version__ or
+            any(k in c for k in ('MixedPrecision','native_amp_scaling_state','amp_scaling_state'))):
+            raise ValueError('complete original EMGFormer epoch/native precision state required')
+        if (type(c['optimizer_states'])is not list or len(c['optimizer_states'])!=1 or
+            type(c['lr_schedulers'])is not list or len(c['lr_schedulers'])!=1):
+            raise ValueError('one complete native EMGFormer optimizer and scheduler required')
+        _validate_rng(p['rng'],cpu=policy['scope']=='cpu_engineering')
+        _validate_loops(c['loops'],epochs=epochs,steps=steps,batches=batches,
+            val_batches=math.ceil(identity['cohort']['counts']['val']/policy['batch_size_by_role']['val']))
+        witness=c['callbacks']['EmgformerFitWitness']
+        if storage.state_digest(witness)!=storage.state_digest(dict(steps=steps,completed_epochs=epochs,records=records)):
+            raise ValueError('native EMGFormer witness/journal state differs')
+        values=[r['validation']['val_mae']for r in records];best=min(values)
+        early=c['callbacks'][policy['early_stopping']['state_key']]
+        if (set(early)!={'wait_count','stopped_epoch','best_score','patience'}or early['patience']!=200 or
+            type(early['wait_count'])is not int or early['wait_count']!=epochs-1-values.index(best) or
+            type(early['stopped_epoch'])is not int or early['stopped_epoch']!=0 or
+            not torch.is_tensor(early['best_score'])or early['best_score'].shape!=torch.Size([])or
+            early['best_score'].dtype!=torch.float32 or float(early['best_score'])!=best):
+            raise ValueError('native EMGFormer early stopping history differs')
+        construction=identity['construction'];names=construction['parameter_names'];state=c['state_dict']
+        if _schema(state)!=construction['model_schema']or emgformer_state_sha256(state)!=records[-1]['model_sha256']:
+            raise ValueError('complete native EMGFormer model state differs')
+        recipe=policy['native_optimizer'];saved=c['hyper_parameters']['optimizer_conf']
+        if OmegaConf.is_config(saved):saved=OmegaConf.to_container(saved,resolve=True)
+        if saved!=recipe:raise ValueError('saved native EMGFormer optimizer declaration differs')
+        optimizer=c['optimizer_states'][0];scheduler=c['lr_schedulers'][0];initial=recipe['lr'];eta=policy['scheduler_eta_min']
+        expected_lr=eta+(initial-eta)*(1+math.cos(math.pi*epochs/policy['scheduler_T_max']))/2
+        if set(optimizer)!={'state','param_groups'}or len(optimizer['param_groups'])!=1:
+            raise ValueError('one native EMGFormer parameter group required')
+        group=optimizer['param_groups'][0];lr=group['lr']
+        expected_group=dict(lr=lr,initial_lr=initial,params=list(range(len(names))),betas=recipe['betas'],eps=recipe['eps'],
+            weight_decay=recipe['weight_decay'],amsgrad=recipe['amsgrad'],**EXECUTION_DEFAULTS)
+        if (_hash(dict(group,betas=list(group['betas'])))!=_hash(expected_group)or type(lr)is not float or
+            not math.isclose(lr,expected_lr,rel_tol=1e-10,abs_tol=1e-14)):
+            raise ValueError('native EMGFormer AdamW order/options/cosine rate differs')
+        states=optimizer['state']
+        if set(states)!=set(range(len(names)))or any(type(k)is not int for k in states):
+            raise ValueError('complete native EMGFormer AdamW parameter coverage required')
+        for index,name in enumerate(names):
+            moment=states[index];step=moment['step'];shape=state[name].shape;dtype=state[name].dtype
+            if (set(moment)!={'step','exp_avg','exp_avg_sq'}or not torch.is_tensor(step)or step.shape!=torch.Size([])or
+                step.dtype!=torch.float32 or float(step)!=steps or dtype!=torch.float32 or
+                any(not torch.is_tensor(moment[k])or moment[k].shape!=shape or moment[k].dtype!=dtype or
+                    not bool(torch.isfinite(moment[k]).all())for k in ('exp_avg','exp_avg_sq'))or
+                not bool((moment['exp_avg_sq']>=0).all())):
+                raise ValueError('native EMGFormer AdamW moment tensors/steps differ')
+        expected_scheduler=dict(T_max=policy['scheduler_T_max'],eta_min=eta,base_lrs=[initial],last_epoch=epochs,
+            verbose=False,_step_count=epochs+1,_get_lr_called_within_step=False,_last_lr=[lr])
+        if _hash(scheduler)!=_hash(expected_scheduler):raise ValueError('native EMGFormer cosine progress differs')
+        if p['native_state_sha256']!=_checkpoint_snap(c):raise ValueError('saved native EMGFormer six-domain state bytes changed')
+    except (KeyError,TypeError,IndexError,AttributeError,RuntimeError,OverflowError)as exc:
+        raise ValueError('incomplete or malformed native EMGFormer checkpoint')from exc
 
 
 def _batch(cohort,policy,batch,role,seen,allowed):
@@ -267,6 +340,7 @@ class EmgformerFitWitness(ValidationWitness):
     def on_save_checkpoint(self,trainer,module,checkpoint):
         self.check();checkpoint['emgformer_fit']=dict(format=FORMAT,identity=self.identity,epoch_boundary=self.validation is not None,
             completed_epochs=self.completed_epochs,records=copy.deepcopy(self.records),rng=storage._rng({}))
+        checkpoint['emgformer_fit']['native_state_sha256']=_checkpoint_snap(checkpoint)
 
     def on_fit_end(self,trainer,module):module.forward=self.original_forward;self.step_hook.remove()
 
@@ -303,6 +377,7 @@ def _validate_fit(output,identity,result,*,require_full):
     if _file_hash(last_path)!=result['last_checkpoint_sha256']:raise ValueError('EMGFormer last checkpoint bytes changed')
     last=torch.load(str(last_path),map_location='cpu',weights_only=False);packet=last['emgformer_fit']
     records,_=_read_epochs(output/'epochs.jsonl',identity['sha256']);samples=identity['train_samples']
+    _validate_checkpoint(last,identity,records)
     ids=identity['train_indices'];anchors=identity['cohort']['counts']['train']//2
     expected_hands=dict(left=anchors,right=anchors)if ids is None else _hands(ids,anchors)
     batches=math.ceil(samples/policy['batch_size_by_role']['train']);steps=batches*len(records)
@@ -328,6 +403,7 @@ def _validate_fit(output,identity,result,*,require_full):
         result['selected_best']!=dict(file=best.name,score=score,checkpoint_sha256=_file_hash(best),validated=True) or
         score!=min(r['validation']['val_mae'] for r in records)):raise ValueError('EMGFormer selected checkpoint differs from actual val best')
     selected=torch.load(str(best),map_location='cpu',weights_only=False);p=selected['emgformer_fit'];epoch=p['completed_epochs']-1
+    _validate_checkpoint(selected,identity,records[:epoch+1])
     if (p['identity']!=identity or p['epoch_boundary'] is not True or not 0<=epoch<len(records) or
         p['records']!=records[:epoch+1] or records[epoch]['validation']['val_mae']!=score or
         selected['global_step']!=records[epoch]['global_step'] or _schema(selected['state_dict'])!=identity['construction']['model_schema'] or
@@ -365,6 +441,7 @@ def _historical_result(output,identity):
 def _completed_checkpoint_result(output,identity,checkpoint,device,validation_exact,recovery_started):
     import torch
     packet=checkpoint['emgformer_fit'];records=packet['records'];policy=identity['policy']
+    _validate_checkpoint(checkpoint,identity,records)
     if len(records)!=policy['max_epochs'] or not emgformer_stage_complete(policy,records):
         raise ValueError('saved EMGFormer budget is not complete')
     native=_native_callback(checkpoint,'ModelCheckpoint{');best=Path(native['best_model_path'])
@@ -406,6 +483,7 @@ def fit_emgformer(cohort,output,*,scope='full',resume=False,stop_after_epoch=Non
                 identity['native_loop_sources_sha256']!=_loop_sources() or identity['cohort_receipt']!=binding):raise ValueError('EMGFormer resume source/config/cohort differs')
             _historical_result(output,identity)
             checkpoint=torch.load(str(output/'checkpoints/last.ckpt'),map_location='cpu',weights_only=False);p=checkpoint['emgformer_fit']
+            _validate_checkpoint(checkpoint,identity,p['records'])
             if p['identity']!=identity or p['epoch_boundary'] is not True:raise ValueError('owned complete EMGFormer epoch required')
             if (type(p['completed_epochs']) is not int or not 1<=p['completed_epochs']<=policy['max_epochs'] or
                 len(p['records'])!=p['completed_epochs']):raise ValueError('saved EMGFormer epoch is outside owned budget')

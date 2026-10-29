@@ -47,5 +47,5 @@
 
 ## Task 3: one fresh review and publication
 
-- [ ] One fresh-context review of this component only; one material fix pass with observed RED→GREEN/relevant suite if needed, no re-review/unchanged model repetition.
+- [x] One fresh-context review of this component only; one material fix pass with observed RED→GREEN/relevant suite if needed, no re-review/unchanged model repetition.
 - [ ] Retain pre-fix immutable evidence; bound-source changes require fresh current-source integration proof. Commit/push/independent GitHub ref verification and update goal recovery ledger.

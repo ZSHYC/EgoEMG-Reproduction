@@ -144,3 +144,99 @@ def test_complete_checkpoint_recovers_stale_result_without_more_updates(native_r
         assert result['optimizer_executions']==4 and hashlib.sha256(checkpoint.read_bytes()).hexdigest()==before
         assert any(p.read_bytes()==prefix for p in out.glob('historical-fit-result-*.json'))
     finally:(out/'fit-result.json').write_bytes(old)
+
+
+def _raw_copy(native_runs,tmp_path):
+    """Private checkpoint copies; original fit evidence is never modified."""
+    import copy
+    import torch
+    from egoemg_repro.vision_literal_train import _epoch_bytes,_sealed
+    _,original,_,_,_=native_runs;out=tmp_path/'fit';(out/'checkpoints').mkdir(parents=True)
+    identity=json.loads((original/'identity.json').read_text());result=json.loads((original/'fit-result.json').read_text())
+    identity['fit_sources_sha256']=api()._sources()
+    identity['policy']=api().emgformer_fit_policy(UPSTREAM,cfg(),scope='cpu_engineering')
+    identity=_sealed({k:v for k,v in identity.items()if k!='sha256'})
+    def rebase(v):
+        if isinstance(v,str):return str(out)+v[len(str(original)):]if v.startswith(str(original))else v
+        if isinstance(v,dict):return {rebase(k):rebase(x)for k,x in v.items()}
+        if isinstance(v,list):return [rebase(x)for x in v]
+        return v
+    for name in {'last.ckpt',result['selected_best']['file']}:
+        c=torch.load(str(original/'checkpoints'/name),map_location='cpu',weights_only=False)
+        c['emgformer_fit']['identity']=copy.deepcopy(identity);c['callbacks']=rebase(c['callbacks'])
+        if 'native_state_sha256'in c['emgformer_fit']:c['emgformer_fit']['native_state_sha256']=api()._checkpoint_snap(c)
+        torch.save(c,str(out/'checkpoints'/name))
+        if name=='last.ckpt':last=c
+    (out/'identity.json').write_text(json.dumps(identity))
+    (out/'epochs.jsonl').write_bytes(_epoch_bytes(last['emgformer_fit']['records'],identity['sha256']))
+    result['identity_sha256']=identity['sha256'];_raw_result(out,result)
+    return out,identity,result
+
+
+def _raw_result(out,result):
+    from egoemg_repro.vision_literal_train import _sealed
+    result['last_checkpoint_sha256']=hashlib.sha256((out/'checkpoints/last.ckpt').read_bytes()).hexdigest()
+    result['selected_best']['checkpoint_sha256']=hashlib.sha256((out/'checkpoints'/result['selected_best']['file']).read_bytes()).hexdigest()
+    (out/'fit-result.json').write_text(json.dumps(_sealed({k:v for k,v in result.items()if k!='sha256'})))
+
+
+def test_raw_native_checkpoint_copy_accepts_real_save_boundary_without_models(native_runs,tmp_path,monkeypatch):
+    import torch,time
+    out,identity,_=_raw_copy(native_runs,tmp_path)
+    monkeypatch.setattr(api(),'build_emgformer_runtime',lambda *a,**kw:pytest.fail('raw acceptance must not construct a model'))
+    before=torch.get_rng_state().clone();c=torch.load(str(out/'checkpoints/last.ckpt'),map_location='cpu',weights_only=False)
+    assert c['loops']['fit_loop']['epoch_progress']['total']==dict(ready=2,completed=1,started=2,processed=2)
+    assert api().read_emgformer_fit(out,require_full=False)['stage_complete']
+    assert api()._completed_checkpoint_result(out,identity,c,dict(accelerator='cpu',cuda_initialized=False),True,time.monotonic())['stage_complete']
+    assert torch.equal(torch.get_rng_state(),before)and not torch.cuda.is_initialized()
+
+
+@pytest.mark.parametrize('which',['last','selected'])
+@pytest.mark.parametrize('damage',[
+    'missing_all','missing_optimizer','missing_scheduler','missing_loops','missing_moment','extra_moment',
+    'moment_shape','moment_dtype','moment_step','moment_negative','moment_nonfinite','finite_moment_corruption',
+    'parameter_order','optimizer_option','optimizer_lr','scheduler_horizon','scheduler_progress','scheduler_lr',
+    'epoch','loop_progress','loop_boundary','witness','rng_missing','rng_shape','rng_cuda','scaler','missing_snapshot'])
+def test_raw_native_states_reject_before_recovery_or_independent_acceptance(native_runs,tmp_path,monkeypatch,which,damage):
+    import torch,time
+    out,identity,result=_raw_copy(native_runs,tmp_path)
+    monkeypatch.setattr(api(),'build_emgformer_runtime',lambda *a,**kw:pytest.fail('corrupt raw state must fail before model construction'))
+    path=out/'checkpoints'/('last.ckpt'if which=='last'else result['selected_best']['file'])
+    c=torch.load(str(path),map_location='cpu',weights_only=False)
+    if damage=='missing_all':
+        for k in ('optimizer_states','lr_schedulers','loops'):c.pop(k)
+    elif damage.startswith('missing_')and damage!='missing_moment'and damage!='missing_snapshot':
+        c.pop({'missing_optimizer':'optimizer_states','missing_scheduler':'lr_schedulers','missing_loops':'loops'}[damage])
+    elif damage=='missing_moment':c['optimizer_states'][0]['state'].pop(0)
+    elif damage=='extra_moment':c['optimizer_states'][0]['state'][9999]=c['optimizer_states'][0]['state'][0]
+    elif damage=='moment_shape':c['optimizer_states'][0]['state'][0]['exp_avg']=torch.zeros(1)
+    elif damage=='moment_dtype':c['optimizer_states'][0]['state'][0]['exp_avg']=c['optimizer_states'][0]['state'][0]['exp_avg'].double()
+    elif damage=='moment_step':c['optimizer_states'][0]['state'][0]['step']-=1
+    elif damage=='moment_negative':c['optimizer_states'][0]['state'][0]['exp_avg_sq'].flatten()[0]=-1
+    elif damage=='moment_nonfinite':c['optimizer_states'][0]['state'][0]['exp_avg'].flatten()[0]=float('nan')
+    elif damage=='finite_moment_corruption':c['optimizer_states'][0]['state'][0]['exp_avg'].flatten()[0]+=.1
+    elif damage=='parameter_order':c['optimizer_states'][0]['param_groups'][0]['params'].reverse()
+    elif damage=='optimizer_option':c['optimizer_states'][0]['param_groups'][0]['maximize']=True
+    elif damage=='optimizer_lr':c['optimizer_states'][0]['param_groups'][0]['lr']*=2
+    elif damage=='scheduler_horizon':c['lr_schedulers'][0]['T_max']=2
+    elif damage=='scheduler_progress':c['lr_schedulers'][0]['_step_count']-=1
+    elif damage=='scheduler_lr':c['lr_schedulers'][0]['_last_lr'][0]*=2
+    elif damage=='epoch':c['epoch']+=1
+    elif damage=='loop_progress':c['loops']['fit_loop']['epoch_loop.batch_progress']['total']['processed']-=1
+    elif damage=='loop_boundary':c['loops']['fit_loop']['epoch_progress']['total']['completed']+=1
+    elif damage=='witness':c['callbacks']['EmgformerFitWitness']['steps']-=1
+    elif damage=='rng_missing':c['emgformer_fit']['rng'].pop('python')
+    elif damage=='rng_shape':c['emgformer_fit']['rng']['torch']=torch.zeros(3,dtype=torch.uint8)
+    elif damage=='rng_cuda':c['emgformer_fit']['rng']['cuda']=[torch.zeros(16,dtype=torch.uint8)]
+    elif damage=='scaler':c['MixedPrecision']={}
+    elif damage=='missing_snapshot':c['emgformer_fit'].pop('native_state_sha256',None)
+    # Re-seal semantic mutations to exercise raw structure validation too. The
+    # finite moment mutation intentionally retains its original content hash.
+    if damage not in ('finite_moment_corruption','missing_snapshot')and 'native_state_sha256'in c['emgformer_fit']:
+        try:c['emgformer_fit']['native_state_sha256']=api()._checkpoint_snap(c)
+        except KeyError:pass
+    torch.save(c,str(path));_raw_result(out,result);before=(out/'fit-result.json').read_bytes()
+    with pytest.raises(ValueError):api().read_emgformer_fit(out,require_full=False)
+    last=torch.load(str(out/'checkpoints/last.ckpt'),map_location='cpu',weights_only=False)
+    with pytest.raises(ValueError):api()._completed_checkpoint_result(out,identity,last,dict(accelerator='cpu',cuda_initialized=False),True,time.monotonic())
+    assert (out/'fit-result.json').read_bytes()==before and not torch.cuda.is_initialized()
