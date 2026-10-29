@@ -305,3 +305,316 @@ def _claim_recovery_output(output,*,full):
     output.mkdir(mode=0o700)
     _fsync_dir(output.parent)
     return output
+
+
+def _packet_snapshot(checkpoint):
+    from .classic_emg_train import state_digest as digest
+    from .vision_literal_check import _native_restored_callbacks
+    return dict(model=digest(checkpoint['state_dict']),optimizer=digest(checkpoint['optimizer_states']),
+        scheduler=digest(checkpoint['lr_schedulers']),callbacks=digest(_native_restored_callbacks(checkpoint['callbacks'])),
+        loops=digest(checkpoint['loops']['fit_loop']),rng=digest(checkpoint['native_wilor']['rng']))
+
+
+def _install_restore_gate(trainer,module,checkpoint,*,guard):
+    """Observe native restoration before PL2.5 constructs any train iterator."""
+    from . import classic_emg_train as storage
+    from .vision_literal_train import _snap
+    expected=_packet_snapshot(checkpoint);connector=trainer._checkpoint_connector
+    original=connector.restore_training_state
+    receipt=dict(calls=0,expected=expected,restored_before_iterator=False)
+    def restore():
+        if receipt['calls']!=0:raise ValueError('native restoration must run exactly once')
+        guard()
+        if trainer.fit_loop._combined_loader is not None or trainer.fit_loop._data_fetcher is not None:
+            raise ValueError('native restoration gate reached after iterator construction')
+        receipt['calls']+=1
+        result=original()
+        storage._restore_rng(checkpoint['native_wilor']['rng'],{})
+        actual=_snap(module,trainer);equal={k:actual[k]==v for k,v in expected.items()}
+        receipt.update(actual=actual,equal=equal)
+        if not all(equal.values()):raise ValueError('native checkpoint restoration domains differ')
+        guard();receipt['restored_before_iterator']=True
+        return result
+    connector.restore_training_state=restore
+    return receipt
+
+
+def _validate_restore_receipt(receipt,expected):
+    fields={'model','optimizer','scheduler','callbacks','loops','rng'}
+    if (type(receipt)is not dict or type(receipt.get('calls'))is not int or receipt['calls']!=1
+            or receipt.get('restored_before_iterator')is not True or type(expected)is not dict or set(expected)!=fields
+            or type(receipt.get('equal'))is not dict or set(receipt['equal'])!=fields
+            or any(value is not True for value in receipt['equal'].values())):
+        raise ValueError('complete typed native restoration receipt required')
+    for values in (expected,receipt.get('expected'),receipt.get('actual')):
+        if (type(values)is not dict or set(values)!=fields or any(type(v)is not str or re.fullmatch('[0-9a-f]{64}',v)is None for v in values.values())
+                or values!=expected):
+            raise ValueError('native restoration receipt differs from original parent state')
+
+
+RECOVERY_IDENTITY='explicit_native_wilor_continuation_identity_v1'
+RECOVERY_FIT='explicit_native_wilor_recovered_fit_v1'
+RECOVERY_PACKET='explicit_native_wilor_continuation_checkpoint_v1'
+
+
+def _copy_callback_files(callback_files,output,*,guard):
+    import errno
+    import fcntl
+    import shutil
+    from .classic_emg_train import _space,_fsync_dir
+    directory=_path(output)/'checkpoints';directory.mkdir(mode=0o700)
+    result={}
+    for name,entry in callback_files.items():
+        if type(name)is not str or Path(name).name!=name or not name.endswith('.ckpt'):
+            raise ValueError('invalid callback checkpoint filename')
+        guard();source=_path(entry['parent_path']);before=_stamp(source)
+        if type(entry.get('bytes'))is not int or before[2]!=entry['bytes']:
+            raise ValueError('callback checkpoint byte count differs')
+        _space(directory,budget=entry['bytes'])
+        destination=directory/name;cloned=True
+        with source.open('rb')as reader,destination.open('xb')as writer:
+            try:fcntl.ioctl(writer.fileno(),0x40049409,reader.fileno())
+            except OSError as error:
+                if error.errno not in (errno.EXDEV,errno.EOPNOTSUPP,errno.EINVAL,errno.ENOTTY,errno.ENOSYS):raise
+                cloned=False;shutil.copyfileobj(reader,writer,8*1024**2)
+            writer.flush();os.fsync(writer.fileno())
+        if _sha(destination)!=entry['sha256']or _stamp(source)!=before:
+            raise ValueError('callback checkpoint copy/source bytes differ')
+        guard();result[name]=dict(sha256=entry['sha256'],bytes=entry['bytes'],reflink=cloned)
+    _fsync_dir(directory);return result
+
+
+def _write(path,value):
+    with Path(path).open('x')as stream:
+        json.dump(value,stream,sort_keys=True,indent=2,allow_nan=False);stream.write('\n');stream.flush();os.fsync(stream.fileno())
+
+
+def _frozen_validation(prepared,loader,expected):
+    import torch
+    from contextlib import nullcontext
+    from . import classic_emg_train as storage,wilor_native_train as native
+    from .vision_literal_runtime import vision_state_sha256
+    module=prepared.runtime.module;device=next(module.parameters()).device
+    before=storage._rng({});was_training=module.training;state=vision_state_sha256(module.state_dict());parts=[];samples=0
+    def move(value):
+        if torch.is_tensor(value):return value.to(device)
+        if isinstance(value,dict):return {k:move(v)for k,v in value.items()}
+        if isinstance(value,(list,tuple)):return type(value)(move(v)for v in value)
+        return value
+    module.eval()
+    try:
+        with torch.inference_mode():
+            for batch in loader:
+                prepared.check();batch=move(batch)
+                context=torch.autocast('cuda',dtype=torch.bfloat16)if device.type=='cuda'else nullcontext()
+                with context:out=module(batch)
+                digest,observed=native._prediction_part(batch,out,module);parts.append(digest);samples+=len(batch['vision_img'])
+                if observed!=str(device):raise ValueError('frozen native validation device differs')
+    finally:module.train(was_training);storage._restore_rng(before,{})
+    actual=native._hash(parts)
+    if samples!=expected['samples']or actual!=expected['prediction_sha256']or vision_state_sha256(module.state_dict())!=state:
+        raise ValueError('frozen validation differs from the actual parent checkpoint')
+    return dict(samples=samples,prediction_sha256=actual,parent_prediction_exact=True,model_state_unchanged=True)
+
+
+def _bootstrap_io(admitted,bootstrap):
+    from pytorch_lightning.plugins.io import TorchCheckpointIO
+    class NativeBootstrapIO(TorchCheckpointIO):
+        def load_checkpoint(self,path,map_location=None):
+            admitted.check()
+            if _path(path)!=admitted.checkpoint_path:
+                raise ValueError('native bootstrap path differs from admitted parent')
+            return dict(bootstrap)
+    return NativeBootstrapIO()
+
+
+def resume_wilor(admitted,output):
+    if type(admitted)is not AdmittedWilorRecovery or admitted not in _ADMITTED:
+        raise ValueError('producer-admitted native WiLoR recovery required')
+    admitted.check()
+    from . import wilor_native_train as native,classic_emg_train as storage
+    from .wilor_literal_runtime import admit_wilor_assets,build_wilor_runtime
+    from .classic_emg_cohort import _StatGuard
+    from .vision_literal_train import _epoch_bytes,_read_epochs
+    from omegaconf import OmegaConf
+    import time
+    import torch
+    identity=admitted.identity;policy=identity['policy'];scope=policy['scope'];full=scope=='full'
+    output=_claim_recovery_output(output,full=full)
+    native._validate_checkpoint(admitted.checkpoint,identity,admitted.records)
+    cfg=OmegaConf.create(identity['saved_config']);locations=identity['locations']
+    device=native._runtime_device(policy);native._validated(locations['upstream'],cfg)
+    if device.get('visible_device')!=identity['runtime_device'].get('visible_device'):
+        raise ValueError('explicit recovery must retain its admitted CUDA UUID')
+    cohort=native.admit_wilor_cohort(locations['data'],locations['crops'],upstream=locations['upstream'],config=cfg,
+        expected=identity['cohort'],require_full=scope!='cpu_engineering')
+    qualified=native._raw_qualification(locations['qualification'])if full else None
+    if qualified!=identity['qualification']:raise ValueError('parent native CUDA qualification changed')
+    assets=admit_wilor_assets(locations['assets_runtime'],restore=True)
+    copies=_copy_callback_files(admitted.callback_files,output,guard=admitted.check)
+    # Preserve the original identity and exact journal prefix; the continuation
+    # receives its own format rather than relabeling the historical fit.
+    with(output/'identity.json').open('xb')as stream:stream.write((admitted.parent/'identity.json').read_bytes())
+    prefix=_epoch_bytes(admitted.records,identity['sha256'])
+    if not(admitted.parent/'epochs.jsonl').read_bytes().startswith(prefix):raise ValueError('parent journal prefix changed')
+    with(output/'epochs.jsonl').open('xb')as stream:stream.write(prefix);stream.flush();os.fsync(stream.fileno())
+    continuation=_seal(dict(format=RECOVERY_IDENTITY,historical_identity_sha256=identity['sha256'],
+        parent_admission=copy.deepcopy(admitted.manifest),parent_file_stamps={p:_stamp(p)for p in admitted.manifest['parent_files_sha256']},
+        prefix_epochs=len(admitted.records),prefix_optimizer_executions=admitted.records[-1]['optimizer_executions'],
+        callback_copies=copies,recovery_source_path=str(Path(__file__).resolve()),recovery_source_sha256=_sha(__file__),
+        new_process=native._process(),started_ns=time.time_ns(),actual_runtime_device=device,
+        actual_current_input_admission_complete=True,uninterrupted_execution=False,scientific_eligible=False,full_paper_complete=False))
+    _write(output/'recovery-identity.json',continuation)
+    runtime=build_wilor_runtime(cohort.upstream,cfg,assets=assets,state=admitted.checkpoint['state_dict'],expected_initialization=identity['construction'])
+    if qualified is not None:native._qualification_binding(qualified,cohort,runtime.identity)
+    guard=native._guard_merge(admitted.guard,cohort.guard,assets._guard,runtime._source_guard,
+        _StatGuard([output/'identity.json',output/'recovery-identity.json',Path(__file__)]))
+    prepared=native.PreparedWilorFit(identity,cohort,runtime,guard,identity['sha256']);native._FITS.add(prepared);prepared.check()
+    loaders=native.native_wilor_loaders(cohort,scope=scope)
+    runtime.module.to(torch.device('cuda',0)if full or scope=='cuda_engineering'else torch.device('cpu'))
+    frozen=_frozen_validation(prepared,loaders['val'],admitted.records[-1]['validation'])
+    bootstrap=_relocate_checkpoint(admitted.checkpoint,admitted.parent,output,admitted.callback_files,admitted.records)
+    restore_receipt={}
+    Base=native._observer_type()
+    class RecoveryObserver(Base):
+        def on_save_checkpoint(self,trainer,module,checkpoint):
+            super().on_save_checkpoint(trainer,module,checkpoint)
+            if restore_receipt.get('restored_before_iterator')is not True:
+                raise ValueError('recovery checkpoint has no verified native restore boundary')
+            checkpoint['explicit_wilor_recovery']=dict(format=RECOVERY_PACKET,continuation_identity_sha256=continuation['sha256'],
+                prefix_epochs=len(admitted.records),prefix_optimizer_executions=continuation['prefix_optimizer_executions'],
+                native_restore=copy.deepcopy(restore_receipt),frozen_validation=copy.deepcopy(frozen))
+    witness=RecoveryObserver(prepared,output);witness.records=copy.deepcopy(admitted.records);witness.steps=continuation['prefix_optimizer_executions']
+    from egoemg._train_utils import build_callbacks,build_logger
+    from pytorch_lightning.callbacks import ModelCheckpoint
+    callbacks=build_callbacks(cfg)+[witness]
+    for callback in callbacks:
+        if isinstance(callback,ModelCheckpoint):callback.dirpath=str(output/'checkpoints')
+    effective=copy.deepcopy(cfg);effective.logger.save_dir=str(output);effective.logger.name='logs';effective.logger.version='native-wilor-recovery'
+    kwargs=OmegaConf.to_container(cfg.trainer,resolve=True)
+    kwargs.update(accelerator=device['accelerator'],devices=1,precision=policy['precision'],max_epochs=policy['max_epochs'],
+        num_sanity_val_steps=policy['num_sanity_val_steps'],enable_progress_bar=False,callbacks=callbacks,
+        logger=build_logger(effective),plugins=[_bootstrap_io(admitted,bootstrap)])
+    trainer=storage.pl.Trainer(**kwargs)
+    receipt=_install_restore_gate(trainer,runtime.module,bootstrap,guard=prepared.check)
+    restore_receipt=receipt
+    started=time.monotonic()
+    try:trainer.fit(runtime.module,train_dataloaders=loaders['train'],val_dataloaders=loaders['val'],ckpt_path=str(admitted.checkpoint_path))
+    finally:witness.restore(runtime.module)
+    prepared.check();admitted.check()
+    if not native.wilor_stage_complete(policy,witness.records,train_samples=identity['counts']['train'],val_samples=identity['counts']['val'],interrupted=bool(trainer.interrupted)):
+        raise ValueError('recovered native WiLoR did not complete its original budget')
+    last_path=output/'checkpoints/last.ckpt';last=torch.load(str(last_path),map_location='cpu',weights_only=False,mmap=True)
+    records,_=_read_epochs(output/'epochs.jsonl',identity['sha256']);native._validate_checkpoint(last,identity,records)
+    result=_seal(dict(format=RECOVERY_FIT,identity_sha256=identity['sha256'],continuation_identity_sha256=continuation['sha256'],scope=scope,
+        completed_epochs=len(records),optimizer_executions=witness.steps,prefix_epochs=len(admitted.records),
+        prefix_optimizer_executions=continuation['prefix_optimizer_executions'],segment_optimizer_executions=witness.steps-continuation['prefix_optimizer_executions'],
+        train_samples_per_epoch=[r['train_samples']for r in records],val_samples_per_epoch=[r['validation']['samples']for r in records],
+        initial_model_sha256=identity['construction']['initial_state_sha256'],final_model_state_sha256=records[-1]['model_sha256'],
+        last_checkpoint_sha256=_sha(last_path),selected_best=native._selection(output,identity,last,records),journal_sha256=_sha(output/'epochs.jsonl'),
+        full_training_terminated=full,stage_complete=True,execution=witness.execution,native_restore=receipt,frozen_validation=frozen,
+        seconds=time.monotonic()-started,finished_ns=time.time_ns(),checkpoint_continuation_supported=True,uninterrupted_execution=False,
+        scientific_eligible=False,full_paper_complete=False))
+    _write(output/'fit-result.json',result)
+    return read_wilor_recovery(output,require_full=full)
+
+
+def _read_recovery(output,*,require_full):
+    if type(require_full)is not bool:raise ValueError('full recovered fit requirement must be boolean')
+    output=_path(output)
+    if not(output/'recovery-identity.json').exists():raise ValueError('explicit recovery identity is required')
+    from . import wilor_native_train as native
+    from .classic_emg_cohort import _StatGuard
+    from .vision_literal_train import _read_epochs,_epoch_bytes
+    from .wilor_literal_runtime import admit_wilor_assets,_restore_identity,_sources as runtime_sources,_versions
+    from omegaconf import OmegaConf
+    import torch
+    paths=[output/n for n in ('identity.json','recovery-identity.json','fit-result.json','epochs.jsonl','checkpoints/last.ckpt')]
+    guard=_StatGuard([*paths,Path(__file__)]);identity=_json(paths[0]);continuation=_json(paths[1]);result=_json(paths[2])
+    for value,kind in ((identity,native.FORMAT),(continuation,RECOVERY_IDENTITY),(result,RECOVERY_FIT)):
+        if (value.get('format')!=kind or value.get('sha256')!=_hash({k:v for k,v in value.items()if k!='sha256'})
+                or value.get('scientific_eligible')is not False or value.get('full_paper_complete')is not False):
+            raise ValueError('explicit recovery format/identity/result seal differs')
+    source_guard,sources,loops=native._capture_fit_sources();guard=native._guard_merge(guard,source_guard)
+    if (identity['policy']!=native.wilor_policy(scope=identity['policy']['scope'])or identity['training_sources_sha256']!=sources
+            or identity['native_loop_sources_sha256']!=loops or continuation['historical_identity_sha256']!=identity['sha256']
+            or continuation['recovery_source_sha256']!=_sha(__file__)or continuation['uninterrupted_execution']is not False
+            or result['continuation_identity_sha256']!=continuation['sha256']or result['identity_sha256']!=identity['sha256']):
+        raise ValueError('explicit recovery current source or historical identity differs')
+    parent=continuation['parent_admission']
+    if parent.get('sha256')!=_hash({k:v for k,v in parent.items()if k!='sha256'})or parent['historical_identity']!=identity:
+        raise ValueError('explicit recovery parent admission differs')
+    for p,s in continuation['parent_file_stamps'].items():
+        if _stamp(p)!=s:raise ValueError('explicit recovery parent generation changed')
+        guard.add(p)
+    prefix=parent['prefix_records'];records,_=_read_epochs(output/'epochs.jsonl',identity['sha256'])
+    if (records[:len(prefix)]!=prefix or not(output/'epochs.jsonl').read_bytes().startswith(_epoch_bytes(prefix,identity['sha256']))
+            or continuation['prefix_epochs']!=len(prefix)or continuation['prefix_optimizer_executions']!=prefix[-1]['optimizer_executions']):
+        raise ValueError('explicit recovery parent journal prefix differs')
+    scope=identity['policy']['scope'];full=scope=='full'
+    if require_full and not full:raise ValueError('engineering recovery is not a full native WiLoR fit')
+    if not native.wilor_stage_complete(identity['policy'],records,train_samples=identity['counts']['train'],val_samples=identity['counts']['val']):
+        raise ValueError('explicit recovery did not complete original budget')
+    locations=identity['locations'];cfg=OmegaConf.create(identity['saved_config'])
+    cohort=native.admit_wilor_cohort(locations['data'],locations['crops'],upstream=locations['upstream'],config=cfg,expected=identity['cohort'],require_full=scope!='cpu_engineering')
+    assets=admit_wilor_assets(locations['assets_runtime'],restore=True)
+    qualified=native._raw_qualification(locations['qualification'])if full else None
+    if qualified!=identity['qualification']:raise ValueError('explicit recovery parent qualification differs')
+    last_path=output/'checkpoints/last.ckpt'
+    if _sha(last_path)!=result['last_checkpoint_sha256']:raise ValueError('explicit recovery last checkpoint changed')
+    last=torch.load(str(last_path),map_location='cpu',weights_only=False,mmap=True);native._validate_checkpoint(last,identity,records)
+    protocol=native.wilor_protocol(locations['upstream'],cfg)
+    _restore_identity(identity['construction'],protocol,runtime_sources(Path(locations['upstream']),protocol,assets),_versions(),last['state_dict'])
+    packet=last.get('explicit_wilor_recovery',{})
+    receipt=packet.get('native_restore',{})
+    parent_checkpoint=_path(parent['parent_checkpoint'])
+    if str(parent_checkpoint)not in continuation['parent_file_stamps']or _sha(parent_checkpoint)!=parent['parent_checkpoint_sha256']:
+        raise ValueError('explicit recovery original parent packet changed')
+    original=torch.load(str(parent_checkpoint),map_location='cpu',weights_only=False,mmap=True)
+    native._validate_checkpoint(original,identity,prefix)
+    if original['native_wilor']['execution']!=parent['original_execution']:
+        raise ValueError('explicit recovery original process lineage differs')
+    bootstrap=_relocate_checkpoint(original,Path(parent['parent']),output,parent['callback_files'],prefix)
+    _validate_restore_receipt(receipt,_packet_snapshot(bootstrap))
+    del original,bootstrap
+    if (packet.get('format')!=RECOVERY_PACKET or packet.get('continuation_identity_sha256')!=continuation['sha256']
+            or type(packet.get('prefix_epochs'))is not int or packet['prefix_epochs']!=len(prefix)
+            or type(packet.get('prefix_optimizer_executions'))is not int or packet['prefix_optimizer_executions']!=continuation['prefix_optimizer_executions']):
+        raise ValueError('explicit recovery native restoration evidence differs')
+    frozen=dict(samples=prefix[-1]['validation']['samples'],prediction_sha256=prefix[-1]['validation']['prediction_sha256'],
+        parent_prediction_exact=True,model_state_unchanged=True)
+    if _hash(packet.get('frozen_validation'))!=_hash(frozen):raise ValueError('explicit recovery frozen parent validation differs')
+    selection=native._selection(output,identity,last,records);guard.add(output/'checkpoints'/selection['file'])
+    expected=dict(format=RECOVERY_FIT,identity_sha256=identity['sha256'],continuation_identity_sha256=continuation['sha256'],scope=scope,
+        completed_epochs=len(records),optimizer_executions=records[-1]['optimizer_executions'],prefix_epochs=len(prefix),
+        prefix_optimizer_executions=continuation['prefix_optimizer_executions'],segment_optimizer_executions=records[-1]['optimizer_executions']-continuation['prefix_optimizer_executions'],
+        train_samples_per_epoch=[r['train_samples']for r in records],val_samples_per_epoch=[r['validation']['samples']for r in records],
+        initial_model_sha256=identity['construction']['initial_state_sha256'],final_model_state_sha256=records[-1]['model_sha256'],
+        last_checkpoint_sha256=_sha(last_path),selected_best=selection,journal_sha256=_sha(output/'epochs.jsonl'),
+        full_training_terminated=full,stage_complete=True,execution=last['native_wilor']['execution'],native_restore=receipt,
+        frozen_validation=packet['frozen_validation'],checkpoint_continuation_supported=True,uninterrupted_execution=False,scientific_eligible=False,full_paper_complete=False)
+    if (set(result)!=set(expected)|{'seconds','finished_ns','sha256'}or _hash({k:result[k]for k in expected})!=_hash(expected)
+            or type(result['seconds'])not in(int,float)or not math.isfinite(result['seconds'])or result['seconds']<0
+            or type(result['finished_ns'])is not int or result['finished_ns']<=result['execution']['started_ns']
+            or result['execution']['process']!=continuation['new_process']or result['segment_optimizer_executions']<=0
+            or result['frozen_validation'].get('parent_prediction_exact')is not True):
+        raise ValueError('explicit recovered result differs from actual raw checkpoint/journal')
+    guard=native._guard_merge(guard,cohort.guard,assets._guard);guard.check()
+    return result,identity,last,cohort,assets,guard
+
+
+def read_wilor_recovery(output,*,require_full=True):
+    return _read_recovery(output,require_full=require_full)[0]
+
+
+def reopen_wilor_recovery(output,*,require_full=True):
+    result,identity,last,cohort,assets,guard=_read_recovery(output,require_full=require_full)
+    import torch
+    from . import wilor_native_train as native
+    from .wilor_literal_runtime import build_wilor_runtime
+    path=_path(output)/'checkpoints'/result['selected_best']['file']
+    checkpoint=torch.load(str(path),map_location='cpu',weights_only=False,mmap=True)
+    runtime=build_wilor_runtime(cohort.upstream,cohort.config,assets=assets,state=checkpoint['state_dict'],expected_initialization=identity['construction'])
+    prepared=native.PreparedWilorFit(identity,cohort,runtime,native._guard_merge(guard,runtime._source_guard),identity['sha256'],
+        selection=result['selected_best'],checkpoint=checkpoint,run=_path(output))
+    native._FITS.add(prepared);prepared.check();return prepared

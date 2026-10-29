@@ -284,3 +284,52 @@ def test_failed_directory_sync_cannot_return_a_successful_output_claim(tmp_path,
     with pytest.raises(OSError,match='synchronization'):
         api()._claim_recovery_output(tmp_path/'failed',full=False)
     assert(tmp_path/'failed').is_dir()
+
+
+def test_unowned_recovery_object_cannot_create_an_attempt(tmp_path):
+    with pytest.raises(ValueError,match='admitted'):
+        api().resume_wilor(None,tmp_path/'new')
+    assert not(tmp_path/'new').exists()
+
+
+def test_recovered_reader_rejects_original_native_fit_format(parent):
+    with pytest.raises(ValueError,match='explicit recovery'):
+        api().read_wilor_recovery(parent,require_full=False)
+
+
+@pytest.mark.parametrize('full',[1,None,'full'])
+def test_recovered_reader_requires_boolean_full_scope(parent,full):
+    with pytest.raises(ValueError,match='boolean'):
+        api().read_wilor_recovery(parent,require_full=full)
+
+
+def test_checkpoint_copy_preserves_parent_and_verifies_destination(parent,tmp_path):
+    source=parent/'checkpoints/last.ckpt';before=source.read_bytes();output=tmp_path/'new';output.mkdir()
+    entry=dict(parent_path=str(source),sha256=hashlib.sha256(before).hexdigest(),bytes=len(before),completed_epochs=1)
+    result=api()._copy_callback_files({source.name:entry},output,guard=lambda:None)
+    assert (output/'checkpoints/last.ckpt').read_bytes()==before
+    assert source.read_bytes()==before
+    assert result['last.ckpt']['sha256']==entry['sha256']
+
+
+def test_checkpoint_copy_never_overwrites_existing_checkpoint(parent,tmp_path):
+    output=tmp_path/'new';(output/'checkpoints').mkdir(parents=True);target=output/'checkpoints/last.ckpt'
+    target.write_bytes(b'keep')
+    source=parent/'checkpoints/last.ckpt';data=source.read_bytes()
+    entry=dict(parent_path=str(source),sha256=hashlib.sha256(data).hexdigest(),bytes=len(data),completed_epochs=1)
+    with pytest.raises(FileExistsError):
+        api()._copy_callback_files({source.name:entry},output,guard=lambda:None)
+    assert target.read_bytes()==b'keep'
+
+
+@pytest.mark.parametrize('change',['hash','bytes','traversal'])
+def test_checkpoint_copy_rejects_unbound_bytes_or_name(parent,tmp_path,change):
+    source=parent/'checkpoints/last.ckpt';data=source.read_bytes();output=tmp_path/'new';output.mkdir()
+    entry=dict(parent_path=str(source),sha256=hashlib.sha256(data).hexdigest(),bytes=len(data),completed_epochs=1)
+    name='last.ckpt'
+    if change=='hash':entry['sha256']='f'*64
+    elif change=='bytes':entry['bytes']+=1
+    else:name='../escaped.ckpt'
+    with pytest.raises(ValueError,match='checkpoint'):
+        api()._copy_callback_files({name:entry},output,guard=lambda:None)
+    assert source.read_bytes()==data and not(output/'escaped.ckpt').exists()
