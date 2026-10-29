@@ -49,7 +49,7 @@
 
 ## Task 3: resource wait, actual qualification and complete run
 
-- [ ] Stage a separate reviewed-source full workflow with durable execution-state recorder. Before GPU admission, rerun only necessary source/input preflight for this actual execution and wait on the same owned handle for an allowed idle GPU; do not claim that waiting is training.
+- [x] Stage a separate reviewed-source full workflow with durable execution-state recorder. Before GPU admission, rerun only necessary source/input preflight for this actual execution and wait on the same owned handle for an allowed idle GPU; do not claim that waiting is training.
 - [ ] Collect actual prefix/resume/native raw acceptance, complete validation/test exact replay and report, actual GPU/PID/counters and owned worker closure. Only then enter fresh full200 fit. Failed evidence remains terminal, without automatic repeat.
 - [ ] Observe the existing handle and collect full raw completion/selected checkpoint/native and independent val/test/report verification when actually finished. Publish source-bound results/timing/counters and retain legacy/PDF limitations. Do not mark this or the full goal complete before that evidence exists.
 
