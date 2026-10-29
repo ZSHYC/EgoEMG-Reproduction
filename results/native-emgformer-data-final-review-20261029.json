@@ -44,6 +44,13 @@
     "regressions_observed_red": 7
   },
   "production_ready": false,
+  "publication": {
+    "branch": "codex/full-paper-reproduction",
+    "code_source_unchanged_after_verification": true,
+    "independent_github_api_ref_exact": true,
+    "push_exit_code": 0,
+    "verified_code_and_evidence_commit": "4a82a2c8d4e4d1b0b04d786b549bd81cbe504dd4"
+  },
   "recorded_utc": "2026-10-28T23:58:59.901323+00:00",
   "reviewed_base": "1376203d03948385c9275da0227a65f0f92ecf56",
   "reviewed_head": "81edcb7813c8c48236427fdc3a0b363d50df31b4",

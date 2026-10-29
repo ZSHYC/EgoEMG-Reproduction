@@ -50,6 +50,6 @@
 
 - [x] Run a source-bound CPU reader producer and fresh replay using genuine memmaps/native constructors; retain immutable receipts and source/input hashes, no model/CUDA/updates. Where available, sample actual registered server data with explicit sampled scope; do not claim full finite-footprint admission.
 - [x] One fresh component review, one TDD fix pass for material findings, no re-review/old95-runtime-suite rerun unless modified dependencies require it.
-- [ ] Publish actual semantics, normalization incompatibility/adaptation, tests and independent evidence; commit/push/ref verification. Retain all downstream full-paper requirements and zero scientific setting increment.
+- [x] Publish actual semantics, normalization incompatibility/adaptation, tests and independent evidence; commit/push/ref verification. Retain all downstream full-paper requirements and zero scientific setting increment.
 
-Implementation and one fresh review/fix complete at source2c93b7a; actual58passed/19warnings82.76s, six spawn workers read and exited, current source-bound real producer20.995s/replay17.175s exit0. Full input admission/GPU/full200epoch/scientific results remain downstream. Publication push/ref verification pending.
+Implementation and one fresh review/fix complete at source2c93b7a; actual58passed/19warnings82.76s, six spawn workers read and exited, current source-bound real producer20.995s/replay17.175s exit0. Full input admission/GPU/full200epoch/scientific results remain downstream. Code and evidence publication4a82a2c push exit0 and independent GitHub API ref exact; full-paper goal remains active.
