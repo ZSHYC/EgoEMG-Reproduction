@@ -48,5 +48,5 @@
 
 ## Task 3: one final review/publication
 
-- [ ] One fresh reviewer of this new unit; one material fix pass with observed RED→GREEN/full new suite, no re-review. If production source changes, fresh current-source proof required; keep historical evidence.
+- [x] One fresh reviewer of this new unit; one material fix pass with observed RED→GREEN/full new suite, no re-review. If production source changes, fresh current-source proof required; keep historical evidence.
 - [ ] Publish source/proof/docs on own branch, independently verify remote ref, update full-goal recovery ledger. No full-paper completion claim.

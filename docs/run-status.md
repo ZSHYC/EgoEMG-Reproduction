@@ -1,5 +1,7 @@
 # 运行状态
 
+最新实施（北京时间2026-10-29 10:25）：[原生EMGFormer评估](emgformer-native-evaluation.md)的一次审查3项Important已全部修复：7个回归先RED，再于服务器完整66项通过（309.27秒）。修复版只公开原始预测能独立核验的原生MAE，参与者/episode统计绑定实际元数据与划分，未来前置记录在模型构造前拒绝。[新源码61a7170七阶段CPU证据](../results/native-emgformer-selected-eval-review-fixed-cpu-20261029.json)实际126.878秒、全部exit0/16拥有进程退出；4次Small推理加载、0优化器创建/0更新，验证4/测试8合成样本精确复算，原检查点和输入全SHA/九属性及冻结来源未变。历史证据保留、无再次审查。仍为CPU工程；原生B500/6worker/BF16资格、完整200轮及真实测试未完成，已验证完整设置仍11。WiLoR/融合/DINO-L/EMG2Pose原任务继续，右手有效性文件继续等用户正常下载完成。
+
 最新实施（北京时间2026-10-29 09:53）：[NeuroPose原生完整实验](../results/original-classic/neuropose/README.md)全部九阶段实际exit0，73轮按原patience50早停、验证best第23轮；29,054尝试/29,043实际更新/11自然溢出跳步。测试4,306手样本的轨迹pooled MAE **16.358404°**、中心 **16.411552°**；原22角/7,790点轨迹、batch256/16-mixed/单rank保留。原生与独立val/test的typed预测/输入/目标/mask/元数据精确一致，另一进程验收报告及PNG/SVG曲线一致，[完成证据](../results/neuropose-native-full-completion-20261029.json)确认20拥有者退出/107冻结成员及外部依赖未变。完整12.22小时（训练11.29小时），已验证设置由10增至11；可用旧版人口/单rank与原六rank/BatchNorm差异保留，未证明PDF等价。EMGFormer评估入口一次审查发现三项重要校验欠缺，正在一次TDD修复，未获得全论文或新EMG科学资格。
 
 最新实施（北京时间2026-10-29 09:47）：[原生EMGFormer冻结评估入口](emgformer-native-evaluation.md)完成59项新检查（216.24秒）和[服务器当前源码aa72269七阶段CPU实证](../results/native-emgformer-selected-eval-cpu-20261029.json)：146.300秒，验证4/测试8合成手样本，原生与独立进程typed预测/输入/目标/掩码精确一致，验证冻结早于测试，公开报告从原始预测重算一致。4次Small模型加载、所有阶段0优化器创建/0训练更新，actualexit0/16拥有进程退出；原44b72b6检查点和合成输入全SHA/九属性、两来源目录冻结成员保持不变。保留原生每手窗口一次消费，区分原生批量样本加权与pooled有效角度指标，未伪造视觉重复或可见性。仅CPU工程，完整B500/6worker显卡资格/原200轮/真实测试仍欠，一次新组件审查待完成；科学设置仍10。
