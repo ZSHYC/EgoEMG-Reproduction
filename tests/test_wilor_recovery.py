@@ -201,3 +201,86 @@ def test_current_source_and_runtime_mismatch_rejects_before_tensor_load(parent,m
     monkeypatch.setattr(torch,'load',forbidden)
     with pytest.raises(ValueError,match='source/policy/runtime'):
         api().admit_wilor_recovery(parent)
+
+
+def copy_map(parent):
+    return {p.name:dict(parent_path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),
+        bytes=p.stat().st_size,completed_epochs=1)for p in(parent/'checkpoints').iterdir()}
+
+
+def test_bootstrap_relocates_only_callback_output_paths(parent,callback_packet,tmp_path):
+    import copy
+    checkpoint,records,path=callback_packet;checkpoint['state_dict']={'opaque':str(parent/'checkpoints')}
+    checkpoint['native_wilor']={'identity':{'locations':{'data':str(parent)}}}
+    original=copy.deepcopy(checkpoint);output=tmp_path/'new-fit'
+    result=api()._relocate_checkpoint(checkpoint,parent,output,copy_map(parent),records)
+    cb=next(v for k,v in result['callbacks'].items()if k.startswith('ModelCheckpoint'))
+    new=str(output/'checkpoints'/Path(path).name)
+    assert cb['dirpath']==str(output/'checkpoints')
+    assert cb['best_model_path']==new and cb['best_k_models']=={new:.1}
+    assert cb['last_model_path']==cb['kth_best_model_path']==''
+    assert result['state_dict']==original['state_dict']
+    assert result['native_wilor']==original['native_wilor']
+    assert checkpoint==original
+
+
+@pytest.mark.parametrize('field',['last_model_path','kth_best_model_path'])
+def test_nonempty_native_callback_paths_are_relocated(parent,callback_packet,tmp_path,field):
+    checkpoint,records,path=callback_packet
+    cb=next(v for k,v in checkpoint['callbacks'].items()if k.startswith('ModelCheckpoint'))
+    cb[field]=path
+    result=api()._relocate_checkpoint(checkpoint,parent,tmp_path/'new',copy_map(parent),records)
+    changed=next(v for k,v in result['callbacks'].items()if k.startswith('ModelCheckpoint'))
+    assert changed[field]==str(tmp_path/'new/checkpoints'/Path(path).name)
+
+
+@pytest.mark.parametrize('change',['outside-parent','unknown-reference','wrong-copy-source','symlink-output'])
+def test_bootstrap_rejects_unbound_callback_paths(parent,callback_packet,tmp_path,change):
+    checkpoint,records,path=callback_packet;files=copy_map(parent);output=tmp_path/'new'
+    cb=next(v for k,v in checkpoint['callbacks'].items()if k.startswith('ModelCheckpoint'))
+    if change=='outside-parent':cb['last_model_path']=str(tmp_path/'elsewhere/last.ckpt')
+    elif change=='unknown-reference':files.pop(Path(path).name)
+    elif change=='wrong-copy-source':files[Path(path).name]['parent_path']=str(tmp_path/'elsewhere'/Path(path).name)
+    else:output.symlink_to(parent,target_is_directory=True)
+    with pytest.raises(ValueError,match='(callback|checkpoint|symlink)'):
+        api()._relocate_checkpoint(checkpoint,parent,output,files,records)
+
+
+def test_fresh_output_claim_cannot_overwrite_existing_state(tmp_path):
+    output=tmp_path/'existing';output.mkdir();(output/'keep').write_bytes(b'preserved')
+    with pytest.raises(FileExistsError):api()._claim_recovery_output(output,full=False)
+    assert (output/'keep').read_bytes()==b'preserved'
+
+
+def test_two_output_claimants_cannot_both_initialize(tmp_path):
+    import multiprocessing
+    ctx=multiprocessing.get_context('fork');queue=ctx.Queue();output=tmp_path/'exclusive'
+    def claim():
+        try:api()._claim_recovery_output(output,full=False);queue.put('created')
+        except FileExistsError:queue.put('exists')
+    children=[ctx.Process(target=claim)for _ in range(2)]
+    for child in children:child.start()
+    for child in children:child.join(10);assert child.exitcode==0
+    assert sorted([queue.get(timeout=2),queue.get(timeout=2)])==['created','exists']
+
+
+@pytest.mark.parametrize('kind',['tmpfs','ramfs'])
+def test_full_continuation_cannot_use_volatile_checkpoint_storage(tmp_path,monkeypatch,kind):
+    module=api();monkeypatch.setattr(module,'_filesystem_type',lambda _:kind)
+    with pytest.raises(OSError,match='durable'):
+        module._claim_recovery_output(tmp_path/'full',full=True)
+    assert not(tmp_path/'full').exists()
+
+
+@pytest.mark.parametrize('full',[1,None,'full'])
+def test_output_claim_requires_explicit_boolean_scope(tmp_path,full):
+    with pytest.raises(ValueError,match='boolean'):
+        api()._claim_recovery_output(tmp_path/'new',full=full)
+
+
+def test_failed_directory_sync_cannot_return_a_successful_output_claim(tmp_path,monkeypatch):
+    def failed_sync(fd):raise OSError('directory synchronization failed')
+    monkeypatch.setattr(os,'fsync',failed_sync)
+    with pytest.raises(OSError,match='synchronization'):
+        api()._claim_recovery_output(tmp_path/'failed',full=False)
+    assert(tmp_path/'failed').is_dir()

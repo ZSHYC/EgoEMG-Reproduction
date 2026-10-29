@@ -9,6 +9,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import stat
 import weakref
 
@@ -253,3 +254,54 @@ def admit_wilor_recovery(parent,*,checkpoint=None):
         scientific_eligible=False,full_paper_complete=False))
     result=AdmittedWilorRecovery(identity,records,raw,parent,selected,callback_files,manifest,guard,manifest['sha256'])
     _ADMITTED.add(result);result.check();return result
+
+
+def _relocate_checkpoint(checkpoint,parent,output,callback_files,records):
+    """A bootstrap view: only native callback output paths are changed."""
+    parent=_path(parent);output=_path(output)
+    required=_checkpoint_callbacks(checkpoint,parent,records)
+    def relocated(value):
+        if not value:return value
+        source=_path(value);entry=callback_files.get(source.name)
+        if (source.parent!=parent/'checkpoints' or entry is None
+                or entry.get('parent_path')!=str(source)):
+            raise ValueError('bootstrap callback checkpoint is outside its admitted copy map')
+        return str(output/'checkpoints'/source.name)
+    for source in required:relocated(str(source))
+    value=dict(checkpoint);value['callbacks']=copy.deepcopy(checkpoint['callbacks'])
+    for name,state in value['callbacks'].items():
+        if not name.startswith('ModelCheckpoint{'):continue
+        state['dirpath']=str(output/'checkpoints')
+        for key in ('best_model_path','last_model_path','kth_best_model_path'):
+            state[key]=relocated(state[key])
+        state['best_k_models']={relocated(p):score for p,score in state['best_k_models'].items()}
+    return value
+
+
+def _filesystem_type(path):
+    path=_path(path)
+    while not path.exists():path=path.parent
+    candidates=[]
+    for line in Path('/proc/self/mountinfo').read_text().splitlines():
+        before,separator,after=line.partition(' - ')
+        if not separator:continue
+        mount=re.sub(r'\\([0-7]{3})',lambda m:chr(int(m[1],8)),before.split()[4])
+        point=Path(mount)
+        if path.is_relative_to(point):candidates.append((len(point.parts),after.split()[0]))
+    if not candidates:raise OSError('checkpoint filesystem type is unavailable')
+    return max(candidates)[1]
+
+
+def _claim_recovery_output(output,*,full):
+    if type(full)is not bool:raise ValueError('recovery output scope must be boolean')
+    output=_path(output)
+    if output.exists():raise FileExistsError('recovery output exists; preserve the prior attempt')
+    if full and _filesystem_type(output)in ('tmpfs','ramfs'):
+        raise OSError('full WiLoR continuation requires durable checkpoint storage')
+    from .classic_emg_train import _space,_fsync_dir
+    from .wilor_native_train import _CHECKPOINT_WORK_BYTES
+    _space(output.parent,budget=_CHECKPOINT_WORK_BYTES*(5 if full else 4))
+    # mkdir is the exclusive, durable attempt claim; a failed attempt is retained.
+    output.mkdir(mode=0o700)
+    _fsync_dir(output.parent)
+    return output
