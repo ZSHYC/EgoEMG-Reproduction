@@ -41,9 +41,9 @@
 
 ## Task 2: actual registered complete input and independent fresh reopen
 
-- [ ] Freeze current committed sources plus CPU producer/controller/exit recorder in a new isolated server capsule; bind actual legacy root, no aliases added to raw data or fake beta dependencies.
-- [ ] Run full file hashing and complete consumption scans; a fresh process invokes strict admission with the producer receipt, rehashes all actual files/rescans values and checks exact identity. Retain failed capsules if any; no automatic retry.
-- [ ] Collect only after actual terminal status; check all owned PID/start pairs closed, all frozen members and input nine attributes unchanged, zero models/updates/CUDA. Publish actual counts, durations, scope and source/receipt SHA; no raw signals or numeric labels.
+- [x] Freeze current committed sources plus CPU producer/controller/exit recorder in a new isolated server capsule; bind actual legacy root, no aliases added to raw data or fake beta dependencies.
+- [x] Run full file hashing and complete consumption scans; a fresh process invokes strict admission with the producer receipt, rehashes all actual files/rescans values and checks exact identity. Retain failed capsules if any; no automatic retry.
+- [x] Collect only after actual terminal status; check all owned PID/start pairs closed, all frozen members and input nine attributes unchanged, zero models/updates/CUDA. Publish actual counts, durations, scope and source/receipt SHA; no raw signals or numeric labels.
 
 ## Task 3: one review, material fixes and publication
 
