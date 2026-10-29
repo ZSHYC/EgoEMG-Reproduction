@@ -1,5 +1,7 @@
 # 运行状态
 
+最新运行核验（北京时间2026-10-29 12:38）：[WiLoR显式恢复父状态准入](wilor-recovery.md)通过，选择真实第6轮/67344更新，四份top3/last原始包经过生产校验，59.818秒/0模型/0更新/无CUDA，115冻结成员与原九项属性不变；真正续训、恢复后评估和整体审查仍待完成。原EMGFormer75c45流程在2144秒资源等待后准入GPU3，但其他用户随后启动新消费者，保护机制于04:35:27 UTC结束本次qual-prefix，原任务已终止、没有资格或200轮结果；[失败证据](../results/native-emgformer-first-resource-admission-abort-20261029.json)保留，未终止外部消费者。后续尝试需要新的资源准入。EMG2Pose-M/L在04:35:25 UTC仍为真实GPU fit、尚无首个完整验证轮。完整科学设置仍11，全论文仍进行中。
+
 最新运行核验（北京时间2026-10-29 12:05）：完整科学设置仍为11，全论文尚未完成。[原生EMGFormer执行流程](emgformer-gpu-execution.md)完成单次审查4项重要修正、新增59项检查和修正后CPU预检；[正式流程](../results/native-emgformer-reviewed-full-launch-20261029.json)已启动，本次预检63.527秒退出0，实际等待GPU1/3空闲，未创建模型或开始200轮。EMG2Pose-M/L已核对真实GPU fit（03:54:46 UTC），尚未完成首个验证轮；原S队列继续。融合28轮、DINO-L104轮的原训练拥有者在04:04:54 UTC仍活动。[WiLoR](../results/wilor-native-full-disk-failure-20261029.json)完成6轮后保存last时因磁盘保留量退出，原状态已保全、第6轮包通过完整校验，尚未恢复；重复包共享释放约7.58GB，但仍低于原55GiB新完整启动门槛。右手有效性文件继续等用户正常下载，几何4/8。
 
 最新来源核验（北京时间2026-10-29 10:37）：[Table1补充7条逐字段判定](../results/dataset-statistics/dataset-comparison-audit.md)确认Jarque-Bou原文列有两腕角、raw/processed EMG均7列（8为设备通道）；MyoKi的18列校准glove含腕角，标注视频明确不公开；PiMForce的20维手指目标与另行RGB实验分开。原表六行CSV及原值不变，主张与推论单列，未下载外部MAT或证明完整视觉发布。NinaPro统一口径、PiMForce全部视觉文件及EgoEMG全模态仍未闭合，Table1未标全完。科学设置仍11。服务器原任务活动；当前无符合空闲条件的原生EMG显卡，4/5仍为M/L保留且已有外部消费者；右手最终文件尚未出现。

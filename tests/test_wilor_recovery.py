@@ -176,3 +176,28 @@ def test_metadata_changed_during_parent_inspection_is_not_pinned_as_original(par
     monkeypatch.setattr(module,'_producer',producer)
     with pytest.raises(ValueError,match='(metadata|parent).*changed'):
         module._parent_metadata(parent)
+
+
+@pytest.mark.parametrize('change',['source','loop-source','runtime','policy'])
+def test_current_source_and_runtime_mismatch_rejects_before_tensor_load(parent,monkeypatch,change):
+    from egoemg_repro import wilor_native_train as native,wilor_literal_runtime as runtime
+    from egoemg_repro.classic_emg_cohort import _StatGuard
+    import torch
+    sources={'native-source':'a'*64};loops={'native-loop':'b'*64}
+    versions=dict(python='3.11.12',packages={'torch':'2.2.2+cu118'})
+    identity=json.loads((parent/'identity.json').read_text());identity.pop('sha256')
+    identity.update(policy=native.wilor_policy(scope='full'),training_sources_sha256=dict(sources),
+        native_loop_sources_sha256=dict(loops),construction=dict(runtime_versions=versions))
+    if change=='source':identity['training_sources_sha256']['native-source']='c'*64
+    elif change=='loop-source':identity['native_loop_sources_sha256']['native-loop']='c'*64
+    elif change=='runtime':identity['construction']['runtime_versions']=dict(python='0.0')
+    else:identity['policy']['batch_size_by_role']['train']=1
+    identity=seal(identity);put(parent/'identity.json',identity);journal(parent/'epochs.jsonl',identity)
+    # Only the external installed-source inventory is substituted. The actual
+    # admission comparison, filesystem guard, metadata and rejection execute.
+    monkeypatch.setattr(native,'_capture_fit_sources',lambda:(_StatGuard([]),sources,loops))
+    monkeypatch.setattr(runtime,'_versions',lambda:versions)
+    def forbidden(*a,**k):raise AssertionError('source mismatch reached native tensor load')
+    monkeypatch.setattr(torch,'load',forbidden)
+    with pytest.raises(ValueError,match='source/policy/runtime'):
+        api().admit_wilor_recovery(parent)

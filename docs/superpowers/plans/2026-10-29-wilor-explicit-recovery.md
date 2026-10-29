@@ -32,9 +32,9 @@
 **Files:** create egoemg_repro/wilor_recovery.py and tests/test_wilor_recovery.py; doc docs/wilor-recovery.md.
 **Interfaces:** admit_wilor_recovery(parent,*,checkpoint=None) -> admitted recovery object with identity, records, raw checkpoint, selected parent path, source guard, parent file hashes and callback copy map. check() rechecks immutable admitted inputs. Full parents choose newest complete matching journal packet; explicit older checkpoint only engineering. No model/optimizer/CUDA construction.
 
-- [ ] Write tests naming wrong packet/journal/source/scope/owner/callback path and stale-last failures. Observe RED before implementation. Use real retained packets on canonical server for state-heavy acceptance; small metadata negatives must fail before Torch/factory when possible.
-- [ ] Implement minimal guarded admission with unchanged native _validate_checkpoint and _selection semantics, sealed recovery manifest and historical identity preserved verbatim. Raw model/optimizer contents are not accepted from summary claims.
-- [ ] Run entire NEW admission suite and actual current full6 read-only admission,0models/0updates/noCUDA. Commit source/evidence; do not rescan old math/input absent current execution need.
+- [x] Write tests naming wrong packet/journal/source/scope/owner/callback path and stale-last failures. Observe RED before implementation. Use real retained packets on canonical server for state-heavy acceptance; small metadata negatives must fail before Torch/factory when possible.
+- [x] Implement minimal guarded admission with unchanged native _validate_checkpoint and _selection semantics, sealed recovery manifest and historical identity preserved verbatim. Raw model/optimizer contents are not accepted from summary claims.
+- [x] Run entire NEW admission suite and actual current full6 read-only admission,0models/0updates/noCUDA. Commit source/evidence; do not rescan old math/input absent current execution need.
 
 ### Task 2: native restoration and recovered result acceptance
 
