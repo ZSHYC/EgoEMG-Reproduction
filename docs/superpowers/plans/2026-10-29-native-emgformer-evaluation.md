@@ -43,8 +43,8 @@
 
 ## Task 2: canonical server selected-checkpoint integration
 
-- [ ] Freeze committed current evaluation source and consume the genuine canonical server current-source CPU fit/data read-only in its original owned directory; preserve its original absolute checkpoint bindings and all original bytes/evidence.
-- [ ] Execute separate val-native/val-replay/freeze/test-native/test-replay/report/verify processes under existing resource guards. Recompute exact typed outputs and report, no training updates. Collect actual exits/closure/input/source invariance and publish scoped CPU proof; fullGPU/science pending.
+- [x] Freeze committed current evaluation source and consume the genuine canonical server current-source CPU fit/data read-only in its original owned directory; preserve its original absolute checkpoint bindings and all original bytes/evidence.
+- [x] Execute separate val-native/val-replay/freeze/test-native/test-replay/report/verify processes under existing resource guards. Recompute exact typed outputs and report, no training updates. Collect actual exits/closure/input/source invariance and publish scoped CPU proof; fullGPU/science pending.
 
 ## Task 3: one final review/publication
 
