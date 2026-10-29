@@ -1,5 +1,5 @@
 {
-  "observed_utc": "2026-10-29T09:43:45.207563+00:00",
+  "observed_utc": "2026-10-29T15:41:39.138901+00:00",
   "vit_l": {
     "root": "/data/shihao/egoemg-dino-large-explicit-resume-0ee08f3b41eb-20261029",
     "status": "full-fit-resume",
@@ -23,11 +23,11 @@
         "state": "R"
       }
     },
-    "committed_epochs": 109,
+    "committed_epochs": 117,
     "telemetry": {
       "path": "/data/shihao/outputs/egoemg-full-paper-20261026/vision-checkpoint-l-fd6952fec2a7-20261027/full-fit/logs/ec941ba648f34a62adc69ef19bd0f2f3/metrics.csv",
-      "last_logged_step_label": 61796,
-      "epoch_zero_based": 109
+      "last_logged_step_label": 66199,
+      "epoch_zero_based": 117
     },
     "parent_epochs": 108,
     "parent_updates": 60696
@@ -78,7 +78,7 @@
       }
     },
     "root": "/data/shihao/egoemg-fusion-explicit-resume-8af004a76ef8-20261029",
-    "committed_epochs": 32,
+    "committed_epochs": 37,
     "parent_epochs": 32,
     "parent_updates": 63264,
     "progress": {
@@ -102,19 +102,24 @@
       "path": "/data/shihao/egoemg-native-fusion-full-59b5ed5f525f-20261028/private/full-fit/logs/b9c5356532ce4f4aaa0f390fc588836d/events.out.tfevents.1793265157.node235.4089931.0",
       "latest": {
         "train_mae": {
-          "step": 64101,
-          "value": 0.03161177039146423,
-          "wall_time": 1793267024.0851579
+          "step": 73744,
+          "value": 0.03200606256723404,
+          "wall_time": 1793288495.3457725
         },
         "train_loss": {
-          "step": 64101,
-          "value": 0.10550101101398468,
-          "wall_time": 1793267024.0862944
+          "step": 73744,
+          "value": 0.10663803666830063,
+          "wall_time": 1793288495.3463907
         },
         "epoch": {
-          "step": 64101,
-          "value": 32.0,
-          "wall_time": 1793267024.0864203
+          "step": 73744,
+          "value": 37.0,
+          "wall_time": 1793288495.346509
+        },
+        "val_mae": {
+          "step": 73148,
+          "value": 0.10034537315368652,
+          "wall_time": 1793287125.7564182
         }
       }
     },
@@ -162,7 +167,7 @@
           "uid": 1005
         },
         "matching_live": true,
-        "state": "D"
+        "state": "R"
       }
     },
     "root": "/data/shihao/egoemg-wilor-core-priority-full-ec655bf515e2-20261029",
@@ -195,18 +200,158 @@
       "source_commit": "75bf1a1451e1e6f5ba3c0c31863f2b86d635d089"
     },
     "full_output_exists": true,
-    "cpu_proof": "wilor-core-priority-cpu-engineering-20261029.json",
-    "full_gpu_frozen_validation_and_six_state_restoration_not_yet_serialized": true
+    "committed_epochs": 10,
+    "telemetry": {
+      "path": "/data/shihao/egoemg-wilor-core-priority-full-ec655bf515e2-20261029/private/full-fit/logs/native-wilor-recovery/events.out.tfevents.1793267689.node235.4137364.0",
+      "latest": {
+        "train_mae": {
+          "step": 118090,
+          "value": 0.07276909798383713,
+          "wall_time": 1793288498.7632034
+        },
+        "train_loss": {
+          "step": 118090,
+          "value": 0.22683405876159668,
+          "wall_time": 1793288498.7637908
+        },
+        "epoch": {
+          "step": 118090,
+          "value": 10.0,
+          "wall_time": 1793288498.7638547
+        },
+        "val_mae": {
+          "step": 112239,
+          "value": 0.0859258696436882,
+          "wall_time": 1793286076.097413
+        }
+      }
+    },
+    "new_training_steps_observed": true,
+    "terminal_full30_and_restore_receipt_not_yet_accepted": true
   },
   "owned_gpu_rows": [
-    "4137364, GPU-07ce4138-60af-137b-b134-7f267cece52d, 416",
+    "4137364, GPU-07ce4138-60af-137b-b134-7f267cece52d, 18150",
     "4062857, GPU-6b41c390-53fc-6ccc-ea07-0648926ae5cb, 23000",
     "4089931, GPU-83b7beb5-2729-4e3b-ed78-b949192152fb, 17126"
   ],
-  "data_free_bytes": 1535688531968,
+  "data_free_bytes": 1429312053248,
   "scientific_settings_completed": 11,
   "these_three_final_test_scores_not_yet_available": true,
   "noncore_s_m_l_admissions_stopped_for_user_priority": true,
   "full_paper_complete": false,
-  "interpretation": "ViT-L and fusion new training steps observed; WiLoR full continuation admitted and launched, not a completed scientific result. Telemetry step labels are not independently accepted terminal optimizer counts."
+  "final_evaluation_queues": {
+    "wilor": {
+      "root": "/data/shihao/egoemg-wilor-recovery-eval-full-d4762fca7778-20261029",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 115219,
+          "start_ticks": "411557842"
+        },
+        "started_utc": "2026-10-29T15:37:53.082254+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 115218,
+          "start_ticks": "411557839"
+        }
+      },
+      "progress": {
+        "phase": "waiting-for-exact-full30-continuation-completion",
+        "full_paper_complete": false
+      },
+      "owners": {
+        "wrapper": {
+          "identity": {
+            "pid": 115218,
+            "start_ticks": "411557839"
+          },
+          "matching_live": true,
+          "seconds_alive": 99.70999999996275,
+          "state": "S",
+          "parent": 1,
+          "tty_nr": 0,
+          "stdin": "/dev/null"
+        },
+        "child": {
+          "identity": {
+            "pid": 115219,
+            "start_ticks": "411557842"
+          },
+          "matching_live": true,
+          "seconds_alive": 99.68000000016764,
+          "state": "S",
+          "parent": 115218,
+          "tty_nr": 0,
+          "stdin": "/dev/null"
+        }
+      },
+      "full_fit_completion_required_before_any_evaluation": true,
+      "evaluation_or_test_outputs_exist": false
+    },
+    "fusion": {
+      "root": "/data/shihao/egoemg-fusion-core-final-evaluation-0a69af71a216-20261029",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 115221,
+          "start_ticks": "411557847"
+        },
+        "started_utc": "2026-10-29T15:37:53.135256+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 115220,
+          "start_ticks": "411557845"
+        }
+      },
+      "progress": {
+        "phase": "waiting-for-exact-fusion-full150-terminal-completion",
+        "full_paper_complete": false
+      },
+      "owners": {
+        "wrapper": {
+          "identity": {
+            "pid": 115220,
+            "start_ticks": "411557845"
+          },
+          "matching_live": true,
+          "seconds_alive": 99.64999999990687,
+          "state": "S",
+          "parent": 1,
+          "tty_nr": 0,
+          "stdin": "/dev/null"
+        },
+        "child": {
+          "identity": {
+            "pid": 115221,
+            "start_ticks": "411557847"
+          },
+          "matching_live": true,
+          "seconds_alive": 99.62999999988824,
+          "state": "S",
+          "parent": 115220,
+          "tty_nr": 0,
+          "stdin": "/dev/null"
+        }
+      },
+      "full_fit_completion_required_before_any_evaluation": true,
+      "evaluation_or_test_outputs_exist": false
+    }
+  },
+  "final_evaluation_queues_observed_utc": "2026-10-29T15:39:32.763160+00:00",
+  "wilor_recovered_evaluation_engineering_evidence": "wilor-recovered-evaluation-cpu-20261029.json",
+  "prior_failed_evaluation_queue_states_and_sources_retained": [
+    "/data/shihao/egoemg-wilor-recovery-eval-full-9684c3484511-20261029",
+    "/data/shihao/egoemg-wilor-recovery-eval-full-2a9d6523702d-20261029",
+    "/data/shihao/egoemg-fusion-core-final-evaluation-9a0305d6a0e1-20261029",
+    "/data/shihao/egoemg-fusion-core-final-evaluation-1a8152439ab0-20261029"
+  ],
+  "interpretation": "Three core training jobs remain live. Committed epochs and telemetry step labels are progress, not final independently accepted test results. Fixed waiting controllers survived over99seconds, remain detached from SSH, and require exact natural training completion before evaluation.",
+  "local_shutdown_check": {
+    "observed_utc": "2026-10-29T10:01:05Z",
+    "training_controllers_parent_pid_one": true,
+    "training_tty_zero": true,
+    "stdin_dev_null": true,
+    "server_logind_KillUserProcesses": false,
+    "local_agent_interactive_work_requires_local_app_online": true
+  }
 }

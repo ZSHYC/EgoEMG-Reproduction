@@ -1,0 +1,118 @@
+{
+  "format": "actual_recovered_wilor_cpu_evaluation_evidence_v1",
+  "evaluation_implementation_commit": "57133836ca61b029a9351dc5380be597d5e2cab6",
+  "operational_owner_fix_commit": "e47cc8ae2d4dd266195af826b57822bceb826d52",
+  "reconciled_workflow_sha256": "00536b855fcf8e27b86417dd05d7b7f504fbfa9e4d7361dd320a983fbd00ba05",
+  "reconciled_bundle_sha256": "353098d81bbff3184416f09ece36741939fed81c863b2403f99f421d6ba04d26",
+  "collected_utc": "2026-10-29T15:14:29.530973+00:00",
+  "original_execution_status": "failed after five successful phases; report dependency path omitted",
+  "original_failed_state": {
+    "actual_exit_code": 1,
+    "automatic_retry": false,
+    "child": {
+      "pid": 4152358,
+      "start_ticks": "409484263"
+    },
+    "ended_utc": "2026-10-29T10:01:35.376527+00:00",
+    "started_utc": "2026-10-29T09:52:17.292614+00:00",
+    "status": "failed",
+    "wrapper": {
+      "pid": 4152357,
+      "start_ticks": "409484260"
+    }
+  },
+  "reconciliation_status": "complete",
+  "reconciliation_actual_exit_code": 0,
+  "reconciliation_seconds": 150.72758823400363,
+  "completed_phases": [
+    "val-native",
+    "val-replay",
+    "freeze",
+    "test-native",
+    "test-replay",
+    "report",
+    "verify"
+  ],
+  "actual_models_constructed_successful_phases": 4,
+  "actual_parameter_count_per_inference_model": 631631657,
+  "actual_optimizer_updates_successful_phases": 0,
+  "failed_report_attempt_final_counters_available": false,
+  "first_five_actual_phases_reused": true,
+  "report_and_verify_models_constructed": 0,
+  "report_and_verify_optimizers_constructed": 0,
+  "exact_native_validation_replay": true,
+  "exact_native_test_replay": true,
+  "report_equals_fresh_verify": true,
+  "report_sha256": "7dae1647ceca213d0e21fe2e58e9e29c59f56fb7345926270bec8d76c5b8efe3",
+  "report_format": "explicit_recovered_wilor_completed_report_v1",
+  "engineering_completed_epochs": 2,
+  "engineering_total_updates": 4,
+  "recovery": {
+    "actual_runtime_device": {
+      "accelerator": "cpu",
+      "cuda_initialized": false
+    },
+    "continuation_identity_sha256": "427f670cd6ffbd9cfae90c8b8bef2e5e106e9eea5852fcadd4f393dfdf43eb58",
+    "device_admission": {
+      "actual_device": {
+        "accelerator": "cpu",
+        "cuda_initialized": false
+      },
+      "cuda_uuid_changed": false,
+      "historical_device": {
+        "accelerator": "cpu",
+        "cuda_initialized": false
+      },
+      "same_native_hardware_runtime": true
+    },
+    "historical_identity_sha256": "b619a48ab5ef74aaa21e19fb5e4ce3e232c2fe7a1cc956ecd2fcf4b534dc888c",
+    "historical_runtime_device": {
+      "accelerator": "cpu",
+      "cuda_initialized": false
+    },
+    "new_process": {
+      "pid": 4129774,
+      "start_ticks": "409339246",
+      "uid": 1005
+    },
+    "parent_checkpoint_sha256": "76cf7fdd170cd0bea2881fe578e5338ecd5a59fc07ca192b1dfab1fa601885c4",
+    "prefix_epochs": 1,
+    "prefix_optimizer_executions": 2,
+    "segment_optimizer_executions": 2,
+    "uninterrupted_execution": false
+  },
+  "curve_resume_boundary": {
+    "after_complete_epoch": 1,
+    "new_optimizer_executions": 2,
+    "parent_optimizer_executions": 2
+  },
+  "actual_chart_inspected": true,
+  "chart_engineering_watermark": true,
+  "independently_rehashed_source_members": 120,
+  "all_20_original_and_postprocessing_pid_start_owners_closed": true,
+  "frozen_report_dependency_members": 3353,
+  "source_fixture_checkpoint_dependency_guards_passed": true,
+  "fresh_review": {
+    "implementation_commit": "57133836ca61b029a9351dc5380be597d5e2cab6",
+    "critical": 0,
+    "important": 0,
+    "minor": 1
+  },
+  "post_review_operational_fix": {
+    "compact_parent_and_external_training_record_liveness": true,
+    "red_regressions": 11,
+    "local_new_checks_passed": 133,
+    "canonical_new_checks_passed": 133,
+    "canonical_seconds": 5.35,
+    "no_second_review": true
+  },
+  "full_setting_completed": false,
+  "scientific_eligible": false,
+  "full_paper_complete": false,
+  "limitations": [
+    "Synthetic CPU engineering only; four sampled consumptions per role, not a full corpus score.",
+    "Original failed report has no final counter receipt; its absent counters are not measured zero.",
+    "The final full30/GPU/test/report result remains pending even though the engineering chain and queued orchestration passed.",
+    "Native train, evaluation, recovery and process-identity operators remain unchanged; the added operational adapter binds compact recorder identities."
+  ]
+}
