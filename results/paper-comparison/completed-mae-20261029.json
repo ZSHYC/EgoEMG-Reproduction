@@ -42,19 +42,19 @@
     {
       "paper_avg_mae_deg": 5.4,
       "paper_table": 3,
-      "status": "native full fit in progress; no final test",
+      "status": "original native full fit active; final selected-best test/report pending",
       "target": "ViT-L"
     },
     {
       "paper_avg_mae_deg": 4.7,
       "paper_table": 3,
-      "status": "six complete full epochs retained; full continuation deprioritized",
+      "status": "explicit full30 continuation active from genuine six-epoch parent; detached final evaluation queued",
       "target": "WiLoR"
     },
     {
       "paper_avg_mae_deg": 5.5,
       "paper_table": 3,
-      "status": "32-epoch parent; explicit recovery waiting for original GPU gate",
+      "status": "explicit native full150 continuation active from 32-epoch parent; detached final evaluation queued",
       "target": "ViT-S + EMGFormer-S"
     },
     {
@@ -80,6 +80,8 @@
       "target": "occlusion/fusion gain Spearman correlation"
     }
   ],
+  "pending_core_status_evidence": "results/three-core-priority-20261029.json",
+  "pending_core_status_observed_utc": "2026-10-29T15:41:39.138901+00:00",
   "rows": [
     {
       "arithmetic_difference_from_rounded_paper_avg_deg": 1.589435193832113,

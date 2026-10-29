@@ -33,6 +33,8 @@ EMGFormer S/M/L的轨迹值来自原训练器最终测试；其独立锁定复�
 
 ## 核心缺口
 
+用户已优先指定ViT-L、WiLoR与ViT-S+S融合；三项均在实际原生训练，后续评估已安排到服务器后台。[实际进度与队列](../three-core-priority-20261029.json)单独记录，中间轮次和验证值不填入完成成绩表。
+
 - Table3：ViT-L、WiLoR和ViT-S+S融合的最终完整测试成绩仍欠；原生EgoEMG EMGFormer的重新资格/完整训练仍欠。
 - Table11/13：独立的EMG2Pose标准基准没有完整250轮训练和科学测试结果；不能把EgoEMG的MAE与该表直接相减。
 - Figure13：完整自遮挡分层曲线、Spearmanρ=0.049/p=0.001对应的复算仍欠。
