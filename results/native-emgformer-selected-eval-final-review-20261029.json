@@ -1,0 +1,77 @@
+{
+  "actual_complete_new_evaluation_suite": {
+    "all_candidate_source_members_unchanged": true,
+    "all_owned_consumers_closed": true,
+    "backend": "canonical existing Python3.11/Torch2.2.2/Lightning2.5.0.post0, CUDA hidden",
+    "exit_code": 0,
+    "log_sha256": "44a1fe8bad99ea4192983c75c64295755f6905c95737d06c8303f79cca8a45a9",
+    "new_training_updates": 0,
+    "original_fit_and_input_preserved": true,
+    "passed": 66,
+    "seconds": 309.27,
+    "warnings": 0
+  },
+  "actual_regression_red": {
+    "actual_model_constructions": 0,
+    "backend": "immutable original canonical CPU parser and privately copied artifact graph",
+    "deselected": 59,
+    "exit_code": 1,
+    "failed": 7,
+    "log_sha256": "df0814608ca97b8cda92c7fa67d3ba6645d30c8b8323ec4a3126410a40ab52eb",
+    "new_optimizer_updates": 0,
+    "seconds": 64.53
+  },
+  "deferred_minors": [],
+  "findings": [
+    {
+      "cases": 2,
+      "grade": "Important",
+      "id": "I1",
+      "problem": "Unwitnessed auxiliary native metrics could enter verified report through coherently resealed sidecars.",
+      "regression": "test_review_unverified_native_sidecar_metrics_cannot_enter_verified_report",
+      "resolution": "Persist and expose only original role_mae independently verified from raw typed predictions. Raw pooled joint/finger/wrist/user/split statistics remain available."
+    },
+    {
+      "cases": 3,
+      "grade": "Important",
+      "id": "I2",
+      "problem": "Self-claimed episode and participant membership could be resealed without proving admitted metadata sources.",
+      "regression": "test_review_population_claims_must_match_admitted_sources_and_observed_samples",
+      "resolution": "Hash-bind exact admitted partitions and metadata/manifest bytes under stat guards, rebuild all-role/split membership and episode count, and match every raw point to its original source window and subject."
+    },
+    {
+      "cases": 2,
+      "grade": "Important",
+      "id": "I3",
+      "problem": "A future-dated profile or reference was rejected only after selected inference could execute.",
+      "regression": "test_review_future_dependencies_reject_before_selected_model_loading",
+      "resolution": "Capture admission time at entry and reject later-finished profile/reference before device/model construction."
+    }
+  ],
+  "fix_passes": 1,
+  "format": "native_emgformer_selected_evaluation_one_final_review_v1",
+  "full_paper_complete": false,
+  "full_training_completed": false,
+  "gpu_qualified": false,
+  "re_reviews": 0,
+  "recorded_utc": "2026-10-29T02:22:15.122333+00:00",
+  "review": {
+    "critical": 0,
+    "fresh_independent_reviewers": 1,
+    "important": 3,
+    "minor": 0
+  },
+  "review_base_commit": "0b93d1532412438dd34b58c1cf7b386ce5f845a4",
+  "reviewed_candidate_commit": "566cd886565f71eb572fb593586b0e39ac076b71",
+  "reviewed_component_source_sha256": "32f5be097a57793f1c899d0a530873728a6424a556bda9e3ab3825ebb6307480",
+  "rulings": [
+    "Unverified Trainer auxiliary loss/FK diagnostics are omitted from verified native fields; raw-recomputed subgroup errors remain. Cost: auxiliary native diagnostics are unavailable here.",
+    "Population reopening hashes metadata and the exact admitted partition, without rescanning closed numeric arrays. Cost: unavailable source metadata causes fail-closed report reopening.",
+    "Dependency completion must precede recorded admission. Cost: clock corrections may reject a legitimate pass, requiring a correctly ordered new pass.",
+    "Closed training/runtime/cohort math and downstream full GPU/six-worker science stay outside this new component review. Cost: CPU evidence does not establish those downstream results.",
+    "Canonical retained fit replaces the deleted local pytest fixture for this new suite; no training lineage is transplanted or rerun. Cost: backend availability is needed to repeat this development fixture."
+  ],
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "unaddressed_material_findings": []
+}

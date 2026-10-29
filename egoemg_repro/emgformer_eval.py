@@ -99,8 +99,9 @@ from . import emgformer_train as train
 from .classic_emg import _file_hash,_hash
 from .classic_emg_cohort import _safe,_StatGuard
 from .emgformer_runtime import build_emgformer_runtime,emgformer_state_sha256
+from .data import LegacyStore
 from .vision_literal_train import _json,_write,_sealed,_check_seal
-from .vision_literal_eval import POLICY,_process,_population_public,vision_population,_close_native
+from .vision_literal_eval import POLICY,_process,_population_public,_close_native
 
 ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
@@ -124,7 +125,46 @@ def _acyclic_read(function):
 def _sources():
     if _file_hash(__file__)!=IMPORTED_SHA:raise ValueError('imported EMGFormer evaluation source changed')
     return dict(train._sources(),**{n:_file_hash(ROOT/n)for n in ('egoemg_repro/emgformer_eval.py',
-        'egoemg_repro/vision_literal_eval.py','egoemg_repro/classic_emg_report.py','egoemg_repro/metrics.py')})
+        'egoemg_repro/vision_literal_eval.py','egoemg_repro/classic_emg_report.py','egoemg_repro/metrics.py',
+        'egoemg_repro/data.py')})
+
+
+def _admitted_population(data_root,partitions,identity,*,parts=None,role=None):
+    """Rebuild subject membership from admitted partition and metadata bytes."""
+    if _hash(partitions)!=identity['partition_content_sha256']:
+        raise ValueError('point population partition differs from admitted content')
+    data_root=_safe(data_root)
+    metadata={'metadata:manifest':data_root/'manifest.json','metadata:episodes':data_root/'metadata.npz'}
+    guard=_StatGuard(metadata.values())
+    for name,path in metadata.items():
+        if _file_hash(path)!=identity['payload_files_sha256'][name]:
+            raise ValueError('point population source metadata differs from admitted content')
+    store=LegacyStore(data_root);guard.check()
+    if len(store.episodes)!=identity['episode_records']:
+        raise ValueError('point population episode count differs from admitted source')
+    windows={r:[w for w in partitions['windows']if w['role']==r]for r in ('train','val','test')}
+    if any(2*len(values)!=identity['counts'][r]for r,values in windows.items()):
+        raise ValueError('point population role coverage differs from admitted partition')
+    def subject(window):return str(store.episodes[window['episode']]['subject'])
+    users={r:sorted({subject(w)for w in values})for r,values in windows.items()}
+    splits={s:sorted({subject(w)for w in windows['test']if w['split']==s})for s in ('user','gesture','both')}
+    if parts is not None:
+        for part in parts:
+            for j,i in enumerate(part['index'].tolist()):
+                w=windows[role][i%len(windows[role])]
+                if (int(part['episode'][j])!=w['episode']or int(part['center'][j])!=w['center']or
+                    part['split'][j]!=w['split']or part['user'][j]!=subject(w)):
+                    raise ValueError('raw point episode/center/split/subject differs from admitted source')
+    guard.check()
+    return dict(data_root=str(data_root),partitions=copy.deepcopy(partitions),users_by_role=users,
+        test_users_by_split=splits,public=_population_public(users,splits,len(store.episodes)))
+
+
+def _verified_native(statistics,metrics,role):
+    # Auxiliary Trainer loss/FK diagnostics have no independent raw witness here.
+    if type(metrics)is not dict or set(metrics)!={role+'_mae'}:
+        raise ValueError('only independently witnessed original point MAE is a verified native metric')
+    _close_native(statistics,metrics,role)
 
 
 def _check(value,format):
@@ -169,17 +209,20 @@ def _load_pass(directory):
     payload=torch.load(str(payload_path),map_location='cpu',weights_only=True)
     if type(payload)is not dict or set(payload)!={'parts','population'}:raise ValueError('complete typed point/population payload required')
     parts,population=payload['parts'],payload['population']
-    public=_population_public(population['users_by_role'],population['test_users_by_split'],population['public']['episode_records'])
-    if (public!=population['public']or public!=v['population']or _hash(population)!=v['population_sha256']or
-        train.storage.state_digest(parts)!=v['prediction_sha256']):raise ValueError('actual native point metadata/input digest differs')
+    if (type(population)is not dict or
+        set(population)!={'data_root','partitions','users_by_role','test_users_by_split','public'}):
+        raise ValueError('complete admitted source population binding required')
     statistics=emgformer_statistics(parts,samples=v['samples'],batch_size=v['batch_size'],role=v['role'])
+    expected_population=_admitted_population(population['data_root'],population['partitions'],identity['cohort'],parts=parts,role=v['role'])
+    if (expected_population!=population or expected_population['public']!=v['population']or _hash(population)!=v['population_sha256']or
+        train.storage.state_digest(parts)!=v['prediction_sha256']):raise ValueError('actual native point metadata/input digest differs')
     if statistics!=v['statistics']:raise ValueError('raw native point statistics differ')
     if sorted({u for p in parts for u in p['user']})!=population['users_by_role'][v['role']]:
         raise ValueError('actual point subject population differs')
     if v['kind']=='native':
         metrics=_json(directory/'native-metrics.json')
         if metrics!=v['native_metrics']or v['native_aggregation_agrees']is not True:raise ValueError('native point metric sidecar differs')
-        _close_native(statistics,metrics,v['role'])
+        _verified_native(statistics,metrics,v['role'])
     elif v['native_metrics']!={}or v['native_aggregation_agrees']is not False:
         raise ValueError('independent point replay cannot invent native metrics')
     return v
@@ -260,6 +303,7 @@ def _capture(batch,out,ds,parts):
 
 def run_emgformer_pass(cohort,fit_path,output,*,role,kind,reference=None,profile=None,require_full=True):
     import torch
+    started=time.time_ns()
     if role not in ('val','test')or kind not in ('native','replay')or type(require_full)is not bool:
         raise ValueError('explicit native point evaluation role/kind/scope required')
     cohort.check();fit_path=_safe(fit_path);fit=train.read_emgformer_fit(fit_path,require_full=require_full)
@@ -270,23 +314,26 @@ def run_emgformer_pass(cohort,fit_path,output,*,role,kind,reference=None,profile
     if role=='test':
         if profile is None:raise ValueError('freeze native point validation before any test')
         frozen=read_emgformer_profile(profile)
-        if frozen['fit_result_sha256']!=fit['sha256']:raise ValueError('point profile belongs to another fit')
+        if frozen['fit_result_sha256']!=fit['sha256']or frozen['finished_ns']>started:
+            raise ValueError('point profile belongs to another fit or finishes after admission')
     elif profile is not None:raise ValueError('native point validation cannot consume test profile')
     if kind=='replay':
         if reference is None:raise ValueError('native point pass required before fresh replay')
         ref=read_emgformer_pass(reference)
         if (ref['kind']!='native'or ref['role']!=role or ref['fit_result_sha256']!=fit['sha256']or ref['process']==_process()or
-            ref['profile_sha256']!=(None if frozen is None else frozen['sha256'])):
+            ref['profile_sha256']!=(None if frozen is None else frozen['sha256'])or ref['finished_ns']>started):
             raise ValueError('fresh matching native point reference required')
     elif reference is not None:raise ValueError('native point pass cannot consume reference')
     policy=identity['policy'];device=train._runtime_device(policy);output=_safe(output,exists=False);train.storage._space(output.parent)
     checkpoint=fit_path/'checkpoints'/fit['selected_best']['file'];sources=_sources()
     guarded=[fit_path/'identity.json',fit_path/'fit-result.json',fit_path/'epochs.jsonl',fit_path/'checkpoints/last.ckpt',checkpoint,
         *[ROOT/n for n in sources],*([]if profile is None else[_safe(profile)/'profile.json'])]
-    guard=_StatGuard(guarded);started=time.time_ns()
+    guard=_StatGuard(guarded)
     state=torch.load(str(checkpoint),map_location='cpu',weights_only=False)['state_dict']
     prepared=build_emgformer_runtime(cohort.upstream,cohort.config,state=state,expected_initialization=identity['construction'])
-    before=emgformer_state_sha256(prepared.module.state_dict());population=vision_population(cohort);loader=_loader(cohort,policy,role)
+    before=emgformer_state_sha256(prepared.module.state_dict())
+    population=_admitted_population(cohort.datasets['train'].store.root,cohort.partitions,cohort.identity)
+    loader=_loader(cohort,policy,role)
     point=train.ValidationWitness(cohort,policy);point.parts=[];point.phase='val';point._observe_forward(prepared.module)
     original_point=prepared.module.forward;parts=[];seen=set();allowed=set(range(len(cohort.datasets[role])))
     evaluation_policy=copy.deepcopy(policy);evaluation_policy['batch_size_by_role']['test']=policy['batch_size_by_role']['val']
@@ -299,7 +346,7 @@ def run_emgformer_pass(cohort,fit_path,output,*,role,kind,reference=None,profile
             trainer=train.storage.pl.Trainer(accelerator=device['accelerator'],devices=1,precision=policy['precision'],
                 logger=False,enable_checkpointing=False,enable_progress_bar=False,enable_model_summary=False)
             method=trainer.validate if role=='val'else trainer.test
-            result=method(prepared.module,dataloaders=loader,verbose=False);native={k:float(v)for k,v in result[0].items()}
+            result=method(prepared.module,dataloaders=loader,verbose=False);native={role+'_mae':float(result[0][role+'_mae'])}
             if not all(math.isfinite(v)for v in native.values()):raise ValueError('nonfinite original point metrics')
         else:
             from lightning_fabric.utilities.apply_func import move_data_to_device
@@ -311,7 +358,7 @@ def run_emgformer_pass(cohort,fit_path,output,*,role,kind,reference=None,profile
                         prepared.module.forward(batch)
         if seen!=allowed:raise ValueError('partial selected point population')
         statistics=emgformer_statistics(parts,samples=len(seen),batch_size=policy['batch_size_by_role']['val'],role=role)
-        if kind=='native':_close_native(statistics,native,role)
+        if kind=='native':_verified_native(statistics,native,role)
         digest=train.storage.state_digest(parts)
         if ref is not None and digest!=ref['prediction_sha256']:raise ValueError('exact typed point/input replay failed')
         cohort.check();guard.check();prepared.check();after=emgformer_state_sha256(prepared.module.state_dict())

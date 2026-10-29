@@ -116,7 +116,7 @@ def chain(tmp_path_factory,request):
         assert hasattr(m,name),'selected point lifecycle missing: '+name
     saved=os.environ.get('EGOEMG_EMGFORMER_ENGINEERING_FIT')
     if saved:
-        fit=Path(saved).resolve();data=fit.parent/'data'
+        fit=Path(saved).resolve();data=Path(os.environ.get('EGOEMG_EMGFORMER_ENGINEERING_DATA',str(fit.parent/'data'))).resolve()
         assert fit.is_dir()and data.is_dir()
     else:
         # A clean checkout can bootstrap the same two-epoch fixture. During
@@ -262,3 +262,66 @@ def test_reference_graph_cycles_fail_with_bounded_reads(chain,monkeypatch,cycle)
         assert loads<=12
     finally:
         for path,old in changes.items():path.write_bytes(old)
+
+
+def _reseal_file(path,value):
+    from egoemg_repro.classic_emg import _hash
+    value['sha256']=_hash({k:v for k,v in value.items()if k!='sha256'});path.write_text(json.dumps(value))
+    return value
+
+
+@pytest.mark.parametrize('metric',['test_mae_wrist/flexion','test_loss'])
+def test_review_unverified_native_sidecar_metrics_cannot_enter_verified_report(chain,metric):
+    root,_,_,_,_,_=chain;paths=[root/'test-native/native-metrics.json',root/'test-native/pass.json',root/'test-replay/pass.json']
+    old={p:p.read_bytes()for p in paths}
+    try:
+        side=json.loads(old[paths[0]]);side[metric]=12345.;paths[0].write_text(json.dumps(side))
+        native=json.loads(old[paths[1]]);native['native_metrics']=side;native=_reseal_file(paths[1],native)
+        replay=json.loads(old[paths[2]]);replay['reference_sha256']=native['sha256'];_reseal_file(paths[2],replay)
+        with pytest.raises(ValueError):api().build_emgformer_report(root/'test-replay')
+    finally:
+        for p,b in old.items():p.write_bytes(b)
+
+
+@pytest.mark.parametrize('damage',['episode_count','both_membership','train_subjects'])
+def test_review_population_claims_must_match_admitted_sources_and_observed_samples(chain,damage):
+    import torch
+    from egoemg_repro.classic_emg import _file_hash,_hash
+    root,_,_,_,_,_=chain;paths=[root/(role+'/'+name)for role in ('test-native','test-replay')for name in ('predictions.pt','pass.json')]
+    old={p:p.read_bytes()for p in paths}
+    try:
+        native_sha=None
+        for mode in ('test-native','test-replay'):
+            payload_path=root/mode/'predictions.pt';pass_path=root/mode/'pass.json'
+            payload=torch.load(str(payload_path),map_location='cpu',weights_only=True);pop=payload['population']
+            if damage=='episode_count':pop['public']['episode_records']=999
+            elif damage=='both_membership':pop['test_users_by_split']['both']=[]
+            else:pop['users_by_role']['train']=['invented_subject']
+            pop['public']=api()._population_public(pop['users_by_role'],pop['test_users_by_split'],pop['public']['episode_records'])
+            torch.save(payload,str(payload_path));v=json.loads(old[pass_path]);v.update(payload_sha256=_file_hash(payload_path),
+                population_sha256=_hash(pop),population=pop['public'])
+            if mode=='test-replay':v['reference_sha256']=native_sha
+            v=_reseal_file(pass_path,v)
+            if mode=='test-native':native_sha=v['sha256']
+        with pytest.raises(ValueError):api().build_emgformer_report(root/'test-replay')
+    finally:
+        for p,b in old.items():p.write_bytes(b)
+
+
+@pytest.mark.parametrize('dependency',['profile','reference'])
+def test_review_future_dependencies_reject_before_selected_model_loading(chain,tmp_path,monkeypatch,dependency):
+    import time
+    from test_emgformer_data import UPSTREAM,cfg
+    from egoemg_repro.emgformer_literal import emgformer_normalization
+    from egoemg_repro.emgformer_cohort import admit_emgformer_cohort
+    root,fit,data,identity,_,_=chain;m=api();config=cfg()
+    cohort=admit_emgformer_cohort(data,upstream=UPSTREAM,config=config,
+        normalization=emgformer_normalization(UPSTREAM,config),expected=identity['cohort'])
+    path=root/('profile/profile.json'if dependency=='profile'else'val-native/pass.json');old=path.read_bytes()
+    monkeypatch.setattr(m,'build_emgformer_runtime',lambda *a,**kw:pytest.fail('future dependency reached selected model loading'))
+    try:
+        v=json.loads(old);v['finished_ns']=time.time_ns()+3600*10**9;_reseal_file(path,v)
+        kwargs=dict(role='test',kind='native',profile=root/'profile')if dependency=='profile'else dict(role='val',kind='replay',reference=root/'val-native')
+        with pytest.raises(ValueError):m.run_emgformer_pass(cohort,fit,tmp_path/'invalid-future',require_full=False,**kwargs)
+        assert not(tmp_path/'invalid-future').exists()
+    finally:path.write_bytes(old)
