@@ -1,6 +1,6 @@
 # 全论文复现状态与证据清单
 
-最新执行核验（北京时间2026-10-29 16:29）：[DINOv2-L显式续训](../results/dino-large-explicit-native-resume-20261029.json)已从108个完整epoch/60,696更新的真实last检查点进入GPU，16:20实际CSV步号已到60,731，仍只有108个已提交完整轮次。四份旧原始包以reflink保留，原文件九属性不变，六输入状态域与日志/AdamW步数已核对；原B360/BF16/非重入激活重计算/max150/patience30保留，不保证与未中断轨迹逐位一致。[EMG2Pose-M/L新完整尝试](../results/emg2pose-ml-explicit-fresh-attempts-20261029.json)各四个PID/start拥有者实际活动、打开完整原始HDF5并推进读取，目前仍在原生全量来源准入，尚未进入GPU fit；原尝试零完整轮次/无检查点，因此明确是新尝试，原失败状态未改。EMG2Pose-S19轮及融合32轮尚未续训；WiLoR仍暂缓完整续训，原生EMGFormer仍缺GPU资格。完成科学设置仍11，没有新增最终测试成绩，全论文仍进行中。
+最新执行核验（北京时间2026-10-29 16:54）：[S及融合模型的显式恢复准备](../results/native-small-fusion-explicit-recovery-20261029.json)已启动，八个PID/start拥有者均实际活动。S真实19轮/30,096更新、融合真实32轮/63,264更新的检查点已按原源码/原生循环、模型与日志、AdamW步数及六输入状态域核验；各四份原始包以reflink保留，原文件九属性不变。S仍在完整来源重新准入；融合已通过完整队列及训练分支交接校验，正在等待原64GiB启动显存。两项尚无新GPU训练更新，原失败状态未改。[DINOv2-L](../results/dino-large-explicit-native-resume-20261029.json)同一GPU进程继续，当前新日志步号61,234，已提交完整轮次为108。[M/L新完整尝试](../results/emg2pose-ml-explicit-fresh-attempts-20261029.json)同一拥有者仍在全量来源准入，暂无GPU fit或完整轮次。WiLoR仍暂缓完整续训；原生EMGFormer的两张候选卡仍有计算消费者，尚无GPU资格。完整科学设置仍11，没有新增最终测试成绩，全论文目标继续。
 
 以下较早条目是各自时间点的历史记录。
 

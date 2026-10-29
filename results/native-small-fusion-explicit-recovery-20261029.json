@@ -1,0 +1,376 @@
+{
+  "automatic_retry": false,
+  "bitwise_uninterrupted_trajectory_claimed": false,
+  "capacity_qualification_repeated": false,
+  "format": "actual_small_fusion_explicit_native_recovery_v1",
+  "full_paper_complete": false,
+  "full_training_complete": false,
+  "gpu_start_gate": {
+    "checked_after_complete_cpu_admission": true,
+    "existing_consumers_preserved": true,
+    "required_free_bytes": 68719476736,
+    "wait_before_start_preserves_native_policy": true
+  },
+  "independent_postlaunch_parent_and_source_verification": {
+    "all_149_and_90_frozen_source_files_unchanged": true,
+    "all_eight_preserved_raw_sha256_match": true,
+    "all_original_failed_states_and_fit_identities_unchanged": true,
+    "observed_utc": "2026-10-29T08:53:14.769886+00:00"
+  },
+  "jobs": {
+    "fusion": {
+      "actual_new_gpu_fit_verified": false,
+      "actual_resume_six_state_receipt_available": false,
+      "complete_cpu_source_admission_verified": true,
+      "complete_trained_initializer_handoff_verified": true,
+      "execution_directory": "egoemg-fusion-explicit-resume-8af004a76ef8-20261029",
+      "final_test_performed": false,
+      "frozen_native_source_files_verified": 90,
+      "full_training_complete": false,
+      "gpu_start_admission_complete": false,
+      "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+      "input_domain_admission": {
+        "actual_runtime_restoration_observed": false,
+        "all_adam_step_counters_match": true,
+        "cuda_initialized": false,
+        "model_matches_epoch_journal": true,
+        "observed_utc": "2026-10-29T08:45:02.202197+00:00",
+        "six_input_domain_sha256": {
+          "callbacks": "946a8f0bef190d1786fdaf48cffd6f488f8c563ee27bc3f93d61dd694d7298dd",
+          "loops": "e35cf930457051793990f0655d58a7500c526c91d3c5b97859bce5d730054c34",
+          "model": "e5cde5c84091093d3d30d152ea74cd7a37271e8b5017b0d255597c9e1e382224",
+          "optimizer": "ec13fe6fba885ec8b13ac5b2f3127f8aa1a0691e1db8e888e4502274b9468e69",
+          "rng": "68d8afe40008d543889ff810d5a51b70ac69b6c35a401cce0f90b6bbc3a485d9",
+          "scheduler": "b21996aa529247483538d40eaa621661edff9a73d3c463c57b004882e3d6e848"
+        },
+        "training_updates_in_admission": 0,
+        "witness_callback_matches_epoch_journal": true
+      },
+      "input_parent": {
+        "checkpoint_bytes": 310961053,
+        "checkpoint_sha256": "667809ac87c757715096c0f23719f5c7cfd734977cb20d9974df3a374fde429e",
+        "complete_epochs": 32,
+        "identity_sha256": "346621600534bc77c589c23e7e5db800641c42c4533eb2a823b03af6f92a618c",
+        "optimizer_executions": 63264,
+        "selected_best_file": "vits-s-16ch-wl7790-epoch=027-val_mae=0.0997.ckpt",
+        "selected_best_score": 0.09965284913778305,
+        "uncommitted_journal_tail_bytes": 0
+      },
+      "io_count_is_process_counter_not_complete_validation_bytes": true,
+      "native_training_source_modified": false,
+      "newly_committed_complete_epochs": 0,
+      "old_failed_state_preserved": true,
+      "original_failed_state_sha256": "111f631f096f6085ffab622e5f32338a95189eeeea7589124e0b7623ec85606f",
+      "original_native_fit_directory_reused": true,
+      "owners": {
+        "child": {
+          "identity": {
+            "pid": 4089926,
+            "start_ticks": "409099324"
+          },
+          "matching_live": true,
+          "state": "S"
+        },
+        "guardian": {
+          "identity": {
+            "pgrp": 4089930,
+            "pid": 4089930,
+            "sid": 4089930,
+            "start_ticks": "409099344",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true,
+          "state": "S"
+        },
+        "worker": {
+          "identity": {
+            "pgrp": 4089931,
+            "pid": 4089931,
+            "sid": 4089931,
+            "start_ticks": "409099348",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true,
+          "state": "S"
+        },
+        "wrapper": {
+          "identity": {
+            "pid": 4089924,
+            "start_ticks": "409099321"
+          },
+          "matching_live": true,
+          "state": "S"
+        }
+      },
+      "preserved_parent_checkpoints": [
+        {
+          "bytes": 310961053,
+          "file": "last.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "667809ac87c757715096c0f23719f5c7cfd734977cb20d9974df3a374fde429e"
+        },
+        {
+          "bytes": 310957789,
+          "file": "vits-s-16ch-wl7790-epoch=022-val_mae=0.1003.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "21c7c309ce93fc2dd34806cc0d6bd2d4a303623e6391dbbd25888d64cd54dd84"
+        },
+        {
+          "bytes": 310959581,
+          "file": "vits-s-16ch-wl7790-epoch=027-val_mae=0.0997.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "fb4691582c24a98643a3deb7a9263ace17f432b9027e3d0d46f5913075c1b085"
+        },
+        {
+          "bytes": 310960733,
+          "file": "vits-s-16ch-wl7790-epoch=030-val_mae=0.0998.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "ba61447a5c3ac3e3f8f670f5d3162057689b5d1248d04188335ab09db942fe4c"
+        }
+      ],
+      "private_operational_files_sha256": {
+        "input-admission.json": "c1fe360f3a12805d7af99a472b48d63ba588a1380da56d680d74dac6ec000cff",
+        "native-resume.py": "30b62448ee3cdab6769ff4ce08b4412772fdade4f58f731c30fdc1cabf0593e4",
+        "recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+        "resume-request.json": "977339ff8840c4dfd453f9985c42c05121d8bee84f06c13c564fedb1b0f6b34d",
+        "runtime-probe.py": "35a1a3758f2a13c02dbe3a5794bed64a636f970b59f328697107db881dc6aaf0"
+      },
+      "recipe": {
+        "batch_size": 200,
+        "early_stopping": false,
+        "max_epochs": 150,
+        "precision": "bf16-mixed",
+        "save_last": true,
+        "save_top_k": 3,
+        "scope": "full",
+        "workers": 0
+      },
+      "source_worker_rchar": 64234551628,
+      "status": "waiting_for_original_64GiB_gpu_start_reserve"
+    },
+    "small": {
+      "actual_new_gpu_fit_verified": false,
+      "actual_resume_six_state_receipt_available": false,
+      "complete_cpu_source_admission_verified": false,
+      "complete_trained_initializer_handoff_verified": false,
+      "execution_directory": "egoemg-small-explicit-resume-8af004a76ef8-20261029",
+      "final_test_performed": false,
+      "frozen_native_source_files_verified": 149,
+      "full_training_complete": false,
+      "gpu_start_admission_complete": false,
+      "gpu_uuid": "GPU-3b5a6250-aa89-83c4-f375-844893f374f5",
+      "input_domain_admission": {
+        "actual_runtime_restoration_observed": false,
+        "all_adam_step_counters_match": true,
+        "cuda_initialized": false,
+        "model_matches_epoch_journal": true,
+        "observed_utc": "2026-10-29T08:44:59.070452+00:00",
+        "six_input_domain_sha256": {
+          "callbacks": "96adb9d66cc93c4553ec895456f2314c1e23561daea674fdbc3c5744c5a56de6",
+          "loops": "c72780c78bdee744df8fc58bbdd4adbeb97f6b8aef54a4c5b6bddca68dc37505",
+          "model": "2ca1dfa0a4a5688f15cf94c471165fb794d480342e75a383184afe33f0403503",
+          "optimizer": "db1baacf82afb5e649dcee1050a7839d90a93013efae6d5f4c3ea75457ff9faa",
+          "rng": "35e01528b66afe5ee5ebbe8f95ffe25fce19125685c0efba6e6b848770dffdcc",
+          "scheduler": "fef4105c9bf0592e87e49e0abce9bc9bba3196b04eb2103bc0903a45e91b8f91"
+        },
+        "training_updates_in_admission": 0,
+        "witness_callback_matches_epoch_journal": true
+      },
+      "input_parent": {
+        "checkpoint_bytes": 42022776,
+        "checkpoint_sha256": "7b5620af7faf68235b66b2e559092236720e65edf15e44ec16a7cd19db69f0c8",
+        "complete_epochs": 19,
+        "identity_sha256": "c93ba9a578fcc38f03cb4a4ea3d1b18805345a0afe8ea8e30ebc7c23bd5c5146",
+        "optimizer_executions": 30096,
+        "selected_best_file": "emg2pose-epoch=014-val_mae=0.2429.ckpt",
+        "selected_best_score": 0.24291938543319702,
+        "uncommitted_journal_tail_bytes": 0
+      },
+      "io_count_is_process_counter_not_complete_validation_bytes": true,
+      "native_training_source_modified": false,
+      "newly_committed_complete_epochs": 0,
+      "old_failed_state_preserved": true,
+      "original_failed_state_sha256": "6d47945e7631a3bf500d261a9fa463276879ec4c62972c9bc5f4da26e72281f5",
+      "original_native_fit_directory_reused": true,
+      "owners": {
+        "child": {
+          "identity": {
+            "pid": 4089923,
+            "start_ticks": "409099318"
+          },
+          "matching_live": true,
+          "state": "S"
+        },
+        "guardian": {
+          "identity": {
+            "pgrp": 4089928,
+            "pid": 4089928,
+            "sid": 4089928,
+            "start_ticks": "409099337",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true,
+          "state": "S"
+        },
+        "worker": {
+          "identity": {
+            "pgrp": 4089929,
+            "pid": 4089929,
+            "sid": 4089929,
+            "start_ticks": "409099340",
+            "state": "R",
+            "uid": 1005
+          },
+          "matching_live": true,
+          "state": "R"
+        },
+        "wrapper": {
+          "identity": {
+            "pid": 4089922,
+            "start_ticks": "409099315"
+          },
+          "matching_live": true,
+          "state": "S"
+        }
+      },
+      "preserved_parent_checkpoints": [
+        {
+          "bytes": 42019448,
+          "file": "emg2pose-epoch=012-val_mae=0.2442.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "60e0acbf61f8b8f3e68381992f5117d7cb8a5e1d6aa47806f1292c20a363d8d3"
+        },
+        {
+          "bytes": 42020600,
+          "file": "emg2pose-epoch=014-val_mae=0.2429.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "4eae952a2aa762c5c69161b7f39c130fb49388c781b7f32a3c2b8d85c94e2cf7"
+        },
+        {
+          "bytes": 42022776,
+          "file": "emg2pose-epoch=018-val_mae=0.2433.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "7b5620af7faf68235b66b2e559092236720e65edf15e44ec16a7cd19db69f0c8"
+        },
+        {
+          "bytes": 42022776,
+          "file": "last.ckpt",
+          "mechanism": "XFS reflink; original payload unchanged",
+          "original_nine_attributes_unchanged": true,
+          "sha256": "7b5620af7faf68235b66b2e559092236720e65edf15e44ec16a7cd19db69f0c8"
+        }
+      ],
+      "private_operational_files_sha256": {
+        "input-admission.json": "a9034ee72ee62c5e017ddb71eaa849930c5da895feafa0508b24a416d85d6313",
+        "native-resume.py": "30b62448ee3cdab6769ff4ce08b4412772fdade4f58f731c30fdc1cabf0593e4",
+        "recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+        "resume-request.json": "bbe5788fc063685fa069638309bf288b33c12d126b243a6c8f7eff99cd92ca92",
+        "runtime-probe.py": "35a1a3758f2a13c02dbe3a5794bed64a636f970b59f328697107db881dc6aaf0"
+      },
+      "recipe": {
+        "batch_size": 320,
+        "early_stopping": false,
+        "max_epochs": 250,
+        "precision": "bf16-mixed",
+        "save_last": true,
+        "save_top_k": 3,
+        "scope": "full",
+        "workers": 12
+      },
+      "source_worker_rchar": 31014019485,
+      "status": "native_full_source_admission_for_explicit_resume"
+    }
+  },
+  "limitations": [
+    "Parent input-state hashes establish checkpoint admission, not observed native runtime restoration.",
+    "CPU source admission and process I/O counters do not prove a complete source pass, a new GPU fit, or an additional complete epoch.",
+    "Native six-domain restoration must pass before new updates; fusion additionally requires full frozen validation before continuation.",
+    "Evaluation, independent replay, pretest freezing, final test and scientific reports remain pending after natural full training termination.",
+    "No claim that resumed global loader RNG matches an uninterrupted trajectory."
+  ],
+  "observed_utc": "2026-10-29T08:54:11.246399+00:00",
+  "original_failed_states_retained": true,
+  "original_native_apis": {
+    "fusion": "admit_fusion_cohort and trained initializer handoff then fusion_literal_train.fit_fusion(scope=full,resume=True)",
+    "small": "emg2pose_direct_source.open_source then emg2pose_direct_train.fit_source(scope=full,resume=True,expected_last_sha256=admitted)"
+  },
+  "other_live_jobs": {
+    "dino_large": {
+      "committed_epochs": 108,
+      "controller": {
+        "pid": 4062826,
+        "start_ticks": "408895050",
+        "uid": 1005
+      },
+      "controller_matching_live": true,
+      "epoch_zero_based": 108,
+      "last_logged_step_label": 61234,
+      "status": "full-fit-resume",
+      "train_metric_rows": 539,
+      "worker": {
+        "pid": 4062857,
+        "start_ticks": "408895430",
+        "uid": 1005
+      },
+      "worker_matching_live": true
+    },
+    "emg2pose_ml": {
+      "large": {
+        "actual_full_gpu_fit_verified": false,
+        "experiment_output_exists": false,
+        "owners_matching_live": true,
+        "source_worker": {
+          "pgrp": 4072290,
+          "pid": 4072290,
+          "sid": 4072290,
+          "start_ticks": "408975661",
+          "state": "R",
+          "uid": 1005
+        },
+        "source_worker_rchar": 133074515623,
+        "status": "native_full_source_admission"
+      },
+      "middle": {
+        "actual_full_gpu_fit_verified": false,
+        "experiment_output_exists": false,
+        "owners_matching_live": true,
+        "source_worker": {
+          "pgrp": 4072286,
+          "pid": 4072286,
+          "sid": 4072286,
+          "start_ticks": "408975654",
+          "state": "R",
+          "uid": 1005
+        },
+        "source_worker_rchar": 133074515637,
+        "status": "native_full_source_admission"
+      }
+    }
+  },
+  "preparation_started_utc": {
+    "fusion": "2026-10-29T08:48:07.897663+00:00",
+    "small": "2026-10-29T08:48:07.843150+00:00"
+  },
+  "running_guards": {
+    "data_disk_reserve_bytes": 16106127360,
+    "gpu_free_reserve_bytes_after_start": 8589934592,
+    "host_available_reserve_bytes": 274877906944
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "scientific_settings_complete": 11,
+  "strict_idle_native_emgformer_candidates_still_have_compute_consumers": {
+    "GPU-20575323-8e23-b0b8-74b4-b987d870b0e3": true,
+    "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae": true
+  }
+}
