@@ -27,7 +27,7 @@
 - A historical best may survive all remaining epochs. Every referenced top3/last path must remain readable and its original raw identity validated; preserve early-stopping history.
 - A recovered fit must not pass the old uninterrupted reader, engineering must not become scientific, and test still requires exact independent frozen validation before any test consumption.
 
-### Task1: strict parent admission and explicit lineage
+### Task 1: strict parent admission and explicit lineage
 
 **Files:** create egoemg_repro/wilor_recovery.py and tests/test_wilor_recovery.py; doc docs/wilor-recovery.md.
 **Interfaces:** admit_wilor_recovery(parent,*,checkpoint=None) -> admitted recovery object with identity, records, raw checkpoint, selected parent path, source guard, parent file hashes and callback copy map. check() rechecks immutable admitted inputs. Full parents choose newest complete matching journal packet; explicit older checkpoint only engineering. No model/optimizer/CUDA construction.
@@ -36,7 +36,7 @@
 - [ ] Implement minimal guarded admission with unchanged native _validate_checkpoint and _selection semantics, sealed recovery manifest and historical identity preserved verbatim. Raw model/optimizer contents are not accepted from summary claims.
 - [ ] Run entire NEW admission suite and actual current full6 read-only admission,0models/0updates/noCUDA. Commit source/evidence; do not rescan old math/input absent current execution need.
 
-### Task2: native restoration and recovered result acceptance
+### Task 2: native restoration and recovered result acceptance
 
 **Files:** extend egoemg_repro/wilor_recovery.py; create scripts/run_wilor_recovery_worker.py for explicit phases; tests/test_wilor_recovery.py.
 **Interfaces:** resume_wilor(admitted,output) -> sealed recovered result; read_wilor_recovery(output,*,require_full=True) -> recovered result; reopen_wilor_recovery(output,*,require_full=True) -> guarded selected native prepared runtime. New result contains total_updates, segment_updates, original/new owner and immutable parent lineage. Existing native fit identity/prefix journal remain verbatim.
@@ -46,7 +46,7 @@
 - [ ] Use a new current-source CPU prefix stopped deliberately only after original first-epoch last save, then fresh-process recovery to original2epoch budget. Assert original model count631631657,2new segment updates/4total, original/fresh state domains and frozen validation agree. Current source differs from retained old CPU proof; never retag that proof. Explicit bounded volatile workspace only until durable capacity is available.
 - [ ] Run entire NEW recovery suite and independent actual raw/result reopen. Commit implementation and actual evidence.
 
-### Task3: recovered native/replay/profile/report chain and review
+### Task 3: recovered native/replay/profile/report chain and review
 
 **Files:** create egoemg_repro/wilor_recovery_eval.py and tests/test_wilor_recovery_eval.py; doc/results/immutable execution helpers.
 **Interfaces:** run_wilor_recovery_pass/read/freeze/publish/verify wrappers mirror original public WiLoR evaluation signatures, with new recovered fit acceptance and explicit recovery report metadata. Reuse closed capture/statistics/native/precision/render helpers; no global monkeypatch of closed readers.
