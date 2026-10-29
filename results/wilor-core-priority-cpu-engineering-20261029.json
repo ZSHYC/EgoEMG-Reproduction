@@ -1,0 +1,72 @@
+{
+  "format": "current_native_wilor_recovery_cpu_evidence_v1",
+  "source_commit": "75bf1a1451e1e6f5ba3c0c31863f2b86d635d089",
+  "bundle_sha256": "e3621ed3c5643af8be3d3a6e5954eeea67c4751c66977a59276991bea9e140f6",
+  "workflow_sha256": "2949f98275d19857d25e6b067b68e09f691bb82a12f43ee4afb2c19a1b74dd81",
+  "seconds": 348.0725663159974,
+  "actual_existing_native_prefix_reused": true,
+  "actual_models_constructed": 1,
+  "actual_optimizers_constructed": 1,
+  "actual_new_resume_updates": 2,
+  "actual_total_native_updates": 4,
+  "actual_model_parameter_count": 631631657,
+  "resume_seconds": 275.04726232402027,
+  "read_seconds": 68.80374768096954,
+  "raw_and_result_independent_read_models": 0,
+  "raw_and_result_independent_read_updates": 0,
+  "native_restore": {
+    "actual": {
+      "callbacks": "9cbb9df6b2d4eab76a3e80977953fc4921fd2cf782852000a17a9706173b77e6",
+      "loops": "74d76704bc9ad804207f34e6aa757a3e635c8fa404c8664a9068426a5a844ac8",
+      "model": "f67137c318c72278ee9e4d09efb3d824fed4c8528780db1d334ff39be7b155f8",
+      "optimizer": "0ff4ba104c3a5c5d89bfa982522a8c8073c99a4bb497e3fbde185f34c35e6443",
+      "rng": "22f5fcb3b5725ca56bc71dbfe28c6db97bd1a36d1d19fc0a6df6854d94fc8fc7",
+      "scheduler": "1147d4c1e027908fe071cd0be81b0d7ee86221a00a87636791641c337e48d253"
+    },
+    "calls": 1,
+    "equal": {
+      "callbacks": true,
+      "loops": true,
+      "model": true,
+      "optimizer": true,
+      "rng": true,
+      "scheduler": true
+    },
+    "expected": {
+      "callbacks": "9cbb9df6b2d4eab76a3e80977953fc4921fd2cf782852000a17a9706173b77e6",
+      "loops": "74d76704bc9ad804207f34e6aa757a3e635c8fa404c8664a9068426a5a844ac8",
+      "model": "f67137c318c72278ee9e4d09efb3d824fed4c8528780db1d334ff39be7b155f8",
+      "optimizer": "0ff4ba104c3a5c5d89bfa982522a8c8073c99a4bb497e3fbde185f34c35e6443",
+      "rng": "22f5fcb3b5725ca56bc71dbfe28c6db97bd1a36d1d19fc0a6df6854d94fc8fc7",
+      "scheduler": "1147d4c1e027908fe071cd0be81b0d7ee86221a00a87636791641c337e48d253"
+    },
+    "restored_before_iterator": true
+  },
+  "frozen_validation": {
+    "model_state_unchanged": true,
+    "parent_prediction_exact": true,
+    "prediction_sha256": "caadc6dc9e1d1d3bba4ef632f0bb739b78f44155c11d0ee7ac8ee473d170497b",
+    "samples": 2
+  },
+  "completed_engineering_epochs": 2,
+  "all_six_current_cpu_pid_start_owners_closed": true,
+  "independently_rehashed_source_members": 117,
+  "controller_full_source_and_synthetic_fixture_sha_and_nine_attributes_unchanged": true,
+  "new_recovery_suite_passed": 103,
+  "new_recovery_suite_dependency_warnings": 14,
+  "bounded_start_review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 1,
+    "scope": "bounded_current_native_wilor_full_continuation"
+  },
+  "storage": "volatile tmpfs for engineering checkpoint payloads; durable source and execution records",
+  "scientific_eligible": false,
+  "full_paper_complete": false,
+  "limitations": [
+    "Synthetic CPU engineering only; no new scientific setting.",
+    "Original compatible native one-epoch prefix reused; prior recovered result was not relabeled.",
+    "Actual full GPU frozen validation, restoration, full30 and final test are separate pending gates.",
+    "Recovered evaluation/report adapter remains a separate next unit."
+  ]
+}

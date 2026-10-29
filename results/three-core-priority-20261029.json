@@ -1,0 +1,212 @@
+{
+  "observed_utc": "2026-10-29T09:43:45.207563+00:00",
+  "vit_l": {
+    "root": "/data/shihao/egoemg-dino-large-explicit-resume-0ee08f3b41eb-20261029",
+    "status": "full-fit-resume",
+    "owners": {
+      "controller": {
+        "identity": {
+          "pid": 4062826,
+          "start_ticks": "408895050",
+          "uid": 1005
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "worker": {
+        "identity": {
+          "pid": 4062857,
+          "start_ticks": "408895430",
+          "uid": 1005
+        },
+        "matching_live": true,
+        "state": "R"
+      }
+    },
+    "committed_epochs": 109,
+    "telemetry": {
+      "path": "/data/shihao/outputs/egoemg-full-paper-20261026/vision-checkpoint-l-fd6952fec2a7-20261027/full-fit/logs/ec941ba648f34a62adc69ef19bd0f2f3/metrics.csv",
+      "last_logged_step_label": 61796,
+      "epoch_zero_based": 109
+    },
+    "parent_epochs": 108,
+    "parent_updates": 60696
+  },
+  "fusion": {
+    "status": "running",
+    "actual_exit_code": null,
+    "owners": {
+      "wrapper": {
+        "identity": {
+          "pid": 4089924,
+          "start_ticks": "409099321"
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "child": {
+        "identity": {
+          "pid": 4089926,
+          "start_ticks": "409099324"
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "guardian": {
+        "identity": {
+          "pgrp": 4089930,
+          "pid": 4089930,
+          "sid": 4089930,
+          "start_ticks": "409099344",
+          "state": "R",
+          "uid": 1005
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "worker": {
+        "identity": {
+          "pgrp": 4089931,
+          "pid": 4089931,
+          "sid": 4089931,
+          "start_ticks": "409099348",
+          "state": "R",
+          "uid": 1005
+        },
+        "matching_live": true,
+        "state": "R"
+      }
+    },
+    "root": "/data/shihao/egoemg-fusion-explicit-resume-8af004a76ef8-20261029",
+    "committed_epochs": 32,
+    "parent_epochs": 32,
+    "parent_updates": 63264,
+    "progress": {
+      "actual_six_state_restore_yet_serialized": false,
+      "full_paper_complete": false,
+      "full_training_complete": false,
+      "gpu_admission": {
+        "actual_free_bytes": 72687288320,
+        "external_consumers_preserved": true,
+        "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+        "observed_utc": "2026-10-29T09:11:47.032663+00:00",
+        "required_start_free_bytes": 68719476736
+      },
+      "kind": "fusion",
+      "parent_complete_epochs": 32,
+      "parent_optimizer_executions": 63264,
+      "phase": "native-resume-starting",
+      "utc": "2026-10-29T09:11:47.032853+00:00"
+    },
+    "telemetry": {
+      "path": "/data/shihao/egoemg-native-fusion-full-59b5ed5f525f-20261028/private/full-fit/logs/b9c5356532ce4f4aaa0f390fc588836d/events.out.tfevents.1793265157.node235.4089931.0",
+      "latest": {
+        "train_mae": {
+          "step": 64101,
+          "value": 0.03161177039146423,
+          "wall_time": 1793267024.0851579
+        },
+        "train_loss": {
+          "step": 64101,
+          "value": 0.10550101101398468,
+          "wall_time": 1793267024.0862944
+        },
+        "epoch": {
+          "step": 64101,
+          "value": 32.0,
+          "wall_time": 1793267024.0864203
+        }
+      }
+    },
+    "new_training_steps_observed": true
+  },
+  "wilor": {
+    "status": "running",
+    "actual_exit_code": null,
+    "owners": {
+      "wrapper": {
+        "identity": {
+          "pid": 4137361,
+          "start_ticks": "409393367"
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "child": {
+        "identity": {
+          "pid": 4137362,
+          "start_ticks": "409393371"
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "guardian": {
+        "identity": {
+          "pgrp": 4137363,
+          "pid": 4137363,
+          "sid": 4137363,
+          "start_ticks": "409393378",
+          "state": "R",
+          "uid": 1005
+        },
+        "matching_live": true,
+        "state": "S"
+      },
+      "worker": {
+        "identity": {
+          "pgrp": 4137364,
+          "pid": 4137364,
+          "sid": 4137364,
+          "start_ticks": "409393382",
+          "state": "R",
+          "uid": 1005
+        },
+        "matching_live": true,
+        "state": "D"
+      }
+    },
+    "root": "/data/shihao/egoemg-wilor-core-priority-full-ec655bf515e2-20261029",
+    "progress": {
+      "phase": "native-full-continuation-starting",
+      "utc": "2026-10-29T09:41:44.289582+00:00",
+      "full_paper_complete": false,
+      "parent_epochs": 6,
+      "parent_updates": 67344,
+      "original_target_epochs": 30,
+      "original_total_updates": 336720
+    },
+    "parent_epochs": 6,
+    "parent_updates": 67344,
+    "target_epochs": 30,
+    "original_total_updates": 336720,
+    "source_commit": "75bf1a1451e1e6f5ba3c0c31863f2b86d635d089",
+    "gpu-admission.json": {
+      "actual_free_bytes": 75878105088,
+      "gpu_uuid": "GPU-07ce4138-60af-137b-b134-7f267cece52d",
+      "native_hardware_runtime_check_required_before_model": true,
+      "required_free_bytes": 68719476736,
+      "utc": "2026-10-29T09:41:44.288758+00:00"
+    },
+    "start-gate.json": {
+      "proof_workflow_sha256": "2949f98275d19857d25e6b067b68e09f691bb82a12f43ee4afb2c19a1b74dd81",
+      "recorded_utc": "2026-10-29T09:41:41.312937+00:00",
+      "recovery_sha256": "331161d115bb96c87c12e6f6c678f4abee1e2bc1225a6ff1521ac1ab0016c075",
+      "review_sha256": "e27a38a5a483fdb877c866d6b30b64869d2d0ce81782f1ba3d84403bfec18dfa",
+      "source_commit": "75bf1a1451e1e6f5ba3c0c31863f2b86d635d089"
+    },
+    "full_output_exists": true,
+    "cpu_proof": "wilor-core-priority-cpu-engineering-20261029.json",
+    "full_gpu_frozen_validation_and_six_state_restoration_not_yet_serialized": true
+  },
+  "owned_gpu_rows": [
+    "4137364, GPU-07ce4138-60af-137b-b134-7f267cece52d, 416",
+    "4062857, GPU-6b41c390-53fc-6ccc-ea07-0648926ae5cb, 23000",
+    "4089931, GPU-83b7beb5-2729-4e3b-ed78-b949192152fb, 17126"
+  ],
+  "data_free_bytes": 1535688531968,
+  "scientific_settings_completed": 11,
+  "these_three_final_test_scores_not_yet_available": true,
+  "noncore_s_m_l_admissions_stopped_for_user_priority": true,
+  "full_paper_complete": false,
+  "interpretation": "ViT-L and fusion new training steps observed; WiLoR full continuation admitted and launched, not a completed scientific result. Telemetry step labels are not independently accepted terminal optimizer counts."
+}
