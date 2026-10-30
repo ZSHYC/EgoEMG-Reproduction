@@ -1,0 +1,122 @@
+{
+  "core_final_results_pending": [
+    "WiLoR",
+    "ViT-S + EMGFormer-S"
+  ],
+  "evaluation_queue_observed_utc": "2026-10-30T03:46:40.122481+00:00",
+  "evaluation_queues": [
+    {
+      "model": "WiLoR",
+      "owners": {
+        "child": {
+          "matching_live": true,
+          "pid": 115219,
+          "start_ticks": "411557842"
+        },
+        "wrapper": {
+          "matching_live": true,
+          "pid": 115218,
+          "start_ticks": "411557839"
+        }
+      },
+      "phase": "waiting-for-exact-full30-continuation-completion",
+      "status": "running"
+    },
+    {
+      "model": "ViT-S + EMGFormer-S",
+      "owners": {
+        "child": {
+          "matching_live": true,
+          "pid": 115221,
+          "start_ticks": "411557847"
+        },
+        "wrapper": {
+          "matching_live": true,
+          "pid": 115220,
+          "start_ticks": "411557845"
+        }
+      },
+      "phase": "waiting-for-exact-fusion-full150-terminal-completion",
+      "status": "running"
+    }
+  ],
+  "format": "core_priority_run_status_v1",
+  "full_paper_complete": false,
+  "models": {
+    "ViT-L": {
+      "actual_controller_and_all_stage_processes_gone": true,
+      "all_center_mae_deg": 6.229673746026347,
+      "completed_epochs": 132,
+      "full_training_terminated": true,
+      "optimizer_executions": 74184,
+      "report_file_sha256": "cfce440aa89e43c411073d309d1c4d9ffa2f55aae4d4991c5f48b487a88de75a",
+      "report_path": "results/original-vision/vit-large/metrics.json",
+      "scientific_eligible": true,
+      "status": "completed_full_fit_test_replay_and_report"
+    },
+    "ViT-S + EMGFormer-S": {
+      "all_recorded_training_owners_live": true,
+      "completed_epochs": 60,
+      "final_test_score_available": false,
+      "last_logged_train_step_zero_based": 118969,
+      "owners": {
+        "child": {
+          "matching_live": true,
+          "pid": 4089926,
+          "start_ticks": "409099324"
+        },
+        "guardian": {
+          "matching_live": true,
+          "pid": 4089930,
+          "start_ticks": "409099344"
+        },
+        "worker": {
+          "matching_live": true,
+          "pid": 4089931,
+          "start_ticks": "409099348"
+        },
+        "wrapper": {
+          "matching_live": true,
+          "pid": 4089924,
+          "start_ticks": "409099321"
+        }
+      },
+      "status": "original_native_full_continuation_running",
+      "target_epochs": 150
+    },
+    "WiLoR": {
+      "all_recorded_training_owners_live": true,
+      "completed_epochs": 25,
+      "final_test_score_available": false,
+      "last_logged_train_step_zero_based": 281753,
+      "owners": {
+        "child": {
+          "matching_live": true,
+          "pid": 4137362,
+          "start_ticks": "409393371"
+        },
+        "guardian": {
+          "matching_live": true,
+          "pid": 4137363,
+          "start_ticks": "409393378"
+        },
+        "worker": {
+          "matching_live": true,
+          "pid": 4137364,
+          "start_ticks": "409393382"
+        },
+        "wrapper": {
+          "matching_live": true,
+          "pid": 4137361,
+          "start_ticks": "409393367"
+        }
+      },
+      "status": "original_native_full_continuation_running",
+      "target_epochs": 30
+    }
+  },
+  "noncore_admissions_stopped_for_user_priority": true,
+  "observed_utc": "2026-10-30T03:46:50.338713+00:00",
+  "paper_numerical_equivalence_established": false,
+  "scientific_settings_completed": 12
+}

@@ -1,6 +1,6 @@
 # DINOv2：官方执行语义与可用数据读取层
 
-目前已实现配置、数据、真实预训练原生模块、完整训练入口及验证选模后的原生评价／独立复算。真实旧版队列的S模型CPU短训和恢复已完成，52个实际输入文件也已完整内容校验；**新DINO的GPU容量验收和完整训练尚未执行，没有新的模型性能成绩**。[执行计划](superpowers/plans/2026-10-27-literal-vision.md)继续覆盖完整实现审查与真实运行。下文保留各阶段的证据范围，早期“尚欠”描述不覆盖后续已记录的进展。
+截至2026-10-30，原生配置/数据/真实预训练模块、完整训练、验证选模和独立评价链已执行完成；[ViT-S](../results/original-vision/vit-small/README.md)、[ViT-B](../results/original-vision/vit-base/README.md)、[ViT-L](../results/original-vision/vit-large/README.md)均有完整旧版队列最终结果，全部中心MAE分别为6.464179°、6.761261°、6.229674°。L完成132轮/74,184更新、真实108轮状态续训和完整测试/重放/报告复核，原生激活重计算与早停规则明确披露。作者合并训练来源、PDF与多seed等价仍未证明；[执行计划](superpowers/plans/2026-10-27-literal-vision.md)和下文保留各阶段历史证据，早期“尚欠”描述按其发生时间解读。
 
 ## 固定源码裁决
 
@@ -123,4 +123,4 @@ python -m egoemg_repro.vision_literal_eval verify --recompute "$TEST_REPLAY" --o
 
 [实际CPU证据](../results/vision-literal-activation-checkpoint-cpu.json)记录DINO-S真实前向／反向的参数、预测、全部梯度和反向后RNG一致，genuine预训练S的新进程恢复六项一致。38项原生fit／评价检查通过；独立实现审查没有发现问题。97成员完整检查实际1,573 passed／4 skipped／106warnings（767.49s），轻量841／689依赖skip（25.50s）。三项skip需要实际CUDA，另一项ViT-L随机构造因本机内存不足跳过，已在同97源码服务器按同一测试脚本补做并通过；原整套1573／4记录保留。该CPU证明不构成L的GPU容量或科学结果，仍须完成新的L原360／bf16容量、完整验证和精确复推后才能另起full。
 
-随后[实际L GPU验收](../results/vision-literal-large-checkpoint-gpu-engineering.json)七阶段全部通过：两轮／4次更新，原360／bf16、完整3,152验证、六项恢复一致及新进程精确复推。新full已从真实预训练权重独立启动，最大150／patience30、无工程样本限制；尚无最终测试成绩。匹配实现2129accc的[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)为完整1,574／3实际CUDA skip、轻量841／689依赖skip。原未开启重计算的L显存失败保持失败，不用新结果追认。
+随后[实际L GPU验收](../results/vision-literal-large-checkpoint-gpu-engineering.json)七阶段全部通过：两轮／4次更新，原360／bf16、完整3,152验证、六项恢复一致及新进程精确复推。新full当时已从真实预训练权重独立启动，最大150／patience30、无工程样本限制；2026-10-30已完成132轮及完整最终测试/独立重放/报告核验，见[ViT-L结果](../results/original-vision/vit-large/README.md)。匹配实现2129accc的[真实托管CI](https://github.com/ZSHYC/EgoEMG-Reproduction/actions/runs/40420859582)为完整1,574／3实际CUDA skip、轻量841／689依赖skip。原未开启重计算的L显存失败保持失败，不用新结果追认。

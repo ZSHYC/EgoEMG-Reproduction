@@ -63,3 +63,8 @@
 - [ ] Freeze a report agreement policy before test, calibrate on independent validation, and retain actual native batch aggregation. No post-test tolerance changes or checkpoint reselection.
 - [ ] After final review/integration, stage frozen code and actual assets, run bounded GPU capacity/full-val/reload checks, then full S training in a new output with finite resource/log limits and no auto retry. B/L follow their own capacity and full runs.
 - [ ] Publish only actual completed/audited results; update Tables3/8 and later fusion/occlusion analysis without claiming missing current merged data or PDF equality. Whole-paper goal stays active until its separate full audit passes.
+
+
+## 2026-10-30 actual ViT-L full-result acceptance
+
+S/B/L now each have completed available-legacy-cohort results. The [ViT-L report](../../../results/original-vision/vit-large/README.md) records native early stopping after132 epochs/74184 updates, genuine continuation from108 epochs, complete3152 validation/replay, frozen agreement policy,8612 test consumptions/4306 unique hands, independent test replay, report and fresh verifier. All9 continuation/evaluation stages exited0 and every owned process is closed. All-center pooled MAE is6.229673746026347 degrees. The original disk/memory failures, explicit activation checkpointing, six-domain restore and lack of bitwise uninterrupted-trajectory guarantee remain disclosed. Task3 publication has advanced; later fusion/occlusion work and the separate whole-paper audit remain incomplete, so this note does not close the whole-paper goal or all Task3 requirements.

@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "metrics.json": "cfce440aa89e43c411073d309d1c4d9ffa2f55aae4d4991c5f48b487a88de75a",
+    "metrics.md": "08e9d2ac9ef8aaa12a43c5966f77d9b33a5963623fe4a7f18b7ad41023e9b93c"
+  },
+  "format": "original_vision_public_report_completion_v1",
+  "full_paper_complete": false,
+  "report_sha256": "4ea3ed3e91b6ba88337844bbf513d31c1d8cd18b94eaff410d49b50dd5c8c2d1",
+  "scientific_eligible": true,
+  "sha256": "05b57dcace14e7f02bc4230109b996e91e9f13b3cce48fa672f89d6b2061d7d5"
+}

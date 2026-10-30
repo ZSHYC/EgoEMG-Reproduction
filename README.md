@@ -2,13 +2,13 @@
 
 # EgoEMG Reproduction
 
-> **当前目标 · 全论文复现进行中（2026-10-29）**
+> **当前目标 · 全论文复现进行中（2026-10-30）**
 >
 > 用户目标已扩展为论文全文；有歧义时优先固定官方代码。范围覆盖 **Tables 1–15、Figures 1–13、全部作者模型、EMG2Pose、标注与预处理、数据统计和派生分析**。原四项 legacy 基线是已完成的历史子集；新增 [ResNet-50](results/completed/resnet50/README.md)和[ResNet-152](results/completed/resnet152/README.md)均完成150轮、完整验证选模、最终测试与独立复算，全部中心 MAE 分别为6.640058°和5.982738°。新增[EMGFormer-L](results/completed/emgformer-l/README.md)也完成200轮、最终测试与独立中心复算，全部中心16.612111°。七项均保留legacy数据及0.01损失协议，不代表论文原表等价。[classic CPU训练与恢复](docs/classic-emg.md)、[短程CUDA数值/状态恢复](results/classic-cuda-numeric-engineering.md)和[原批量600/256容量检查](results/classic-cuda-capacity-engineering.md)已完成；[VEMG原生配方完整实验](results/original-classic/vemg2pose/README.md)已完成62轮早停训练、原生测试和独立完整复算，轨迹／中心MAE为16.452932°／16.347705°（新的4,306测试手样本队列）；[NeuroPose原生完整实验](results/original-classic/neuropose/README.md)也已完成73轮早停、最终测试与独立复算，轨迹／中心MAE为16.358404°／16.411552°；先前失败证据保留。新增[测试复算与完整报告](docs/classic-report.md)已完成审查修正与CPU集成，VEMG实际12阶段报告链已全部通过，最终公开字节与完成标记已核验。[手形统计与聚合图](results/dataset-statistics/shape-statistics.md)已从真实82手数据生成并核验，PDF显示微差与统计列歧义照实保留。全文状态与真正缺口见[全论文证据清单](docs/full-paper-status.md)，动态进展见[运行状态](docs/run-status.md)，验收范围见[全文设计](docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md)。
 
-> **当前运行状态 · 2026-10-29 16:54北京时间**：已有11项完整实验设置，全论文和PDF等价仍未证明。DINOv2-L恢复后的GPU训练继续；EMG2Pose-M/L正在新完整尝试的全量来源核验。S19轮和融合32轮检查点已核验、备份，并启动[显式恢复准备](results/native-small-fusion-explicit-recovery-20261029.json)：S正在完整数据准入，融合已完成数据与训练分支校验、等待原64GiB显存门槛，两项尚无新GPU更新。WiLoR完整续训仍暂缓，原生EMGFormer仍缺GPU资格。全部旧失败状态保留，详见[最新运行状态](docs/run-status.md)。
+> **当前运行状态 · 2026-10-30 11:46北京时间**：已有12项完整实验设置，全论文和PDF等价仍未证明。[ViT-L完整结果](results/original-vision/vit-large/README.md)完成132轮、原生最终测试、独立完整重放及报告复核，全部中心MAE为6.229674°。WiLoR已完成25/30轮，ViT-S＋EMGFormer-S融合完成60/150轮；两项原训练进程与后续自动评估队列均已核验存活，最终成绩仍待产出。当前计算资源按用户要求优先用于这些核心项。[实际运行快照](results/core-priority-status-20261030.json) · [运行记录](docs/run-status.md)。
 
-> **结果与论文的差距：** [11项已完成MAE逐项对照](results/paper-comparison/README.md)包含Table2/3原表、当前结果和来源SHA。当前数值均高于论文，数据/协议未完全对齐；尚不能声称论文核心数值和全部模型优势已复现。
+> **结果与论文的差距：** [12项已完成MAE逐项对照](results/paper-comparison/README.md)包含Table2/3原表、当前结果和来源SHA，新增ViT-L 6.229674°对论文5.4°的数值参照。当前数值均高于论文，数据/协议未完全对齐；尚不能声称论文核心数值和全部模型优势已复现。
 
 > **新增协议审计：** 固定官方EgoEMG配置经Hydra合成与别名归约后，指尖项有效系数为0.02；既有legacy配方使用0.01。此前这一差异漏核，[实际11配置审计](results/official-loss-audit.md)已公开说明，旧结果与在跑legacy实验不能称为该官方损失的等价复现。EMG2Pose三项无此叠加，仍为0.01。
 
@@ -42,7 +42,7 @@
 
 [全论文状态](docs/full-paper-status.md) · [论文解读](docs/paper-guide.md) · [复现对照表](docs/reproduction-matrix.md) · [训练指南](docs/training.md) · [实验结果](docs/results.md) · [运行证据](docs/run-status.md)
 
-> [DINOv2原生训练与评价](docs/vision-literal.md)：[ViT-S完整结果](results/original-vision/vit-small/README.md)已完成124轮/69,688更新，全部中心MAE6.464179°；[ViT-B完整结果](results/original-vision/vit-base/README.md)已完成94轮/52,828更新，全部中心6.761261°。两者均完成验证选best、最终test、新进程完整复算及报告核验，测试4,306唯一手样本/原repeat2消费8,612；保留原0.02损失和旧队列/单rank适配，B明确从S配方派生，不证明PDF或多seed等价。L显式激活重计算训练在磁盘中断后已从108轮检查点续训，原未启用版本的显存失败保留。全文进展与缺口见[全论文状态](docs/full-paper-status.md)。
+> [DINOv2原生训练与评价](docs/vision-literal.md)：[ViT-S](results/original-vision/vit-small/README.md)、[ViT-B](results/original-vision/vit-base/README.md)、[ViT-L](results/original-vision/vit-large/README.md)均已完成完整训练、验证选best、最终测试、新进程完整重放及报告核验；全部中心MAE分别为6.464179°、6.761261°、6.229674°。测试均为4,306唯一手样本/原repeat2消费8,612。L使用显式原生激活重计算，从磁盘中断后的真实108轮状态续训至132轮早停，六域恢复和完整评估链均通过，原失败证据保留。保留原0.02损失及旧队列/单rank适配；B/L明确从S配方派生，没有PDF或多seed等价结论。全文范围见[全论文状态](docs/full-paper-status.md)。
 
 ## 复现什么
 

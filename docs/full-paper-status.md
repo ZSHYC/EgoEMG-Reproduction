@@ -1,6 +1,6 @@
 # 全论文复现状态与证据清单
 
-当前按用户指定，优先运行 **ViT-L、WiLoR、ViT-S＋EMGFormer-S融合**。[已核验快照](../results/three-core-priority-20261029.json)记录三项分别完成117、10、37轮且仍在原生训练；WiLoR已从真实六轮状态继续训练，融合已从真实32轮状态继续训练。两个后续评估队列已在服务器后台实际存活，等待各自完整训练自然结束后再进行验证、独立回放、冻结方案、完整测试和报告核验。DINO-L现有控制器也包含训练后的评估流程。
+当前按用户指定，优先完成 **ViT-L、WiLoR、ViT-S＋EMGFormer-S融合**。[ViT-L完整结果](../results/original-vision/vit-large/README.md)已完成132轮早停训练、原生完整测试、独立重放和报告复核，全部中心MAE为6.229674°。北京时间2026-10-30 11:46的[已核验快照](../results/core-priority-status-20261030.json)记录WiLoR完成25/30轮、融合完成60/150轮，原训练进程与自动评估队列均存活。两项最终指标仍待完整训练与评估完成；[2026-10-29快照](../results/three-core-priority-20261029.json)保留为历史记录。
 
 [WiLoR恢复与评估](wilor-recovery.md)已完成真实CPU工程验证及一次独立审查；成功评估阶段构造四个真实631M模型、没有优化器更新，报告由新进程独立核验。首次报告依赖路径错误和后续队列身份检查失败的记录保留，修复后133项新增检查在本机和服务器通过，实际队列存活已经核对。工程证据不增加论文实验设置。
 
@@ -10,7 +10,7 @@
 
 历史执行核验（北京时间2026-10-29 16:54）：[S及融合模型的显式恢复准备](../results/native-small-fusion-explicit-recovery-20261029.json)已启动，八个PID/start拥有者均实际活动。S真实19轮/30,096更新、融合真实32轮/63,264更新的检查点已按原源码/原生循环、模型与日志、AdamW步数及六输入状态域核验；各四份原始包以reflink保留，原文件九属性不变。S仍在完整来源重新准入；融合已通过完整队列及训练分支交接校验，正在等待原64GiB启动显存。两项尚无新GPU训练更新，原失败状态未改。[DINOv2-L](../results/dino-large-explicit-native-resume-20261029.json)同一GPU进程继续，当前新日志步号61,234，已提交完整轮次为108。[M/L新完整尝试](../results/emg2pose-ml-explicit-fresh-attempts-20261029.json)同一拥有者仍在全量来源准入，暂无GPU fit或完整轮次。WiLoR仍暂缓完整续训；原生EMGFormer的两张候选卡仍有计算消费者，尚无GPU资格。完整科学设置仍11，没有新增最终测试成绩，全论文目标继续。
 
-[核心MAE与论文原表的逐项数值参照](../results/paper-comparison/README.md)已补齐11个完成设置（Table2/3），原始JSON路径及完整SHA、CSV、论文PDF身份和同人口融合增益均保留。当前各项总体MAE数值均高于PDF；EMGFormer型号排序及ViT放大收益未复现。数据、窗口/损失、人口/掩码与聚合协议尚未一致，因此不能据此作为同条件排行榜；ViT-L、WiLoR、ViT-S融合、EMG2Pose标准基准及遮挡ρ/p仍缺最终结果。科学设置数不变。
+[核心MAE与论文原表的逐项数值参照](../results/paper-comparison/README.md)现收录12个完成设置（Table2/3），保留原始JSON路径、文件SHA、CSV、PDF身份和同人口融合增益。新增ViT-L为6.229674°，论文原表为5.4°，数值差约+0.83°。当前各项总体MAE数值均高于PDF；旧版EMGFormer型号排序及ViT-B相对ViT-S的收益未复现，ViT-L这一次数值低于本次S/B。数据、窗口/损失、人口/掩码和聚合协议未完全一致，不能作为同条件论文排行榜或多seed架构结论。WiLoR、ViT-S融合、原生EMGFormer完整新实验、EMG2Pose标准基准及遮挡ρ/p仍欠最终结果；科学完成设置由11增至12，全文目标继续。
 
 以下较早条目是各自时间点的历史记录。
 
@@ -260,7 +260,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | EgoEMG ResNet-152 | 同一真实类；[派生配方](../configs/resnet152.json)，总参数59,204,182 | **150 epochs完整legacy实验与锁定复算完成**；52,650更新/150次full val，验证选择第52,650步，全部/有图中心5.982738°/5.869706°。独立作者YAML未发布，保留损失/队列/派生配方限制，见[结果](../results/completed/resnet152/README.md) |
 | EgoEMG ViT-S/14 | [官方独立配置][vits]、[DINOv2 实现][vit]；真实预训练与严格来源记录 | **完整运行、已核验（原生配方/旧版队列单rank适配）**；[实际结果](../results/original-vision/vit-small/README.md)为124轮/69,688更新、4,306唯一测试手样本，全部/有图中心6.464179°/6.324737°。原360/bf16/repeat2与验证选模、原生测试/独立复算/报告完成；合并来源、六rank及PDF等价未证明 |
 | EgoEMG ViT-B/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_base.json)，实际86,182,166总参数 | **完整运行、已核验（S配方显式派生/旧版队列）**；[实际结果](../results/original-vision/vit-base/README.md)为94轮/52,828更新、4,306唯一测试手样本，全部/有图中心6.761261°/6.623680°。原360/bf16/0.02与验证选模、原生test/新进程复算/报告及额外独立重开完成；作者独立B YAML、合并来源、六rank和PDF等价未证明 |
-| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **显式原生激活重计算GPU七阶段通过，完整训练运行中**；[证据](../results/vision-literal-large-checkpoint-gpu-engineering.json)保留原360/bf16及模型／目标／优化器，原未启用版本显存失败保留。独立作者YAML未发布，最终测试和完整报告仍欠 |
+| EgoEMG ViT-L/14 | 真实 DINOv2 类；[明确S派生的配方](../configs/vit_large.json)，实际303,833,622总参数 | **[132轮完整训练、最终测试、独立重放和报告复核已完成](../results/original-vision/vit-large/README.md)**；原360/bf16、显式原生激活重计算、108轮后真实六域恢复保留；全部中心6.229674°。独立作者L YAML未发布，旧版队列/单rank与PDF等价性仍未证明 |
 | EgoEMG WiLoR | [WiLoRViTPose][wilor]真实22角类、原高度裁剪及GELU头；无独立fusion/vision_wilor YAML | **原生22角实现、CPU链及首次真实GPU工程验证完成**，见[当前来源与证据](wilor-native.md)：真实631,631,657参数/404主干tensor、B18/BF16/两轮4更新及完整3,152验证/精确独立复算；唯一审查的两项重要校验已修复。当前源码GPU资格已通过，完整30轮fit已进入GPU；尚无完整终止/测试/报告；独立YAML缺失，明确派生配方不冒充作者文件 |
 | EgoEMG RN18+S | 真实残差融合类、清洁分支来源及精确零残差适配 | **完整运行、已核验（legacy）**，见 E1/E2；保留原 S635/RN6319 身份 |
 | EgoEMG ViT-S+S | [原生16槽/WL7790构造](fusion-literal.md)、[五配置来源审计](../results/fusion-recipe-audit-20261028.md) | **已完成兼容EMG初始化150轮并进入完整融合训练**，最近8轮/15,816实际更新；25,855,037参数，原生174+4视觉张量与105项EMG匹配/5跳过、经隔离核验的视觉last124/EMG验证best133真实交接与独立重开已通过。原batch200/BF16/联合395,276训练、3,152验证/150轮继续；完整54文件输入准入和实际GPU资格已通过，最终测试/报告仍欠，见[首个完整轮次](../results/native-fusion-full-first-epoch-20261028.json) |
@@ -276,7 +276,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 | --- | --- | --- | --- |
 | Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **六行原表CSV/JSON及逐源审计已生成**；[来源与差异](../results/dataset-statistics/dataset-comparison-audit.md)保留PDF原值，Jarque-Bou两腕角/7列与8通道设备、MyoKi人数/通道/腕角、PiMForce交互数/参考文献、NinaPro脚注差异单列；补7条逐字段来源判定，未找到官方独立生成脚本 | 剩余列的逐项原始来源核验、NinaPro原表范围的作者口径与跨库身份、EgoEMG全模态实物盘点。已有原值表不证明全部事实已核实；无需重训这些引用研究 |
 | Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M/L有完整legacy结果，VEMG有原生配方/旧版队列完整结果**，E1/E2及各独立报告；NeuroPose已完整早停73轮并通过冻结测试/独立精确复算，轨迹16.358404° | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
-| Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7 视觉与 2 融合 | **RN18、RN50、RN152、RN18+S有完整legacy运行，ViT-S/B有原生/显式派生配方的旧版队列完整运行**，E1/E2/E3及[RN50](../results/completed/resnet50/README.md)；仍不等价于原表 | ViT-L、WiLoR、ViT-S+S尚无完整结果；ViT-B见[实际报告](../results/original-vision/vit-base/README.md)，ViT-S见[实际报告](../results/original-vision/vit-small/README.md)；所有模型逐条件用户SD、真实初始化/选择、匹配人口与官方字面配方仍须逐项核验 |
+| Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7视觉与2融合 | **RN18、RN50、RN152、RN18+S有完整legacy运行，ViT-S/B/L有原生或显式派生配方的旧版队列完整运行**；仍不等价于原表 | WiLoR与ViT-S+S融合尚缺最终完整结果；[ViT-L](../results/original-vision/vit-large/README.md)为6.229674°，[ViT-B](../results/original-vision/vit-base/README.md)和[ViT-S](../results/original-vision/vit-small/README.md)结果保留。逐条件用户SD、初始化/选择和人口/配方边界见各报告 |
 | Table 4，A.1 p.15 | 60类完整词表与描述、30/18/12族群，数据定义 | **定义、实际帧与冻结中心覆盖已核验（legacy）**，E7/E8；完整词表保留raw50；中心有241未分配、66 raw，59类视图33,201窗口，与帧统计分开 | [全66,161,725行逐手/逐角mask统计已核验](../results/dataset-semantics/full-frame-validity.md)，保留60类/raw50/未分配行；不同新grid须另报，帧/中心覆盖不能填Table14/15模型误差N。PDF措辞差异单列 |
 | Table 5，A.2 p.16 | 作者82手、10维β统计 | **分析产物、已核验（legacy）**；[统计与来源](../results/dataset-statistics/shape-statistics.md)含50项官方重算和实际P5/P95，PDF显示48/50吻合 | 两个微小显示差异保留，原因未定；episode/beta行数不能独立证明人口身份。官方std(ddof0)和range优先，不能把range混称真正P95−P5 |
 | Table 6，B.3 p.20 | 22 DoF语义、单位、左右约定和有效性，数据定义 | **语义表与冻结中心逐角mask已核验**，E7/E8；0–19手指rad、20腕FE/21腕RU磁盘deg，模型统一rad；实际中心1,420,084/1,474,352角有效。原literal与legacy20+2分列，腕名义限位未知 | [全帧逐角有效性已核验](../results/dataset-semantics/full-frame-validity.md)：2,804,767,094/2,911,115,900角度元素有效，两手独立腕掩码保留；标签重生成仍欠，legacy轴角投影不等价PDF landmark IK，腕限位仍未知 |

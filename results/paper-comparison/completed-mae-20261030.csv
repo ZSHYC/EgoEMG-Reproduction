@@ -1,0 +1,13 @@
+model,paper_table,evaluation,paper_avg_mae_deg,our_mae_deg,arithmetic_difference_from_rounded_paper_avg_deg,protocol_group,result_path
+EMGFormer-S,2,trajectory,14.7,16.289435193832112,1.589435193832113,legacy_12000_001,results/completed/emgformer-s/metrics.json
+EMGFormer-M,2,trajectory,14.2,16.486139956188104,2.286139956188105,legacy_12000_001,results/completed/emgformer-m/metrics.json
+EMGFormer-L,2,trajectory,14.2,16.59113259318461,2.3911325931846115,legacy_12000_001,results/completed/emgformer-l/metrics.json
+VEMG2Pose,2,trajectory,15.9,16.452932102434463,0.5529321024344629,native_7790_002_legacy_cohort,results/original-classic/vemg2pose/metrics.json
+NeuroPose,2,trajectory,16.1,16.35840356672133,0.25840356672132714,native_7790_002_legacy_cohort,results/original-classic/neuropose/metrics.json
+ResNet-18,3,center,5.9,7.784886884857931,1.8848868848579308,legacy_12000_001,results/completed/resnet18/metrics.json
+ResNet-50,3,center,5.3,6.640057945616374,1.3400579456163744,legacy_12000_001,results/completed/resnet50/metrics.json
+ResNet-152,3,center,5.1,5.982738243493425,0.8827382434934252,legacy_12000_001,results/completed/resnet152/metrics.json
+ViT-S,3,center,6.0,6.464178815431942,0.46417881543194195,native_7790_002_legacy_cohort,results/original-vision/vit-small/metrics.json
+ViT-B,3,center,5.8,6.761260751979315,0.9612607519793155,native_7790_002_legacy_cohort,results/original-vision/vit-base/metrics.json
+ViT-L,3,center,5.4,6.229673746026347,0.829673746026347,native_7790_002_legacy_cohort,results/original-vision/vit-large/metrics.json
+RN18 + EMGFormer-S,3,center,5.4,6.793533236340198,1.3935332363401978,legacy_12000_001,results/completed/fusion-rn18-s/metrics.json

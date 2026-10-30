@@ -1,6 +1,8 @@
 # 运行状态
 
-最新执行核验（北京时间2026-10-29 16:54）：[S及融合模型的显式恢复准备](../results/native-small-fusion-explicit-recovery-20261029.json)已启动，八个PID/start拥有者均实际活动。S真实19轮/30,096更新、融合真实32轮/63,264更新的检查点已按原源码/原生循环、模型与日志、AdamW步数及六输入状态域核验；各四份原始包以reflink保留，原文件九属性不变。S仍在完整来源重新准入；融合已通过完整队列及训练分支交接校验，正在等待原64GiB启动显存。两项尚无新GPU训练更新，原失败状态未改。[DINOv2-L](../results/dino-large-explicit-native-resume-20261029.json)同一GPU进程继续，当前新日志步号61,234，已提交完整轮次为108。[M/L新完整尝试](../results/emg2pose-ml-explicit-fresh-attempts-20261029.json)同一拥有者仍在全量来源准入，暂无GPU fit或完整轮次。WiLoR仍暂缓完整续训；原生EMGFormer的两张候选卡仍有计算消费者，尚无GPU资格。完整科学设置仍11，没有新增最终测试成绩，全论文目标继续。
+最新执行核验（北京时间2026-10-30 11:46快照）：[ViT-L完整实验](../results/original-vision/vit-large/README.md)已完成132轮/74,184更新及原生最终测试、独立完整重放、报告和最终复核；续训/评估9阶段均退出0，原控制器与全部阶段进程已退出。全部中心MAE6.229674°、有图子集6.087737°，测试8,612次消费/4,306唯一手样本。原150上限/patience30早停、显式激活重计算和108轮后真实六域恢复保留，历史显存/磁盘失败保留。科学完成设置增至12，论文与多seed数值等价仍未证明。WiLoR为25/30轮，融合为60/150轮；两项原训练进程和自动评估队列均存活，最终测试仍待完成。[运行快照](../results/core-priority-status-20261030.json) · [12项论文数值参照](../results/paper-comparison/README.md)。
+
+历史执行核验（北京时间2026-10-29 16:54）：[S及融合模型的显式恢复准备](../results/native-small-fusion-explicit-recovery-20261029.json)已启动，八个PID/start拥有者均实际活动。S真实19轮/30,096更新、融合真实32轮/63,264更新的检查点已按原源码/原生循环、模型与日志、AdamW步数及六输入状态域核验；各四份原始包以reflink保留，原文件九属性不变。S仍在完整来源重新准入；融合已通过完整队列及训练分支交接校验，正在等待原64GiB启动显存。两项尚无新GPU训练更新，原失败状态未改。[DINOv2-L](../results/dino-large-explicit-native-resume-20261029.json)同一GPU进程继续，当前新日志步号61,234，已提交完整轮次为108。[M/L新完整尝试](../results/emg2pose-ml-explicit-fresh-attempts-20261029.json)同一拥有者仍在全量来源准入，暂无GPU fit或完整轮次。WiLoR仍暂缓完整续训；原生EMGFormer的两张候选卡仍有计算消费者，尚无GPU资格。完整科学设置仍11，没有新增最终测试成绩，全论文目标继续。
 
 以下较早条目是各自时间点的历史记录。
 
