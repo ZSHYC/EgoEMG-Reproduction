@@ -35,5 +35,10 @@
   "shared_runtime_modified": false,
   "source_base_commit": "3ddc1a6b03eb2432b5abfac0d3cd504087339ff6",
   "test_runtime": "local existing CPU Python environment",
+  "test_runtime_versions": {
+    "numpy": "1.26.4",
+    "python": "3.12.14",
+    "torch": "2.2.2+cpu"
+  },
   "trained_model_or_full_input_admitted": false
 }

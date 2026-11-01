@@ -1,0 +1,55 @@
+{
+  "actual_original_owners": [
+    {
+      "pid": 1571732,
+      "ppid": 1,
+      "role": "wrapper",
+      "same_process": true,
+      "sid": 1571732,
+      "state": "S",
+      "tty": 0
+    },
+    {
+      "pid": 1571733,
+      "ppid": 1571732,
+      "role": "child",
+      "same_process": true,
+      "sid": 1571733,
+      "state": "S",
+      "tty": 0
+    }
+  ],
+  "actual_recorded_sample_progress": {
+    "private/rn18_s-a/progress.json": {
+      "recipe": "rn18_s",
+      "samples": 2208,
+      "seconds": 114.02874598279595,
+      "total": 2208
+    },
+    "private/rn18_s-b/progress.json": {
+      "recipe": "rn18_s",
+      "samples": 2208,
+      "seconds": 115.7613866738975,
+      "total": 2208
+    },
+    "private/vits_s-a/progress.json": {
+      "recipe": "vits_s",
+      "samples": 2322,
+      "seconds": 114.08947964943945,
+      "total": 2322
+    }
+  },
+  "all_owners_closed": false,
+  "bundle_sha256": "c610d3353e079d14300f4b24c30a8ad3513c15655b103b7022d6faae03bfb76c",
+  "complete_workflow_accepted": false,
+  "figure7_reproduced": false,
+  "format": "actual_default_ordinary_qualitative_paired_io_running_snapshot_v1",
+  "full_paper_complete": false,
+  "intended_scope": "RN18 default2208 and ViTS default2322, two fresh actual IO passes each",
+  "learned_pose_models_constructed": 0,
+  "native_geometry_executed": false,
+  "observed_utc": "2026-11-01T14:43:25.685533+00:00",
+  "optimizer_updates": 0,
+  "scientific_prediction_result": false,
+  "source_commit": "3ddc1a6b03eb2432b5abfac0d3cd504087339ff6"
+}
