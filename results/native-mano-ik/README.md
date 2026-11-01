@@ -6,6 +6,8 @@
 - [运行时来源15项＋工程前置7项检查](runtime-engineering-tests-20261101.json)：全部通过、无跳过，真实现有私有资产用于来源边界测试，不构造替身full-source producer。
 - [通用六分片37阶段工程执行](general-12-shard-engineering-20261101.json)：双手共24个真实姿态、batch2，12次原生优化／732外层步／8,544次closure；12个独立几何读者、12个标签分片与最终合并均完成。76个原拥有进程及退出后收集进程关闭，全部原始对应、参数和独立标签字节核验通过；只读对应原始帧，没有重复完整原源哈希。
 - [通用结果／控制器49项检查](general-results-tests-20261101.json)：全通过、无跳过；不重复关闭的旧数据／模型数学套件。
+- [一次集成审查与修正](general-integration-review-20261101.json)：4项重要问题均完成一次集中修正；回归先10失败，再通过，最终相关60项全通过／无跳过。
+- [修正后真实37阶段工程V2](general-12-shard-engineering-v2-20261101.json)：实际exit0／所有76个原拥有者及独立收集进程关闭；双手标签字节与上一工程版本相同，新的持续谱系与最终文件校验在实际流程中通过。
 - [方法、批次及边界](../../docs/native-mano-ik-full-data.md)；[执行计划](../../docs/superpowers/plans/2026-11-01-native-mano-ik-full-data.md)。
 
 数据仍为可得旧版发布源。4,828,283个双手零姿态保留；不使用marker/label mask替代原脚本不存在的`valid.npy`。保留原默认六逻辑分区、batch10096、right→left及原IK几何设置。

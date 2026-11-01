@@ -1,0 +1,57 @@
+{
+  "all_four_important_fixed": true,
+  "closed_old_model_math_data_runtime_suites_repeated": false,
+  "critical": 0,
+  "default_batch10096_gpu_qualification_executed": false,
+  "files_sha256": {
+    "egoemg_repro/native_ik_results.py": "3eb3082773a1c52417d8d1e41ce5c77a3050aa30aa2ddd88f17fb8a1cd9a97e8",
+    "scripts/paper/run_native_mano_ik.py": "ebd7f2f80b2924ae43602a043adbb72b1175877f2c3735c9b48a4090e3934bbe",
+    "tests/test_native_ik_integration_review.py": "c67a69e73bf77576d6f623fcd0c7f17f160df117f5594239dac2856bd002ac72",
+    "tests/test_native_ik_results.py": "c197c63ea667b508e74f1472f418d7a22988c1f35e2afd3eac4954e1c9f92eba",
+    "tests/test_native_ik_workflow.py": "a41344b13bafb8ea97858ae1a2be034b15751f4a7aa07b37f0a07689c06bbef6"
+  },
+  "fixes": [
+    {
+      "issue": "qualified runtime/backend not carried into formal workers",
+      "resolution": "retain actual qualified runtime identity in source-bound configuration and compare each formal native runtime before optimization",
+      "test": "test_qualified_backend_must_match_before_any_formal_optimization"
+    },
+    {
+      "issue": "qualification stage roles, owner and packet actors disconnected",
+      "resolution": "require four exact roles, distinct eight worker/guardian identities, actual qualification owner and matching producer/reader actors",
+      "test": "test_four_qualification_stages_bind_roles_owner_and_packet_actors"
+    },
+    {
+      "issue": "raw and verification generations lost after shard finalization/qualification admission",
+      "resolution": "retain lightweight current-generation/hash graphs, reopen every raw batch/verification at assembly, keep qualifications bound through reuse and full completion",
+      "test": "test_raw_packet_drift_after_finalization_rejects_bilateral_assembly"
+    },
+    {
+      "issue": "bilateral target files unguarded through publication/postexit acceptance",
+      "resolution": "guard each target before its first hash, retain through both hands and labels receipt, independently reopen final files and complete lineage after assembler exit",
+      "test": "test_first_bilateral_target_mutation_during_second_target_is_rejected"
+    }
+  ],
+  "format": "native_ik_general_integration_single_review_and_material_fixes_v1",
+  "fresh_review_count": 1,
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "important": 4,
+  "material_fix_passes": 1,
+  "minor": 0,
+  "regressions_observed_before_fixes": {
+    "failed": 10,
+    "seconds": 9.16
+  },
+  "relevant_final_suite": {
+    "actual_exit_code": 0,
+    "passed": 60,
+    "raw_log_sha256": "e9824e04bf775d5f155c745f9adb66c03a6e9a858d8ce516993f675aa369573b",
+    "seconds": 16.25,
+    "skipped": 0
+  },
+  "review_base": "ad765410696b5ee4271354dd5d4a1029a5a96c30",
+  "review_head": "13631b048b7deaae39d2f9a4d8d069f4ad0cb9b3",
+  "scientific_eligible": false,
+  "second_review_performed": false
+}

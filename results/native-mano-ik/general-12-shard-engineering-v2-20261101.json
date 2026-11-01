@@ -1,0 +1,116 @@
+{
+  "actual_complete_original_pose_payload_fresh_rehash_this_collection": false,
+  "actual_ended_utc": "2026-11-01T14:02:38.012881+00:00",
+  "actual_exit_code": 0,
+  "actual_ik_closure_evaluations": 8544,
+  "actual_ik_optimizer_steps": 732,
+  "actual_learned_pose_models_constructed": 0,
+  "actual_native_mano_geometry_layers": 24,
+  "actual_native_optimizer_calls": 12,
+  "actual_original_owning_process_count": 76,
+  "actual_owned_stages": 37,
+  "all76_original_actors_closed": true,
+  "all_raw_frame_witnesses_and_final_label_bytes_exact": true,
+  "bundle_sha256": "18f93eb9cdd365fba9fcdcb84734a0d6b0217f3afa9813e3866b9637164542c8",
+  "cuda_initialized": false,
+  "dependency_and_asset_files_sha256_exact": 46,
+  "engineering_batch_size": 2,
+  "format": "independent_postexit_general_native_ik_12_shard_engineering_collection_v1",
+  "frozen_source_files_sha256_exact": 138,
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "hands": {
+    "left": {
+      "actual_ik_closure_evaluations": 4479,
+      "actual_ik_optimizer_steps": 366,
+      "actual_native_optimizer_calls": 6,
+      "all12_frame_parameters_and_angles_complete": true,
+      "all_fresh_geometric_arrays_and_native_objectives_exact": true,
+      "final_label_sha256": "ad04a63f673dd0c46f0eee24c62a18a2cc658414bf2afcdce554af90ef76ac2d",
+      "final_label_shape": [
+        12,
+        20
+      ],
+      "mean_landmark_distance_mm": 10.021965955735515,
+      "raw_zero_poses_retained": 0,
+      "rms_landmark_distance_mm": 10.678452562646914,
+      "rows": 12
+    },
+    "right": {
+      "actual_ik_closure_evaluations": 4065,
+      "actual_ik_optimizer_steps": 366,
+      "actual_native_optimizer_calls": 6,
+      "all12_frame_parameters_and_angles_complete": true,
+      "all_fresh_geometric_arrays_and_native_objectives_exact": true,
+      "final_label_sha256": "5e5a9c37b1096cf3311b964ca4cf440321cf6fb3026fd181a9926f012e0f7e12",
+      "final_label_shape": [
+        12,
+        20
+      ],
+      "mean_landmark_distance_mm": 9.142668667945479,
+      "raw_zero_poses_retained": 0,
+      "rms_landmark_distance_mm": 9.971270584196924,
+      "rows": 12
+    }
+  },
+  "implementation_final_review_complete": true,
+  "native_default_batch10096_qualified": false,
+  "new_unit_snapshot": {
+    "base_commit": "13631b048b7deaae39d2f9a4d8d069f4ad0cb9b3",
+    "engineering_only": true,
+    "full_batch_qualification": false,
+    "uncommitted_new_unit_files_sha256": {
+      "egoemg_repro/native_ik_results.py": "3eb3082773a1c52417d8d1e41ce5c77a3050aa30aa2ddd88f17fb8a1cd9a97e8",
+      "scripts/paper/run_native_mano_ik.py": "ebd7f2f80b2924ae43602a043adbb72b1175877f2c3735c9b48a4090e3934bbe"
+    }
+  },
+  "observed_utc": "2026-11-01T14:02:52.938254+00:00",
+  "original_batch_size": 10096,
+  "original_global_indices_per_hand": [
+    331074,
+    331075,
+    331076,
+    331077,
+    331078,
+    331079,
+    331080,
+    331081,
+    331082,
+    331083,
+    331084,
+    331085
+  ],
+  "postexit_collector_actor": {
+    "pgrp": 1548121,
+    "pid": 1548121,
+    "sid": 1548121,
+    "start_ticks": "436907802",
+    "state": "R",
+    "uid": 1005
+  },
+  "postexit_collector_also_exited": true,
+  "postexit_collector_constructed_geometry_models": 0,
+  "postexit_collector_optimizer_steps": 0,
+  "postexit_collector_seconds": 0.13754939008504152,
+  "postexit_collector_torch_unimported": true,
+  "raw_state_sha256": {
+    "left-0": "de961a2a9bbfb1dde2912f1e8fceae895e4a9a5d5839bb56f00ae01799f6aa0b",
+    "left-1": "b34ddb8f58f728b96ffa0988d4cfddcd17652741b5726bfa0b71a4654bce30b6",
+    "left-2": "bced321fe390553791d6145c21c736545fd981b4a09d761068727b16fec117ac",
+    "left-3": "475991cb61e6675d3fa03d0fabab6dc704ca51d463c42ce37a2792a567d0a47e",
+    "left-4": "2e4c804e100028e8cd3250c80251fb4ee5598afb8f5c2cf7ca00edd146111ee5",
+    "left-5": "abfc9fab2a45d996e420900b86db4576f167e6c114889e3f8da5a8c2498acf18",
+    "right-0": "8207e6d0d8c2f4e771b599cffa0b9a8ad895bbecc1313794ec71931bb983d448",
+    "right-1": "5949abdb93da2c15ca838d4d6ee3ffa92300bb575fa5fb5135e728a30903b18a",
+    "right-2": "223bc844f46cfb749441dd52b86e1d334f3c833264ceaa3e7f243b850724481f",
+    "right-3": "4b193812c7b52ce514ed7af241495fff9f928eda54027778008a2d6e68fb141e",
+    "right-4": "455939307fcd0aa09f2102b4d852ccf3aed5cefa7ac4491384627861d8e1c9dd",
+    "right-5": "f751e7fddfaad8603170288ed641523f84580204118d29af74314521a91edd48"
+  },
+  "real_frame_annotation_accuracy_benchmark": false,
+  "scientific_eligible": false,
+  "scientific_model_training_updates": 0,
+  "source_base_commit": "13631b048b7deaae39d2f9a4d8d069f4ad0cb9b3",
+  "source_nine_attributes_unchanged": true,
+  "workflow_completion_file_sha256": "05386b3406a65948b61a3bfeeb7a57c81c5dcc396613202a1954928bd7a4a97c"
+}

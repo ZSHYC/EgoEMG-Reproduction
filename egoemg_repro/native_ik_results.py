@@ -75,6 +75,42 @@ def _array_sha(a):
     return hashlib.sha256(a.tobytes(order='C')).hexdigest()
 
 
+class IKArtifactBindings:
+    """Keep closed artifact generations, without retaining large pose arrays."""
+    def __init__(self):
+        self.guards, self.hashes = [], {}
+
+    def _merge_hashes(self, hashes):
+        for path, sha in hashes.items():
+            if path in self.hashes and self.hashes[path] != sha:
+                raise ValueError('original IK artifact lineage binding changed')
+            self.hashes[path] = sha
+
+    def add_file(self, path, expected=None):
+        path = _safe(path); frozen = _Guard([path], [])
+        sha = file_sha256(path); frozen.check()
+        if expected is not None and sha != expected:
+            raise ValueError('original IK artifact digest differs: ' + path.name)
+        self.guards.append(frozen); self._merge_hashes({path: sha})
+        return sha
+
+    def add_accepted(self, packet, receipt_guard, path, sha):
+        packet.check(rehash=True); receipt_guard.check()
+        self.guards.extend((_PACKETS[packet]['guard'], receipt_guard))
+        self._merge_hashes(_PACKETS[packet]['hashes']); self._merge_hashes({path: sha})
+
+    def absorb(self, other):
+        other.check(); self.guards.extend(other.guards); self._merge_hashes(other.hashes)
+
+    def check(self, *, rehash=False):
+        for frozen in self.guards: frozen.check()
+        if rehash:
+            for path, sha in self.hashes.items():
+                if file_sha256(path) != sha:
+                    raise ValueError('original IK artifact content changed')
+            for frozen in self.guards: frozen.check()
+
+
 def _batch_state(batch):
     if type(batch) is not IKBatch or batch not in _BATCHES:
         raise ValueError('registered original IK batch required')
@@ -343,7 +379,8 @@ def _accepted(inputs, directory, verification):
         original_native_final_objective_exact=True, model_state_sha256=metadata['record']['model_state_sha256'],
         actual_ik_optimizer_steps=0, optimizer_construction_and_lbfgs_step_denied=True,
         results_source_sha256=IMPORTED_SHA, scientific_eligible=False, full_paper_complete=False)
-    if any(receipt.get(k) != v for k, v in expected.items()) or receipt['actor'] == metadata['actor']:
+    if (any(receipt.get(k) != v for k, v in expected.items())
+        or all(receipt['actor'][k] == metadata['actor'][k] for k in _ACTOR_KEYS)):
         raise ValueError('independent original IK verification binding differs')
     packet.check(rehash=True); receipt_guard.check()
     return packet, receipt_guard, path, file_sha256(path)
@@ -392,6 +429,7 @@ def finalize_ik_shard(inputs, hand, shard, batches, output, *, guard=lambda: Non
             totals[key] += source[key]
         records.append(dict(batch=b, result_sha256=_PACKETS[packet]['hashes'][_PACKETS[packet]['directory'] / 'result.json'],
             raw_state_sha256=metadata['state_file_sha256'], verification_sha256=receipt_sha,
+            producer_directory=str(_safe(item[0])), verification_directory=str(_safe(item[1])),
             producer_actor=metadata['actor'], verifier_actor=json.loads(path.read_text())['actor']))
     del labels
     if totals['rows'] != last-first:
@@ -411,18 +449,63 @@ def finalize_ik_shard(inputs, hand, shard, batches, output, *, guard=lambda: Non
     return result
 
 
+def bind_ik_shard(inputs, directory):
+    """Reopen a closed shard AND every current raw/verification dependency."""
+    directory = _safe(directory); path = directory/'shard.json'
+    frozen = _Guard([path, directory/'finger_angles.dat'], [])
+    record = _read_json(path, frozen); require_closed(record.get('actor'))
+    hand, shard = record.get('hand'), record.get('shard')
+    select_ik_batch(inputs, hand, shard, 0)
+    start, end = inputs.shards[shard]
+    if (record.get('format') != 'original_native_ik_verified_label_shard_v1'
+        or record.get('input_identity_sha256') != _hash(inputs.identity)
+        or record.get('start') != start or record.get('end') != end
+        or record.get('label_file') != 'finger_angles.dat' or record.get('label_dtype') != 'float32'
+        or record.get('label_shape') != [end-start, 20]
+        or (directory/'finger_angles.dat').stat().st_size != (end-start)*80
+        or record.get('results_source_sha256') != IMPORTED_SHA
+        or record.get('engineering') != inputs.identity['engineering']
+        or record.get('batch_size') != inputs.identity['batch_size']
+        or record.get('all_batch_geometric_readers_exited') is not True
+        or record.get('source_labels_replaced') is not False
+        or len(record.get('batches', [])) != inputs.identity['batches_per_hand'][shard]):
+        raise ValueError('complete current IK label shard/source binding differs')
+    live = IKArtifactBindings()
+    live.guards.append(frozen)
+    live.add_file(path)
+    live.add_file(directory/'finger_angles.dat', record.get('label_sha256'))
+    for index, batch_record in enumerate(record['batches']):
+        if not all(type(batch_record.get(k)) is str for k in ('producer_directory', 'verification_directory')):
+            raise ValueError('current original IK raw packet and verification paths required')
+        packet, rg, rp, sha = _accepted(inputs, batch_record['producer_directory'], batch_record['verification_directory'])
+        metadata = packet.metadata
+        if (batch_record.get('batch') != select_ik_batch(inputs, hand, shard, index).identity
+            or metadata['batch'] != batch_record['batch']
+            or batch_record.get('raw_state_sha256') != metadata['state_file_sha256']
+            or batch_record.get('result_sha256') != _PACKETS[packet]['hashes'][_PACKETS[packet]['directory']/'result.json']
+            or batch_record.get('verification_sha256') != sha
+            or batch_record.get('producer_actor') != metadata['actor']
+            or batch_record.get('verifier_actor') != _read_json(rp, rg)['actor']):
+            raise ValueError('current original IK packet/verification lineage differs')
+        live.add_accepted(packet, rg, rp, sha)
+    live.check(); return record, live
+
+
 def assemble_ik_labels(inputs, shards, output, *, guard=lambda: None):
     """Join all twelve CLOSED shard finalizers; never modify released labels."""
     inputs.check()
     if type(shards) not in (list, tuple) or len(shards) != 12:
         raise ValueError('complete twelve label shards: six per hand required')
     output = _new_output(inputs, output)
-    admitted = []
+    admitted = []; lineage = IKArtifactBindings()
     for index, directory in enumerate(shards):
         directory = _safe(directory)
         path, label = directory/'shard.json', directory/'finger_angles.dat'
         frozen = _Guard([path, label], [])
         record = _read_json(path, frozen); require_closed(record.get('actor'))
+        current, current_bindings = bind_ik_shard(inputs, directory)
+        if current != record: raise ValueError('original IK shard changed during lineage admission')
+        lineage.absorb(current_bindings)
         hand, shard = HANDS[index//6], index % 6
         start, end = inputs.shards[shard]
         if (record.get('format') != 'original_native_ik_verified_label_shard_v1'
@@ -447,7 +530,7 @@ def assemble_ik_labels(inputs, shards, output, *, guard=lambda: None):
         frozen.check()
         admitted.append((directory, record, frozen, file_sha256(path)))
     output.mkdir(parents=True, mode=0o700)
-    n = inputs.identity['total_rows']; hands = {}
+    n = inputs.identity['total_rows']; hands = {}; targets = IKArtifactBindings()
     _, _, limits = _geometry_source(select_ik_batch(inputs, 'right', 0, 0))
     for h, hand in enumerate(HANDS):
         target = output/f'generated_umetrack_{hand}_finger_angles.dat'
@@ -470,13 +553,15 @@ def assemble_ik_labels(inputs, shards, output, *, guard=lambda: None):
             del source
         labels.flush(); del labels
         if total_rows != n: raise ValueError('complete original IK hand label row count differs')
+        target_sha = targets.add_file(target)  # Guard BEFORE hashing the completed target.
         hands[hand] = dict(filename=target.name, dtype='float32', shape=[n, 20],
-                          file_sha256=file_sha256(target), rows=total_rows)
+                          file_sha256=target_sha, rows=total_rows)
     for _, _, frozen, _ in admitted: frozen.check()
-    inputs.check(); guard()
+    lineage.check(rehash=True); targets.check(rehash=True); inputs.check(); guard()
     result = seal(dict(format='original_native_ik_isolated_bilateral_labels_v1', actor=process_identity(),
         input_identity_sha256=_hash(inputs.identity), results_source_sha256=IMPORTED_SHA,
         hands=hands, rows_per_hand=n, total_rows=2*n, logical_shards_per_hand=6,
+        shard_directories=[str(_safe(p)) for p in shards],
         batch_size=inputs.identity['batch_size'], engineering=inputs.identity['engineering'],
         shard_result_files_sha256=[sha for _, _, _, sha in admitted],
         actual_ik_optimizer_steps=sum(r['totals']['actual_ik_optimizer_steps'] for _, r, _, _ in admitted),
@@ -486,5 +571,38 @@ def assemble_ik_labels(inputs, shards, output, *, guard=lambda: None):
         scientific_eligible=False, full_paper_complete=False))
     write_json(output/'labels.json', result)
     for _, _, frozen, _ in admitted: frozen.check()
-    inputs.check(); guard()
+    lineage.check(); targets.check(); inputs.check(); guard()
     return result
+
+
+def inspect_ik_labels(inputs, directory):
+    """Post-assembler acceptance of the actual bilateral bytes and full graph."""
+    directory = _safe(directory); path = directory/'labels.json'
+    frozen = _Guard([path], []); record = _read_json(path, frozen)
+    require_closed(record.get('actor')); n = inputs.identity['total_rows']
+    if (record.get('format') != 'original_native_ik_isolated_bilateral_labels_v1'
+        or record.get('input_identity_sha256') != _hash(inputs.identity)
+        or record.get('results_source_sha256') != IMPORTED_SHA
+        or record.get('rows_per_hand') != n or record.get('total_rows') != 2*n
+        or record.get('engineering') != inputs.identity['engineering']
+        or record.get('batch_size') != inputs.identity['batch_size']
+        or record.get('source_labels_replaced') is not False
+        or record.get('all_shard_finalizers_exited') is not True
+        or len(record.get('shard_directories', [])) != 12):
+        raise ValueError('complete current isolated bilateral IK labels required')
+    live = IKArtifactBindings(); live.guards.append(frozen); live.add_file(path)
+    for index, folder in enumerate(record['shard_directories']):
+        shard, bindings = bind_ik_shard(inputs, folder)
+        if (shard['hand'] != HANDS[index//6] or shard['shard'] != index%6
+            or bindings.hashes[_safe(folder)/'shard.json'] != record['shard_result_files_sha256'][index]):
+            raise ValueError('current IK bilateral shard graph differs')
+        live.absorb(bindings)
+    for hand in HANDS:
+        value = record['hands'][hand]
+        name = f'generated_umetrack_{hand}_finger_angles.dat'
+        if value.get('filename') != name or value.get('dtype') != 'float32' or value.get('shape') != [n, 20] or value.get('rows') != n:
+            raise ValueError('complete original IK bilateral label schema differs')
+        label = _safe(directory/name)
+        if label.stat().st_size != n*80: raise ValueError('complete original IK bilateral label size differs')
+        live.add_file(label, value.get('file_sha256'))
+    live.check(rehash=True); inputs.check(); return record, live

@@ -104,6 +104,32 @@ def _same_actor(a, b):
     return all(a.get(k) == b.get(k) for k in ('pid', 'start_ticks', 'uid', 'sid', 'pgrp'))
 
 
+def check_qualified_runtime(actual, document):
+    if document['action'] == 'workflow' and not document['request']['engineering']:
+        expected = document.get('qualified_runtime_identity')
+        if type(expected) is not dict or actual != expected:
+            raise ValueError('actual formal IK runtime/backend differs from qualified runtime')
+
+
+def validate_qualification_stages(stages, owner, expected_actors):
+    roles = [f'qual-{hand}-{action}' for hand in HANDS for action in ('produce', 'verify')]
+    results.require_closed(owner)
+    if type(stages) is not list or [s.get('role') for s in stages] != roles or set(expected_actors) != set(roles):
+        raise ValueError('exact four original IK qualification stage roles required')
+    identities = set()
+    for stage in stages:
+        if (stage.get('status') != 'success' or stage.get('worker_exit_code') != 0
+            or stage.get('all_owned_consumers_exited') is not True
+            or not _same_actor(stage.get('owner', {}), owner)
+            or not _same_actor(stage.get('worker', {}), expected_actors[stage['role']])):
+            raise ValueError('qualification stage owner or packet worker actor differs')
+        for name in ('worker', 'guardian'):
+            actor = stage.get(name); results.require_closed(actor)
+            key = tuple(actor[k] for k in ('pid', 'start_ticks', 'uid', 'sid', 'pgrp'))
+            if key in identities: raise ValueError('duplicated qualification worker/guardian actor')
+            identities.add(key)
+
+
 def _admit(config):
     inputs = admit_native_ik_inputs(config['data'], config['geometry'], config['upstream'],
         engineering=config['engineering'], batch_size=config['batch_size'])
@@ -143,6 +169,7 @@ def _worker(action, config_path, output, *, hand=None, shard=None, original=None
     if action in ('produce', 'verify', 'produce-one', 'verify-one'):
         torch = _runtime(config, verification=action.startswith('verify'))
         runtime = sources.build(device=config['device'])
+        check_qualified_runtime(runtime.identity, document)
         if config['device'] == 'cuda:0':
             if _gpu_record(config['gpu_uuid']) != document['physical_device']:
                 raise ValueError('native IK CUDA physical hardware/backend changed')
@@ -234,7 +261,8 @@ def _check_qualification(config, inputs, sources, physical, source_snapshot):
         or permit.get('physical_device') != physical or permit.get('sources_sha256') != source_snapshot
         or len(permit.get('batches', [])) != 2):
         raise ValueError('same-source, same-physical-GPU closed native qualification required')
-    root = path.parent
+    root = path.parent; live = results.IKArtifactBindings(); live.guards.append(frozen); live.add_file(path, sha)
+    qualified_runtime = None; expected_actors = {}
     for hand, record in zip(HANDS, permit['batches']):
         packet, receipt_guard, _, receipt_sha = results._accepted(inputs, root/f'qual-{hand}-produce', root/f'qual-{hand}-verify')
         if (packet.metadata['batch'] != results.select_ik_batch(inputs, hand, 0, 32).identity
@@ -243,13 +271,18 @@ def _check_qualification(config, inputs, sources, physical, source_snapshot):
             or receipt_sha != record.get('verification_sha256')):
             raise ValueError('actual default-batch native qualification payload differs')
         receipt_guard.check()
-    for stage in permit.get('owned_stages', []):
-        if stage.get('status') != 'success' or stage.get('worker_exit_code') != 0 or stage.get('all_owned_consumers_exited') is not True:
-            raise ValueError('qualification owning stage did not complete')
-        results.require_closed(stage.get('worker')); results.require_closed(stage.get('guardian'))
-    if len(permit.get('owned_stages', [])) != 4:
-        raise ValueError('all four qualification stages required')
-    frozen.check(); return sha, frozen
+        receipt = results._read_json(root/f'qual-{hand}-verify'/'verification.json', receipt_guard)
+        expected_actors[f'qual-{hand}-produce'] = packet.metadata['actor']
+        expected_actors[f'qual-{hand}-verify'] = receipt['actor']
+        actual_runtime = packet.metadata['runtime_identity']
+        if qualified_runtime is None: qualified_runtime = actual_runtime
+        if qualified_runtime != actual_runtime:
+            raise ValueError('bilateral qualification runtime backends differ')
+        live.add_accepted(packet, receipt_guard, root/f'qual-{hand}-verify'/'verification.json', receipt_sha)
+    validate_qualification_stages(permit.get('owned_stages'), permit['actor'], expected_actors)
+    if permit.get('runtime_identity') != qualified_runtime:
+        raise ValueError('recorded qualification runtime identity differs from actual packets')
+    live.check(rehash=True); return sha, live, qualified_runtime
 
 
 def run_workflow(action, config, output):
@@ -265,18 +298,19 @@ def run_workflow(action, config, output):
     if shutil.disk_usage(output.parent).free < config['minimum_free_bytes']:
         raise ValueError('native IK initial raw-state storage admission failed')
     physical = _gpu_record(config['gpu_uuid']) if config['device'] == 'cuda:0' else None
-    permit_sha, permit_guard = (None, None)
+    permit_sha, permit_guard, qualified_runtime = (None, None, None)
     if action == 'workflow' and not config['engineering']:
-        permit_sha, permit_guard = _check_qualification(config, inputs, sources, physical, snapshot)
+        permit_sha, permit_guard, qualified_runtime = _check_qualification(config, inputs, sources, physical, snapshot)
     output.mkdir(parents=True, mode=0o700)
     configuration = results.seal(dict(action=action, request=config, sources_sha256=snapshot,
         input_identity_sha256=_hash(inputs.identity), source_identity_sha256=_hash(sources.identity),
-        physical_device=physical, qualification_file_sha256=permit_sha))
+        physical_device=physical, qualification_file_sha256=permit_sha, qualified_runtime_identity=qualified_runtime))
     config_path = output/'configuration.json'; results.write_json(config_path, configuration)
     config_guard = _Guard([config_path], [])
-    owned = []; stage_paths = []; lock = None
+    owned = []; stage_paths = []; lock = None; artifact_bindings = results.IKArtifactBindings()
     def guard():
         frozen_sources.check(); config_guard.check(); inputs.check(); sources.check()
+        artifact_bindings.check()
         if permit_guard is not None: permit_guard.check()
         if shutil.disk_usage(output).free < 15*1024**3:
             raise ValueError('native IK remaining storage reserve fell below15GiB')
@@ -314,6 +348,12 @@ def run_workflow(action, config, output):
         metadata, metadata_guard, _ = _read(target/name)
         if not _same_actor(metadata['actor'], receipt['worker']):
             raise ValueError('native IK output actor differs from actual owned worker')
+        if worker_action == 'finalize':
+            _, current = results.bind_ik_shard(inputs, target); artifact_bindings.absorb(current)
+        elif worker_action == 'assemble':
+            accepted, current = results.inspect_ik_labels(inputs, target)
+            if accepted != metadata: raise ValueError('actual exited assembler label receipt changed')
+            artifact_bindings.absorb(current)
         owned.append(dict(role=role, **receipt)); metadata_guard.check(); guard()
         return metadata
     try:
@@ -327,14 +367,20 @@ def run_workflow(action, config, output):
             if int(free.strip()) < 64*1024: raise ValueError('native IK GPU admission requires64GiB free')
         guard()
         if action == 'qualify':
-            batches = []
+            batches = []; qualified_identity = None
             for hand in HANDS:
                 producer = stage('qual-'+hand+'-produce', 'produce-one', output/f'qual-{hand}-produce', hand=hand, shard=0, batch_index=32)
                 verified = stage('qual-'+hand+'-verify', 'verify-one', output/f'qual-{hand}-verify', hand=hand, shard=0, batch_index=32,
                                  original=output/f'qual-{hand}-produce')
                 batches.append(dict(hand=hand, rows=producer['batch']['rows'], raw_state_sha256=producer['state_file_sha256'],
                                     verification_sha256=file_sha256(output/f'qual-{hand}-verify'/'verification.json')))
+                packet, rg, rp, rsha = results._accepted(inputs, output/f'qual-{hand}-produce', output/f'qual-{hand}-verify')
+                artifact_bindings.add_accepted(packet, rg, rp, rsha)
+                if qualified_identity is None: qualified_identity = producer['runtime_identity']
+                if qualified_identity != producer['runtime_identity']:
+                    raise ValueError('bilateral native qualification runtime backends differ')
             value = dict(format='original_native_ik_default_batch_qualification_v1', batches=batches,
+                         runtime_identity=qualified_identity,
                          original_default_batch10096_qualified=True, full_frame_labels_regenerated=False)
             terminal_name = 'qualification.json'
         else:
@@ -356,6 +402,8 @@ def run_workflow(action, config, output):
             terminal_name = 'completion.json'
         if 'torch' in sys.modules: raise ValueError('native IK controller must remain Torch-free')
         if workflow_sources() != snapshot: raise ValueError('native IK source bytes changed after owned stages')
+        artifact_bindings.check(rehash=True)
+        if permit_guard is not None: permit_guard.check(rehash=True)
         guard()
         final = results.seal(dict(**value, actor=process_identity(), engineering=config['engineering'],
             configuration_sha256=file_sha256(config_path), sources_sha256=snapshot, physical_device=physical,

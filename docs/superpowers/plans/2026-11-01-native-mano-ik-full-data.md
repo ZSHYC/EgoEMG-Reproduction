@@ -52,7 +52,7 @@ Runtime interface: `admit_ik_sources(upstream, manotorch, chumpy, mano_assets) -
 - [x] Execute real bilateral engineering input first and independently reconstruct MANO/UmeTrack/matrix-exp geometry with0 new IK updates. Actual4realframes,2produceroptimizations,4geometrylayersacrossproducer/freshreader; alltypedarrays/objectivesexact. Twofreshcompleteposeadmissions, postexitfull25.406GBrehash/source/asset9checks andall6originalactors+collectorclosed. Firstdependency compile ofunused originalPython2module and firstcapsule missingreference failures preserved; fixed packaging only, original source/operator unchanged. Closed synthetic probe not rerun.
 - [x] Implement the general full-shard stream/raw-results/lifecycle CLI; actual24realpose/B2 engineering traversedall12logicalshards/37ownedstages,12originaloptimizer calls/732outersteps/8544closures, freshgeometricreaders/isolatedfloat32[12,20]labelsbyteexact. All76originalowners+independentpostexitcollectorclosed. This isnotdefault10096qualificationorfullsourceexecution.
 - [ ] Complete actual batch10096 qualification on a permitted device before full-label execution; no GPU queue or reservation created for this engineering run.
-- [ ] Complete relevant new tests and one final new-component review with one material fix phase. No old model/math review or second review.
+- [x] Complete relevant new tests and one final new-component review with one material fix phase. Onefreshreview4Important/0Critical/0Minor; exactbackend/role-actor/currentlineage/finaltargetfixes10RED→GREEN; final60GREEN/0skip. Actualchanged-sourceV2 all37stages/24realposes/76owners+collectorclosed; no old model/math review or second review.
 
 ## Task3: complete released rows, isolated labels and publication
 
