@@ -1,0 +1,113 @@
+{
+  "actual_test": {
+    "actual_exit_code": 0,
+    "advisories": 1,
+    "cuda_hidden": true,
+    "failed": 0,
+    "log_sha256": "7129c97792a6a90adbe1c3107703debcc8659323cca46614324415725a2fd575",
+    "observed_utc": "2026-11-01T18:21:35.120649+00:00",
+    "passed": 18,
+    "seconds": 174.83,
+    "skipped": 0
+  },
+  "evidence": {
+    "all_parameter_moments_have_actual_four_updates": true,
+    "complete_fixture_counts": {
+      "test": 6,
+      "train": 80,
+      "val": 2
+    },
+    "complete_validation_samples_per_epoch": [
+      2,
+      2
+    ],
+    "completed_fit_retraining_rejected": true,
+    "engineered_initializers_rejected_before_formal_constructor": true,
+    "engineering_train_samples_per_epoch": [
+      4,
+      4
+    ],
+    "existing_prefix_tensorboard_bytes_unchanged": true,
+    "final_optimizer_executions": 4,
+    "fresh_process_resumed_completed_epochs": 2,
+    "independently_replayed_saved_validation_before_resume": true,
+    "optimizer_groups": 8,
+    "prefix_completed_epochs": 1,
+    "prefix_optimizer_executions": 2,
+    "preserved_BN_buffers": 60,
+    "preserved_model_parameters": 184,
+    "preserved_parent_checkpoint_and_observation": true,
+    "rejected_actual_checkpoint_damage": [
+      "optimizer_step",
+      "optimizer_moment",
+      "scheduler",
+      "loop",
+      "rng",
+      "hyperparameters",
+      "missing_temporal",
+      "packet_class",
+      "callback",
+      "epoch_number"
+    ],
+    "restored_domains": [
+      "model",
+      "optimizer",
+      "scheduler",
+      "callbacks",
+      "loops",
+      "rng"
+    ],
+    "test_role_iterated_during_fit": false
+  },
+  "format": "native_rn18_fusion_fit_engineering_acceptance_v1",
+  "full_paper_complete": false,
+  "limitations": [
+    "engineering initializer branches are untrained and never eligible for formal fit",
+    "formal full150 cotrain producer and combined trained positive construction remain pending",
+    "native CUDA BF16 batch200/10worker qualification and fresh formal fusion150 remain pending",
+    "paired evaluation adapter is independently under development; this record grants no evaluator acceptance",
+    "14 previous completed scientific settings and their numerical outputs remain unchanged"
+  ],
+  "protocol": {
+    "cosine_T_max": 150,
+    "cosine_eta_min": 1e-05,
+    "early_stopping": false,
+    "experiment": "fusion/fusion_rn18_s_center_8ch",
+    "learning_rate": 0.0006,
+    "optimizer": "torch.optim.adam.Adam",
+    "original_all_role_batch_size": 200,
+    "original_all_role_workers": 10,
+    "original_expected_optimizer_executions": 46950,
+    "original_max_epochs": 150,
+    "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+    "weight_decay": 0.0001
+  },
+  "red_green": [
+    {
+      "failed": 5,
+      "fixture_errors": 11,
+      "log_sha256": "5d291c28f04897283fbaae1c3d34582172b61b3aa7b4403e0b7805a2b9523603",
+      "scope": "missing fit module",
+      "seconds": 4.73
+    },
+    {
+      "log_sha256": "9780bc5747c0b640fd347a79089e40b956c875f1cc405f4181fb56a2531a5e59",
+      "passed": 16,
+      "scope": "initial original recipe/recovery",
+      "seconds": 134.98
+    },
+    {
+      "failed": 2,
+      "log_sha256": "54b3a9b103db497bcd98a1cc77988987de1f8933869de06e3ed8a825b638c1af",
+      "passed": 1,
+      "scope": "retained actual state pose/callback hardening",
+      "seconds": 24.61
+    }
+  ],
+  "scientific_eligible": false,
+  "scope": "new native RN18+EMGFormer-S training adapter; CPU-only synthetic diagnostic; no formal fusion experiment or new paper score",
+  "source_files_sha256": {
+    "egoemg_repro/rn18_fusion_train.py": "a5cf509288f95d5cafdec046cc343fc5d051481695680f7aab9d095f1e6d86b4",
+    "tests/test_rn18_fusion_train.py": "8ce8f82632fb495d5228c17f44b4e3c0a51616d9327504e3b37af8a0d41b7ad7"
+  }
+}
