@@ -1,0 +1,52 @@
+{
+  "actual_cuda_qualification": false,
+  "actual_gpu_actions_started": 0,
+  "actual_matching_original_producer_owners_live": true,
+  "actual_matching_queue_owners_live": true,
+  "actual_owned_actions_started": 0,
+  "actual_state": "waiting for original same native150 producer owners",
+  "all_frozen_source_sha256_exact": true,
+  "both_queue_owners_without_tty": true,
+  "bundle_sha256": "ffb0999b3f5a49253e340c08c069e08d92bc282c92268f227278cc9cfd70fee4",
+  "cuda_visible_devices": "",
+  "current_full_handoff_positive_verified": false,
+  "current_full_native_constructor_verified": false,
+  "deadline_seconds": null,
+  "each_action_reopens_full_cohort": {
+    "test": 2792,
+    "train": 62470,
+    "val": 1052
+  },
+  "exact_original_producer_bundle_sha256": "5996ac62b680b494de38651db73c44fedf2d4bb50ff84b0c3223e6bf2e806117",
+  "exact_original_producer_source_commit": "ab3e26f4efea63c0ca295199f6529b5037ac2948",
+  "formal_fusion_fit_started": false,
+  "format": "actual_detached_full_trained_rn18_fusion_cpu_handoff_queue_v1",
+  "full_paper_complete": false,
+  "native_future_fit_policy_unchanged": {
+    "all_role_batch_size": 200,
+    "all_role_workers": 10,
+    "full_epochs": 150,
+    "updates": 46950
+  },
+  "no_automatic_retry": true,
+  "note": "live queue and source equality verified; none of the four pending actions is claimed complete; no dependent GPU/full fusion job is launched by this CPU queue",
+  "observed_utc": "2026-11-01T18:43:55.224992+00:00",
+  "parent_torch_libraries_loaded": false,
+  "queue_recorder_detached_ppid1": true,
+  "queued_cpu_actions": [
+    "independent full trained producer admission",
+    "fresh model-free full handoff reopening",
+    "native trained model construction with two real validation hands",
+    "cold-cache self-contained complete-state and prediction replay"
+  ],
+  "required_original_producer": {
+    "closed_original_handles": 16,
+    "epochs": 150,
+    "stages": 7,
+    "updates": 36150
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "1d4a88d52161ec4d70a3f500560457c2fc50876b",
+  "source_member_count": 147
+}
