@@ -158,7 +158,7 @@ def test_live_registry_and_raw_generation_prevent_resealed_admission(tmp_path,mo
         a=v.selection_by_recipe['vits_s']['pool_index'];a.setflags(write=True);a[0]=1;a.setflags(write=False)
     elif damage=='identity_reseal':v.identity['learned_pose_models_constructed']=1;v.identity['sha256']=_hash({k:x for k,x in v.identity.items()if k!='sha256'})
     else:
-        p=kw['geometry']/'generated_mano_left_pose.dat';old=p.read_bytes();p.unlink();p.write_bytes(old)
+        p=kw['geometry']/'generated_mano_left_pose.dat';new=p.with_suffix('.replacement');new.write_bytes(p.read_bytes());new.replace(p)
     with pytest.raises(ValueError):v.check()
 
 
@@ -180,3 +180,12 @@ def test_full_input_and_export_never_import_torch(tmp_path,monkeypatch):
         return old(name,*a,**k)
     monkeypatch.setattr(builtins,'__import__',forbid)
     m.export_dense_geometry_inputs(output=tmp_path/'out',**kw)
+
+
+def test_complete_raw_hashing_never_materializes_bulk_files_in_memory(tmp_path,monkeypatch):
+    m=api();kw=fixture(tmp_path,monkeypatch);original=Path.read_bytes
+    def reject_bulk(path):
+        if path.suffix=='.dat':raise AssertionError('full bulk byte hashes must stream, not allocate entire files')
+        return original(path)
+    monkeypatch.setattr(Path,'read_bytes',reject_bulk)
+    m.admit_dense_geometry_inputs(**kw).check()

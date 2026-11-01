@@ -15,10 +15,14 @@ import weakref
 
 import numpy as np
 
-from .classic_emg import _file_hash,_hash
+from .classic_emg import _hash
 from .classic_emg_cohort import _safe,_StatGuard
 from .occlusion_dense_data import COLUMNS,_typed_sha
 from .occlusion_dense_footprints import summarize_dense_footprints
+
+def _file_hash(path):
+    with Path(path).open('rb')as f:return hashlib.file_digest(f,'sha256').hexdigest()
+
 
 ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
