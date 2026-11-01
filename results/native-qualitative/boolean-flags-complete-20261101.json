@@ -1,0 +1,141 @@
+{
+  "actual_closed_original_actors": [
+    {
+      "pid": 1598180,
+      "start_ticks": "437300828"
+    },
+    {
+      "pgrp": 1598181,
+      "pid": 1598181,
+      "sid": 1598181,
+      "start_ticks": "437300832",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1598186,
+      "pid": 1598186,
+      "sid": 1598186,
+      "start_ticks": "437300851",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1598184,
+      "pid": 1598184,
+      "sid": 1598184,
+      "start_ticks": "437300847",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1598346,
+      "pid": 1598346,
+      "sid": 1598346,
+      "start_ticks": "437301672",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1598343,
+      "pid": 1598343,
+      "sid": 1598343,
+      "start_ticks": "437301668",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_boolean_admissions": 2,
+  "actual_ended_utc": "2026-11-01T15:08:39.651432+00:00",
+  "actual_exit_code": 0,
+  "actual_four_full_boolean_hash_passes_in_workers": true,
+  "all2322_raw_flags_independently_rebuilt": true,
+  "all6_original_actors_closed": true,
+  "all_selected_points_retained": true,
+  "bundle_sha256": "b7ac28d19ab89b3f0899e9dde243022d5d08e3cc63003824854bbbb745094cd7",
+  "counts": {
+    "image_stale": 0,
+    "no_valid_hand_marker": 64,
+    "selected": 2322,
+    "source_filter_pass": 2242,
+    "untracked": 20
+  },
+  "cuda_initialized": false,
+  "exported_files_sha256": {
+    "private/a/flags.jsonl": "b4014d4377d8854bb9d17baae416cc9b9bd23c8dc20b44d8634fcfedb6062db6",
+    "private/a/identity.json": "2f51825346d4a5ae6b5ffbfaaec121bfe754ee03935f2f608c40521954ed529f",
+    "private/a/result.json": "8916c1e8f5b4bbf432165ff18a34ca55322bf25a1e3d81fdb761455879057390",
+    "private/a/sources-nine.json": "70793b0b93e7f77d954acd90ce2231de4a566a7d14a39e3468a953b3c700908b",
+    "private/b/flags.jsonl": "b4014d4377d8854bb9d17baae416cc9b9bd23c8dc20b44d8634fcfedb6062db6",
+    "private/b/identity.json": "2f51825346d4a5ae6b5ffbfaaec121bfe754ee03935f2f608c40521954ed529f",
+    "private/b/result.json": "601cb1ef41302e6787fbb978fe9e75f22916b1117c6199b3c3fe790c3e52b53d",
+    "private/b/sources-nine.json": "70793b0b93e7f77d954acd90ce2231de4a566a7d14a39e3468a953b3c700908b"
+  },
+  "figure7_reproduced": false,
+  "format": "independently_rebuilt_complete_ordinary_qualitative_boolean_flags_v1",
+  "full_boolean_files_sha256": {
+    "image_webcam_stale": "47524ba3b0cae2b91ca1829a558099a49ed0eea6d5636fc2cf6326d10b00172f",
+    "mocap_left_valid": "aa118a0903937465fd05321fd8388624320cf3fa4006b0e82eb6148188bdb740",
+    "mocap_right_valid": "5c8ad53bb021aabc27fc92317ac10f814b4e1146cdaace4edbc883656c587dd8",
+    "mocap_webcam_tracked": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40"
+  },
+  "full_boolean_source_bytes": 2911115900,
+  "full_paper_complete": false,
+  "identity": {
+    "all_selected_rows_retained": true,
+    "counts": {
+      "image_stale": 0,
+      "no_valid_hand_marker": 64,
+      "selected": 2322,
+      "source_filter_pass": 2242,
+      "untracked": 20
+    },
+    "figure7_reproduced": false,
+    "filter_applied_to_prediction_population": false,
+    "format": "complete_actual_ordinary_qualitative_boolean_flags_v1",
+    "full_boolean_files_sha256": {
+      "image_webcam_stale": "47524ba3b0cae2b91ca1829a558099a49ed0eea6d5636fc2cf6326d10b00172f",
+      "mocap_left_valid": "aa118a0903937465fd05321fd8388624320cf3fa4006b0e82eb6148188bdb740",
+      "mocap_right_valid": "5c8ad53bb021aabc27fc92317ac10f814b4e1146cdaace4edbc883656c587dd8",
+      "mocap_webcam_tracked": "d182be6871740172f2d2392c3106a1e80b542dcc04f483f450cfc67fd2b1ab40"
+    },
+    "full_boolean_source_bytes": 2911115900,
+    "full_paper_complete": false,
+    "manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+    "model_or_geometry_permit": false,
+    "physical_camera_equivalence_proven": false,
+    "publisher_authenticated_bulk_sha256_available": false,
+    "reference_sha256": "d89f6298787e4eaae8a12207703f9a0b18f9959f90e8f03b69bf3dbbaaebbfdb",
+    "scientific_eligible": false,
+    "selected_hand_points": 2322,
+    "source_aliases": {
+      "image_head_stale": "image_webcam_stale",
+      "mocap_head_valid": "mocap_webcam_tracked"
+    },
+    "source_evidence_identity_sha256": "994ff9ac9ccd929aaab5567f0ceb5022ac4bfa9c8545041449e0d978bd7ec7e7",
+    "source_files_sha256": {
+      "qualitative_flags.py": "d8ce48a4610c22d8916f6332bbef9325600384125ba794f7d5ae1e328606b072"
+    },
+    "source_filter": "tracked and not stale and any valid marker for actual hand",
+    "source_key_sha256": "61638a5fe7e7b1e7e46e7ea253e16adec664d65f6db4d2a78e4e6687e3fe148a",
+    "total_rows": 66161725
+  },
+  "learned_pose_models_constructed": 0,
+  "model_or_geometry_permit": false,
+  "native_geometry_executed": false,
+  "observed_utc": "2026-11-01T15:11:46.327525+00:00",
+  "optimizer_updates": 0,
+  "postexit_boolean_hash_passes": 1,
+  "postexit_collector_actor": {
+    "pid": 1600877,
+    "start_ticks": "437320878"
+  },
+  "postexit_collector_also_exited": true,
+  "postexit_collector_seconds": 2.793541190214455,
+  "postexit_collector_torch_unimported": true,
+  "postexit_full_field_bytes_and_nine_attributes_exact": true,
+  "postexit_source_capsule_files_exact": 143,
+  "raw_workflow_file_sha256": "6a717eb40644ff6a02645ead1089c57df78092d1bf1f46657bdd381d65438492",
+  "scientific_eligible": false,
+  "source_commit": "e149e5ebbd026c51877ac205809d9441fabe0c8c"
+}

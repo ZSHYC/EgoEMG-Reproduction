@@ -29,3 +29,5 @@ python scripts/paper/run_native_qualitative.py verify \
 原始追踪标志使用单独的真实布尔文件准入，新增[14项检查](../results/native-qualitative/flag-source-engineering-tests-20261101.json)已通过，包括全部2,322点与独立原始memmap读取逐项比较。新版脚本的`mocap_head_valid`显式映射到旧版`mocap_webcam_tracked`，`image_head_stale`映射到`image_webcam_stale`；左右手各自读取21个marker的`any()`，不使用生成标签或裁剪掩码替代。四个完整文件共2,911,115,900字节，须匹配已独立验收的旧版几何来源并在提取前后重新核对；当前字段映射不证明新版人口或物理相机等价。所有选中点的标志均保留，预测之后才过滤。
 
 [实际预测快照](../results/native-qualitative/frozen-prediction-running-20261101.json)记录当前源版本的独立后台执行；完整两遍原始包、模型状态和进程关闭尚待验收，不能使用中间进度作为最终指标。
+
+[完整布尔来源闭环](../results/native-qualitative/boolean-flags-complete-20261101.json)现已完成：两个独立实际准入／导出、6个原始拥有者与退出后NumPy复核进程均已关闭，四文件完整字节与所有2,322点逐项一致。原始条件会保留2,242点；未追踪20、无有效手marker64、陈旧帧0，前两者存在重叠。所有2,322点继续进行预测，之后才按这些标志排序；不能把标签有效性直接当作该过滤条件。此闭环只证明过滤输入，未证明两遍模型预测、三类例图或新版数据人口等价。
