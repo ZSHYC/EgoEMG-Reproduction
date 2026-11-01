@@ -1,3 +1,5 @@
+> **marker最新限制**：[独立前缀接续](../results/legacy-marker-prefix-continuation-stop-20261102.json)再次非206停止、4拥有者关闭，原1GiB完整保留且无新增数据；随后的[原16MiB范围只读诊断](../results/legacy-marker-original-range-status-probe-20261102.json)实际收到Drive配额HTML。当前不再发起下载请求；不能用64字节探测成功宣布完整传输恢复，完整marker/腕部和标注链仍欠。
+
 > **最新实际接续**：[RN50/152共享显存接续与后续队列](../results/native-resnet-shared-recovery-and-downstream-20261102.json)已确认两条指定GPU1/7上的新拥有者实际恢复全部六类状态，分别从保存第78/32轮继续，并匹配真实NVML工作进程。按空闲显存≥64GiB稳定20秒准入、运行保留>8GiB，记录并保留同卡其他计算进程。全轨迹重新等待精确新RN50完成，IK资格再等待精确新全轨迹完成；IK原实现仍须实际空闲GPU，完整IK标签流程尚未建立。四组外层进程均实际活动，尚无RN50/152新完整最终成绩；旧失败与旧归档均保留。
 
 > **接续第二次停止快照**：[RN50/152第二次接续停止记录](../results/native-resnet-recovery-v2-resource-stop-20261102.json)确认两项实际开始恢复后触发GPU占用保护，父流程exit1；依赖它们的全轨迹和IK资格也已失败退出，12个原拥有者均关闭。原日志没有记录冲突PID，不能据当前占用倒推当时账号；检查点未被本次只读收集修改。没有自动重试或新的接续启动，以下16:14排队文字是历史快照。

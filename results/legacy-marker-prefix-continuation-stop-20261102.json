@@ -1,0 +1,131 @@
+{
+  "actual_stage_result": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "error_type": "OwnedStageError",
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 1706212,
+      "pid": 1706212,
+      "sid": 1706212,
+      "start_ticks": "438154547",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 1706200,
+      "pid": 1706200,
+      "sid": 1706200,
+      "start_ticks": "438154442",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "failed",
+    "worker": {
+      "pgrp": 1706213,
+      "pid": 1706213,
+      "sid": 1706213,
+      "start_ticks": "438154550",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 1
+  },
+  "all4_actors_closed": [
+    {
+      "pid": 1706199,
+      "start_ticks": "438154439"
+    },
+    {
+      "pid": 1706200,
+      "start_ticks": "438154442"
+    },
+    {
+      "pgrp": 1706213,
+      "pid": 1706213,
+      "sid": 1706213,
+      "start_ticks": "438154550",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1706212,
+      "pid": 1706212,
+      "sid": 1706212,
+      "start_ticks": "438154547",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "automatic_retry": false,
+  "bundle_sha256": "c286f158afc474dd0124e58d971a2acb90c4ddd31fab87688ce192402cf8920b",
+  "format": "actual_independent_marker_prefix_continuation_protocol_stop_v1",
+  "full_files_received": 0,
+  "full_paper_complete": false,
+  "historical_error_status_known": false,
+  "new_download_bytes_committed": 0,
+  "new_partial_bytes": 1073741824,
+  "new_partial_sha256": "7e308e9c54778783bedcc90cf8f28a3b6e278c823f415b0cf0e212d3db085b75",
+  "observed_utc": "2026-11-01T17:32:03.176481+00:00",
+  "original_partial_nine_attributes_unchanged": true,
+  "prefix_admission": {
+    "all4_original_actors_closed": true,
+    "bytes": 1073741824,
+    "independent_preserved_prefix": true,
+    "original_failed_state": {
+      "actual_exit_code": 1,
+      "automatic_retry": false,
+      "child": {
+        "pid": 1659828,
+        "start_ticks": "437845874"
+      },
+      "ended_utc": "2026-11-01T16:44:04.071197+00:00",
+      "started_utc": "2026-11-01T16:39:13.403754+00:00",
+      "status": "failed",
+      "wrapper": {
+        "pid": 1659827,
+        "start_ticks": "437845871"
+      }
+    },
+    "original_partial_nine_attributes": [
+      64512,
+      28087600198,
+      1073741824,
+      1793551441514940522,
+      1793551441514940522,
+      33204,
+      1005,
+      1005,
+      1
+    ],
+    "original_partial_path": "/data/shihao/egoemg-legacy-marker-intake-4151da2b5cb8-20261102/data/mocap_left_keypoints.dat.part",
+    "original_root": "/data/shihao/egoemg-legacy-marker-intake-4151da2b5cb8-20261102",
+    "preserved_relative_path": "private/preserved-prefix/mocap_left_keypoints.dat.part",
+    "prior_protocol_probe_sha256": "733fc58b56d5f004bfb08d774803cb4838c6c06b8082d152c55de6db354afe5b",
+    "sha256": "7e308e9c54778783bedcc90cf8f28a3b6e278c823f415b0cf0e212d3db085b75"
+  },
+  "resumed_prefix_file_sha256": "da83ed8360bd7c22a8254bf62cc0df86d74bb49b30291dc5d6fabf97a7f80c97",
+  "root": "/data/shihao/egoemg-legacy-marker-continuation-edbe8c735e8c-20261102",
+  "source_capsule_files_exact": 148,
+  "source_commit": "edbe8c735e8c4ef7274c20bdfac920e10db24780",
+  "state": {
+    "actual_exit_code": 1,
+    "automatic_retry": false,
+    "child": {
+      "pid": 1706200,
+      "start_ticks": "438154442"
+    },
+    "ended_utc": "2026-11-01T17:30:46.345920+00:00",
+    "started_utc": "2026-11-01T17:30:39.077324+00:00",
+    "status": "failed",
+    "wrapper": {
+      "pid": 1706199,
+      "start_ticks": "438154439"
+    }
+  },
+  "stop_reason": "Strict original16MiB range did not return HTTP206; original failing status was not logged",
+  "worker_log_file_sha256": "ec206218ccbc281e682e7bfb44c2a4570b86788aeb57411a5857e5824bb78949"
+}
