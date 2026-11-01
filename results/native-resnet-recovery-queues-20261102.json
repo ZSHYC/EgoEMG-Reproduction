@@ -1,0 +1,326 @@
+{
+  "actual_B10096_qualification_started": false,
+  "actual_full_native_trajectory_started": false,
+  "actual_resume_started": false,
+  "actual_six_domain_restoration_still_pending": true,
+  "all10_current_job_pairs_matching_live": true,
+  "all4_recovery_queues_detached": true,
+  "archive_admission_proof_file": "native-resnet-interrupted-checkpoint-admission-20261102.json",
+  "format": "actual_native_resnet_checkpoint_resume_and_dependencies_queued_v1",
+  "fullIK_label_workflow_created": false,
+  "full_paper_complete": false,
+  "initial_recovery_controllers_failed_before_model_stage": true,
+  "initial_recovery_preflight_failure": "static guard had no dynamic add; replaced with existing reviewed _RunGuard after read-only actual-workflow probe",
+  "jobs": {
+    "EMG2poseL": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 903988,
+          "ppid": 903987,
+          "session": 903988,
+          "start_ticks": "432500345",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 903987,
+          "ppid": 1,
+          "session": 903987,
+          "start_ticks": "432500342",
+          "state": "S",
+          "tty_nr": 0
+        }
+      }
+    },
+    "EMG2poseM": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 903986,
+          "ppid": 903984,
+          "session": 903986,
+          "start_ticks": "432500340",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 903984,
+          "ppid": 1,
+          "session": 903984,
+          "start_ticks": "432500337",
+          "state": "S",
+          "tty_nr": 0
+        }
+      }
+    },
+    "EMG2poseS": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1174059,
+          "ppid": 1174056,
+          "session": 1174059,
+          "start_ticks": "434447810",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1174056,
+          "ppid": 1,
+          "session": 1174056,
+          "start_ticks": "434447807",
+          "state": "S",
+          "tty_nr": 0
+        }
+      }
+    },
+    "EMG2poseSfinal": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1174233,
+          "ppid": 1174232,
+          "session": 1174233,
+          "start_ticks": "434449129",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1174232,
+          "ppid": 1,
+          "session": 1174232,
+          "start_ticks": "434449126",
+          "state": "S",
+          "tty_nr": 0
+        }
+      }
+    },
+    "RN18fusion": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1217092,
+          "ppid": 1217091,
+          "session": 1217092,
+          "start_ticks": "434691150",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1217091,
+          "ppid": 1,
+          "session": 1217091,
+          "start_ticks": "434691147",
+          "state": "S",
+          "tty_nr": 0
+        }
+      }
+    },
+    "ik-qualification": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1644315,
+          "ppid": 1644314,
+          "session": 1644315,
+          "start_ticks": "437693405",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1644314,
+          "ppid": 1,
+          "session": 1644314,
+          "start_ticks": "437693403",
+          "state": "S",
+          "tty_nr": 0
+        }
+      },
+      "actual_new_model_stage_started": false,
+      "actual_state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1644315,
+          "start_ticks": "437693405"
+        },
+        "started_utc": "2026-11-01T16:13:48.712969+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1644314,
+          "start_ticks": "437693403"
+        }
+      },
+      "bundle_sha256": "d3974b68d2464081d57e5eb031a3ba9b70ea4f057156b7f541cab9f36dc8bb58",
+      "current_log_tail": "{\"phase\": \"waiting-exact-native-SML-trajectory-completion\", \"root\": \"/data/shihao/egoemg-native-trajectory-recovery-queue-45a63dd86668-20261102\", \"handles\": {\"child\": {\"pid\": 1644211, \"start_ticks\": \"437693178\"}, \"wrapper\": {\"pid\": 1644210, \"start_ticks\": \"437693174\"}}, \"gpu_uuid\": \"GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae\", \"deadline_seconds\": null, \"full_label_workflow_created\": false}\n",
+      "full_paper_complete": false,
+      "request_file_sha256": "762025b3ad0724e6e59ccff0f6a6413f56bad6f4fc4676894d3ec3d816169a2d",
+      "resource_status": null,
+      "root": "/data/shihao/egoemg-native-ik-qualification-recovery-queue-45a63dd86668-20261102",
+      "source_capsule_files_exact": 144,
+      "source_commit": "45a63dd86668c596ab66459333c15bc8093d6c63"
+    },
+    "nativeRN18": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1061677,
+          "ppid": 1061676,
+          "session": 1061677,
+          "start_ticks": "433657453",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1061676,
+          "ppid": 1,
+          "session": 1061676,
+          "start_ticks": "433657451",
+          "state": "S",
+          "tty_nr": 0
+        }
+      }
+    },
+    "resnet152": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1643123,
+          "ppid": 1643120,
+          "session": 1643123,
+          "start_ticks": "437682041",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1643120,
+          "ppid": 1,
+          "session": 1643120,
+          "start_ticks": "437682038",
+          "state": "S",
+          "tty_nr": 0
+        }
+      },
+      "actual_new_model_stage_started": false,
+      "actual_state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1643123,
+          "start_ticks": "437682041"
+        },
+        "started_utc": "2026-11-01T16:11:55.069191+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1643120,
+          "start_ticks": "437682038"
+        }
+      },
+      "bundle_sha256": "7823d2332d6c890f70d0663ac1e5e3406171bf20274a6e0706962b3fde6d8431",
+      "current_log_tail": "{\"phase\": \"waiting-full-fit\", \"variant\": \"resnet152\", \"gpu_uuid\": \"GPU-83b7beb5-2729-4e3b-ed78-b949192152fb\", \"idle_stability_seconds\": 20, \"deadline_seconds\": null}\n",
+      "full_paper_complete": false,
+      "request_file_sha256": "1b0b658551e23f7a702f681448c7097f2f438f6f096f4de03d0ff216f6b8ee95",
+      "resource_status": {
+        "compute_processes": 1,
+        "free_bytes": 84589674496,
+        "observed_utc": "2026-11-01T16:14:51.133522+00:00",
+        "phase": "waiting-full-fit",
+        "stable_idle_seconds": 0
+      },
+      "root": "/data/shihao/egoemg-native-resnet152-recovery-v2-45a63dd86668-20261102",
+      "source_capsule_files_exact": 142,
+      "source_commit": "45a63dd86668c596ab66459333c15bc8093d6c63"
+    },
+    "resnet50": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1643058,
+          "ppid": 1643057,
+          "session": 1643058,
+          "start_ticks": "437681911",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1643057,
+          "ppid": 1,
+          "session": 1643057,
+          "start_ticks": "437681907",
+          "state": "S",
+          "tty_nr": 0
+        }
+      },
+      "actual_new_model_stage_started": false,
+      "actual_state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1643058,
+          "start_ticks": "437681911"
+        },
+        "started_utc": "2026-11-01T16:11:53.767431+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1643057,
+          "start_ticks": "437681907"
+        }
+      },
+      "bundle_sha256": "cf30ccc864e391ef03fd0425e45e749b29ce57c62d614826b114372b6dcc76a8",
+      "current_log_tail": "{\"phase\": \"waiting-full-fit\", \"variant\": \"resnet50\", \"gpu_uuid\": \"GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae\", \"idle_stability_seconds\": 20, \"deadline_seconds\": null}\n",
+      "full_paper_complete": false,
+      "request_file_sha256": "ea31a06393eb1f592d6dca858fa718d9b7c46486bc06f6cdf9e84d785ce3ecd2",
+      "resource_status": {
+        "compute_processes": 1,
+        "free_bytes": 84589674496,
+        "observed_utc": "2026-11-01T16:14:54.631498+00:00",
+        "phase": "waiting-full-fit",
+        "stable_idle_seconds": 0
+      },
+      "root": "/data/shihao/egoemg-native-resnet50-recovery-v2-45a63dd86668-20261102",
+      "source_capsule_files_exact": 142,
+      "source_commit": "45a63dd86668c596ab66459333c15bc8093d6c63"
+    },
+    "trajectory": {
+      "actual_matching_owners": {
+        "child": {
+          "pid": 1644211,
+          "ppid": 1644210,
+          "session": 1644211,
+          "start_ticks": "437693178",
+          "state": "S",
+          "tty_nr": 0
+        },
+        "wrapper": {
+          "pid": 1644210,
+          "ppid": 1,
+          "session": 1644210,
+          "start_ticks": "437693174",
+          "state": "S",
+          "tty_nr": 0
+        }
+      },
+      "actual_new_model_stage_started": false,
+      "actual_state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1644211,
+          "start_ticks": "437693178"
+        },
+        "started_utc": "2026-11-01T16:13:46.436438+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1644210,
+          "start_ticks": "437693174"
+        }
+      },
+      "bundle_sha256": "04485165c7d5f793833edf464e640666d7f2b8985ee4e9d7b4fafd8c0705ebb2",
+      "current_log_tail": "{\"phase\": \"waiting-full-target-inputs\", \"root\": \"/data/shihao/egoemg-native-trajectory-full-inputs-983fd9338f4a-20261101\", \"exact_handles\": {\"child\": {\"pid\": 1463570, \"start_ticks\": \"436268831\"}, \"wrapper\": {\"pid\": 1463568, \"start_ticks\": \"436268828\"}}, \"deadline_seconds\": null}\n{\"phase\": \"waiting-native-rn50\", \"root\": \"/data/shihao/egoemg-native-resnet50-recovery-v2-45a63dd86668-20261102\", \"exact_handles\": {\"child\": {\"pid\": 1643058, \"start_ticks\": \"437681911\"}, \"wrapper\": {\"pid\": 1643057, \"start_ticks\": \"437681907\"}}, \"deadline_seconds\": null}\n",
+      "full_paper_complete": false,
+      "request_file_sha256": "4598817a660ab822ab868b530570f33a28ca8930b294475031255322048afe1e",
+      "resource_status": null,
+      "root": "/data/shihao/egoemg-native-trajectory-recovery-queue-45a63dd86668-20261102",
+      "source_capsule_files_exact": 156,
+      "source_commit": "45a63dd86668c596ab66459333c15bc8093d6c63"
+    }
+  },
+  "no_automatic_retry": true,
+  "no_foreign_process_modified": true,
+  "no_training_or_math_core_code_changed": true,
+  "no_wait_deadline": true,
+  "observed_utc": "2026-11-01T16:14:55.525652+00:00",
+  "original_batch_workers_precision_validation_and150_limit_preserved": true,
+  "original_checkpoint_paths_preserved": true,
+  "original_failed_execution_records_retained": true,
+  "original_source_and_archive_bytes_remain_guarded_before_resume": true,
+  "scientific_eligible": false
+}
