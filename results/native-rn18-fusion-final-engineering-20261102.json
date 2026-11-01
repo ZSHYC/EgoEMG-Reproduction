@@ -1,0 +1,109 @@
+{
+  "actual_tests": {
+    "actual_exit_code": 0,
+    "actual_native_prefix_resume_recreated": true,
+    "default_without_hidden_fixture_environment": true,
+    "failed": 0,
+    "log_sha256": "93458001969aa3634bd9d7abf6a62553c6c7cb2b45ffbbc83d1ee9de522486e1",
+    "native_cli_stages": [
+      "val native",
+      "val fresh-process replay",
+      "validation profile freeze",
+      "test native",
+      "test fresh-process replay",
+      "report",
+      "fresh-process report verify"
+    ],
+    "observed_utc": "2026-11-01T18:34:03.979741+00:00",
+    "passed": 13,
+    "seconds": 263.58,
+    "skipped": 0
+  },
+  "existing_dependencies": {
+    "lightning": "2.5.0.post0",
+    "matplotlib": "3.9.4",
+    "new_packages_installed": false,
+    "numpy": "1.26.4",
+    "torch": "2.2.2+cu118"
+  },
+  "format": "native_rn18_fusion_paired_evaluation_engineering_acceptance_v1",
+  "full_paper_complete": false,
+  "independent_model_free_postexit": {
+    "actual_exit_code": 0,
+    "all_raw_output_sha256_rechecked_after_exit": true,
+    "all_rng_domains_unchanged": true,
+    "cuda_initialized": false,
+    "fit_result_sha256": "a86ad750974233c422e1bf780f3d1dae67616eef3185c511cb5279572a6ee350",
+    "five_original_process_handles_closed": true,
+    "neural_constructors": 0,
+    "optimizer_constructors": 0,
+    "predictions_sha256": {
+      "test-native": "9baa270c35d9f77c2f7e40e59de14ffab4318866e1a7da8c15862bab32ab1ac1",
+      "test-replay": "9baa270c35d9f77c2f7e40e59de14ffab4318866e1a7da8c15862bab32ab1ac1",
+      "val-native": "70bf8ac17f78fbe667984dc9e947b587dac8feab31ce112f05bc78b552f7d264",
+      "val-replay": "70bf8ac17f78fbe667984dc9e947b587dac8feab31ce112f05bc78b552f7d264"
+    },
+    "profile_sha256": "04229a265e730f6bb72ef8c243b13a47a126339b5887e411cfb9e3db8120d5e7",
+    "proof_file_sha256": "675141a3c6b6a955c7a61db0cd3eed7168bce764f17e558a29616aedc70ae493",
+    "raw_output_bytes": 745031674,
+    "raw_output_files": 38,
+    "reopens": "retained complete CPU fixture chain with the same exact product-source hashes; default-path run has a separate fresh fit/chain",
+    "report_sha256": "f26615e5d7d4b0a6cde92d47762d01b64e448a84b4ad7c4f1bd43c7337cabcdb",
+    "seconds": 34.72897180356085
+  },
+  "limitations": [
+    "synthetic engineering initializers are untrained; they never grant a formal training permit",
+    "formal original150epoch cotrain producer and complete trained positive construction remain pending",
+    "full150epoch/46950update fusion, native GPU200/10worker qualification and final2792unique test requests remain pending",
+    "current available corpus is legacy41subject release; PDF numerical equivalence and missing merged corpora remain unestablished",
+    "14 previously completed scientific settings and all their metrics remain unchanged"
+  ],
+  "paired_fit_source_sha256": "a5cf509288f95d5cafdec046cc343fc5d051481695680f7aab9d095f1e6d86b4",
+  "retained_path_tests": {
+    "actual_exit_code": 0,
+    "log_sha256": "569d5c691f3b60a83ae575cc9c1bfc2437166a0af69ab9e909273ae6773879fa",
+    "passed": 13,
+    "seconds": 154.26,
+    "uses_existing_complete_predictions_without_new_training": true
+  },
+  "scientific_eligible": false,
+  "scope": "synthetic CPU2epoch diagnostic; native RN18+EMGFormer-S selected-best coupled evaluation; no formal fusion or new paper accuracy",
+  "semantic_checks": {
+    "actual_test_batch_sizes": [
+      2,
+      2,
+      2
+    ],
+    "both_native_replays_typed_input_pose_mask_exact": true,
+    "complete_requested_population_retained": true,
+    "duplicate_consumptions": 0,
+    "engineering_report_rejected_as_formal": true,
+    "four_prediction_processes_distinct": true,
+    "profile_frozen_before_any_test": true,
+    "raw_dependency_damage_rejected": [
+      "profile comparison under resealed summary",
+      "actual crop database",
+      "actual last checkpoint",
+      "actual native metric sidecar"
+    ],
+    "raw_generated_masks_kept_for_missing_crops": true,
+    "saved_fit_and_standalone_validation_pose_exact": true,
+    "saved_fit_validation_native_mae_delta_rad": 0.0,
+    "separate_aggregation_example": {
+      "missing_crops": 3,
+      "native_sample_weighted_mae_rad": 4.0,
+      "pooled_valid_angle_mae_rad": 5.0,
+      "requests": 6,
+      "valid_angle_count": 88
+    },
+    "source_repeat": 1,
+    "test_requested_samples": 6,
+    "test_unique_samples": 6,
+    "users_hands_splits_joints22_fingers_and_pd_groups_reported": true,
+    "validation_samples": 2
+  },
+  "source_files_sha256": {
+    "egoemg_repro/rn18_fusion_eval.py": "5e84ad509a5e7e90fda591904881148ba89a3a2d7e44398977c712d6489c8157",
+    "tests/test_rn18_fusion_eval.py": "4ea4b444dcf2f9383dae4664cd797c18f616d692545387977f5211443f21de2a"
+  }
+}
