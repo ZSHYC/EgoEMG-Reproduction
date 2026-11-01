@@ -1,0 +1,77 @@
+{
+  "actual_checks": {
+    "actual_exit_code": 0,
+    "failed": 0,
+    "log_sha256": "592d4a2e666e978401fce3808891059490d8c9e76c26ca7636e9abae5c9e8712",
+    "passed": 31,
+    "seconds": 0.67,
+    "skipped": 0
+  },
+  "actual_episodes": 41,
+  "actual_full_input_export_and_verify_passes": 2,
+  "actual_full_rows": 66161725,
+  "actual_gpu_actions": 0,
+  "actual_independent_episode_and_global_histogram_series": 252,
+  "actual_independent_full_episode_vector_passes": 1,
+  "actual_ml_import_attempts": 0,
+  "actual_owned_stages": 3,
+  "actual_report_sha256": "f46986113d934563e53edb1c270f503e1f1e010d9962256ffdab2a1474585ef2",
+  "actual_workflow_seconds": 23.865964180789888,
+  "all150_frozen_source_members_sha256_exact": true,
+  "all_eight_original_actors_closed": true,
+  "all_histograms_counts_and_integer_sums_independently_exact": true,
+  "all_input_and_output_generations_unchanged": true,
+  "all_input_file_hashes_rechecked_after_exit": true,
+  "artifact_files_sha256": {
+    "README.md": "ec1baedd5099015e5fb7e84db2f512248624643a9d2b372e9e3c2dc5e64907a9",
+    "completion.json": "e17644df59454b54b2bf365792c356e0d3a6258a55d0778a78b52e7cc9c869dd",
+    "episodes.csv": "48afc2b77830779972fd02da58f083fdc5ce8afcb4bdb53b5df6994c7d659bb1",
+    "histograms.csv": "bfb812c308e6d3aac744bb586addb150e0bdde1b13ccf728fec65e16069e02aa",
+    "metrics.json": "fb5c6d2535a8ea18bcbb77d31470c4ba9b97f4df3371281799a5a094ebdcd5c5"
+  },
+  "bundle_sha256": "48e84c7ac4b4f4f99d4a31051186b765fa45a004b28ae1b4205dcdb85d958004",
+  "cuda_libraries_mapped": false,
+  "current_observed_fields": {
+    "backward_timestamp_pairs": 0,
+    "exact500_microsecond_pairs": 0,
+    "max_within_episode_recorded_timestamp_step_us": 203550904,
+    "metadata_usable_recorded_delta_p50_ms": 8.0,
+    "metadata_usable_recorded_delta_p95_ms": 16.0,
+    "metadata_usable_recorded_delta_p99_ms": 18.0,
+    "metadata_usable_rows": 66159738,
+    "one_microsecond_pairs": 25559097,
+    "repeated_timestamp_pairs": 32471098,
+    "stale_rows": 1987,
+    "timestamp_adjacent_pairs": 66161684
+  },
+  "format": "actual_full_legacy_released_timing_validation_v1",
+  "full_paper_complete": false,
+  "input_files_sha256": {
+    "episode_index.dat": "74d736c2ecc65dcf82defabeca606d1f854c6875ebbbfd1e5233aa530a914351",
+    "frame_index.dat": "3a16dadc26f00556ce7a0a2cfd0c59c8d2a604d10d5ad75eaff736ebe650f115",
+    "image_webcam_delta_ms.dat": "29c8e865763580cb058d40703eecb69427447b8ca8334b12cdc09f5c6c807c71",
+    "image_webcam_frame_index.dat": "4b5ada48bf96a59278761f41525d2153634b2937c40e57c0b6b96ad4d97d2508",
+    "image_webcam_stale.dat": "47524ba3b0cae2b91ca1829a558099a49ed0eea6d5636fc2cf6326d10b00172f",
+    "manifest.json": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+    "metadata.npz": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+    "timestamp_us.dat": "50a578057c3bf7dd22cbb10c25ea2a574f79eaf2019dba86a576c67c15a99550"
+  },
+  "limitations": [
+    "describes aligned legacy fields; quantized timestamp differences are not model dt",
+    "recorded frame age is not independently measured hardware synchronization accuracy",
+    "raw IMU/device clocks/full video pixel dimensions/ZED/interpolation reconstruction remain incomplete",
+    "metadata-usable frame index and stale bits do not independently prove crop/pixel availability"
+  ],
+  "new_training_updates": 0,
+  "observed_utc": "2026-11-01T19:40:14.680863+00:00",
+  "one_fresh_final_review_completed": false,
+  "payload_bytes_per_full_pass": 2183336925,
+  "scientific_settings_added": 0,
+  "source_capsule_manifest_body_sha256_exact": true,
+  "source_code_files_sha256": {
+    "egoemg_repro/release_timing.py": "696603454aca3e0aacad147c0fe3f52b817c4a91233a11f8bd2bfba577a5ebd7",
+    "tests/test_release_timing.py": "49efa8dba687a0f6ebc92bf4899a50e2f6b1f43e212d6e850ee65501288938da"
+  },
+  "tested_source_commit": "7483666a41abc35a775f18963eddb719ac4a95db",
+  "torch_imported": false
+}
