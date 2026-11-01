@@ -24,10 +24,10 @@
   },
   "original_imu_samples_verified": false,
   "scientific_settings_added": 0,
-  "sha256": "f46986113d934563e53edb1c270f503e1f1e010d9962256ffdab2a1474585ef2",
+  "sha256": "c649ae2dce013847eb2dfb09ebfcc1428561c0ada30709cd1a12fdf63782cfb2",
   "source_files_sha256": {
     "classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
-    "release_timing.py": "696603454aca3e0aacad147c0fe3f52b817c4a91233a11f8bd2bfba577a5ebd7"
+    "release_timing.py": "c1c154c5815670b54b5efcc3693bc8c245ea3166057601ed76ab3d73c96b0dac"
   },
   "statistics": {
     "by_episode": [

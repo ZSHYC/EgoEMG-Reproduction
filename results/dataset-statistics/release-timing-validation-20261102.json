@@ -2,9 +2,9 @@
   "actual_checks": {
     "actual_exit_code": 0,
     "failed": 0,
-    "log_sha256": "592d4a2e666e978401fce3808891059490d8c9e76c26ca7636e9abae5c9e8712",
-    "passed": 31,
-    "seconds": 0.67,
+    "log_sha256": "7f1961ada8216f0e86313fc1aac1a31ef60d8c30b335efc0bd34e1d8cf4f34f8",
+    "passed": 36,
+    "seconds": 0.93,
     "skipped": 0
   },
   "actual_episodes": 41,
@@ -15,8 +15,8 @@
   "actual_independent_full_episode_vector_passes": 1,
   "actual_ml_import_attempts": 0,
   "actual_owned_stages": 3,
-  "actual_report_sha256": "f46986113d934563e53edb1c270f503e1f1e010d9962256ffdab2a1474585ef2",
-  "actual_workflow_seconds": 23.865964180789888,
+  "actual_report_sha256": "c649ae2dce013847eb2dfb09ebfcc1428561c0ada30709cd1a12fdf63782cfb2",
+  "actual_workflow_seconds": 20.762630253098905,
   "all150_frozen_source_members_sha256_exact": true,
   "all_eight_original_actors_closed": true,
   "all_histograms_counts_and_integer_sums_independently_exact": true,
@@ -24,12 +24,12 @@
   "all_input_file_hashes_rechecked_after_exit": true,
   "artifact_files_sha256": {
     "README.md": "ec1baedd5099015e5fb7e84db2f512248624643a9d2b372e9e3c2dc5e64907a9",
-    "completion.json": "e17644df59454b54b2bf365792c356e0d3a6258a55d0778a78b52e7cc9c869dd",
+    "completion.json": "be661fad124f3fecf81ed6438090b6b6748d65d871f8d8e5fe0db73004d6e919",
     "episodes.csv": "48afc2b77830779972fd02da58f083fdc5ce8afcb4bdb53b5df6994c7d659bb1",
     "histograms.csv": "bfb812c308e6d3aac744bb586addb150e0bdde1b13ccf728fec65e16069e02aa",
-    "metrics.json": "fb5c6d2535a8ea18bcbb77d31470c4ba9b97f4df3371281799a5a094ebdcd5c5"
+    "metrics.json": "f4cf3d18e5380a2b1bdfd8a9e46c117adcf09e94b2be6d327c376313172ca564"
   },
-  "bundle_sha256": "48e84c7ac4b4f4f99d4a31051186b765fa45a004b28ae1b4205dcdb85d958004",
+  "bundle_sha256": "e7d5cd26bd9d5d2949d9509c2f3bc28669dd32b48da52f90e0e946b321008fbc",
   "cuda_libraries_mapped": false,
   "current_observed_fields": {
     "backward_timestamp_pairs": 0,
@@ -43,6 +43,28 @@
     "repeated_timestamp_pairs": 32471098,
     "stale_rows": 1987,
     "timestamp_adjacent_pairs": 66161684
+  },
+  "final_review": {
+    "critical_findings": 0,
+    "focused_material_fix_passes": 1,
+    "guarded_cases": [
+      "artifact byte change before completion",
+      "directory replacement before completion",
+      "imported helper changed before scanning",
+      "artifact byte change after completion link",
+      "directory and marker moved after completion link"
+    ],
+    "important_findings": 2,
+    "important_findings_fixed_and_regression_verified": 2,
+    "minor_findings": 0,
+    "regression_cases_added": 5,
+    "scope_rulings": [
+      "hardware synchronization and missing original modalities remain incomplete",
+      "other training and geometry families remain governed by their open plans",
+      "independent reviewer checked full local artifacts and runtime evidence; revised source was then executed on full server data"
+    ],
+    "second_review_performed": false,
+    "unchanged_full_population_statistics_after_fix": true
   },
   "format": "actual_full_legacy_released_timing_validation_v1",
   "full_paper_complete": false,
@@ -63,15 +85,15 @@
     "metadata-usable frame index and stale bits do not independently prove crop/pixel availability"
   ],
   "new_training_updates": 0,
-  "observed_utc": "2026-11-01T19:40:14.680863+00:00",
-  "one_fresh_final_review_completed": false,
+  "observed_utc": "2026-11-01T19:51:39.327242+00:00",
+  "one_fresh_final_review_completed": true,
   "payload_bytes_per_full_pass": 2183336925,
   "scientific_settings_added": 0,
   "source_capsule_manifest_body_sha256_exact": true,
   "source_code_files_sha256": {
-    "egoemg_repro/release_timing.py": "696603454aca3e0aacad147c0fe3f52b817c4a91233a11f8bd2bfba577a5ebd7",
-    "tests/test_release_timing.py": "49efa8dba687a0f6ebc92bf4899a50e2f6b1f43e212d6e850ee65501288938da"
+    "egoemg_repro/release_timing.py": "c1c154c5815670b54b5efcc3693bc8c245ea3166057601ed76ab3d73c96b0dac",
+    "tests/test_release_timing.py": "61c0799f21ea1c7bedd2537b5f64ce9a5af5be47d08faac7cc304a8a6746d2b3"
   },
-  "tested_source_commit": "7483666a41abc35a775f18963eddb719ac4a95db",
+  "tested_source_commit": "6675d288f434f504473466f406dca040126dadf0",
   "torch_imported": false
 }
