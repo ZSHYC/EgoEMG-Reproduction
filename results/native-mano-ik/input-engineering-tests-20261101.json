@@ -1,0 +1,42 @@
+{
+  "actual_admission_race_regressions": {
+    "final_both_passed": true,
+    "red_failed": 2,
+    "red_seconds": 0.15
+  },
+  "actual_geometry_models_constructed": 0,
+  "actual_native_ik_optimizer_calls": 0,
+  "actual_original_anchor_initializer_compiled": true,
+  "actual_original_logical_shards": 6,
+  "actual_test_exit_code": 0,
+  "actual_test_log_sha256": "56e20796868da6db0d4db83cb09a7271e28814c958b51297071723c0df94c772",
+  "actual_test_seconds": 0.6,
+  "actual_tests_passed": 40,
+  "actual_tests_skipped": 0,
+  "complete_real_frame_labels_regenerated": false,
+  "first_missing_module_red_observed": true,
+  "fixture_pose_columns": 48,
+  "fixture_rows_per_hand": 53,
+  "format": "native_mano_ik_real_file_input_engineering_tests_v1",
+  "full_paper_complete": false,
+  "full_source_admission_completed": false,
+  "new_source_files_sha256": {
+    "egoemg_repro/native_ik_inputs.py": "09bc85a8695a82461c615b34bf71e33b3ddf2a4200e1fae1598286bc9d2a7373",
+    "tests/test_native_ik_inputs.py": "f8d8880f0c3002667125aabb74bfa68bcb3967feb34c1d346324aaeb4f3a9835"
+  },
+  "nine_input_attributes_guarded": true,
+  "no_synthetic_full_source_producer_positive": true,
+  "observed_utc": "2026-11-01T12:45:25.131485+00:00",
+  "optional_valid_npy_appearance_rejected": true,
+  "ordinary_real_file_tests_only": true,
+  "raw_and_canonical_copies_independent": true,
+  "runtime": {
+    "numpy": "1.26.4",
+    "pytest": "8.4.2",
+    "python": "3.12.14"
+  },
+  "scientific_settings_added": 0,
+  "source_and_rng_invariance_tested": true,
+  "torch_free_input_import_verified": true,
+  "zero_poses_retained": true
+}
