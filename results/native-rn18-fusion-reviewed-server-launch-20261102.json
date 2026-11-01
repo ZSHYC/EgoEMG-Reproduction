@@ -1,0 +1,102 @@
+{
+  "actual_cuda_qualification_complete": false,
+  "actual_current_stages": {
+    "owned-trained-reopen": {
+      "guardian": {
+        "actual_start": "440299603",
+        "expected_start": "440299603",
+        "matching_live": true,
+        "pid": 1966057,
+        "ppid": 1966049,
+        "sid": 1966057,
+        "state": "S",
+        "tty": 0
+      },
+      "name": "owned-trained-reopen",
+      "status": "started",
+      "worker": {
+        "actual_start": "440299607",
+        "expected_start": "440299607",
+        "matching_live": true,
+        "pid": 1966059,
+        "ppid": 1966057,
+        "sid": 1966059,
+        "state": "R",
+        "tty": 0
+      }
+    }
+  },
+  "actual_formal_fit_started": false,
+  "actual_owned_actor_observation": {
+    "child": {
+      "actual_start": "440299588",
+      "expected_start": "440299588",
+      "matching_live": true,
+      "pid": 1966049,
+      "ppid": 1966047,
+      "sid": 1966049,
+      "state": "S",
+      "tty": 0
+    },
+    "wrapper": {
+      "actual_start": "440299585",
+      "expected_start": "440299585",
+      "matching_live": true,
+      "pid": 1966047,
+      "ppid": 1,
+      "sid": 1966047,
+      "state": "S",
+      "tty": 0
+    }
+  },
+  "actual_start_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 1966049,
+      "start_ticks": "440299588"
+    },
+    "started_utc": "2026-11-01T23:28:10.541837+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 1966047,
+      "start_ticks": "440299585"
+    }
+  },
+  "all_frozen_members_sha256_exact": true,
+  "bundle_sha256": "e67b8ba1203d6515ee704384755208580e5dc904afc4eb07227acd7ba75d39b1",
+  "detached_from_client": true,
+  "format": "actual_detached_single_reviewed_native_rn18_fusion_server_launch_v1",
+  "frozen_members": 152,
+  "full_paper_complete": false,
+  "full_trained_cpu_handoff": "native-rn18-fusion-trained-cpu-and-review-20261102.json",
+  "observed_utc": "2026-11-01T23:28:28.744705+00:00",
+  "pending": [
+    "actual original-batch CUDA qualification and complete evaluation acceptance",
+    "fresh full150/46950 formal fusion and complete paired final2792 report",
+    "paper population and numeric equivalence"
+  ],
+  "pipeline": {
+    "assigned_gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+    "complete_test_samples": 2792,
+    "complete_val_samples": 1052,
+    "disk_reserve_gib": 25,
+    "full_epochs": 150,
+    "full_updates": 46950,
+    "host_reserve_gib": 128,
+    "no_automatic_retry": true,
+    "original_batch": 200,
+    "owned_stages": 20,
+    "precision": "bf16-mixed",
+    "qualification_epochs": 2,
+    "qualification_updates": 4,
+    "running_reserve_gib": 8,
+    "separate_fresh_formal_model": true,
+    "stable_admission_free_gib": 64,
+    "workers": 10
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "server_logs_and_checkpoints_durable": true,
+  "single_whole_family_review_accepted": true,
+  "source_commit": "e53ecbef4581b033e6019ad73acd581eb860970d"
+}
