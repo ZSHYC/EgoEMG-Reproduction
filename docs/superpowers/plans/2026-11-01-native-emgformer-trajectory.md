@@ -47,15 +47,15 @@
 
 **Interfaces:** `run_trajectory_pass(inputs, fit, output, *, role, kind, reference=None, profile=None, require_full=True)`; `read_trajectory_pass(directory)`; `freeze_trajectory_validation(first, second, output)`; `publish_trajectory_report(test_replay, output)`; `verify_trajectory_report(test_replay, output)`.
 
-- [ ] RED native full-reader→original Lightning forward target/context/interpolation parity; raw batch coverage/typed outputs/input digests and native-vs-pooled metric conservation, joints/fingers/users. Include all-invalid batch, partial final batch and float32 wrist rounding.
-- [ ] RED wrong fit/profile, same actor/path replay, missing/mutated packet, incomplete source/population, worker failure cleanup and early completion marker. Implement by reusing closed source/fit/population/process helpers, not modifying old evaluation modes or core mathematics.
-- [ ] GREEN complete new evaluator suite. Run separate processes against an actual retained native CPU engineering fit/explicit engineering memmaps, native val/replay/freeze/test/replay/report/rebuild with0 optimizer updates. No synthetic full-source producer positive.
+- [x] RED native full-reader→original Lightning forward target/context/interpolation parity; raw batch coverage/typed outputs/input digests and native-vs-pooled metric conservation, joints/fingers/users. Include all-invalid batch, partial final batch and float32 wrist rounding.
+- [x] RED wrong fit/profile, same actor/path replay, missing/mutated packet, incomplete source/population, worker failure cleanup and early completion marker. Implement by reusing closed source/fit/population/process helpers, not modifying old evaluation modes or core mathematics.
+- [x] GREEN complete new evaluator suite. Run separate processes against an actual retained native CPU engineering fit/explicit engineering memmaps, native val/replay/freeze/test/replay/report/rebuild with0 optimizer updates. No synthetic full-source producer positive. Actual final20passed/0skip/1originalcollationwarning525.63s; closed raw/statistics21 and input28 checks remain separately recorded, not rerun. Original Trainer iterator-reset behavior additionally tested with12actual data workers and no learned inference.
 
 ## Task 3: one final review, actual complete inputs and full execution
 
 **Files:** scoped evidence under `results/native-emgformer-trajectory/`, guide and full-paper status updates.
 
-- [ ] One fresh final review of this new data/evaluator/CLI integration, one author material fix pass with actual RED→GREEN and green new suite; no second review or old math suites.
+- [x] One fresh final review of this new data/evaluator/CLI integration, one author material fix pass with actual RED→GREEN and green new suite; no second review or old math suites. One Important fit-cohort-receipt guard omission fixed; genuine200-fit read-only generation regression RED→GREEN4.24s. Same author fix phase also retained pre-teardown worker identities after confirming actual native Trainer resets its iterator; focused RED16.20s→GREEN16.07s, then full final20GREEN525.63s.
 - [ ] Complete two fresh full16-file/held-out-window numeric admissions for each actual S/M/L source; exact identity/replay and actual process closure. Data admission alone grants no fit/evaluation completion.
 - [ ] Preserve original registered GPU jobs. Queue source-frozen B500/6worker/BF16 qualification and full val/test/replay/report only on their actual assigned GPU after exact predecessors close and original reserve checks pass; no local-PC dependency or implicit retry.
 - [ ] Collect only terminal successful full runs, raw/source/owner closure and independent report reconstruction. Publish original reports and complete numeric tables; verify remote Git ref and public immutable file bytes. Keep full-paper goal active for remaining requirements.

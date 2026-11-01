@@ -296,11 +296,13 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 
 ## 全部主要模型设置
 
+原生EMGFormer的[全轨迹CLI与独立报告流程](native-emgformer-trajectory.md)已通过[新增20项工程检查及退出后原始包核验](../results/native-emgformer-trajectory/lifecycle-engineering-tests-20261101.json)：七阶段、32个进程身份关闭，CPU工程模型2轮/4次更新，val4/test8，无新训练。完整发布数据的双遍全目标准入及batch500/6workers/BF16评价仍待执行，不能据此填写原生Table2轨迹结果。
+
 | 数据/模型 | 官方发布内容与已核验接口 | 本项目状态与真正欠缺 |
 | --- | --- | --- |
 | EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **legacy轨迹与[原生200轮/中心最终评价](../results/original-emgformer/small/README.md)分别完成**；新原生25,000更新、best169轮，2,792唯一点/59,576有效角度，pooled中心16.582811°；完整val/test新进程精确重放及20阶段/42拥有者关闭。原生全轨迹测试尚欠，未把中心值填入Table2轨迹对比；数据/单rank/PDF等价未证明 |
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **legacy轨迹与[原生200轮/中心最终评价](../results/original-emgformer/middle/README.md)分别完成**；新原生25,000更新、best124轮，2,792唯一点/59,576有效角度，中心pooled16.441148°。完整val/test新进程精确重放，36当前＋6资格拥有者关闭；原生完整轨迹测试仍欠，未替换Table2轨迹行 |
-| EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
+| EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **legacy轨迹与[原生200轮/中心最终评价](../results/original-emgformer/large/README.md)分别完成**；原生25,000更新、best142轮，2,792唯一点/59,576有效角度，pooled中心16.573467°，完整val/test独立重放已核验。原生全轨迹尚欠；保留[legacy结果](../results/completed/emgformer-l/README.md)及其配方边界，不替换Table2轨迹行 |
 | EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **完整运行、已核验（原生配方／旧版数据单rank适配）**；[实际结果](../results/original-classic/vemg2pose/README.md)为62轮早停、10,535更新、4,306测试手样本，轨迹／中心16.452932°／16.347705°。目标手8ch/WL7790输出6000；原批量600、完整验证选模、原生test和独立复算／报告完成。六rank、原表数据和标注等价未证明 |
 | EgoEMG NeuroPose | [官方配置][neuropose]及真实CNN模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **[原生完整实验已完成](../results/original-classic/neuropose/README.md)**：73轮/29,043实际更新，原patience50早停、best第23轮；全测试轨迹16.358404°/中心16.411552°，验证冻结/独立精确复算/报告曲线验收均通过，20拥有者退出。原256/16-mixed/WL7790/全槽归一化旋转/clip0/val_loss保留，单rank与原六rank差异披露；不宣称续训轨迹或PDF数值等价 |
 | EgoEMG ResNet-18 | [官方 RN18 配置][rn18] | **完整运行、已核验（legacy）**，见 E1/E2；非其他视觉模型的替代 |

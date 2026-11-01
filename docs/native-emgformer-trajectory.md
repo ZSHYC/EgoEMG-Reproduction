@@ -1,6 +1,6 @@
 # 原生EMGFormer全轨迹评价（进行中）
 
-本工作补齐既定全文目标中的S/M/L全轨迹评价。现有原生200轮及中心评价报告保持原样；同名模型的legacy轨迹结果也不改写。完整窗口输入、同次原生前向捕获、原始包与统计接口已接通，并有实际训练模型的单窗口诊断；完整角色的前向/独立重放、报告和正式GPU执行仍属后续工作，当前没有新增全轨迹MAE。
+本工作补齐既定全文目标中的S/M/L全轨迹评价。现有原生200轮及中心评价报告保持原样；同名模型的legacy轨迹结果也不改写。完整窗口输入、同次原生前向捕获、原始包与统计接口，以及独立pass/profile/report和CLI已接通。新增20项生命周期检查实际通过、无跳过，已完成一次最终集成审查与针对性修正。完整发布数据上的正式GPU全轨迹评价仍未执行，当前没有新增正式全轨迹MAE。
 
 [28项真实输入工程检查](../results/native-emgformer-trajectory/input-engineering-tests-20261101.json)已通过、无跳过；另一进程重新读取服务器完整测试日志及全部冻结源码字节并核对摘要。夹具为真实合成memmap、验证4/测试8手窗口，不是完整发布数据或已训练模型。原始只读NumPy数组经官方collate时保留1条Torch警告，输入文件字节及随机状态未变。一次完整新组件审查将在前向/报告/CLI接通后进行，当前不授予正式评价资格。
 
@@ -57,8 +57,29 @@ inputs.check()
 
 实际旧版队列应为验证1052、测试2792手窗口。工程夹具的4/8等数量必须保持工程身份，不能重签名成完整发布数据。原生后续评价保留batch500、6workers、prefetch1、persistent=True、pin=False及BF16；显式CPU工程入口为batch2/0workers/FP32，不代替正式评价。
 
+## 独立进程流程
+
+新增20项检查使用保留的真实CPU工程训练模型：原模型已训练2轮/4次更新，数据train340/val4/test8；本次只严格重载所选权重，不训练。验证/测试各有原生预测和新进程重新载入模型的精确重放，再生成及独立重算报告。完整测试实际耗时525.63秒，保留1条官方只读NumPy collate警告；工程流程通过不代表完整发布数据成绩。
+
+[退出后独立核验记录](../results/native-emgformer-trajectory/lifecycle-engineering-tests-20261101.json)再次读取295个冻结源码文件、完整原始预测及实际输入来源，禁止模型和优化器构造，核对32个已关闭进程身份及该复核进程退出。原模型与输入文件字节及mtime/ctime在测试前后不变。
+
+异常检查覆盖来源/原始包替换、缺失文件、同进程或同目录冒充独立重放、测试前未冻结规则，以及提前提升报告状态。审查发现的原始训练数据凭据持续监控遗漏已补齐；回归使用真实200轮/25,000更新模型，只模拟文件代际变化，不改原文件、不构造模型或优化器。另实际核验两组各6个官方数据进程：消费异常后的关闭，以及原生Trainer先清空迭代器后的关闭。后者提前保留实际Process/PID启动身份；只用工程标签与不执行学习前向的Consumer，不授予batch500/BF16模型资格。
+
+新增[`run_emgformer_trajectory.py`](../scripts/paper/run_emgformer_trajectory.py)的`workflow`入口依次拥有七个独立阶段：val-native、严格重新载入模型的val-replay、冻结profile、test-native、严格重新载入模型的test-replay、待验收报告、禁止模型构造的原始包重算。每个生产者绑定实际worker/guardian/owner的PID与启动时间，读回时要求生产进程已退出。重放同时核对全部typed预测、标签、掩码、实际数据读取器重建的输入和元数据，而非只比较汇总数字。
+
+`metrics.pending.json`保持不可改写，`metrics.json`初始标记待验收。独立重算进程正常退出、其所属进程全部关闭且已验图中各文件代际不变后，实际拥有控制器才生成`completion.json`并提升报告状态。控制器不导入Torch；已部署服务器流程不依赖本机连接。工程流程即使完整验收，也保留`scientific_eligible=False`，不能填入正式结果表。
+
+```bash
+python -B scripts/paper/run_emgformer_trajectory.py workflow \
+  --fit /absolute/completed/native-fit \
+  --data /absolute/legacy/data --upstream /absolute/pinned/upstream \
+  --output /absolute/new/trajectory-run
+```
+
+默认入口要求真正完整原生训练和发布数据身份；CPU工程检查需显式`--engineering`且启动时`CUDA_VISIBLE_DEVICES=''`。正式运行还须经过既定输入双遍验收、最终新组件审查和GPU资源/原生批次资格检查，不能直接拿工程结果替代。
+
 ## 后续验收
 
-仍需实现完整pass/profile/report及CLI生命周期，同一原生200轮验证best的完整val-native/新进程val-replay、测试前冻结轨迹评价规则、完整test-native/新进程test-replay，以及报告/原始包独立重算。输出应分别保留轨迹与对齐轨迹中心、左右手、Gesture/User/Both、逐用户、22角和指组的误差和分母，并披露此前中心测试已经执行。只能在这些实际完成后发布新全轨迹结果。
+仍需对实际S/M/L来源进行完整输入双遍验收及原batch500/6workers/BF16执行。每个正式模型都需完成同一验证best的完整val/test、独立模型重放、报告与原始包独立重算。输出分别保留轨迹与对齐轨迹中心、左右手、Gesture/User/Both、逐用户、22角和指组的误差和分母，并披露此前中心测试已经执行。只能在这些实际完成后发布新全轨迹结果。
 
 当前其他GPU任务和其后续队列继续，不能抢占或因观察超时重启。全论文、PDF数据人口等价、标注与其他清单仍按[全文状态](full-paper-status.md)逐项验收。[实施计划](superpowers/plans/2026-11-01-native-emgformer-trajectory.md)记录本组件全部后续步骤。

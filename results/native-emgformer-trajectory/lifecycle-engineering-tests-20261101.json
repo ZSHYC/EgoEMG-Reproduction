@@ -1,0 +1,411 @@
+{
+  "actual_b500_bf16_model_qualification": false,
+  "actual_closed_process_count": 32,
+  "actual_closed_processes": [
+    {
+      "pgrp": 1450083,
+      "pid": 1450197,
+      "sid": 1450083,
+      "start_ticks": "436195073",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1450201,
+      "pid": 1450201,
+      "sid": 1450201,
+      "start_ticks": "436195083",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1450200,
+      "pid": 1450200,
+      "sid": 1450200,
+      "start_ticks": "436195079",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1450810,
+      "pid": 1450810,
+      "sid": 1450810,
+      "start_ticks": "436197061",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1450809,
+      "pid": 1450809,
+      "sid": 1450809,
+      "start_ticks": "436197057",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1451291,
+      "pid": 1451291,
+      "sid": 1451291,
+      "start_ticks": "436199140",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1451290,
+      "pid": 1451290,
+      "sid": 1451290,
+      "start_ticks": "436199136",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1451793,
+      "pid": 1451793,
+      "sid": 1451793,
+      "start_ticks": "436200993",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1451792,
+      "pid": 1451792,
+      "sid": 1451792,
+      "start_ticks": "436200989",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1452429,
+      "pid": 1452429,
+      "sid": 1452429,
+      "start_ticks": "436203296",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1452428,
+      "pid": 1452428,
+      "sid": 1452428,
+      "start_ticks": "436203292",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1452884,
+      "pid": 1452884,
+      "sid": 1452884,
+      "start_ticks": "436205822",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1452872,
+      "pid": 1452872,
+      "sid": 1452872,
+      "start_ticks": "436205818",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1453347,
+      "pid": 1453347,
+      "sid": 1453347,
+      "start_ticks": "436208101",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1453346,
+      "pid": 1453346,
+      "sid": 1453346,
+      "start_ticks": "436208098",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1450083,
+      "pid": 1450084,
+      "sid": 1450083,
+      "start_ticks": "436194908",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1455915,
+      "pid": 1455915,
+      "sid": 1455915,
+      "start_ticks": "436222428",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1455914,
+      "pid": 1455914,
+      "sid": 1455914,
+      "start_ticks": "436222424",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460586,
+      "sid": 1460245,
+      "start_ticks": "436247257",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460588,
+      "sid": 1460245,
+      "start_ticks": "436247258",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460590,
+      "sid": 1460245,
+      "start_ticks": "436247258",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460592,
+      "sid": 1460245,
+      "start_ticks": "436247259",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460594,
+      "sid": 1460245,
+      "start_ticks": "436247260",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460596,
+      "sid": 1460245,
+      "start_ticks": "436247261",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460614,
+      "sid": 1460245,
+      "start_ticks": "436247313",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460616,
+      "sid": 1460245,
+      "start_ticks": "436247314",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460619,
+      "sid": 1460245,
+      "start_ticks": "436247315",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460621,
+      "sid": 1460245,
+      "start_ticks": "436247316",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460624,
+      "sid": 1460245,
+      "start_ticks": "436247316",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460626,
+      "sid": 1460245,
+      "start_ticks": "436247317",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460245,
+      "pid": 1460245,
+      "sid": 1460245,
+      "start_ticks": "436245913",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1460242,
+      "pid": 1460242,
+      "sid": 1460242,
+      "start_ticks": "436245909",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_retained_fit_artifacts_sha256": {
+    "checkpoints/best-val_mae=val_mae=1.6428.ckpt": "b6c2a3d9c736b61a0def62c13ce60458a79fac073b01779491c48fa07fafddf7",
+    "checkpoints/last.ckpt": "b6c2a3d9c736b61a0def62c13ce60458a79fac073b01779491c48fa07fafddf7",
+    "epochs.jsonl": "f47072c7e54352cabc686eee0bda52f253c20c0d67e083fc9cb691f4ec19b9de",
+    "fit-result.json": "00cdcace854084d91297e99f61ccef30edcb3060ff5a7a173853f90dfd234c94",
+    "identity.json": "8c2cbfd351e7355adf2050c110b6280f73da064616db6827c435e4c98c11cebc"
+  },
+  "actual_completion_file_sha256": "3ef95bf9a3335558f1b020c67ebb194997f007bc7fd7eaf845333c948b6d36c3",
+  "actual_engineering_target_counts": {
+    "test": 8,
+    "val": 4
+  },
+  "actual_full_test_log_sha256": "17bc20c237dc42015f8acd4856221caafb478649bf33af00a746e08d89bebf05",
+  "actual_new_test_source_sha256": "86302917a99d313c429abcbff3f3a00a7c0b21b297004e8bb0314bb690671c4f",
+  "actual_passes": {
+    "test-native": {
+      "actual_model_forwards": 4,
+      "actual_optimizer_updates": 0,
+      "actual_trained_model_constructions": 1,
+      "batch_size": 2,
+      "model_after_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "model_before_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "packet_content_sha256": "094c630d45faa329e2d32101a820c159dd480bd95545f241a9cd7d1d1697ce83",
+      "samples": 8,
+      "sha256": "fa1ad21f4827c48253113d504e5c48ddcb7eb386a1aef2700b7319dbdc41e6a3"
+    },
+    "test-replay": {
+      "actual_model_forwards": 4,
+      "actual_optimizer_updates": 0,
+      "actual_trained_model_constructions": 1,
+      "batch_size": 2,
+      "model_after_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "model_before_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "packet_content_sha256": "094c630d45faa329e2d32101a820c159dd480bd95545f241a9cd7d1d1697ce83",
+      "samples": 8,
+      "sha256": "d610e3183fb7964ca3d959ed899fbe63a99ce340c128e15ea6f5dc5f3d24a04b"
+    },
+    "val-native": {
+      "actual_model_forwards": 2,
+      "actual_optimizer_updates": 0,
+      "actual_trained_model_constructions": 1,
+      "batch_size": 2,
+      "model_after_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "model_before_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "packet_content_sha256": "7255a7ba507a90168966d2470ba4a5a6a9b84b68a9114775dd201a5572eb3e96",
+      "samples": 4,
+      "sha256": "893a577ae3019975b908ddef820dc36140dda7c162e3635457708ccb56fb2497"
+    },
+    "val-replay": {
+      "actual_model_forwards": 2,
+      "actual_optimizer_updates": 0,
+      "actual_trained_model_constructions": 1,
+      "batch_size": 2,
+      "model_after_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "model_before_sha256": "83f43f18e2c4cea428c990655ed2fb62b946302ea2eba725dc3bf13b2cb71c3a",
+      "packet_content_sha256": "7255a7ba507a90168966d2470ba4a5a6a9b84b68a9114775dd201a5572eb3e96",
+      "samples": 4,
+      "sha256": "09855393954817b9d4c03a2ba00f942fe75fca0876c00ff9abc0b78c8b2f0f04"
+    }
+  },
+  "actual_report_file_sha256": "0f115abed1e4cf4e82d548388bc48c0012b85fcdc1921fee5c2f10c080b3fe98",
+  "actual_selected_fit_result_sha256": "95d7d5ec827c40e5e0827613344d0a5931c533134b03aa3e7572c4baa72f338c",
+  "actual_seven_owned_workflow_stages_closed": true,
+  "actual_six_original_loader_workers_after_native_trainer_teardown_closed": true,
+  "actual_six_original_loader_workers_on_injected_failure_closed": true,
+  "actual_test_exit_code": 0,
+  "actual_tests_passed": 20,
+  "actual_tests_skipped": 0,
+  "actual_training_scope": "cpu_engineering",
+  "all_frozen_source_files_after_exit_exact": true,
+  "collector_actor": {
+    "pgrp": 1460810,
+    "pid": 1460810,
+    "sid": 1460810,
+    "start_ticks": "436248400",
+    "state": "R",
+    "uid": 1005
+  },
+  "format": "actual_native_trajectory_lifecycle_engineering_tests_v1",
+  "frozen_source_file_count": 295,
+  "frozen_source_manifest_sha256": "2b3ec3664fe10e40f74c2028614cfa8dc9b3af85b1cc27c7e5355bc53d963ae9",
+  "full_paper_complete": false,
+  "full_release_trajectory_evaluation_complete": false,
+  "independent_postexit_collector_also_exited": true,
+  "independent_postexit_raw_report_rebuild_without_model_or_optimizer_construction": true,
+  "new_formal_trajectory_mae_reported": false,
+  "new_unit_sources_sha256": {
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "egoemg_repro/emg_initializer_cohort.py": "7c3624c1d22640144ea2e2d79c369fad917c5a9a4e48f1e60ef36048bf43a5b2",
+    "egoemg_repro/emg_initializer_data.py": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+    "egoemg_repro/emgformer_cohort.py": "c076a746abd25eb48fd4eb29135921c5cdeae8c083f9b38d423161a49fe25ea4",
+    "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
+    "egoemg_repro/emgformer_eval.py": "32f5be097a57793f1c899d0a530873728a6424a556bda9e3ab3825ebb6307480",
+    "egoemg_repro/emgformer_literal.py": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
+    "egoemg_repro/emgformer_runtime.py": "7691be8aacfb6a6796225ee91be9a19643d585a83512134178aa8ea354513bbb",
+    "egoemg_repro/emgformer_train.py": "3cc0be18daa1a405594a9c7c4998bd20d0efce26603c6069c823cb4d58e220e6",
+    "egoemg_repro/emgformer_trajectory_data.py": "c1f66a7689022da7b471b2a4ee5ec2da0eb75a139be90eb5b1217e84de77b1fa",
+    "egoemg_repro/emgformer_trajectory_eval.py": "0a85fc8df618113cba2181e62a8229e90542e91e5d4804901d430e08494a4a5c",
+    "egoemg_repro/emgformer_trajectory_results.py": "6b5b8415c48f9108904df2330881fa93cee4fb4115d2560b8cb817fc1d0cc17b",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/paper_analysis.py": "9762be3e41e33ec65a72ed7c7b66c62f3d39baffade7a3b8e9d5309fa498e549",
+    "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_eval.py": "63553900476855dc0cf9ecc2f97f841e33225470488066de39af23465565c581",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7",
+    "egoemg_repro/wilor_native_train.py": "91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2",
+    "scripts/paper/run_emgformer_trajectory.py": "91c767c71e5d26e9f2460cff7c60191327b9dc0e0f7783fe894bd84563707d7d"
+  },
+  "observed_utc": "2026-11-01T12:13:20.844897+00:00",
+  "one_final_integration_review": {
+    "accepted_important_fix": "original selected-fit frozen cohort receipt is guarded before semantic read and through report promotion",
+    "actual_focused_regressions": {
+      "trajectory-receipt-guard-green": {
+        "actual_exit_code": 0,
+        "log_sha256": "c5251864b05297effa1c59343a94f70766112717cc42c1d9e018f43f4da07dc6",
+        "observed_utc": "2026-11-01T11:56:43.119997+00:00"
+      },
+      "trajectory-receipt-guard-red": {
+        "actual_exit_code": 1,
+        "log_sha256": "e279bb25f66ff292ac37ff4e0d3e7323255fb05e67bdf58c385b6414815713fd",
+        "observed_utc": "2026-11-01T11:56:26.758224+00:00"
+      },
+      "trajectory-trainer-workers-green": {
+        "actual_exit_code": 0,
+        "log_sha256": "3dc2d5af0632452a995eb646667dca880ed8993f29c9af3b6c745bef6d220d63",
+        "observed_utc": "2026-11-01T12:04:19.072691+00:00"
+      },
+      "trajectory-trainer-workers-red": {
+        "actual_exit_code": 1,
+        "log_sha256": "1a916b582398a394449dc3db3af22c9a26c19bb9f8833126d12eac281270f3aa",
+        "observed_utc": "2026-11-01T12:03:28.472024+00:00"
+      }
+    },
+    "author_identified_native_trainer_worker_teardown_boundary_fixed": true,
+    "author_material_fix_passes": 1,
+    "critical_findings": 0,
+    "important_findings": 1,
+    "minor_findings": 0,
+    "second_review_performed": false
+  },
+  "original_readonly_collation_warning_count": 1,
+  "scientific_eligible": false,
+  "trajectory_pipeline_complete": true
+}
