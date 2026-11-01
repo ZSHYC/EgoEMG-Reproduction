@@ -54,6 +54,8 @@ Both actual workflows closed: RN18proof83012647... and ViTproofacc901cf...; 28 o
 
 ### Task 3: frozen paired predictions and native analysis
 
+Paired input IO implemented: `occlusion_dense_inputs.DensePredictionDataset` uses the original coupled and EMG-only center helpers, exact native7790/12000 windows, separate original normalizations, all keys/masks/crop flags. Actual13passed/0skip including independent genuine full trajectory reader parity. This pure IO class provides no full-content or trained producer/model permit; complete actual paired IO and trained-state/dispatch integration remain pending.
+
 Statistics subcomponent implemented and independently source-main checked: `egoemg_repro/occlusion_dense_analysis.py`, `tests/test_occlusion_dense_analysis.py`, actual16passed/0skip; evidence `results/native-dense-occlusion/source-analysis-tests-20261101.json`. Source eval compatibility diagnostic proves missing experiment/dataset and stale attention patch; use same-pinned native callable center dispatch in later integration, not a changed model. This does not close Task3: actual trained producer/state/data admission, complete-key frozen predictions, replay and real-data Figure13 remain pending.
 Ordered join subcomponent also implemented: `occlusion_dense_predictions.join_dense_predictions`, actual26passed/0skip, proof `results/native-dense-occlusion/prediction-join-tests-20261101.json`. This validates ordered complete keys/geometry/real error transport only; it neither constructs a model nor admits trained/full inference. Standalone8/per-hand-vector and fusion16/unified-scalar must have separate producer-correct inputs on identical7790 windows; preserve native standalone outputT//2.
 

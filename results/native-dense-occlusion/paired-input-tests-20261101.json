@@ -1,0 +1,29 @@
+{
+  "actual_exit_code": 0,
+  "actual_first_implementation": "2 passed, 11 failed in 30.76s; VITS source asset URI required physical path resolution",
+  "actual_full_population_io_pending": true,
+  "actual_missing_module_red": "13 failed in 16.46s",
+  "actual_test_summary": "13 passed, 0 skipped in 42.29s",
+  "all_three_rng_domains_unchanged_and_nn_constructors_denied_in_io_test": true,
+  "both_recipes_and_hands_and_all_three_groups": true,
+  "dense_frozen_predictions_complete": false,
+  "figure13_reproduced": false,
+  "format": "actual_native_dense_paired_input_reader_checks_v1",
+  "full_input_or_model_admitted": false,
+  "full_paper_complete": false,
+  "independent_hand_derived_layout_and_normalization_checks": true,
+  "log_sha256": "5db68273e8d3931b1c381b522cb25c63ec89255d5fa3eb4e229b4a8062c3addf",
+  "missing_crop_and_false_label_retained": true,
+  "observed_utc": "2026-11-01T09:21:21.959211+00:00",
+  "payload_generation_index_and_reader_drift_rejected": true,
+  "preexisting_nonfinite_inputs_rejected_without_repair": true,
+  "real_small_memmap_lmdb_jpeg_fixtures": true,
+  "scientific_eligible": false,
+  "separate_producer_correct_normalizations_on_exact_same_windows": true,
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_inputs.py": "36a332016e1f05fdab1f0a7b59476fd9de97b59bf4aef1b9a9d1038723454246",
+    "tests/test_occlusion_dense_inputs.py": "728a7583429214cd012178127f85775ca692524d04f2ee41835ef572b4b29703"
+  },
+  "standalone_emg_compared_to_genuine_original_full_trajectory_reader": true,
+  "synthetic_engineering_fixture_only": true
+}
