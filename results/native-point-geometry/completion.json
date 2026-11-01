@@ -1,0 +1,9 @@
+{
+  "files_sha256": {
+    "README.md": "4bfbbd4daf4dd52a2b2153a402ca4d4a7dce7692324cccbfb0371f776a38483f",
+    "populations.csv": "dca09522641482b46cb9fbb0659ed70943a5c550e4c2bda06570774149e79d5f",
+    "populations.json": "4f341d38bab45a612835263d651d5ac2b734d46460d542c8ad25087e2a076a2f"
+  },
+  "full_paper_complete": false,
+  "report_sha256": "305cc6f6dae8529072e8e70e895ad93b2b98abfba44ecc77ca369debe150c07a"
+}

@@ -1,0 +1,59 @@
+{
+  "actual_complete_report_builds": 1,
+  "actual_exit_code": 0,
+  "actual_fresh_process_raw_reconstructions": 1,
+  "actual_owned_stages": 2,
+  "actual_runtime_torch_unimported": true,
+  "actual_unique_hand_points": 5882,
+  "aggregate_visibility_offscreen_statistics_export_complete": true,
+  "all_capsule_and_aggregate_bytes_post_exit_exact": true,
+  "all_six_original_report_owners_closed": true,
+  "bundle_sha256": "68ede5d3c7cb1c1ce22f78ad19aedd8c22f5973ae14b48507e16feb4c5077b93",
+  "complete_native_execution_evidence_sha256": "4020a7a37a621ddf429fed01fa20c674ecb1aa6c94e4de62ec0a01a05a83f0df",
+  "cuda_initialized": false,
+  "dense_grid_or_paired_gain_complete": false,
+  "existing_completed_scientific_settings": 14,
+  "figure13_reproduced": false,
+  "files_sha256": {
+    "README.md": "4bfbbd4daf4dd52a2b2153a402ca4d4a7dce7692324cccbfb0371f776a38483f",
+    "completion.json": "ac75339e5c5d8f9d16fdd9df25d8e95408b19e9877b4ba940eba0bed2a61f6d7",
+    "populations.csv": "dca09522641482b46cb9fbb0659ed70943a5c550e4c2bda06570774149e79d5f",
+    "populations.json": "4f341d38bab45a612835263d651d5ac2b734d46460d542c8ad25087e2a076a2f"
+  },
+  "format": "actual_complete_native_geometry_population_export_verified_v1",
+  "full_paper_complete": false,
+  "geometry_policy": {
+    "actual_betas": true,
+    "depth_eps": 0.005,
+    "flat_hand_mean": false,
+    "global_orient": "native zero",
+    "hand_pose_slice": [
+      3,
+      48
+    ],
+    "left_faces_reverse": true,
+    "left_mirror_axis": "X",
+    "legacy_manifest_convention": "flip_local_z; source script X mirror retained and not claimed reconciled",
+    "right_mano_for_both_hands": true,
+    "window_half": 2,
+    "zero_beta_fallback": false
+  },
+  "learned_pose_models_constructed": 0,
+  "optimizer_updates": 0,
+  "original_twenty_native_owners_reconfirmed_closed": true,
+  "raw_workflow_file_sha256": "a934101a943e3e19390baa2b005d0086f9858a05cff7b2a4f8b6eda16535913e",
+  "report_sha256": "305cc6f6dae8529072e8e70e895ad93b2b98abfba44ecc77ca369debe150c07a",
+  "resolution_policy": {
+    "actual_episode_video_dimensions_proven": false,
+    "distortion_applied": false,
+    "height": 1080,
+    "name": "author_fallback_1920x1080",
+    "original_intrinsics_scaling_unchanged": true,
+    "width": 1920
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "8927ffd899b32f3e80262e00e38b75b73640448a",
+  "unique_native_geometry_points": 5683,
+  "unique_zero_pose_rows_retained": 199
+}

@@ -60,7 +60,7 @@
 - [x] One fresh review of this new unit only; resolve material findings once with targeted observed RED→GREEN tests and relevant checks. No repeated core-model suite or second review.
 - [x] Stage committed sources and run complete val/test roles using all1,576/4,306 points, explicit fallback policy and actual per-frame beta. Preserve zero-pose rows and all tracking/stale/marker flags; no score-based sample selection or hidden replacement of camera/mirror conventions.
 - [x] Run independent fresh-process native replay for the same complete selected point keys, verify all packet and aggregate counts, immutable sources/inputs and actual owned-consumer closure. Report0learned-pose models/updates and real geometry layer/call counts.
-- [ ] Publish source via `egoemg_repro/geometry_report.py` plus `tests/test_geometry_report.py`, aggregate CSV/JSON/README and actual run evidence; retain private point/native arrays. Report invalid/visible/offscreen/behind-camera populations and fallback boundaries; do not publish licensed models or dataset payloads.
+- [x] Publish source via `egoemg_repro/geometry_report.py` plus `tests/test_geometry_report.py`, aggregate CSV/JSON/README and actual run evidence; retain private point/native arrays. Report invalid/visible/offscreen/behind-camera populations and fallback boundaries; do not publish licensed models or dataset payloads.
 - [x] Update D19 progress only to the scope actually proved. Dense1/4stride model predictions, paired gain/bin/SEM/Spearman, actual-video projection/overlays and whole-paper numerical equivalence remain explicit outstanding requirements.
 
 ## Preflight Decisions

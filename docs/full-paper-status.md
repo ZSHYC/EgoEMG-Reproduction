@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+> **2026-11-01 标准几何统计导出验收（北京时间13:58）**：[完整聚合底表](../results/native-point-geometry/README.md)及[真实执行证明](../results/native-geometry-population-report-20261101.json)已经完成。一个完整导出进程、另一个独立原始链重算进程结果完全一致，19项新统计检查通过，6个本次拥有进程关闭并重新确认原20个几何拥有进程关闭。val有效1,505/零姿态71、test有效4,178/零姿态128；前方顶点全部越界6/20、全部顶点在相机后方/近相机28/42、存在可见顶点1,470/4,116。保留官方原始面积加权分数，测试均值0.4975225433仅为标准网格描述统计，不是论文自遮挡相关性。密1/4stride、真实模型预测/paired gain/SEM/Spearman、视频/物理投影等价和Figure13均仍欠；已完成科学模型设置仍14。
+
 > **2026-11-01 标准几何完整两角色验收（北京时间13:46）**：[真实两角色证明](../results/native-point-geometry-standard-roles-20261101.json)覆盖val1,576/test4,306唯一手点、每角色两遍原生计算及两次独立原始核验。5,683有效几何点＋199保留零姿态，4实际右MANO几何层、11,764原函数调用/11,366遮挡调用，20原拥有进程全部关闭，11,366数组包及来源退出后SHA一致。完整标准网格计算/重放现已结束；可见/越界统计及聚合图表导出仍欠，密1/4stride、模型预测/增益/相关、真实视频及物理等价未证明。
 
 > **2026-11-01 RN18融合完整来源与几何验证集（北京时间13:42）**：[RN18新路线](native-rn18-fusion.md)实际81检查及独立CPU重开通过，[真实完整输入两遍](../results/native-rn18-fusion-full-cohort-admission-20261101.json)确认53消费payload/61,377,230,438bytes、62,470／1,052／2,792唯一手样本、6原拥有进程关闭。只证明分区兼容的原生S200/0.02不能替代原cotrain-S150/0.01初始化；后者需在本留出区单独准备。实际融合模型/GPU/正式fit仍欠。
@@ -360,7 +362,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M/L legacy完整运行已核验**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy已核验，新原生RN18配方/数据及[两遍完整来源](../results/native-rn18-fusion-full-cohort-admission-20261101.json)已通过，真实预训练交接/模型/GPU/full仍欠；ViT-S+S原生CPU/GPU、真实训练分支交接及[结构图](../results/dataset-statistics/vision-fusion-architecture.md)已核验**。EMG为完成150轮的验证best133，视觉为完成124轮的last（按原加载规则）；ViT-S融合已完成150轮、最终测试、独立重放和报告核验。精确零是legacy明确适配，原生极小正态与PDF zero区别保留 |
-| D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[val/test全部标准点两遍原生计算与独立核验完成](../results/native-point-geometry-standard-roles-20261101.json)**：5,882唯一手点（5,683有效/199零姿态），20原拥有者关闭，11,366数组包退出后SHA一致；可见/越界与聚合统计导出仍欠 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格、模型误差/paired gain/Spearman和Figure13仍欠 |
+| D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[完整标准网格计算/重放](../results/native-point-geometry-standard-roles-20261101.json)及[聚合统计/独立重算](../results/native-point-geometry/README.md)完成**：5,882唯一手请求（5,683有效/199零姿态），20原几何＋6汇总拥有进程关闭；可见、越界、相机后方及逐手统计CSV/JSON均已导出 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格、模型误差/paired gain/Spearman和Figure13仍欠 |
 | D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **未运行**，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
 
 ## 资产与外部依赖
