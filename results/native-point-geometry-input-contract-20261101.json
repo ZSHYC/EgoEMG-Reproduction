@@ -1,0 +1,93 @@
+{
+  "actual_complete_point_counts": {
+    "test": 4306,
+    "val": 1576
+  },
+  "actual_contract_tests_passed": 23,
+  "actual_contract_tests_skipped": 0,
+  "actual_cuda_initialized": false,
+  "actual_models_constructed": 0,
+  "actual_optimizer_updates": 0,
+  "actual_registered_point_role_cli_acceptance": [
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "fb22d57f74baa102facb60c26112534692c967d6c23668001537faf775e56eb6",
+      "result": {
+        "actual_selected_points": 2,
+        "format": "native_point_geometry_input_contract_v1",
+        "full_paper_complete": false,
+        "input_sha256": {
+          "admission": "757eef807837c8c44a6be6cbe0b237473f30953a543477dfc13fc32543c96b6a",
+          "calibration": "2b94a3c887e5aff600dc2d555121b74ac6cbd6670667e2f4c5c8688a434b3f8a",
+          "metadata": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+          "points": "645c9947575871abd89d0d3203d75c7b65b41c81fc20f9da6d1d33aafccb9c77"
+        },
+        "mode": "bilateral_probe",
+        "native_geometry_executed": false,
+        "resolution_policy": {
+          "actual_episode_video_dimensions_proven": false,
+          "distortion_applied": false,
+          "height": 1080,
+          "name": "author_fallback_1920x1080",
+          "original_intrinsics_scaling_unchanged": true,
+          "width": 1920
+        },
+        "role": "val",
+        "scientific_eligible": false
+      },
+      "role": "val",
+      "torch_import_forbidden": true
+    },
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "637c33fde6be0a76cf450d08f895920d5df42cc04b5626044d21a23827c64ea9",
+      "result": {
+        "actual_selected_points": 2,
+        "format": "native_point_geometry_input_contract_v1",
+        "full_paper_complete": false,
+        "input_sha256": {
+          "admission": "757eef807837c8c44a6be6cbe0b237473f30953a543477dfc13fc32543c96b6a",
+          "calibration": "2b94a3c887e5aff600dc2d555121b74ac6cbd6670667e2f4c5c8688a434b3f8a",
+          "metadata": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+          "points": "c8b908e9cbf3e3efbc66c167ae82c28d5f539d886bba934cbd3f831933b0bda5"
+        },
+        "mode": "bilateral_probe",
+        "native_geometry_executed": false,
+        "resolution_policy": {
+          "actual_episode_video_dimensions_proven": false,
+          "distortion_applied": false,
+          "height": 1080,
+          "name": "author_fallback_1920x1080",
+          "original_intrinsics_scaling_unchanged": true,
+          "width": 1920
+        },
+        "role": "test",
+        "scientific_eligible": false
+      },
+      "role": "test",
+      "torch_import_forbidden": true
+    }
+  ],
+  "actual_selected_probe_points_per_role": 2,
+  "calibrated_actual_input_betas_required": true,
+  "dense_grid_or_spearman_completed": false,
+  "existing_completed_scientific_settings": 14,
+  "format": "native_standard_point_geometry_input_contract_v1",
+  "full_paper_complete": false,
+  "full_standard_grid_geometry_completed": false,
+  "green_raw_log_sha256": "65a43b64ea320fd4b2b389cc6a9a8f1f3d8cecfa2a4e2512ed3c4514df56d273",
+  "native_geometry_executed": false,
+  "numeric_admission_sha256": "757eef807837c8c44a6be6cbe0b237473f30953a543477dfc13fc32543c96b6a",
+  "observed_red_failures": 23,
+  "observed_utc": "2026-11-01T04:36:53.777014+00:00",
+  "red_raw_log_sha256": "d8e8280aae68b7a1b28c9ae117cba3c76be783e7787714874f96d8914243fde0",
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_files_sha256": {
+    "scripts/paper/run_native_point_geometry.py": "50f5c44c650acf52b5eaf68ac178be54d344d3b9c2edc495f4e282dc06761de3",
+    "tests/test_native_point_geometry.py": "b76713a05ad67f7a13049824e97f756687b85b7f6553c8663216eef9d93cfea8"
+  },
+  "synthetic_test_fixtures_are_engineering_only": true,
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "zero_beta_fallback": false
+}
