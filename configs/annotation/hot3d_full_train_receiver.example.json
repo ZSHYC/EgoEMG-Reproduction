@@ -1,0 +1,49 @@
+{
+  "actual_gpu_actions": 0,
+  "all_public_train_expected_archive_count": 2804,
+  "all_public_train_expected_bytes": 294201743360,
+  "automatic_retry": false,
+  "full_paper_complete": false,
+  "manifest_sha256": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+  "maximum_download_bytes_per_second": 33554432,
+  "native_binary": "/ABSOLUTE/PATH/TO/aria2c",
+  "native_binary_sha256": "e218243e2e742aedb78803e273e7d8a2b3e00286caf96c0bcf4fb3086b5a26e8",
+  "native_version": "aria2 version 1.36.0",
+  "reserve_bytes": 214748364800,
+  "seed_archive_paths": [],
+  "source_manifest_git_commit": "1b91857d997f8f15aefc2e79f7b125d3237a0a63",
+  "source_metadata": {
+    "README.md": {
+      "bytes": 737,
+      "git_blob_sha1": "e443c5d764137ecb720cbe78104a149974ea7474",
+      "http_status": 200,
+      "sha256": "f4007ccab45cf6a80275e10c88c6f873768a92f30b6baf98b9d3a83f53ee4602",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/README.md"
+    },
+    "clip_definitions.json": {
+      "bytes": 77089128,
+      "file": "clip_definitions.json",
+      "received_utc": "2026-11-01T20:45:38.276577+00:00",
+      "revision": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+      "sha256": "b9b50b30934c548e55a0400ef076eeb25f937b574fe2b205c5dcaccb4e4ab610",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/clip_definitions.json"
+    },
+    "clip_splits.json": {
+      "bytes": 57466,
+      "git_blob_sha1": "927d94a8106f50c69e7691d39099f42f12dc63a6",
+      "http_status": 200,
+      "sha256": "54067720be3645aff6e9d79dcba2bd8d1c6d3f91e1dfba2cfae42da9ec5f497c",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/clip_splits.json"
+    },
+    "hot3d_dataset_license_agreement.pdf": {
+      "bytes": 77999,
+      "git_blob_sha1": "013c60a49e3e246e885e3a25f466d813ab73b894",
+      "http_status": 200,
+      "sha256": "0e2142c2920d25128a15944078870e4c13f81cd3864c39c9d69c3cda21e01868",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/hot3d_dataset_license_agreement.pdf"
+    }
+  },
+  "source_revision": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+  "source_sha256": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381",
+  "tests_sha256": "b854e29cbd6bbcfef4854e9329f68bbede9030753516932e3af3b52f81b573ef"
+}

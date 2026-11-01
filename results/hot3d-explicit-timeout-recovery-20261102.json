@@ -1,0 +1,199 @@
+{
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "all2804_received": false,
+  "author_mixture_reconstructed": false,
+  "format": "explicit_hot3d_closed_timeout_recovery_and_first_new_payload_qualification_v1",
+  "full_paper_complete": false,
+  "full_source_numeric_qualification_complete": false,
+  "new_owned_workflow": {
+    "actual_owned_actor_observation": {
+      "child": {
+        "matching_live": true,
+        "pid": 1990555,
+        "ppid": 1990554,
+        "sid": 1990555,
+        "start_ticks": "440450454",
+        "state": "S",
+        "tty": 0
+      },
+      "wrapper": {
+        "matching_live": true,
+        "pid": 1990554,
+        "ppid": 1,
+        "sid": 1990554,
+        "start_ticks": "440450451",
+        "state": "S",
+        "tty": 0
+      }
+    },
+    "actual_stages": {
+      "owned-prepare": {
+        "all_owned_consumers_exited": true,
+        "status": "success",
+        "worker_exit_code": 0
+      },
+      "owned-receive": {
+        "guardian": {
+          "matching_live": true,
+          "pid": 1991353,
+          "ppid": 1990555,
+          "sid": 1991353,
+          "start_ticks": "440455487",
+          "state": "S",
+          "tty": 0
+        },
+        "status": "started",
+        "worker": {
+          "matching_live": true,
+          "pid": 1991354,
+          "ppid": 1991353,
+          "sid": 1991354,
+          "start_ticks": "440455491",
+          "state": "S",
+          "tty": 0
+        }
+      }
+    },
+    "actual_start_state": {
+      "automatic_retry": false,
+      "child": {
+        "pid": 1990555,
+        "start_ticks": "440450454"
+      },
+      "started_utc": "2026-11-01T23:53:19.202637+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 1990554,
+        "start_ticks": "440450451"
+      }
+    },
+    "all_frozen_source_members_sha256_exact": true,
+    "bundle_sha256": "7e46586bb9d85a8a48d81a9a6142dbba487ddbd9ba7a6bedd81d48af322bdfd6",
+    "current_archive": "train_aria/clip-002051.tar",
+    "current_native_worker": {
+      "matching_live": true,
+      "pid": 1992007,
+      "ppid": 1991354,
+      "sid": 1992007,
+      "start_ticks": 440459709,
+      "state": "S",
+      "tty": 0
+    },
+    "detached_from_client": true,
+    "first_new_qualification": {
+      "actual_owner_closed": true,
+      "bytes": 109578240,
+      "native_exit_code": 0,
+      "native_worker": {
+        "pid": 1991686,
+        "start_ticks": 440457483
+      },
+      "observed_utc": "2026-11-01T23:54:59.942149+00:00",
+      "path": "train_aria/clip-002050.tar",
+      "reused_old_seed": false,
+      "sha256": "f0e6bc2e1115b7d33cccbcc8aead002dfada094b52b9ccde23b3ff23b10ad300",
+      "source_numeric_or_geometry_qualification": false,
+      "whole_sha256_and_generation_exact_after_exit": true
+    },
+    "frozen_members": 10,
+    "journal_bytes": 20959109120,
+    "journal_complete_archives": 202,
+    "journal_new_downloads": 1,
+    "journal_reused_complete_byte_qualified_seeds": 201,
+    "maximum_download_bytes_per_second": 33554432,
+    "no_automatic_retry": true,
+    "per_native_request_maximum_tries": 1,
+    "receiver_source_unchanged": true,
+    "reserve_bytes": 214748364800,
+    "seed_copy_admission": {
+      "actual_copied_archives": 202,
+      "actual_copied_bytes": 20951971840,
+      "all_old_and_new_whole_archive_lfs_sha256_exact": true,
+      "all_original_archive_and_top_file_generations_unchanged": true,
+      "copied_not_hardlinked": true
+    },
+    "source_commit": "9a422b6bb0f1a93ba3da0bfb011af6a3f6124b2a"
+  },
+  "observed_utc": "2026-11-01T23:54:59.830747+00:00",
+  "original_failure": {
+    "completed_journal_archives": 201,
+    "completed_journal_bytes": 20849530880,
+    "failed_current_payload_file_present": false,
+    "native_log_error": "aria2 errorCode2 Timeout; outer numeric exit code was not recorded",
+    "old_complete_payloads_and_all_top_files_preserved": true,
+    "original_receiver_and_all_native_actors_closed": true,
+    "record": {
+      "actor": {
+        "pid": 1911291,
+        "start_ticks": 439845208
+      },
+      "automatic_retry": false,
+      "completed_archive_bytes": 20849530880,
+      "completed_archive_count": 201,
+      "current_archive_path": "train_aria/clip-002050.tar",
+      "error_type": "ValueError",
+      "message": "native source download failed; partial files retained without automatic retry",
+      "observed_utc": "2026-11-01T23:26:16.878304+00:00",
+      "original_payloads_and_partials_preserved": true,
+      "owned_native_worker_exited": true
+    }
+  },
+  "original_two_clip_numeric_qualification_not_extended_by_byte_copy": true,
+  "original_whole_inventory": {
+    "archive_count": 2804,
+    "bytes": 294201743360,
+    "manifest_sha256": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+    "revision": "30fe9674782f32e1e5edba98476b6ff4300132c5"
+  },
+  "preflight": {
+    "cdn_etag_matches_observed_xet_hash": true,
+    "corrected_preflight_payload_gets": 0,
+    "final_cdn_head": {
+      "final_host": "us.aws.cdn.hf.co",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Content-Length": "109578240",
+        "ETag": "\"70453631ff0614e74bcafefc13c385e0bc6410a7f7f54ed3ad29928fd79b8631\""
+      },
+      "status": 200
+    },
+    "hub_commit_and_linked_size_match": true,
+    "hub_linked_etag_matches_manifest_lfs_sha256": true,
+    "initial_cdn_etag_equals_lfs_assumption_rejected_before_remote_launch": true,
+    "metadata_reference": "https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/file_download.py",
+    "original_hub": {
+      "final_cdn_etag_differs_from_lfs": true,
+      "headers": {
+        "Content-Length": "1132",
+        "ETag": null,
+        "X-Linked-Etag": "\"f0e6bc2e1115b7d33cccbcc8aead002dfada094b52b9ccde23b3ff23b10ad300\"",
+        "X-Linked-Size": "109578240",
+        "X-Repo-Commit": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+        "X-Xet-Hash": "70453631ff0614e74bcafefc13c385e0bc6410a7f7f54ed3ad29928fd79b8631"
+      },
+      "linked_commit_size_lfs_sha256_all_exact": true,
+      "no_payload_downloaded": true,
+      "no_redirect_followed": true,
+      "observed_utc": "2026-11-01T23:52:59.353134+00:00",
+      "original_prelaunch_cdn_etag_assumption_rejected_before_any_remote_job": true,
+      "redirected_payload_host": "us.aws.cdn.hf.co",
+      "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/train_aria/clip-002050.tar",
+      "status": 302
+    },
+    "original_preflight_payload_gets": 0
+  },
+  "public_guard_checks": {
+    "actual_public_path_checks": 4,
+    "actual_public_path_exit_code": 0,
+    "actual_public_path_log_sha256": "7a559f5f3b288fe7710f7d08453f712cd2e9ce60025f248acc51ca1c2ff5db00",
+    "path": "scripts/paper/check_hot3d_full_train_receiver.py",
+    "sha256": "b854e29cbd6bbcfef4854e9329f68bbede9030753516932e3af3b52f81b573ef"
+  },
+  "public_receiver": {
+    "byte_identical_to_original_and_recovery_receiver": true,
+    "path": "scripts/paper/hot3d_full_train_receiver.py",
+    "sha256": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381"
+  },
+  "scientific_settings_added": 0
+}
