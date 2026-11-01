@@ -1,0 +1,609 @@
+{
+  "actual_gpu_actions": 0,
+  "actual_hypothesis_sequence": [
+    "centroid translation only",
+    "proper global rotation after centering; reflection prohibited",
+    "one positive uniform scale after the same proper rotation"
+  ],
+  "actual_runs": {
+    "rigid": {
+      "actual_result": {
+        "actor": {
+          "pid": 1978735,
+          "start_ticks": 440375998
+        },
+        "actual_gpu_actions": 0,
+        "all_original_inputs_before_after_sha_and_generation_exact": true,
+        "all_original_rows": 3960,
+        "canonical_outputs_or_scores_replaced": false,
+        "closed_original_actors_rechecked": true,
+        "columns": [
+          "original_vertex_mean_m",
+          "centroid_translation_norm_m",
+          "centroid_translation_removed_vertex_mean_m",
+          "original_vertex_squared_error_mean_m2",
+          "centroid_translation_removed_vertex_squared_error_mean_m2",
+          "joint9_translation_removed_vertex_mean_m",
+          "original_joint_mean_m",
+          "vertex_translation_removed_joint_mean_m",
+          "joint9_vs_centroid_translation_norm_m",
+          "recovered_root_vs_original_joint9_norm_m",
+          "rigid_rotation_and_translation_removed_vertex_mean_m",
+          "rigid_rotation_and_translation_removed_squared_error_mean_m2",
+          "fitted_rotation_angle_degrees"
+        ],
+        "format": "model_free_original_freihand_evaluation_residual_proper_rigid_diagnostic_v1",
+        "full_paper_complete": false,
+        "input_roles_or_values_changed": false,
+        "new_model_constructions": 0,
+        "new_optimizer_updates": 0,
+        "observed_utc": "2026-11-01T23:41:03.796175+00:00",
+        "original_full_geometry_source_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2",
+        "original_saved_per_row_errors_exact": true,
+        "payload_sha256": "8f2312f57e5f55d89c96be1bc80db0a77d5d495c570dd918c89d0e1ddc8a8fb5",
+        "peak_rss_kib": 843824,
+        "role": "evaluation",
+        "summary": {
+          "centroid_translation_norm_m": {
+            "maximum": 0.00809857428383324,
+            "mean": 0.001695298220012692,
+            "median": 0.0014059633310839939,
+            "minimum": 0.00010793507102302648,
+            "p95": 0.0038816780185130886
+          },
+          "centroid_translation_removed_vertex_mean_m": {
+            "maximum": 0.009782125821907382,
+            "mean": 0.0034576123779980167,
+            "median": 0.003174961249188225,
+            "minimum": 0.00020042949753449468,
+            "p95": 0.006993867549548399
+          },
+          "centroid_translation_removed_vertex_squared_error_mean_m2": {
+            "maximum": 0.00011025380312763477,
+            "mean": 1.8020970354990458e-05,
+            "median": 1.1664420223613646e-05,
+            "minimum": 4.387884021291619e-08,
+            "p95": 5.740043326490103e-05
+          },
+          "fitted_rotation_angle_degrees": {
+            "maximum": 5.885105504917876,
+            "mean": 0.8015782022334491,
+            "median": 0.5604396891713299,
+            "minimum": 0.03413261492739649,
+            "p95": 2.274730926580985
+          },
+          "fitted_rotation_determinant_minimum": 0.9999999999999973,
+          "joint9_translation_removed_vertex_mean_m": {
+            "maximum": 0.01031525451048468,
+            "mean": 0.0037090560474032043,
+            "median": 0.003400783817161709,
+            "minimum": 0.0002274996657128983,
+            "p95": 0.007523750525085279
+          },
+          "joint9_vs_centroid_translation_norm_m": {
+            "maximum": 0.006683467296470679,
+            "mean": 0.0015957737735905683,
+            "median": 0.0013628897096576052,
+            "minimum": 7.408876626136978e-05,
+            "p95": 0.0036245027797721058
+          },
+          "original_joint_mean_m": {
+            "maximum": 0.010953416500649479,
+            "mean": 0.0035977978236678685,
+            "median": 0.003229568687825671,
+            "minimum": 0.0002106642269483665,
+            "p95": 0.00769342183830766
+          },
+          "original_vertex_mean_m": {
+            "maximum": 0.01085407682009496,
+            "mean": 0.00374157849278572,
+            "median": 0.0034086557663413576,
+            "minimum": 0.00022867260804699624,
+            "p95": 0.00768013574478725
+          },
+          "original_vertex_squared_error_mean_m2": {
+            "maximum": 0.00013839763567249238,
+            "mean": 2.23579593775555e-05,
+            "median": 1.438392970560064e-05,
+            "minimum": 5.95699960370453e-08,
+            "p95": 7.451470273696347e-05
+          },
+          "pure_translation_hypothesis_criterion": "diagnostic decomposition only; no tuned pass threshold, corrected GT, new model or replacement metric",
+          "recovered_root_vs_original_joint9_norm_m": {
+            "maximum": 1.0002843367551942e-15,
+            "mean": 2.2566399554445466e-16,
+            "median": 2.223047034584911e-16,
+            "minimum": 0.0,
+            "p95": 5.555636691559801e-16
+          },
+          "rigid_explained_original_squared_error_fraction": 0.22063116294465657,
+          "rigid_rotation_and_translation_removed_squared_error_mean_m2": {
+            "maximum": 0.00010942950179560584,
+            "mean": 1.742509679901604e-05,
+            "median": 1.1262029135126425e-05,
+            "minimum": 4.119061897528646e-08,
+            "p95": 5.447042357181637e-05
+          },
+          "rigid_rotation_and_translation_removed_vertex_mean_m": {
+            "maximum": 0.009709499956208695,
+            "mean": 0.003396854760410229,
+            "median": 0.0031073742516658292,
+            "minimum": 0.0001910172346053796,
+            "p95": 0.00696948606742537
+          },
+          "rotation_explained_translation_centered_squared_error_fraction": 0.0330655644083786,
+          "translation_explained_squared_error_fraction": 0.19397964498132225,
+          "vertex_translation_removed_joint_mean_m": {
+            "maximum": 0.009544411075904629,
+            "mean": 0.0033081695544429097,
+            "median": 0.00303848544555871,
+            "minimum": 0.00018472681553124707,
+            "p95": 0.0067483898673795055
+          }
+        },
+        "worker_sha256": "c7cf5595b19a8a26974cc571db56ca9ca17cb06fad52b60b59f0fa5788a7265a"
+      },
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1978733,
+          "start_ticks": "440375990"
+        },
+        "ended_utc": "2026-11-01T23:41:05.739297+00:00",
+        "started_utc": "2026-11-01T23:40:54.557591+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 1978732,
+          "start_ticks": "440375987"
+        }
+      },
+      "all_frozen_source_and_original_input_sha256_exact": true,
+      "all_ordered_members_and_typed_payload_verified": true,
+      "all_original_owned_actors_closed": [
+        {
+          "pid": 1978732,
+          "start_ticks": "440375987"
+        },
+        {
+          "pid": 1978733,
+          "start_ticks": "440375990"
+        },
+        {
+          "pid": 1978735,
+          "start_ticks": "440375998"
+        },
+        {
+          "pid": 1978734,
+          "start_ticks": "440375994"
+        }
+      ],
+      "all_raw_column_reductions_independently_recomputed": true,
+      "bundle_sha256": "9ee850e3437c2234510ced036e36545a40fbbba1c3b28f88576305550bb98afc",
+      "collector_no_numpy_torch_chumpy_smplx": true,
+      "payload_sha256": "8f2312f57e5f55d89c96be1bc80db0a77d5d495c570dd918c89d0e1ddc8a8fb5",
+      "private_postexit_packet_sha256": "18f394b1e53fde53c7040c54a51369d4f478200e15117a8f9f19e32cc73c178b",
+      "result_sha256": "5fc0d9ca8a043b78e34d6744904ba36bae137a3600e5c5942bb11b9915842f43",
+      "source_commit": "50502f68e20a7f1e689c35084228830021d9813a"
+    },
+    "similarity": {
+      "actual_result": {
+        "actor": {
+          "pid": 1980140,
+          "start_ticks": 440384042
+        },
+        "actual_gpu_actions": 0,
+        "all_original_inputs_before_after_sha_and_generation_exact": true,
+        "all_original_rows": 3960,
+        "canonical_outputs_or_scores_replaced": false,
+        "closed_original_actors_rechecked": true,
+        "columns": [
+          "original_vertex_mean_m",
+          "centroid_translation_norm_m",
+          "centroid_translation_removed_vertex_mean_m",
+          "original_vertex_squared_error_mean_m2",
+          "centroid_translation_removed_vertex_squared_error_mean_m2",
+          "joint9_translation_removed_vertex_mean_m",
+          "original_joint_mean_m",
+          "vertex_translation_removed_joint_mean_m",
+          "joint9_vs_centroid_translation_norm_m",
+          "recovered_root_vs_original_joint9_norm_m",
+          "rigid_rotation_and_translation_removed_vertex_mean_m",
+          "rigid_rotation_and_translation_removed_squared_error_mean_m2",
+          "fitted_rotation_angle_degrees",
+          "proper_similarity_removed_vertex_mean_m",
+          "proper_similarity_removed_squared_error_mean_m2",
+          "fitted_positive_uniform_scale"
+        ],
+        "format": "model_free_original_freihand_evaluation_residual_positive_similarity_diagnostic_v1",
+        "full_paper_complete": false,
+        "input_roles_or_values_changed": false,
+        "new_model_constructions": 0,
+        "new_optimizer_updates": 0,
+        "observed_utc": "2026-11-01T23:42:25.287560+00:00",
+        "original_full_geometry_source_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2",
+        "original_saved_per_row_errors_exact": true,
+        "payload_sha256": "ad013dd3a8bc5eb1239d9fc0f8d5a3c52c34ece094d4738b13d9626d4ea03036",
+        "peak_rss_kib": 844440,
+        "role": "evaluation",
+        "summary": {
+          "centroid_translation_norm_m": {
+            "maximum": 0.00809857428383324,
+            "mean": 0.001695298220012692,
+            "median": 0.0014059633310839939,
+            "minimum": 0.00010793507102302648,
+            "p95": 0.0038816780185130886
+          },
+          "centroid_translation_removed_vertex_mean_m": {
+            "maximum": 0.009782125821907382,
+            "mean": 0.0034576123779980167,
+            "median": 0.003174961249188225,
+            "minimum": 0.00020042949753449468,
+            "p95": 0.006993867549548399
+          },
+          "centroid_translation_removed_vertex_squared_error_mean_m2": {
+            "maximum": 0.00011025380312763477,
+            "mean": 1.8020970354990458e-05,
+            "median": 1.1664420223613646e-05,
+            "minimum": 4.387884021291619e-08,
+            "p95": 5.740043326490103e-05
+          },
+          "fitted_positive_uniform_scale": {
+            "maximum": 1.1139227273909587,
+            "mean": 0.991313655578503,
+            "median": 1.0004475002311968,
+            "minimum": 0.8477530937716677,
+            "p95": 1.069570726380713
+          },
+          "fitted_rotation_angle_degrees": {
+            "maximum": 5.885105504917876,
+            "mean": 0.8015782022334491,
+            "median": 0.5604396891713299,
+            "minimum": 0.03413261492739649,
+            "p95": 2.274730926580985
+          },
+          "fitted_rotation_determinant_minimum": 0.9999999999999973,
+          "joint9_translation_removed_vertex_mean_m": {
+            "maximum": 0.01031525451048468,
+            "mean": 0.0037090560474032043,
+            "median": 0.003400783817161709,
+            "minimum": 0.0002274996657128983,
+            "p95": 0.007523750525085279
+          },
+          "joint9_vs_centroid_translation_norm_m": {
+            "maximum": 0.006683467296470679,
+            "mean": 0.0015957737735905683,
+            "median": 0.0013628897096576052,
+            "minimum": 7.408876626136978e-05,
+            "p95": 0.0036245027797721058
+          },
+          "original_joint_mean_m": {
+            "maximum": 0.010953416500649479,
+            "mean": 0.0035977978236678685,
+            "median": 0.003229568687825671,
+            "minimum": 0.0002106642269483665,
+            "p95": 0.00769342183830766
+          },
+          "original_vertex_mean_m": {
+            "maximum": 0.01085407682009496,
+            "mean": 0.00374157849278572,
+            "median": 0.0034086557663413576,
+            "minimum": 0.00022867260804699624,
+            "p95": 0.00768013574478725
+          },
+          "original_vertex_squared_error_mean_m2": {
+            "maximum": 0.00013839763567249238,
+            "mean": 2.23579593775555e-05,
+            "median": 1.438392970560064e-05,
+            "minimum": 5.95699960370453e-08,
+            "p95": 7.451470273696347e-05
+          },
+          "proper_similarity_removed_squared_error_mean_m2": {
+            "maximum": 6.483331334403295e-05,
+            "mean": 6.262380680915079e-06,
+            "median": 3.3355828747141176e-06,
+            "minimum": 1.2428603994793718e-08,
+            "p95": 2.1887154636995207e-05
+          },
+          "proper_similarity_removed_vertex_mean_m": {
+            "maximum": 0.007106479478307819,
+            "mean": 0.0018973642619333124,
+            "median": 0.001643751839666353,
+            "minimum": 0.00010411995385223676,
+            "p95": 0.004232961546651517
+          },
+          "pure_translation_hypothesis_criterion": "diagnostic decomposition only; no tuned pass threshold, corrected GT, new model or replacement metric",
+          "recovered_root_vs_original_joint9_norm_m": {
+            "maximum": 1.0002843367551942e-15,
+            "mean": 2.2566399554445466e-16,
+            "median": 2.223047034584911e-16,
+            "minimum": 0.0,
+            "p95": 5.555636691559801e-16
+          },
+          "rigid_explained_original_squared_error_fraction": 0.22063116294465657,
+          "rigid_rotation_and_translation_removed_squared_error_mean_m2": {
+            "maximum": 0.00010942950179560584,
+            "mean": 1.742509679901604e-05,
+            "median": 1.1262029135126425e-05,
+            "minimum": 4.119061897528646e-08,
+            "p95": 5.447042357181637e-05
+          },
+          "rigid_rotation_and_translation_removed_vertex_mean_m": {
+            "maximum": 0.009709499956208695,
+            "mean": 0.003396854760410229,
+            "median": 0.0031073742516658292,
+            "minimum": 0.0001910172346053796,
+            "p95": 0.00696948606742537
+          },
+          "rotation_explained_translation_centered_squared_error_fraction": 0.0330655644083786,
+          "scale_explained_rigid_residual_squared_error_fraction": 0.6406114265449188,
+          "similarity_explained_original_squared_error_fraction": 0.7199037454553344,
+          "translation_explained_squared_error_fraction": 0.19397964498132225,
+          "vertex_translation_removed_joint_mean_m": {
+            "maximum": 0.009544411075904629,
+            "mean": 0.0033081695544429097,
+            "median": 0.00303848544555871,
+            "minimum": 0.00018472681553124707,
+            "p95": 0.0067483898673795055
+          }
+        },
+        "worker_sha256": "558c43cc4c542401b747a6af7b87074a3d21feae56a0b1b0d3d134d6b02f3a76"
+      },
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1980138,
+          "start_ticks": "440384034"
+        },
+        "ended_utc": "2026-11-01T23:42:28.212714+00:00",
+        "started_utc": "2026-11-01T23:42:15.005568+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 1980137,
+          "start_ticks": "440384031"
+        }
+      },
+      "all_frozen_source_and_original_input_sha256_exact": true,
+      "all_ordered_members_and_typed_payload_verified": true,
+      "all_original_owned_actors_closed": [
+        {
+          "pid": 1980137,
+          "start_ticks": "440384031"
+        },
+        {
+          "pid": 1980138,
+          "start_ticks": "440384034"
+        },
+        {
+          "pid": 1980140,
+          "start_ticks": "440384042"
+        },
+        {
+          "pid": 1980139,
+          "start_ticks": "440384039"
+        }
+      ],
+      "all_raw_column_reductions_independently_recomputed": true,
+      "bundle_sha256": "57247e77fbd406cad8436e58c99ef59e1eb255fb44242d932e4f0df20faa47cc",
+      "collector_no_numpy_torch_chumpy_smplx": true,
+      "payload_sha256": "ad013dd3a8bc5eb1239d9fc0f8d5a3c52c34ece094d4738b13d9626d4ea03036",
+      "private_postexit_packet_sha256": "cb2516078b48b7ff28dd4d70295543ec6662ed9d813caa94d1b632a6cef6267d",
+      "result_sha256": "7cc4ca68a842782de92390b996181f76024d27ebf946a549bbf7762d9c8021a1",
+      "source_commit": "50502f68e20a7f1e689c35084228830021d9813a"
+    },
+    "translation": {
+      "actual_result": {
+        "actor": {
+          "pid": 1976809,
+          "start_ticks": 440361527
+        },
+        "actual_gpu_actions": 0,
+        "all_original_inputs_before_after_sha_and_generation_exact": true,
+        "all_original_rows": 3960,
+        "canonical_outputs_or_scores_replaced": false,
+        "closed_original_actors_rechecked": true,
+        "columns": [
+          "original_vertex_mean_m",
+          "centroid_translation_norm_m",
+          "centroid_translation_removed_vertex_mean_m",
+          "original_vertex_squared_error_mean_m2",
+          "centroid_translation_removed_vertex_squared_error_mean_m2",
+          "joint9_translation_removed_vertex_mean_m",
+          "original_joint_mean_m",
+          "vertex_translation_removed_joint_mean_m",
+          "joint9_vs_centroid_translation_norm_m",
+          "recovered_root_vs_original_joint9_norm_m"
+        ],
+        "format": "model_free_original_freihand_evaluation_residual_translation_diagnostic_v1",
+        "full_paper_complete": false,
+        "input_roles_or_values_changed": false,
+        "new_model_constructions": 0,
+        "new_optimizer_updates": 0,
+        "observed_utc": "2026-11-01T23:38:38.200616+00:00",
+        "original_full_geometry_source_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2",
+        "original_saved_per_row_errors_exact": true,
+        "payload_sha256": "9529fe7041cd2541a44e32f88ef23c56314b98d4f1f239d883859cc469a88538",
+        "peak_rss_kib": 843360,
+        "role": "evaluation",
+        "summary": {
+          "centroid_translation_norm_m": {
+            "maximum": 0.00809857428383324,
+            "mean": 0.001695298220012692,
+            "median": 0.0014059633310839939,
+            "minimum": 0.00010793507102302648,
+            "p95": 0.0038816780185130886
+          },
+          "centroid_translation_removed_vertex_mean_m": {
+            "maximum": 0.009782125821907382,
+            "mean": 0.0034576123779980167,
+            "median": 0.003174961249188225,
+            "minimum": 0.00020042949753449468,
+            "p95": 0.006993867549548399
+          },
+          "centroid_translation_removed_vertex_squared_error_mean_m2": {
+            "maximum": 0.00011025380312763477,
+            "mean": 1.8020970354990458e-05,
+            "median": 1.1664420223613646e-05,
+            "minimum": 4.387884021291619e-08,
+            "p95": 5.740043326490103e-05
+          },
+          "joint9_translation_removed_vertex_mean_m": {
+            "maximum": 0.01031525451048468,
+            "mean": 0.0037090560474032043,
+            "median": 0.003400783817161709,
+            "minimum": 0.0002274996657128983,
+            "p95": 0.007523750525085279
+          },
+          "joint9_vs_centroid_translation_norm_m": {
+            "maximum": 0.006683467296470679,
+            "mean": 0.0015957737735905683,
+            "median": 0.0013628897096576052,
+            "minimum": 7.408876626136978e-05,
+            "p95": 0.0036245027797721058
+          },
+          "original_joint_mean_m": {
+            "maximum": 0.010953416500649479,
+            "mean": 0.0035977978236678685,
+            "median": 0.003229568687825671,
+            "minimum": 0.0002106642269483665,
+            "p95": 0.00769342183830766
+          },
+          "original_vertex_mean_m": {
+            "maximum": 0.01085407682009496,
+            "mean": 0.00374157849278572,
+            "median": 0.0034086557663413576,
+            "minimum": 0.00022867260804699624,
+            "p95": 0.00768013574478725
+          },
+          "original_vertex_squared_error_mean_m2": {
+            "maximum": 0.00013839763567249238,
+            "mean": 2.23579593775555e-05,
+            "median": 1.438392970560064e-05,
+            "minimum": 5.95699960370453e-08,
+            "p95": 7.451470273696347e-05
+          },
+          "pure_translation_hypothesis_criterion": "diagnostic decomposition only; no tuned pass threshold, corrected GT, new model or replacement metric",
+          "recovered_root_vs_original_joint9_norm_m": {
+            "maximum": 1.0002843367551942e-15,
+            "mean": 2.2566399554445466e-16,
+            "median": 2.223047034584911e-16,
+            "minimum": 0.0,
+            "p95": 5.555636691559801e-16
+          },
+          "translation_explained_squared_error_fraction": 0.19397964498132225,
+          "vertex_translation_removed_joint_mean_m": {
+            "maximum": 0.009544411075904629,
+            "mean": 0.0033081695544429097,
+            "median": 0.00303848544555871,
+            "minimum": 0.00018472681553124707,
+            "p95": 0.0067483898673795055
+          }
+        },
+        "worker_sha256": "1ee782149e0891bcf890aa489bee7d6fc37fd4ff54cb81f468e0ffef7c5778de"
+      },
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1976807,
+          "start_ticks": "440361519"
+        },
+        "ended_utc": "2026-11-01T23:38:40.977905+00:00",
+        "started_utc": "2026-11-01T23:38:29.850709+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 1976806,
+          "start_ticks": "440361516"
+        }
+      },
+      "all_frozen_source_and_original_input_sha256_exact": true,
+      "all_ordered_members_and_typed_payload_verified": true,
+      "all_original_owned_actors_closed": [
+        {
+          "pid": 1976806,
+          "start_ticks": "440361516"
+        },
+        {
+          "pid": 1976807,
+          "start_ticks": "440361519"
+        },
+        {
+          "pid": 1976809,
+          "start_ticks": "440361527"
+        },
+        {
+          "pid": 1976808,
+          "start_ticks": "440361524"
+        }
+      ],
+      "all_raw_column_reductions_independently_recomputed": true,
+      "bundle_sha256": "2acf35ffaae91805d99705159e1dcceb0ae5aed75b9e019b5fc70071a73928f4",
+      "collector_no_numpy_torch_chumpy_smplx": true,
+      "payload_sha256": "9529fe7041cd2541a44e32f88ef23c56314b98d4f1f239d883859cc469a88538",
+      "private_postexit_packet_sha256": "bdc298ea6987a75e57ae4003e496b135e888784c764e60af3f12f18f621aa2f3",
+      "result_sha256": "4f4bcc32815a1a70bf2b2a88d2d3673829b0037c1ca4eb3112df2e5e70ccf01b",
+      "source_commit": "50502f68e20a7f1e689c35084228830021d9813a"
+    }
+  },
+  "all3_postexit_collectors_closed": {
+    "actors": [
+      {
+        "handle": {
+          "pid": 1977653,
+          "start_ticks": 440368911
+        },
+        "matching_live": false
+      },
+      {
+        "handle": {
+          "pid": 1979097,
+          "start_ticks": 440377474
+        },
+        "matching_live": false
+      },
+      {
+        "handle": {
+          "pid": 1981728,
+          "start_ticks": 440388550
+        },
+        "matching_live": false
+      }
+    ],
+    "all3_fresh_postexit_collectors_closed": true,
+    "observed_utc": "2026-11-01T23:43:55.336859+00:00"
+  },
+  "author_source_version_equivalence_proven": false,
+  "canonical_original_joint_mean_m": 0.0035977978236678685,
+  "canonical_original_vertex_mean_m": 0.00374157849278572,
+  "canonical_outputs_or_scores_replaced": false,
+  "conclusion": "Under the published778-vertex correspondence, translation, proper rigid motion and a positive uniform scale cannot eliminate the released-GT discrepancy. Global root recovery matches the original output joint9. The residual cause is still unproven; original source-version/parameter-fit compatibility remains open.",
+  "final_executed_source": {
+    "byte_identical_to_actual_worker": true,
+    "path": "results/freihand-residual-diagnostic-source-20261102.py",
+    "sha256": "558c43cc4c542401b747a6af7b87074a3d21feae56a0b1b0d3d134d6b02f3a76"
+  },
+  "format": "full_freihand_evaluation_residual_coordinate_decomposition_v1",
+  "formula": {
+    "explained_fraction": "1-sum(residual squared-coordinate energies)/sum(original squared-coordinate energies); not a fraction of mean Euclidean error",
+    "mean_vertex_error": "mean over all778 corresponding vertices of Euclidean norm per row; then mean over all3960 rows",
+    "rigid": "Xc=X-mean(X); Yc=Y-mean(Y); U,S,Vt=SVD(Xc.T@Yc); R=U@diag(1,1,sign(det(U@Vt)))@Vt; residual=Xc@R-Yc",
+    "similarity": "positive s=sum((Xc@R)*Yc)/sum(Xc*Xc); residual=s*(Xc@R)-Yc",
+    "translation": "d_i=mean_vertices(Y_i-X_i); residual=Y_i-X_i-d_i"
+  },
+  "full_paper_complete": false,
+  "markers2mano_reproduced": false,
+  "new_model_constructions": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-01T23:44:51.666114+00:00",
+  "original_source_geometry_worker_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2",
+  "raw_vertices_or_gt_published": false,
+  "reduction_check": {
+    "atol": 1e-15,
+    "scope": "independent stdlib-versus-NumPy floating reductions only; not a new geometry or GT acceptance threshold"
+  },
+  "role": "evaluation",
+  "rows": 3960,
+  "scientific_settings_added": 0,
+  "source_parameters_or_input_roles_changed": false
+}

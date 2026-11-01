@@ -460,6 +460,7 @@
     "remaining full source datasets, source sampling/tiers/weights/seed/dedup/split and approximately712K mixture",
     "original markers2mano implementation/training recipe/matchingv51 checkpoint and full annotation chain"
   ],
+  "residual_followup": "freihand-evaluation-residual-diagnostic-20261102.json",
   "scientific_pose_model_scores_added": 0,
   "single_final_review": {
     "critical": 0,
