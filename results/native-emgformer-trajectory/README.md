@@ -1,4 +1,8 @@
-# 原生EMGFormer全轨迹评价：工程完整流程已验证
+# 原生EMGFormer全轨迹评价：完整输入已验收，GPU流程排队中
+
+[S/M/L实际完整输入双遍验收](full-input-double-admission-20261101.json)已完成：六个独立CPU进程均成功，合计414.04秒；每遍完整哈希16文件/16,540,457,757字节，并扫描验证1052、测试2792手窗口的完整目标。每个规模两份身份及JSON字节精确一致，非有限标签及腕角均为0。退出后又独立读取143个冻结来源文件、三个原生200轮/25,000更新模型身份与检查点，并重新计算全部16个输入文件SHA；14个原拥有进程及复核进程均已退出。没有学习模型构造、CUDA或优化更新。
+
+[正式GPU队列已实际注册](full-gpu-queue-registered-20261101.json)，顺序S→M→L，仅等待原RN50完整任务关闭后使用GPU1，保留64GiB空闲门槛、原batch500/6workers/BF16、完整验证重放后冻结再测试。实际检查了新队列与旧RN50的精确进程身份仍在运行，以及新队列已脱离本机连接；**当前学习模型未启动、没有新正式MAE。** 完整输入检查不能代替GPU模型资格或PDF数据等价。
 
 [新增20项完整生命周期检查](lifecycle-engineering-tests-20261101.json)实际通过、无跳过，耗时525.63秒，保留1条官方只读collate警告。使用已存在的CPU工程模型（2轮/4次更新；train340/val4/test8），只重新载入验证所选模型、不重新训练：完整val原生预测/新进程模型重放、冻结规则、完整test原生预测/新进程模型重放、待验收报告与独立原始包重算，七阶段全部成功退出。独立重算进程退出后，拥有控制器才提升报告状态；工程结果仍为`scientific_eligible=False`。
 
@@ -12,4 +16,4 @@
 
 [实际完成200轮的S模型单窗口诊断](trained-small-full-window-diagnostic-20261101.json)也已结束：验证best第169轮，3,460,134参数完整严格重载，一个验证窗口的直接原生/捕获两次前向完全一致，模型前后状态相同；独立原始包读回、6拥有者关闭和退出后原始权重/来源字节核对均通过。实际12,000目标经左510/右0上下文、230步head输出对齐成11,490步；对齐中心映射原窗口6255，原中心点目标为6000（均零起算），必须分开报告。
 
-**尚未运行完整发布数据上的新全轨迹模型评价，没有新增正式MAE。** 工程完整流程和单窗口CPU诊断均不替代全体完整目标准入或原batch500/6workers/BF16资格。原生模型训练/中心报告另见[`../original-emgformer/`](../original-emgformer/small/README.md)。实际S/M/L完整输入双遍准入、同一验证best的完整val/test及独立模型重放、GPU资格与正式执行仍按[完整实施计划](../../docs/superpowers/plans/2026-11-01-native-emgformer-trajectory.md)推进。[接口与来源说明](../../docs/native-emgformer-trajectory.md)记录已实现的CLI、报告验收规则和数据边界；一次最终集成审查及针对性修正已完成，不再重开旧模型/数学套件。
+**尚未运行旧版完整队列上的新全轨迹模型评价，没有新增正式MAE。** 工程完整流程和单窗口CPU诊断均不替代原batch500/6workers/BF16资格。原生模型训练/中心报告另见[`../original-emgformer/`](../original-emgformer/small/README.md)。同一验证best的完整val/test及独立模型重放、GPU资格与正式执行仍按[完整实施计划](../../docs/superpowers/plans/2026-11-01-native-emgformer-trajectory.md)推进。[接口与来源说明](../../docs/native-emgformer-trajectory.md)记录已实现的CLI、报告验收规则和数据边界；一次最终集成审查及针对性修正已完成，不再重开旧模型/数学套件。

@@ -1,0 +1,95 @@
+{
+  "actual_controller_cuda_hidden": true,
+  "actual_controlling_tty_none": true,
+  "actual_full_input_prerequisite_successfully_closed": true,
+  "actual_gpu_index": 1,
+  "actual_gpu_uuid": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae",
+  "actual_independent_full_target_admissions": 6,
+  "actual_learned_model_phase_started": false,
+  "actual_learned_model_qualification_completed": false,
+  "actual_predecessor_bundle_sha256": "7515c11a54067128e419a4fab2e5982e6283a50b4359a272ad0c6efe42364324",
+  "actual_predecessor_owners": {
+    "child": {
+      "pgrp": 1061691,
+      "pid": 1061691,
+      "ppid": 1061690,
+      "sid": 1061691,
+      "start_ticks": "433657522",
+      "state": "S",
+      "stdin": "/dev/null",
+      "tty": 0,
+      "uid": 1005
+    },
+    "wrapper": {
+      "pgrp": 1061690,
+      "pid": 1061690,
+      "ppid": 1,
+      "sid": 1061690,
+      "start_ticks": "433657519",
+      "state": "S",
+      "stdin": "/dev/null",
+      "tty": 0,
+      "uid": 1005
+    }
+  },
+  "actual_predecessor_still_running": true,
+  "actual_queue_owners": {
+    "child": {
+      "pgrp": 1475598,
+      "pid": 1475598,
+      "ppid": 1475593,
+      "sid": 1475598,
+      "start_ticks": "436356071",
+      "state": "S",
+      "stdin": "/dev/null",
+      "tty": 0,
+      "uid": 1005
+    },
+    "wrapper": {
+      "pgrp": 1475593,
+      "pid": 1475593,
+      "ppid": 1,
+      "sid": 1475593,
+      "start_ticks": "436356068",
+      "state": "S",
+      "stdin": "/dev/null",
+      "tty": 0,
+      "uid": 1005
+    }
+  },
+  "actual_queue_owners_matching_live": true,
+  "actual_recorder_adopted_by_pid1": true,
+  "actual_stdin_devnull": true,
+  "all_frozen_source_bytes_independently_reopened_exact": true,
+  "automatic_retry": false,
+  "bundle_sha256": "e7277738941dbafda3f9c1f8a9078b202475b2ca752492e66636f79f65d91e8a",
+  "explicit_gpu_candidates": [
+    "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae"
+  ],
+  "format": "actual_native_emgformer_full_trajectory_gpu_queue_registered_v1",
+  "frozen_source_file_count": 142,
+  "full_paper_complete": false,
+  "local_computer_connection_required": false,
+  "new_formal_trajectory_mae_reported": false,
+  "observed_utc": "2026-11-01T12:34:26.073255+00:00",
+  "planned_full_validation_qualification_before_profile_and_test": true,
+  "planned_ordered_sizes": [
+    "small",
+    "middle",
+    "large"
+  ],
+  "planned_original_batch_size": 500,
+  "planned_original_workers": 6,
+  "planned_precision": "bf16-mixed",
+  "planned_qualification_batch_sizes": [
+    500,
+    500,
+    52
+  ],
+  "planned_test_samples": 2792,
+  "planned_validation_samples": 1052,
+  "required_idle_gpu_reserve_gib": 64,
+  "scientific_eligible": false,
+  "source_commit": "983fd9338f4aec975a53a05971379861dd66b735",
+  "wait_deadline_seconds": null
+}

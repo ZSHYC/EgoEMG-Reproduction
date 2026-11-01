@@ -296,7 +296,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 
 ## 全部主要模型设置
 
-原生EMGFormer的[全轨迹CLI与独立报告流程](native-emgformer-trajectory.md)已通过[新增20项工程检查及退出后原始包核验](../results/native-emgformer-trajectory/lifecycle-engineering-tests-20261101.json)：七阶段、32个进程身份关闭，CPU工程模型2轮/4次更新，val4/test8，无新训练。完整发布数据的双遍全目标准入及batch500/6workers/BF16评价仍待执行，不能据此填写原生Table2轨迹结果。
+原生EMGFormer的[全轨迹CLI与独立报告流程](native-emgformer-trajectory.md)已通过[新增20项工程检查及退出后原始包核验](../results/native-emgformer-trajectory/lifecycle-engineering-tests-20261101.json)：七阶段、32个进程身份关闭，CPU工程模型2轮/4次更新，val4/test8，无新训练。随后完成[S/M/L各两遍旧版完整输入准入](../results/native-emgformer-trajectory/full-input-double-admission-20261101.json)：每遍16文件/16.54GB、完整val1052/test2792目标，三组双遍各自一致、14拥有者及复核进程关闭。正式batch500/6workers/BF16流程[已在服务器排队](../results/native-emgformer-trajectory/full-gpu-queue-registered-20261101.json)，等待精确原RN50完成后仅使用GPU1；学习模型尚未启动，不能据此填写原生Table2轨迹结果或宣称PDF人口等价。
 
 | 数据/模型 | 官方发布内容与已核验接口 | 本项目状态与真正欠缺 |
 | --- | --- | --- |

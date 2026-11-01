@@ -1,0 +1,279 @@
+{
+  "actual_b500_bf16_learned_model_qualification": false,
+  "actual_closed_original_process_count": 14,
+  "actual_closed_original_processes": [
+    {
+      "pid": 1463568,
+      "start_ticks": "436268828"
+    },
+    {
+      "pid": 1463570,
+      "start_ticks": "436268831"
+    },
+    {
+      "pgrp": 1463574,
+      "pid": 1463574,
+      "sid": 1463574,
+      "start_ticks": "436268840",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1463573,
+      "pid": 1463573,
+      "sid": 1463573,
+      "start_ticks": "436268836",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1464603,
+      "pid": 1464603,
+      "sid": 1464603,
+      "start_ticks": "436275674",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1464602,
+      "pid": 1464602,
+      "sid": 1464602,
+      "start_ticks": "436275670",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1465614,
+      "pid": 1465614,
+      "sid": 1465614,
+      "start_ticks": "436282511",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1465613,
+      "pid": 1465613,
+      "sid": 1465613,
+      "start_ticks": "436282507",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1466712,
+      "pid": 1466712,
+      "sid": 1466712,
+      "start_ticks": "436289539",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1466711,
+      "pid": 1466711,
+      "sid": 1466711,
+      "start_ticks": "436289536",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1467670,
+      "pid": 1467670,
+      "sid": 1467670,
+      "start_ticks": "436296372",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1467669,
+      "pid": 1467669,
+      "sid": 1467669,
+      "start_ticks": "436296368",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1468647,
+      "pid": 1468647,
+      "sid": 1468647,
+      "start_ticks": "436303409",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1468646,
+      "pid": 1468646,
+      "sid": 1468646,
+      "start_ticks": "436303405",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_admission_seconds": 414.03570238221437,
+  "actual_complete_input_admissions": 6,
+  "actual_ended_utc": "2026-11-01T12:23:17.059443+00:00",
+  "actual_exit_code": 0,
+  "actual_frozen_source_file_count": 143,
+  "actual_model_constructions": 0,
+  "actual_optimizer_updates": 0,
+  "actual_payload_bytes_hashed_across_admissions": 99242746542,
+  "actual_payload_bytes_per_admission": 16540457757,
+  "actual_payload_files_per_admission": 16,
+  "actual_sizes": {
+    "large": {
+      "actual_admission_files_byte_exact": true,
+      "actual_complete_fit_artifacts_sha256": {
+        "checkpoints/best-val_mae=val_mae=0.2554.ckpt": "896871c83cb46ac12a755ab4dcee0f89b0995cae8fdcfac6df47ec6820ce1605",
+        "checkpoints/last.ckpt": "3bb7f12142a81315262b6ba00dc8f6d0f96876710afd125527c1ccf0e4fd75c0",
+        "epochs.jsonl": "a492346e77726cdde9acae128e1c7d124fd99a4599231007f6ac030b5c587ecd",
+        "fit-result.json": "022de6fd3f32e892befab416cf50f2c4c10042c3ed172680d644d0cd4b947f72",
+        "identity.json": "e2456674c7f189f950a48fa5d0e6e287571a45de2e07cb6720b6bb3ae888ab3d"
+      },
+      "actual_fit_epochs": 200,
+      "actual_fit_optimizer_executions": 25000,
+      "actual_independent_admissions": 2,
+      "actual_replica_seconds": [
+        65.9280364587903,
+        65.6252855565399
+      ],
+      "admission_file_sha256": "061b49da8a441b4c18685b2bd541bd5d4704ade96b42278f08b2be80d8c073b1",
+      "counts": {
+        "test": 2792,
+        "val": 1052
+      },
+      "finite_heldout_targets": {
+        "test": {
+          "consumed_target_elements": 737088000,
+          "nonfinite_converted_wrist_entries": 0,
+          "nonfinite_target_entries": 0,
+          "supervised_hand_rows": 32508021,
+          "target_mode": "full_trajectory",
+          "unique_target_rows": 16752000
+        },
+        "val": {
+          "consumed_target_elements": 277728000,
+          "nonfinite_converted_wrist_entries": 0,
+          "nonfinite_target_entries": 0,
+          "supervised_hand_rows": 12034050,
+          "target_mode": "full_trajectory",
+          "unique_target_rows": 6312000
+        }
+      },
+      "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+      "point_cohort_sha256": "fd3eb51d29f0feeb71b0ce6b321725e3b00d67e5bde11f4afe18ca3cd1dba010",
+      "selected_checkpoint_sha256": "896871c83cb46ac12a755ab4dcee0f89b0995cae8fdcfac6df47ec6820ce1605",
+      "trajectory_input_sha256": "36434e658b7f5b2986a5e5ee442d83f6eadbc13d7df95822ee90e5a5e561fd29"
+    },
+    "middle": {
+      "actual_admission_files_byte_exact": true,
+      "actual_complete_fit_artifacts_sha256": {
+        "checkpoints/best-val_mae=val_mae=0.2578.ckpt": "c9a62af344490dc530a89e4f6b861a5463cd8e9b8aa05fb5380d171776ee36ff",
+        "checkpoints/last.ckpt": "9a9bd8d3800d13bf2c61955d0d9244e9f0a9e30a8d7aefa09ff17c775a24e752",
+        "epochs.jsonl": "7b061049cc7b3b3f711230c8200773b29340e02e8480cdedbddd4f817ce3aadf",
+        "fit-result.json": "50025b9afd3dec4088d5c7f83b0308269fa675ae4850aee2832c4632dffd2ebd",
+        "identity.json": "b86ed8a3eb69c639297242c95151cdc89b5e56b830490cd1379255944ff5fb90"
+      },
+      "actual_fit_epochs": 200,
+      "actual_fit_optimizer_executions": 25000,
+      "actual_independent_admissions": 2,
+      "actual_replica_seconds": [
+        66.0896928878501,
+        64.18745751772076
+      ],
+      "admission_file_sha256": "de57aaa5d9570ab3b5d729702bf3f1cafa5bd2e7b4024658f9dd2119c7f1c398",
+      "counts": {
+        "test": 2792,
+        "val": 1052
+      },
+      "finite_heldout_targets": {
+        "test": {
+          "consumed_target_elements": 737088000,
+          "nonfinite_converted_wrist_entries": 0,
+          "nonfinite_target_entries": 0,
+          "supervised_hand_rows": 32508021,
+          "target_mode": "full_trajectory",
+          "unique_target_rows": 16752000
+        },
+        "val": {
+          "consumed_target_elements": 277728000,
+          "nonfinite_converted_wrist_entries": 0,
+          "nonfinite_target_entries": 0,
+          "supervised_hand_rows": 12034050,
+          "target_mode": "full_trajectory",
+          "unique_target_rows": 6312000
+        }
+      },
+      "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+      "point_cohort_sha256": "44832ab9f92b897c59ae7e1bad3be1cb93b258d40bd1434b73743b8f4562e968",
+      "selected_checkpoint_sha256": "c9a62af344490dc530a89e4f6b861a5463cd8e9b8aa05fb5380d171776ee36ff",
+      "trajectory_input_sha256": "487e5cbebdb9fa41d12f9e87a450e37b91c19b16bb2117d190d5bcceff992078"
+    },
+    "small": {
+      "actual_admission_files_byte_exact": true,
+      "actual_complete_fit_artifacts_sha256": {
+        "checkpoints/best-val_mae=val_mae=0.2583.ckpt": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+        "checkpoints/last.ckpt": "d1bb455da3bc19e42a284ab51fe113c1b82df6ef8e28f84f5fefb6545202c1ce",
+        "epochs.jsonl": "21370e56c1a6cb603c62b55553f9212d6d00cc118c35495cb4977ae68b096bb8",
+        "fit-result.json": "0ffb21370785eb9ab4a9ad5df4eda823995c8327ce6a2b4bba59bc0bf83a2394",
+        "identity.json": "8f2f33d583848b55d371ebaab0a6259e19dc02ba9fa797c79c580ce69036c457"
+      },
+      "actual_fit_epochs": 200,
+      "actual_fit_optimizer_executions": 25000,
+      "actual_independent_admissions": 2,
+      "actual_replica_seconds": [
+        65.20899168588221,
+        64.93332582805306
+      ],
+      "admission_file_sha256": "c62735c216ab6bb2cadd74e98125b3679e2faf5eab288baa0d76864bf8395a21",
+      "counts": {
+        "test": 2792,
+        "val": 1052
+      },
+      "finite_heldout_targets": {
+        "test": {
+          "consumed_target_elements": 737088000,
+          "nonfinite_converted_wrist_entries": 0,
+          "nonfinite_target_entries": 0,
+          "supervised_hand_rows": 32508021,
+          "target_mode": "full_trajectory",
+          "unique_target_rows": 16752000
+        },
+        "val": {
+          "consumed_target_elements": 277728000,
+          "nonfinite_converted_wrist_entries": 0,
+          "nonfinite_target_entries": 0,
+          "supervised_hand_rows": 12034050,
+          "target_mode": "full_trajectory",
+          "unique_target_rows": 6312000
+        }
+      },
+      "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+      "point_cohort_sha256": "5a1ecdbe53022ba02ccdb39ff39675f62db2b08662ec3d9fa39842f853b9539f",
+      "selected_checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+      "trajectory_input_sha256": "10f160a694ef8d3a02b612592841171295e090da029bb5bc37f99cd8404380cd"
+    }
+  },
+  "all_three_full_heldout_target_populations_independently_admitted_twice": true,
+  "bundle_sha256": "b18ee72e7d07fdca6b2e2c7ba44a53b5fc08752aeec772d0d124e3d6a103851f",
+  "corpus": "available released legacy EgoEMG; original native200 fit cohorts; not current Baidu/PDF population equivalence",
+  "cuda_initialized": false,
+  "format": "actual_native_emgformer_full_trajectory_double_inputs_verified_v1",
+  "full_fit_or_evaluation_permit": false,
+  "full_paper_complete": false,
+  "full_val_test_trajectory_model_evaluation_complete": false,
+  "independent_postexit_collector_also_exited": true,
+  "independent_postexit_verifier_model_and_optimizer_construction_denied": true,
+  "new_formal_trajectory_mae_reported": false,
+  "observed_utc": "2026-11-01T12:28:52.944476+00:00",
+  "paper_population_equivalence_established": false,
+  "postexit_all_payload_hashes_reopened_exact": true,
+  "postexit_collector_actor": {
+    "pgrp": 1473553,
+    "pid": 1473553,
+    "sid": 1473553,
+    "start_ticks": "436341493",
+    "state": "R",
+    "uid": 1005
+  },
+  "postexit_frozen_source_files_reopened_exact": true,
+  "scientific_eligible": false,
+  "source_commit": "983fd9338f4aec975a53a05971379861dd66b735"
+}
