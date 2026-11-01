@@ -1,0 +1,39 @@
+{
+  "actual_complete_ordinary_source_admission_tested": true,
+  "actual_exit_code": 0,
+  "actual_test_actor": {
+    "pgrp": 1588964,
+    "pid": 1588964,
+    "sid": 1588964,
+    "start_ticks": "437233820",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_test_actor_closed": true,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "explicit_tested_unit_snapshot": {
+    "egoemg_repro/qualitative_run.py": "e7f2e6b1a6ed6bb9027c9167f9991ac16c8c91a0e9f7b2cfa7af8f1c54c65d13",
+    "tests/test_qualitative_run.py": "6f0ad9b218224883ffc6b0f72e8c112bc56c9ce510b5f644b59a860d52e98d77",
+    "tests/test_qualitative_run_source.py": "a98983c1f42e2118816e623d8972a88094c3ba75088c24c716b2cb3c4be7f616"
+  },
+  "figure7_reproduced": false,
+  "format": "ordinary_frozen_prediction_new_runtime_source_and_byte_join_tests_v1",
+  "full_frozen_predictions_complete": false,
+  "full_paper_complete": false,
+  "missing_api_red_observed": true,
+  "missing_api_red_seconds": 0.79,
+  "old_closed_suites_repeated": false,
+  "passed": 27,
+  "production_unchanged_for_tail_reference_error": true,
+  "raw_log_sha256": "fa790447e3c5997a34d280d39986fa0fb0d1328f91439b96fb50b065a3f1323f",
+  "scientific_eligible": false,
+  "seconds": 1.36,
+  "shared_runtime_modified": false,
+  "skipped": 0,
+  "source_base_commit": "4d3eb1e339f0c64e5bbd2bb219e26d4685e66ed8",
+  "tail_reference_literal_corrected_from32_to33": true
+}
