@@ -1,0 +1,357 @@
+{
+  "actual_live_workflows": 7,
+  "all_deployed_workflows_independent_of_local_ssh": true,
+  "format": "actual_full_paper_seven_server_workflows_20261101_v1",
+  "full_paper_complete": false,
+  "jobs": {
+    "geometry": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 910315,
+          "start_ticks": "432560001"
+        },
+        "started_utc": "2026-11-01T01:58:14.669416+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 910314,
+          "start_ticks": "432559998"
+        }
+      },
+      "completed_owned_phase_names": [],
+      "geometry_arrays_required": 8,
+      "geometry_numeric_admission_complete": false,
+      "live_owned_stages": {},
+      "local_and_server_strict_public_probes_passed": true,
+      "new_missing_expected_bytes": 29971261425,
+      "newly_completed_transfer_files": [
+        {
+          "filename": "mocap_right_valid.dat",
+          "recovery_statistics": {
+            "exhausted": false,
+            "last_failure_offset": null,
+            "scheduled_retries": 0,
+            "transient_failures": 0
+          },
+          "transfer_receipt": {
+            "bytes": 1389396225,
+            "checksum_basis": "local_transfer",
+            "drive_id": "14lCnNtA1kho2PADp5NexHJejoEEErsQs",
+            "sha256": "5c8ad53bb021aabc27fc92317ac10f814b4e1146cdaace4edbc883656c587dd8",
+            "url": "https://drive.google.com/uc?id=14lCnNtA1kho2PADp5NexHJejoEEErsQs",
+            "verified_at": "2026-11-01T02:04:00.487878+00:00"
+          }
+        }
+      ],
+      "observed_missing_asset_sizes": {
+        "generated_mano_left_pose.dat": 0,
+        "generated_mano_right_pose.dat": 0,
+        "mocap_right_valid.dat": 1389396225,
+        "mocap_webcam_transform.dat": 0
+      },
+      "original_local_partial_prefix_preserved": true,
+      "protected_existing_arrays_verified": 4,
+      "retry_events": [],
+      "source_chunk_bytes": 16777216,
+      "status": "server-geometry-download-running",
+      "transfer_complete_geometry_arrays": 5
+    },
+    "large": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903988,
+          "start_ticks": "432500345"
+        },
+        "started_utc": "2026-11-01T01:48:18.109234+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903987,
+          "start_ticks": "432500342"
+        }
+      },
+      "completed_owned_phase_names": [],
+      "full_max_epochs": 250,
+      "live_owned_stages": {
+        "owned-experiment": {
+          "io_telemetry": {
+            "rchar": 78077064492,
+            "read_bytes": 16693837824,
+            "wchar": 97,
+            "write_bytes": 0
+          },
+          "matching_live": true,
+          "worker": {
+            "pgrp": 904008,
+            "pid": 904008,
+            "sid": 904008,
+            "start_ticks": "432500387",
+            "state": "R",
+            "uid": 1005
+          }
+        }
+      },
+      "new_gpu_fit_verified": false,
+      "parent_complete_epochs": 0,
+      "status": "emg2pose-full-source-admission"
+    },
+    "middle": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903986,
+          "start_ticks": "432500340"
+        },
+        "started_utc": "2026-11-01T01:48:18.056262+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903984,
+          "start_ticks": "432500337"
+        }
+      },
+      "completed_owned_phase_names": [],
+      "full_max_epochs": 250,
+      "live_owned_stages": {
+        "owned-experiment": {
+          "io_telemetry": {
+            "rchar": 78077064506,
+            "read_bytes": 18505990144,
+            "wchar": 97,
+            "write_bytes": 0
+          },
+          "matching_live": true,
+          "worker": {
+            "pgrp": 904004,
+            "pid": 904004,
+            "sid": 904004,
+            "start_ticks": "432500382",
+            "state": "R",
+            "uid": 1005
+          }
+        }
+      },
+      "new_gpu_fit_verified": false,
+      "parent_complete_epochs": 0,
+      "status": "emg2pose-full-source-admission"
+    },
+    "native_emgformer": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903600,
+          "start_ticks": "432494128"
+        },
+        "started_utc": "2026-11-01T01:47:15.945106+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903599,
+          "start_ticks": "432494125"
+        }
+      },
+      "checkpoint_log_is_telemetry_not_final_scientific_acceptance": true,
+      "completed_owned_phase_names": [
+        "preflight",
+        "qual-accept",
+        "qual-freeze",
+        "qual-prefix",
+        "qual-report",
+        "qual-resume",
+        "qual-test-native",
+        "qual-test-replay",
+        "qual-val-native",
+        "qual-val-replay",
+        "qual-verify"
+      ],
+      "full_training_finished": false,
+      "last_checkpoint_log_epoch_and_global_step": [
+        1,
+        250
+      ],
+      "live_owned_stages": {
+        "owned-full-fit": {
+          "io_telemetry": {
+            "rchar": 20127605477,
+            "read_bytes": 2351104,
+            "wchar": 336794982,
+            "write_bytes": 335671296
+          },
+          "matching_live": true,
+          "worker": {
+            "pgrp": 909983,
+            "pid": 909983,
+            "sid": 909983,
+            "start_ticks": "432556708",
+            "state": "R",
+            "uid": 1005
+          }
+        }
+      },
+      "max_epochs": 200,
+      "status": "native-original-full200-fit-running"
+    },
+    "native_large_full": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 914196,
+          "start_ticks": "432577366"
+        },
+        "started_utc": "2026-11-01T02:01:08.319388+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 914195,
+          "start_ticks": "432577363"
+        }
+      },
+      "completed_owned_phase_names": [
+        "qual-accept",
+        "qual-val-native"
+      ],
+      "full200_started": false,
+      "live_owned_stages": {
+        "owned-qual-val-replay": {
+          "io_telemetry": {
+            "rchar": 18901854908,
+            "read_bytes": 0,
+            "wchar": 11576,
+            "write_bytes": 8192
+          },
+          "matching_live": true,
+          "worker": {
+            "pgrp": 919093,
+            "pid": 919093,
+            "sid": 919093,
+            "start_ticks": "432588903",
+            "state": "R",
+            "uid": 1005
+          }
+        }
+      },
+      "original_full200_chain_staged": true,
+      "short_gpu_fit_epochs": 2,
+      "short_gpu_optimizer_updates": 4,
+      "status": "native-original-qualification-evaluation-running"
+    },
+    "native_middle_full": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 914202,
+          "start_ticks": "432577372"
+        },
+        "started_utc": "2026-11-01T02:01:08.384031+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 914201,
+          "start_ticks": "432577369"
+        }
+      },
+      "completed_owned_phase_names": [
+        "qual-accept",
+        "qual-val-native",
+        "qual-val-replay"
+      ],
+      "full200_started": false,
+      "live_owned_stages": {
+        "owned-qual-freeze": {
+          "io_telemetry": {
+            "rchar": 65835039,
+            "read_bytes": 0,
+            "wchar": 4,
+            "write_bytes": 4096
+          },
+          "matching_live": true,
+          "worker": {
+            "pgrp": 920611,
+            "pid": 920611,
+            "sid": 920611,
+            "start_ticks": "432594632",
+            "state": "R",
+            "uid": 1005
+          }
+        }
+      },
+      "original_full200_chain_staged": true,
+      "short_gpu_fit_epochs": 2,
+      "short_gpu_optimizer_updates": 4,
+      "status": "native-original-qualification-evaluation-running"
+    },
+    "small": {
+      "actual_independent_sessions_and_dev_null": true,
+      "actual_matching_parent_owners_live": true,
+      "actual_recorder_reparented_to_pid1": true,
+      "actual_registered_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903983,
+          "start_ticks": "432500334"
+        },
+        "started_utc": "2026-11-01T01:48:18.002298+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903982,
+          "start_ticks": "432500331"
+        }
+      },
+      "completed_owned_phase_names": [],
+      "full_max_epochs": 250,
+      "live_owned_stages": {
+        "owned-native-resume": {
+          "io_telemetry": {
+            "rchar": 78175456679,
+            "read_bytes": 14659411968,
+            "wchar": 702,
+            "write_bytes": 12288
+          },
+          "matching_live": true,
+          "worker": {
+            "pgrp": 903992,
+            "pid": 903992,
+            "sid": 903992,
+            "start_ticks": "432500356",
+            "state": "R",
+            "uid": 1005
+          }
+        }
+      },
+      "new_gpu_fit_verified": false,
+      "parent_complete_epochs": 19,
+      "status": "emg2pose-full-source-admission"
+    }
+  },
+  "limitations": [
+    "Short native M/L GPU fits and data proof do not add a scientific setting.",
+    "EMG2Pose source IO telemetry is not completed source validation or epochs.",
+    "Geometry transfer size/SHA attest reception, not publisher-provided cryptographic provenance or full geometric validity.",
+    "EMG2Pose-S final evaluation has not yet been staged after its250-epoch resumed fit.",
+    "Remaining full-paper annotation, complete geometry, occlusion/correlation and other unaccepted requirements remain open.",
+    "Local agent monitoring and any future unstaged work pause if the local computer shuts down."
+  ],
+  "observed_utc": "2026-11-01T02:04:03.227759+00:00",
+  "paper_equivalence_proven": false,
+  "resource_snapshot": {
+    "disk_free_bytes": 1505660157952,
+    "foreign_gpu3_gpu6_consumers_preserved": true,
+    "host_available_bytes": 926158495744
+  },
+  "scientific_settings_added": 0,
+  "scientific_settings_complete": 14
+}

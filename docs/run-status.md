@@ -1,6 +1,6 @@
 # 运行状态
 
-> **2026-11-01 剩余实验续行（北京时间09:49快照）**：[四项实际后台任务](../results/full-paper-continuation-20261101.json)已独立放到服务器。原生EMGFormer-S在GPU1通过本次完整输入预检并进入真实GPU资格前缀；原batch500/6workers/BF16及后续全新200轮保持不变，尚无新完整结果。EMG2Pose S/M/L原进程身份均存活，正在完整25,253源重新准入；S保留真实19轮/30,096更新父状态，M/L以独立新目录准备原250轮，均尚未核验新的完整GPU训练。断开SSH后重新核对PID/start/UID、独立会话、父PID1及标准输入/dev/null，任务不依赖本机连接；本机关机后的本地监控和未部署工作会暂停。旧终止任务保留、不改写成功；已完成设置仍14，全文仍未完成。
+> **2026-11-01 剩余实验续行（北京时间10:04快照）**：[七项服务器后台流程](../results/full-paper-execution-20261101T0204.json)的原PID/start均重新确认存活。原生EMGFormer-S已完成完整GPU资格与独立评估链，进入原batch500/6workers/BF16的全新200轮fit；训练日志已出现epoch0/global step125的保存记录。原生M/L各完成[完整16文件/16.540GB双进程准入及两轮GPU恢复](../results/native-emgformer-ml-input-and-fit-qualification-20261101.json)，各4次真实更新、六状态及验证重放一致，正在原生验证/测试资格链，通过后自动进入各自200轮和最终评估。EMG2Pose S/M/L同一来源准入进程继续，尚无新GPU fit。服务器已完整收到右手有效性文件1,389,396,225字节，几何传输增至5/8；其余三个几何文件继续按原严格HTTPS范围规则接收，几何数值准入与遮挡实验仍欠。上述已部署流程独立于本机SSH；已完成科学设置仍14，没有新增最终成绩。
 
 > **2026-11-01 核心结果验收**：用户优先指定的ViT-L、WiLoR、ViT-S＋EMGFormer-S融合均已完成完整训练、最终测试、独立完整重放与报告核验。新增[WiLoR](../results/original-vision/wilor/README.md)30轮/336,720更新、全部/有图中心5.107042°/4.952077°；新增[ViT-S融合](../results/original-fusion/vit-small-emgformer-small/README.md)150轮/296,550更新、全部/有图中心6.342238°/6.205656°。两项各8,612次测试消费/4,306唯一手样本，验证选优为第30/108轮，7/8个评估阶段均退出0；各自20/22个原拥有进程身份已确认关闭，选中原始检查点实际SHA一致。科学完成设置增至14；[终态快照](../results/core-priority-status-20261101.json)与[论文数值参照](../results/paper-comparison/README.md)已更新。旧版/单rank及中断恢复边界保留，整篇论文与PDF等价仍未完成。以下较早条目按其各自日期作为历史记录保留。
 
