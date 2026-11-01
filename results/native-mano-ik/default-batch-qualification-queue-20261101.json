@@ -1,0 +1,49 @@
+{
+  "actual_idle_gpu_and_64GiB_free_required": true,
+  "actual_original_owners": {
+    "child": {
+      "matching_live": true,
+      "pid": 1550180,
+      "ppid": 1550179,
+      "session": 1550180,
+      "start_ticks": "436924586",
+      "stdin": "/dev/null",
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "matching_live": true,
+      "pid": 1550179,
+      "ppid": 1,
+      "session": 1550179,
+      "start_ticks": "436924583",
+      "stdin": "/dev/null",
+      "tty_nr": 0
+    }
+  },
+  "actual_original_owners_matching_live": true,
+  "actual_qualification_started": false,
+  "actual_registered_qualification_stage_count": 0,
+  "bundle_sha256": "593428ee94bc5be3b911d772774db0e4fb1d888132d67bfbdffaa567af5bfe86",
+  "detached_from_local_pc": true,
+  "format": "native_ik_default_batch_qualification_only_queue_registration_v1",
+  "full_frame_labels_regenerated": false,
+  "full_label_workflow_created": false,
+  "full_paper_complete": false,
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae",
+  "observed_utc": "2026-11-01T14:06:20.041590+00:00",
+  "original_default_batch10096_qualified": false,
+  "predecessor_native_SML_trajectory_queue_exact_owner_pair_matching_live": true,
+  "predecessor_required_actual_success_and_all_owned_stage_closure": true,
+  "predecessor_source_commit": "983fd9338f4aec975a53a05971379861dd66b735",
+  "qualification_only": true,
+  "requested_batch_size": 10096,
+  "requested_hands": [
+    "right",
+    "left"
+  ],
+  "requested_logical_shard": 0,
+  "requested_original_batch_index": 32,
+  "scientific_eligible": false,
+  "source_commit": "8f2904b7a94051cf04b9e6da3097a70c903bc7de"
+}

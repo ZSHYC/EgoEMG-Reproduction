@@ -8,6 +8,7 @@
 - [通用结果／控制器49项检查](general-results-tests-20261101.json)：全通过、无跳过；不重复关闭的旧数据／模型数学套件。
 - [一次集成审查与修正](general-integration-review-20261101.json)：4项重要问题均完成一次集中修正；回归先10失败，再通过，最终相关60项全通过／无跳过。
 - [修正后真实37阶段工程V2](general-12-shard-engineering-v2-20261101.json)：实际exit0／所有76个原拥有者及独立收集进程关闭；双手标签字节与上一工程版本相同，新的持续谱系与最终文件校验在实际流程中通过。
+- [原批量资格测试后台队列](default-batch-qualification-queue-20261101.json)：已核验两个原拥有者独立后台运行；等现有native S/M/L轨迹GPU1队列明确成功／关闭及实际空闲后执行。当前未启动资格测试、未创建全量标签工作流。
 - [方法、批次及边界](../../docs/native-mano-ik-full-data.md)；[执行计划](../../docs/superpowers/plans/2026-11-01-native-mano-ik-full-data.md)。
 
 数据仍为可得旧版发布源。4,828,283个双手零姿态保留；不使用marker/label mask替代原脚本不存在的`valid.npy`。保留原默认六逻辑分区、batch10096、right→left及原IK几何设置。
