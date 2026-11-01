@@ -30,7 +30,7 @@
 4. Original first20 geometry and22-angle numeric error are different views; prevent silent angle clamping, new wrist geometry, different per-model camera/view alignment or false physical overlay claims.
 5. A saved render must remain bound to actual RGB/target/three predictions/mesh/error/actor closure through independent readback and publication; early report or changed raw files must not count complete.
 
-## Task1: ordinary-grid candidate selection and exact cached-key intersection
+## Task 1: ordinary-grid candidate selection and exact cached-key intersection
 
 **Files:** create egoemg_repro/qualitative_data.py, tests/test_qualitative_data.py; later private owned double-admission launcher and public results/native-qualitative/ evidence.
 **Interfaces:** qualitative_protocol(upstream,config,*,recipe,max_samples_per_split=500,seed=42)->dict; admit_qualitative_selection(data,*,upstream,config,recipe,max_samples_per_split=500,seed=42,engineering=False)->registered QualitativeSelection with copied readonly .points, copied .identity, .check(). Original index-only native view is reused without modifying closed data/model code. Actual full source is authenticated against fixed complete index proof b57de34.../manifest+metadata+split full SHA; engineering remains explicitly engineering.
@@ -39,13 +39,13 @@
 - [x] Implement minimal byte-bound registered data component; compare tests to actual original source functions. No learned model/optimizer/geometry/CUDA permit. Watch new tests GREEN without skips.
 - [x] Two fresh actual admissions for each of default500 and all0 for both recipes. Save exact private typed arrays/identities, compare current old dense point payloads by full hand/episode/start/end/center keys and report real intersection/missing counts. Close all actual actors and fresh postexit reader; publish data-only evidence.
 
-## Task2: actual frozen predictions, original ranking and FK visual output
+## Task 2: actual frozen predictions, original ranking and FK visual output
 
 - [ ] Admit actual fully completed producer triplets/default standard selections, exact raw input RGB/GT/masks/normalization, all target/model states. Reuse a dense packet only for proven identical keys and producer semantics. Produce every remaining required standard-key prediction using original CPU-supported forwarding, complete replay and no new updates.
 - [ ] Source-native tracked/not-stale/marker filter, errors and stable descending delta ranking. Keep pre/post populations and raw data. Original FK helper/20finger geometry, actual numeric22errors and all samples/conditions/selection policy explicitly joined. Tests first; preserve cold/fresh actual packets and no-zero fallback.
 - [ ] Visually inspect saved candidate crops and mesh renders; record deterministic rank and condition rationale for three examples. Render standalone actual data figure and table with source/model/license/selection attribution and actual unrounded statistics.
 
-## Task3: lifecycle, independent reconstruction, review and publication
+## Task 3: lifecycle, independent reconstruction, review and publication
 
 - [ ] Integrate owned producer/fresh reader/report closure and complete current raw/source/render lineage. New tests only; one final complete NEW-unit review and one material fix phase, no second review or old core math/test repetitions.
 - [ ] Actual complete source-specific Figure7 run and independent array/geometry/error/render reconstruction; all exact owners closed, source labels/models unchanged. Publish actual supported panels/metadata/limitations and update Figure7 row only to proved scope. Native RN18 and original-cohort equivalence remain pending until actually proved; no engineering substitute.

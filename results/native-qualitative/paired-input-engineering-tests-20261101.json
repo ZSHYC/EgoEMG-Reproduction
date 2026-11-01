@@ -1,0 +1,43 @@
+{
+  "actual_exit_code": 0,
+  "actual_test_actor": {
+    "pgrp": 1570515,
+    "pid": 1570515,
+    "sid": 1570515,
+    "start_ticks": "437086070",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_test_actor_closed": true,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "explicit_tested_unit_snapshot": {
+    "egoemg_repro/qualitative_inputs.py": "abf1092886dc75a26e8016ad0b1313f525c22c094a189f9da47e4f6cf8a08648",
+    "tests/test_qualitative_inputs.py": "10143b8a89ab7c12967c1180ada7164c21a231a2e6e5d936d1d7dfbd755f338c"
+  },
+  "figure7_reproduced": false,
+  "format": "ordinary_qualitative_native_paired_inputs_new_engineering_tests_v1",
+  "full_paper_complete": false,
+  "learned_model_and_optimizer_construction_denied": true,
+  "missing_api_red_observed": true,
+  "missing_api_red_seconds": 0.74,
+  "native_reference": "actual EgoEmgMemmapDataset with center_target_only=True and original _resolve_index_to_center(native_index)",
+  "old_closed_suites_repeated": false,
+  "passed": 18,
+  "raw_log_sha256": "36c62608564e839a4fda343d5477e1c6e14004f51213aa5556b5af5ff0b94b34",
+  "reference_constructor_corrections": {
+    "center_fast_path_omits_window_metadata": true,
+    "failed_reference_runs_preserved": true,
+    "initial_trajectory_instead_of_center": true,
+    "production_implementation_changed_for_reference_errors": false
+  },
+  "scientific_eligible": false,
+  "seconds": 43.36,
+  "shared_runtime_modified": false,
+  "skipped": 0,
+  "source_base_commit": "09e22c632606052ee84d1f8faf79404a58373c9d",
+  "trained_model_or_inference_permit": false
+}
