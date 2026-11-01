@@ -1,0 +1,486 @@
+{
+  "all_table1_cells_verified": false,
+  "all_ten_official_pages_observed_http200": true,
+  "attached_pdf_sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+  "calibrated_glove_or_angles_documented_beyond_footnote": [
+    "DB8",
+    "DB9"
+  ],
+  "complete_egoemg_multimodal_inventory_verified": false,
+  "databases": [
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_uncalibrated_glove",
+      "database": "DB1",
+      "emg_electrodes_nominal": 10,
+      "emg_matrix_columns_reported": 10,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 22,
+      "movements_excluding_rest_nominal": 52,
+      "notes": "DB1 only; raw glove sensors are not independently calibrated anatomical22DoF.",
+      "participant_scope": "this database only",
+      "participants_reported": 27,
+      "primary_source_id": "ninapro_db1",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB1.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_uncalibrated_glove",
+      "database": "DB2",
+      "emg_electrodes_nominal": 12,
+      "emg_matrix_columns_reported": 12,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 22,
+      "movements_excluding_rest_nominal": 49,
+      "notes": "DB2 only; page repeats both10 and6 repetitions, not silently reconciled here.",
+      "participant_scope": "this database only",
+      "participants_reported": 40,
+      "primary_source_id": "ninapro_db2",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB2.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_uncalibrated_glove",
+      "database": "DB3",
+      "emg_electrodes_nominal": 12,
+      "emg_matrix_columns_reported": 12,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 22,
+      "movements_excluding_rest_nominal": 49,
+      "notes": "Up to12 electrodes/up to49 movements; glove22 is a documentation declaration, not proof of valid kinematics for every amputee.",
+      "participant_scope": "this database only",
+      "participants_reported": 11,
+      "primary_source_id": "ninapro_db3",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB3.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_uncalibrated_glove",
+      "database": "DB4",
+      "emg_electrodes_nominal": 12,
+      "emg_matrix_columns_reported": 12,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 22,
+      "movements_excluding_rest_nominal": 52,
+      "notes": "Official variable list includes glove22, beyond the EgoEMG footnote DB1/2/5.",
+      "participant_scope": "this database only",
+      "participants_reported": 10,
+      "primary_source_id": "ninapro_db4",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB4.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_uncalibrated_glove",
+      "database": "DB5",
+      "emg_electrodes_nominal": 16,
+      "emg_matrix_columns_reported": 16,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 22,
+      "movements_excluding_rest_nominal": 52,
+      "notes": "Both Myo armbands are on the right forearm;16 channels does not establish bilateral EMG.",
+      "participant_scope": "this database only",
+      "participants_reported": 10,
+      "primary_source_id": "ninapro_db5",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB5.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "not_established",
+      "database": "DB6",
+      "emg_electrodes_nominal": 14,
+      "emg_matrix_columns_reported": 16,
+      "first_person_visual_capture_documented": true,
+      "glove_or_angles_columns_reported": null,
+      "movements_excluding_rest_nominal": 7,
+      "notes": "14 physical electrodes; stored emg16 has2 empty columns. Tobii field-of-view acquisition is documented; full video release uninspected.",
+      "participant_scope": "this database only",
+      "participants_reported": 10,
+      "primary_source_id": "ninapro_db6",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB6.html",
+      "rest_is_additional_documented": null,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_uncalibrated_glove",
+      "database": "DB7",
+      "emg_electrodes_nominal": 12,
+      "emg_matrix_columns_reported": 12,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 18,
+      "movements_excluding_rest_nominal": 40,
+      "notes": "20 intact plus2 amputees; official glove18 is called uncalibrated and manufacturer quick-calibration is separately described; one subject has38 rather than40 movements.",
+      "participant_scope": "this database only",
+      "participants_reported": 22,
+      "primary_source_id": "ninapro_db7",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB7.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_calibrated_glove",
+      "database": "DB8",
+      "emg_electrodes_nominal": 16,
+      "emg_matrix_columns_reported": 16,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 18,
+      "movements_excluding_rest_nominal": 9,
+      "notes": "10 intact plus2 amputees; right forearm EMG and left-hand glove, bilateral mirrored movement; do not call this bilateral EMG. Source includes a conflicting40-movement paragraph; regression guidance specifies9.",
+      "participant_scope": "this database only",
+      "participants_reported": 12,
+      "primary_source_id": "ninapro_db8",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB8.html",
+      "rest_is_additional_documented": true,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "source_calibrated_angles_with_sensor11_exclusion",
+      "database": "DB9",
+      "emg_electrodes_nominal": null,
+      "emg_matrix_columns_reported": null,
+      "first_person_visual_capture_documented": null,
+      "glove_or_angles_columns_reported": 22,
+      "movements_excluding_rest_nominal": null,
+      "notes": "77 participants are from DB1/2/5, not77 additional participants. The page declares angles22 but excludes sensor11 in Usage notes; actual matrix width/validity not measured.",
+      "participant_scope": "original cohorts DB1/2/5 reused",
+      "participants_reported": 77,
+      "primary_source_id": "ninapro_db9",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB9.html",
+      "rest_is_additional_documented": null,
+      "video_release_documented": null
+    },
+    {
+      "actual_mat_or_video_payload_verified": false,
+      "calibration_description": "not_established",
+      "database": "DB10",
+      "emg_electrodes_nominal": 12,
+      "emg_matrix_columns_reported": 12,
+      "first_person_visual_capture_documented": true,
+      "glove_or_angles_columns_reported": null,
+      "movements_excluding_rest_nominal": 10,
+      "notes": "Motor dataset in Sci Data7:43, not the separate clinical15+29 cohort. Typical12-channel EMG has source-noted exceptions. Authors report MP4 release; full catalog/payload inspection remains unverified.",
+      "participant_scope": "motor study doi:10.1038/s41597-020-0380-3",
+      "participants_reported": 45,
+      "primary_source_id": "ninapro_db10",
+      "primary_url": "https://ninapro.hevs.ch/instructions/DB10.html",
+      "rest_is_additional_documented": null,
+      "video_release_documented": true
+    }
+  ],
+  "declared_glove_schema_beyond_DB1_DB2_DB5": [
+    "DB3",
+    "DB4",
+    "DB7",
+    "DB8",
+    "DB9"
+  ],
+  "external_models_retrained": false,
+  "first_person_video": {
+    "anonymous_metadata_request": {
+      "automatic_retry_performed": false,
+      "dataset_declared_unavailable": false,
+      "http_status": 403,
+      "url": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/1Z3IOM"
+    },
+    "authors_report_release_format": "MP4",
+    "complete_release_manifest_verified": false,
+    "database": "DB10/MDS1",
+    "primary_document_release_verified": true,
+    "primary_motor_cohort": 45,
+    "simultaneous_continuous_3d_hand_pose_benchmark_established": false,
+    "video_payload_verified": false
+  },
+  "format": "ninapro_db1_to_db10_primary_document_scope_audit_v1",
+  "full_paper_complete": false,
+  "non_independent_cohort": {
+    "database": "DB9",
+    "must_not_sum_as_new_people": true,
+    "original_databases": [
+      "DB1",
+      "DB2",
+      "DB5"
+    ],
+    "reported_participants": 77
+  },
+  "observed_utc": "2026-11-01T19:23:20.253020+00:00",
+  "official_sources": {
+    "ninapro_atzori2016": {
+      "bytes": 877654,
+      "final_url": "https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2016.00009/full",
+      "headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "etag": "\"3\""
+      },
+      "http_status": 200,
+      "sections": [
+        "Materials and Methods/Subjects",
+        "Acquisition Setup and Protocol"
+      ],
+      "sha256": "b267572d8622cc305ab4520e8ecac7abec1bfaab777b7a386ea3f4accb0dec00",
+      "url": "https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2016.00009/full"
+    },
+    "ninapro_db1": {
+      "bytes": 13682,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB1.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"3572-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "ae4a6dae34dc6213d31b737042d828c58915be8dc037b5467c1d287b0cdec96c",
+      "url": "https://ninapro.hevs.ch/instructions/DB1.html"
+    },
+    "ninapro_db10": {
+      "bytes": 4934,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB10.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"1346-60516d9e82656\"",
+        "Last-Modified": "Mon, 11 Sep 2023 15:19:23 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "643b38f1d0d9d217be5f2d4dbb5c9ec1de861fff544e8bf1503a7b6dd9e143c5",
+      "url": "https://ninapro.hevs.ch/instructions/DB10.html"
+    },
+    "ninapro_db2": {
+      "bytes": 18586,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB2.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"489a-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "b7fa647bea0de45213d10fe786b5bf7358756ec723ebf469d4bf59aeb312a227",
+      "url": "https://ninapro.hevs.ch/instructions/DB2.html"
+    },
+    "ninapro_db3": {
+      "bytes": 18126,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB3.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"46ce-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "c2aaa5ca3606914bbde245e65ea9e8a11aecb459953e1eefaa3476d0b9c7cea5",
+      "url": "https://ninapro.hevs.ch/instructions/DB3.html"
+    },
+    "ninapro_db4": {
+      "bytes": 11945,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB4.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"2ea9-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "921e4d0eaf5c21f1dc4f9b076007bc382b02a21a8af8189427f45e49546a99cf",
+      "url": "https://ninapro.hevs.ch/instructions/DB4.html"
+    },
+    "ninapro_db5": {
+      "bytes": 11776,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB5.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"2e00-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "6d51178878243fb6a6c4cf183c0082bf3ae9dcda4d6c85f5a2468232b630e8de",
+      "url": "https://ninapro.hevs.ch/instructions/DB5.html"
+    },
+    "ninapro_db6": {
+      "bytes": 15030,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB6.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"3ab6-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "5958d0af45380883239efcccb79b7313c1c408b46e08ed3cc64f49687c4a121e",
+      "url": "https://ninapro.hevs.ch/instructions/DB6.html"
+    },
+    "ninapro_db7": {
+      "bytes": 17444,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB7.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"4424-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "18f548468537020aa9964b690e597da1f9676e416f5d51890354ddfe4b1e26d3",
+      "url": "https://ninapro.hevs.ch/instructions/DB7.html"
+    },
+    "ninapro_db8": {
+      "bytes": 23611,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB8.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"5c3b-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Important notes",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "59974d688c2f5ee31b3beef6eb102554f5a603fff8f7f5da4ff655e1686387b7",
+      "url": "https://ninapro.hevs.ch/instructions/DB8.html"
+    },
+    "ninapro_db9": {
+      "bytes": 23683,
+      "final_url": "https://ninapro.hevs.ch/instructions/DB9.html",
+      "headers": {
+        "Content-Type": "text/html",
+        "Etag": "\"5c83-60526b6d6ad01\"",
+        "Last-Modified": "Tue, 12 Sep 2023 10:14:54 GMT"
+      },
+      "http_status": 200,
+      "sections": [
+        "Overview",
+        "Subjects",
+        "Acquisition Setup",
+        "Acquisition Protocol",
+        "Dataset variables",
+        "Usage notes",
+        "Publications",
+        "Data"
+      ],
+      "sha256": "f6c363313fbd6efd1608d32e6bef0874fe5deb7fb21899de7c85db7277aeae75",
+      "url": "https://ninapro.hevs.ch/instructions/DB9.html"
+    },
+    "ninapro_meganepro2020": {
+      "bytes": 185020,
+      "canonical_url": "https://doi.org/10.1038/s41597-020-0380-3",
+      "doi": "10.1038/s41597-020-0380-3",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7010656/fullTextXML",
+      "http_status": 200,
+      "observed_utc": "2026-11-01T19:18:08.822755+00:00",
+      "sections": [
+        "Abstract",
+        "Subject Recruitment",
+        "Data Records",
+        "Table4",
+        "Usage Notes/Video"
+      ],
+      "sha256": "2f74293292ecb334852799066c426fea310c3269382659f9abb9801e25887c64",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7010656/fullTextXML"
+    }
+  },
+  "original_table_values_silently_corrected": false,
+  "published_db123_composition": {
+    "DB1": 27,
+    "DB2": 40,
+    "DB3": 11,
+    "EgoEMG_authors_intended_27_to_78_range_established": false,
+    "amputees_explicitly_reported": 11,
+    "independent_natural_person_deduplication_performed": false,
+    "intact_explicitly_reported": 67,
+    "no_longer_only_arithmetic_conjecture": true,
+    "primary_doi": "10.3389/fnbot.2016.00009",
+    "section": "Materials and Methods/Subjects",
+    "source_id": "ninapro_atzori2016",
+    "total_explicitly_reported": 78
+  },
+  "raw_ninapro_data_downloaded": false,
+  "scientific_settings_added": 0,
+  "stored_vs_physical_channels": {
+    "database": "DB6",
+    "declared_empty_columns": 2,
+    "physical_electrodes": 14,
+    "raw_payload_verified": false,
+    "stored_emg_columns": 16
+  },
+  "table1_as_reported_csv_sha256": "86989bf76719213eb393a0cbd4c5282ce000f10e77c4fddb1e45bc10967391ad"
+}

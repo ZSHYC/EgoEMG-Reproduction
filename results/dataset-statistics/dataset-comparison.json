@@ -177,6 +177,19 @@
       "status": "complete_release_visual_inventory_unresolved"
     }
   ],
+  "followup_ninapro_family_20261102": {
+    "DB10_first_person_video_release_primary_documented": true,
+    "DB6_physical14_stored16": true,
+    "DB9_reuses_DB1_DB2_DB5": true,
+    "all_mat_video_payloads_verified": false,
+    "all_table1_cells_verified": false,
+    "explicit_db123_total78_primary_supported": true,
+    "full_paper_complete": false,
+    "receipt_file": "ninapro-family-source-audit-20261102.json",
+    "receipt_file_sha256": "56236d1a7ed8aa16f77397561b6e6cbf7075e6622984b6703b731d6a9e2e6c45",
+    "ten_official_database_pages_checked": true,
+    "whole_family_single_protocol_established": false
+  },
   "followup_observed_utc": "2026-10-29T02:35:43.032442+00:00",
   "format": "egoemg_table1_as_reported_and_primary_source_audit_v1",
   "full_paper_complete": false,
@@ -219,7 +232,7 @@
     },
     {
       "dataset": "NinaPro",
-      "finding": "The family is heterogeneous. DB8 also provides continuous calibrated kinematics, contradicting the blanket footnote that only DB1/2/5 provide continuous labels. DB5 uses two armbands on one forearm. Raw22glove signals are not automatically calibrated22DoF. Do not collapse movement/rest or per-database participant counts. Follow-up primary DB3/DB6 pages also demonstrate a broader family:11amputees/up-to12electrodes and10intact users/14electrodes respectively. DB6 lists wearable eye tracking/field-of-view acquisition, but this does not prove a released synchronized hand-pose RGB benchmark. Interpret53 as52DB1movements plus rest; do not assign it to every subdatabase.",
+      "finding": "The family is heterogeneous. DB8 also provides continuous calibrated kinematics, contradicting the blanket footnote that only DB1/2/5 provide continuous labels. DB5 uses two armbands on one forearm. Raw22glove signals are not automatically calibrated22DoF. Do not collapse movement/rest or per-database participant counts. Follow-up primary DB3/DB6 pages also demonstrate a broader family:11amputees/up-to12electrodes and10intact users/14electrodes respectively. DB6 lists wearable eye tracking/field-of-view acquisition, but this does not prove a released synchronized hand-pose RGB benchmark. Interpret53 as52DB1movements plus rest; do not assign it to every subdatabase. Follow-up2026-11-02 now verifies the explicit78-person DB1/2/3 composition in the original2016 author study. Ten official pages also document additional glove schemas in DB3/4/7, calibrated DB9 reusing DB1/2/5, DB6 physical14/stored16 distinction, and DB10 first-person MP4 release in its motor study. These are primary-document claims, not full payload verification or a single joint pose+video population.",
       "participant_count_interpretation": {
         "DB1": 27,
         "DB1_movement_classes_including_rest": 53,
@@ -228,7 +241,9 @@
         "DB3": 11,
         "arithmetic_sum_of_database_entries": 78,
         "blanket_family_range_not_established": true,
-        "inference_only": "27+40+11 explains a possible78entry aggregate; no claim that this is the EgoEMG authors intended denominator or independently de-duplicated participants"
+        "primary_explicit_total78_source": "https://doi.org/10.3389/fnbot.2016.00009",
+        "primary_explicit_total78_verified": true,
+        "remaining_boundary": "Published DB1/2/3 composition is78; the EgoEMG authors intended family range and independent cross-database person deduplication remain unestablished"
       },
       "source_ids": [
         "ninapro_db1",
@@ -236,7 +251,13 @@
         "ninapro_db5",
         "ninapro_db8",
         "ninapro_db3",
-        "ninapro_db6"
+        "ninapro_db6",
+        "ninapro_db4",
+        "ninapro_db7",
+        "ninapro_db9",
+        "ninapro_db10",
+        "ninapro_atzori2016",
+        "ninapro_meganepro2020"
       ],
       "verified_facts": {
         "DB1": {
@@ -388,12 +409,18 @@
     "jarque_bou_2019": "https://www.nature.com/articles/s41597-019-0285-1.pdf",
     "jarque_bou_2019_html": "https://www.nature.com/articles/s41597-019-0285-1",
     "myoki": "https://elib.dlr.de/221692/1/s41597-025-05852-6.pdf",
+    "ninapro_atzori2016": "https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2016.00009/full",
     "ninapro_db1": "https://ninapro.hevs.ch/instructions/DB1.html",
+    "ninapro_db10": "https://ninapro.hevs.ch/instructions/DB10.html",
     "ninapro_db2": "https://ninapro.hevs.ch/instructions/DB2.html",
     "ninapro_db3": "https://ninapro.hevs.ch/instructions/DB3.html",
+    "ninapro_db4": "https://ninapro.hevs.ch/instructions/DB4.html",
     "ninapro_db5": "https://ninapro.hevs.ch/instructions/DB5.html",
     "ninapro_db6": "https://ninapro.hevs.ch/instructions/DB6.html",
+    "ninapro_db7": "https://ninapro.hevs.ch/instructions/DB7.html",
     "ninapro_db8": "https://ninapro.hevs.ch/instructions/DB8.html",
+    "ninapro_db9": "https://ninapro.hevs.ch/instructions/DB9.html",
+    "ninapro_meganepro2020": "https://doi.org/10.1038/s41597-020-0380-3",
     "pimforce": "https://arxiv.org/html/2410.23629v1",
     "pimforce_project": "https://pimforce.hcitech.org/",
     "pimforce_release": "https://www.dropbox.com/scl/fo/m7qye1l3ii6hlwgzlajyv/ADhaUZvH2eDJ3ggmGAlN5k0?rlkey=eyt5gs66uimhiw3dismnylamw&dl=0"
