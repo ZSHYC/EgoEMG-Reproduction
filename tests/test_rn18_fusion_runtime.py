@@ -75,12 +75,16 @@ def test_saved_construction_binds_the_specific_registered_initializer_identity(b
 
 def test_explicit_saved_transfer_provenance_policy_does_not_upgrade_engineering_scope(branches):
     """A transfer-schema check is separate from full trained-source admission."""
-    import inspect
-    from egoemg_repro.fusion_literal_runtime import _saved_initialization
-    if 'expected_training_provenance' not in inspect.signature(_saved_initialization).parameters:
-        pytest.fail('saved transfer validator lacks explicit training-provenance policy')
+    try:
+        from egoemg_repro.rn18_fusion_transfer import saved_rn18_transfer as _saved_initialization
+    except ModuleNotFoundError as exc:
+        if exc.name=='egoemg_repro.rn18_fusion_transfer':
+            pytest.fail('RN18 transfer validator must preserve frozen producer modules')
+        raise
     p,_=prepared(branches);identity=copy.deepcopy(p.identity)
     identity['initialization']['initializer_training_provenance_verified']=True
+    from egoemg_repro.fusion_literal_runtime import _saved_initialization as legacy_saved
+    with pytest.raises(ValueError):legacy_saved(identity)
     with pytest.raises(ValueError):_saved_initialization(identity)
     _saved_initialization(identity,expected_training_provenance=True)
     assert identity['initialization']['initializer_training_provenance_verified']is True

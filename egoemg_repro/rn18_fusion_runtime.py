@@ -15,14 +15,15 @@ import weakref
 from .classic_emg import _activate,_file_hash,_hash
 from .data import file_sha256
 from .fusion_literal_runtime import (_admit,_check_assets,_read_state,_restore_offline,
-    _saved_initialization,_verify_emg,_verify_vision)
+    _verify_emg,_verify_vision)
+from .rn18_fusion_transfer import saved_rn18_transfer
 from .rn18_fusion_literal import _validated,rn18_fusion_protocol
 from .vision_literal_runtime import _schema,_versions,vision_state_sha256
 
 ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
 FORMAT='original_rn18_small_fusion_construction_v1'
-LOCAL=('rn18_fusion_literal','rn18_fusion_runtime','rn18_fusion_trained_handoff','fusion_literal_runtime','vision_literal_runtime','classic_emg','data')
+LOCAL=('rn18_fusion_literal','rn18_fusion_runtime','rn18_fusion_transfer','rn18_fusion_trained_handoff','fusion_literal_runtime','vision_literal_runtime','classic_emg','data')
 RUNTIME=('torchvision.models.resnet','torch.nn.modules.module','torch.optim.adam','torch.optim.lr_scheduler')
 EMG_HEAD={'head.net.0.weight','head.net.0.bias','head.net.3.weight','head.net.3.bias'}
 _BRANCHES=weakref.WeakKeyDictionary()
@@ -92,7 +93,7 @@ def engineering_rn18_fusion_initializers(upstream,config,*,vision_checkpoint,vis
 def _saved(identity):
     try:
         full=identity['initializers_scope']=='full'
-        _saved_initialization(identity,expected_training_provenance=full)
+        saved_rn18_transfer(identity,expected_training_provenance=full)
         init=identity['initialization'];transfer=init['vision_transfer'];emg=init['emg_transfer']
         lineage=identity['trained_initializers_identity']
         key=identity['initializers_identity_sha256']

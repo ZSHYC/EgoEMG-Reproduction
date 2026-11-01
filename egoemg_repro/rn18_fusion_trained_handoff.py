@@ -19,7 +19,7 @@ from .rn18_fusion_literal import rn18_fusion_protocol
 
 ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
-LOCAL=('rn18_fusion_trained_handoff','rn18_fusion_vision_producer','rn18_fusion_literal','rn18_fusion_runtime',
+LOCAL=('rn18_fusion_trained_handoff','rn18_fusion_vision_producer','rn18_fusion_literal','rn18_fusion_runtime','rn18_fusion_transfer',
        'rn18_fusion_cohort','rn18_fusion_data','rn18_initializer_train','rn18_initializer_data',
        'rn18_initializer_cohort','fusion_initializer_handoff','fusion_literal_runtime')
 _EMG=weakref.WeakKeyDictionary()
