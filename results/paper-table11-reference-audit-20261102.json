@@ -1,0 +1,473 @@
+{
+  "all12_cited_cells_match_fixed_official_readme": true,
+  "all12_cited_cells_match_primary_publications": true,
+  "cells": [
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "SensingDynamics",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "15.5",
+      "paper_sd": "1.4",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "15.5",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.4",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "user",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "SensingDynamics",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "18.8",
+      "paper_sd": "1.6",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "18.8",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.6",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "SensingDynamics",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "18.7",
+      "paper_sd": "1.6",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "18.7",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.6",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "user_stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "NeuroPose",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "13.2",
+      "paper_sd": "1.1",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "13.2",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.1",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "user",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "NeuroPose",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "17.2",
+      "paper_sd": "1.7",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "17.2",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.7",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "NeuroPose",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "17.5",
+      "paper_sd": "1.5",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "17.5",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.5",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "user_stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "vemg2pose",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "12.2",
+      "paper_sd": "1.3",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "12.2",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.3",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "user",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "vemg2pose",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "15.2",
+      "paper_sd": "1.6",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "15.2",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.6",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "vemg2pose",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "15.8",
+      "paper_sd": "1.4",
+      "primary_location": "Table 4 angular error",
+      "primary_mean": "15.8",
+      "primary_pdf_page": 7,
+      "primary_sd": "1.4",
+      "primary_source": "emg2pose-neurips2024.pdf",
+      "split": "user_stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "CLDM",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "11.3",
+      "paper_sd": "1.0",
+      "primary_location": "Table I sEMG-to-Pose first numeric column",
+      "primary_mean": "11.3",
+      "primary_pdf_page": 8,
+      "primary_sd": "1.0",
+      "primary_source": "emg2tendon-v1.pdf",
+      "split": "user",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "CLDM",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "14.3",
+      "paper_sd": "1.5",
+      "primary_location": "Table I sEMG-to-Pose first numeric column",
+      "primary_mean": "14.3",
+      "primary_pdf_page": 8,
+      "primary_sd": "1.5",
+      "primary_source": "emg2tendon-v1.pdf",
+      "split": "stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    },
+    {
+      "both_display_values_match": true,
+      "dispersion": "across_users",
+      "model": "CLDM",
+      "new_model_run": false,
+      "official_readme_matches": true,
+      "paper_mean": "14.7",
+      "paper_sd": "1.4",
+      "primary_location": "Table I sEMG-to-Pose first numeric column",
+      "primary_mean": "14.7",
+      "primary_pdf_page": 8,
+      "primary_sd": "1.4",
+      "primary_source": "emg2tendon-v1.pdf",
+      "split": "user_stage",
+      "task": "direct_emg_to_pose_regression",
+      "unit": "degrees"
+    }
+  ],
+  "cited_mean_sd_scalar_values": 24,
+  "cited_rows": 4,
+  "cited_run_raw_population_independently_reverified": false,
+  "cited_split_cells": 12,
+  "format": "egoemg_table11_cited_score_primary_provenance_audit_v1",
+  "full_paper_complete": false,
+  "full_table11_complete": false,
+  "model_runs": 0,
+  "new_training_updates": 0,
+  "observed_utc": "2026-11-01T19:58:03.597460+00:00",
+  "official_readme": {
+    "parameter_dashes_in_pdf_preserved": true,
+    "path": "README.md",
+    "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "sha256": "68dfd10536fbb9a0b4f6213adc490ff389ea96eae19f716ca17ea6eb164ed1a0",
+    "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/README.md"
+  },
+  "original_pdf": {
+    "as_reported_users": {
+      "stage": 158,
+      "user": 20,
+      "user_stage": 20
+    },
+    "bytes": 7254348,
+    "filename": "EgoEMG.pdf",
+    "original_seven_rows_preserved": true,
+    "page": 24,
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725",
+    "table": 11
+  },
+  "original_table11_rows": [
+    {
+      "cited_result": true,
+      "model": "SensingDynamics",
+      "params_display": "–",
+      "scores": {
+        "stage": {
+          "mean_display": "18.8",
+          "sd_display": "1.6"
+        },
+        "user": {
+          "mean_display": "15.5",
+          "sd_display": "1.4"
+        },
+        "user_stage": {
+          "mean_display": "18.7",
+          "sd_display": "1.6"
+        }
+      }
+    },
+    {
+      "cited_result": true,
+      "model": "NeuroPose",
+      "params_display": "6.4M",
+      "scores": {
+        "stage": {
+          "mean_display": "17.2",
+          "sd_display": "1.7"
+        },
+        "user": {
+          "mean_display": "13.2",
+          "sd_display": "1.1"
+        },
+        "user_stage": {
+          "mean_display": "17.5",
+          "sd_display": "1.5"
+        }
+      }
+    },
+    {
+      "cited_result": true,
+      "model": "vemg2pose",
+      "params_display": "6.0M",
+      "scores": {
+        "stage": {
+          "mean_display": "15.2",
+          "sd_display": "1.6"
+        },
+        "user": {
+          "mean_display": "12.2",
+          "sd_display": "1.3"
+        },
+        "user_stage": {
+          "mean_display": "15.8",
+          "sd_display": "1.4"
+        }
+      }
+    },
+    {
+      "cited_result": true,
+      "model": "CLDM",
+      "params_display": "–",
+      "scores": {
+        "stage": {
+          "mean_display": "14.3",
+          "sd_display": "1.5"
+        },
+        "user": {
+          "mean_display": "11.3",
+          "sd_display": "1.0"
+        },
+        "user_stage": {
+          "mean_display": "14.7",
+          "sd_display": "1.4"
+        }
+      }
+    },
+    {
+      "cited_result": false,
+      "model": "EMGFormer-S",
+      "params_display": "3.5M",
+      "scores": {
+        "stage": {
+          "mean_display": "11.10",
+          "sd_display": "1.19"
+        },
+        "user": {
+          "mean_display": "12.45",
+          "sd_display": "1.06"
+        },
+        "user_stage": {
+          "mean_display": "12.34",
+          "sd_display": "1.07"
+        }
+      }
+    },
+    {
+      "cited_result": false,
+      "model": "EMGFormer-M",
+      "params_display": "6.6M",
+      "scores": {
+        "stage": {
+          "mean_display": "10.18",
+          "sd_display": "1.13"
+        },
+        "user": {
+          "mean_display": "12.40",
+          "sd_display": "1.08"
+        },
+        "user_stage": {
+          "mean_display": "12.39",
+          "sd_display": "1.08"
+        }
+      }
+    },
+    {
+      "cited_result": false,
+      "model": "EMGFormer-L",
+      "params_display": "16.3M",
+      "scores": {
+        "stage": {
+          "mean_display": "9.28",
+          "sd_display": "1.09"
+        },
+        "user": {
+          "mean_display": "12.26",
+          "sd_display": "1.08"
+        },
+        "user_stage": {
+          "mean_display": "12.25",
+          "sd_display": "1.08"
+        }
+      }
+    }
+  ],
+  "parameter_counts_recomputed": false,
+  "provenance": [
+    {
+      "evidence": "section3.5 explicitly calls NeuroPose and SensingDynamics re-implementations; page7 describes changed NeuroPose sampling/downsampling",
+      "meaning": "benchmark implementations evaluated on EMG2Pose; method-origin citations are different provenance",
+      "models": [
+        "SensingDynamics",
+        "NeuroPose",
+        "vemg2pose"
+      ],
+      "score_source": "Salter2024 EMG2Pose Table4"
+    },
+    {
+      "meaning": "direct sEMG-to-Pose column, not tendon-to-pose, two-step, simulation, or tendon-force MAE",
+      "models": [
+        "CLDM"
+      ],
+      "score_source": "Verma arXiv2508.08269v1 TableI"
+    },
+    {
+      "meaning": "own Myo wearable study; does not provide the later EMG2Pose benchmark scores",
+      "method_origin": "Liu2021 WWW author-hosted original paper",
+      "models": [
+        "NeuroPose"
+      ]
+    }
+  ],
+  "scientific_settings_added": 0,
+  "sources": {
+    "emg2pose-neurips2024.pdf": {
+      "bytes": 4062830,
+      "content_type": "application/pdf",
+      "final_url": "https://proceedings.nips.cc/paper_files/paper/2024/file/64f8884f6ba3d9ace5bb647c4f917896-Paper-Datasets_and_Benchmarks_Track.pdf",
+      "http_status": 200,
+      "sha256": "df6215f529a5e792eda0f9346633bf1eda2c51678deccb14db8c45eefb5cb4a1",
+      "url": "https://proceedings.nips.cc/paper_files/paper/2024/file/64f8884f6ba3d9ace5bb647c4f917896-Paper-Datasets_and_Benchmarks_Track.pdf"
+    },
+    "emg2tendon-v1.html": {
+      "bytes": 174453,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/html/2508.08269v1",
+      "http_status": 200,
+      "sha256": "820b5f09cb3396a1fa03c243aef14f8d6e0d19cffbef23881c477d72d81079e9",
+      "url": "https://arxiv.org/html/2508.08269v1"
+    },
+    "emg2tendon-v1.pdf": {
+      "bytes": 3270638,
+      "content_type": "application/pdf",
+      "final_url": "https://arxiv.org/pdf/2508.08269v1",
+      "http_status": 200,
+      "sha256": "ddcc18cdafcceea56fd8a937276bd2a07e2d978519caefb49abebabf0502cafa",
+      "url": "https://arxiv.org/pdf/2508.08269v1"
+    },
+    "neuropose-www2021.pdf": {
+      "bytes": 8927572,
+      "content_type": "application/pdf",
+      "final_url": "https://www.cse.psu.edu/~mkg31/papers/Neuropose_www.pdf",
+      "http_status": 200,
+      "sha256": "2cb2b5ccf8597126f26805d3a578b61280d316381acca5ec9b81decf0080b712",
+      "url": "https://www.cse.psu.edu/~mkg31/papers/Neuropose_www.pdf"
+    },
+    "vq-myopose-hands2025.pdf": {
+      "bytes": 1118038,
+      "content_type": "application/pdf",
+      "final_url": "https://hands-workshop.org/files/2025/VQ-MyoPose.pdf",
+      "http_status": 200,
+      "sha256": "ca9ad0d6fb33f6e5ac7de84f44a61cafdc8a9b550b35555d483eb3290924d333",
+      "url": "https://hands-workshop.org/files/2025/VQ-MyoPose.pdf"
+    }
+  },
+  "third_party_experiments_retrained": false,
+  "unresolved": [
+    {
+      "egoemg_bibliography": "Simpetru2024 Science Robotics9(93)",
+      "item": "SensingDynamics method-origin year and venue",
+      "primary_benchmark_bibliography": "Simpetru2022a bioRxiv",
+      "resolution": "different bibliographic descriptions retained; exact 2024 venue identity not established in this audit"
+    },
+    {
+      "item": "original cited experiment artifacts and raw cohort equality",
+      "resolution": "primary reported values verified, their training/checkpoints/seed and sample identities not independently reproduced"
+    }
+  ],
+  "vq_context": {
+    "directly_comparable_to_full_benchmark": false,
+    "egoemg_footnote_literal": "12-subject subset of EMG2Pose (12/27 stages)",
+    "interpretation": "primary specifies12participants and27stages; do not reinterpret as12outof27stages or add a full-benchmark score row",
+    "is_table11_model_row": false,
+    "primary_location": "HANDS2025 PDF page3 Training setup",
+    "primary_partition_percent": [
+      70,
+      15,
+      15
+    ],
+    "primary_stages": 27,
+    "primary_subjects": 12,
+    "split_identity_independently_verified": false
+  }
+}

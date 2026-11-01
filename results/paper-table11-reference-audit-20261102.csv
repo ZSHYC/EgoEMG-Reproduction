@@ -1,0 +1,13 @@
+model,split,paper_mean,paper_sd,primary_mean,primary_sd,unit,both_display_values_match,official_readme_matches,primary_source,primary_location,primary_pdf_page,task,dispersion,new_model_run
+SensingDynamics,user,15.5,1.4,15.5,1.4,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+SensingDynamics,stage,18.8,1.6,18.8,1.6,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+SensingDynamics,user_stage,18.7,1.6,18.7,1.6,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+NeuroPose,user,13.2,1.1,13.2,1.1,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+NeuroPose,stage,17.2,1.7,17.2,1.7,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+NeuroPose,user_stage,17.5,1.5,17.5,1.5,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+vemg2pose,user,12.2,1.3,12.2,1.3,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+vemg2pose,stage,15.2,1.6,15.2,1.6,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+vemg2pose,user_stage,15.8,1.4,15.8,1.4,degrees,True,True,emg2pose-neurips2024.pdf,Table 4 angular error,7,direct_emg_to_pose_regression,across_users,False
+CLDM,user,11.3,1.0,11.3,1.0,degrees,True,True,emg2tendon-v1.pdf,Table I sEMG-to-Pose first numeric column,8,direct_emg_to_pose_regression,across_users,False
+CLDM,stage,14.3,1.5,14.3,1.5,degrees,True,True,emg2tendon-v1.pdf,Table I sEMG-to-Pose first numeric column,8,direct_emg_to_pose_regression,across_users,False
+CLDM,user_stage,14.7,1.4,14.7,1.4,degrees,True,True,emg2tendon-v1.pdf,Table I sEMG-to-Pose first numeric column,8,direct_emg_to_pose_regression,across_users,False

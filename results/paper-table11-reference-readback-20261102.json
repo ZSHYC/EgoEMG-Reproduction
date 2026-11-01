@@ -1,0 +1,27 @@
+{
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "all_downloaded_source_files_http200_and_sha256_exact": true,
+  "all_source_and_artifact_generations_unchanged": true,
+  "artifacts_sha256": {
+    "paper-table11-reference-audit-20261102.csv": "58da5ee8d9a6618e293c85a2ad5c7a350b4d5beb2b842ab10e28b33987a1da95",
+    "paper-table11-reference-audit-20261102.json": "c4195249cdcfd31725335c5af3ed9d1dc3e702019055de8457f8c2d2feb2b1e3",
+    "paper-table11-reference-audit-20261102.md": "594ddce980473d85d01ddd77931d438210db7700a5320286e42ba02dd30b1240"
+  },
+  "cited_mean_sd_cells_independently_matched": 12,
+  "cited_scalar_values_independently_matched": 24,
+  "cldm_source": "independent HTML table/cell parser and direct sEMG-to-Pose header, not builder PDF parser",
+  "csv_matches_all12_structured_cells": true,
+  "format": "independent_table11_raw_pdf_html_reference_readback_v1",
+  "full_paper_complete": false,
+  "full_table11_complete": false,
+  "no_existing_model_result_changed": true,
+  "observed_utc": "2026-11-01T20:03:01.709754+00:00",
+  "original_parameter_displays_preserved": true,
+  "original_score_cells_reparsed": 21,
+  "original_table11_rows_reparsed": 7,
+  "salter_source": "fresh pdftotext raw page7 and independent positional grouping, not builder layout parser",
+  "scientific_settings_added": 0,
+  "source_byte_identities_rehashed": 7,
+  "vq_original_page3_subset_statement_reparsed": true
+}
