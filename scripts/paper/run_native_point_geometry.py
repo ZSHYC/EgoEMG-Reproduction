@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import importlib.util
+from importlib.machinery import PathFinder
 import inspect
 import json
 import math
@@ -26,6 +27,98 @@ CALIBRATION_SHA='2b94a3c887e5aff600dc2d555121b74ac6cbd6670667e2f4c5c8688a434b3f8
 ROLE_COUNTS=dict(val=1576,test=4306)
 RESOLUTION_POLICY='author_fallback_1920x1080'
 UPSTREAM_REVISION='f7cbd048b7092139852270491d3859cd472e0311'
+MANO_ASSET_SHA='45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767'
+MANO_LICENSE_SHA='75fc4da03259504ce9a4ed2418ab98dd59647add7ff95e7691c4d55fb0e3cf63'
+
+
+def geometry_policy():
+    return dict(right_mano_for_both_hands=True,flat_hand_mean=False,global_orient='native zero',
+        hand_pose_slice=[3,48],left_mirror_axis='X',left_faces_reverse=True,
+        legacy_manifest_convention='flip_local_z; source script X mirror retained and not claimed reconciled',
+        depth_eps=.005,window_half=2,actual_betas=True,zero_beta_fallback=False)
+
+
+def _require_equal(value,expected,label):
+    """JSON equality with strict scalar types (in particular bool is not int)."""
+    if type(value)is not type(expected):raise ValueError(label+' type differs')
+    if isinstance(expected,dict):
+        if value.keys()!=expected.keys():raise ValueError(label+' fields differ')
+        for key in expected:_require_equal(value[key],expected[key],label+'.'+key)
+    elif isinstance(expected,list):
+        if len(value)!=len(expected):raise ValueError(label+' length differs')
+        for actual,wanted in zip(value,expected):_require_equal(actual,wanted,label)
+    elif value!=expected:raise ValueError(label+' differs')
+
+
+def _require_fields(value,fields,label):
+    if type(value)is not dict or set(value)!=set(fields):raise ValueError(label+' exact fields required')
+
+
+def _check_upstream(upstream):
+    if subprocess.check_output(['git','-C',str(upstream),'rev-parse','HEAD'],text=True).strip()!=UPSTREAM_REVISION:
+        raise ValueError('pinned original geometry revision required')
+    if subprocess.check_output(['git','-C',str(upstream),'status','--porcelain','--untracked-files=all'],text=True).strip():
+        raise ValueError('original geometry source checkout changed')
+
+
+def _module_directory(name):
+    """Locate dependency providers before executing their source."""
+    from egoemg_repro.classic_emg_cohort import _safe
+    loaded=sys.modules.get(name)
+    source=getattr(loaded,'__file__',None)if loaded is not None else None
+    if source is None:
+        spec=PathFinder.find_spec(name,sys.path)
+        source=spec.origin if spec is not None else None
+    if not source:raise ValueError('native geometry dependency provider missing: '+name)
+    return _safe(source).parent
+
+
+def _runtime_source_paths(upstream,assets,chumpy_dir,smplx_dir):
+    from egoemg_repro.classic_emg_cohort import _safe,_source_paths
+    return {_safe(p)for p in {*_source_paths(upstream),upstream/'scripts/eval/evaluate_occlusion_fusion.py',
+        *chumpy_dir.glob('chumpy/**/*.py'),*smplx_dir.glob('**/*.py'),Path(__file__),
+        assets/'MANO_RIGHT.pkl',assets/'LICENSE.txt'}}
+
+
+def _fallback_intrinsics(calib):
+    """Original get_episode_intrinsics scaling/crop, without importing Torch."""
+    import numpy as np
+    video_w,video_h=1920,1080;calib_w=int(calib['image_width']);calib_h=int(calib['image_height'])
+    raw=np.asarray(calib['camera_matrix'],np.float64);calib_aspect=calib_w/calib_h;video_aspect=video_w/video_h
+    if abs(video_aspect-calib_aspect)<.02:active_x0=0.;active_x1=float(video_w)
+    else:
+        active_h=float(video_h);active_w=active_h*calib_aspect
+        active_x0=(video_w-active_w)/2.;active_x1=active_x0+active_w
+    K=np.eye(3,dtype=np.float64)
+    K[0,0]=raw[0,0]*(active_x1-active_x0)/calib_w;K[1,1]=raw[1,1]*video_h/calib_h
+    K[0,2]=raw[0,2]*(active_x1-active_x0)/calib_w+active_x0;K[1,2]=raw[1,2]*video_h/calib_h
+    return K
+
+
+def _row_inputs(data,hand,index):
+    a=data['arrays']
+    return dict(hand=hand,point_index=index,ep_idx=int(a['episode'][index]),center_idx=int(a['center'][index]),
+        image_frame_index=int(a['image_frame_index'][index]),mocap_tracked=bool(a['camera_tracked'][index]),
+        image_stale=bool(a['image_stale'][index]),markers_valid=bool(a[hand+'_marker_valid'][index].any()),
+        marker_valid_count=int(a[hand+'_marker_valid'][index].sum()),pose_sha256=_array_sha(a[hand+'_pose'][index]),
+        beta_sha256=_array_sha(a[hand+'_beta'][index]),world_transform_sha256=_array_sha(a[hand+'_world_transform'][index]),
+        camera_transform_sha256=_array_sha(a['camera_transform'][index]))
+
+
+def _packet_schema(arrays):
+    import numpy as np
+    expected=dict(verts_world=(np.float64,(778,3)),verts_cam=(np.float64,(778,3)),faces=(np.uint32,(1538,3)),
+        K=(np.float64,(3,3)),pose=(np.float32,(48,)),beta=(np.float32,(10,)),world_transform=(np.float32,(12,)),
+        camera_transform=(np.float32,(12,)),visible=(np.bool_,(778,)),area_weights=(np.float64,(778,)),
+        zbuffer=(np.float64,(1080,1920)),u_proj=(np.int32,(778,)),v_proj=(np.int32,(778,)))
+    _require_fields(arrays,expected,'native geometry packet')
+    for name,(dtype,shape)in expected.items():
+        a=arrays[name]
+        if a.dtype!=np.dtype(dtype)or a.shape!=shape:raise ValueError('native output dtype/shape differs: '+name)
+        if a.dtype.kind=='f'and name!='zbuffer'and not np.isfinite(a).all():raise ValueError('nonfinite native output: '+name)
+    if np.any(arrays['faces']>=778)or np.any(arrays['area_weights']<0):raise ValueError('invalid native face/area weights')
+    z=arrays['zbuffer']
+    if np.any(np.isnan(z))or np.any(z<=0):raise ValueError('invalid native z-buffer depths')
 
 
 def file_sha(path):
@@ -181,12 +274,7 @@ def geometry_frame(native,data,hand,index,*,video_root,device):
     check_inputs(data);a=data['arrays'];pose=a[hand+'_pose'][index];beta=a[hand+'_beta'][index]
     world=np.asarray(a[hand+'_world_transform'][index],np.float64)
     camera=np.asarray(a['camera_transform'][index],np.float64)
-    ep=int(a['episode'][index]);center=int(a['center'][index])
-    row=dict(hand=hand,point_index=index,ep_idx=ep,center_idx=center,image_frame_index=int(a['image_frame_index'][index]),
-        mocap_tracked=bool(a['camera_tracked'][index]),image_stale=bool(a['image_stale'][index]),
-        markers_valid=bool(a[hand+'_marker_valid'][index].any()),marker_valid_count=int(a[hand+'_marker_valid'][index].sum()),
-        pose_sha256=_array_sha(pose),beta_sha256=_array_sha(beta),
-        world_transform_sha256=_array_sha(a[hand+'_world_transform'][index]),camera_transform_sha256=_array_sha(a['camera_transform'][index]))
+    ep=int(a['episode'][index]);row=_row_inputs(data,hand,index)
     verts_world,faces=native.get_mano_verts_world(np.asarray(pose,np.float64),beta,world[:9].reshape(3,3),world[9:12],hand=='left',device)
     if not np.any(pose):
         if verts_world is not None or faces is not None:raise RuntimeError('native zero pose unexpectedly produced geometry')
@@ -211,6 +299,9 @@ def geometry_frame(native,data,hand,index,*,video_root,device):
         pose=pose.copy(),beta=beta.copy(),world_transform=a[hand+'_world_transform'][index].copy(),
         camera_transform=a['camera_transform'][index].copy(),
         **{k:occ[k]for k in ('visible','area_weights','zbuffer','u_proj','v_proj')})
+    _packet_schema(arrays)
+    if not np.array_equal(K,_fallback_intrinsics(data['calibration'])):
+        raise ValueError('original native fallback intrinsics differ from admitted calibration')
     row.update(status='native_geometry',occlusion_score=score,visible_ratio=ratio,
         author_occlusion_score_round6=round(score,6),author_visible_ratio_round6=round(ratio,6),
         width=width,height=height,positive_depth_vertices=int(np.count_nonzero(verts_cam[:,2]>1e-8)),
@@ -224,38 +315,48 @@ def _native_runtime(args):
     from egoemg_repro.classic_emg_cohort import _safe,_StatGuard,_source_paths
     if os.environ.get('CUDA_VISIBLE_DEVICES')!='':raise ValueError('native geometry requires explicitly hidden CUDA')
     upstream=_safe(args.upstream);assets=_safe(args.mano_assets);chumpy_dir=_safe(args.chumpy_dir)
-    if subprocess.check_output(['git','-C',str(upstream),'rev-parse','HEAD'],text=True).strip()!=UPSTREAM_REVISION:
-        raise ValueError('pinned original geometry revision required')
-    if subprocess.check_output(['git','-C',str(upstream),'status','--porcelain','--untracked-files=all'],text=True).strip():
-        raise ValueError('original geometry source checkout changed')
+    sys.path.insert(0,str(chumpy_dir))
+    chumpy_package=_module_directory('chumpy');smplx_dir=_module_directory('smplx')
+    if chumpy_package!=chumpy_dir/'chumpy':raise ValueError('admitted Chumpy provider required')
+    paths=_runtime_source_paths(upstream,assets,chumpy_dir,smplx_dir)
+    guard=_StatGuard(paths)
+    _check_upstream(upstream)
     model=assets/'MANO_RIGHT.pkl';license=assets/'LICENSE.txt'
-    if file_sha(model)!='45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767' or file_sha(license)!='75fc4da03259504ce9a4ed2418ab98dd59647add7ff95e7691c4d55fb0e3cf63':
+    if file_sha(model)!=MANO_ASSET_SHA or file_sha(license)!=MANO_LICENSE_SHA:
         raise ValueError('previously admitted licensed native MANO asset required')
+    sources={str(p):file_sha(p)for p in sorted(paths)};guard.check()
     import numpy as np
     aliases=[]
     for name,value in dict(bool=bool,int=int,float=float,complex=complex,object=object,unicode=str,str=str).items():
         if name not in np.__dict__:setattr(np,name,value);aliases.append(name)
     inspect_alias=not hasattr(inspect,'getargspec')
     if inspect_alias:inspect.getargspec=inspect.getfullargspec
-    sys.path.insert(0,str(chumpy_dir));import chumpy,smplx,torch
+    import chumpy,smplx,torch
+    guard.check()
     if not Path(chumpy.__file__).resolve().is_relative_to(chumpy_dir)or chumpy.__version__!='0.70':
         raise ValueError('admitted original Chumpy0.70 source required')
+    if _module_directory('chumpy')!=chumpy_package or _module_directory('smplx')!=smplx_dir:
+        raise ValueError('native geometry dependency provider changed during import')
     torch.set_num_threads(2)
     if torch.cuda.is_initialized():raise ValueError('native geometry cannot initialize CUDA')
     def deny(*a,**k):raise RuntimeError('native geometry cannot download or construct a learned pose model/optimizer')
     socket.socket.connect=deny;socket.create_connection=deny;torch.optim.AdamW.__init__=deny
     _activate(upstream)
     native=_load_source('_pinned_author_geometry_evaluation',upstream/'scripts/eval/evaluate_occlusion_fusion.py')
+    guard.check()
+    if _runtime_source_paths(upstream,assets,chumpy_dir,smplx_dir)!=paths:
+        raise ValueError('native geometry source membership changed during imports')
     for cls in (native.ResNetVisionPose,native.VisionViTPose,native.Emg2PoseFormer):cls.__init__=deny
     native.MANO_MODEL_PATH=str(assets)
-    paths={*_source_paths(upstream),upstream/'scripts/eval/evaluate_occlusion_fusion.py',
-        *chumpy_dir.glob('chumpy/**/*.py'),*Path(smplx.__file__).parent.glob('**/*.py'),Path(__file__),model,license}
-    guard=_StatGuard(paths);sources={str(p):file_sha(p)for p in sorted(paths)};guard.check()
     if native._MANO_LAYER is not None:raise RuntimeError('native mesh layer was constructed before the owned geometry call')
     layer=native._get_mano_layer('cpu')
+    guard.check()
+    if _runtime_source_paths(upstream,assets,chumpy_dir,smplx_dir)!=paths:
+        raise ValueError('native geometry source membership changed during layer construction')
     if not isinstance(layer,smplx.MANO)or layer.faces.shape!=(1538,3):raise RuntimeError('actual original right MANO geometry layer required')
     return native,guard,dict(source_files_sha256=sources,source_bundle_sha256=_json_sha(sources),
-        upstream=str(upstream),upstream_revision=UPSTREAM_REVISION,mano_asset_sha256=file_sha(model),
+        upstream=str(upstream),upstream_revision=UPSTREAM_REVISION,mano_assets=str(assets),chumpy_dir=str(chumpy_dir),
+        smplx_dir=str(smplx_dir),mano_asset_sha256=MANO_ASSET_SHA,
         versions=dict(torch=torch.__version__,numpy=np.__version__,chumpy=chumpy.__version__),
         numpy_aliases=aliases,inspect_getargspec_backfilled=inspect_alias,
         original_model_source_files_modified=False,actual_right_mano_geometry_layers_constructed=1)
@@ -274,10 +375,7 @@ def run_geometry(args):
         source_runner_sha256=IMPORTED_SHA,input_paths={k:str(v)for k,v in data['_paths'].items()},
         input_sha256=data['files_sha256'],input_token=data['_token'],selection=selected,
         resolution_policy=policy,runtime=runtime,
-        geometry_policy=dict(right_mano_for_both_hands=True,flat_hand_mean=False,global_orient='native zero',
-            hand_pose_slice=[3,48],left_mirror_axis='X',left_faces_reverse=True,
-            legacy_manifest_convention='flip_local_z; source script X mirror retained and not claimed reconciled',
-            depth_eps=.005,window_half=2,actual_betas=True,zero_beta_fallback=False),
+        geometry_policy=geometry_policy(),
         scientific_eligible=False,full_paper_complete=False)
     identity['sha256']=_json_sha(identity);_write_json(output/'identity.json',identity)
     counts=dict(actual_mesh_calls=0,actual_occlusion_calls=0,invalid_zero_pose_rows=0);rows=[]
@@ -306,6 +404,34 @@ def run_geometry(args):
     result['sha256']=_json_sha(result);_write_json(output/'result.json',result);return verify_geometry(output)
 
 
+def _verify_runtime(runtime,guard):
+    from egoemg_repro.classic_emg_cohort import _safe
+    _require_fields(runtime,('source_files_sha256 source_bundle_sha256 upstream upstream_revision mano_assets chumpy_dir '
+        'smplx_dir mano_asset_sha256 versions numpy_aliases inspect_getargspec_backfilled '
+        'original_model_source_files_modified actual_right_mano_geometry_layers_constructed').split(),'native runtime')
+    upstream=_safe(runtime['upstream']);assets=_safe(runtime['mano_assets'])
+    chumpy_dir=_safe(runtime['chumpy_dir']);smplx_dir=_safe(runtime['smplx_dir'])
+    required=_runtime_source_paths(upstream,assets,chumpy_dir,smplx_dir);sources=runtime['source_files_sha256']
+    if type(sources)is not dict or set(sources)!={str(p)for p in required}:
+        raise ValueError('complete native geometry source/provider coverage differs')
+    for p in required:guard.add(p)
+    _check_upstream(upstream)
+    _require_equal(runtime['upstream_revision'],UPSTREAM_REVISION,'upstream revision')
+    _require_equal(runtime['source_bundle_sha256'],_json_sha(sources),'source bundle')
+    _require_equal(runtime['mano_asset_sha256'],MANO_ASSET_SHA,'admitted MANO hash')
+    _require_equal(runtime['original_model_source_files_modified'],False,'source modification declaration')
+    _require_equal(runtime['actual_right_mano_geometry_layers_constructed'],1,'native geometry layer count')
+    if (type(runtime['versions'])is not dict or set(runtime['versions'])!={'torch','numpy','chumpy'}
+        or any(type(v)is not str or not v for v in runtime['versions'].values())or runtime['versions']['chumpy']!='0.70'
+        or type(runtime['numpy_aliases'])is not list or any(type(v)is not str for v in runtime['numpy_aliases'])
+        or type(runtime['inspect_getargspec_backfilled'])is not bool):raise ValueError('native dependency/compatibility declaration differs')
+    for p in required:
+        if file_sha(p)!=sources[str(p)]:raise ValueError('original native geometry helper/asset source differs')
+    if file_sha(assets/'MANO_RIGHT.pkl')!=MANO_ASSET_SHA or file_sha(assets/'LICENSE.txt')!=MANO_LICENSE_SHA:
+        raise ValueError('previously admitted licensed native MANO asset differs')
+    guard.check();return upstream/'egoemg/occlusion.py'
+
+
 def verify_geometry(output):
     import numpy as np
     from egoemg_repro.classic_emg_cohort import _safe,_StatGuard
@@ -313,63 +439,93 @@ def verify_geometry(output):
     if not(output/'identity.json').is_file()or not(output/'result.json').is_file():raise ValueError('complete native geometry output required')
     guard=_StatGuard([output/'identity.json',output/'result.json',output/'points.jsonl'])
     identity=read_json(output/'identity.json');result=read_json(output/'result.json')
+    _require_fields(identity,('format role mode source_runner_sha256 input_paths input_sha256 input_token selection '
+        'resolution_policy runtime geometry_policy scientific_eligible full_paper_complete sha256').split(),'native identity')
+    _require_fields(result,('format identity_sha256 journal_file_sha256 role mode rows complete_standard_role actual_mesh_calls '
+        'actual_occlusion_calls invalid_zero_pose_rows actual_right_mano_geometry_layers_constructed learned_pose_models_constructed '
+        'optimizer_updates cuda_initialized resolution_policy all_input_and_source_generations_unchanged seconds '
+        'dense_grid_or_paired_gain_complete scientific_eligible full_paper_complete sha256').split(),'native result')
     for value in (identity,result):
         if value['sha256']!=_json_sha({k:v for k,v in value.items()if k!='sha256'}):raise ValueError('native geometry result seal differs')
+    _require_equal(identity['format'],'original_native_point_geometry_identity_v1','native identity format')
+    _require_equal(result['format'],'original_native_point_geometry_result_v1','native result format')
+    policy=validate_resolution_policy(RESOLUTION_POLICY)
+    for doc in (identity,result):
+        _require_equal(doc['resolution_policy'],policy,'canonical fallback resolution')
+        _require_equal(doc['scientific_eligible'],False,'scientific scope')
+        _require_equal(doc['full_paper_complete'],False,'full paper scope')
+    _require_equal(identity['geometry_policy'],geometry_policy(),'original geometry policy')
     if identity['source_runner_sha256']!=IMPORTED_SHA or file_sha(__file__)!=IMPORTED_SHA:
         raise ValueError('native geometry runner source differs')
-    for name,digest in identity['runtime']['source_files_sha256'].items():
-        p=_safe(name);guard.add(p)
-        if file_sha(p)!=digest:raise ValueError('original native geometry helper/asset source differs')
-    paths=identity['input_paths'];data=load_point_inputs(paths['points'],paths['admission'],paths['metadata'],paths['calibration'],identity['role'])
+    source=_verify_runtime(identity['runtime'],guard)
+    paths=identity['input_paths'];_require_fields(paths,('points','admission','metadata','calibration'),'native input paths')
+    data=load_point_inputs(paths['points'],paths['admission'],paths['metadata'],paths['calibration'],identity['role'])
     selected=select_points(data,identity['mode'])
-    if data['files_sha256']!=identity['input_sha256']or data['_token']!=identity['input_token']or [list(k)for k in selected]!=identity['selection']:
-        raise ValueError('complete native geometry input/selection binding differs')
+    _require_equal(paths,{k:str(v)for k,v in data['_paths'].items()},'canonical native input paths')
+    _require_equal(identity['input_sha256'],data['files_sha256'],'native input digests')
+    _require_equal(identity['input_token'],data['_token'],'native input token')
+    _require_equal(identity['selection'],[list(k)for k in selected],'complete native point selection')
     if result['identity_sha256']!=identity['sha256']or result['journal_file_sha256']!=file_sha(output/'points.jsonl'):
         raise ValueError('native geometry result/journal binding differs')
     rows=[json.loads(line)for line in(output/'points.jsonl').read_text().splitlines()]
-    if len(rows)!=len(selected)or result['rows']!=len(rows):raise ValueError('complete native geometry point population differs')
-    source=Path(identity['runtime']['upstream'])/'egoemg/occlusion.py';kernel=_load_source('_pinned_geometry_verification_kernel',source)
+    if len(rows)!=len(selected):raise ValueError('complete native geometry point population differs')
+    kernel=_load_source('_pinned_geometry_verification_kernel',source);guard.check()
     native_rows=0;invalid=0
+    native_fields=('author_occlusion_score_round6 author_visible_ratio_round6 width height positive_depth_vertices '
+        'visible_vertices area_weight_sum arrays_sha256 packet_file packet_file_sha256').split()
     for seq,((hand,index),row)in enumerate(zip(selected,rows)):
         a=data['arrays'];pose=a[hand+'_pose'][index];beta=a[hand+'_beta'][index]
-        if (row['sequence']!=seq or row['identity_sha256']!=identity['sha256']or row['hand']!=hand or row['point_index']!=index
-            or row['center_idx']!=int(a['center'][index])or row['ep_idx']!=int(a['episode'][index])
-            or row['pose_sha256']!=_array_sha(pose)or row['beta_sha256']!=_array_sha(beta)):
-            raise ValueError('native geometry actual hand/point/beta binding differs')
+        expected=_row_inputs(data,hand,index);expected.update(sequence=seq,identity_sha256=identity['sha256'])
+        common=set(expected)|{'status','occlusion_score','visible_ratio'}
+        _require_fields(row,common if not np.any(pose)else common|set(native_fields),'native point row')
+        for key,value in expected.items():_require_equal(row[key],value,'admitted point '+key)
         if not np.any(pose):
-            if row['status']!='invalid_zero_pose'or row['occlusion_score']is not None or row['visible_ratio']is not None or'packet_file'in row:
-                raise ValueError('zero-pose row was dropped or assigned invented geometry')
+            _require_equal(row['status'],'invalid_zero_pose','zero pose status')
+            _require_equal(row['occlusion_score'],None,'zero pose occlusion')
+            _require_equal(row['visible_ratio'],None,'zero pose visibility')
             invalid+=1;continue
-        packet=_safe(output/row['packet_file'])
-        if packet.parent!=output/'points'or file_sha(packet)!=row['packet_file_sha256']:raise ValueError('actual native geometry packet bytes differ')
-        guard.add(packet)
+        expected_packet=f'points/{seq:06d}-{hand}-{row["center_idx"]}.npz'
+        _require_equal(row['packet_file'],expected_packet,'native packet path')
+        packet=_safe(output/row['packet_file']);guard.add(packet)
+        if file_sha(packet)!=row['packet_file_sha256']:raise ValueError('actual native geometry packet bytes differ')
         with np.load(packet,allow_pickle=False)as f:arrays={k:f[k]for k in f.files}
-        if {k:_array_sha(v)for k,v in arrays.items()}!=row['arrays_sha256']:raise ValueError('typed native geometry packet differs')
-        if not np.array_equal(arrays['pose'],pose)or not np.array_equal(arrays['beta'],beta):raise ValueError('actual MANO pose/beta packet differs')
-        world=a[hand+'_world_transform'][index];camera=a['camera_transform'][index]
-        if not np.array_equal(arrays['world_transform'],world)or not np.array_equal(arrays['camera_transform'],camera):
-            raise ValueError('actual native geometry world/camera transform differs')
+        guard.check();_packet_schema(arrays)
+        _require_equal(row['arrays_sha256'],{k:_array_sha(v)for k,v in arrays.items()},'typed native packet')
+        for name,wanted in dict(pose=pose,beta=beta,world_transform=a[hand+'_world_transform'][index],
+            camera_transform=a['camera_transform'][index],K=_fallback_intrinsics(data['calibration'])).items():
+            if not np.array_equal(arrays[name],wanted):raise ValueError('admitted native packet '+name+' differs')
+        camera=a['camera_transform'][index]
         T=np.eye(4);T[:3,:3]=camera[:9].reshape(3,3);T[:3,3]=camera[9:12];inverse=np.linalg.inv(T)
         expected_cam=(inverse[:3,:3].astype(np.float64)@arrays['verts_world'].T).T+inverse[:3,3].astype(np.float64)
         if not np.array_equal(expected_cam,arrays['verts_cam']):raise ValueError('actual native world-to-camera operation differs')
+        u_float,v_float,valid_z=kernel._project_vertices(arrays['verts_cam'],arrays['K'])
+        u=np.full(778,-1,dtype=np.int32);v=np.full(778,-1,dtype=np.int32)
+        u[valid_z]=np.round(u_float[valid_z]).astype(np.int32);v[valid_z]=np.round(v_float[valid_z]).astype(np.int32)
+        if not np.array_equal(u,arrays['u_proj'])or not np.array_equal(v,arrays['v_proj']):
+            raise ValueError('native calibrated rounded projections differ')
         weights=kernel.compute_vertex_area_weights(arrays['verts_cam'],arrays['faces'])
         if not np.array_equal(weights,arrays['area_weights']):raise ValueError('native triangle-area weights differ')
-        visible=np.zeros(778,bool);u=arrays['u_proj'];v=arrays['v_proj'];z=arrays['verts_cam'][:,2]
+        visible=np.zeros(778,bool);z=arrays['verts_cam'][:,2]
         for i in range(778):
-            if z[i]>1e-8 and 0<=u[i]<1920 and 0<=v[i]<1080:
+            if valid_z[i]and 0<=u[i]<1920 and 0<=v[i]<1080:
                 visible[i]=kernel.check_vertex_visibility(int(u[i]),int(v[i]),float(z[i]),arrays['zbuffer'],depth_eps=.005,window_half=2)
         total=float(weights.sum());ratio=0. if total<1e-12 else float(weights[visible].sum())/total
-        if (not np.array_equal(visible,arrays['visible'])or row['status']!='native_geometry'
-            or row['visible_ratio']!=ratio or row['occlusion_score']!=1.-ratio
-            or row['author_occlusion_score_round6']!=round(1.-ratio,6)):
-            raise ValueError('native visibility/area-weighted self-occlusion differs')
+        if not np.array_equal(visible,arrays['visible']):raise ValueError('native visibility differs')
+        statistics=dict(status='native_geometry',visible_ratio=ratio,occlusion_score=1.-ratio,
+            author_occlusion_score_round6=round(1.-ratio,6),author_visible_ratio_round6=round(ratio,6),width=1920,height=1080,
+            positive_depth_vertices=int(np.count_nonzero(valid_z)),visible_vertices=int(np.count_nonzero(visible)),area_weight_sum=total)
+        for key,value in statistics.items():_require_equal(row[key],value,'native point '+key)
         native_rows+=1
-    if (result['actual_mesh_calls']!=len(rows)or result['actual_occlusion_calls']!=native_rows or result['invalid_zero_pose_rows']!=invalid
-        or result['complete_standard_role']is not(identity['mode']=='complete_role'and len(rows)==ROLE_COUNTS[identity['role']])
-        or result['learned_pose_models_constructed']!=0 or result['optimizer_updates']!=0 or result['cuda_initialized']is not False
-        or result['scientific_eligible']is not False or result['full_paper_complete']is not False):
-        raise ValueError('native geometry execution scope/count differs')
-    validate_resolution_policy(result['resolution_policy']['name']);check_inputs(data);guard.check();return result
+    expected_result=dict(role=identity['role'],mode=identity['mode'],rows=len(rows),actual_mesh_calls=len(rows),
+        actual_occlusion_calls=native_rows,invalid_zero_pose_rows=invalid,
+        complete_standard_role=identity['mode']=='complete_role'and len(rows)==ROLE_COUNTS[identity['role']],
+        actual_right_mano_geometry_layers_constructed=identity['runtime']['actual_right_mano_geometry_layers_constructed'],
+        learned_pose_models_constructed=0,optimizer_updates=0,cuda_initialized=False,
+        all_input_and_source_generations_unchanged=True,dense_grid_or_paired_gain_complete=False)
+    for key,value in expected_result.items():_require_equal(result[key],value,'native result '+key)
+    if type(result['seconds'])is not float or not math.isfinite(result['seconds'])or result['seconds']<0:
+        raise ValueError('finite native execution duration required')
+    check_inputs(data);guard.check();return result
 
 
 def parser():
