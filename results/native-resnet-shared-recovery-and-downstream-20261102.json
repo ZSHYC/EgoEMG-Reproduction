@@ -1,0 +1,245 @@
+{
+  "all4_new_pairs_matching_live": true,
+  "collector_actor": {
+    "pid": 1704752,
+    "start_ticks": "438143112"
+  },
+  "collector_also_exited": true,
+  "collector_constructor_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "collector_cuda_initialized": false,
+  "collector_new_learned_forwards": 0,
+  "collector_new_optimizer_updates": 0,
+  "format": "actual_live_native_resnet_shared_capacity_resume_and_downstream_v1",
+  "full_ik_label_workflow_created": false,
+  "full_native_resnet50_and152_results_complete": false,
+  "full_paper_complete": false,
+  "ik_qualification_retains_actual_idle_gpu_requirement": true,
+  "jobs": {
+    "ik-qualification": {
+      "actual_model_stages_started": 0,
+      "bundle_sha256": "4cc926dd11c3ef2ef3581fb6cef076c2374ea6035d2c98c3ae959072a10bf26c",
+      "outer_matching_live": true,
+      "root": "/data/shihao/egoemg-native-ik-qualification-shared-lineage-queue-14a9a1e4486d-20261102",
+      "source_capsule_files_exact": 144,
+      "source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1701964,
+          "start_ticks": "438130641"
+        },
+        "started_utc": "2026-11-01T17:26:41.072482+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1701963,
+          "start_ticks": "438130638"
+        }
+      }
+    },
+    "resnet152": {
+      "actual_new_six_domain_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "actual_nvml_worker_observation": {
+        "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+        "pid": 1701309,
+        "used_mib": 24640
+      },
+      "actual_owned_fit_stage": {
+        "descriptor_bindings": {},
+        "guardian": {
+          "pgrp": 1701304,
+          "pid": 1701304,
+          "sid": 1701304,
+          "start_ticks": "438127300",
+          "state": "R",
+          "uid": 1005
+        },
+        "owner": {
+          "pgrp": 1701028,
+          "pid": 1701028,
+          "sid": 1701028,
+          "start_ticks": "438124592",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker": {
+          "pgrp": 1701309,
+          "pid": 1701309,
+          "sid": 1701309,
+          "start_ticks": "438127304",
+          "state": "R",
+          "uid": 1005
+        }
+      },
+      "actual_restored_completed_epochs": 32,
+      "actual_restored_optimizer_updates": 35936,
+      "bundle_sha256": "7e0f83a7d201b6125375ccfedbd0c003de6d23f55428e526dce85f22595557a2",
+      "current_complete_journal_epochs": 32,
+      "current_journal_optimizer_updates": 35936,
+      "full_training_complete": false,
+      "journal_snapshot_is_final_report": false,
+      "latest_shared_resource_observation": {
+        "free_bytes": 49988763648,
+        "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+        "observed_utc": "2026-11-01T17:28:52.248191+00:00",
+        "other_cuda_processes": [
+          {
+            "pgrp": 1617920,
+            "pid": 1693992,
+            "sid": 1617920,
+            "start_ticks": "438043188",
+            "state": "S",
+            "uid": 1000
+          }
+        ],
+        "phase": "full-fit"
+      },
+      "outer_matching_live": true,
+      "preserved_resume_parent_file_sha256": "0304edaec2a231c85ee961c7d712e43a2dee4c57d43a45958a9414d57cb9333b",
+      "restore_observation_file_sha256": "508ae9b17dbd3859ad0322661d175685ede8cd2421d985df356284b942d848b3",
+      "root": "/data/shihao/egoemg-native-resnet152-shared-recovery-14a9a1e4486d-20261102",
+      "source_capsule_files_exact": 143,
+      "source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1701028,
+          "start_ticks": "438124592"
+        },
+        "started_utc": "2026-11-01T17:25:40.580493+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1701027,
+          "start_ticks": "438124589"
+        }
+      }
+    },
+    "resnet50": {
+      "actual_new_six_domain_restore": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "actual_nvml_worker_observation": {
+        "gpu_uuid": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae",
+        "pid": 1701268,
+        "used_mib": 27708
+      },
+      "actual_owned_fit_stage": {
+        "descriptor_bindings": {},
+        "guardian": {
+          "pgrp": 1701265,
+          "pid": 1701265,
+          "sid": 1701265,
+          "start_ticks": "438127096",
+          "state": "R",
+          "uid": 1005
+        },
+        "owner": {
+          "pgrp": 1700975,
+          "pid": 1700975,
+          "sid": 1700975,
+          "start_ticks": "438124425",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker": {
+          "pgrp": 1701268,
+          "pid": 1701268,
+          "sid": 1701268,
+          "start_ticks": "438127100",
+          "state": "R",
+          "uid": 1005
+        }
+      },
+      "actual_restored_completed_epochs": 78,
+      "actual_restored_optimizer_updates": 39468,
+      "bundle_sha256": "796e61a0baf0c721b5a7cf717bfbc22b23d8de5b4657487bbec47ff2e31d756d",
+      "current_complete_journal_epochs": 78,
+      "current_journal_optimizer_updates": 39468,
+      "full_training_complete": false,
+      "journal_snapshot_is_final_report": false,
+      "latest_shared_resource_observation": {
+        "free_bytes": 46771732480,
+        "gpu_uuid": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae",
+        "observed_utc": "2026-11-01T17:28:52.442052+00:00",
+        "other_cuda_processes": [
+          {
+            "pgrp": 1617920,
+            "pid": 1693994,
+            "sid": 1617920,
+            "start_ticks": "438043188",
+            "state": "R",
+            "uid": 1000
+          }
+        ],
+        "phase": "full-fit"
+      },
+      "outer_matching_live": true,
+      "preserved_resume_parent_file_sha256": "eaa1e90eec85728c827989204e7dfc5d68a198e378a3625e42a7198a38503a6b",
+      "restore_observation_file_sha256": "6360df4a708c6e39bd9de165233eefc94a291d9af393f99d5c8f885f770157be",
+      "root": "/data/shihao/egoemg-native-resnet50-shared-recovery-14a9a1e4486d-20261102",
+      "source_capsule_files_exact": 143,
+      "source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1700975,
+          "start_ticks": "438124425"
+        },
+        "started_utc": "2026-11-01T17:25:38.911968+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1700972,
+          "start_ticks": "438124422"
+        }
+      }
+    },
+    "trajectory": {
+      "actual_model_stages_started": 0,
+      "bundle_sha256": "cc02413f0c82d8b0ac09583e7255d666527cc75e58d3b7d08d1aa6a7763cacfa",
+      "outer_matching_live": true,
+      "root": "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102",
+      "source_capsule_files_exact": 157,
+      "source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+      "state": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1701856,
+          "start_ticks": "438130415"
+        },
+        "started_utc": "2026-11-01T17:26:38.808657+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1701854,
+          "start_ticks": "438130412"
+        }
+      }
+    }
+  },
+  "latest_admission_file_sha256": "8cdbc9f978d2e2f51d8203ad34e4ef4e4b42185e5e836ac0210e7ad1f03c3e8b",
+  "observed_utc": "2026-11-01T17:28:53.876265+00:00",
+  "ready": true,
+  "scientific_eligible": false,
+  "shared_resnet_admission": {
+    "foreign_processes_modified": false,
+    "other_cuda_contexts_permitted": true,
+    "runtime_free_bytes_strict_min": 8589934592,
+    "start_free_bytes_min": 68719476736,
+    "start_stability_seconds": 20
+  },
+  "source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+  "trajectory_shared_capacity": true
+}

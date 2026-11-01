@@ -77,7 +77,7 @@
     },
     {
       "paper_table": 3,
-      "status": "RN18 native complete; RN50/152 preserved partials await admitted GPU continuation; native cotrain/fusion and matched-source evaluations remain incomplete",
+      "status": "RN18 native complete; RN50/152 actual shared-capacity owned resumes with six-domain equality from epochs78/32 are running, full final results incomplete; native RN18 cotrain/fusion and matched-source evaluations remain incomplete",
       "target": "native ResNet50/152 and native RN18+S"
     },
     {

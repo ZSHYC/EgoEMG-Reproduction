@@ -1,0 +1,26 @@
+{
+  "body_bytes_read": 64,
+  "body_prefix_sha256": "13ed54b3c268e09b4d984c222072640df951c93099daf9e969d4d85869828b8e",
+  "download_restarted": false,
+  "filename": "mocap_left_keypoints.dat",
+  "format": "one_read_only_public_marker_failed_offset_protocol_probe_v1",
+  "full_paper_complete": false,
+  "html_title": null,
+  "http_status": 206,
+  "network_attempts": 1,
+  "new_output_raw_bytes_written": 0,
+  "observed_utc": "2026-11-01T17:28:11.234612+00:00",
+  "original_historical_http_status_proven_by_this_probe": false,
+  "original_partial_nine_attributes_unchanged": true,
+  "quota_phrase_present": false,
+  "redirect_host": null,
+  "requested_bytes": 64,
+  "requested_offset": 1073741824,
+  "response_headers": {
+    "Content-Length": "64",
+    "Content-Range": "bytes 1073741824-1073741887/16672754700",
+    "Content-Type": "application/octet-stream"
+  },
+  "seconds_since_original_failed_exit": 2647.163415,
+  "strict_64byte_range_currently_accepted": true
+}
