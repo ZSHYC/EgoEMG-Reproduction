@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+> **2026-11-01 遮挡统计接口验收**：[16项实际检查](../results/native-dense-occlusion/source-analysis-tests-20261101.json)通过，完整未修改官方绘图main在独立进程生成工程PNG；bin均值/SEM、200点加权三次样条、Spearman和散点索引完全一致。[真实入口诊断](../results/native-dense-occlusion/source-inference-compatibility-20261101.json)记录失效EMG配置与旧attention补丁报错；后续须使用同版本原生中心前向和真实完成的来源。尚无完整密网格冻结预测/科学相关性结果，Figure13和全论文仍未完成，科学设置仍14。
+
 > **2026-11-01 RN18视觉来源与密GT更新**：[真实历史LAST来源验收](../results/native-rn18-fusion-trained-vision-last-admission-20261101.json)完成两次独立全量输入/导出重开、原150轮/10,650更新及124张量核对，6原拥有者关闭；[RN18完整密GT](../results/native-dense-occlusion/rn18-geometry-complete-20261101.json)11,114手请求双遍原生、三次独立原始核验及140,231数组重放一致，14原拥有者和2后验拥有者关闭。EMG cotrain150轮及原生融合训练、ViT密GT、预测/相关与Figure13仍待完成；全文未完成，科学设置仍14。
 
 > **2026-11-01 EMG2Pose-S续训入口修复**：[实际故障、关闭与接续证据](../results/emg2pose-small-spawn-entry-repair-20261101.json)。检查发现原进程虽存活，DataLoader子进程却重复执行无main保护的启动脚本，训练仍为19轮/30,096更新；已仅终止精确拥有的卡住进程，原6个训练/评价队列拥有者均关闭，原checkpoint/journal及149份冻结源码字节未变。新增入口通过2项子进程导入检查，独立目录的续训与最终评价队列已确认6拥有者存活，当前重新执行完整来源准入；尚未完成250轮或观察到本次恢复成功。14项既有科学设置保持原身份。
@@ -344,7 +346,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | Figure 10，p.18 | 11 源原始规模与约 712K 平衡混合物 | **来源调查已有，样本混合未重做** | 各源版本/许可/计数、确定性采样/去重/划分 manifest 与真实饼图；H2O/H2O-3D 身份待作者清单消歧 |
 | Figure 11，p.21 | 原 RGB 上 MANO 重投影及 UmeTrack/MANO 重建质量 | **未实现；外部资产依赖**；[IK][ik]与重投影相关官方入口已发布 | 随机抽样清单、原全帧/标定/变换、MANO 与 UmeTrack 资产、实际 overlay 和质量统计；crop 不能代替全帧重投影 |
 | Figure 12，p.26 | 59类Vision/Fusion散点，点大小=N、颜色=族群 | **旧版真实底表的原脚本参考及清晰展示PNG/SVG已生成并核验**；[图与口径](../results/paper-analysis/README.md)四视图×两公式共8组，原始绘图PDF中间物/颜色/点面积原样，另供完整范围/清晰标注；63产物重复逐字节一致 | 原脚本Top4字重叠、负收益标注循环、2.5度下界裁掉gesture-only的PinkyHook均披露并给补图；不证明PDF人口/数值精确等价 |
-| Figure 13，p.26 | 密采样自遮挡与视觉/融合误差、收益趋势和相关 | **[索引/完整GT输入/来源覆盖完成，RN18完整密GT已验收](../results/native-dense-occlusion/README.md)**；ViT-S实际17,168唯一手请求的完整几何后续仍在跑，模型预测/相关尚未验收；[评价][occlusion-eval]、[几何算法][occlusion]、[绘图][occlusion-plot]存在 | 仍需ViT-S密GT完整重放、真实冻结模型逐样本底表、原生过滤/bin/SEM/趋势/Spearman及物理投影边界；标准4,306唯一手样本不能替代17,168个密采样请求 |
+| Figure 13，p.26 | 密采样自遮挡与视觉/融合误差、收益趋势和相关 | **[索引/完整GT输入/来源覆盖完成，RN18完整密GT已验收](../results/native-dense-occlusion/README.md)**；ViT-S实际17,168唯一手请求的完整几何后续仍在跑，模型预测/相关尚未验收；[16项统计接口检查](../results/native-dense-occlusion/source-analysis-tests-20261101.json)已与完整官方main对齐，工程数据不计科学结果；[评价][occlusion-eval]、[几何算法][occlusion]、[绘图][occlusion-plot]存在 | 仍需ViT-S密GT完整重放、真实冻结模型逐样本底表、原生过滤/bin/SEM/趋势/Spearman及物理投影边界；标准4,306唯一手样本不能替代17,168个密采样请求 |
 
 ## 数据、采集、标注与算法清单
 
@@ -371,7 +373,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy保留；[新原生路线](native-rn18-fusion.md)98运行时检查和23真实视觉来源检查通过，历史完整RN18 LAST已实际独立准入，尚待本折cotrain-S150验证BEST、联合交接及原生融合150轮/最终评价；ViT-S+S原生完整150轮及最终独立报告已完成**。ViT路线EMG为完成150轮的验证best133，视觉为完成124轮的last；旧精确零适配与原生极小正态/PDF zero的差异保留 |
 | D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[完整标准网格计算/重放](../results/native-point-geometry-standard-roles-20261101.json)及[聚合统计/独立重算](../results/native-point-geometry/README.md)完成**：5,882唯一手请求（5,683有效/199零姿态），20原几何＋6汇总拥有进程关闭；可见、越界、相机后方及逐手统计CSV/JSON均已导出 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格、模型误差/paired gain/Spearman和Figure13仍欠 |
-| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引、GT输入和实际来源交集](../results/native-dense-occlusion/README.md)完成；[RN18密GT](../results/native-dense-occlusion/rn18-geometry-complete-20261101.json)11,114请求双遍/独立原始核验/140,231数组精确重放已完成**。ViT-S17,168密GT后续仍在跑，冻结预测/收益/相关未完成。ViT-S1,280手窗口与融合训练输入相交、中心交集0，完整保留；官方过滤/样条与PDF差异继续按裁决记录 |
+| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引、GT输入和实际来源交集](../results/native-dense-occlusion/README.md)完成；[RN18密GT](../results/native-dense-occlusion/rn18-geometry-complete-20261101.json)11,114请求双遍/独立原始核验/140,231数组精确重放已完成**。ViT-S17,168密GT后续仍在跑，冻结预测/收益/相关未完成；[统计接口16项检查](../results/native-dense-occlusion/source-analysis-tests-20261101.json)与完整官方main精确一致，未冒充真实模型结果。ViT-S1,280手窗口与融合训练输入相交、中心交集0，完整保留；官方过滤/样条与PDF差异继续按裁决记录 |
 
 ## 资产与外部依赖
 

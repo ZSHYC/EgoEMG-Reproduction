@@ -1,0 +1,60 @@
+{
+  "actual_decoded_temporal_length": 146,
+  "actual_stale_patch_error": {
+    "message": "mat1 and mat2 shapes cannot be multiplied (512x146 and 256x64)",
+    "type": "RuntimeError"
+  },
+  "archived_composition_error": {
+    "first_line": "In 'base': Could not find 'dataset/egoemg_angle_regression'",
+    "type": "MissingConfigException"
+  },
+  "archived_config_exists": true,
+  "archived_declared_layout": "emg2pose_interpolate16",
+  "archived_featurizer_input_channels": 8,
+  "archived_input_metadata_literal_only": true,
+  "cuda_initialized": false,
+  "featurizers_constructed_for_shape_only": 1,
+  "figure13_reproduced": false,
+  "format": "actual_dense_source_evaluation_interface_diagnostic_v1",
+  "full_paper_complete": false,
+  "full_pose_models_constructed": 0,
+  "fusion_input_channels": 16,
+  "fusion_window_length": 7790,
+  "missing_active_emg_config_errors": [
+    {
+      "style": "experiment_config",
+      "type": "MissingConfigException"
+    },
+    {
+      "style": "base_override",
+      "type": "MissingConfigException"
+    }
+  ],
+  "native_pool_input_shape": [
+    2,
+    256,
+    146
+  ],
+  "native_pool_output_shape": [
+    2,
+    256
+  ],
+  "optimizer_updates": 0,
+  "scientific_eligible": false,
+  "source_files_sha256": {
+    "config/experiment/emgformer/_archive/regression_emgformer_small_aggressive_egoemg.yaml": "4bbf71112c974f33910ca0d18fdd02b30bede9e3b75551a0bddefc6c5963a7fd",
+    "config/module/featurizer/tds_slim.yaml": "4ea90042019386d17a064f953307b7c1737d193438d8ec8757a466477afdb258",
+    "egoemg/models/modules/_pooling.py": "f5ff23e6878b4f50e6eabc586b77df33c844aa4377dc815aaee8e4f65d61cb06",
+    "scripts/eval/evaluate_occlusion_fusion.py": "0d72f2f8303e5a366cb8cfd1032a8c7cc137cc5b15c21c4f741e6d51a2f96d88",
+    "scripts/paper/plot_occlusion_fusion.py": "5da84888764de46cdd87722d852e92fa4d9fa1b9ab704c79d4d347e59ac04f76"
+  },
+  "temporal_pool_modules_constructed": 1,
+  "upstream": "f7cbd048b7092139852270491d3859cd472e0311",
+  "versions": {
+    "matplotlib": null,
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1",
+    "torch": "2.2.2+cu118"
+  }
+}

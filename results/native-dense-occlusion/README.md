@@ -86,11 +86,29 @@ CUDA_VISIBLE_DEVICES='' python -m egoemg_repro.occlusion_dense_geometry verify \
 
 输入证明SHA固定为真实全量提取结果；任意自行重新封签的数据不获准。`validate`仅载入和选择，不运行几何；`bilateral_probe`只检验实际非零双手小样本，不能取得`complete_dense_geometry`。公开证明不会让缺失的私有数据或授权MANO模型自动出现。
 
+## 官方误差转换与统计接口
+
+新增[`occlusion_dense_analysis.py`](../../egoemg_repro/occlusion_dense_analysis.py)，直接编译并执行固定官方版本的CSV字典和绘图统计语句；只增添原始行号/分箱成员观测，不改计算。调用前后核对源码、CSV与模块字节；没有模型、数据或Figure13准入权限。[16项实际检查](source-analysis-tests-20261101.json)全部通过，包含独立进程运行**未修改的完整官方绘图main**并生成443,707字节真实PNG：7个不等样本数的非线性bin，所有均值、SEM、200点样条、Spearman与散点索引逐项完全相同。该PNG来自合成工程数据，不是论文实验图。
+
+保持官方57.3度换算/误差4位与几何6位小数；delta由原始弧度之差计算后取4位，而非减去已取整的两列。保留全部原始行和NaN几何；分析使用`occlusion_score.notna() & (mae_vision_deg > 0.01)`。0.05基础bin按`[lo,hi)`合并至默认100样本，末bin不足10丢弃；被bin丢弃或恰在最大右边界的行仍参与逐样本Spearman。SEM采用样本标准差；实际趋势为按bin样本数加权的三次`UnivariateSpline`，保留官方“LOESS trend”标签与实际算法的差异。常量输入的原生NaN相关系数显式输出null；无法拟合时拒绝生成虚构曲线。
+
+```python
+from egoemg_repro.occlusion_dense_analysis import source_csv_rows, analyze_source_csv
+# records必须包含真实三分支误差、精确样本键、几何与标志；不会补零分支。
+rows = source_csv_rows(records, upstream=upstream)
+pd.DataFrame(rows).to_csv("private-results.csv", index=False)
+statistics = analyze_source_csv("private-results.csv", upstream=upstream)
+```
+
+运行版本numpy1.26.4/scipy1.13.1/pandas2.2.3；独立官方PNG使用现有report extra的Matplotlib3.9.4（官方environment列3.9.2）。绘图依赖单独安装到任务目录，不改动正在训练的共享环境。首轮缺模块RED16/16，再完成全部GREEN16/16、无跳过；原生常量输入警告保留。独立重新读取测试日志、源文件和PNG字节后出具上述证明。
+
+[实际评价入口兼容诊断](source-inference-compatibility-20261101.json)还证明：官方脚本引用的EMG实验配置已移入`_archive`，归档配置仍依赖缺失dataset；同脚本旧attention补丁与当前`TemporalAttentionPool`接口产生真实矩阵形状报错，原生pool则成功。后续推理须使用同一固定版本中可执行的原生中心前向及实际完成的模型来源，显式记录兼容适配；尚未据此执行或准入完整密网格预测。误差继续按官方逐样本22角度未mask均值，不替换成标准报告的masked指标。
+
 ## 尚未完成
 
 - ViT-S完整原生GT MANO/遮挡的后续执行、独立原始核验及完全重放验收仍在进行；RN18完整密GT已经验收。1947步长与标准7790步长不整除，不能用标准网格分数作近邻替换。
 - 全部冻结视觉/EMG/融合模型的真实逐样本预测、无缺失的键连接、原生误差/转换与独立重放。RN18还需完成其正式训练及兼容初始化。
-- 官方过滤、自适应bin、SEM、加权三次样条、Spearman及图表与底表验收。
+- 统计接口虽已对齐未修改官方main，但真实完整预测上的过滤/bin/SEM/样条/Spearman、图表与底表验收仍待完成。
 - 实际episode视频尺寸、畸变与左右约定的物理投影一致性。1920×1080官方回退继续显式标注。
 
 全论文继续进行；现有14个完整科学模型设置未增加，也未声称Figure13已复现。

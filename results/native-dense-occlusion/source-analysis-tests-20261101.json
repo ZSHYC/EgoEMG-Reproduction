@@ -1,0 +1,42 @@
+{
+  "actual_all_bin_means_sem_spline_arrays_spearman_and_scatter_match_exactly": true,
+  "actual_author_bins": 7,
+  "actual_author_png_bytes": 443707,
+  "actual_author_png_sha256": "3dc2f132f7e22397fd213442d04dc043c185a895b7bfcd343ed471f47734e9c0",
+  "actual_author_reference_file_sha256": "410ad63a118888b17fbd64683bc1591d907e2c18ffb35ab414116983e246bf87",
+  "actual_author_trend_points": 200,
+  "actual_dense_frozen_predictions_complete": false,
+  "actual_exit_code": 0,
+  "actual_missing_module_red": "16 failed, 0 skipped in 0.62s",
+  "actual_test_summary": "16 passed, 0 skipped, 1 native constant-input warning in 4.16s",
+  "author_png_is_synthetic_engineering_fixture_not_scientific_result": true,
+  "existing_completed_scientific_settings": 14,
+  "figure13_reproduced": false,
+  "format": "actual_pinned_dense_analysis_engineering_checks_v1",
+  "full_paper_complete": false,
+  "full_producer_admission_or_inference_permit": false,
+  "hand_derived_rounding_sparse_boundary_cases_verified": true,
+  "log_sha256": "2553087b0f6bb38d47eea019491819537a660fe794fa93abc62c722b8617782d",
+  "metadata_forbids_torch_scipy_pandas_matplotlib": true,
+  "native_nonfinite_correlation_kept_as_explicit_null": true,
+  "observed_utc": "2026-11-01T09:00:30.080535+00:00",
+  "original_native_filter_preserved": true,
+  "original_weighted_cubic_spline_preserved": true,
+  "report_extra_matplotlib": "3.9.4",
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_drift_rejected": true,
+  "source_error_unmasked": true,
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_analysis.py": "dc5ab6befb74fc141acf467859f44621132ddece35b211f8af7b8eb6853c565e",
+    "tests/test_occlusion_dense_analysis.py": "c1a32223442417189af9ca79c61a26664c2b04a1d947f04a85e48b7a32871996"
+  },
+  "unchanged_author_main_executed_in_separate_process": true,
+  "upstream_environment_matplotlib": "3.9.2",
+  "versions": {
+    "matplotlib": "3.9.4",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1"
+  }
+}
