@@ -129,15 +129,17 @@ def _verify_emg(model,state,names):
         comparison='original allowed prefixes and exact names/shapes; native target-dtype conversion retained')
 
 
-def _saved_initialization(identity):
-    """Require the complete transfer receipt, beyond its content checksum."""
+def _saved_initialization(identity,*,expected_training_provenance=False):
+    """Check complete tensor transfer under the caller's separate lineage policy."""
+    if type(expected_training_provenance)is not bool:
+        raise ValueError('explicit fusion training-provenance policy required')
     import torch
     def digest(value):
         return type(value) is str and len(value)==64 and all(c in '0123456789abcdef' for c in value)
     try:
         init=identity['initialization'];schema=identity['model_schema']
         if (type(identity['parameters']) is not int or identity['parameters']<=0 or
-            init['initializer_training_provenance_verified'] is not False):raise ValueError('invalid fusion initialization scope')
+            init['initializer_training_provenance_verified'] is not expected_training_provenance):raise ValueError('invalid fusion initialization scope')
         for role in ('vision_file','emg_file'):
             entry=init[role]
             if (type(entry['bytes']) is not int or entry['bytes']<=0 or

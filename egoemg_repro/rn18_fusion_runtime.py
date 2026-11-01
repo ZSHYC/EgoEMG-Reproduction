@@ -91,9 +91,10 @@ def engineering_rn18_fusion_initializers(upstream,config,*,vision_checkpoint,vis
 
 def _saved(identity):
     try:
-        _saved_initialization(identity)
+        full=identity['initializers_scope']=='full'
+        _saved_initialization(identity,expected_training_provenance=full)
         init=identity['initialization'];transfer=init['vision_transfer'];emg=init['emg_transfer']
-        full=identity['initializers_scope']=='full';lineage=identity['trained_initializers_identity']
+        lineage=identity['trained_initializers_identity']
         key=identity['initializers_identity_sha256']
         if not isinstance(key,str)or len(key)!=64 or any(c not in'0123456789abcdef'for c in key):
             raise ValueError('complete initializer identity digest required')

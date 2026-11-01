@@ -73,6 +73,30 @@ def test_saved_construction_binds_the_specific_registered_initializer_identity(b
     assert not p.identity['initialization']['initializer_training_provenance_verified']
 
 
+def test_explicit_saved_transfer_provenance_policy_does_not_upgrade_engineering_scope(branches):
+    """A transfer-schema check is separate from full trained-source admission."""
+    import inspect
+    from egoemg_repro.fusion_literal_runtime import _saved_initialization
+    if 'expected_training_provenance' not in inspect.signature(_saved_initialization).parameters:
+        pytest.fail('saved transfer validator lacks explicit training-provenance policy')
+    p,_=prepared(branches);identity=copy.deepcopy(p.identity)
+    identity['initialization']['initializer_training_provenance_verified']=True
+    with pytest.raises(ValueError):_saved_initialization(identity)
+    _saved_initialization(identity,expected_training_provenance=True)
+    assert identity['initialization']['initializer_training_provenance_verified']is True
+    assert identity['initializers_scope']=='engineering'and not identity['trained_branches_admitted']
+    with pytest.raises(ValueError):api()._saved(identity)
+    for invalid in (None,1,'full'):
+        with pytest.raises(ValueError):_saved_initialization(p.identity,expected_training_provenance=invalid)
+
+
+def test_resealed_engineering_construction_cannot_invent_full_trained_lineage(branches):
+    p,_=prepared(branches);identity=copy.deepcopy(p.identity)
+    identity['initializers_scope']='full';identity['trained_branches_admitted']=True
+    identity['initialization']['initializer_training_provenance_verified']=True
+    with pytest.raises(ValueError):api()._saved(identity)
+
+
 def batch():
     torch=pytest.importorskip('torch')
     return dict(emg=torch.linspace(-.2,.2,2*8*12000).reshape(2,8,12000),
