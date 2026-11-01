@@ -59,7 +59,7 @@ def main():
     assert result['completed_epochs']==250 and result['optimizer_executions']==250*1584
     matches=result['resume_matches'];assert set(matches)=={'model','optimizer','scheduler','callbacks','loops','rng'} and all(matches.values())
     reopened=read_fit(F,require_full=True);assert reopened==result
-    
+
     for n,d in a['original_frozen_source_sha256'].items():assert sha(S/n)==d,n
     assert sha(S/'private/execution-state.json')==a['original_failed_state_sha256']
     v=dict(format='actual_native_resumed_full_fit_completion_v1',kind=a['kind'],parent_complete_epochs=a['complete_epochs'],
