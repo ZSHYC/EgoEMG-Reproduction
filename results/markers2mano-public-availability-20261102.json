@@ -1,0 +1,259 @@
+{
+  "authors_contacted": false,
+  "code_queries": [
+    {
+      "query": "markers2mano",
+      "returned_paths": [
+        {
+          "path": "scripts/viz/viz_mano_results.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/viz/viz_mano_results.py"
+        },
+        {
+          "path": "scripts/viz/VIZ_README.md",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/viz/VIZ_README.md"
+        },
+        {
+          "path": "scripts/mano/infer_mano_for_showee_memmap.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/infer_mano_for_showee_memmap.py"
+        },
+        {
+          "path": "scripts/eval/eval_m2m_checkpoints.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/eval/eval_m2m_checkpoints.py"
+        },
+        {
+          "path": "scripts/prepare/build_showee_memmap.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/prepare/build_showee_memmap.py"
+        },
+        {
+          "path": "scripts/mano/infer_mano_for_egoemg.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/infer_mano_for_egoemg.py"
+        },
+        {
+          "path": "scripts/mano/verify_mano_alignment.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/verify_mano_alignment.py"
+        },
+        {
+          "path": "scripts/prepare/build_showee_mano_world_transforms.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/prepare/build_showee_mano_world_transforms.py"
+        },
+        {
+          "path": "scripts/mano/infer_mano_for_egoemg_ranged.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/infer_mano_for_egoemg_ranged.py"
+        }
+      ],
+      "scope": [
+        "zhenqis123/EgoEMG",
+        "zhenqis123/WristPP_code",
+        "zhenqis123/robot-data-collector"
+      ]
+    },
+    {
+      "query": "EfficientGraphTransformer",
+      "returned_paths": [
+        {
+          "path": "scripts/viz/viz_mano_results.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/viz/viz_mano_results.py"
+        },
+        {
+          "path": "scripts/viz/VIZ_README.md",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/viz/VIZ_README.md"
+        },
+        {
+          "path": "scripts/mano/infer_mano_for_egoemg.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/infer_mano_for_egoemg.py"
+        },
+        {
+          "path": "scripts/mano/generate_mano_report.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/generate_mano_report.py"
+        },
+        {
+          "path": "scripts/eval/eval_m2m_checkpoints.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/eval/eval_m2m_checkpoints.py"
+        },
+        {
+          "path": "scripts/mano/infer_mano_for_egoemg_ranged.py",
+          "url": "https://github.com/zhenqis123/EgoEMG/blob/f7cbd048b7092139852270491d3859cd472e0311/scripts/mano/infer_mano_for_egoemg_ranged.py"
+        }
+      ],
+      "scope": [
+        "zhenqis123/EgoEMG",
+        "zhenqis123/WristPP_code",
+        "zhenqis123/robot-data-collector"
+      ]
+    }
+  ],
+  "format": "bounded_current_official_markers2mano_asset_search_v1",
+  "full_paper_complete": false,
+  "global_absence_proven": false,
+  "issues": {
+    "all_repo_issues_returned": 6,
+    "keyword_query_matches": 0,
+    "maintainer_download_reply": "Baidu release link; already known and does not supply the missing model package",
+    "original_download_issue": "https://github.com/zhenqis123/EgoEMG/issues/1",
+    "related_preview_issue": "https://github.com/zhenqis123/EgoEMG/issues/6",
+    "related_preview_issue_comment_count": 0
+  },
+  "learned_annotator_recovered": false,
+  "loader_defaults_are_not_verified_training_configuration": true,
+  "missing_in_inspected_sources": [
+    "markers2mano package implementation including archive/graph_transformer_4x.py",
+    "matching v51 best epoch12 checkpoint and actual hyperparameters",
+    "annotation training entry/config, exact augmentations and eleven-source sampling/split recipe"
+  ],
+  "model_runs": 0,
+  "models_or_weights_downloaded": 0,
+  "observed_utc": "2026-11-01T20:29:36.235671+00:00",
+  "official_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "package_paths_found_in_reachable_history": false,
+  "package_paths_found_in_v010_tree": false,
+  "pinned_egoemg_source_sha256": {
+    ".gitignore": "43075092e03729d77e81c51c08d73a472c81eddbfa69bf1e2be28672eb80c125",
+    "scripts/eval/eval_m2m_checkpoints.py": "2b1b2ef255b9f9ac6e3b02e06c5ca0cc7fc8c73a283bbae3e15a1a7bd65ade08",
+    "scripts/mano/infer_mano_for_egoemg.py": "37fde2e50909a2af60425cd5c00cbd0ebd2003dac78cefe10c05d36d93418341"
+  },
+  "public_api_sources": {
+    "author-public-repositories.json": {
+      "bytes": 21212,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "repositories": [
+        {
+          "default_branch": "main",
+          "name": "zhenqis123/ai-course-hw1",
+          "url": "https://github.com/zhenqis123/ai-course-hw1"
+        },
+        {
+          "default_branch": "main",
+          "name": "zhenqis123/EgoEMG",
+          "url": "https://github.com/zhenqis123/EgoEMG"
+        },
+        {
+          "default_branch": "main",
+          "name": "zhenqis123/robot-data-collector",
+          "url": "https://github.com/zhenqis123/robot-data-collector"
+        },
+        {
+          "default_branch": "main",
+          "name": "zhenqis123/WristPP_code",
+          "url": "https://github.com/zhenqis123/WristPP_code"
+        }
+      ],
+      "sha256": "ca785a3f1b0d6b0469600b85a2beea533bf8d70065335436ab5c97fe671fea84",
+      "url": "https://api.github.com/users/zhenqis123/repos?per_page=100&type=owner&sort=full_name"
+    },
+    "course-tree.json": {
+      "bytes": 3827,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "relevant_paths": [],
+      "revision": "4455a7a301a309677d0a7cff5a9a4925b30f4068",
+      "sha256": "2d5f0b707eda620107d2b9f187e05bace4e05be9e5260b2b55f946a872cec39e",
+      "tree_entries": 16,
+      "truncated": false,
+      "url": "https://api.github.com/repos/zhenqis123/ai-course-hw1/git/trees/main?recursive=1"
+    },
+    "egoemg-releases.json": {
+      "bytes": 2,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "releases": [],
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "url": "https://api.github.com/repos/zhenqis123/EgoEMG/releases?per_page=100"
+    },
+    "egoemg-tags.json": {
+      "bytes": 408,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "sha256": "18a6901881e5819145345171f1f2da7d892a4661462375af523d8c9b1cffbd91",
+      "tags": [
+        {
+          "name": "v0.1.0",
+          "revision": "289af31f007583587a9ef1bcceec037389331ecc"
+        }
+      ],
+      "url": "https://api.github.com/repos/zhenqis123/EgoEMG/tags?per_page=100"
+    },
+    "egoemg-tree.json": {
+      "bytes": 194968,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "relevant_paths": [
+        "scripts/eval/eval_m2m_checkpoints.py"
+      ],
+      "revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "sha256": "3a77d4120fc183fbd1c5daf8d4e89f298c2491c6f5fc9de5d4227c1e6a7e5753",
+      "tree_entries": 772,
+      "truncated": false,
+      "url": "https://api.github.com/repos/zhenqis123/EgoEMG/git/trees/main?recursive=1"
+    },
+    "robot-collector-tree.json": {
+      "bytes": 98890,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "relevant_paths": [],
+      "revision": "7ab84caad2199105673d20fce22cfdcfdd8d210f",
+      "sha256": "db335f89d26c12bfc2c842568b12674d97f881dd77b329d6f3a2954a89efd5d5",
+      "tree_entries": 381,
+      "truncated": false,
+      "url": "https://api.github.com/repos/zhenqis123/robot-data-collector/git/trees/main?recursive=1"
+    },
+    "wristpp-releases.json": {
+      "bytes": 2,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "releases": [],
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "url": "https://api.github.com/repos/zhenqis123/WristPP_code/releases?per_page=100"
+    },
+    "wristpp-tree.json": {
+      "bytes": 2176,
+      "http_status": 200,
+      "pagination_has_next": false,
+      "relevant_paths": [],
+      "revision": "7953b3009574353e2bb02fcfbb681e55dbf8d593",
+      "sha256": "98c387943d1966f39f7afb1dd8fd48532d8967c361da2c41d4c936ce4cac6eaf",
+      "tree_entries": 9,
+      "truncated": false,
+      "url": "https://api.github.com/repos/zhenqis123/WristPP_code/git/trees/main?recursive=1"
+    }
+  },
+  "public_branches": {
+    "branches": [
+      {
+        "name": "main",
+        "revision": "f7cbd048b7092139852270491d3859cd472e0311"
+      }
+    ],
+    "sha256": "998ad6e32e6145666917eafb6509cf109b1945c3fc5c7af720bfad145d122d80",
+    "url": "https://api.github.com/repos/zhenqis123/EgoEMG/branches?per_page=100"
+  },
+  "public_default_tree_audit_complete": true,
+  "reachable_local_upstream_commits_checked": 214,
+  "related_readme_and_submodule_sources": [
+    {
+      "bytes": 1904,
+      "git_blob_sha1": "23ffaa9ea13df197fa8023fafcb9edc845b09c20",
+      "sha256": "feaf65dd2bcec00d12e1b6e4f938036f7fbcbe59ded62bc2aa7e5bb27a13ad47",
+      "url": "https://github.com/zhenqis123/WristPP_code/blob/7953b3009574353e2bb02fcfbb681e55dbf8d593/README.md"
+    },
+    {
+      "bytes": 9399,
+      "git_blob_sha1": "e526df726f92bd7e53673c343112546c2a740a9f",
+      "sha256": "db4a4866f2a7198ade05c8d70cbf3e15757278265b119aa22f18c44e56578361",
+      "url": "https://github.com/zhenqis123/robot-data-collector/blob/7ab84caad2199105673d20fce22cfdcfdd8d210f/README.md"
+    },
+    {
+      "bytes": 489,
+      "git_blob_sha1": "ea6341391200c70f447df0563bca8c9e7d0c4754",
+      "sha256": "4f2dc7d0f1cfd8d9914c07eb5488eb61426120a5a6455448945c4fb8c8b23392",
+      "url": "https://github.com/zhenqis123/robot-data-collector/blob/7ab84caad2199105673d20fce22cfdcfdd8d210f/.gitmodules"
+    }
+  ],
+  "repository_query": {
+    "query": "markers2mano in:name,description,readme",
+    "returned_repository_count": 0
+  },
+  "scientific_settings_added": 0,
+  "source_revision_changed": false,
+  "upstream_checkout_shallow": false
+}

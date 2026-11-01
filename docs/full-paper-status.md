@@ -401,7 +401,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D03，A.3 | release schema、投影框/左手翻转/256 crop、全模态盘点 | **legacy 获取与读取已核验**，E3/E4/E5；另[六个时钟／webcam字段的完整typed字节及直方图已核验](../results/dataset-statistics/release-timing/README.md)。仍缺从 mocap+全帧重生 crop、当前 v3 manifest/checksums 与旧队列对应；六字段不是完整模态 release |
 | D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **旧版双手各41段原官方FFT重生成、独立复核及全量新旧filtered数值对照完成**；[重生成](../results/dataset-statistics/emg-fft-bilateral-full.md)：每手66,161,725行/8通道，合计4.234GB有限输出。[频率/首段对照](../results/dataset-statistics/emg-fft-first-episode.md)与[全1,058,587,600值对账](../results/dataset-statistics/emg-fft-full-comparison.md)均完成，左右最大差4.768e-7/9.537e-7，输入SHA/九项属性未变；不声称逐字节相同。独立单位标定、当前发布/PDF等价仍未证明，保留整episode非局部依赖 |
 | D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；[合法MANO资产已验收](../results/mano-existing-native-asset-admission-20261029.json)，两手valid已取得；[坐标/腕部8文件接收](raw-marker-acquisition.md)因非206停止、保留1GiB部分，仍缺完整坐标、标注模型及实际逐帧重建产物 |
-| D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部发布缺口**；推理脚本导入未发布的 markers2mano 包；缺真实训练架构/图谱/配置/权重。不得以未训练替身验收 |
+| D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部资产缺口**；[本轮官方公开范围核查](../results/markers2mano-public-availability-20261102.md)涵盖四个完整默认树、当前main／v0.1.0及相关Release；仍未取得模型包／匹配v51权重。源码还要求archive的4x姿态头；fallback不是已核验训练配置，不得以未训练替身验收 |
 | D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **来源调查及InterHand三份MANO参数接收已完成**（见下节），不是作者混合物采样完成。缺精确样本清单、采样 seed/权重、版本与来源划分；图中比例不是实采数据 |
 | D08，B.1.3 | 50% 不增强；8 类为 bone length、global scale、近邻 swap、dropout 插值、neighbor blend、Gaussian noise、局部 drift、spike outlier | **未实现**；缺官方变换训练代码、精确参数/组合与概率、确定性检查和图9产物；不能用姿态模型 EMG 增强替代 |
 | D09，B.1.3 Eq.2 | vertex MSE + 5×marker MSE 的 annotator 训练、选模与质量评价 | **未运行**；缺训练入口、schedule、选择规则、权重与完整曲线。姿态基线 L1+tip 损失不等于该训练 |
@@ -429,7 +429,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | EMG2Pose | [Meta 官方数据与代码][emg2pose]给匿名 S3；完整包 462,824,048,640 bytes（约431GiB），metadata 与30文件 mini 已完整取得并校验 | 完整原包现已取得并记录[接收证据](../results/emg2pose-full-archive-acquisition.json)，完整源准备与准入已完成，25,253会话/3,043,302,266行、465,625,246,698字节转换字段及全部原始文件保留；S/M/L均已在正式训练，完整250轮与最终报告仍欠。[直接转换](../egoemg_repro/emg2pose_data.py)已通过mini全字段验收；[分块xz归档](../egoemg_repro/emg2pose_archive.py)已通过独立审阅，正式全量接收已启动且首块后新块提交成功，仍明确incomplete。动态容量不足将停止并保留可恢复进度，不能缩小cohort；首块压缩比不保证全量容量。不能同时保存全tar/H5/Zarr/memmap |
 | EMG2Pose 发布权重 | Meta 参考权重对应其 classic 模型；EgoEMG 作者 EMGFormer 权重是另一资产 | 当前代码 val/test 已修复不追溯清洗旧选模史；不得以旧 released checkpoint 或 mini 替代三个新完整实验 |
 | MANO | 现有左右模型已完成[原生CPU资产/几何验收](../results/mano-existing-native-asset-admission-20261029.json)：各41个实际引用β行、有限778顶点/1,538面；右手10项状态与固定官方WiLoR资产typed精确一致；[官方许可][mano]已读，模型不再分发 | 不能继续称模型完全不存在或必须重新下载；格式及原生CPU几何资产接口已验收；帧级姿态/相机/遮挡及markers2mano标注模型仍未闭合，不公开私有模型或数据位置 |
-| markers2mano | [推理/模型加载入口][m2m]与[质量评价入口][m2m-eval]已发布，.gitignore 排除 markers2mano；默认 checkpoint 为作者私有运行 | 缺模型包、11 源训练预处理/采样清单、训练入口/配置/增强、train/val 来源划分、v51 权重公开来源。MANO→UmeTrack mapper 训练不能补这个缺口 |
+| markers2mano | [推理/模型加载入口][m2m]与[质量评价入口][m2m-eval]已发布，.gitignore 排除 markers2mano；默认 checkpoint 为作者私有运行 | [本轮公开资产核查](../results/markers2mano-public-availability-20261102.md)仍缺模型包、11源预处理／采样清单、训练入口／增强／划分、匹配v51权重；main仍固定f7，无新资产接收。MANO→UmeTrack mapper训练不能补这个缺口 |
 
 下面是 annotator 的 11 个来源，不是“全部需要账号”，也不是“已经全部获取”。本页记录 2026-10-26 调查快照；公开链接与传输、许可检查、完整混合物是不同门槛。
 
