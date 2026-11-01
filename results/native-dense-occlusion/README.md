@@ -142,6 +142,12 @@ statistics = analyze_source_csv("private-results.csv", upstream=upstream)
 
 官方`_collate_fusion`定义在评价脚本自身，并非`egoemg.datamodule`；新适配器只编译执行固定脚本的这一原函数，再与整个未修改官方评价模块的原函数逐值对照。其字段选择也原样保留，包括没有转发`emg_channel_mask`。batch64在每个split/hand边界重新形成尾批次，不混组、不丢尾。[真实完整批次计划](full-native-batch-schedule-20261101.json)已从完成核验的17,168键独立重建：272批，六组尾批分别45/45/19/19/8/8；未导入Torch或构造模型。18项属于明确工程输入/模块的接口验证，不是全量模型预测资格或论文指标；[真实训练权重的3个不同点诊断](native-trained-forward-adapter-diagnostic-20261101.json)也已完成：原样本2/0/33分别覆盖有图、缺图、无效标签；全部11输入指纹与完整IO逐点相同。直接原生参考和新接口的三分支预测、完整EMG轨迹/中心、目标、原`B×1`掩码及全部弧度误差逐值一致；模型前后完整状态相同，原始数组包退出后重新打开核验，未构造优化器或初始化CUDA。此诊断batch3，不代表batch64/4workers资格或完整17,168点推理；未用这3点生成科学MAE或Figure13。最初[双消费接口探针](native-trained-forward-diagnostic-20261101.json)实际重复key0，明确为1个唯一点，保留为形状诊断历史。
 
+## 完整预测、重放与报告入口
+
+[完整执行说明](../../docs/native-dense-predictions.md)与[`run_dense_occlusion.py`](../../scripts/paper/run_dense_occlusion.py)已经接通；[19项新集成检查](full-run-integration-tests-20261101.json)实际通过、无跳过。真实完整54文件重新流式核对，全17,168键/GT/已完成来源交集绑定；原始十数组包保留完整轨迹、目标、掩码和弧度误差。实际4worker读取在晚期消费异常后也关闭，重新签名的空资格标记、残缺批次和改变的重放均拒绝。
+
+7阶段后台流程先以真实batch64/4workers和各组尾批进行528点双进程资格，再执行全部17,168点两遍预测、原始报告及新进程报告重建。目前这19项验证不包含实际训练模型上的batch64资格或完整预测；一次完整新集成审查及实际服务器执行仍待完成。CPU是原官方支持的device选择，全部点/官方批次设置保留，既有GPU任务不调度或重启。
+
 ## 尚未完成
 
 - 两路线完整密GT均已验收；后续必须用相同精确请求键连接真实预测。1947步长与标准7790步长不整除，不能用标准网格分数作近邻替换。

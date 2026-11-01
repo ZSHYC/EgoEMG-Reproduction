@@ -1,0 +1,33 @@
+{
+  "actual_b64_trained_model_qualification_started": false,
+  "actual_complete_payload_bytes_rehashed": 61379659366,
+  "actual_complete_payload_files_rehashed": 54,
+  "actual_exit_code": 0,
+  "actual_full_input_source_positive_not_synthetic": true,
+  "actual_full_prediction_population_started": false,
+  "actual_input_gate_forbids_learned_model_construction": true,
+  "actual_original_input_and_gt_keys": 17168,
+  "actual_source_four_worker_late_failure_cleanup": true,
+  "actual_summary": "19 passed, 0 skipped in 66.44s",
+  "code_review_still_pending": true,
+  "figure13_reproduced": false,
+  "first_implementation": "17 passed in 63.54s",
+  "format": "actual_native_dense_full_run_integration_tests_v1",
+  "full_dense_inference_permit": false,
+  "full_paper_complete": false,
+  "incomplete_or_resealed_full_scope_markers_rejected": true,
+  "initial_missing_module_red": "12 failed, 5 errors in 1.23s",
+  "loader_late_failure_regression_green": "1 passed in1.59s",
+  "loader_late_failure_regression_red": "1 failed in0.14s",
+  "log_sha256": "2e650c79ff1250d85edde5d27a3ec1effc1f1970655d3860b7e7d822fbb20563",
+  "observed_utc": "2026-11-01T10:24:09.938702+00:00",
+  "raw_packet_corruption_and_inconsistent_replay_rejected": true,
+  "resealed_empty_qualification_marker_regression_red": "1 failed in1.55s: marker was accepted before actual raw-pass reopening was added",
+  "scientific_eligible": false,
+  "source_model_mathematics_suites_reopened": false,
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_run.py": "e8bf8d9359519131daff37a4062c143eb756c482ba6c0d4e56cc9ba5209a2a42",
+    "scripts/paper/run_dense_occlusion.py": "c0485b0a222904a43254513876450060e0b8f3c537a2db09fa66591ae7b3664b",
+    "tests/test_occlusion_dense_run.py": "046951f39aa1908a0bf740c0cc3f7f4f9704d9cfb96a9513d710608294bacab5"
+  }
+}

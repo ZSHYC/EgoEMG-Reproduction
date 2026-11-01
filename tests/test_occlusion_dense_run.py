@@ -1,0 +1,216 @@
+"""New full-run integration; engineering packets never certify full training."""
+import copy
+import importlib
+import json
+import os
+from pathlib import Path
+import runpy
+
+import numpy as np
+import pytest
+
+ROOT = Path(__file__).resolve().parents[1]
+UPSTREAM = Path(os.environ.get('EGOEMG_UPSTREAM', ROOT/'upstream')).resolve()
+
+
+def api():
+    try: return importlib.import_module('egoemg_repro.occlusion_dense_run')
+    except ModuleNotFoundError as exc:
+        if exc.name == 'egoemg_repro.occlusion_dense_run': pytest.fail('complete dense inference/replay integration missing')
+        raise
+
+
+def arguments():
+    return dict(evidence=ROOT/'results/native-dense-occlusion', upstream=UPSTREAM,
+        index_root='/data/shihao/egoemg-native-dense-occlusion-complete-indices-20261101',
+        paired_root='/data/shihao/egoemg-native-dense-paired-inputs-v2-20261101',
+        geometry_root='/data/shihao/egoemg-native-dense-geometry-vits_s-full-20261101')
+
+
+@pytest.fixture(scope='module')
+def actual_evidence():
+    m = api()
+    if not Path(arguments()['paired_root']).is_dir():
+        if os.environ.get('EGOEMG_REQUIRE_DENSE_RUN_TEST') == '1': pytest.fail('actual completed dense source roots required')
+        pytest.skip('actual full source journals required; no fake complete-source positive')
+    return m.load_dense_evidence(**arguments())
+
+
+@pytest.fixture(scope='module')
+def actual_inputs(actual_evidence):
+    import torch
+    original = torch.nn.Module.__init__
+    def denied(*a, **kw): raise AssertionError('input admission constructed learned model')
+    torch.nn.Module.__init__ = denied
+    try:
+        return api().admit_dense_run_inputs(actual_evidence,
+            data='/home/shihao/projects/EgoEMG-Reproduction/data/legacy',
+            crops='/home/shihao/projects/EgoEMG-Reproduction/data/crops')
+    finally: torch.nn.Module.__init__ = original
+
+
+def test_real_evidence_closes_exact_full_keys_gt_and_completed_producer_footprints(actual_evidence):
+    p = actual_evidence; p.check()
+    assert len(p.keys()) == len(p.geometry()) == 17168
+    assert p.identity['counts'] == dict(points=17168, zero_geometry=518, crop_missing=695, label_invalid=518)
+    assert p.identity['batch_sizes'][-1] == 8 and len(p.identity['batch_sizes']) == 272
+    assert p.identity['actual_completed_producer_footprints_bound']
+    assert not p.identity['trained_model_or_inference_permit']
+
+
+def test_resealed_proofs_or_forged_evidence_cannot_bypass_source_checks(tmp_path, actual_evidence):
+    m = api(); directory = tmp_path/'proofs'; directory.mkdir()
+    for name in m.PUBLIC_PROOFS:
+        (directory/name).write_bytes((arguments()['evidence']/name).read_bytes())
+    target = directory/'paired-full-io-complete-20261101.json'
+    value = json.loads(target.read_text()); value['actual_total_paired_hand_requests'] = 1
+    target.write_text(json.dumps(value))
+    with pytest.raises(ValueError): m.load_dense_evidence(**dict(arguments(), evidence=directory))
+    forged = copy.copy(actual_evidence)
+    with pytest.raises(ValueError, match='registered'): forged.check()
+
+
+def test_real_full_input_admission_matches_complete_io_without_models(actual_inputs):
+    p = actual_inputs; p.check()
+    assert p.identity['actual_complete_payload_files'] == 54
+    assert p.identity['actual_complete_payload_bytes'] == 61379659366
+    assert p.identity['complete_pre_forward_payload_hashes_verified']
+    assert not p.identity['trained_model_or_inference_permit']
+    row = p[33]
+    assert row['key']['sequence'] == 33 and not row['fusion']['label_valid_mask'].any()
+    assert p.verified_samples == 1
+    clone = copy.copy(p)
+    with pytest.raises(ValueError, match='registered'): clone.check()
+
+
+def key(i):
+    return dict(sequence=i, split='user', hand='left', ep_idx=0, center_idx=3895+i,
+        window_start=i, window_end=7790+i, group_index=0, native_index=i)
+
+
+def packet():
+    import torch
+    target = np.arange(66, dtype=np.float32).reshape(3, 22)/17
+    full = np.repeat(np.arange(146, dtype=np.float32)[None, None, :], 3, axis=0)
+    full = np.repeat(full, 22, axis=1)
+    a = dict(fusion_prediction=target+.3, vision_prediction=target-.7,
+        emg_prediction=full[:, :, 73].copy(), emg_full_prediction=full,
+        targets=target, label_valid_mask=np.array([[False], [True], [False]]),
+        crop_valid_mask=np.array([[False], [True], [False]]))
+    for role in ('fusion', 'vision', 'emg'):
+        a['mae_'+role+'_rad'] = np.array([float((torch.from_numpy(a[role+'_prediction'][i])
+            - torch.from_numpy(target[i])).abs().mean()) for i in range(3)], np.float64)
+    return a
+
+
+def test_raw_packet_preserves_all_predictions_trajectory_center_flags_and_source_errors(tmp_path):
+    m = api(); a = packet(); keys = [key(i) for i in range(3)]
+    record = m.write_dense_batch(tmp_path, 0, keys=keys, arrays=a, inputs_sha256={'fusion:emg': 'a'*64})
+    b = m.read_dense_batch(tmp_path, record, expected_keys=keys)
+    assert set(a) == set(b)
+    for name in a: assert a[name].dtype == b[name].dtype and np.array_equal(a[name], b[name])
+    assert b['label_valid_mask'].shape == (3, 1) and not b['label_valid_mask'][0, 0]
+    assert len(b['mae_vision_rad']) == 3
+    assert not (tmp_path/'result.json').exists()  # A raw batch cannot finish a full pass.
+
+
+@pytest.mark.parametrize('damage', ['nonfinite', 'dtype', 'time_center', 'error', 'mask_shape', 'missing_crop_mask', 'duplicate', 'mixed_hand'])
+def test_corrupt_raw_semantics_reject_before_export(tmp_path, damage):
+    m = api(); a = packet(); keys = [key(i) for i in range(3)]
+    if damage == 'nonfinite': a['vision_prediction'][0, 0] = np.nan
+    elif damage == 'dtype': a['targets'] = a['targets'].astype(np.float64)
+    elif damage == 'time_center': a['emg_prediction'][0, 0] += 1
+    elif damage == 'error': a['mae_vision_rad'][0] += .01
+    elif damage == 'mask_shape': a['label_valid_mask'] = a['label_valid_mask'][:, :, None]
+    elif damage == 'missing_crop_mask': a.pop('crop_valid_mask')
+    elif damage == 'duplicate': keys[1] = dict(keys[0], sequence=1)
+    elif damage == 'mixed_hand': keys[1]['hand'] = 'right'
+    with pytest.raises(ValueError):
+        m.write_dense_batch(tmp_path, 0, keys=keys, arrays=a, inputs_sha256={'fusion:emg': 'a'*64})
+    assert not list(tmp_path.glob('*.npz'))
+
+
+def test_changed_or_truncated_packet_and_unsafe_paths_never_replay(tmp_path):
+    m = api(); keys = [key(i) for i in range(3)]
+    record = m.write_dense_batch(tmp_path, 0, keys=keys, arrays=packet(), inputs_sha256={'fusion:emg': 'a'*64})
+    path = tmp_path/record['file']; path.write_bytes(path.read_bytes()[:-11])
+    with pytest.raises(ValueError): m.read_dense_batch(tmp_path, record, expected_keys=keys)
+    forged = copy.deepcopy(record); forged['file'] = '../outside.npz'
+    with pytest.raises(ValueError): m.read_dense_batch(tmp_path, forged, expected_keys=keys)
+
+
+def test_consistent_but_different_replay_predictions_are_rejected(tmp_path):
+    import torch
+    m = api(); keys = [key(i) for i in range(3)]
+    first = tmp_path/'first'; second = tmp_path/'second'; first.mkdir(); second.mkdir()
+    a = packet(); r = m.write_dense_batch(first, 0, keys=keys, arrays=a, inputs_sha256={'fusion:emg': 'a'*64})
+    a['fusion_prediction'][0, 0] += .2
+    a['mae_fusion_rad'][0] = float((torch.from_numpy(a['fusion_prediction'][0])-torch.from_numpy(a['targets'][0])).abs().mean())
+    s = m.write_dense_batch(second, 0, keys=keys, arrays=a, inputs_sha256={'fusion:emg': 'a'*64})
+    with pytest.raises(ValueError, match='replay'):
+        m.compare_dense_batches(first, r, second, s, expected_keys=keys)
+
+
+def test_partial_or_forged_completed_pass_is_rejected(tmp_path, actual_evidence):
+    m = api()
+    (tmp_path/'identity.json').write_text(json.dumps(dict(scope='complete', source_identity_sha256=actual_evidence.identity['sha256'])))
+    (tmp_path/'result.json').write_text(json.dumps(dict(scientific_eligible=True, complete=True, points=17168)))
+    with pytest.raises(ValueError): m.read_dense_pass(tmp_path, evidence=actual_evidence)
+
+
+def test_complete_run_cannot_start_without_registered_inputs_and_real_qualification(tmp_path, actual_inputs):
+    from types import SimpleNamespace
+    m = api()
+    with pytest.raises(ValueError):
+        m.run_dense_pass(SimpleNamespace(check=lambda: None), tmp_path, tmp_path/'fake', scope='complete')
+    with pytest.raises(ValueError, match='qualification'):
+        m.run_dense_pass(actual_inputs, tmp_path, tmp_path/'unqualified', scope='complete')
+    assert not (tmp_path/'unqualified').exists()
+
+
+def test_resealed_qualification_markers_without_actual_raw_passes_are_rejected(tmp_path, actual_evidence):
+    import hashlib
+    m = api(); first = tmp_path/'first'; second = tmp_path/'second'; first.mkdir(); second.mkdir()
+    for p in (first, second): (p/'result.json').write_text('{}')
+    value = m._seal(dict(format='actual_dense_cpu_qualification_acceptance_v1',
+        evidence_identity_sha256=actual_evidence.identity['sha256'], model_identity_sha256=m.MODEL_ID,
+        source_files_sha256=actual_evidence.identity['source_files_sha256'],
+        first=str(first), second=str(second),
+        first_result_file_sha256=hashlib.sha256(b'{}').hexdigest(),
+        second_result_file_sha256=hashlib.sha256(b'{}').hexdigest(),
+        actual_batch_size=64, actual_workers=4, actual_points_each=528, actual_batches_each=12,
+        separate_fresh_replay_exact=True, all_workers_exited=True))
+    path = tmp_path/'qualification.json'; path.write_text(json.dumps(value))
+    with pytest.raises(ValueError): m._qualification(path, actual_evidence)
+
+
+def test_cli_import_is_guarded_and_does_not_start_work(monkeypatch):
+    api()
+    def denied(*a, **kw): raise AssertionError('import launched dense prediction')
+    monkeypatch.setattr(api(), 'run_dense_pass', denied)
+    path = ROOT/'scripts/paper/run_dense_occlusion.py'
+    assert path.is_file(), 'guarded dense inference/report CLI missing'
+    runpy.run_path(str(path), run_name='spawn_probe')
+
+
+def test_source_four_worker_loader_closes_its_children_after_late_consumer_failure():
+    m = api(); handles = []
+    class TinyPackets:
+        def __len__(self): return 65
+        def __getitem__(self, i):
+            fusion = dict(emg=np.zeros((16, 7790), np.float32),
+                joint_angles=np.zeros((22, 1), np.float32), label_valid_mask=np.array([False]),
+                vision_img=np.zeros((1, 3, 4, 4), np.float32), vision_valid_mask=np.array([False]),
+                _ep_idx=0, _center_idx=3895+i, target_hand='left')
+            standalone = {n: v for n, v in fusion.items() if n in ('joint_angles', 'label_valid_mask')}
+            standalone['emg'] = np.zeros((8, 7790), np.float32)
+            return dict(key=key(i), fusion=fusion, standalone_emg=standalone, verified_input_sha256='a'*64)
+    with pytest.raises(RuntimeError, match='late consumer failure'):
+        with m._managed_loader(TinyPackets(), list(range(65)), upstream=UPSTREAM) as (iterator, workers, pin):
+            handles.extend(workers)
+            batch = next(iterator)
+            assert batch['fusion']['emg'].shape == (64, 16, 7790)
+            assert len(workers) == 4
+            raise RuntimeError('late consumer failure')
+    assert len(handles) == 4
+    for handle in handles: m._actor_closed(handle)
