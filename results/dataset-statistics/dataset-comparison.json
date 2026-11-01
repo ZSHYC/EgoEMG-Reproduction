@@ -88,6 +88,22 @@
   ],
   "complete_egoemg_multimodal_inventory_verified": false,
   "external_datasets_retrained": false,
+  "followup_archive_audit_20261102": {
+    "all4242_published_entries_independently_rebuilt": true,
+    "all_non_directory_members_are_fsr_join_pps_csv": true,
+    "dataset": "PiMForce",
+    "full_archive_or_all_csv_payloads_verified": false,
+    "full_main_archive_directory_verified": true,
+    "full_paper_complete": false,
+    "independent_readback_file": "pimforce-main-archive-independent-readback-20261102.json",
+    "independent_readback_file_sha256": "0cfcf62335cc93e91f50b3242eba5daba6a86068cd0a5d48a7afacf8e167705b",
+    "original_table_values_silently_corrected": false,
+    "receipt_file": "pimforce-main-archive-audit-20261102.json",
+    "receipt_file_sha256": "2a5d1471846516671cc64c089f2943883e651e4673cdb947b44b682b3be50764",
+    "separate_pressurevision_benchmark_payload_inspected": false,
+    "session_directories": 63,
+    "three_complete_raw_csv_payloads_crc_and_numeric_schema_verified": true
+  },
   "followup_cell_audit_20261029": [
     {
       "as_reported": "8",

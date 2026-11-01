@@ -1,3 +1,5 @@
+> **2026-11-02 Table 1来源推进**：[PiMForce主ZIP完整目录及原始CSV](../results/dataset-statistics/pimforce-main-archive-audit-20261102.md)已实际核验：21个用户键／63会话、4,242目录记录、4,158个CSV；三份完整成员CRC及64,252行数值检查、另一进程全部目录字段与样本数值重读一致，样本为8路EMG／20手指角。仅主ZIP文件清单确认无图像／视频命名成员，未检查全部CSV内容或单独PressureVision++包。README的21动作、原论文22交互及EgoEMG表63手势分别保留；63等于会话数不证明作者误写。Table1、全文仍欠验收，没有新增模型成绩。
+
 > **接续与依赖队列已重新建立，尚未开始GPU恢复**：[实时身份快照](../results/native-resnet-recovery-queues-20261102.json)在16:14:55 UTC核对10组任务的精确进程身份：原有6组保持，新增RN50／RN152接续、S/M/L全轨迹及IK batch10096资格4组独立后台队列。RN50／152等待GPU1／7稳定空闲；全轨迹等待RN50完整接续与最终评价成功，IK资格再等全轨迹成功。现有8份检查点和18文件完整归档已验收；实际六域恢复、训练收尾及这两项后续评价仍欠，完整IK标签流程尚未建立。没有抢占他人GPU、没有自动重试或修改既有模型代码。全文目标继续。
 
 > **原生RN50/152断点准入已完成**：[独立归档与六域保存状态](native-resnet-recovery.md)核验18个原输出／8份检查点；RN50可从72轮／36,432更新接续，RN152从30轮／33,690更新接续。RN50日志73轮的末轮状态未保存，不能冒充已恢复。6拥有者与退出后复核进程关闭，143冻结成员与全部源／归档SHA一致，无网络／优化器构造、无CUDA；这是断点准入，实际GPU恢复与最终结果仍欠。新任务须等待GPU1／7稳定空闲，旧失败状态、完整归档和既有训练保留。
@@ -334,7 +336,7 @@ classic 配方的 precision=16-mixed 和 gradient_clip_val=0 还需要真实实�
 
 | ID / PDF 位置 | 性质与必须产物 | 状态、实际证据 | 尚欠与验收条件 |
 | --- | --- | --- | --- |
-| Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **六行原表CSV/JSON及逐源审计已生成**；[来源与差异](../results/dataset-statistics/dataset-comparison-audit.md)保留PDF原值，Jarque-Bou两腕角/7列与8通道设备、MyoKi人数/通道/腕角、PiMForce交互数/参考文献、NinaPro脚注差异单列；补7条逐字段来源判定，未找到官方独立生成脚本 | 剩余列的逐项原始来源核验、NinaPro原表范围的作者口径与跨库身份、EgoEMG全模态实物盘点。已有原值表不证明全部事实已核实；无需重训这些引用研究 |
+| Table 1，§3.3 p.4 | 数据集比较；EgoEMG 为作者数据定义，其余行为外部引用 | **六行原表CSV/JSON及逐源审计已生成**；[来源与差异](../results/dataset-statistics/dataset-comparison-audit.md)保留PDF原值，Jarque-Bou两腕角/7列与8通道设备、MyoKi人数/通道/腕角、PiMForce交互数/参考文献、NinaPro脚注差异单列；补7条逐字段来源判定；[PiMForce完整主ZIP目录](../results/dataset-statistics/pimforce-main-archive-audit-20261102.md)核实全部63会话／4,158个CSV及三份完整成员，未找到官方独立生成脚本 | 剩余列的逐项原始来源核验、NinaPro原表范围的作者口径与跨库身份、EgoEMG全模态实物盘点。已有原值表不证明全部事实已核实；无需重训这些引用研究 |
 | Table 2，§5.1 p.8 | 作者 EMG 主结果；S/M/L、vemg2pose、NeuroPose 的轨迹 Gesture/User/Both 与加权 Avg、参数量 | **S/M/L有完整legacy结果，VEMG有原生配方/旧版队列完整结果**，E1/E2及各独立报告；NeuroPose已完整早停73轮并通过冻结测试/独立精确复算，轨迹16.358404° | 五模型各自完整证据；逐用户 mean±SD、样本权重、轨迹 mask/分母；模型同名不能证明与 v1 原表等价 |
 | Table 3，§5.2–5.3 p.8 | 作者单帧视觉/融合主结果；7视觉与2融合 | **七视觉与两融合均已有可得旧版队列上的完整最终结果**；RN组为legacy，DINO/WiLoR/ViT-S融合为原生或显式派生配方，协议分列 | 新增[WiLoR](../results/original-vision/wilor/README.md)5.107042°、[ViT-S融合](../results/original-fusion/vit-small-emgformer-small/README.md)6.342238°；全部中心数值仍高于原表，作者人口/数据/六rank与聚合等价性未证明，不能视作同条件表格复现 |
 | Table 4，A.1 p.15 | 60类完整词表与描述、30/18/12族群，数据定义 | **定义、实际帧与冻结中心覆盖已核验（legacy）**，E7/E8；完整词表保留raw50；中心有241未分配、66 raw，59类视图33,201窗口，与帧统计分开 | [全66,161,725行逐手/逐角mask统计已核验](../results/dataset-semantics/full-frame-validity.md)，保留60类/raw50/未分配行；不同新grid须另报，帧/中心覆盖不能填Table14/15模型误差N。PDF措辞差异单列 |

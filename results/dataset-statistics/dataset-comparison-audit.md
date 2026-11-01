@@ -25,4 +25,6 @@ MyoKi的[Methods与Data Records（pp.3、6、9）](https://elib.dlr.de/221692/1/
 
 本轮7条逐字段判定在[JSON](dataset-comparison.json)的followup_cell_audit_20261029中。NinaPro家族统一行口径、PiMForce完整视觉发布盘点、EgoEMG全部模态实物仍未闭合；Table1不标为全部完成。原六行CSV及全部原表值保持不变。
 
-PiMForce[作者公开目录](https://www.dropbox.com/scl/fo/m7qye1l3ii6hlwgzlajyv/ADhaUZvH2eDJ3ggmGAlN5k0?dl=0&rlkey=eyt5gs66uimhiw3dismnylamw)另核实主ZIP显示7.64GB、独立PressureVision++基准58.96GB，主目录列User1–21；User1有三会话，抽查Session1仅见fsr/join/pps各22个CSV。[目录观察记录](pimforce-public-directory-observation-20261029.json)只证明可见文件清单，未下载压缩包或检查全部63会话，不能由此断言全数据没有图像。
+2026-10-29历史观察：PiMForce[作者公开目录](https://www.dropbox.com/scl/fo/m7qye1l3ii6hlwgzlajyv/ADhaUZvH2eDJ3ggmGAlN5k0?dl=0&rlkey=eyt5gs66uimhiw3dismnylamw)显示主ZIP为7.64GB、独立PressureVision++基准58.96GB，主目录列User1–21；User1有三会话，抽查Session1仅见fsr/join/pps各22个CSV。[当时的目录观察记录](pimforce-public-directory-observation-20261029.json)未检查完整归档。
+
+2026-11-02新增[完整主ZIP目录及三份原始CSV核验](pimforce-main-archive-audit-20261102.md)：实际ZIP64目录4,242条，21用户键×3会话，全部4,158非目录成员均为fsr/join/pps CSV、各会话三类编号均为0–21。三份完整样本CRC及64,252行数值检查通过，实际join含8路EMG/20手指角；另一进程以独立目录解析器和NumPy读取器完整复核。主ZIP文件清单的图像/视频命名成员为0，但未读取全部CSV内容或单独的PressureVision++包，不能推广为整个发布目录没有视觉数据。另保留原README“21动作”、原论文22交互、EgoEMG表63手势的三方差异；63恰等于会话数，作者是否误写仍无证据。Table1及全文未标完成。

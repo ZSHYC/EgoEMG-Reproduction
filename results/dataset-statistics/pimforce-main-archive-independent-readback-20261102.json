@@ -1,0 +1,46 @@
+{
+  "all4158_csv_payloads_verified": false,
+  "all4242_directory_entries_exact": true,
+  "all_local_header_offsets_exact": true,
+  "all_paths_sizes_crcs_methods_flags_exact": true,
+  "archive_single_disk_end_records_exact": true,
+  "directory_parser": "independent struct parser of actual suffix, including ZIP64 offsets; no zipfile import",
+  "external_training_performed": false,
+  "format": "independent_manual_zip64_directory_and_numpy_raw_csv_readback_v1",
+  "full_archive_sha256_verified": false,
+  "full_paper_complete": false,
+  "full_sample_row_count": 64252,
+  "inventory_file": "pimforce-main-archive-members-20261102.csv",
+  "inventory_file_sha256": "2728842342614c1d6d84377590faf89954cde08312042add26095f63a7508a49",
+  "observed_utc": "2026-11-01T16:28:58.752414+00:00",
+  "sampled_csv_readback": [
+    {
+      "all_cells_finite_numeric": true,
+      "column_count": 6,
+      "path": "Dataset/User1/Session1/fsr_0.csv",
+      "rows": 2975,
+      "sha256": "73de91743c3dcddbbdb71813a623ed551a731524674b1d2a8b7b709cad3f6124"
+    },
+    {
+      "all_cells_finite_numeric": true,
+      "column_count": 30,
+      "path": "Dataset/User1/Session1/join_0.csv",
+      "rows": 57720,
+      "sha256": "9312468c409c9441cdadee9d89494d05107656c422ded66d1385a75a8b7c862a"
+    },
+    {
+      "all_cells_finite_numeric": true,
+      "column_count": 66,
+      "path": "Dataset/User1/Session1/pps_0.csv",
+      "rows": 3557,
+      "sha256": "c6ad67c30b65293432880e6c0340b122358f6b34a2c805f2a8dcbc3b82fc3b3f"
+    }
+  ],
+  "seconds": 0.3244180980109377,
+  "separate_pressurevision_benchmark_payload_inspected": false,
+  "source_files_sha256_and_nine_attributes_after_read_exact": true,
+  "source_receipt_file": "pimforce-main-archive-audit-20261102.json",
+  "source_receipt_sha256": "2a5d1471846516671cc64c089f2943883e651e4673cdb947b44b682b3be50764",
+  "torch_unimported": true,
+  "verifier_source_sha256": "6ccab21557ccdc28b4901277bc16904102263a3c7c28e1df651c473d235c2b6a"
+}
