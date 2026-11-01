@@ -1,0 +1,359 @@
+{
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "actual_schema": {
+    "mano_thetas": "15 PCA coefficients, official use_pca=True and num_pca_comps=15; raw values retained",
+    "mano_wrist_xform": "6 values; official FK supplies first 3 as global_orient and final 3 as transl (meter in source annotation); no convention conversion or mesh reconstruction performed",
+    "shared_mano_shape": "10 betas shared by left and right hands within each clip",
+    "umetrack_joint_angles": "22 raw scalars per received hand, not assumed interchangeable with EgoEMG 20-finger-plus-2-wrist target",
+    "umetrack_wrist": "T_world_from_wrist dictionary with quaternion_wxyz(4) and translation_xyz(3)"
+  },
+  "archives": [
+    {
+      "all_retained_json_finite_scalar_values": 40336,
+      "archive_bytes": 104069120,
+      "archive_members": 1201,
+      "archive_sha256": "c3bfd5b26b1c80a4a8c038b1d26ef423464de0b12ee42c6adc67f0485dbd3775",
+      "clip_id": 1849,
+      "counts": {
+        "frames": 150,
+        "left_missing": 0,
+        "left_null": 0,
+        "left_present": 150,
+        "mano_missing": 0,
+        "mano_records": 300,
+        "right_missing": 0,
+        "right_null": 0,
+        "right_present": 150,
+        "umetrack_missing": 0,
+        "umetrack_records": 300,
+        "zero_mano_thetas": 0
+      },
+      "device": "Aria",
+      "every_frame_matches_source_definition": true,
+      "fields": {
+        "mano_pca15": {
+          "count": 4500,
+          "max": 1.9535223245620728,
+          "min": -1.5312247276306152
+        },
+        "mano_shape": {
+          "count": 10,
+          "max": 1.5623234510421753,
+          "min": -3.4746103286743164
+        },
+        "mano_wrist6": {
+          "count": 1800,
+          "max": 1.4833268047073618,
+          "min": -2.289280875572633
+        },
+        "umetrack_joints22": {
+          "count": 6600,
+          "max": 1.468226671218872,
+          "min": -0.6680978536605835
+        },
+        "umetrack_quaternion4": {
+          "count": 1200,
+          "max": 0.9767715893615717,
+          "min": -0.9173798941878025
+        },
+        "umetrack_translation3": {
+          "count": 900,
+          "max": 0.3081273312299102,
+          "min": -0.6440995263393627
+        }
+      },
+      "path": "train_aria/clip-001849.tar",
+      "retained_raw_bytes": 1040331,
+      "retained_raw_members": 301
+    },
+    {
+      "all_retained_json_finite_scalar_values": 39306,
+      "archive_bytes": 102440960,
+      "archive_members": 1051,
+      "archive_sha256": "e78a506d43cf9b3a8fc0bc2b2b95d5222e2959c65d4ae8c2787efdca3a14ee50",
+      "clip_id": 0,
+      "counts": {
+        "frames": 150,
+        "left_missing": 0,
+        "left_null": 0,
+        "left_present": 150,
+        "mano_missing": 0,
+        "mano_records": 300,
+        "right_missing": 0,
+        "right_null": 0,
+        "right_present": 150,
+        "umetrack_missing": 0,
+        "umetrack_records": 300,
+        "zero_mano_thetas": 0
+      },
+      "device": "Quest3",
+      "every_frame_matches_source_definition": true,
+      "fields": {
+        "mano_pca15": {
+          "count": 4500,
+          "max": 2.0989603996276855,
+          "min": -1.8776249885559082
+        },
+        "mano_shape": {
+          "count": 10,
+          "max": 0.5639162063598633,
+          "min": -2.8880209922790527
+        },
+        "mano_wrist6": {
+          "count": 1800,
+          "max": 2.01993701988591,
+          "min": -2.3141086494966774
+        },
+        "umetrack_joints22": {
+          "count": 6600,
+          "max": 1.4786841869354248,
+          "min": -0.6908095479011536
+        },
+        "umetrack_quaternion4": {
+          "count": 1200,
+          "max": 0.8940798884925995,
+          "min": -0.8439819751242884
+        },
+        "umetrack_translation3": {
+          "count": 900,
+          "max": 1.1855595703125,
+          "min": -0.30581399536132814
+        }
+      },
+      "path": "train_quest3/clip-000000.tar",
+      "retained_raw_bytes": 1015322,
+      "retained_raw_members": 301
+    }
+  ],
+  "author_mixture_reconstructed": false,
+  "complete_public_split_metadata": {
+    "test_bop": {
+      "clips": 1028,
+      "frames": 154200,
+      "per_device": {
+        "Aria": 467,
+        "Quest3": 561
+      },
+      "sequences": 117,
+      "source_participant_ids": 6
+    },
+    "test_ht_pose": {
+      "clips": 524,
+      "frames": 78600,
+      "per_device": {
+        "Aria": 250,
+        "Quest3": 274
+      },
+      "sequences": 67,
+      "source_participant_ids": 3
+    },
+    "test_ht_shape": {
+      "clips": 504,
+      "frames": 75600,
+      "per_device": {
+        "Aria": 217,
+        "Quest3": 287
+      },
+      "sequences": 50,
+      "source_participant_ids": 3
+    },
+    "train": {
+      "clips": 2804,
+      "frames": 420600,
+      "per_device": {
+        "Aria": 1516,
+        "Quest3": 1288
+      },
+      "sequences": 257,
+      "source_participant_ids": 13
+    }
+  },
+  "complete_public_train_archive_bytes": 294201743360,
+  "complete_public_train_directory_inventory": {
+    "train_aria": {
+      "archive_bytes": 163234713600,
+      "clips": 1516
+    },
+    "train_quest3": {
+      "archive_bytes": 130967029760,
+      "clips": 1288
+    }
+  },
+  "dataset_revision": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+  "documented_schema_discrepancies": [
+    "Pinned clips README describes UmeTrack joint_angles as 20; all 600 received records have 22.",
+    "Pinned clips README describes UmeTrack wrist_xform as a 4x4 matrix; received JSON stores T_world_from_wrist with quaternion and translation, which the pinned official decoder converts to a matrix."
+  ],
+  "format": "hot3d_public_train_source_qualification_report_v1",
+  "full_hot3d_acquired": false,
+  "full_paper_complete": false,
+  "full_public_train_acquired": false,
+  "hand_tracking_toolkit_commit": "9064a2fe7fda51bb1f1451a0d3d0da7f3ef5e64e",
+  "license": {
+    "bundled_license_pdf_sha256": "0e2142c2920d25128a15944078870e4c13f81cd3864c39c9d69c3cda21e01868",
+    "code": "HOT3D API Apache-2.0 per pinned README",
+    "hand_annotations": "CC BY-NC-SA per bundled license agreement",
+    "mano_model_redistributed": false,
+    "raw_data_published_in_repository": false,
+    "sequence_and_nonhand_annotations": "CC BY-SA per bundled license agreement",
+    "whole_license_read_and_one_page_visually_inspected": true
+  },
+  "observed_utc": "2026-11-01T20:50:37.107422+00:00",
+  "qualification_selection": "lexicographically first public train clip in each device directory; no outcome-dependent selection",
+  "received_archive_bytes": 206510080,
+  "received_archive_count": 2,
+  "received_frames_and_parameters": {
+    "all_retained_json_finite_scalar_values": 79642,
+    "frames": 300,
+    "mano_records": 600,
+    "retained_raw_json_bytes": 2055653,
+    "retained_raw_json_members": 602,
+    "shared_shape_records": 2,
+    "umetrack_records": 600
+  },
+  "scope_limits": [
+    "Only 2 of 2804 public train clip archives received; the complete train archive list is metadata inventory, not full payload acquisition.",
+    "Public clips are a curated subset of full HOT3D; they do not establish the paper author exact HOT3D sample version or 11-source 712K mixture.",
+    "Official README withholds test hand GT; no hidden test GT or test archive was requested.",
+    "No pose rescaling, mirroring, mean-pose correction, PCA expansion, mesh generation, annotation model training or label replacement was performed.",
+    "Missing markers2mano source, matching weights, full sampling recipe and train/val/test mixture remain unresolved."
+  ],
+  "sources": {
+    "README.md": {
+      "bytes": 737,
+      "git_blob_sha1": "e443c5d764137ecb720cbe78104a149974ea7474",
+      "http_status": 200,
+      "sha256": "f4007ccab45cf6a80275e10c88c6f873768a92f30b6baf98b9d3a83f53ee4602",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/README.md"
+    },
+    "clip_definitions.json": {
+      "bytes": 77089128,
+      "file": "clip_definitions.json",
+      "received_utc": "2026-11-01T20:45:38.276577+00:00",
+      "revision": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+      "sha256": "b9b50b30934c548e55a0400ef076eeb25f937b574fe2b205c5dcaccb4e4ab610",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/clip_definitions.json"
+    },
+    "clip_splits.json": {
+      "bytes": 57466,
+      "git_blob_sha1": "927d94a8106f50c69e7691d39099f42f12dc63a6",
+      "http_status": 200,
+      "sha256": "54067720be3645aff6e9d79dcba2bd8d1c6d3f91e1dfba2cfae42da9ec5f497c",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/clip_splits.json"
+    },
+    "clip_util.py": {
+      "bytes": 12302,
+      "git_blob_sha1": "e288c519269e4d2f905f9342e76b5f13ad71acec",
+      "sha256": "2eb0793f0c92c6bf5abf05aa2753f9d72b5317097329013556f260c0751e7ac9",
+      "url": "https://github.com/facebookresearch/hot3d/blob/146b34afef8c1a32adeef7e981c070109f225c87/hot3d/clips/clip_util.py",
+      "whole_file_verified": true
+    },
+    "clips-README.md": {
+      "bytes": 11697,
+      "git_blob_sha1": "0659a9874b90485a20e713105b2462a2fb2fa32d",
+      "sha256": "fe2ed1e758fa297ba24e1a73996629b77893c376eb49b8f62eeb1a26875ecdba",
+      "url": "https://github.com/facebookresearch/hot3d/blob/146b34afef8c1a32adeef7e981c070109f225c87/hot3d/clips/README.md",
+      "whole_file_verified": true
+    },
+    "hand_tracking_dataset.py": {
+      "bytes": 11287,
+      "git_blob_sha1": "60d35d045a3d60114658335cb9fe7a3fcdf76a33",
+      "sha256": "5cf3fe68bf2f7b09519fc6c1b5e3ee510f411b45163c11c9e93848a92e8d68cb",
+      "url": "https://github.com/facebookresearch/hand_tracking_toolkit/blob/9064a2fe7fda51bb1f1451a0d3d0da7f3ef5e64e/hand_tracking_toolkit/dataset.py",
+      "whole_file_verified": true
+    },
+    "hot3d_dataset_license_agreement.pdf": {
+      "bytes": 77999,
+      "git_blob_sha1": "013c60a49e3e246e885e3a25f466d813ab73b894",
+      "http_status": 200,
+      "sha256": "0e2142c2920d25128a15944078870e4c13f81cd3864c39c9d69c3cda21e01868",
+      "url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/hot3d_dataset_license_agreement.pdf"
+    },
+    "mano_hand_model.py": {
+      "bytes": 8465,
+      "git_blob_sha1": "24d29e7adfd91d729c17919b01569460bbe70435",
+      "sha256": "8843da497713fb021e9470313d3e9b626e011b560669711c54d899d50b431645",
+      "url": "https://github.com/facebookresearch/hand_tracking_toolkit/blob/9064a2fe7fda51bb1f1451a0d3d0da7f3ef5e64e/hand_tracking_toolkit/hand_models/mano_hand_model.py",
+      "whole_file_verified": true
+    },
+    "toolkit-README.md": {
+      "bytes": 13504,
+      "git_blob_sha1": "ce8b2f360c25fac391af2ce62c2c87429b02b355",
+      "sha256": "5ee257419aa2bd19f02f1769c12e732b709e4265cb0b74c4fb75e518feee2348",
+      "url": "https://github.com/facebookresearch/hot3d/blob/146b34afef8c1a32adeef7e981c070109f225c87/README.md",
+      "whole_file_verified": true
+    },
+    "train_aria-tree-page-1.json": {
+      "bytes": 310657,
+      "http_status": 200,
+      "path": "train_aria-tree-page-1.json",
+      "sha256": "375c15ceea100cd5a81235559b2a53e1ba5f23964959994591fe69e7407b0641",
+      "url": "https://huggingface.co/api/datasets/bop-benchmark/hot3d/tree/30fe9674782f32e1e5edba98476b6ff4300132c5/train_aria?limit=1000"
+    },
+    "train_aria-tree-page-2.json": {
+      "bytes": 160123,
+      "http_status": 200,
+      "path": "train_aria-tree-page-2.json",
+      "sha256": "4fd5fc1818c4b62de492d4645669162693fffdd8b5bd0e94a7a70834bb07a638",
+      "url": "https://huggingface.co/api/datasets/bop-benchmark/hot3d/tree/30fe9674782f32e1e5edba98476b6ff4300132c5/train_aria?expand=false&recursive=false&limit=1000&cursor=ZXlKbWFXeGxYMjVoYldVaU9pSjBjbUZwYmw5aGNtbGhMMk5zYVhBdE1EQXlPRFE0TG5SaGNpSXNJblJ5WldWZmIybGtJam9pWlRSa04yWTNNVEF6Wm1GbE9XRm1PR0ZqWmpnM1kySXdNbU5qWkRrM016a3laamMwWkRNMllTSjk6MTAwMA%3D%3D"
+    },
+    "train_quest3-tree-page-1.json": {
+      "bytes": 311955,
+      "http_status": 200,
+      "path": "train_quest3-tree-page-1.json",
+      "sha256": "8441545504e14f05684752c642e1b0a23376d5746dfafc8f498df03650ee3332",
+      "url": "https://huggingface.co/api/datasets/bop-benchmark/hot3d/tree/30fe9674782f32e1e5edba98476b6ff4300132c5/train_quest3?limit=1000"
+    },
+    "train_quest3-tree-page-2.json": {
+      "bytes": 89875,
+      "http_status": 200,
+      "path": "train_quest3-tree-page-2.json",
+      "sha256": "3435f907d0d99a9bf58d88f426fc927ea49393ffa2c520b63907d17ed4694f00",
+      "url": "https://huggingface.co/api/datasets/bop-benchmark/hot3d/tree/30fe9674782f32e1e5edba98476b6ff4300132c5/train_quest3?expand=false&recursive=false&limit=1000&cursor=ZXlKbWFXeGxYMjVoYldVaU9pSjBjbUZwYmw5eGRXVnpkRE12WTJ4cGNDMHdNREE1T1RrdWRHRnlJaXdpZEhKbFpWOXZhV1FpT2lJeFpqYzNZemcwWVdKbE9EWXpOalV6TW1SaU5HUTBZamswWVdJd09HVmhPV0UzWVRCbU5tVXhJbjA9OjEwMDA%3D"
+    },
+    "vis_clips.py": {
+      "bytes": 11116,
+      "git_blob_sha1": "d6e932a224cb512a03943ef1a2d2a2a00f9a11f3",
+      "sha256": "8115e801ba123bfbfcc084daaadd4255feb317c84245131a4728e204ba7e7289",
+      "url": "https://github.com/facebookresearch/hot3d/blob/146b34afef8c1a32adeef7e981c070109f225c87/hot3d/clips/vis_clips.py",
+      "whole_file_verified": true
+    }
+  },
+  "toolkit_commit": "146b34afef8c1a32adeef7e981c070109f225c87",
+  "verification": {
+    "focused_pax_regression": {
+      "errors": 0,
+      "failures": 0,
+      "passed": true,
+      "tests": 5
+    },
+    "initial_parser_failure": "The first independent server parser rejected actual PAX mtime extension headers; complete transferred source files were retained, the format interpretation was corrected, and a new verifier reused the same files without redownload.",
+    "local": "Full archive SHA256 + tarfile membership + duplicate-key-rejecting JSON + stdlib finite/range counts + complete per-frame source definition matching",
+    "mtime_only_pax_headers": {
+      "train_aria/clip-001849.tar": 1050,
+      "train_quest3/clip-000000.tar": 900
+    },
+    "postexit_readback": {
+      "actual_gpu_actions": 0,
+      "actual_model_runs": 0,
+      "all5_complete_source_files_rehashed_after_exit": true,
+      "all602_retained_raw_members_rehashed_after_exit": true,
+      "all_input_and_report_generations_unchanged": true,
+      "all_numeric_statistics_exact": true,
+      "author_mixture_reconstructed": false,
+      "full_hot3d_acquired": false,
+      "full_paper_complete": false,
+      "independent_verifier_closed": true,
+      "observed_utc": "2026-11-01T20:49:19.983868+00:00",
+      "original_receiver_closed": true,
+      "python_version": "3.11.12",
+      "report_completion_and_payload_membership_exact": true,
+      "retained_raw_members": 602
+    },
+    "server": "Independent 512-byte tar header/checksum parser including all image and padding bytes in full archive SHA; validated mtime-only PAX metadata; independent NumPy numeric reductions; no tarfile or Torch imports",
+    "server_exact_all_selected_raw_member_payloads": true,
+    "server_exact_local_statistics": true,
+    "server_wire_bytes": 283734673
+  }
+}
