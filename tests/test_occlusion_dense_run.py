@@ -5,6 +5,8 @@ import json
 import os
 from pathlib import Path
 import runpy
+import subprocess
+import sys
 
 import numpy as np
 import pytest
@@ -214,3 +216,79 @@ def test_source_four_worker_loader_closes_its_children_after_late_consumer_failu
             raise RuntimeError('late consumer failure')
     assert len(handles) == 4
     for handle in handles: m._actor_closed(handle)
+
+
+def comparison_packets(tmp_path):
+    """Engineering arrays and real exited OS actors; no full-source positive."""
+    from types import SimpleNamespace
+    m = api(); keys = [key(i) for i in range(3)]; identity = m._seal(dict(batch_ranges=[[0, 3]]))
+    code = 'import json;from egoemg_repro.emg2pose_memory_process import process_identity;print(json.dumps(process_identity()))'
+    actors = [json.loads(subprocess.check_output([sys.executable, '-B', '-c', code], text=True)) for _ in range(2)]
+    results = []
+    for i, actor in enumerate(actors):
+        root = tmp_path/('pass'+str(i)); root.mkdir(); (root/'batches').mkdir()
+        record = m.write_dense_batch(root/'batches', 0, keys=keys, arrays=packet(), inputs_sha256={'fusion:emg': 'a'*64})
+        result = dict(actor=actor, model_state_sha256_after={'engineering': 'a'*64},
+            fresh_model_forward_replay_verified=bool(i), replay_of_result_file_sha256=None,
+            replay_of_identity_sha256=identity['sha256'] if i else None)
+        if i: result['replay_of_result_file_sha256'] = m._sha(Path(results[0]['directory'])/'result.json')
+        (root/'result.json').write_text(json.dumps(result))
+        results.append(dict(directory=str(root), identity=identity, result=result, records=[record]))
+    return results[0], results[1], SimpleNamespace(keys=lambda: keys)
+
+
+@pytest.mark.parametrize('damage', ['same_directory', 'copied_actor', 'wrong_parent_digest'])
+def test_a_pass_cannot_be_its_own_fresh_replay_or_bind_another_parent(tmp_path, damage):
+    m = api(); first, second, evidence = comparison_packets(tmp_path)
+    if damage == 'same_directory': second = first
+    elif damage == 'copied_actor': second['result']['actor'] = first['result']['actor']
+    else: second['result']['replay_of_result_file_sha256'] = '0'*64
+    with pytest.raises(ValueError, match='replay'):
+        m._compare_passes(first, second, evidence)
+
+
+def test_distinct_closed_actors_with_the_exact_preceding_result_can_compare(tmp_path):
+    m = api(); first, second, evidence = comparison_packets(tmp_path)
+    m._compare_passes(first, second, evidence)
+
+
+def test_report_stays_pending_before_independent_verification(tmp_path, monkeypatch):
+    """Report-control logic only; source/model gates and math are substituted.
+
+    The placeholders are explicitly not a positive full population experiment.
+    """
+    from types import SimpleNamespace
+    m = api(); keys = [key(0)]
+    prediction = dict(keys[0], mae_vision_rad=.1, mae_emg_rad=.2, mae_fusion_rad=.09)
+    geometry = [dict(occlusion_score=None, visible_ratio=None, status='invalid_zero_pose')]
+    evidence = SimpleNamespace(identity=dict(sha256='0'*64, completed_producer_footprints={}),
+        upstream=UPSTREAM, keys=lambda: keys, geometry=lambda: geometry, check=lambda: None)
+    fake_pass = dict(identity=dict(scope='complete', hardware=dict(device='cpu')),
+        result=dict(fresh_model_forward_replay_verified=True), predictions=[prediction])
+    monkeypatch.setattr(m, 'read_dense_pass', lambda *a, **kw: fake_pass)
+    monkeypatch.setattr(m, '_compare_passes', lambda *a, **kw: None)
+    monkeypatch.setattr(m, 'join_dense_predictions', lambda *a, **kw: dict(csv_rows=[dict(mae_vision_deg=5.73)]))
+    monkeypatch.setattr(m, 'analyze_source_csv', lambda *a, **kw: dict(sha256='a'*64,
+        filtered_rows=0, binned_rows=0, bins=[], spearman=dict(rho=None, pvalue=None)))
+    original = subprocess.run
+    def substitute_plot(command, *a, **kw):
+        if len(command) > 2 and str(command[2]).endswith('plot_occlusion_fusion.py'):
+            Path(command[command.index('--output')+1]).write_bytes(b'engineering placeholder; not a scientific image')
+            return subprocess.CompletedProcess(command, 0, stdout='engineering plot placeholder', stderr='')
+        return original(command, *a, **kw)
+    monkeypatch.setattr(subprocess, 'run', substitute_plot)
+    out = tmp_path/'report'; result = m.build_dense_report('placeholder-a', 'placeholder-b', evidence=evidence, output=out)
+    assert result['available_legacy_figure13_pipeline_complete'] is False
+    assert result['scientific_eligible'] is False
+    assert result['verification_status'] == 'pending independent reconstruction'
+    assert not (out/'completion.json').exists()
+
+
+def test_report_cannot_promote_while_verification_stage_worker_is_alive(tmp_path, actual_evidence):
+    from egoemg_repro.emg2pose_memory_process import process_identity
+    m = api(); actor = process_identity()
+    stage = dict(status='success', worker_exit_code=0, all_owned_consumers_exited=True,
+        worker=actor, guardian=actor, owner=actor)
+    with pytest.raises(ValueError):
+        m._promote_dense_report(tmp_path/'report', tmp_path/'rebuilt', evidence=actual_evidence, owned_stage=stage)
+    assert not (tmp_path/'report/completion.json').exists()

@@ -1,0 +1,129 @@
+{
+  "actual_b64_trained_model_qualification_started": false,
+  "actual_complete_payload_bytes_rehashed": 61379659366,
+  "actual_complete_payload_files_rehashed": 54,
+  "actual_cpu_host_boot_and_torch_version_recorded": true,
+  "actual_exit_code": 0,
+  "actual_full_input_source_positive_not_synthetic": true,
+  "actual_full_prediction_population_started": false,
+  "actual_input_gate_forbids_learned_model_construction": true,
+  "actual_matplotlib_version_recorded": true,
+  "actual_original_input_and_gt_keys": 17168,
+  "actual_skipped_tests": 0,
+  "actual_source_four_worker_late_failure_cleanup": true,
+  "b64_qualification_permitted_after_reviewed_tests": true,
+  "closed_stage_promotion_red": "missing _promote_dense_report API",
+  "figure13_reproduced": false,
+  "final_summary": "25 passed in 66.95s",
+  "focused_green_summary": "6 passed in 3.03s",
+  "format": "actual_native_dense_one_final_review_material_fixes_v1",
+  "full_dense_inference_permit": false,
+  "full_paper_complete": false,
+  "independently_reopened_server_raw_logs_and_source_bytes_exact": true,
+  "initial_replay_red_fixture_error_disclosed": "The earlier three replay cases reached missing batches subdirectories. Fixed the engineering fixture and re-ran the unchanged pre-fix implementation to obtain genuine DID NOT RAISE failures.",
+  "no_fake_full_source_producer_positive": true,
+  "observed_utc": "2026-11-01T10:35:23.415060+00:00",
+  "one_fresh_integration_review_completed": true,
+  "raw_packet_and_report_control_fixtures_are_engineering_only": true,
+  "report_pending_red": "assert True is False",
+  "review_findings": [
+    {
+      "baseline_source_sha256": "e8bf8d9359519131daff37a4062c143eb756c482ba6c0d4e56cc9ba5209a2a42",
+      "priority": "P1",
+      "problem": "Same/copy-actor/unbound preceding pass accepted as fresh replay",
+      "resolution": "Distinct canonical directories and exited producing actors; exact preceding result and identity digests; live raw guards",
+      "valid_raw_packet_baseline": "3 failed in 1.41s, all DID NOT RAISE"
+    },
+    {
+      "priority": "P2",
+      "problem": "Report completion before separate reconstruction stage closure",
+      "resolution": "Pending report plus sealed distinct-actor verification, closed owned stage and artifact recheck before atomic promotion"
+    }
+  ],
+  "review_source_commit": "e1570f1",
+  "scientific_eligible": false,
+  "second_review_requested": false,
+  "source_model_mathematics_suites_reopened": false,
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_inference.py": "c1d3378391630a6ec86deb34100186869da71cdaf91a6ee1974d325253f064c0",
+    "egoemg_repro/occlusion_dense_models.py": "417af8e8adca024c7ad81eb483852dd11cb1e040f4f8c99cc032b07b3ecbdc16",
+    "egoemg_repro/occlusion_dense_run.py": "e648af868ed189d7283d9cbed2f0f5cc55d67e3b3ea0171725ef99e7ffce3051",
+    "scripts/paper/run_dense_occlusion.py": "c0485b0a222904a43254513876450060e0b8f3c537a2db09fa66591ae7b3664b",
+    "tests/test_occlusion_dense_run.py": "07e4228834ce9c5e873f885ebddc96527e260f9c382a459af2080c6c7a7dd26b"
+  },
+  "test_runs": [
+    {
+      "actual_exit_code": 1,
+      "command": [
+        "/home/shihao/projects/EgoEMG-Reproduction/.runtime/env/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=/data/shihao/egoemg-dense-trained-models-task3-review-valid-packets-baseline-red-20261101/private/pytest-tmp",
+        "tests/test_occlusion_dense_run.py::test_a_pass_cannot_be_its_own_fresh_replay_or_bind_another_parent"
+      ],
+      "log_sha256": "ee438185f10d90ba19b9bb82b3a5dfeefe7928426e2f2840fa5e7fe611af32d9",
+      "observed_utc": "2026-11-01T10:34:45.336416+00:00",
+      "root": "/data/shihao/egoemg-dense-trained-models-task3-review-valid-packets-baseline-red-20261101"
+    },
+    {
+      "actual_exit_code": 1,
+      "command": [
+        "/home/shihao/projects/EgoEMG-Reproduction/.runtime/env/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=/data/shihao/egoemg-dense-trained-models-task3-review-replay-report-red-20261101/private/pytest-tmp",
+        "tests/test_occlusion_dense_run.py::test_a_pass_cannot_be_its_own_fresh_replay_or_bind_another_parent",
+        "tests/test_occlusion_dense_run.py::test_report_stays_pending_before_independent_verification",
+        "tests/test_occlusion_dense_run.py::test_report_cannot_promote_while_verification_stage_worker_is_alive"
+      ],
+      "log_sha256": "4c036ee67f390f3617cad0d8466d5d842fe5da8d22c794f61a1ebc10ddc4ba78",
+      "observed_utc": "2026-11-01T10:30:11.559851+00:00",
+      "root": "/data/shihao/egoemg-dense-trained-models-task3-review-replay-report-red-20261101"
+    },
+    {
+      "actual_exit_code": 0,
+      "command": [
+        "/home/shihao/projects/EgoEMG-Reproduction/.runtime/env/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=/data/shihao/egoemg-dense-trained-models-task3-review-replay-report-fixed-green-v2-20261101/private/pytest-tmp",
+        "tests/test_occlusion_dense_run.py::test_a_pass_cannot_be_its_own_fresh_replay_or_bind_another_parent",
+        "tests/test_occlusion_dense_run.py::test_distinct_closed_actors_with_the_exact_preceding_result_can_compare",
+        "tests/test_occlusion_dense_run.py::test_report_stays_pending_before_independent_verification",
+        "tests/test_occlusion_dense_run.py::test_report_cannot_promote_while_verification_stage_worker_is_alive"
+      ],
+      "log_sha256": "ca8592bcdcd4373c21fe38350231cdaae5d16f078260e7a8f3b0acbdf05e1fd7",
+      "observed_utc": "2026-11-01T10:34:02.858526+00:00",
+      "root": "/data/shihao/egoemg-dense-trained-models-task3-review-replay-report-fixed-green-v2-20261101"
+    },
+    {
+      "actual_exit_code": 0,
+      "command": [
+        "/home/shihao/projects/EgoEMG-Reproduction/.runtime/env/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=/data/shihao/egoemg-dense-trained-models-task3-full-run-reviewed-final-green-20261101/private/pytest-tmp",
+        "tests/test_occlusion_dense_run.py"
+      ],
+      "log_sha256": "c3612260b342c0e991b7e268a2d90fd6ddbec8164e9462dc2411543f455af523",
+      "observed_utc": "2026-11-01T10:35:18.364087+00:00",
+      "root": "/data/shihao/egoemg-dense-trained-models-task3-full-run-reviewed-final-green-20261101"
+    }
+  ]
+}

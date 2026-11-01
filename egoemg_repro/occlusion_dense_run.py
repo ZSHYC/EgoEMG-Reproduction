@@ -372,12 +372,29 @@ def _scope_batches(evidence, scope):
 
 def _actor_closed(handle):
     from .emg2pose_memory_process import process_identity
-    if (not isinstance(handle, dict) or type(handle.get('pid')) is not int
-        or not isinstance(handle.get('start_ticks'), str)):
+    if (not isinstance(handle, dict) or any(type(handle.get(n)) is not int or handle[n] <= 0 for n in ('pid', 'sid', 'pgrp'))
+        or type(handle.get('uid')) is not int or handle['uid'] < 0
+        or not isinstance(handle.get('start_ticks'), str) or not handle['start_ticks'].isdigit()):
         raise ValueError('actual dense worker identity required')
     current = process_identity(handle['pid'])
     if current is not None and current['start_ticks'] == handle['start_ticks']:
         raise ValueError('actual dense worker has not exited')
+
+
+def _actor_key(handle):
+    return tuple(handle[n] for n in ('pid', 'start_ticks', 'uid', 'sid', 'pgrp'))
+
+
+def _cpu_hardware():
+    import importlib.metadata
+    import platform
+    model = next(line.split(':', 1)[1].strip() for line in Path('/proc/cpuinfo').read_text().splitlines()
+        if line.startswith('model name'))
+    return dict(device='cpu', dtype='float32', autocast=False, torch_threads=2,
+        batch_size=64, num_workers=4, pin_memory=True, shuffle=False, drop_last=False,
+        hostname=platform.node(), boot_id=Path('/proc/sys/kernel/random/boot_id').read_text().strip(),
+        cpu_model=model, architecture=platform.machine(), logical_cpus=os.cpu_count(),
+        torch_version=importlib.metadata.version('torch'))
 
 
 def read_dense_pass(directory, *, evidence):
@@ -386,14 +403,14 @@ def read_dense_pass(directory, *, evidence):
         raise ValueError('registered completed evidence required for a full pass')
     evidence.check(); directory = _safe(directory)
     try:
-        identity = _sealed(_json(directory/'identity.json'))
-        result = _sealed(_json(directory/'result.json'))
         journal = directory/'batches.jsonl'
         guard = _StatGuard([directory/'identity.json', directory/'result.json', journal])
+        identity = _sealed(_json(directory/'identity.json'))
+        result = _sealed(_json(directory/'result.json'))
+        result_file_sha256 = _sha(directory/'result.json')
         ranges = _scope_batches(evidence, identity['scope'])
         admission = _sealed(identity['input_admission'])
-        hardware = dict(device='cpu', dtype='float32', autocast=False, torch_threads=2,
-            batch_size=64, num_workers=4, pin_memory=True, shuffle=False, drop_last=False)
+        hardware = _cpu_hardware()
         if (identity['format'] != 'actual_native_dense_frozen_pass_v1'
             or identity['evidence_identity_sha256'] != evidence.identity['sha256']
             or identity['source_files_sha256'] != evidence.identity['source_files_sha256']
@@ -452,19 +469,36 @@ def read_dense_pass(directory, *, evidence):
             raise ValueError('full original missing/invalid samples must remain in predictions')
         guard.check(); evidence.check()
         return dict(directory=str(directory), identity=identity, result=result,
-            records=records, predictions=predictions)
+            records=records, predictions=predictions, _guard=guard,
+            _result_file_sha256=result_file_sha256)
     except (OSError, KeyError, TypeError) as exc:
         raise ValueError('complete native dense pass unavailable or malformed') from exc
 
 
 def _compare_passes(first, second, evidence):
     a, b = first['identity'], second['identity']
+    left, right = _safe(first['directory']), _safe(second['directory'])
+    if left == right:
+        raise ValueError('fresh replay requires a distinct canonical result directory')
+    for item in (first, second):
+        _actor_closed(item['result']['actor'])
+        if item.get('_guard') is not None: item['_guard'].check()
+    if ((first['result']['actor']['pid'], first['result']['actor']['start_ticks'])
+        == (second['result']['actor']['pid'], second['result']['actor']['start_ticks'])):
+        raise ValueError('fresh replay requires distinct producing actors')
+    preceding_sha = first.get('_result_file_sha256') or _sha(left/'result.json')
+    if (not second['result'].get('fresh_model_forward_replay_verified')
+        or second['result'].get('replay_of_result_file_sha256') != preceding_sha
+        or second['result'].get('replay_of_identity_sha256') != a['sha256']):
+        raise ValueError('fresh replay is not bound to this exact preceding result')
     if a != b or first['result']['model_state_sha256_after'] != second['result']['model_state_sha256_after']:
         raise ValueError('fresh native replay identity/model source differs')
     keys = evidence.keys()
     for (start, stop), left, right in zip(a['batch_ranges'], first['records'], second['records']):
         compare_dense_batches(Path(first['directory'])/'batches', left,
             Path(second['directory'])/'batches', right, expected_keys=keys[start:stop])
+    for item in (first, second):
+        if item.get('_guard') is not None: item['_guard'].check()
 
 
 def accept_dense_qualification(first, second, *, evidence, output):
@@ -577,8 +611,7 @@ def run_dense_pass(inputs, fusion_fit, output, *, scope, qualification=None, rep
         evidence_identity_sha256=evidence.identity['sha256'], input_admission=copy.deepcopy(inputs.identity),
         source_files_sha256=evidence.identity['source_files_sha256'], model_identity=copy.deepcopy(trained.identity),
         batch_ranges=[list(r) for r in ranges],
-        hardware=dict(device='cpu', dtype='float32', autocast=False, torch_threads=torch.get_num_threads(),
-            batch_size=64, num_workers=4, pin_memory=True, shuffle=False, drop_last=False),
+        hardware=_cpu_hardware(),
         scientific_eligible=False, figure13_reproduced=False, full_paper_complete=False))
     if previous is not None and previous['identity'] != identity:
         raise ValueError('fresh replay must consume identical complete source/model/batch identity')
@@ -608,6 +641,7 @@ def run_dense_pass(inputs, fusion_fit, output, *, scope, qualification=None, rep
                             arrays=arrays, inputs_sha256=fingerprints)
                         read_dense_batch(output/'batches', record, expected_keys=expected_keys)
                         if previous is not None:
+                            previous['_guard'].check()
                             compare_dense_batches(Path(previous['directory'])/'batches', previous['records'][ordinal],
                                 output/'batches', record, expected_keys=expected_keys)
                         journal.write(_canonical(record)+'\n'); journal.flush(); os.fsync(journal.fileno())
@@ -629,12 +663,15 @@ def run_dense_pass(inputs, fusion_fit, output, *, scope, qualification=None, rep
     if before != after or torch.cuda.is_initialized():
         raise ValueError('frozen complete CPU model state changed or CUDA initialized')
     payloads = inputs.hash_payloads()
+    if previous is not None: previous['_guard'].check()
     result = _seal(dict(format='actual_native_dense_frozen_pass_result_v1', identity_sha256=identity['sha256'],
         actor=process_identity(), points=points, batches=ordinal, crop_missing=missing, label_invalid=invalid,
         journal_file_sha256=_sha(output/'batches.jsonl'), model_state_sha256_before=before,
         model_state_sha256_after=after, all_model_states_before_after_exact=True,
         complete_payload_sha256_after_forward=payloads, loader_groups=groups,
         fresh_model_forward_replay_verified=previous is not None,
+        replay_of_result_file_sha256=previous['_result_file_sha256'] if previous is not None else None,
+        replay_of_identity_sha256=previous['identity']['sha256'] if previous is not None else None,
         actual_optimizer_updates=0, cuda_initialized=False, scope=scope,
         scientific_eligible=False, figure13_reproduced=False, full_paper_complete=False,
         seconds=time.monotonic()-started))
@@ -647,6 +684,8 @@ def build_dense_report(first, second, *, evidence, output):
     import csv
     import subprocess
     import sys
+    import importlib.metadata
+    from .emg2pose_memory_process import process_identity
     a = read_dense_pass(first, evidence=evidence); b = read_dense_pass(second, evidence=evidence)
     if a['identity']['scope'] != 'complete' or not b['result']['fresh_model_forward_replay_verified']:
         raise ValueError('two genuine complete prediction passes and fresh replay required')
@@ -685,32 +724,105 @@ def build_dense_report(first, second, *, evidence, output):
         completed_producer_footprints=evidence.identity['completed_producer_footprints'],
         original_plot_exit_code=process.returncode,
         artifacts_sha256={p.name: _sha(p) for p in output.iterdir() if p.is_file()},
-        hardware=a['identity']['hardware'], available_legacy_figure13_pipeline_complete=True,
+        hardware=a['identity']['hardware'], report_actor=process_identity(),
+        matplotlib_version=importlib.metadata.version('matplotlib'),
+        verification_status='pending independent reconstruction',
+        available_legacy_figure13_pipeline_complete=False,
         limitations=['Available41episode legacy release, not established as the PDF complete corpus.',
             'Official1920x1080 video fallback, original X mirror/no distortion; physical equivalence unproven.',
             'Dense center-heldout windows include original disclosed training-input overlap; all keys retained.',
             'Original CSV unmasked22-angle sample errors differ from masked standard Table3 results.',
             'Stale archived eval config/attention patch replaced by current pinned native forwards and actual cotrain source.'],
-        scientific_eligible=True, figure13_reproduced=False,
+        scientific_eligible=False, figure13_reproduced=False,
         paper_numerical_equivalence_established=False, full_paper_complete=False))
     _write_json(output/'report.json', value)
     return value
 
 
 def verify_dense_report(first, second, report, *, evidence, output):
-    original = _sealed(_json(Path(report)/'report.json'))
+    from .emg2pose_memory_process import process_identity
+    report_path = _safe(Path(report)/'report.json')
+    guard = _StatGuard([report_path])
+    original = _sealed(_json(report_path))
+    _actor_closed(original['report_actor'])
+    if _actor_key(original['report_actor']) == _actor_key(process_identity()):
+        raise ValueError('independent report verification requires a distinct producing actor')
+    original_sha = _sha(report_path)
     for name, digest in original['artifacts_sha256'].items():
-        if _sha(_safe(Path(report)/name)) != digest:
+        path = _safe(Path(report)/name); guard.add(path)
+        if _sha(path) != digest:
             raise ValueError('original dense report artifact changed')
     rebuilt = build_dense_report(first, second, evidence=evidence, output=output)
     for name in ('occlusion_fusion_results.csv', 'statistics.json', 'bins.csv', 'raw_paired_errors.csv', 'occlusion_fusion_gain.png'):
         if original['artifacts_sha256'][name] != rebuilt['artifacts_sha256'][name]:
             raise ValueError('fresh complete dense report reconstruction differs: '+name)
-    value = dict(original_report_sha256=_sha(Path(report)/'report.json'),
+    guard.check()
+    value = _seal(dict(original_report_sha256=original_sha,
         rebuilt_report_sha256=_sha(Path(output)/'report.json'), all_numeric_csv_statistics_and_png_bytes_exact=True,
-        full_paper_complete=False)
+        actor=process_identity(), available_legacy_figure13_pipeline_complete=False,
+        full_paper_complete=False))
     _write_json(Path(output)/'verification.json', value)
     return value
+
+
+def _promote_dense_report(report, rebuilt, *, evidence, owned_stage):
+    """Publish completion only after the separate verifier's owned stage exits."""
+    from .emg2pose_memory_process import process_identity
+    if (not isinstance(evidence, DenseEvidence) or owned_stage.get('status') != 'success'
+        or owned_stage.get('worker_exit_code') != 0 or not owned_stage.get('all_owned_consumers_exited')):
+        raise ValueError('successful closed independent verification stage required')
+    evidence.check()
+    for name in ('worker', 'guardian'): _actor_closed(owned_stage[name])
+    if _actor_key(owned_stage['owner']) != _actor_key(process_identity()):
+        raise ValueError('only the actual owning controller may publish verification completion')
+    directory, rebuilt = _safe(report), _safe(rebuilt)
+    original_path, rebuilt_path, verification_path = directory/'report.json', rebuilt/'report.json', rebuilt/'verification.json'
+    guard = _StatGuard([original_path, rebuilt_path, verification_path])
+    original = _sealed(_json(original_path)); other = _sealed(_json(rebuilt_path)); verified = _sealed(_json(verification_path))
+    _actor_closed(original['report_actor']); _actor_closed(verified['actor'])
+    if (_actor_key(verified['actor']) != _actor_key(owned_stage['worker'])
+        or _actor_key(other['report_actor']) != _actor_key(verified['actor'])
+        or (original['report_actor']['pid'], original['report_actor']['start_ticks'])
+            == (verified['actor']['pid'], verified['actor']['start_ticks'])
+        or verified['original_report_sha256'] != _sha(original_path)
+        or verified['rebuilt_report_sha256'] != _sha(rebuilt_path)
+        or not verified['all_numeric_csv_statistics_and_png_bytes_exact']):
+        raise ValueError('actual fresh owned verification must bind both exact pending reports')
+    if (original['format'] != 'actual_complete_legacy_vits_dense_paired_report_v1'
+        or original['evidence_identity_sha256'] != evidence.identity['sha256']
+        or original['model_identity_sha256'] != MODEL_ID
+        or original['actual_points'] != 17168 or original['actual_complete_prediction_passes'] != 2
+        or not original['exact_all_raw_prediction_replay']
+        or original['scientific_eligible'] or original['available_legacy_figure13_pipeline_complete']
+        or original['verification_status'] != 'pending independent reconstruction'
+        or original['figure13_reproduced'] or original['paper_numerical_equivalence_established'] or original['full_paper_complete']):
+        raise ValueError('canonical pending legacy report required before publication')
+    exclude = {'sha256', 'artifacts_sha256', 'report_actor'}
+    if {k: v for k, v in original.items() if k not in exclude} != {k: v for k, v in other.items() if k not in exclude}:
+        raise ValueError('fresh report scientific metadata differs')
+    for name in ('occlusion_fusion_results.csv', 'statistics.json', 'bins.csv', 'raw_paired_errors.csv', 'occlusion_fusion_gain.png'):
+        for parent, document in ((directory, original), (rebuilt, other)):
+            path = _safe(parent/name); guard.add(path)
+            if _sha(path) != document['artifacts_sha256'][name]:
+                raise ValueError('verified report artifact changed before completion')
+        if original['artifacts_sha256'][name] != other['artifacts_sha256'][name]:
+            raise ValueError('independent report artifact digest differs')
+    guard.check(); evidence.check()
+    completion = _seal(dict(format='actual_owned_verified_legacy_dense_report_completion_v1',
+        evidence_identity_sha256=evidence.identity['sha256'], model_identity_sha256=MODEL_ID,
+        original_pending_report_file_sha256=_sha(original_path), rebuilt_report_file_sha256=_sha(rebuilt_path),
+        verification_file_sha256=_sha(verification_path), actual_owned_verification_stage=owned_stage,
+        all_owned_verification_consumers_exited=True, available_legacy_figure13_pipeline_complete=True,
+        scientific_eligible=True, figure13_reproduced=False, full_paper_complete=False))
+    _write_json(directory/'completion.json', completion)
+    promoted = {k: v for k, v in original.items() if k != 'sha256'}
+    promoted.update(verification_status='verified by separate process and closed owned stage',
+        available_legacy_figure13_pipeline_complete=True, scientific_eligible=True,
+        completion_receipt_file_sha256=_sha(directory/'completion.json'))
+    promoted = _seal(promoted)
+    temporary = original_path.with_name('report.json.verified-pending')
+    _write_json(temporary, promoted); os.replace(temporary, original_path)
+    return promoted
 
 
 def run_dense_workflow(request, output):
@@ -758,7 +870,7 @@ def run_dense_workflow(request, output):
             or any(same_process(result[n]) for n in ('worker', 'guardian'))):
             raise ValueError('native dense owned stage failed: '+name)
         owned.append(result); check()
-    report = _sealed(_json(root/'report/report.json'))
+    report = _promote_dense_report(root/'report', root/'report-rebuilt', evidence=evidence, owned_stage=owned[-1])
     verified = _json(root/'report-rebuilt/verification.json')
     if not verified['all_numeric_csv_statistics_and_png_bytes_exact']:
         raise ValueError('fresh complete report reconstruction not verified')
