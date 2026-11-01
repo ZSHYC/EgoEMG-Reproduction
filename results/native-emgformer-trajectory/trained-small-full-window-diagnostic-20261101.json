@@ -153,6 +153,7 @@
   "additional_postexit_raw_readback_has_no_model_or_optimizer_construction": true,
   "all_six_original_owned_consumers_closed": true,
   "bundle_sha256": "fb0ea7f8f9c6f870431f8e1c3abf26fc654a6270169d201369ef29493b033e2e",
+  "direct_and_capture_forwards_share_one_model_and_producing_process": true,
   "format": "actual_trained_native_emgformer_full_trajectory_prefix_verified_v1",
   "frozen_source_bytes_after_exit_exact": true,
   "full_heldout_trajectory_population_numerically_admitted": false,
@@ -165,6 +166,7 @@
     "torch_threads": 2,
     "torch_version": "2.2.2+cu118"
   },
+  "independent_fresh_learned_model_replay_performed": false,
   "independent_owned_raw_verification": true,
   "new_trajectory_mae_reported": false,
   "no_cross_device_bfloat16_interpolation_claim": true,
