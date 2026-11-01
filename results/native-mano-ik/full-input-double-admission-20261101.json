@@ -1,0 +1,153 @@
+{
+  "actual_batch10096_optimizer_qualification": false,
+  "actual_closed_original_process_count": 6,
+  "actual_closed_original_processes": [
+    {
+      "pid": 1488031,
+      "start_ticks": "436455135"
+    },
+    {
+      "pid": 1488032,
+      "start_ticks": "436455138"
+    },
+    {
+      "pgrp": 1488037,
+      "pid": 1488037,
+      "sid": 1488037,
+      "start_ticks": "436455147",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1488036,
+      "pid": 1488036,
+      "sid": 1488036,
+      "start_ticks": "436455143",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1488929,
+      "pid": 1488929,
+      "sid": 1488929,
+      "start_ticks": "436462385",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1488928,
+      "pid": 1488928,
+      "sid": 1488928,
+      "start_ticks": "436462381",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_admission_seconds": 116.72687527257949,
+  "actual_complete_admissions": 2,
+  "actual_ended_utc": "2026-11-01T12:49:22.826528+00:00",
+  "actual_exit_code": 0,
+  "actual_full_pose_bytes_per_admission": 25406102400,
+  "actual_full_pose_files_per_admission": 2,
+  "actual_geometry_models_constructed": 0,
+  "actual_ik_optimizer_calls": 0,
+  "actual_pose_elements_scanned_per_admission": 6351525600,
+  "admission_file_sha256": "4f3835720dbeaf7acd7fee95a496c89789290ba2052a0eb4b4517e128d9f2c6e",
+  "batch_size": 10096,
+  "batches_per_hand": [
+    1093,
+    1093,
+    1093,
+    1093,
+    1093,
+    1093
+  ],
+  "both_admission_documents_byte_exact": true,
+  "bundle_sha256": "6fc91ddd21e1d54294dd707e0c1bef92a3dfa3b7c8e22ee045538b67b6ed4014",
+  "cuda_initialized": false,
+  "format": "actual_native_ik_complete_double_input_admission_verified_v1",
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "hands_order": [
+    "right",
+    "left"
+  ],
+  "identity_sha256": "8caead37a57825b3e75b497d20ceb1974431e6afb9781973027d3092aa9b52c6",
+  "independent_postexit_collector_also_exited": true,
+  "observed_utc": "2026-11-01T12:50:16.235475+00:00",
+  "optional_global_valid_npy_absent": true,
+  "original_input_nine_attributes_unchanged_across_both_workers_and_postexit": true,
+  "original_logical_worker_partitions": 6,
+  "paper_population_equivalence_established": false,
+  "pose_files": {
+    "geometry/generated_mano_left_pose.dat": {
+      "bytes": 12703051200,
+      "sha256": "aa374eb9c8c798f60646e4e3c22fbe65dab9868c6b2ebbcad4f4f9fb09ce8aaa"
+    },
+    "geometry/generated_mano_right_pose.dat": {
+      "bytes": 12703051200,
+      "sha256": "569c55528625164699990d913a6c48c63bcf007077ea2e3bd902d0448e5e625a"
+    }
+  },
+  "postexit_admitted_source_file_count": 167,
+  "postexit_collector_actor": {
+    "pgrp": 1489942,
+    "pid": 1489942,
+    "sid": 1489942,
+    "start_ticks": "436469617",
+    "state": "R",
+    "uid": 1005
+  },
+  "postexit_collector_seconds": 25.362951344810426,
+  "postexit_complete_pose_bytes_rehashed": true,
+  "postexit_frozen_source_file_count": 134,
+  "postexit_source_bytes_rehashed": true,
+  "python_numpy_rng_unchanged": true,
+  "scan": {
+    "left": {
+      "canonical_zero_rows": 2486295,
+      "elements": 3175762800,
+      "nonfinite_elements": 0,
+      "rows": 66161725,
+      "zero_rows": 2486295
+    },
+    "right": {
+      "canonical_zero_rows": 2341988,
+      "elements": 3175762800,
+      "nonfinite_elements": 0,
+      "rows": 66161725,
+      "zero_rows": 2341988
+    }
+  },
+  "scientific_model_updates": 0,
+  "scientific_settings_added": 0,
+  "shards": [
+    [
+      0,
+      11026954
+    ],
+    [
+      11026954,
+      22053908
+    ],
+    [
+      22053908,
+      33080862
+    ],
+    [
+      33080862,
+      44107816
+    ],
+    [
+      44107816,
+      55134770
+    ],
+    [
+      55134770,
+      66161725
+    ]
+  ],
+  "source_commit": "1650d2085929cad75880128bf5b251062a0bdcdf",
+  "torch_imported": false,
+  "zero_poses_retained": true
+}

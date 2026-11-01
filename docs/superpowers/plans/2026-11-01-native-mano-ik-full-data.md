@@ -37,7 +37,7 @@
 - [x] Write new real-file tests for manifest/shape/size/dtype/finite checks, complete physical hashes, exact default partition/batch order, zeros retained, read-only originals, raw/canonical separation, no Torch import, no RNG/source mutation, optional global-mask appearance, changed identity/source/generations and false full-source claims.
 - [x] Run only this new suite and observe actual missing-module RED. Implement the input component; compile the actual original AnchorPoseDataset initializer in tests rather than duplicating its indexing formula as the oracle.
 - [x] Run the new suite to GREEN:40passed/0skip/0.60s, actualexit0. Two additional real-file admission-race regressions first observed2fail/0.15s, then final40GREEN; no old IK/model/math suite rerun.
-- [ ] Run two separate complete real input admissions, preserving the two25.406GB payloads and all actor closures; publish scoped input evidence. Neither engineering nor full-input success is a completed IK run.
+- [x] Run two separate complete real input admissions, preserving the two25.406GB payloads and all actor closures; publish scoped input evidence. Actual2ownedadmissions/116.73s/exit0; each scans6,351,525,600poseelements and preserves4,828,283zero rows. Independentpostexit134frozenfiles/167admittedfiles/complete25.406GBpayloadrehash, original9attributes andall6originalactors+collectorclosed. Neither engineering nor full-input success is a completed IK run.
 
 ## Task2: unchanged native batch optimizer and raw geometric reconstruction
 
