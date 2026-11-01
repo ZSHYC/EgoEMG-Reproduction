@@ -8,6 +8,8 @@
 
 > **当前验收状态 · 2026-11-01 09:31北京时间**：已有14项完整实验设置。用户优先指定的[ViT-L](results/original-vision/vit-large/README.md)、[WiLoR](results/original-vision/wilor/README.md)和[ViT-S＋EMGFormer-S融合](results/original-fusion/vit-small-emgformer-small/README.md)均已完成完整训练、验证选模、最终测试、独立完整重放和报告核验；全部中心MAE分别为6.229674°、5.107042°、6.342238°。WiLoR30轮/336,720更新，融合150轮/296,550更新；本次续训及评价控制器均退出0，所属进程已确认关闭；原始报告和曲线字节已核对。[终态验收快照](results/core-priority-status-20261101.json) · [运行记录](docs/run-status.md)。整篇论文及PDF数值等价仍未完成。
 
+> **剩余实验已续行 · 2026-11-01 09:49北京时间**：[实际后台任务快照](results/full-paper-continuation-20261101.json)记录原生EMGFormer-S进入GPU1资格前缀，EMG2Pose S/M/L正在完整来源重新准入。四项服务器进程在断开SSH后重新确认存活并独立保存日志，本机关机不终止这些已部署任务；暂无新增完整实验成绩，完成设置仍14。
+
 > **结果与论文的差距：** [14项已完成MAE逐项对照](results/paper-comparison/README.md)保留Table2/3原表、当前结果和原始来源SHA；WiLoR为5.107042°对论文4.7°，ViT-S融合为6.342238°对论文5.5°。当前总体数值均高于PDF；数据和协议未完全对齐，不能声称同条件核心数值或全部模型优势已复现。
 
 > **新增协议审计：** 固定官方EgoEMG配置经Hydra合成与别名归约后，指尖项有效系数为0.02；既有legacy配方使用0.01。此前这一差异漏核，[实际11配置审计](results/official-loss-audit.md)已公开说明，旧结果与在跑legacy实验不能称为该官方损失的等价复现。EMG2Pose三项无此叠加，仍为0.01。

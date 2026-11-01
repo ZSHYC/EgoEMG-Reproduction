@@ -1,0 +1,247 @@
+{
+  "format": "actual_full_paper_continuation_launch_20261101_v1",
+  "full_paper_complete": false,
+  "hosted_ci": {
+    "conclusion": null,
+    "head_sha": "628165dd6c8304487e130bf19f68a79e7121eebc",
+    "run_id": 41261916827,
+    "status_at_observation": "in_progress"
+  },
+  "jobs": {
+    "emg2pose_large": {
+      "actual_matching_parent_and_source_owners_live": true,
+      "actual_registered_parent_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903988,
+          "start_ticks": "432500345"
+        },
+        "started_utc": "2026-11-01T01:48:18.109234+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903987,
+          "start_ticks": "432500342"
+        }
+      },
+      "actual_registered_source_worker": {
+        "pgrp": 904008,
+        "pid": 904008,
+        "sid": 904008,
+        "start_ticks": "432500387",
+        "state": "R",
+        "uid": 1005
+      },
+      "fresh_attempt_not_checkpoint_resume": true,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "model_training_evaluation_sources_unchanged": true,
+      "new_full_gpu_training_verified": false,
+      "parent_complete_epochs": 0,
+      "parent_optimizer_updates": 0,
+      "planned_full_recipe": {
+        "batch_size": 320,
+        "early_stopping": false,
+        "evaluation_modes": [
+          "official_literal",
+          "metadata_indices"
+        ],
+        "max_epochs": 250,
+        "precision": "bf16-mixed",
+        "source_hdf5_file_count": 25253,
+        "workers": 12
+      },
+      "planned_gpu_index": 4,
+      "previous_sigterm_terminal_attempts_preserved": true,
+      "scientific_complete": false,
+      "source_process_io_counters_are_not_completed_data_validation_or_training": true,
+      "source_process_read_counters": {
+        "rchar": 5847494444,
+        "read_bytes": 467058688,
+        "wchar": 97,
+        "write_bytes": 0
+      },
+      "status": "full_source_admission_running"
+    },
+    "emg2pose_middle": {
+      "actual_matching_parent_and_source_owners_live": true,
+      "actual_registered_parent_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903986,
+          "start_ticks": "432500340"
+        },
+        "started_utc": "2026-11-01T01:48:18.056262+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903984,
+          "start_ticks": "432500337"
+        }
+      },
+      "actual_registered_source_worker": {
+        "pgrp": 904004,
+        "pid": 904004,
+        "sid": 904004,
+        "start_ticks": "432500382",
+        "state": "R",
+        "uid": 1005
+      },
+      "fresh_attempt_not_checkpoint_resume": true,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "model_training_evaluation_sources_unchanged": true,
+      "new_full_gpu_training_verified": false,
+      "parent_complete_epochs": 0,
+      "parent_optimizer_updates": 0,
+      "planned_full_recipe": {
+        "batch_size": 320,
+        "early_stopping": false,
+        "evaluation_modes": [
+          "official_literal",
+          "metadata_indices"
+        ],
+        "max_epochs": 250,
+        "precision": "bf16-mixed",
+        "source_hdf5_file_count": 25253,
+        "workers": 12
+      },
+      "planned_gpu_index": 5,
+      "previous_sigterm_terminal_attempts_preserved": true,
+      "scientific_complete": false,
+      "source_process_io_counters_are_not_completed_data_validation_or_training": true,
+      "source_process_read_counters": {
+        "rchar": 5847494458,
+        "read_bytes": 588697600,
+        "wchar": 97,
+        "write_bytes": 0
+      },
+      "status": "full_source_admission_running"
+    },
+    "emg2pose_small": {
+      "actual_matching_parent_and_source_owners_live": true,
+      "actual_registered_parent_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903983,
+          "start_ticks": "432500334"
+        },
+        "started_utc": "2026-11-01T01:48:18.002298+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903982,
+          "start_ticks": "432500331"
+        }
+      },
+      "actual_registered_source_worker": {
+        "pgrp": 903992,
+        "pid": 903992,
+        "sid": 903992,
+        "start_ticks": "432500356",
+        "state": "R",
+        "uid": 1005
+      },
+      "fresh_attempt_not_checkpoint_resume": false,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "model_training_evaluation_sources_unchanged": true,
+      "new_full_gpu_training_verified": false,
+      "parent_complete_epochs": 19,
+      "parent_optimizer_updates": 30096,
+      "planned_full_recipe": {
+        "batch_size": 320,
+        "early_stopping": false,
+        "evaluation_modes": [
+          "official_literal",
+          "metadata_indices"
+        ],
+        "max_epochs": 250,
+        "precision": "bf16-mixed",
+        "source_hdf5_file_count": 25253,
+        "workers": 12
+      },
+      "planned_gpu_index": 2,
+      "previous_sigterm_terminal_attempts_preserved": true,
+      "scientific_complete": false,
+      "source_process_io_counters_are_not_completed_data_validation_or_training": true,
+      "source_process_read_counters": {
+        "rchar": 5879069775,
+        "read_bytes": 626688,
+        "wchar": 702,
+        "write_bytes": 12288
+      },
+      "status": "full_source_admission_running"
+    },
+    "native_emgformer_small": {
+      "actual_matching_parent_owners_live": true,
+      "actual_registered_parent_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 903600,
+          "start_ticks": "432494128"
+        },
+        "started_utc": "2026-11-01T01:47:15.945106+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 903599,
+          "start_ticks": "432494125"
+        }
+      },
+      "bundle_sha256": "75c45c3fb6e8868f608d2e9b514cb230e40b52fd24fe81edda4086aaca6ddf94",
+      "gpu_index": 1,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "new_full_training_started": false,
+      "original_sealed_members_copied_byte_identically": 106,
+      "planned_full_recipe": {
+        "batch_size": 500,
+        "effective_fingertip_loss_weight": 0.02,
+        "fresh_initialization": true,
+        "max_epochs": 200,
+        "optimizer_updates": 25000,
+        "precision": "bf16-mixed",
+        "test_unique_hand_samples": 2792,
+        "train_unique_hand_samples": 62470,
+        "val_unique_hand_samples": 1052,
+        "workers": 6
+      },
+      "preflight": {
+        "actual_cuda_initialized": false,
+        "actual_model_constructions": 0,
+        "actual_optimizer_updates": 0,
+        "actual_owned_consumers_exited": true,
+        "actual_worker_exit_code": 0
+      },
+      "previous_foreign_arrival_failure_retained": true,
+      "scientific_complete": false,
+      "source_commit": "53272d738f571238b45ec3ab83540406c78eba63",
+      "status": "gpu_qualification_prefix_running"
+    }
+  },
+  "limitations": [
+    "Native EMGFormer qualification and its fresh full200 result are not complete.",
+    "EMG2Pose source admission is live; no new full GPU training or epochs have yet been verified.",
+    "The preserved Small19 checkpoint is a parent, not a completed250-epoch experiment.",
+    "M/L are fresh full attempts because their stopped predecessors have no complete checkpoint.",
+    "Existing14 setting results remain unchanged; all-paper annotation, geometry, occlusion and remaining model requirements are still incomplete.",
+    "Old failed states, model/checkpoint bytes and all raw data are preserved."
+  ],
+  "observed_utc": "2026-11-01T01:49:28.989958+00:00",
+  "paper_protocol_equivalence_proven": false,
+  "previous_goal_turn_classification": "progress_from_fresh_terminal_and_resource_evidence_no_new_training_then",
+  "priority_settings_all_complete": [
+    "vit_large",
+    "wilor",
+    "vit_small_emgformer_small_fusion"
+  ],
+  "resource_snapshot": {
+    "disk_free_bytes": 1508085862400,
+    "foreign_gpu_consumers_preserved": true,
+    "host_available_bytes": 937858437120
+  },
+  "scientific_settings_added_by_this_launch": 0,
+  "scientific_settings_complete": 14,
+  "server_detachment": {
+    "actual_parent_pid_start_uid_non_zombie_verified_after_fresh_ssh": true,
+    "actual_recorder_and_controller_independent_sessions": true,
+    "actual_recorders_reparented_to_pid1": true,
+    "actual_standard_input_dev_null": true,
+    "local_agent_monitoring_and_unstaged_future_work_require_local_execution": true,
+    "server_controllers_continue_after_local_shutdown": true,
+    "standard_output_and_errors_saved_on_server": true
+  }
+}
