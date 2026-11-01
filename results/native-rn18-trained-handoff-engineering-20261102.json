@@ -47,6 +47,8 @@
   "observed_utc": "2026-11-01T17:46:25.483413+00:00",
   "official_upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
   "original_cotrain_fit_source_unchanged": true,
+  "owned_engineering_evidence_file_sha256": "246a277bfd528032b3df89e8307432cc766a44870b1df57970bc8e2a1daed194",
+  "owned_engineering_evidence_path": "results/native-rn18-trained-handoff-owned-engineering-20261102.json",
   "reader_rng_unchanged": true,
   "readers_model_and_optimizer_constructors_denied": true,
   "registered_object_clone_scope_path_and_export_mutations_rejected": true,

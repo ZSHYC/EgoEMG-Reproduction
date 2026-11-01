@@ -1,3 +1,5 @@
+> **RN18融合交接工程推进**：[新增源代码与34项相关检查](../results/native-rn18-trained-handoff-engineering-20261102.json)校验真实cotrain验证BEST、完整110张量、双手实际EMG、未来零重叠足迹及具体初始化身份；[后台独立双进程重建](../results/native-rn18-trained-handoff-owned-engineering-20261102.json)20.53秒完成，6拥有者与独立收集进程退出，0模型／优化器构造、0新推理／更新。这里使用真实2轮／4更新工程生产者；正式150轮生产者正向准入、联合交接、融合训练／最终评价仍欠。17:50 UTC原9组主要任务／队列精确身份仍活动，RN18 cotrain日志21轮、RN50日志80轮、RN152日志33轮；日志轮次不是最终成绩或保存检查点承诺，全文未完成。
+
 > **marker最新限制**：[独立前缀接续](../results/legacy-marker-prefix-continuation-stop-20261102.json)再次非206停止、4拥有者关闭，原1GiB完整保留且无新增数据；随后的[原16MiB范围只读诊断](../results/legacy-marker-original-range-status-probe-20261102.json)实际收到Drive配额HTML。当前不再发起下载请求；不能用64字节探测成功宣布完整传输恢复，完整marker/腕部和标注链仍欠。
 
 > **最新实际接续**：[RN50/152共享显存接续与后续队列](../results/native-resnet-shared-recovery-and-downstream-20261102.json)已确认两条指定GPU1/7上的新拥有者实际恢复全部六类状态，分别从保存第78/32轮继续，并匹配真实NVML工作进程。按空闲显存≥64GiB稳定20秒准入、运行保留>8GiB，记录并保留同卡其他计算进程。全轨迹重新等待精确新RN50完成，IK资格再等待精确新全轨迹完成；IK原实现仍须实际空闲GPU，完整IK标签流程尚未建立。四组外层进程均实际活动，尚无RN50/152新完整最终成绩；旧失败与旧归档均保留。
