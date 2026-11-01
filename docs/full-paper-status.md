@@ -1,3 +1,5 @@
+> **2026-11-02 FreiHAND评估来源接收**：[完整评估包及参数约定核验](../results/freihand-evaluation-source-intake-20261102.md)取得758,382,230bytes；全部23,766文件CRC和六份根目录标注3,960行／9,781,200数值已双端独立复核，退出后完整SHA精确一致。61维末三项为UV根位置／weak-perspective尺度，未当成直接3D平移使用。主包原GET提前EOF后保留1.082GB前缀，严格206续传进程实际存活，观测已提交2.291GB，尚非完整；未新增模型成绩，作者混合／标注器资产与全文仍欠。
+
 > **2026-11-02 HOI4D手部来源接收**：[完整官方手部参数归档及独立核验](../results/hoi4d-hand-source-intake-20261102.md)取得425,303,390bytes／490,584条记录；所有50,530,065个数值有限，1条维度例外原样保留。服务器不同算法全量复核及退出后全SHA通过，1,858行sequence覆盖精确一致；当前release清单的176个清单外／1289个无对应参数序列差异单列。没有重建mesh、改写标签或训练新模型；完整来源、作者混合与标注器资产仍欠，全文未完成。
 
 > **2026-11-02 HOT3D训练来源推进**：[完整公开清单与双设备片段资格](../results/hot3d-train-source-qualification-20261102.md)固定2,804个训练归档／294,201,743,360bytes；实际完整取得2个归档／300帧，600份MANO和UmeTrack记录、602个原始JSON成员已在服务器独立解析及退出后复核。真实MANO是15维PCA，UmeTrack是22角和字典腕变换，已按官方加载器记录README差异，未转换／重建／训练。完整HOT3D、作者精确11源混合与markers2mano资产仍欠；原训练继续，全文未完成。
@@ -406,7 +408,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **旧版双手各41段原官方FFT重生成、独立复核及全量新旧filtered数值对照完成**；[重生成](../results/dataset-statistics/emg-fft-bilateral-full.md)：每手66,161,725行/8通道，合计4.234GB有限输出。[频率/首段对照](../results/dataset-statistics/emg-fft-first-episode.md)与[全1,058,587,600值对账](../results/dataset-statistics/emg-fft-full-comparison.md)均完成，左右最大差4.768e-7/9.537e-7，输入SHA/九项属性未变；不声称逐字节相同。独立单位标定、当前发布/PDF等价仍未证明，保留整episode非局部依赖 |
 | D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；[合法MANO资产已验收](../results/mano-existing-native-asset-admission-20261029.json)，两手valid已取得；[坐标/腕部8文件接收](raw-marker-acquisition.md)因非206停止、保留1GiB部分，仍缺完整坐标、标注模型及实际逐帧重建产物 |
 | D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部资产缺口**；[本轮官方公开范围核查](../results/markers2mano-public-availability-20261102.md)涵盖四个完整默认树、当前main／v0.1.0及相关Release；仍未取得模型包／匹配v51权重。源码还要求archive的4x姿态头；fallback不是已核验训练配置，不得以未训练替身验收 |
-| D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **InterHand三份参数及[HOI4D完整手部参数ZIP](../results/hoi4d-hand-source-intake-20261102.md)已接收核验；[HOT3D公开train清单与双设备片段](../results/hot3d-train-source-qualification-20261102.md)已核验**。HOI4D保留1条维度例外及176个清单外sequence；HOT3D仅2／2,804片段。完整来源、精确样本清单、采样 seed/权重、版本与划分仍欠，作者约712K混合未重建 |
+| D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **InterHand三份参数、[HOI4D手部ZIP](../results/hoi4d-hand-source-intake-20261102.md)及[FreiHAND完整评估包／六份根标注](../results/freihand-evaluation-source-intake-20261102.md)已接收核验；[HOT3D公开清单与双设备片段](../results/hot3d-train-source-qualification-20261102.md)已核验**。FreiHAND主包续传中，HOT3D仅2／2,804片段；HOI4D维度例外与版本差异保留。完整来源、精确样本清单、采样 seed/权重、版本及划分仍欠，作者约712K混合未重建 |
 | D08，B.1.3 | 50% 不增强；8 类为 bone length、global scale、近邻 swap、dropout 插值、neighbor blend、Gaussian noise、局部 drift、spike outlier | **未实现**；缺官方变换训练代码、精确参数/组合与概率、确定性检查和图9产物；不能用姿态模型 EMG 增强替代 |
 | D09，B.1.3 Eq.2 | vertex MSE + 5×marker MSE 的 annotator 训练、选模与质量评价 | **未运行**；缺训练入口、schedule、选择规则、权重与完整曲线。姿态基线 L1+tip 损失不等于该训练 |
 | D10，§3.2/B.1.3 | marker/vertex 误差、invalid rate、InterHand 子集与重投影质量 | **真实标注误差未重测**；[发布mask全帧覆盖](../results/dataset-semantics/full-frame-validity.md)已实测，但不等于原标注器invalid判据或精度。仍缺单位、质量划分与误差分布；3.2mm正文per-marker/附录per-vertex矛盾保留 |
@@ -447,7 +449,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | DexYCB | [官方页](https://dex-ycb.github.io/)有全包/按 subject 分包与 MANO 相关标签 | 未发现独立完整 MANO-only 小包；可单 subject 集成，不能当全量 mixture 完成 |
 | H2O / H2O-3D | 文字引 [Kwon H2O](https://github.com/taeinkwon/h2odataset)，图写 H2O3D 76K、与 [H2O-3D](https://github.com/shreyashampali/ho3d)相近 | 数据集身份未决；前者需注册、后者有公开链接，不能混同；需作者精确来源清单 |
 | InterHand2.6M | **[5fps v1三份MANO参数已完整接收并双端独立核验](../results/interhand-mano-source-intake-20261102.md)**：50,044,309bytes／28,344帧记录／36,850非空手部拟合，保留19,838空手槽位；传输进程退出后全SHA复核通过 | pose是减MANO均值的48维轴角，未转换／重建；不是完整RGB／其他标注或作者的精确混合／划分，capture数不是人数 |
-| FreiHAND | [官方页](https://lmb.informatik.uni-freiburg.de/resources/datasets/FreihandDataset.en.html)有训练/eval 资源说明 | 调查时官方 v2 zip 端点 404，需正式端点恢复/镜像和 research-only 条款核验 |
+| FreiHAND | **[v2完整评估包及六份根标注已接收并双端全量核验](../results/freihand-evaluation-source-intake-20261102.md)**：758,382,230bytes／3,960个评估样本／9,781,200个根标注数值；61维尾部按官方UV根位置与尺度解释。主包在严格HTTP206后台续传 | 主包仍欠完整接收、CRC和训练参数验收；较早404已由本次200与实物观测更新。原始评估角色保留，未据此重建作者混合；几何、MANO版本等价与精确采样仍欠 |
 | HO3Dv3 | [作者仓库](https://github.com/shreyashampali/ho3d)公开 v3 与 evaluation GT 链接 | 未验证完整传输；custom academic/noncommercial 及再分发限制，需参数提取/采样清单 |
 | HO3Dv2 | 同一作者仓库公开 v2 与 evaluation GT | 同 v3；两版本录制重叠与训练权重须按作者清单核验，不能当独立新增帧直接相加 |
 
