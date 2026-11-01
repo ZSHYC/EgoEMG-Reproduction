@@ -1,0 +1,60 @@
+{
+  "actual_child_import_test_exit_code": 0,
+  "actual_child_import_tests": 2,
+  "actual_staged_mp_main_import_passed": true,
+  "actual_successor_cuda_initialized": false,
+  "actual_successor_phase": "full-source-admission",
+  "all_six_original_fit_and_queue_owners_closed": true,
+  "all_six_successor_owners_confirmed_live": true,
+  "entry_commit": "b2d00f783adb4cc3c1d209de2d41c277b3e92335",
+  "entry_sha256": "9572ea1ef790e8bcb1cfe6fdeee40e064c852bf8c61b1b749d67c5340d0052ba",
+  "exact_original_registered_worker_stopped": true,
+  "existing_completed_scientific_settings": 14,
+  "failure": "DataLoader spawn reexecuted unguarded native-resume top level; duplicate exclusive gpu-admission creation; parent stalled in pipe_write",
+  "format": "actual_emg2pose_small_spawn_entry_failure_repair_and_successor_v1",
+  "full_epochs_required": 250,
+  "full_optimizer_updates_required": 396000,
+  "full_paper_complete": false,
+  "native_batch_size": 320,
+  "native_precision": "bf16-mixed",
+  "native_workers": 12,
+  "observed_utc": "2026-11-01T07:13:34.540618+00:00",
+  "original_checkpoint_sha256": "7b5620af7faf68235b66b2e559092236720e65edf15e44ec16a7cd19db69f0c8",
+  "original_completed_epochs": 19,
+  "original_frozen_native_module_files": 149,
+  "original_frozen_native_modules_and_parent_checkpoint_exact": true,
+  "original_journal_sha256": "db8057057c8a2624324241db2381cfb9145b919facba7a558921f79b988ca51b",
+  "original_optimizer_updates": 30096,
+  "planned_final_fp32_passes": 8,
+  "scientific_complete": false,
+  "scientific_settings_added": 0,
+  "stop": "SIGTERM caught by native Lightning; escalated SIGKILL only same registered stalled worker, existing guardian cleaned its session",
+  "successor_evaluation_bundle_sha256": "be3f97a3ca8bdfc3e0546186ed9087ac400f7f3cd3bb00815f59c21db33cbb17",
+  "successor_final_queue_registered_handles": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 1174233,
+      "start_ticks": "434449129"
+    },
+    "started_utc": "2026-11-01T07:13:05.954870+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 1174232,
+      "start_ticks": "434449126"
+    }
+  },
+  "successor_fit_bundle_sha256": "ca0499955fae38738f4d94ac6b95e647538439ba0ed57b19378a6f6b602fc3e4",
+  "successor_fit_registered_handles": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 1174059,
+      "start_ticks": "434447810"
+    },
+    "started_utc": "2026-11-01T07:12:52.762419+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 1174056,
+      "start_ticks": "434447807"
+    }
+  }
+}

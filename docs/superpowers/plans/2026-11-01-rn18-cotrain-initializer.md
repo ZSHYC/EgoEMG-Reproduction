@@ -56,9 +56,9 @@
 **Files:** create `egoemg_repro/rn18_initializer_train.py`, tests, new CPU collectors.
 **Interfaces:** dedicated `rn18_initializer_fit_policy`, `fit_rn18_initializer`, `read_rn18_initializer_fit`, `export_rn18_initializer_best` and `read_rn18_initializer_export`; distinct format/lineage prevents old family admission.
 
-- [ ] RED exact source150/AdamW/.01/B260/12worker policy and no early stopping/test access; CPU prefix/fresh resume complete six-state snapshot and native validation/callback/top3 semantics.
-- [ ] Implement new data/cohort binding with unchanged native runtime/operators. Reuse closed state/checkpoint/callback primitives; preserve original training operations and global-loader RNG, explicit constructor/scope/source/receipt identities.
-- [ ] RED partial/forged/bad-BEST/wrong-fullpopulation/changed-futurefold/export inventory rejection; fresh CPU complete engineering result/reload/export remains engineering only. Expected exact complete branch tensors and honest loader/RNG limits, no full permit.
+- [x] RED exact source150/AdamW/.01/B260/12worker policy and no early stopping/test access; CPU prefix/fresh resume complete six-state snapshot and native validation/callback/top3 semantics.
+- [x] Implement new data/cohort binding with unchanged native runtime/operators. Reuse closed state/checkpoint/callback primitives; preserve original training operations and global-loader RNG, explicit constructor/scope/source/receipt identities.
+- [x] RED partial/forged/bad-BEST/wrong-fullpopulation/changed-futurefold/export inventory rejection; fresh CPU complete engineering result/reload/export remains engineering only. Expected exact complete branch tensors and honest loader/RNG limits, no full permit.
 - [ ] Run relevant tests and separate actualCPU prefix/resume/strict raw reopening against the same new source; all owned consumers/source/current inputs closed/unchanged. Commit.
 
 ### Task 4: single review, genuine GPU qualification and fresh full150
