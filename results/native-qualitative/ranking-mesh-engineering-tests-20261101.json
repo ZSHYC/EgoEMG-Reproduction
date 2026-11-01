@@ -1,0 +1,39 @@
+{
+  "actual_exit_code": 0,
+  "analysis": {
+    "missing_api_red_observed": true,
+    "original_AST_oracle": "execute unchanged per-sample FP32 reduction, native tracking filter, stable sort and ranking CSV",
+    "passed": 17,
+    "raw_log_sha256": "102b5f09729e7de7fca934a8a0c5b0fa261f883f82308146d6aab5a8d721840f",
+    "red_seconds": 0.75,
+    "seconds": 0.9,
+    "skipped": 0
+  },
+  "cuda_initialized": false,
+  "explicit_tested_unit_snapshot": {
+    "egoemg_repro/qualitative_analysis.py": "c3f483b50595a5baea0da4192d09c74445029b040c5a4e754f8e956a5fe23ce9",
+    "egoemg_repro/qualitative_geometry.py": "aeb3e64e90ad50ab936514883e8f49bdef32ca047829973bd7d9c1ffa8a5fdb8",
+    "tests/test_qualitative_analysis.py": "2124f79c23a5a81e9b3d7ffb24c7e73bc09c912fcf57ae45ab2e1ca37691ee9f",
+    "tests/test_qualitative_geometry.py": "c3f6b09bfee9860d565e11ab1006a9cb0df0e5949e07b20913925f541352bf97"
+  },
+  "figure7_reproduced": false,
+  "format": "ordinary_qualitative_error_ranking_and_native_mesh_new_tests_v1",
+  "full_paper_complete": false,
+  "geometry": {
+    "compatibility_fix": "use existing torch.device(cpu) context; no dependency change",
+    "missing_api_red_observed": true,
+    "original_AST_oracle": "unchanged F7 skin_fk_mesh/mirror/profile-loader plus actual original first20 and per-pose median-span normalization statements",
+    "passed": 10,
+    "raw_log_sha256": "9651fe43c31d08dc9c4bb6f99587b30caf0003190dfd07376d97b640fc023ed1",
+    "red_seconds": 0.75,
+    "seconds": 0.99,
+    "skipped": 0,
+    "unsupported_get_default_device_red_observed": true
+  },
+  "old_closed_suites_repeated": false,
+  "scientific_eligible": false,
+  "shared_runtime_modified": false,
+  "source_base_commit": "3ddc1a6b03eb2432b5abfac0d3cd504087339ff6",
+  "test_runtime": "local existing CPU Python environment",
+  "trained_model_or_full_input_admitted": false
+}
