@@ -33,9 +33,9 @@
 **Files:** create `egoemg_repro/release_timing.py`, `tests/test_release_timing.py`.
 **Interfaces:** `timing_statistics(arrays,boundaries,chunk_rows)->dict` pure diagnostic with no scientific permit; `scan_release_timing(root,upstream,require_full=True,chunk_rows=1048576)->dict` actual source-bound report, default complete legacy only.
 
-- [ ] Write tests for two handwritten episodes with ties/backward timestamps, stale/index cross-cases, sentinel and chunk1-vs3 equality; exact counts, sums, p50/p95 and null populations. Add malformed dtype/layout/boundary/episode-id/stale-byte/overflow rejections and partial-as-full rejection. Run missing-module RED.
-- [ ] Implement exact histogram reduction and source-bound readonly full scanner; source guard before every hash. Preserve original row-index time semantics and separate full/fixture scope.
-- [ ] Run only new tests without skips and commit source/tests. Expected: allnewcasespass, no ML import or scientific model run.
+- [x] Write tests for two handwritten episodes with ties/backward timestamps, stale/index cross-cases, sentinel and chunk1-vs3 equality; exact counts, sums, p50/p95 and null populations. Add malformed dtype/layout/boundary/episode-id/stale-byte/overflow rejections and partial-as-full rejection. Run missing-module RED.
+- [x] Implement exact histogram reduction and source-bound readonly full scanner; source guard before every hash. Preserve original row-index time semantics and separate full/fixture scope.
+- [x] Run only new tests without skips and commit source/tests. Expected: allnewcasespass, no ML import or scientific model run.
 
 ### Task 2: deterministic export, actual full scan/rebuild and publication
 
