@@ -1,0 +1,163 @@
+{
+  "accepted_single_review": {
+    "acceptance": {
+      "actual_exit_code": 0,
+      "log_sha256": "3da89dd30369a217d901fac1fdc52c6935331cb1e6916e0ae9f4eb424cf7a5ee",
+      "observed_utc": "2026-11-01T23:27:50.293375+00:00",
+      "passed": 30,
+      "skipped": 0
+    },
+    "critical_findings_remaining": 0,
+    "declined_scope": [
+      "closed producer and unrelated completed models or mathematics",
+      "actual CUDA feasibility, formal fusion fit and final scientific result remain pending",
+      "paper population and numeric equivalence remain whole-paper requirements",
+      "review used independently collected raw packet rather than repeating all remote hashes"
+    ],
+    "fixed_saved_fit_agreement_before_profile_and_test": true,
+    "format": "single_native_rn18_fusion_family_final_review_disposition_v1",
+    "full_paper_complete": false,
+    "full_trained_cpu_proof_sha256": "96a2a5287557f547c4feb96e7b942590e54fceff8e8de4c6d691744dd574f7b3",
+    "important_findings_remaining": 0,
+    "initial_findings": {
+      "critical": 0,
+      "important": 1,
+      "minor": 1
+    },
+    "native_mae_fixed_atol_rad": 2e-06,
+    "native_mae_fixed_rtol": 2e-06,
+    "negative_red": {
+      "actual_exit_code": 1,
+      "failed": 4,
+      "log_sha256": "8806c08352fcb51d94c9161b34fe97d187226970aa3c0266b5d07e7a82a701d6"
+    },
+    "review_count": 1,
+    "reviewed_base": "c024305d241c304f29bcf18d3e9f48bc184dc226",
+    "reviewed_head": "b17d782a8f52b0612f8620558d18480719242ac1",
+    "reviewed_sources_sha256": {
+      "egoemg_repro/rn18_fusion_cohort.py": "0eca1ac9b5e46421b667d4a50539b14d4a9df6f70cce04d383d7b0f5a4ae225a",
+      "egoemg_repro/rn18_fusion_data.py": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+      "egoemg_repro/rn18_fusion_eval.py": "4b45bfe0d1ba13a5bb7e69250a34271598731d3350a111b63b3410bc5b200df1",
+      "egoemg_repro/rn18_fusion_experiment.py": "7da07048ebf5160e62f8ad276f4d03f7c4ffba2168d1fd2d201ec220730627fd",
+      "egoemg_repro/rn18_fusion_handoff.py": "212fe881a6ea83e91b0c571b23d176c16c2b48190eb0660024ad02c5df824c75",
+      "egoemg_repro/rn18_fusion_literal.py": "1160b90b66b8a9155c4ddad17e7f7cba1322d3f146b6da7011dc5539214fd5e7",
+      "egoemg_repro/rn18_fusion_runtime.py": "c0b4d3ffaddef4b1b9c70146c7d21c085bdda257e2326074749bc8189de076ef",
+      "egoemg_repro/rn18_fusion_train.py": "a5cf509288f95d5cafdec046cc343fc5d051481695680f7aab9d095f1e6d86b4",
+      "egoemg_repro/rn18_fusion_trained_handoff.py": "54d957d58d1b28ebe827774a2df406545504a0e971b09099990f77032354bb41",
+      "egoemg_repro/rn18_fusion_transfer.py": "01831c0bdc3974a90b215cf84d1e4f43d05082f3d0f71a4a896b6f90e811cf34",
+      "egoemg_repro/rn18_fusion_vision_producer.py": "46080ff9dc1f491ecf1375109ec191204c38f032f2929cb4de62777f1fd10801",
+      "egoemg_repro/rn18_fusion_workflow.py": "e0745ba638a86de62052f9ef886562a4fc7006336cc111a8159f417ae94372bb"
+    },
+    "reviewer": "/root/rn18_full_family_final_review",
+    "scientific_recipe_changed": false,
+    "status": "accepted",
+    "test_order_fix": "source-mutation check uses an actual fresh ML-free CPU-hidden interpreter; production ML-free boundary unchanged"
+  },
+  "actual_complete_cpu_handoff": {
+    "actual_action_files_sha256": {
+      "admit": "490ced849e290c10d758f743865839da5996e17bfd2d51415395c124feda6d5e",
+      "construct": "5526effc24ec0ec4665ca5896086dcc1741d521946c0683665409c48ba8c520a",
+      "reopen": "11e94477bf978b1241c5e5d5c19fc6e50661cbc88b1d010269ceed3e4ed8151f",
+      "restore": "25100cf35f84873e0f6fcfbec3cfe705a7f7e1a6d4486145e7bd89b31b26a6eb"
+    },
+    "actual_cuda_qualification": false,
+    "actual_full_cohort_passes": 4,
+    "actual_native_forwards": 2,
+    "actual_optimizer_updates": 0,
+    "actual_owned_stages": 4,
+    "actual_terminal_state": {
+      "actual_exit_code": 0,
+      "automatic_retry": false,
+      "child": {
+        "pid": 1944879,
+        "start_ticks": "440134236"
+      },
+      "ended_utc": "2026-11-01T23:07:12.656708+00:00",
+      "started_utc": "2026-11-01T23:00:37.023988+00:00",
+      "status": "complete",
+      "wrapper": {
+        "pid": 1944878,
+        "start_ticks": "440134234"
+      }
+    },
+    "actual_trained_native_constructions": 2,
+    "all10_original_actors_closed": 10,
+    "all_frozen_members_after_exit_exact": true,
+    "all_output_files_double_sha256_and_generation_exact": true,
+    "bundle_sha256": "17209565fcb5b1dedc45cd988a993df1df0f272eda3976896e4d152f0a156a7a",
+    "closed_tree_bytes": 128203893,
+    "closed_tree_files": 191,
+    "cold_cache_complete_state_prediction_exact": true,
+    "complete_native_transfer_verified": true,
+    "formal_fusion_fit_started": false,
+    "format": "independently_verified_actual_full_trained_rn18_fusion_cpu_handoff_v1",
+    "full_cohort_sha256": "1736318c9faf5740417ca676cd520d47ada84d16eac31f865e9cdf24a9f2e38c",
+    "full_counts": {
+      "test": 2792,
+      "train": 62470,
+      "val": 1052
+    },
+    "full_initializer_positive_admission_verified": true,
+    "full_paper_complete": false,
+    "independent_postexit_model_free_tensor_reader_exact": true,
+    "independently_collected_postexit_packet_sha256": "96a2a5287557f547c4feb96e7b942590e54fceff8e8de4c6d691744dd574f7b3",
+    "model_state_sha256": "4edaf8514e3c1b793fed27c7baf74b12c8711f4381729b0bbeb81cf6a73e148e",
+    "observed_utc": "2026-11-01T23:07:41.114670+00:00",
+    "postexit_reader_actor": {
+      "pid": 1949951,
+      "start_ticks": "440176503"
+    },
+    "postexit_reader_also_closed": true,
+    "postexit_reader_construction_attempts": {
+      "neural": 0,
+      "optimizer": 0
+    },
+    "postexit_reader_cuda_initialized": false,
+    "ready": true,
+    "runtime_packet_sha256": "ee50887aaf47980dc454b9f731b993fe16b6df5a75d325581cdb6ec3b442a74f",
+    "scientific_eligible": false,
+    "scientific_settings_added": 0,
+    "source_commit": "98ab9b35dde57ffcd8c4cd362de59ed739581d2f",
+    "source_member_count": 155,
+    "source_payload_bytes": 61377230438,
+    "source_payload_files": 53,
+    "trained_initializers": {
+      "combined_sha256": "bfef9ec860477e2c643a372df9ea1d328a7c14523f188aa1304267b6b9d8d08d",
+      "emg": {
+        "checkpoint_selection": "native validation BEST",
+        "completed_epochs": 150,
+        "export_file_sha256": "4d53b5c6c548a16e29f466cd1917c2be62246adeb9cf0f730febcde3f71a5922",
+        "model_state_sha256": "7c5fa2c7faa93bf75c1545a3bcce4b9a0bc43876ba477f3b111086c34b1ba223",
+        "optimizer_executions": 36150,
+        "selected_epoch": 74,
+        "selected_score": 0.24354727566242218,
+        "sha256": "f05306e3e66249768cf883d78acf75b3971b17ae43781b8514d55a463ea516db"
+      },
+      "emg_source_tensors": 110,
+      "native_emg_prediction_head_tensors_skipped": 4,
+      "native_emg_transfer_tensors": 106,
+      "producer_training_verified": true,
+      "vision": {
+        "checkpoint_selection": "LAST",
+        "export_file_sha256": "10be7acdcf011dde9bc9a8b8af5d93654c048a8bc2ef2335e8f9eaa5e2970e8a",
+        "model_state_sha256": "a6718b66222e4fc9ea67dcb7200efdea48cf3058a54292c6528ba82c897fffdb",
+        "sha256": "5f1b1f4bfe39d07a6b71f7e13a544b1fbdaba78871afe9242be174a36620df41"
+      },
+      "vision_source_tensors": 124
+    },
+    "workflow_seconds": 395.45286046899855
+  },
+  "actual_cuda_qualification": false,
+  "formal_fusion_fit_started": false,
+  "format": "complete_native_rn18_fusion_trained_cpu_handoff_and_single_review_acceptance_v1",
+  "frozen_provider_sha256": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+  "full_paper_complete": false,
+  "observed_utc": "2026-11-01T23:27:56.897800+00:00",
+  "pending": [
+    "original CUDA batch200/10worker qualification and complete paired evaluation",
+    "separate fresh native150epoch/46950update fusion and full paired final2792 evaluation",
+    "paper population and numeric equivalence"
+  ],
+  "scientific_eligible": false,
+  "scientific_settings_added": 0
+}

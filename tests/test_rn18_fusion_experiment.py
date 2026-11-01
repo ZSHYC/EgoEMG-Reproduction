@@ -4,6 +4,7 @@ import importlib
 import json
 import os
 from pathlib import Path
+import subprocess
 import sys
 
 import pytest
@@ -126,8 +127,8 @@ def test_cpu_controller_rejects_cuda_visibility_before_any_owned_child(tmp_path,
     assert not(tmp_path/'run').exists()
 
 
-def test_source_changed_after_import_is_rejected_before_any_owned_child(tmp_path,monkeypatch):
-    m=api();monkeypatch.setenv('CUDA_VISIBLE_DEVICES','');q=request(tmp_path)
+def test_source_changed_after_import_is_rejected_before_any_owned_child(tmp_path):
+    q=request(tmp_path)
     for name in ('data','crops','upstream'):(tmp_path/name).mkdir()
     handoff={k:q[k]for k in ('data','crops','upstream','cohort_receipt')}
     handoff.update({k:str(tmp_path/k)for k in ('vision_fit','emg_fit','admission','vision_source_root','emg_source_root')})
@@ -135,10 +136,26 @@ def test_source_changed_after_import_is_rejected_before_any_owned_child(tmp_path
         vision_source_root=handoff['vision_source_root'],emg_source_root=handoff['emg_source_root'])
     for name,value in [('cohort_receipt',{}),('branches',branches),('handoff_request',handoff)]:
         (tmp_path/name).write_text(json.dumps(value))
-    code=tmp_path/'code';code.mkdir();source=code/'rn18_fusion_experiment.py';source.write_bytes(Path(m.__file__).read_bytes()+b'\n')
-    monkeypatch.setattr(m,'__file__',str(source))
-    def forbidden(*a,**k):raise AssertionError('changed imported source reached owned process dispatch')
-    monkeypatch.setattr(m,'_run_stages',forbidden)
-    with pytest.raises(ValueError,match='imported experiment source'):
-        m.run_rn18_fusion_experiment(q,tmp_path/'run',gpu_uuid='GPU-00000000-0000-0000-0000-000000000000')
+    # The controller's first boundary requires a genuinely ML-free interpreter;
+    # earlier fit/evaluation tests may already have imported Torch in pytest.
+    code='''import json,sys
+from pathlib import Path
+import egoemg_repro.rn18_fusion_experiment as m
+assert 'torch' not in sys.modules
+q=json.loads(sys.argv[1]);root=Path(sys.argv[2])
+code=root/'code';code.mkdir();source=code/'rn18_fusion_experiment.py'
+source.write_bytes(Path(m.__file__).read_bytes()+b'\\n');m.__file__=str(source)
+def forbidden(*a,**k):raise AssertionError('changed imported source reached owned process dispatch')
+m._run_stages=forbidden
+try:
+ m.run_rn18_fusion_experiment(q,root/'run',gpu_uuid='GPU-00000000-0000-0000-0000-000000000000')
+except ValueError as exc:
+ assert 'imported experiment source' in str(exc),str(exc)
+else:raise AssertionError('changed imported source was accepted')
+assert not(root/'run').exists()
+'''
+    result=subprocess.run([sys.executable,'-B','-c',code,json.dumps(q),str(tmp_path)],
+        env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1'),
+        capture_output=True,text=True,timeout=30)
+    assert result.returncode==0,result.stdout+result.stderr
     assert not(tmp_path/'run').exists()

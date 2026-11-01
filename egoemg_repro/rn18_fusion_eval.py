@@ -42,6 +42,7 @@ PROFILE='original_rn18_fusion_pretest_validation_profile_v1'
 REPORT='original_rn18_fusion_center_completed_report_v1'
 IMPORTED_SHA=_file_hash(__file__)
 POLICY=dict(prediction='exact typed prediction/target/mask/input replay',
+    saved_fit_prediction='exact typed selected-fit validation pose agreement before test',
     native_mae_atol_rad=2e-6,native_mae_rtol=2e-6,
     native_aggregation='sample-count weighted original per-batch masked L1, float32 accumulation',
     pooled_aggregation='float64 absolute-error sum / exact valid-angle count',
@@ -224,15 +225,33 @@ def _pose_sha(parts):
     return storage.state_digest({k:torch.cat([p[k]for p in parts])for k in ('pred','target','mask')})
 
 
+def _require_saved_validation(value):
+    """Standalone replay agreement cannot replace selected-fit agreement."""
+    try:
+        digests=[value[k]for k in('fit_pose_sha256','evaluation_pose_sha256')]
+        if(value['pose_exact_match']is not True or digests[0]!=digests[1]or
+            any(type(h)is not str or len(h)!=64 or any(c not in'0123456789abcdef'for c in h)for h in digests)):
+            raise ValueError('saved selected-fit validation pose differs from standalone validation')
+        fit,current,delta=[value[k]for k in('fit_native_mae_rad','evaluation_native_mae_rad','native_mae_difference_rad')]
+        if(any(type(x)is not float or not math.isfinite(x)for x in(fit,current,delta))or min(fit,current)<0 or
+            delta!=current-fit or not math.isclose(current,fit,
+                abs_tol=POLICY['native_mae_atol_rad'],rel_tol=POLICY['native_mae_rtol'])):
+            raise ValueError('saved selected-fit validation MAE differs under fixed pretest policy')
+    except(KeyError,TypeError,AttributeError)as exc:
+        raise ValueError('complete saved selected-fit validation agreement required')from exc
+
+
 def _saved_validation(role,parts,statistics,record):
     if role!='val':return None
     reference=record['validation']
     if reference['samples']!=statistics['consumed_samples']:raise ValueError('saved RN18 validation population differs')
     pose=_pose_sha(parts)
-    return dict(completed_epoch=record['epoch']+1,fit_pose_sha256=reference['pose_sha256'],evaluation_pose_sha256=pose,
+    value=dict(completed_epoch=record['epoch']+1,fit_pose_sha256=reference['pose_sha256'],evaluation_pose_sha256=pose,
         pose_exact_match=pose==reference['pose_sha256'],fit_native_mae_rad=reference['val_mae'],
+        evaluation_native_mae_rad=statistics['native_batch_weighted_mae_rad'],
         native_mae_difference_rad=statistics['native_batch_weighted_mae_rad']-reference['val_mae'],
-        view_policy='original saved-fit and standalone native validation views recorded separately; same selected checkpoint; standalone independent replay exact')
+        view_policy='exact typed selected-fit validation pose and fixed-tolerance native MAE agreement; standalone independent replay also exact')
+    _require_saved_validation(value);return value
 
 
 def _read_pass(directory,context):
@@ -291,6 +310,7 @@ def _read_profile(directory,context):
     try:
         context.guard.add(directory/'profile.json')
         profile=_json(directory/'profile.json');_check_seal(profile,PROFILE)
+        _require_saved_validation(profile['saved_fit_validation'])
         reference=_read_pass(profile['reference_path'],context);replay=_read_pass(profile['replay_path'],context)
         if (profile['saved_fit_validation']!=reference['saved_fit_validation']or profile['fixed_agreement_policy']!=POLICY or reference['role']!='val' or reference['kind']!='native' or
             replay['role']!='val' or replay['kind']!='replay' or replay['reference_sha256']!=reference['sha256'] or
@@ -316,6 +336,7 @@ def freeze_rn18_fusion_validation(reference,replay,output):
     ref=read_rn18_fusion_pass(reference);other=read_rn18_fusion_pass(replay)
     if ref['role']!='val' or ref['kind']!='native' or other['role']!='val' or other['kind']!='replay' or other['reference_sha256']!=ref['sha256']:
         raise ValueError('complete native validation and fresh exact replay required')
+    _require_saved_validation(ref['saved_fit_validation']);_require_saved_validation(other['saved_fit_validation'])
     output=_safe(output,exists=False);_space(output.parent);output.mkdir(mode=0o700,exist_ok=False)
     value=_sealed(dict(format=PROFILE,reference_path=str(_safe(reference)),replay_path=str(_safe(replay)),
         reference_sha256=ref['sha256'],replay_sha256=other['sha256'],fit_result_sha256=ref['fit_result_sha256'],

@@ -46,6 +46,17 @@ def test_validation_two_centers_is_complete_without_inventing_repeat_two():
     assert r['unique_samples']==2 and r['native_batch_weighted_mae_rad']==8.
 
 
+@pytest.mark.parametrize('damage',['pose','native_metric'])
+def test_saved_selected_validation_disagreement_cannot_be_recorded_as_accepted(damage):
+    pytest.importorskip('pytorch_lightning');m=api();p=parts()[-1]
+    record=dict(epoch=0,validation=dict(samples=2,pose_sha256=m._pose_sha([p]),val_mae=8.))
+    statistics=dict(consumed_samples=2,native_batch_weighted_mae_rad=8.)
+    if damage=='pose':p['pred'][0,0,0]+=.5
+    else:statistics['native_batch_weighted_mae_rad']=9.
+    with pytest.raises(ValueError,match='saved|selected|validation'):
+        m._saved_validation('val',[p],statistics,record)
+
+
 @pytest.mark.parametrize('damage',['duplicate','repeat','mask','fingerprint','batch_digest','partial'])
 def test_resealed_metadata_cannot_repair_missing_or_duplicate_population(damage):
     pytest.importorskip('pytorch_lightning');m=api();p=parts();torch=pytest.importorskip('torch')
@@ -104,6 +115,53 @@ def test_actual_native_replay_freeze_and_report_keep_all_requests(evaluated):
     assert torch.cat([x['repeat']for x in payload['parts']]).sum()==0
     assert all((root/'public'/x).is_file()for x in ('metrics.json','metrics.md','curve-data.json','training-curves.png','training-curves.svg','completion.json'))
     with pytest.raises(ValueError):m.build_rn18_fusion_report(root/'test-replay')
+
+
+@pytest.mark.parametrize('entry',['freeze','profile_read'])
+def test_agreeing_resealed_standalone_predictions_cannot_bypass_saved_fit_validation(evaluated,tmp_path,entry):
+    """Both standalone passes can agree while the selected fit stays immutable."""
+    import json,torch
+    from egoemg_repro.classic_emg import _hash,_file_hash
+    root,_,_,_=evaluated;m=api()
+    paths=[root/'val-native'/n for n in('predictions.pt','native-metrics.json','pass.json')]
+    paths += [root/'val-replay'/n for n in('predictions.pt','pass.json')]
+    paths += [root/'profile/profile.json']
+    before={p:p.read_bytes()for p in paths}
+    try:
+        native=None
+        for kind in('native','replay'):
+            directory=root/('val-'+kind);file=directory/'predictions.pt'
+            payload=torch.load(file,map_location='cpu',weights_only=True)
+            for part in payload['parts']:part['pred']=part['pred']+1.
+            torch.save(payload,file)
+            value=json.loads((directory/'pass.json').read_text())
+            statistics=m.rn18_fusion_statistics(payload['parts'],samples=value['samples'],batch_size=value['batch_size'],role='val')
+            value.update(statistics=statistics,payload_sha256=_file_hash(file),prediction_sha256=m._payload_sha(payload['parts']))
+            comparison=value['saved_fit_validation']
+            comparison.update(evaluation_pose_sha256=m._pose_sha(payload['parts']),pose_exact_match=False,
+                native_mae_difference_rad=statistics['native_batch_weighted_mae_rad']-comparison['fit_native_mae_rad'])
+            if kind=='native':
+                value['native_metrics']['val_mae']=statistics['native_batch_weighted_mae_rad']
+                (directory/'native-metrics.json').write_text(json.dumps(value['native_metrics']))
+            else:value['reference_sha256']=native['sha256']
+            value['sha256']=_hash({k:v for k,v in value.items()if k!='sha256'})
+            (directory/'pass.json').write_text(json.dumps(value))
+            if kind=='native':native=value
+            else:replay=value
+        if entry=='freeze':
+            output=tmp_path/'must-not-freeze'
+            with pytest.raises(ValueError,match='saved|selected|validation'):
+                m.freeze_rn18_fusion_validation(root/'val-native',root/'val-replay',output)
+            assert not output.exists()
+        else:
+            profile=json.loads((root/'profile/profile.json').read_text())
+            profile.update(reference_sha256=native['sha256'],replay_sha256=replay['sha256'],saved_fit_validation=native['saved_fit_validation'])
+            profile['sha256']=_hash({k:v for k,v in profile.items()if k!='sha256'})
+            (root/'profile/profile.json').write_text(json.dumps(profile))
+            with pytest.raises(ValueError,match='saved|selected|validation'):
+                m.read_rn18_fusion_profile(root/'profile')
+    finally:
+        for path,body in before.items():path.write_bytes(body)
 
 
 @pytest.mark.parametrize('damage',['profile','crop','last','native_metric'])
