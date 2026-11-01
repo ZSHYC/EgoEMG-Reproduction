@@ -1,5 +1,7 @@
 # 运行状态
 
+> **2026-11-01 两条路线完整密GT均已验收**：[ViT-S真实完成证据](../results/native-dense-occlusion/vits-geometry-complete-20261101.json)新增17,168手请求双遍原生计算、三次原始核验和216,450数组精确重放；14原拥有者＋2比较拥有者全部退出。连同既有RN18，共28,282请求/845保留零姿态，32拥有者已关闭；原生数学与1920×1080官方回退保持。16项统计与26项连接检查已通过，真实冻结模型预测、paired gain/Spearman与Figure13仍未完成。
+
 > **2026-11-01 原生EMGFormer-S完整实验验收**：[200轮与最终报告](../results/original-emgformer/small/README.md)完成25,000次正式更新，验证best为第169轮；完整val/test各由新进程精确重放，20阶段/42拥有者全部退出。2,792唯一测试手样本的中心pooled MAE为16.582811°，原生batch加权为16.577803°。原始三份报告按字节发布，未替换legacy轨迹值或声称Table2轨迹14.7°已对齐；S仍计入既有14个架构家族，M/L及其他全文缺口继续进行。
 
 > **2026-11-01 遮挡统计接口验收**：[16项实际检查](../results/native-dense-occlusion/source-analysis-tests-20261101.json)通过，完整未修改官方绘图main在独立进程生成工程PNG；bin均值/SEM、200点加权三次样条、Spearman和散点索引完全一致。[真实入口诊断](../results/native-dense-occlusion/source-inference-compatibility-20261101.json)记录失效EMG配置与旧attention补丁报错；后续须使用同版本原生中心前向和真实完成的来源。尚无完整密网格冻结预测/科学相关性结果，Figure13和全论文仍未完成，科学设置仍14。
