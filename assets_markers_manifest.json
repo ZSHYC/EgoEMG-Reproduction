@@ -1,0 +1,116 @@
+{
+  "checksum_policy": "Selected names, IDs and sizes independently matched connected public-folder metadata and the pinned release schema; final received SHA256 values will identify local bytes, without a publisher-authenticated bulk reference hash.",
+  "files": [
+    {
+      "drive_id": "1ZBCe7Z5OvgYx79w2nJoUBI0LiSajaIeG",
+      "dtype": "float32",
+      "expected_bytes": 16672754700,
+      "field": "mocap_left_keypoints",
+      "filename": "mocap_left_keypoints.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        21,
+        3
+      ]
+    },
+    {
+      "drive_id": "1AHbmg2hshEcTh9F1xDwv-JBNwCxLSxYj",
+      "dtype": "float32",
+      "expected_bytes": 16672754700,
+      "field": "mocap_right_keypoints",
+      "filename": "mocap_right_keypoints.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        21,
+        3
+      ]
+    },
+    {
+      "drive_id": "1qLKwVMEDJxc-gzoNm1tv5CHOeH00NFqI",
+      "dtype": "float32",
+      "expected_bytes": 3969703500,
+      "field": "mocap_left_wrist_rigid_markers",
+      "filename": "mocap_left_wrist_rigid_markers.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        5,
+        3
+      ]
+    },
+    {
+      "drive_id": "1ukTZ_8wbmZ8cOnMwMym1ixYsJavX5SVD",
+      "dtype": "float32",
+      "expected_bytes": 3175762800,
+      "field": "mocap_right_wrist_rigid_markers",
+      "filename": "mocap_right_wrist_rigid_markers.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        4,
+        3
+      ]
+    },
+    {
+      "drive_id": "1s_VcfoQVL1Ydz8BhqFrxvQ5hrdBxH6wr",
+      "dtype": "float32",
+      "expected_bytes": 793940700,
+      "field": "mocap_left_wrist_position",
+      "filename": "mocap_left_wrist_position.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        3
+      ]
+    },
+    {
+      "drive_id": "1iIl5qZnIeqWQe4TXgp2XpfJeNUpdurz4",
+      "dtype": "float32",
+      "expected_bytes": 793940700,
+      "field": "mocap_right_wrist_position",
+      "filename": "mocap_right_wrist_position.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        3
+      ]
+    },
+    {
+      "drive_id": "1_XLh2ZLQs3oRZimY2Olkb0_EKTIL1KRI",
+      "dtype": "float32",
+      "expected_bytes": 1058587600,
+      "field": "mocap_left_wrist_orientation",
+      "filename": "mocap_left_wrist_orientation.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        4
+      ]
+    },
+    {
+      "drive_id": "1bycpmCVegBFkotMS0kQnBDPBV_H2lyBY",
+      "dtype": "float32",
+      "expected_bytes": 1058587600,
+      "field": "mocap_right_wrist_orientation",
+      "filename": "mocap_right_wrist_orientation.dat",
+      "group": "legacy_markers",
+      "shape": [
+        66161725,
+        4
+      ]
+    }
+  ],
+  "inspected_date": "2026-11-02",
+  "inventory_version": 1,
+  "minimum_free_bytes": 16106127360,
+  "num_episodes": 41,
+  "purpose": "Complete legacy aligned bilateral 21-marker coordinates, wrist rigid markers and wrist pose arrays for later source-bound annotation and wrist reconstruction; not validity masks, regenerated labels, original-rate hardware records, video or current release equivalence.",
+  "release_format": "egoemg_v2_memmap",
+  "release_manifest_sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+  "selection_expected_bytes": 44196032300,
+  "selection_metadata_crosscheck_sha256": "020fced2fe61d707bf6ba777b1e332fa6e9c957ebf947deb163abb1af61422a4",
+  "source_url": "https://drive.google.com/drive/folders/1325S0iBVvbT_OnFAeiacLSRjXoWbCPsl",
+  "total_rows": 66161725
+}
