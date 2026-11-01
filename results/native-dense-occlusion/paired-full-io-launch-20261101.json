@@ -1,0 +1,83 @@
+{
+  "actual_first_full_input_pre_hash_pass_finished_before_point_progress": true,
+  "actual_frozen_predictions_complete": false,
+  "actual_paired_cli_sha256": "5d57a23ddbb9920497001437535b6382749865cf4c7439ba17cddc6880d00d71",
+  "actual_progress": {
+    "counts": {
+      "crop_missing": 86,
+      "crop_present": 3914,
+      "label_invalid": 62,
+      "label_valid": 3938,
+      "points": 4000
+    },
+    "pass_label": "a",
+    "points": 4000,
+    "recipe": "vits_s",
+    "total": 17168
+  },
+  "actual_started_utc": "2026-11-01T09:27:30.181828+00:00",
+  "all_frozen_capsule_files_current_exact": true,
+  "bundle_sha256": "3d45e21add3877a9c3420b6afeaf28c5da5d006715da3fd6e49123541ea02b80",
+  "complete_paired_io": false,
+  "cuda_initialized": false,
+  "expected_full_points": {
+    "rn18_s": 11114,
+    "vits_s": 17168
+  },
+  "extra_source_admission_file_sha256": "8e86c466c66442457d6aa494786e01cce397445f16e9da390538448f7e22438d",
+  "figure13_reproduced": false,
+  "format": "actual_complete_dense_paired_io_v2_started_v1",
+  "full_input_or_model_permit": false,
+  "full_paper_complete": false,
+  "learned_models_constructed": 0,
+  "new_dense_only_payloads": [
+    "crop:000004"
+  ],
+  "observed_utc": "2026-11-01T09:29:37.393242+00:00",
+  "optimizer_updates": 0,
+  "owners": {
+    "child": {
+      "matching_live": true,
+      "pid": 1295440,
+      "ppid": 1295439,
+      "sid": 1295440,
+      "start_ticks": "435255552",
+      "stdin": "/dev/null",
+      "tty_nr": 0
+    },
+    "guardian": {
+      "matching_live": true,
+      "pid": 1295442,
+      "ppid": 1295440,
+      "sid": 1295442,
+      "start_ticks": "435255566",
+      "stdin": "/dev/null",
+      "tty_nr": 0
+    },
+    "worker": {
+      "matching_live": true,
+      "pid": 1295443,
+      "ppid": 1295442,
+      "sid": 1295443,
+      "start_ticks": "435255570",
+      "stdin": "/dev/null",
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "matching_live": true,
+      "pid": 1295439,
+      "ppid": 1,
+      "sid": 1295439,
+      "start_ticks": "435255549",
+      "stdin": "/dev/null",
+      "tty_nr": 0
+    }
+  },
+  "planned_complete_paired_io_passes": 2,
+  "planned_complete_raw_input_hash_passes": 4,
+  "previous_standard_cohort_input_files": 53,
+  "required_full_input_bytes": 61379659366,
+  "required_full_input_files": 54,
+  "scientific_eligible": false,
+  "source_commit": "a1a41d4b69f2478c95dd8cbf96550ba57eba39d8"
+}

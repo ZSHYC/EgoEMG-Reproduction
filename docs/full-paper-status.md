@@ -377,7 +377,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy保留；[新原生路线](native-rn18-fusion.md)98运行时检查和23真实视觉来源检查通过，历史完整RN18 LAST已实际独立准入，尚待本折cotrain-S150验证BEST、联合交接及原生融合150轮/最终评价；ViT-S+S原生完整150轮及最终独立报告已完成**。ViT路线EMG为完成150轮的验证best133，视觉为完成124轮的last；旧精确零适配与原生极小正态/PDF zero的差异保留 |
 | D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[完整标准网格计算/重放](../results/native-point-geometry-standard-roles-20261101.json)及[聚合统计/独立重算](../results/native-point-geometry/README.md)完成**：5,882唯一手请求（5,683有效/199零姿态），20原几何＋6汇总拥有进程关闭；可见、越界、相机后方及逐手统计CSV/JSON均已导出 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格GT已另验收，真实模型误差/paired gain/Spearman和Figure13仍欠 |
-| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引/输入/来源交集及两路线完整密GT](../results/native-dense-occlusion/README.md)均完成**：ViT-S216,450与RN18的140,231数组精确重放，32拥有者关闭；统计16项、连接26项检查通过。ViT-S1,280手窗口与融合训练输入相交、中心交集0，完整保留。冻结模型完整预测/真实收益/相关/Figure13仍待完成，RN18还须正式融合/初始化；未改样本换取严格隔离或套用PDF的ρ/p |
+| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引/输入/来源交集及两路线完整密GT](../results/native-dense-occlusion/README.md)均完成**：ViT-S216,450与RN18的140,231数组精确重放，32拥有者关闭；统计16项、连接26项、配对原生输入13项检查通过；实际54文件的完整配对读取/独立第二遍仍在进行。ViT-S1,280手窗口与融合训练输入相交、中心交集0，完整保留。冻结模型完整预测/真实收益/相关/Figure13仍待完成，RN18还须正式融合/初始化；未改样本换取严格隔离或套用PDF的ρ/p |
 
 ## 资产与外部依赖
 

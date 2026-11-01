@@ -1,0 +1,30 @@
+{
+  "acquisition_ledger_file_sha256": "d85c1417e0dea3a28d79c437ea5849a011b3f7890139cdce0e3cb6b416aad556",
+  "actual_file_sha256": "9d6f29d5cf60eaf89155cb6d55d391ad1c938919ce77b54d06e7bfdf1560e51f",
+  "actual_source_file_matches_historical_transfer_sha": true,
+  "bytes": 2428928,
+  "catalog_entry_content_sha256": "0059427ce3ef472a6cdb64ba600db0bf5b3312a59aa47acc512e589ad061af85",
+  "catalog_file_sha256": "a5d7509fcc466c78c3729e320e6c566d63a0e340cf62118a1d6ccea53474c859",
+  "checksum_basis": "previous local-transfer SHA plus current full-file hash; no publisher checksum claim",
+  "current_catalog_metadata_episode_join_exact": true,
+  "dense_full_input_io_complete": false,
+  "episode_index": 4,
+  "figure13_reproduced": false,
+  "format": "actual_previously_acquired_dense_only_crop_file_admission_v1",
+  "full_paper_complete": false,
+  "historical_acquisition_entry": {
+    "bytes": 2428928,
+    "checksum_basis": "local_transfer",
+    "drive_id": "1ZoOwJmBckgVjAGNGOtrzFpiPoBsZ6RJZ",
+    "sha256": "9d6f29d5cf60eaf89155cb6d55d391ad1c938919ce77b54d06e7bfdf1560e51f",
+    "url": "https://drive.google.com/uc?id=1ZoOwJmBckgVjAGNGOtrzFpiPoBsZ6RJZ",
+    "verified_at": "2026-10-25T07:00:53.246762+00:00"
+  },
+  "learned_pose_models_constructed": 0,
+  "metadata_file_sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+  "new_download_performed": false,
+  "not_consumed_by_previous_standard_full_footprint_cohort": true,
+  "optimizer_updates": 0,
+  "publisher_checksum_available": false,
+  "scientific_eligible": false
+}
