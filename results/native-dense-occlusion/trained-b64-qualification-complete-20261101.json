@@ -1,0 +1,598 @@
+{
+  "actual_b64_qualification_complete": true,
+  "actual_closed_loader_worker_count": 48,
+  "actual_closed_stage_owner_count": 6,
+  "actual_complete_payload_bytes_each": 61379659366,
+  "actual_complete_payload_files_each": 54,
+  "actual_full_a_progress": null,
+  "actual_full_a_stage_owners": {
+    "guardian": {
+      "pgrp": 1371831,
+      "pid": 1371831,
+      "sid": 1371831,
+      "start_ticks": "435742259",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker": {
+      "pgrp": 1371832,
+      "pid": 1371832,
+      "sid": 1371832,
+      "start_ticks": "435742263",
+      "state": "R",
+      "uid": 1005
+    }
+  },
+  "actual_full_a_stage_owners_matching_live": true,
+  "actual_full_payload_sha256_pass_count": 4,
+  "actual_loader_workers_closed": [
+    {
+      "pgrp": 1357187,
+      "pid": 1359444,
+      "sid": 1357187,
+      "start_ticks": "435685162",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1359446,
+      "sid": 1357187,
+      "start_ticks": "435685164",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1359448,
+      "sid": 1357187,
+      "start_ticks": "435685167",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1359450,
+      "sid": 1357187,
+      "start_ticks": "435685169",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1360897,
+      "sid": 1357187,
+      "start_ticks": "435687782",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1360899,
+      "sid": 1357187,
+      "start_ticks": "435687785",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1360903,
+      "sid": 1357187,
+      "start_ticks": "435687788",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1360905,
+      "sid": 1357187,
+      "start_ticks": "435687792",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361306,
+      "sid": 1357187,
+      "start_ticks": "435690464",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361308,
+      "sid": 1357187,
+      "start_ticks": "435690466",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361310,
+      "sid": 1357187,
+      "start_ticks": "435690469",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361312,
+      "sid": 1357187,
+      "start_ticks": "435690472",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361724,
+      "sid": 1357187,
+      "start_ticks": "435692493",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361726,
+      "sid": 1357187,
+      "start_ticks": "435692495",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361728,
+      "sid": 1357187,
+      "start_ticks": "435692498",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361730,
+      "sid": 1357187,
+      "start_ticks": "435692500",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361991,
+      "sid": 1357187,
+      "start_ticks": "435694596",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361993,
+      "sid": 1357187,
+      "start_ticks": "435694599",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361996,
+      "sid": 1357187,
+      "start_ticks": "435694602",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1361999,
+      "sid": 1357187,
+      "start_ticks": "435694605",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1362249,
+      "sid": 1357187,
+      "start_ticks": "435696466",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1362251,
+      "sid": 1357187,
+      "start_ticks": "435696468",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1362253,
+      "sid": 1357187,
+      "start_ticks": "435696471",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357187,
+      "pid": 1362255,
+      "sid": 1357187,
+      "start_ticks": "435696474",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367322,
+      "sid": 1364491,
+      "start_ticks": "435722240",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367324,
+      "sid": 1364491,
+      "start_ticks": "435722242",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367326,
+      "sid": 1364491,
+      "start_ticks": "435722245",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367328,
+      "sid": 1364491,
+      "start_ticks": "435722247",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367736,
+      "sid": 1364491,
+      "start_ticks": "435724940",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367740,
+      "sid": 1364491,
+      "start_ticks": "435724942",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367744,
+      "sid": 1364491,
+      "start_ticks": "435724945",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1367746,
+      "sid": 1364491,
+      "start_ticks": "435724947",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1368845,
+      "sid": 1364491,
+      "start_ticks": "435727626",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1368847,
+      "sid": 1364491,
+      "start_ticks": "435727628",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1368849,
+      "sid": 1364491,
+      "start_ticks": "435727631",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1368853,
+      "sid": 1364491,
+      "start_ticks": "435727633",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369203,
+      "sid": 1364491,
+      "start_ticks": "435729668",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369205,
+      "sid": 1364491,
+      "start_ticks": "435729671",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369207,
+      "sid": 1364491,
+      "start_ticks": "435729674",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369210,
+      "sid": 1364491,
+      "start_ticks": "435729677",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369521,
+      "sid": 1364491,
+      "start_ticks": "435731739",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369523,
+      "sid": 1364491,
+      "start_ticks": "435731742",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369527,
+      "sid": 1364491,
+      "start_ticks": "435731745",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369529,
+      "sid": 1364491,
+      "start_ticks": "435731747",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369993,
+      "sid": 1364491,
+      "start_ticks": "435733672",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369995,
+      "sid": 1364491,
+      "start_ticks": "435733675",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1369997,
+      "sid": 1364491,
+      "start_ticks": "435733677",
+      "state": "S",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1370001,
+      "sid": 1364491,
+      "start_ticks": "435733680",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_owned_qualification_stages": 3,
+  "actual_passes": [
+    {
+      "actor": {
+        "pgrp": 1357187,
+        "pid": 1357187,
+        "sid": 1357187,
+        "start_ticks": "435667518",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_complete_payload_bytes": 61379659366,
+      "actual_complete_payload_files": 54,
+      "actual_complete_payload_sha256_before_after_equal": true,
+      "all_model_states_before_after_exact": true,
+      "batches": 12,
+      "crop_missing": 23,
+      "fresh_model_forward_replay_verified": false,
+      "hardware": {
+        "architecture": "x86_64",
+        "autocast": false,
+        "batch_size": 64,
+        "boot_id": "f119e6bc-c7bb-4dfe-9bba-1d6308678c78",
+        "cpu_model": "Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz",
+        "device": "cpu",
+        "drop_last": false,
+        "dtype": "float32",
+        "hostname": "node235",
+        "logical_cpus": 128,
+        "num_workers": 4,
+        "pin_memory": true,
+        "shuffle": false,
+        "torch_threads": 2,
+        "torch_version": "2.2.2+cu118"
+      },
+      "label_invalid": 7,
+      "name": "qual-a",
+      "points": 528,
+      "replay_of_identity_sha256": null,
+      "replay_of_result_file_sha256": null
+    },
+    {
+      "actor": {
+        "pgrp": 1364491,
+        "pid": 1364491,
+        "sid": 1364491,
+        "start_ticks": "435704578",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_complete_payload_bytes": 61379659366,
+      "actual_complete_payload_files": 54,
+      "actual_complete_payload_sha256_before_after_equal": true,
+      "all_model_states_before_after_exact": true,
+      "batches": 12,
+      "crop_missing": 23,
+      "fresh_model_forward_replay_verified": true,
+      "hardware": {
+        "architecture": "x86_64",
+        "autocast": false,
+        "batch_size": 64,
+        "boot_id": "f119e6bc-c7bb-4dfe-9bba-1d6308678c78",
+        "cpu_model": "Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz",
+        "device": "cpu",
+        "drop_last": false,
+        "dtype": "float32",
+        "hostname": "node235",
+        "logical_cpus": 128,
+        "num_workers": 4,
+        "pin_memory": true,
+        "shuffle": false,
+        "torch_threads": 2,
+        "torch_version": "2.2.2+cu118"
+      },
+      "label_invalid": 7,
+      "name": "qual-b",
+      "points": 528,
+      "replay_of_identity_sha256": "219781e32f56eb940aaab21d33d3d4c3dadee2e5c272ef3fa3727ee55de26adf",
+      "replay_of_result_file_sha256": "ed38101ecf8fc70c649024a978c7d5075bdf0e8f89b517143d1e3e4532c87315"
+    }
+  ],
+  "actual_qualification_stage_owners_closed": [
+    {
+      "pgrp": 1357187,
+      "pid": 1357187,
+      "sid": 1357187,
+      "start_ticks": "435667518",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1357185,
+      "pid": 1357185,
+      "sid": 1357185,
+      "start_ticks": "435667514",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364491,
+      "pid": 1364491,
+      "sid": 1364491,
+      "start_ticks": "435704578",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1364490,
+      "pid": 1364490,
+      "sid": 1364490,
+      "start_ticks": "435704575",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1371674,
+      "pid": 1371674,
+      "sid": 1371674,
+      "start_ticks": "435741845",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1371672,
+      "pid": 1371672,
+      "sid": 1371672,
+      "start_ticks": "435741841",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_separate_fresh_model_forward_replay_exact": true,
+  "all_fiftyfour_qualification_consumers_closed": true,
+  "artifacts_sha256": {
+    "owned-accept-qualification/stage-result.json": "3412db72719469adc2dddb97de74b653d6aa3aafc4b458d22c2df089da5ba46d",
+    "owned-qual-a/stage-result.json": "c08043742b0319c16fd838447d3bcb12c4209e1e08c58b6c1eec61dcd5b435d4",
+    "owned-qual-b/stage-result.json": "88342645dbbf969715add7fe56061765a626f15ac781507afed346193b0b9079",
+    "qual-a/batches.jsonl": "43895655c680daead6a1c006493c2fad196f7d7d8ccb6d2d25a774c60f58d7eb",
+    "qual-a/batches/000000.npz": "d5e8abbd376d9c29305334359f88afef3932e3a30b5317831a9a8b2335ef25ef",
+    "qual-a/batches/000001.npz": "df8daa7b334272b10f05f38821830db205c5ea62f2b23d60e248bff48be4994d",
+    "qual-a/batches/000002.npz": "404b81d6c22279ba5ff18c182ee3017abf8b46a9029a46dd9dc90fff2572730d",
+    "qual-a/batches/000003.npz": "592dec642bb6b70781899f2ad40033d46fe4589adf368874eb0eeeecd343ead2",
+    "qual-a/batches/000004.npz": "667b60dfafcf12955d96d5f50314e2896fff7661d1153f818b5a550cc827fc62",
+    "qual-a/batches/000005.npz": "9e2a1eec18eb73a7f1545dffb6494cf704f9a708067e81b2faa2ea77b12035df",
+    "qual-a/batches/000006.npz": "67c19853581229978691aa82298e17ecc99d1c9f291a3659060d6d3e7f7ca03b",
+    "qual-a/batches/000007.npz": "759891bc29e429a591422920756c294c31f14e1934e36e8c538c55b107d3d14b",
+    "qual-a/batches/000008.npz": "67a8b150be421830e61be292a3f54a7e7fe158df0fa086adbccfcae5dec0be7e",
+    "qual-a/batches/000009.npz": "f7b827629438bbab16826124bbfb13bef92df8f2f78e558142957f07925569f2",
+    "qual-a/batches/000010.npz": "395a45b494441ba213bc6b3a27e2eb2512d515b5b443b318b5f8cbc3ef8d8411",
+    "qual-a/batches/000011.npz": "ff936a18bdbd187d060e55b13a90644439bd8267419b0eed2776995647ffa3d8",
+    "qual-a/identity.json": "4a2285c21a78cef39191493003c038bb87f9c7f2c38db3df937a81e6c7699452",
+    "qual-a/result.json": "ed38101ecf8fc70c649024a978c7d5075bdf0e8f89b517143d1e3e4532c87315",
+    "qual-b/batches.jsonl": "43895655c680daead6a1c006493c2fad196f7d7d8ccb6d2d25a774c60f58d7eb",
+    "qual-b/batches/000000.npz": "d5e8abbd376d9c29305334359f88afef3932e3a30b5317831a9a8b2335ef25ef",
+    "qual-b/batches/000001.npz": "df8daa7b334272b10f05f38821830db205c5ea62f2b23d60e248bff48be4994d",
+    "qual-b/batches/000002.npz": "404b81d6c22279ba5ff18c182ee3017abf8b46a9029a46dd9dc90fff2572730d",
+    "qual-b/batches/000003.npz": "592dec642bb6b70781899f2ad40033d46fe4589adf368874eb0eeeecd343ead2",
+    "qual-b/batches/000004.npz": "667b60dfafcf12955d96d5f50314e2896fff7661d1153f818b5a550cc827fc62",
+    "qual-b/batches/000005.npz": "9e2a1eec18eb73a7f1545dffb6494cf704f9a708067e81b2faa2ea77b12035df",
+    "qual-b/batches/000006.npz": "67c19853581229978691aa82298e17ecc99d1c9f291a3659060d6d3e7f7ca03b",
+    "qual-b/batches/000007.npz": "759891bc29e429a591422920756c294c31f14e1934e36e8c538c55b107d3d14b",
+    "qual-b/batches/000008.npz": "67a8b150be421830e61be292a3f54a7e7fe158df0fa086adbccfcae5dec0be7e",
+    "qual-b/batches/000009.npz": "f7b827629438bbab16826124bbfb13bef92df8f2f78e558142957f07925569f2",
+    "qual-b/batches/000010.npz": "395a45b494441ba213bc6b3a27e2eb2512d515b5b443b318b5f8cbc3ef8d8411",
+    "qual-b/batches/000011.npz": "ff936a18bdbd187d060e55b13a90644439bd8267419b0eed2776995647ffa3d8",
+    "qual-b/identity.json": "4a2285c21a78cef39191493003c038bb87f9c7f2c38db3df937a81e6c7699452",
+    "qual-b/result.json": "eeef7038fe88b7d4b853a879f9b27cbce7c32f15a40ee6965cd419646fa28b09",
+    "qualification.json": "f7c8f94101aaff22170b85ad9f6c4076e8920eefe5d95bbc7c3473985c5268c1"
+  },
+  "bundle_sha256": "e4726f194e9c733e0f0981316606111bf75f625256be4cec907aa2817a5285ef",
+  "collector_constructed_models_or_optimizers": false,
+  "collector_rehashed_bulk_payload": false,
+  "evidence_identity_sha256": "cb6d8d3e8ed266719c99aed7d2ca3b7038130083121f760842e3d9de552a8b1f",
+  "figure13_reproduced": false,
+  "format": "actual_trained_native_dense_b64_qualification_completed_v1",
+  "frozen_source_bundle_after_qualification_exact": true,
+  "full_paper_complete": false,
+  "full_prediction_complete": false,
+  "independent_raw_passes_reopened_and_all_errors_source_keys_flags_verified": true,
+  "model_identity_sha256": "7543495ccd161d11bc2db25f277a7dfb1fddd4fd0051b9f1d0531e5faeea41fd",
+  "observed_utc": "2026-11-01T10:49:50.683965+00:00",
+  "qualification_file_sha256": "f7c8f94101aaff22170b85ad9f6c4076e8920eefe5d95bbc7c3473985c5268c1",
+  "scientific_eligible": false,
+  "source_commit": "2d55b25d9303a2c0271b7da73ff158f5f0a7ae1f"
+}
