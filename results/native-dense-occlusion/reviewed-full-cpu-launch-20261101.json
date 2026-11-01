@@ -1,0 +1,80 @@
+{
+  "actual_b64_qualification_complete": false,
+  "actual_full_prediction_complete": false,
+  "actual_full_prediction_population_started": false,
+  "actual_original_owners": {
+    "child": {
+      "pid": 1357165,
+      "start_ticks": "435667381"
+    },
+    "wrapper": {
+      "pid": 1357161,
+      "start_ticks": "435667378"
+    }
+  },
+  "actual_original_owners_matching_live": true,
+  "actual_progress_at_observation": {},
+  "actual_qualification_passes_complete": 0,
+  "actual_qualification_stage_owners": {
+    "guardian": {
+      "pgrp": 1357185,
+      "pid": 1357185,
+      "sid": 1357185,
+      "start_ticks": "435667514",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker": {
+      "pgrp": 1357187,
+      "pid": 1357187,
+      "sid": 1357187,
+      "start_ticks": "435667518",
+      "state": "R",
+      "uid": 1005
+    }
+  },
+  "actual_qualification_stage_owners_matching_live": true,
+  "actual_started_utc": "2026-11-01T10:36:08.467618+00:00",
+  "autonomous_stages": [
+    "qual-a",
+    "qual-b",
+    "accept-qualification",
+    "full-a",
+    "full-b",
+    "report",
+    "verify-report"
+  ],
+  "bundle_sha256": "e4726f194e9c733e0f0981316606111bf75f625256be4cec907aa2817a5285ef",
+  "detached_sessions_no_controlling_tty": true,
+  "execution": {
+    "autocast": false,
+    "batch_size": 64,
+    "device": "cpu",
+    "drop_last": false,
+    "dtype": "float32",
+    "num_workers": 4,
+    "pin_memory": true,
+    "shuffle": false,
+    "torch_threads": 2
+  },
+  "existing_gpu_processes_untouched": true,
+  "figure13_reproduced": false,
+  "first_stage": "qual-a",
+  "format": "actual_reviewed_native_dense_full_cpu_detached_launch_v1",
+  "frozen_source_bytes_exact": true,
+  "full_paper_complete": false,
+  "no_automatic_retry": true,
+  "no_wait_deadline": true,
+  "observed_utc": "2026-11-01T10:36:42.276299+00:00",
+  "planned_complete_batches_each": 272,
+  "planned_complete_passes": 2,
+  "planned_complete_points_each": 17168,
+  "planned_qualification_batches_each": 12,
+  "planned_qualification_points_each": 528,
+  "recorder_adopted_by_pid1": true,
+  "review_status": "accepted-after-material-fixes",
+  "reviewed_test_proof_sha256": "684a8d2ae3b4a4a72d830bb0628ed4779c6341db2c0a618c26f8b2204d3fd518",
+  "scientific_eligible": false,
+  "source_commit": "2d55b25d9303a2c0271b7da73ff158f5f0a7ae1f",
+  "stdin_devnull_and_server_log_descriptors": true
+}
