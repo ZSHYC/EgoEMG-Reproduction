@@ -50,11 +50,11 @@
 
 **Interfaces:** `admit_resnet_cohort(data,crops,*,upstream,config,expected=None,require_full=True)` returns a registered `ResnetCohort` exposing `datasets`, `partitions`, `identity`, `check()`. `native_resnet_loaders(cohort,*,scope)` uses the actual native RN datamodule. `build_resnet_runtime(upstream,config,*,state=None,expected_initialization=None)` returns a checked original Lightning module and construction identity.
 
-- [ ] RED: prove the actual RN and data-only vision companion sample fields agree; permit only explicitly identified loader differences. Reject any changed numerical projection, typed reader/view/index/mask or forged admission.
-- [ ] Reuse `admit_vision_cohort` and original point methods without changing them. Bind full raw/crop hashes, registered counts, projected source and actual loader declarations. Engineering scopes remain separate.
-- [ ] RED: actual original three-backbone construction, native0.02 step gradients and complete named-tensor reload; invalid backbone/pretraining/state provenance must fail before fallback/network.
-- [ ] Reuse `visual.py`'s backbone-specific genuine ImageNet identity helpers where applicable; preserve native factory/setup order and all model tensors/BatchNorm buffers. Derive actual parameter totals rather than equating regression models with paper backbone counts.
-- [ ] Observe targeted new-suite success and a source-bound independent CPU runtime/admission reopening. No old ViT/WiLoR631M or unchanged model-math suites repeated.
+- [x] RED: prove the actual RN and data-only vision companion sample fields agree; permit only explicitly identified loader differences. Reject any changed numerical projection, typed reader/view/index/mask or forged admission.
+- [x] Reuse `admit_vision_cohort` and original point methods without changing them. Bind full raw/crop hashes, registered counts, projected source and actual loader declarations. Engineering scopes remain separate.
+- [x] RED: actual original three-backbone construction, native0.02 step gradients and complete named-tensor reload; invalid backbone/pretraining/state provenance must fail before fallback/network.
+- [x] Reuse `visual.py`'s backbone-specific genuine ImageNet identity helpers where applicable; preserve native factory/setup order and all model tensors/BatchNorm buffers. Derive actual parameter totals rather than equating regression models with paper backbone counts.
+- [x] Observe targeted new-suite success and a source-bound independent CPU runtime/admission reopening. No old ViT/WiLoR631M or unchanged model-math suites repeated.
 
 ## Task 3: cadence-aware native fit and point evaluation
 
