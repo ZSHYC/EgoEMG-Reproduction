@@ -1,0 +1,196 @@
+{
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "author_mixture_reconstructed": false,
+  "coordinate_convention": {
+    "all_received_joint_and_vertex_z_values_negative": true,
+    "axis_sign_agreement_is_not_a_camera_calibration_or_joint_order_validation": true,
+    "coordinate_transform_performed": false,
+    "mano_pose_shape_translation_parameters_received": false,
+    "mesh_reconstructed": false,
+    "publisher_description": "OpenGL, camera optic-center origin, hand/object along negative z; original numeric coordinates retained"
+  },
+  "evaluation_GT_arrays_acquired_and_qualified": true,
+  "evaluation_automatically_reassigned_to_training": false,
+  "evaluation_rows": 20137,
+  "format": "ho3d_v3_official_2024_evaluation_GT_source_intake_v1",
+  "full_ho3d_acquired": false,
+  "full_paper_complete": false,
+  "license": {
+    "raw_annotations_images_or_MANO_models_redistributed": false,
+    "source_url": "https://github.com/shreyashampali/ho3d/blob/2fd6ee17dc1383d0b3922bc10595a67058fca776/README.md",
+    "terms": "Academic research and noncommercial use; no dataset redistribution or modification without author permission; citation required."
+  },
+  "markers2mano_reproduced": false,
+  "observed_utc": "2026-11-01T21:59:45.970150+00:00",
+  "official_GT_folder_url": "https://1drv.ms/f/c/11742dd40d1cbdc1/IgCs3QZu1A1lQpncQsj9-93kAaWblgr_-bTyXC1UVSRf91o?e=268sU9",
+  "official_loader": {
+    "code_counts_not_equated_to_all_release_images_or_people": true,
+    "db_size_version": "v3",
+    "evaluation_rows_in_code": 20137,
+    "evaluation_txt_from_main_archive_acquired": false,
+    "release_README_total_images_declared": 103462,
+    "row_to_image_sequence_identity_mapping_verified": false,
+    "source_path": "utils/fh_utils.py",
+    "training_rows_in_code": 78297
+  },
+  "official_repository_commit": "2fd6ee17dc1383d0b3922bc10595a67058fca776",
+  "original_array_order_and_evaluation_role_preserved": true,
+  "pinned_sources": {
+    "README.md": {
+      "bytes": 10412,
+      "git_blob_sha1": "cf53bdcbdf7a55e11e0fdb8006880996a91c50bb",
+      "sha256": "caecebe0891b3bed4ff1099b10965e9b16b506069368ab2fb529b353911a512b",
+      "url": "https://github.com/shreyashampali/ho3d/blob/2fd6ee17dc1383d0b3922bc10595a67058fca776/README.md"
+    },
+    "eval.py": {
+      "bytes": 13731,
+      "git_blob_sha1": "14dd1358f81cf3e52020e44c03552ae49af0daa3",
+      "sha256": "5046c3690519a57cdb255b0258a910fe381d3c62b7a82fa4cadf291332d50d3e",
+      "url": "https://github.com/shreyashampali/ho3d/blob/2fd6ee17dc1383d0b3922bc10595a67058fca776/eval.py"
+    },
+    "utils/fh_utils.py": {
+      "bytes": 13747,
+      "git_blob_sha1": "869df199abb5a4a272795a98aa441b7bb65ac2a0",
+      "sha256": "687bf9106910dcb54edf6bc99712ef8e3403f20e4adf6ef7f7c3d938bda23c1f",
+      "url": "https://github.com/shreyashampali/ho3d/blob/2fd6ee17dc1383d0b3922bc10595a67058fca776/utils/fh_utils.py"
+    },
+    "vis_HO3D.py": {
+      "bytes": 8441,
+      "git_blob_sha1": "d82746a04954f5f74146d5dc8a552de07c0de855",
+      "sha256": "16d1453ee85bc01b54dbfcd3854fd9e3d6ed89d3f9f6f7cfc2db51fef08781fd",
+      "url": "https://github.com/shreyashampali/ho3d/blob/2fd6ee17dc1383d0b3922bc10595a67058fca776/vis_HO3D.py"
+    }
+  },
+  "raw_files": {
+    "evaluation_verts.json": {
+      "bytes": 1040846417,
+      "sha256": "83cd68e4612afd916ab6176a39ede1b5509043f6f2ce085f8661dd7a3a971710"
+    },
+    "evaluation_xyz.json": {
+      "bytes": 28140351,
+      "sha256": "fba9ce9df01a1d28c6fd8e55acc4446f44033bd559bf7c9904f6789b674964eb"
+    }
+  },
+  "root_numeric": {
+    "evaluation_verts.json": {
+      "coordinate_axes": {
+        "x": {
+          "max_finite": 0.3250716538116769,
+          "min_finite": -0.2770607313851655,
+          "nonfinite_values": 0,
+          "values": 15666586
+        },
+        "y": {
+          "max_finite": 0.2869643282279181,
+          "min_finite": -0.16820772574199747,
+          "nonfinite_values": 0,
+          "values": 15666586
+        },
+        "z": {
+          "max_finite": -0.21269241000906342,
+          "min_finite": -0.9702069240687677,
+          "nonfinite_values": 0,
+          "values": 15666586
+        }
+      },
+      "finite_values": 46999758,
+      "max_finite": 0.3250716538116769,
+      "min_finite": -0.9702069240687677,
+      "nonfinite_values": 0,
+      "rows": 20137,
+      "shape": [
+        20137,
+        778,
+        3
+      ],
+      "values": 46999758,
+      "whole_zero_rows": 0
+    },
+    "evaluation_xyz.json": {
+      "coordinate_axes": {
+        "x": {
+          "max_finite": 0.2910468418727712,
+          "min_finite": -0.2725657801926854,
+          "nonfinite_values": 0,
+          "values": 422877
+        },
+        "y": {
+          "max_finite": 0.2553478966753004,
+          "min_finite": -0.16768600483806873,
+          "nonfinite_values": 0,
+          "values": 422877
+        },
+        "z": {
+          "max_finite": -0.24092325878490328,
+          "min_finite": -0.9386048985373445,
+          "nonfinite_values": 0,
+          "values": 422877
+        }
+      },
+      "finite_values": 1268631,
+      "max_finite": 0.2910468418727712,
+      "min_finite": -0.9386048985373445,
+      "nonfinite_values": 0,
+      "rows": 20137,
+      "shape": [
+        20137,
+        21,
+        3
+      ],
+      "values": 1268631,
+      "whole_zero_rows": 0
+    }
+  },
+  "scope_limits": [
+    "These are the two separately published evaluation GT arrays only; complete HO-3D v3 image/depth/training-meta archive, training parameters and main-archive index files have not been acquired.",
+    "Array row count agrees with the pinned evaluation loader, but pairing rows to sequence/image IDs awaits the original evaluation index and is not asserted.",
+    "The distributed main-archive README describes root/bbox evaluation metadata; the newer official separate GT release supplies these full joint and vertex arrays. Their scopes are retained separately.",
+    "The release README total-image count and the loader selected training/evaluation row counts are separate source declarations; no unexplored cause for their difference is asserted.",
+    "No HO-3D benchmark model has been trained or scored, no geometry reconstruction or MANO version/joint-order equivalence has been verified, and no evaluation data has been silently recast as training.",
+    "HO-3D v2 payload, v2/v3 overlap, exact EgoEMG author source version/selection, H2O versus H2O-3D identity, approximately712K mixture and markers2mano assets remain unresolved."
+  ],
+  "source_release_announcement": "Pinned official README update dated 2024-11-03 releases separate HO-3D v2 and v3 ground-truth annotations.",
+  "source_role": "original evaluation ground-truth joint and vertex arrays for HO-3D v3",
+  "total_numeric_values": 48268389,
+  "total_raw_bytes": 1068986768,
+  "training_parameters_acquired": false,
+  "verification": {
+    "all_numeric_statistics_exact_between_methods": true,
+    "all_original_raw_copies_byte_exact": true,
+    "browser_vertex_download_restarted_after_timeout": false,
+    "browser_vertex_download_wait_timed_out": true,
+    "local_method": "ijson row streaming with point/scalar checks, full raw SHA256, all ordered rows/shapes, finite/range/zero-row/per-axis statistics; no NumPy/Torch",
+    "local_numeric_observed_utc": "2026-11-01T21:57:44.143144+00:00",
+    "local_parser": {
+      "backend": "yajl2_c",
+      "buffer_bytes": 65536,
+      "package": "ijson",
+      "use_float": true,
+      "version": "3.6.0"
+    },
+    "local_peak_rss_kib": 18968,
+    "local_reader_source_sha256": "7bba504a26f294b51ceec12aa0b90f9ccc87a8a925b3a44bd86c27e9dd7d8b1b",
+    "model_or_test_environment_dependencies_changed": false,
+    "provider_cryptographic_file_checksum_observed": false,
+    "reused_isolated_data_parser_wheel_sha256": "c14d568d31a322e8ed7e9735f6e355608a23cc6ff4b5da843515089dae4cbf5f",
+    "same_final_vertex_file_subsequently_parsed_fully": true,
+    "server_method": "Complete original JSON decode and independent NumPy full-array reductions with full raw SHA256; CUDA hidden, no Torch",
+    "server_numeric_observed_utc": "2026-11-01T21:58:23.306086+00:00",
+    "server_postexit": {
+      "actual_gpu_actions": 0,
+      "actual_model_runs": 0,
+      "all2_raw_files_and_report_and_helper_full_sha256_exact": true,
+      "all_input_helper_and_report_generations_unchanged": true,
+      "all_numeric_statistics_exact_between_local_stream_scalar_and_server_numpy": true,
+      "numpy_imported": false,
+      "observed_utc": "2026-11-01T21:58:42.108916+00:00",
+      "original_auditor_closed": true,
+      "postexit_reader_source_sha256": "5b0cfec0aaeb53cf86c5f785d33b3f2eb8d23b1cc678554e88ff85698cfe439c",
+      "report_sha256": "d0373b70faef61b2b3ab4652eeb2eab20e9655ab25156419520e223e6027783c",
+      "source_and_result_membership_exact": true,
+      "source_sha256": "90884c1c2a7dd809544f7ca2e0c3dcf553388074751c66c5565b6bffbec5f686",
+      "torch_imported": false
+    }
+  }
+}

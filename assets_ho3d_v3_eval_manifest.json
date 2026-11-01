@@ -1,0 +1,32 @@
+{
+  "evaluation_GT_arrays_acquired_and_qualified": true,
+  "evaluation_rows": 20137,
+  "files": [
+    {
+      "all_numeric_values_inspected": true,
+      "bytes": 1040846417,
+      "filename": "evaluation_verts.json",
+      "payload_received_complete": true,
+      "sha256": "83cd68e4612afd916ab6176a39ede1b5509043f6f2ce085f8661dd7a3a971710",
+      "source_role": "evaluation"
+    },
+    {
+      "all_numeric_values_inspected": true,
+      "bytes": 28140351,
+      "filename": "evaluation_xyz.json",
+      "payload_received_complete": true,
+      "sha256": "fba9ce9df01a1d28c6fd8e55acc4446f44033bd559bf7c9904f6789b674964eb",
+      "source_role": "evaluation"
+    }
+  ],
+  "format": "ho3d_v3_separate_official_evaluation_GT_intake_manifest_v1",
+  "full_ho3d_acquired": false,
+  "full_paper_complete": false,
+  "official_repository_commit": "2fd6ee17dc1383d0b3922bc10595a67058fca776",
+  "official_source_url": "https://1drv.ms/f/c/11742dd40d1cbdc1/IgCs3QZu1A1lQpncQsj9-93kAaWblgr_-bTyXC1UVSRf91o?e=268sU9",
+  "provider_cryptographic_file_checksum_observed": false,
+  "qualification_report": "results/ho3d-v3-evaluation-gt-intake-20261102.json",
+  "raw_data_redistributed": false,
+  "total_raw_bytes": 1068986768,
+  "training_parameters_acquired": false
+}

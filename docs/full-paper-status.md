@@ -1,3 +1,5 @@
+> **2026-11-02 HO3Dv3公开评估真值接收**：[两份完整关节／顶点GT](../results/ho3d-v3-evaluation-gt-intake-20261102.md)共1,068,986,768bytes，各20,137行、合计48,268,389个有限数值，双端全量统计精确一致，原服务器核验拥有者退出后全SHA／目录／文件代际稳定。来源为作者2024年单独公开的GT；原始评估角色保留，训练meta、主包索引和作者精确混合仍欠，未新增模型或GPU任务，全文未完成。
+
 > **2026-11-02 FreiHAND主包与完整v2来源验收**：[主包、评估包及跨包核验](../results/freihand-full-source-intake-20261102.md)完成两份官方归档共4,640,215,813bytes。训练32,560行／四组RGB共130,240张，评估3,960行；全部190,533个物理文件成员CRC通过、3,962个共享路径字节一致，11个逻辑根标注／90,139,280个数值双端全量复核。接收／核验4个原拥有者均已关闭，退出后整包／13份物理根标注全SHA及167段连续正文复核通过；这更新下方历史续传观测。仅官方链接v2来源完成，作者精确版本、约712K混合与标注器仍欠；未新增模型成绩，全文未完成。
 
 > **2026-11-02 FreiHAND评估来源接收**：[完整评估包及参数约定核验](../results/freihand-evaluation-source-intake-20261102.md)取得758,382,230bytes；全部23,766文件CRC和六份根目录标注3,960行／9,781,200数值已双端独立复核，退出后完整SHA精确一致。61维末三项为UV根位置／weak-perspective尺度，未当成直接3D平移使用。主包原GET提前EOF后保留1.082GB前缀，严格206续传进程实际存活，观测已提交2.291GB，尚非完整；未新增模型成绩，作者混合／标注器资产与全文仍欠。
@@ -410,7 +412,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **旧版双手各41段原官方FFT重生成、独立复核及全量新旧filtered数值对照完成**；[重生成](../results/dataset-statistics/emg-fft-bilateral-full.md)：每手66,161,725行/8通道，合计4.234GB有限输出。[频率/首段对照](../results/dataset-statistics/emg-fft-first-episode.md)与[全1,058,587,600值对账](../results/dataset-statistics/emg-fft-full-comparison.md)均完成，左右最大差4.768e-7/9.537e-7，输入SHA/九项属性未变；不声称逐字节相同。独立单位标定、当前发布/PDF等价仍未证明，保留整episode非局部依赖 |
 | D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；[合法MANO资产已验收](../results/mano-existing-native-asset-admission-20261029.json)，两手valid已取得；[坐标/腕部8文件接收](raw-marker-acquisition.md)因非206停止、保留1GiB部分，仍缺完整坐标、标注模型及实际逐帧重建产物 |
 | D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部资产缺口**；[本轮官方公开范围核查](../results/markers2mano-public-availability-20261102.md)涵盖四个完整默认树、当前main／v0.1.0及相关Release；仍未取得模型包／匹配v51权重。源码还要求archive的4x姿态头；fallback不是已核验训练配置，不得以未训练替身验收 |
-| D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **InterHand三份参数、[HOI4D手部ZIP](../results/hoi4d-hand-source-intake-20261102.md)及[FreiHAND两份完整官方v2归档](../results/freihand-full-source-intake-20261102.md)已接收核验；[HOT3D公开清单与双设备片段](../results/hot3d-train-source-qualification-20261102.md)已核验**。FreiHAND的11个逻辑根标注／90,139,280个数值已双端复核，原训练／评估角色保留；HOT3D仅2／2,804片段，HOI4D维度例外与版本差异保留。其余完整来源、作者精确样本清单、采样seed/权重、版本及划分仍欠，约712K混合未重建 |
+| D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **InterHand三份参数、[HOI4D手部ZIP](../results/hoi4d-hand-source-intake-20261102.md)及[FreiHAND两份完整官方v2归档](../results/freihand-full-source-intake-20261102.md)已接收核验；[HOT3D公开清单与双设备片段](../results/hot3d-train-source-qualification-20261102.md)已核验；[HO3Dv3两份完整评估GT](../results/ho3d-v3-evaluation-gt-intake-20261102.md)已验收**。FreiHAND的11个逻辑根标注／90,139,280个数值已双端复核，原训练／评估角色保留；HOT3D仅2／2,804片段，HOI4D维度例外与版本差异保留。HO3D训练参数及其余完整来源、作者精确样本清单、采样seed/权重、版本及划分仍欠，约712K混合未重建 |
 | D08，B.1.3 | 50% 不增强；8 类为 bone length、global scale、近邻 swap、dropout 插值、neighbor blend、Gaussian noise、局部 drift、spike outlier | **未实现**；缺官方变换训练代码、精确参数/组合与概率、确定性检查和图9产物；不能用姿态模型 EMG 增强替代 |
 | D09，B.1.3 Eq.2 | vertex MSE + 5×marker MSE 的 annotator 训练、选模与质量评价 | **未运行**；缺训练入口、schedule、选择规则、权重与完整曲线。姿态基线 L1+tip 损失不等于该训练 |
 | D10，§3.2/B.1.3 | marker/vertex 误差、invalid rate、InterHand 子集与重投影质量 | **真实标注误差未重测**；[发布mask全帧覆盖](../results/dataset-semantics/full-frame-validity.md)已实测，但不等于原标注器invalid判据或精度。仍缺单位、质量划分与误差分布；3.2mm正文per-marker/附录per-vertex矛盾保留 |
@@ -452,8 +454,8 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | H2O / H2O-3D | 文字引 [Kwon H2O](https://github.com/taeinkwon/h2odataset)，图写 H2O3D 76K、与 [H2O-3D](https://github.com/shreyashampali/ho3d)相近 | 数据集身份未决；前者需注册、后者有公开链接，不能混同；需作者精确来源清单 |
 | InterHand2.6M | **[5fps v1三份MANO参数已完整接收并双端独立核验](../results/interhand-mano-source-intake-20261102.md)**：50,044,309bytes／28,344帧记录／36,850非空手部拟合，保留19,838空手槽位；传输进程退出后全SHA复核通过 | pose是减MANO均值的48维轴角，未转换／重建；不是完整RGB／其他标注或作者的精确混合／划分，capture数不是人数 |
 | FreiHAND | **[两份官方链接v2完整归档及全部根标注已接收核验](../results/freihand-full-source-intake-20261102.md)**：整包4,640,215,813bytes；训练32,560行／130,240张RGB、评估3,960行。两个包3,962个共享路径全部字节相同，按逻辑根路径统计11文件／90,139,280个数值；61维尾部遵循官方UV根位置与尺度含义 | 限本次官方链接v2版本；作者精确版本／混合采样仍未知。原始参数和评估角色保留，未重建mesh、运行MANO版本等价或重建标注器；较早404／主包续传状态已由完整实物验收更新 |
-| HO3Dv3 | [作者仓库](https://github.com/shreyashampali/ho3d)公开 v3 与 evaluation GT 链接 | 未验证完整传输；custom academic/noncommercial 及再分发限制，需参数提取/采样清单 |
-| HO3Dv2 | 同一作者仓库公开 v2 与 evaluation GT | 同 v3；两版本录制重叠与训练权重须按作者清单核验，不能当独立新增帧直接相加 |
+| HO3Dv3 | **[2024年另发的两份完整评估GT已接收并双端独立核验](../results/ho3d-v3-evaluation-gt-intake-20261102.md)**：1,068,986,768bytes、各20,137行／合计48,268,389个数值；原始21关节／778顶点及评估角色保留，服务器退出后全SHA精确一致 | 仅单独评估GT；完整RGB/depth／训练meta、原评估索引与参数抽样仍欠，未自动改作训练。custom academic/noncommercial及再分发限制保留，未验证MANO／坐标几何等价、作者混合或v2/v3去重 |
+| HO3Dv2 | 同一作者仓库公开 v2 与 evaluation GT | 完整v2实物、原索引与参数抽样仍欠；两版本录制重叠及作者训练权重须按原清单核验，不能当独立新增帧直接相加。学术／非商用及再分发限制保留 |
 
 ## PDF 与官方实现的裁决记录
 
