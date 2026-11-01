@@ -1,0 +1,177 @@
+{
+  "actual_breakdown": {
+    "cohort": 21,
+    "protocol": 35,
+    "reader": 25
+  },
+  "actual_cohort_identity_sha256": "6580cad29e95da825b5940b722f45b313acda34965eeeb500261b11076b533fb",
+  "actual_counts": {
+    "test": 6,
+    "train": 80,
+    "val": 2
+  },
+  "actual_footprints": {
+    "test": {
+      "consumed_emg_elements": 576000,
+      "consumed_emg_nonfinite_entries": 0,
+      "possible_center_label_true_hand_rows": 6,
+      "possible_center_rows": 3,
+      "possible_center_target_elements": 132,
+      "possible_center_target_nonfinite_entries": 0,
+      "unique_possible_emg_rows": 36000
+    },
+    "train": {
+      "consumed_emg_elements": 959984,
+      "consumed_emg_nonfinite_entries": 0,
+      "possible_center_label_true_hand_rows": 96000,
+      "possible_center_rows": 48000,
+      "possible_center_target_elements": 2112000,
+      "possible_center_target_nonfinite_entries": 0,
+      "unique_possible_emg_rows": 59999
+    },
+    "val": {
+      "consumed_emg_elements": 192000,
+      "consumed_emg_nonfinite_entries": 0,
+      "possible_center_label_true_hand_rows": 2,
+      "possible_center_rows": 1,
+      "possible_center_target_elements": 44,
+      "possible_center_target_nonfinite_entries": 0,
+      "unique_possible_emg_rows": 12000
+    }
+  },
+  "actual_green_log_sha256": "8809e531acd80d98b993d36a4458dba3303b60a4dca4502fcadb9952d778d9eb",
+  "actual_independent_cpu_stages": [
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "setup"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_observation": {
+        "actual_model_constructions": 0,
+        "actual_optimizer_constructions": 0,
+        "actual_optimizer_updates": 0,
+        "all_three_rng_domains_unchanged": true,
+        "cuda_initialized": false,
+        "identity_sha256": "6580cad29e95da825b5940b722f45b313acda34965eeeb500261b11076b533fb"
+      },
+      "log_sha256": "19b548eea20f89b88d0794deb70902c7ab348c80ece066ef6ee5d6d7520cf74c",
+      "name": "first"
+    },
+    {
+      "actual_exit_code": 0,
+      "actual_observation": {
+        "actual_model_constructions": 0,
+        "actual_optimizer_constructions": 0,
+        "actual_optimizer_updates": 0,
+        "all_three_rng_domains_unchanged": true,
+        "cuda_initialized": false,
+        "identity_sha256": "6580cad29e95da825b5940b722f45b313acda34965eeeb500261b11076b533fb"
+      },
+      "log_sha256": "19b548eea20f89b88d0794deb70902c7ab348c80ece066ef6ee5d6d7520cf74c",
+      "name": "second"
+    }
+  ],
+  "actual_model_constructions": 0,
+  "actual_optimizer_updates": 0,
+  "actual_payload_count": 14,
+  "actual_receipts_equal": true,
+  "actual_synthetic_source_scope": "actual native original reader on engineering files, not registered legacy or merged data",
+  "actual_tests_passed": 81,
+  "actual_tests_skipped": 0,
+  "actual_unique_counts": {
+    "test": 6,
+    "train": 80,
+    "val": 2
+  },
+  "all_staged_sources_post_exit_exact": true,
+  "cuda_initialized": false,
+  "existing_completed_scientific_settings": 14,
+  "format": "actual_native_rn18_fusion_center_reader_and_complete_input_cpu_engineering_v1",
+  "full_paper_complete": false,
+  "full_training_started": false,
+  "gpu_qualified": false,
+  "normalization": {
+    "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+    "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+    "canonical_normalization_errors_by_hand": {
+      "left": "KeyError",
+      "right": "KeyError"
+    },
+    "declared_namespace": "egoemg_unified",
+    "epsilon": 1e-06,
+    "estimated_from_project_train_rows": false,
+    "format": "original_rn18_fusion_legacy_normalization_v1",
+    "full_paper_complete": false,
+    "hands": {
+      "left": {
+        "dtype": "float32",
+        "mean": [
+          -7.231502723026306e-13,
+          1.448950443135033e-12,
+          -1.6892440571347755e-11,
+          -1.252661689654655e-11,
+          -1.2940328496247044e-11,
+          9.326261117548196e-12,
+          -2.8426799109082523e-11,
+          -3.779553493094001e-12
+        ],
+        "std": [
+          3.821516513824463,
+          4.0033464431762695,
+          4.532995700836182,
+          3.3738908767700195,
+          4.099949836730957,
+          4.044180393218994,
+          4.2281413078308105,
+          5.456417560577393
+        ]
+      },
+      "right": {
+        "dtype": "float32",
+        "mean": [
+          1.5540511585920846e-11,
+          -1.920762576768098e-10,
+          3.077472998658237e-11,
+          -7.338346076635194e-12,
+          -3.7279259540445864e-11,
+          2.417382787001099e-11,
+          3.4983644453534524e-11,
+          -1.1016149797926644e-11
+        ],
+        "std": [
+          12.625292778015137,
+          29.244260787963867,
+          12.783987045288086,
+          14.19461441040039,
+          14.211451530456543,
+          13.55282974243164,
+          17.53721809387207,
+          14.340578079223633
+        ]
+      }
+    },
+    "normalization_namespace": "egoemg",
+    "physical_fields": {
+      "left": "emg_left_filtered",
+      "right": "emg_right_filtered"
+    },
+    "requested_field": "filtered_paper",
+    "scientific_eligible": false,
+    "sha256": "93ff2015094d64e9f0c3d8fe4e0aeba1f0fef1df83e3111b4534da8b3e370c15",
+    "substitution": "explicit legacy namespace in the unchanged declared author alias asset"
+  },
+  "registered_full_data_admission_complete": false,
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_sha256": {
+    "egoemg_repro/rn18_fusion_cohort.py": "0eca1ac9b5e46421b667d4a50539b14d4a9df6f70cce04d383d7b0f5a4ae225a",
+    "egoemg_repro/rn18_fusion_data.py": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+    "egoemg_repro/rn18_fusion_literal.py": "1160b90b66b8a9155c4ddad17e7f7cba1322d3f146b6da7011dc5539214fd5e7",
+    "tests/test_rn18_fusion_cohort.py": "0106e59e5e2dba8a7ac92be100a9814bdbc8248403f843e5e6c188904cb2fbee",
+    "tests/test_rn18_fusion_data.py": "dcf12777d7679ada4eeb37073c0f597887a4e8a3f3d89a0f03a9cf78efd8bf7e",
+    "tests/test_rn18_fusion_literal.py": "1d75c9d92f36034891935670abca46f39a5667836d8eb7ede96f5c5fdd32610b"
+  },
+  "trained_initializers_admitted": false
+}

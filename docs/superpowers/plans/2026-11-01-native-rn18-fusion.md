@@ -47,10 +47,10 @@
 **Files:** create `egoemg_repro/rn18_fusion_data.py`, `egoemg_repro/rn18_fusion_cohort.py`, their tests.
 **Interfaces:** `rn18_fusion_normalization(upstream,config)->dict` actual original norm lookup with declared failure/explicit legacy namespace; `build_rn18_fusion_partitions(store,val_fraction=.12)->dict`; `Rn18FusionDataset(...)`; `admit_rn18_fusion_cohort(data,crops,*,upstream,config,expected=None,require_full=True)` returns registered cohort with datasets/partitions/identity/check; `native_rn18_fusion_loaders(cohort,*,scope)` executes native data module.
 
-- [ ] RED: exact per-hand float32 vectors, no scalar/zero substitution; identical seeded original center-reader EMG/RGB/targets/masks/rotation and missing-crop behavior, both hands/last batches. Use existing `_PointView` and native `_getitem_center_supervised`, not a new scientific reader.
-- [ ] Reuse exact closed `build_emgformer_partitions` window/jitter provider since actual audit proves identical12000 roles, but stamp a separate fusion center-target protocol. Assert complete original jitter and zero all-role footprint overlap; reject malformed fields/layout/index/mask/source or changed generations.
+- [x] RED: exact per-hand float32 vectors, no scalar/zero substitution; identical seeded original center-reader EMG/RGB/targets/masks/rotation and missing-crop behavior, both hands/last batches. Use existing `_PointView` and native `_getitem_center_supervised`, not a new scientific reader.
+- [x] Reuse exact closed `build_emgformer_partitions` window/jitter provider since actual audit proves identical12000 roles, but stamp a separate fusion center-target protocol. Assert complete original jitter and zero all-role footprint overlap; reject malformed fields/layout/index/mask/source or changed generations.
 - [ ] Hash every consumed complete numeric/crop/metadata payload and scan all possible consumed EMG and center-label rows. Keep actual readonly typed layout snapshots independent of mutable arrays. Verify actual registered62470/1052/2792 and independent fresh-process full receipt equality.
-- [ ] Run the relevant new tests/native IO collector and record exact scopes; no model/GPU/formal-training permit from data. Commit.
+- [x] Run the relevant new tests/native IO collector and record exact scopes; no model/GPU/formal-training permit from data. Commit.
 
 ## Task 3: Genuine native construction and trained branch handoff
 
@@ -83,3 +83,5 @@
 ## Preflight and approval continuity
 
 Task1 exact protocol feeds every consumer; Task2 must expose source-bound full target_hand8/12000 data rather than silently project the ViT16/7790 fold. Task3 trained handoff and six-domain runtime feed Task4 full fit; a checkpoint or footprint-only probe cannot satisfy either input. Task4 complete raw final chain feeds Task5 public report; engineering and formal identities remain disjoint. Existing full-paper approval and official-source priority already decide the method. This plan introduces no source-algorithm redesign, new external side effect beyond authorized server/repository work, destructive action or new user preference.
+
+Task2 engineering checkpoint: current81checks and three separate CPU processes passed with source-exact80/2/6 fixtures/14payloads and unchanged constructor RNG. Full registered62470/1052/2792 content admission/reopening remains pending and Task2 is not complete; commit tested source before staging the immutable actual-input workflow.
