@@ -1,0 +1,28 @@
+{
+  "actual_exit_code": 0,
+  "actual_missing_module_red": "24 failed in 0.23s",
+  "actual_test_summary": "26 passed, 0 skipped in 0.84s",
+  "actual_three_branch_errors_required": true,
+  "actual_typed_key_regression_red": "2 failed in 0.27s",
+  "complete_ordered_keys_required": true,
+  "dense_frozen_predictions_complete": false,
+  "figure13_reproduced": false,
+  "format": "actual_dense_ordered_prediction_geometry_join_checks_v1",
+  "full_paper_complete": false,
+  "integer_key_types_preserved": true,
+  "log_sha256": "c2cfd588f3ae296c95432dce570b27775929be8b716e8d43641fb8b94e033f85",
+  "missing_extra_duplicate_reordered_rows_rejected": true,
+  "mocap_stale_csv_column_is_native_image_stale": true,
+  "observed_utc": "2026-11-01T09:06:22.514485+00:00",
+  "scientific_eligible": false,
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_analysis.py": "dc5ab6befb74fc141acf467859f44621132ddece35b211f8af7b8eb6853c565e",
+    "egoemg_repro/occlusion_dense_predictions.py": "ee28ac978fd0e066996d904bc61befd09aca46dabca13ff334368d0102161af5",
+    "tests/test_occlusion_dense_predictions.py": "8a95a0992fbc91f01ee43edf0988ac27473eeaa3f8d8ad6619dc2b845cf2cb74"
+  },
+  "synthetic_engineering_fixture_only": true,
+  "tracking_marker_and_image_stale_flags_not_filters": true,
+  "trained_model_or_full_population_admitted": false,
+  "wrong_window_length_or_center_rejected": true,
+  "zero_geometry_rows_retained_with_real_model_errors": true
+}

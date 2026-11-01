@@ -54,6 +54,7 @@ Native-wrapper interface: add `egoemg_repro/occlusion_dense_geometry.py` and `te
 ### Task 3: frozen paired predictions and native analysis
 
 Statistics subcomponent implemented and independently source-main checked: `egoemg_repro/occlusion_dense_analysis.py`, `tests/test_occlusion_dense_analysis.py`, actual16passed/0skip; evidence `results/native-dense-occlusion/source-analysis-tests-20261101.json`. Source eval compatibility diagnostic proves missing experiment/dataset and stale attention patch; use same-pinned native callable center dispatch in later integration, not a changed model. This does not close Task3: actual trained producer/state/data admission, complete-key frozen predictions, replay and real-data Figure13 remain pending.
+Ordered join subcomponent also implemented: `occlusion_dense_predictions.join_dense_predictions`, actual26passed/0skip, proof `results/native-dense-occlusion/prediction-join-tests-20261101.json`. This validates ordered complete keys/geometry/real error transport only; it neither constructs a model nor admits trained/full inference. Standalone8/per-hand-vector and fusion16/unified-scalar must have separate producer-correct inputs on identical7790 windows; preserve native standalone outputT//2.
 
 **Files:** new dense inference/replay and source-analysis adapters/tests, bottom tables/plots.
 **Interfaces:** source-bound completed producer admission and exact typed point join→native head predictions/raw radians→native degree/rounding columns→original plotting functions and independent aggregate verification.

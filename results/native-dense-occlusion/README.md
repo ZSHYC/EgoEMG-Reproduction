@@ -104,6 +104,12 @@ statistics = analyze_source_csv("private-results.csv", upstream=upstream)
 
 [实际评价入口兼容诊断](source-inference-compatibility-20261101.json)还证明：官方脚本引用的EMG实验配置已移入`_archive`，归档配置仍依赖缺失dataset；同脚本旧attention补丁与当前`TemporalAttentionPool`接口产生真实矩阵形状报错，原生pool则成功。后续推理须使用同一固定版本中可执行的原生中心前向及实际完成的模型来源，显式记录兼容适配；尚未据此执行或准入完整密网格预测。误差继续按官方逐样本22角度未mask均值，不替换成标准报告的masked指标。
 
+## 预测与几何键连接
+
+[`occlusion_dense_predictions.py`](../../egoemg_repro/occlusion_dense_predictions.py)新增严格有序连接接口，[26项检查](prediction-join-tests-20261101.json)实际通过：每个预期点必须同时具有三分支真实弧度误差与同序几何行。缺失、多出、重复、重排、左右手/中心/split或窗口不符、浮点冒充整数键均拒绝；ViT7790与RN18的12000窗口单独校验。几何零姿态保留NaN和真实模型误差；tracked/marker无效、image stale均不作为额外删除条件。官方CSV中`mocap_stale`实际取`image_head_stale`，连接时保留该命名映射；非零几何的原始分数和官方6位小数列须一致。
+
+这个纯连接函数不载入模型，也不证明来源、完整人口、权重或推理已准入；检查用合成记录，不是新科学成绩。真实推理还必须分别提供同一窗口上的两种EMG输入：已完成的standalone cotrain-S为8通道、逐手向量归一化；ViT融合为16槽、unified标量归一化。不能从已标量归一化的16槽张量直接抽8槽冒充原模型输入，亦不能把7790窗口改成12000后删除不适配的中心。
+
 ## 尚未完成
 
 - ViT-S完整原生GT MANO/遮挡的后续执行、独立原始核验及完全重放验收仍在进行；RN18完整密GT已经验收。1947步长与标准7790步长不整除，不能用标准网格分数作近邻替换。
