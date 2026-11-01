@@ -22,7 +22,7 @@ from .resnet_literal import compose_resnet,VARIANTS
 from .resnet_data import ResnetCohort,admit_resnet_cohort
 from .resnet_runtime import build_resnet_runtime
 from .resnet_train import (read_resnet_fit,_trusted_checkpoint,_json,_write,_sealed,_check_seal,
-    _space,_runtime_device,storage,vision_state_sha256,_validate_identity,_loop_paths)
+    _space,_runtime_device,storage,vision_state_sha256,_validate_identity,_loop_paths,_dependency_paths)
 from .vision_literal_eval import (POLICY as _POINT_POLICY,_process,_population_public,
     vision_population,vision_statistics,_close_native,_payload_sha,_capture)
 
@@ -125,7 +125,8 @@ class _Audit:
             evidence=result['resume_evidence']
             if evidence is not None:self.bind([root/evidence['parent_file'],root/evidence['observation_file']])
             if identity['cohort_receipt']is not None:self.bind([identity['cohort_receipt']['path']])
-            self.bind([*_source_paths(_safe(identity['upstream'])),*_loop_paths().values()])
+            self.bind([*_source_paths(_safe(identity['upstream'])),*_loop_paths().values(),
+                *[ROOT/n for n in identity['fit_sources_sha256']],*_dependency_paths(identity)])
             value=read_resnet_fit(root,require_full=result['scope']=='full')
             self.identities[str(root)]=identity;return value
         return self._get('fit',path,read)

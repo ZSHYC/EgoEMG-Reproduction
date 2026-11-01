@@ -47,13 +47,17 @@ def _asset_descriptor(variant):
         verification='official torchvision URL and filename hash prefix; full SHA from admitted local bytes')
 
 
+def _source_paths(root,protocol):
+    result={name:ROOT/name for name in _LOCAL}
+    result.update({'upstream/'+name:root/name for name in protocol['sources_sha256']})
+    result.update({'upstream/'+name:root/name for name in _NATIVE})
+    result.update({'runtime/'+name:Path(importlib.import_module(name).__file__).resolve()for name in _RUNTIME})
+    return result
+
+
 def _sources(root,protocol):
     if _file_hash(__file__)!=IMPORTED_SHA:raise ValueError('imported ResNet runtime source changed')
-    result={name:_file_hash(ROOT/name)for name in _LOCAL}
-    result.update({'upstream/'+name:digest for name,digest in protocol['sources_sha256'].items()})
-    result.update({'upstream/'+name:_file_hash(root/name)for name in _NATIVE})
-    result.update({'runtime/'+name:_file_hash(importlib.import_module(name).__file__)for name in _RUNTIME})
-    return result
+    return {name:_file_hash(path)for name,path in _source_paths(root,protocol).items()}
 
 
 def _offline_asset(variant):

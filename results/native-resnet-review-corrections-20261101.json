@@ -1,0 +1,256 @@
+{
+  "both_important_findings_resolved": true,
+  "closed_core_model_suites_retested": false,
+  "corrections": [
+    {
+      "actual_negative_regressions": [
+        "dtype float32 to int32",
+        "same-object shape change",
+        "same-object stride change",
+        "same-object offset change"
+      ],
+      "finding": "cached typed memmap mutations were accepted",
+      "input_file_bytes_written": false,
+      "resolution": "independent immutable per-role/hand/field dtype, shape, strides, offset and writeability snapshots"
+    },
+    {
+      "actual_negative_regressions": [
+        "three recorded helper hash changes",
+        "three recorded helper generation changes on cached report nodes",
+        "helper generation transition during real standalone checkpoint loading"
+      ],
+      "finding": "recorded cohort/construction helper source maps were omitted by checkpoint/report verification",
+      "resolution": "resolve complete current provider paths, rehash every recorded map, and guard source generations through training, standalone checkpoint reads and cached report transactions",
+      "source_file_bytes_written_by_regressions": false
+    }
+  ],
+  "current_source_checks": {
+    "passed": 134,
+    "skipped": 0,
+    "suites": [
+      {
+        "actual_exit_code": 0,
+        "log_sha256": "ef93908efe58682816b2945c94760d7b0a9ac2ec80ec398f6bc770f0975c47f7",
+        "passed": 34,
+        "relevant_tested_source_sha256": {
+          "egoemg_repro/resnet_data.py": "df2312fd9a29c0d51a60e6a8327f1d80402e6d3d82b3ec85e46253fd45c394ab",
+          "tests/test_resnet_data.py": "dc31bbffac3a292d8ebecbddb17f3ff6dc834c2b9e2dd987cd95606f0bda89b4"
+        },
+        "skipped": 0,
+        "suite": "review-layout-green"
+      },
+      {
+        "actual_exit_code": 0,
+        "log_sha256": "8c7b3267ea645d79c8284a831a46b3d307024789dc0a28b41ff38caa7a617b18",
+        "passed": 18,
+        "relevant_tested_source_sha256": {
+          "egoemg_repro/resnet_runtime.py": "a2881225abfd2e238ae3a671c7cd6ee235cc2a0400b2c31968cdbe0ebce08c9d",
+          "tests/test_resnet_runtime.py": "3567f9ecda5b32c5e2596f131c8d1c05ed27d94ee9a3af690849b8f83410a740"
+        },
+        "skipped": 0,
+        "suite": "review-runtime-green"
+      },
+      {
+        "actual_exit_code": 0,
+        "log_sha256": "201398c977d4d71d5cf109890e129fc9f76a7c6243c3a4e5c512898e9de72067",
+        "passed": 62,
+        "relevant_tested_source_sha256": {
+          "egoemg_repro/resnet_data.py": "df2312fd9a29c0d51a60e6a8327f1d80402e6d3d82b3ec85e46253fd45c394ab",
+          "egoemg_repro/resnet_runtime.py": "a2881225abfd2e238ae3a671c7cd6ee235cc2a0400b2c31968cdbe0ebce08c9d",
+          "egoemg_repro/resnet_train.py": "858bbac469f7f57e5bc2419764875a28089274d7522dec9460f8712d98b75d62",
+          "tests/test_resnet_train.py": "7a4792a4d05f82c12e51c453765a2f76b35590c198689af3d98932f78d069e53"
+        },
+        "skipped": 0,
+        "suite": "review-training-final-green"
+      },
+      {
+        "actual_exit_code": 0,
+        "log_sha256": "6311c5b74ba253b5615088cfdd8e35b8bb77e92d73d39b6382d39a58324bb12d",
+        "passed": 20,
+        "relevant_tested_source_sha256": {
+          "egoemg_repro/resnet_data.py": "df2312fd9a29c0d51a60e6a8327f1d80402e6d3d82b3ec85e46253fd45c394ab",
+          "egoemg_repro/resnet_eval.py": "ff7c7b245e4a399c85602115d314418ef3e3c29af705313ee29c1fdde970ad4c",
+          "egoemg_repro/resnet_runtime.py": "a2881225abfd2e238ae3a671c7cd6ee235cc2a0400b2c31968cdbe0ebce08c9d",
+          "egoemg_repro/resnet_train.py": "858bbac469f7f57e5bc2419764875a28089274d7522dec9460f8712d98b75d62",
+          "tests/test_resnet_eval.py": "f3e8054989b8af675a315dc2496814423a26afe68b2cf00b7945882f03ba2831"
+        },
+        "skipped": 0,
+        "suite": "review-evaluation-final-green"
+      }
+    ]
+  },
+  "current_source_files_sha256": {
+    "egoemg_repro/resnet_data.py": "df2312fd9a29c0d51a60e6a8327f1d80402e6d3d82b3ec85e46253fd45c394ab",
+    "egoemg_repro/resnet_eval.py": "ff7c7b245e4a399c85602115d314418ef3e3c29af705313ee29c1fdde970ad4c",
+    "egoemg_repro/resnet_literal.py": "07471737e142f48db05ba082d0f01d65bd77fff8e26635e0a29ee4c28de108cb",
+    "egoemg_repro/resnet_runtime.py": "a2881225abfd2e238ae3a671c7cd6ee235cc2a0400b2c31968cdbe0ebce08c9d",
+    "egoemg_repro/resnet_train.py": "858bbac469f7f57e5bc2419764875a28089274d7522dec9460f8712d98b75d62",
+    "tests/test_resnet_data.py": "dc31bbffac3a292d8ebecbddb17f3ff6dc834c2b9e2dd987cd95606f0bda89b4",
+    "tests/test_resnet_eval.py": "f3e8054989b8af675a315dc2496814423a26afe68b2cf00b7945882f03ba2831",
+    "tests/test_resnet_literal.py": "ef85fcc0591035f109b038aa8f373c36738f499a5ec3f308933786b005cc1d43",
+    "tests/test_resnet_runtime.py": "3567f9ecda5b32c5e2596f131c8d1c05ed27d94ee9a3af690849b8f83410a740",
+    "tests/test_resnet_train.py": "7a4792a4d05f82c12e51c453765a2f76b35590c198689af3d98932f78d069e53"
+  },
+  "declined_scope_rulings": [
+    "Closed mathematics and ViT/WiLoR/other model suites remain closed; integration boundaries only were reviewed.",
+    "Actual full-cohort, CUDA qualification, persistent-worker execution and full150/early-stop results remain Task4 prerequisites; CPU evidence grants none.",
+    "S-final and geometry operations remain outside this component review and retain separate raw operational evidence.",
+    "Whole-paper completion and PDF numerical equivalence are unachieved; existing completed settings remain14."
+  ],
+  "engineering_scope": {
+    "actual_test_samples": 12,
+    "actual_val_samples": 4,
+    "actually_trained_samples_per_epoch": 4,
+    "complete_fixture_counts": {
+      "test": 12,
+      "train": 156,
+      "val": 4
+    },
+    "completed_epochs_per_fit": 4,
+    "empty_pretrained_cache_acceptance": true,
+    "final_suites_physically_created_two_independent_rn18_fits": true,
+    "four_complete_native_and_fresh_replay_inference_passes": true,
+    "fresh_cli_resume_from_epoch2_to_epoch4": true,
+    "optimizer_updates_per_fit": 8,
+    "registered_full_legacy": false,
+    "six_restored_domains": true,
+    "validation_only_completed_epochs": [
+      2,
+      4
+    ]
+  },
+  "existing_completed_scientific_settings": 14,
+  "format": "native_resnet_single_review_corrections_v1",
+  "full_benchmark_fit_complete": false,
+  "full_paper_complete": false,
+  "full_registered_cohort_admission_complete": false,
+  "gpu_qualification_complete": false,
+  "independent_acceptance": {
+    "all_reports_engineering_only": true,
+    "closed_fresh_cli_pids": [
+      1033373,
+      1033539,
+      1033703
+    ],
+    "complete_engineering_fit_count": 1,
+    "cuda_initialized": false,
+    "driver_sha256": "ba399a8492c5d69a792fd6316658492eaf268748ef47f447a0cce5a241d1978e",
+    "empty_pretrained_cache": true,
+    "epochs_per_fit": 4,
+    "existing_completed_scientific_settings": 14,
+    "format": "resnet_cpu_fresh_cli_admission_report_reopen_v1",
+    "full_paper_complete": false,
+    "model_constructions_during_acceptance": 0,
+    "note": "one evaluator-suite fixture with genuine prefix2 then fresh CLI resume4; training-suite fixture is separate; no uninterrupted-trajectory claim",
+    "observed_utc": "2026-11-01T04:25:22.666931+00:00",
+    "optimizer_updates_during_acceptance": 0,
+    "optimizer_updates_per_fit": 8,
+    "original_owners_closed": true,
+    "phases": [
+      {
+        "constructors_forbidden": true,
+        "cuda_initialized": false,
+        "elapsed_seconds": 9.678533657453954,
+        "evidence_sha256": "6731cfd00674db9226b3bc3b45260f465a0a6240e44c89703606caa577aafbb6",
+        "exit_code": 0,
+        "log_sha256": "2e36813fd2b51fc3049399b4330fd84a93919d78128edb5ae9a44f53f4a83fa7",
+        "mode": "admit",
+        "model_constructions": 0,
+        "optimizer_updates": 0,
+        "process": {
+          "pid": 1033373,
+          "start_ticks": "433439792",
+          "uid": 1005
+        },
+        "scientific_eligible": false,
+        "sha256": "49bdc85738faa87abf9073546f73943ed137b14d1fe05c40888045d096863d52"
+      },
+      {
+        "constructors_forbidden": true,
+        "cuda_initialized": false,
+        "elapsed_seconds": 12.633115543052554,
+        "evidence_sha256": "8fb9408857218ecf5e3dc12cf9217e3d8134eff1501d099f470ea02ee24a6d76",
+        "exit_code": 0,
+        "log_sha256": "1eed2adbb321442a5f470af2bb76b15617be76433293d784ef6b4227623eaf0f",
+        "mode": "report",
+        "model_constructions": 0,
+        "optimizer_updates": 0,
+        "process": {
+          "pid": 1033539,
+          "start_ticks": "433440760",
+          "uid": 1005
+        },
+        "scientific_eligible": false,
+        "sha256": "8cd6cac5f74fb67e6b5959a91bab85c7c2f5a6d9ff8318910911ead79ae540f5"
+      },
+      {
+        "constructors_forbidden": true,
+        "cuda_initialized": false,
+        "elapsed_seconds": 7.776305022649467,
+        "evidence_sha256": "fc8905b31f864b4f042721c8f97242145a0b30832dbb253e31b8e518cbc91f45",
+        "exit_code": 0,
+        "log_sha256": "1eed2adbb321442a5f470af2bb76b15617be76433293d784ef6b4227623eaf0f",
+        "mode": "verify",
+        "model_constructions": 0,
+        "optimizer_updates": 0,
+        "process": {
+          "pid": 1033703,
+          "start_ticks": "433442023",
+          "uid": 1005
+        },
+        "scientific_eligible": false,
+        "sha256": "8cd6cac5f74fb67e6b5959a91bab85c7c2f5a6d9ff8318910911ead79ae540f5"
+      }
+    ],
+    "post_exit_report_bytes_exact": true,
+    "report_files_sha256": {
+      "completion.json": "f1653645af703cff6b2cc9acf86869979bee45bad3f822f453597519310ef0da",
+      "metrics.json": "08883b0800ff9c55696e9636e077f1d99dbffaec488b1f667d2a816a972282cd",
+      "metrics.md": "a747d097e62810753b0e4bdfb4a6ab8ba64a8c1bec155febe365e87c883d3310"
+    },
+    "scientific_eligible": false,
+    "scientific_settings_added": 0
+  },
+  "initial_review_verdict": "not ready for GPU qualification pending two Important corrections",
+  "model_forward_loss_optimizer_and_training_policy_unchanged": true,
+  "observed_prefixed_failures": [
+    {
+      "actual_exit_code": 1,
+      "actual_expected_failures": 4,
+      "log_sha256": "c43662b5092cac856e2517e6eea0a04f7a68e43a5f637fdfeb93ce79e79a0b40",
+      "suite": "review-layout-red"
+    },
+    {
+      "actual_exit_code": 1,
+      "actual_expected_failures": 3,
+      "log_sha256": "46365f36c8f25e3f407639238d4e051831f5fc6be45b072444116b320c4a7193",
+      "suite": "review-source-red"
+    },
+    {
+      "actual_exit_code": 1,
+      "actual_expected_failures": 3,
+      "log_sha256": "c26623ad02cddbed46cd1ac64876950e763f54ebb3ef5ef604dafa72185d86de",
+      "suite": "review-generation-red"
+    },
+    {
+      "actual_exit_code": 1,
+      "actual_expected_failures": 1,
+      "log_sha256": "a4d519dd0d1b5a81015c379a3157c9f64fb751bc9ca5d00bc4f0b9908d4c24a3",
+      "suite": "review-direct-generation-red"
+    }
+  ],
+  "observed_utc": "2026-11-01T04:25:40.584065+00:00",
+  "one_fresh_component_review": true,
+  "original_upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "ready_for_next_step": "deploy these committed sources for complete registered data admission, then genuine CUDA qualification",
+  "review_findings": {
+    "critical": 0,
+    "important": 2,
+    "minor": 0
+  },
+  "reviewed_base_revision": "842f86aeb92cc95f5bdd47da8e035e7829485e82",
+  "reviewed_end_revision": "74cfbfa52f389eca9c7ead35a375a4a95cf70d1e",
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "second_review_performed": false
+}

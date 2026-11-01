@@ -121,6 +121,23 @@ def _loop_paths():
 def _loop_sources():return {n:_file_hash(p)for n,p in _loop_paths().items()}
 
 
+def _dependency_source_groups(identity,protocol=None):
+    """Resolve the complete recorded maps from their current source providers."""
+    from .resnet_data import _sources as data_sources
+    from .vision_literal_cohort import _sources as common_sources
+    from .resnet_runtime import _source_paths as construction_paths
+    root=_safe(identity['upstream'])
+    if protocol is None:
+        protocol=resnet_protocol(root,compose_resnet(root,identity['policy']['variant']))
+    return ((identity['cohort']['sources_sha256'],data_sources(root)),
+        (identity['cohort']['common_data']['sources_sha256'],common_sources(root)),
+        (identity['construction']['sources_sha256'],construction_paths(root,protocol)))
+
+
+def _dependency_paths(identity,protocol=None):
+    return sorted({path for _,paths in _dependency_source_groups(identity,protocol)for path in paths.values()})
+
+
 def _digest(value):return type(value)is str and re.fullmatch('[0-9a-f]{64}',value)is not None
 
 
@@ -274,7 +291,8 @@ class ResnetFitWitness(storage.Callback):
         self.stop_after=stop_after_epoch;self.train_samples=identity['train_samples'];self.val_samples=identity['val_samples']
         self.steps=0;self.completed_epochs=0;self.records=[];self.pending=None;self.pending_close=None
         self.committed_current=False;self.exact_restore=None;self.phase=None;self.validation=None
-        self.source_guard=_StatGuard([*[ROOT/n for n in identity['fit_sources_sha256']],*_loop_paths().values(),
+        self.source_guard=_StatGuard([*[ROOT/n for n in identity['fit_sources_sha256']],
+            *_dependency_paths(identity),*_loop_paths().values(),
             *([]if receipt_path is None else [receipt_path])])
 
     def check(self):
@@ -419,8 +437,13 @@ def _validate_identity(identity):
         raise ValueError('ResNet fit source/native loop generation differs')
     config=compose_resnet(identity['upstream'],identity['policy']['variant'])
     policy=resnet_fit_policy(identity['upstream'],config,scope=identity['policy']['scope'])
-    if policy!=identity['policy']or resnet_protocol(identity['upstream'],config)['sha256']!=identity['construction']['protocol_sha256']:
+    protocol=resnet_protocol(identity['upstream'],config)
+    if policy!=identity['policy']or protocol['sha256']!=identity['construction']['protocol_sha256']:
         raise ValueError('actual original ResNet fit policy/config differs')
+    groups=_dependency_source_groups(identity,protocol)
+    current={path:_file_hash(path)for path in {p for _,paths in groups for p in paths.values()}}
+    if any(recorded!={name:current[path]for name,path in paths.items()}for recorded,paths in groups):
+        raise ValueError('recorded ResNet cohort/construction dependency source differs')
     if identity['native_hyperparameters']!=_factory_hyperparameters(config):
         raise ValueError('native original ResNet factory hyperparameter identity differs')
     if identity['cohort']['projection']['resnet_protocol_sha256']!=policy['protocol_sha256']:
@@ -474,6 +497,7 @@ def _verify_resume(output,identity,result,records):
 def read_resnet_fit(output,*,require_full=True):
     if type(require_full)is not bool:raise ValueError('full requirement must be boolean')
     output=_safe(output);identity=_json(output/'identity.json');result=_json(output/'fit-result.json')
+    source_guard=_StatGuard([*[ROOT/n for n in _sources()],*_dependency_paths(identity),*_loop_paths().values()])
     policy=_validate_identity(identity);_check_seal(result,FORMAT)
     if (result['identity_sha256']!=identity['sha256']or result['scope']!=policy['scope']
         or result['scientific_eligible']is not False or result['full_paper_complete']is not False
@@ -510,6 +534,7 @@ def read_resnet_fit(output,*,require_full=True):
         or result['val_samples_per_epoch']!=[None if r['validation']is None else r['validation']['samples']for r in records]):
         raise ValueError('complete native ResNet termination/coverage evidence differs')
     _verify_resume(output,identity,result,records)
+    source_guard.check()
     return result
 
 

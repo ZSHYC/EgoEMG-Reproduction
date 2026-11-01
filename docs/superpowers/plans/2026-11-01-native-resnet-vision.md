@@ -74,10 +74,12 @@
 
 **Files:** deployment/evidence in this plan's ignored workspace; final reports under `results/original-resnet/`; update the existing public comparison/status documentation after actual milestones.
 
-- [ ] One fresh review of this new unit only. Resolve material findings once with observed regression RED→GREEN and relevant checks; no second component review or unchanged-model retest.
+- [x] One fresh review of this new unit only. Resolve material findings once with observed regression RED→GREEN and relevant checks; no second component review or unchanged-model retest.
 - [ ] Stage committed sources in independent new server directories. Wait for actually available nonreserved GPUs; current native EMGFormer/EMG2Pose/geometry jobs and foreign consumers remain protected.
 - [ ] For each backbone, perform original-batch actual CUDA prefix/resume, full original val/test native/fresh replay/profile/report verification and owned-consumer closure. CPU/metadata receipts cannot grant this permit.
 - [ ] Only after genuine qualification enter a fresh max150 fit at its own explicit900/400/180 batch. Preserve original8workers/BF16/validation2/callbacks and full populations; no qualifier weights or hidden batch reductions.
 - [ ] Collect actual terminal full fit, selected best and original complete final evaluation/replay/report, counts/curves/hardware/time provenance. Append new protocol-family results; keep all14 previously completed setting artifacts unchanged.
 
 Ruling: this implements the already approved whole-paper model/source scope and its explicit0.02 protocol correction; no new user preference or repeated design-approval round is required. RN18+S is a separate pending native fusion task using `fusion/fusion_rn18_s_center_8ch`; the similarly named `fusion/fusion_resnet_emgfusion_center` is RN50+M/100epochs and must not substitute for it. Future fusion initializer reuse requires actual zero-overlap validation/test footprints and correct native loading, not an assumption from matching architecture names.
+
+Task4 review correction evidence: one fresh review, Critical0/Important2/Minor0; both material findings resolved in one RED→GREEN pass, including direct-reader source-generation coverage. Current relevant suites134passed/0skip and three fresh CPU acceptance CLIs passed; no second review or closed-model suite rerun. Complete registered-data and genuine GPU/full experiments remain unchecked above.

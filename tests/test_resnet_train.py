@@ -15,6 +15,32 @@ from test_vision_literal_data import UPSTREAM
 def api():return importlib.import_module('egoemg_repro.resnet_train')
 
 
+@pytest.mark.parametrize('helper',['vision_literal_data.py','vision_literal_runtime.py','visual.py'])
+def test_fit_identity_rechecks_recorded_cohort_and_construction_helper_hashes(request,monkeypatch,helper):
+    m=api();fit=request.getfixturevalue('native_fit');identity=m._json(fit['output']/'identity.json')
+    original=m._file_hash;queried=[]
+    def changed(path):
+        if Path(path).name==helper:
+            queried.append(str(path));return '0'*64
+        return original(path)
+    monkeypatch.setattr(m,'_file_hash',changed)
+    with pytest.raises(ValueError):m._validate_identity(identity)
+    assert queried,'recorded helper source must be read during checkpoint identity verification'
+
+
+def test_standalone_checkpoint_reader_rejects_helper_generation_change_during_raw_read(request,monkeypatch):
+    import egoemg_repro.classic_emg_cohort as guards
+    m=api();fit=request.getfixturevalue('native_fit');path=Path(m.__file__).parent/'vision_literal_data.py'
+    original_read=m._trusted_checkpoint;original_stamp=guards._stamp;reading=[False]
+    def read(candidate):
+        value=original_read(candidate);reading[0]=True;return value
+    def stamp(candidate):
+        value=original_stamp(candidate)
+        return (*value[:-1],value[-1]+1)if reading[0]and Path(candidate)==path else value
+    monkeypatch.setattr(m,'_trusted_checkpoint',read);monkeypatch.setattr(guards,'_stamp',stamp)
+    with pytest.raises(ValueError,match='stamp'):m.read_resnet_fit(fit['output'],require_full=False)
+
+
 @pytest.mark.parametrize('variant,batch',[('resnet18',900),('resnet50',400),('resnet152',180)])
 @pytest.mark.parametrize('scope',['full','cpu_engineering','cuda_engineering'])
 def test_policy_keeps_every_two_epoch_validation_and_original_per_variant_loaders(variant,batch,scope):

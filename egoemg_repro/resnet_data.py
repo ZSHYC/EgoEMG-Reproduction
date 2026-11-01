@@ -67,7 +67,18 @@ def _identity(common,projection,sources):
         registered_full_legacy=registered,scientific_eligible=False,production_ready=False,full_paper_complete=False))
 
 
-def _check_readers(common,crops):
+def _typed_layout(array):
+    return (array.dtype.str,tuple(array.shape),tuple(array.strides),int(array.offset),bool(array.flags.writeable))
+
+
+def _reader_layouts(common):
+    return tuple((role,hand,name,_typed_layout(array))
+        for role,ds in sorted(common.datasets.items())
+        for hand,view in zip(('left','right'),ds.views)
+        for name,array in sorted(view._frame_memmaps.items()))
+
+
+def _check_readers(common,crops,layouts):
     import numpy as np
     from .vision_literal_data import VisionLiteralDataset, _PointView
     from .vision_literal import vision_protocol
@@ -77,6 +88,7 @@ def _check_readers(common,crops):
     fields={'generated_joint_angles_left','generated_joint_angles_right','generated_label_valid',
         'mocap_left_wrist_pitch','mocap_left_wrist_yaw','mocap_right_wrist_pitch','mocap_right_wrist_yaw',
         'image_head_frame_index'}
+    expected={(role,hand,name):layout for role,hand,name,layout in layouts}
     for role,ds in common.datasets.items():
         if (type(ds) is not VisionLiteralDataset or ds.role!=role or ds.repeat!=2 or ds.protocol!=protocol
             or len(ds.views)!=2 or ds.native is not EgoEmgMemmapDataset
@@ -94,7 +106,8 @@ def _check_readers(common,crops):
             for name,array in view._frame_memmaps.items():
                 field=ds.frame_mapping_field if name=='image_head_frame_index' else name
                 if (not isinstance(array,np.memmap) or array.mode!='r' or array is not ds.store.field(field)
-                    or Path(array.filename).resolve()!=common.input_paths['field:'+field]):
+                    or Path(array.filename).resolve()!=common.input_paths['field:'+field]
+                    or _typed_layout(array)!=expected[(role,hand,name)]):
                     raise ValueError('actual ResNet point target/mask/mapping changed')
 
 
@@ -106,6 +119,7 @@ class ResnetCohort:
     config:object
     crops:Path
     _seal:str
+    _layouts:tuple
 
     @property
     def datasets(self):return self.common.datasets
@@ -120,7 +134,7 @@ class ResnetCohort:
         from omegaconf import OmegaConf
         if type(require_full) is not bool:raise ValueError('full requirement must be boolean')
         if self not in _COHORTS:raise ValueError('actual registered ResNet admission required')
-        self.common.check();_check_readers(self.common,self.crops)
+        self.common.check();_check_readers(self.common,self.crops,self._layouts)
         companion,projection=_data_projection(self.upstream,self.config)
         if OmegaConf.to_container(companion,resolve=True)!=OmegaConf.to_container(self.common.config,resolve=True):
             raise ValueError('ResNet common companion configuration changed')
@@ -146,7 +160,7 @@ def admit_resnet_cohort(data,crops,*,upstream,config,expected=None,require_full=
     common.guard.parents.update(outer.parents)
     value=_identity(common,projection,sources)
     if expected is not None and expected!=value:raise ValueError('recomputed ResNet content identity differs from receipt')
-    result=ResnetCohort(value,common,root,copy.deepcopy(config),Path(crops).resolve(),value['sha256'])
+    result=ResnetCohort(value,common,root,copy.deepcopy(config),Path(crops).resolve(),value['sha256'],_reader_layouts(common))
     _COHORTS.add(result);result.check(require_full=require_full);return result
 
 

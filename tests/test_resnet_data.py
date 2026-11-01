@@ -121,6 +121,18 @@ def test_forged_or_small_cohort_never_grants_a_full_or_gpu_admission(files):
     with pytest.raises(ValueError):admitted(files,expected=expected)
 
 
+@pytest.mark.parametrize('damage',['dtype','shape','strides','offset'])
+def test_cached_memmap_typed_layout_changes_reject_without_writing_input_bytes(files,damage):
+    c=admitted(files);array=c.datasets['val'].views[0]._frame_memmaps['generated_joint_angles_left']
+    path=files[0]/'generated_joint_angles_left.dat';before=path.read_bytes()
+    if damage=='dtype':array.dtype=np.dtype('int32')
+    elif damage=='shape':array.shape=(array.size,)
+    elif damage=='strides':array.strides=(0,array.strides[1])
+    else:array.offset+=array.dtype.itemsize
+    assert path.read_bytes()==before
+    with pytest.raises(ValueError):c.check()
+
+
 @pytest.mark.parametrize('flag',[None,1,'full'])
 def test_full_requirement_rejects_nonbool_before_io(flag):
     with pytest.raises(ValueError):api().admit_resnet_cohort(None,None,upstream=None,config=None,require_full=flag)

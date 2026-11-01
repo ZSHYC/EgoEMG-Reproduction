@@ -138,3 +138,17 @@ def test_artifact_reference_cycle_rejects_without_recursive_checkpoint_reloads(r
         return value
     monkeypatch.setattr(m,'_json',read)
     with pytest.raises(ValueError,match='cyclic|cycle'):audit.pass_(out/'test-replay')
+
+
+@pytest.mark.parametrize('helper',['vision_literal_data.py','vision_literal_runtime.py','visual.py'])
+def test_report_audit_binds_recorded_helper_paths_and_rejects_cached_generation_changes(request,monkeypatch,helper):
+    import egoemg_repro.classic_emg_cohort as guards
+    m=api();out=evaluated(request);audit=m._Audit();audit.report(out/'test-replay')
+    path=ROOT/'egoemg_repro'/helper
+    assert path in audit.guard.paths,'recorded helper source must be guarded with the raw fit chain'
+    original=guards._stamp
+    def changed(candidate):
+        value=original(candidate)
+        return (*value[:-1],value[-1]+1)if Path(candidate)==path else value
+    monkeypatch.setattr(guards,'_stamp',changed)
+    with pytest.raises(ValueError):audit.pass_(out/'test-replay')
