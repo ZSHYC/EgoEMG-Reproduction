@@ -27,8 +27,22 @@
     "seconds": 268.86,
     "skipped": 0
   },
-  "fixed_source_full_input_readmission_pending": true,
-  "fixed_source_owned_cpu_recovery_pending": true,
+  "fixed_source_full_input_readmission_pending": false,
+  "fixed_source_owned_cpu_recovery_pending": false,
+  "fixed_source_server_evidence": {
+    "cpu_recovery": {
+      "path": "results/rn18-cotrain-native-cpu-recovery-fixed-20261101.json",
+      "sha256": "d01cc9846a03a62cfa67d784434bc454ec4f15aed5cf5a5977eff11d425960b8"
+    },
+    "full_inputs": {
+      "path": "results/rn18-cotrain-full-input-admission-fixed-20261101.json",
+      "sha256": "8f7ff8e158725612a0e3d21da0a402e1a838a45794962e0ed0e071b8daf64a5c"
+    },
+    "server_queue": {
+      "path": "results/rn18-cotrain-fixed-source-server-queue-20261101.json",
+      "sha256": "0b44846b25a34c7f1b593d0e41cb1382c683d1d2385463cb0391b7a5048bd1e7"
+    }
+  },
   "fixes": [
     {
       "actual_native_resealed_one_epoch_export_regression": true,

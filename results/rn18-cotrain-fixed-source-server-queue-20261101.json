@@ -1,0 +1,56 @@
+{
+  "actual_phase": "waiting-exact-predecessor",
+  "actual_queue_owners_live": true,
+  "actual_queue_state": "running",
+  "all_capsule_bytes_exact": true,
+  "bootstrap_manager_closed": true,
+  "bundle_sha256": "5996ac62b680b494de38651db73c44fedf2d4bb50ff84b0c3223e6bf2e806117",
+  "exact_predecessor_bundle_sha256": "dce0027c3da6f348aff0971c38a621f3a58fc9aa66dc7e97528f48fc270ea361",
+  "exact_predecessor_family": "native-resnet18-full-cli",
+  "exact_predecessor_handles": {
+    "child": {
+      "pid": 1061677,
+      "start_ticks": "433657453"
+    },
+    "wrapper": {
+      "pid": 1061676,
+      "start_ticks": "433657451"
+    }
+  },
+  "exact_predecessor_owners_live": true,
+  "existing_completed_scientific_settings": 14,
+  "fixed_source_cpu_recovery": {
+    "path": "results/rn18-cotrain-native-cpu-recovery-fixed-20261101.json",
+    "sha256": "d01cc9846a03a62cfa67d784434bc454ec4f15aed5cf5a5977eff11d425960b8"
+  },
+  "fixed_source_full_inputs": {
+    "path": "results/rn18-cotrain-full-input-admission-fixed-20261101.json",
+    "sha256": "8f7ff8e158725612a0e3d21da0a402e1a838a45794962e0ed0e071b8daf64a5c"
+  },
+  "format": "actual_rn18_cotrain_fixed_source_server_queue_observed_v1",
+  "full_fit_started": false,
+  "full_paper_complete": false,
+  "future_partition_content_sha256": "44e9ebc8a2f63a79699c5a976bf2717b0fe7a376427c7c46f538d0745c2b4bd0",
+  "gpu_index": 0,
+  "gpu_qualification_complete": false,
+  "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+  "native_batch": 260,
+  "native_workers": 12,
+  "no_automatic_retry": true,
+  "observed_utc": "2026-11-01T07:58:00.400939+00:00",
+  "precision": "bf16-mixed",
+  "queue_terminal_attached": false,
+  "registered_cohort_counts": {
+    "train": 62470,
+    "val": 1052
+  },
+  "registered_cohort_sha256": "7cb310e2d5bf564a5317db018466def1c6a725057251b181daf1e99eee992a55",
+  "required_full_epochs": 150,
+  "required_full_optimizer_updates": 36150,
+  "scientific_settings_added": 0,
+  "server_detached": true,
+  "source_commit": "ab3e26f4efea63c0ca295199f6529b5037ac2948",
+  "stdin_devnull": true,
+  "trained_full_initializer_complete": false,
+  "waiting_deadline_seconds": null
+}

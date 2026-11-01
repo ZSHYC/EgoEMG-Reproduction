@@ -63,8 +63,8 @@
 
 ### Task 4: single review, genuine GPU qualification and fresh full150
 
-- [ ] One fresh review of this new producer integration, one focused material RED→GREEN fix pass; no second review or closed factory/FK/MANA/model suite.
-- [ ] Stage committed source, registered actual cohort and fixed qualifiers. Wait for a truly idle permitted GPU after exact preceding workflows, no interference with reservations/other users.
+- [x] One fresh review of this new producer integration, one focused material RED→GREEN fix pass; no second review or closed factory/FK/MANA/model suite. Actual98green source fixedab3; Important3 fixed in one pass.
+- [x] Stage committed source, registered actual cohort and fixed qualifiers. Actual fixed-source full inputs and ownedCPU post-exit proofs accepted; detached queue5996ac... waits exactRN18GPU0 predecessor, not yet GPUqualified.
 - [ ] Qualify actualB260/12workers/BF16/forkserver validation, fresh recovery and complete validation, export/reopen/owner/NVML closure. Expected no batch fallback or engineering-for-full acceptance.
 - [ ] Fresh full150/complete train+val at original recipe; actual terminal0 and complete histories, selected native BEST and all raw source/input/checkpoint bytes verified. No success from launch metadata.
 

@@ -1,6 +1,6 @@
 ![EgoEMG 独立复现：以固定官方源码连接腕部肌电、第一视角图像与手部姿态估计。](docs/assets/banner.svg)
 
-> **2026-11-01 RN18初始化与续训修复**：[RN18兼容cotrain-S](docs/rn18-cotrain-initializer.md)两次完整数据准入、80项工程检查及独立CPU恢复/原生BEST导出已通过；正式GPU资格和150轮仍待执行。[EMG2Pose-S启动入口修复](results/emg2pose-small-spawn-entry-repair-20261101.json)保留原19轮检查点，新服务器后台流程重新核验完整来源后接续，最终评价队列同步等待新流程。已完成科学设置仍14，全文复现尚未完成。
+> **2026-11-01 RN18初始化修正版已部署 · 15:58北京时间**：[RN18兼容cotrain-S](docs/rn18-cotrain-initializer.md)一次审查修正后的98项工程检查、两次完整数据重验及独立CPU恢复/原生BEST导出已通过；[原batch260/12workers后续队列](results/rn18-cotrain-fixed-source-server-queue-20261101.json)已在服务器独立运行，等待原生RN18视觉完整流程退出后才执行GPU资格和新鲜150轮，当前尚未开始正式训练。[EMG2Pose-S启动入口修复](results/emg2pose-small-spawn-entry-repair-20261101.json)保留原19轮检查点，新后台流程重新核验完整来源后接续，最终评价队列同步等待新流程。已完成科学设置仍14，全文复现尚未完成。
 
 > **2026-11-01 密网格完整GT输入已核验，真实原生计算已开始**：[数据/原生流程证据](results/native-dense-occlusion/README.md)覆盖ViT-S17,168手请求、RN18=11,114，实际β/姿态/变换/标志两次完整提取一致，6拥有者关闭；分别保留518/327个零姿态。30项数据检查＋20项入口检查通过。两路线真实双手MANO/遮挡小样本及独立原始包验证已结束，8阶段拥有者关闭，随后完整第一遍实际开始；各自后续独立核验及第二遍完整原生重放尚未结束。代码仍用官方1920×1080回退、原X镜像约定与固定原生几何数学，不声称实际视频/物理投影等价。模型预测、增益/SEM/Spearman和Figure13仍未完成，科学模型设置仍14。
 
