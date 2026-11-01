@@ -50,7 +50,7 @@ def rn18_initializer_fit_policy(upstream,config,*,scope='full'):
     checkpoint=protocol['callbacks'][0]
     if len(protocol['callbacks'])!=1 or checkpoint['_target_']!='pytorch_lightning.callbacks.ModelCheckpoint':
         raise ValueError('original initializer must contain only native checkpoint callback')
-    return _sealed(dict(format='original_rn18_initializer_fit_policy_v1',scope=scope,protocol_sha256=protocol['sha256'],
+    value=_sealed(dict(format='original_rn18_initializer_fit_policy_v1',scope=scope,protocol_sha256=protocol['sha256'],
         max_epochs=150 if full else 2,precision='32-true' if cpu else 'bf16-mixed',
         batch_size_by_role={r:2 if cpu else 260 for r in ('train','val')},
         gradient_clip_val=protocol['trainer']['gradient_clip_val'],scheduler_T_max=150,scheduler_eta_min=5e-6,
@@ -62,6 +62,86 @@ def rn18_initializer_fit_policy(upstream,config,*,scope='full'):
         data_contract_sha256=contract['sha256'],future_fusion_partition_content_sha256=FULL_FUTURE_PARTITION_SHA,
         declared_devices=protocol['trainer']['devices'],single_rank=True,scientific_eligible=False,full_paper_complete=False,
         logger='original TensorBoardLogger; owned output path/version only',bitwise_training_trajectory_guaranteed=False))
+    _check_policy(value,dict(protocol_sha256=protocol['sha256'],data_contract_sha256=contract['sha256']))
+    return value
+
+
+def _check_policy(policy,cohort):
+    """An internally resealed claim cannot lower the independently fixed recipe."""
+    _check_seal(policy,'original_rn18_initializer_fit_policy_v1')
+    scope=policy.get('scope')
+    if type(scope)is not str or scope not in SCOPES:raise ValueError('supported saved initializer scope required')
+    full=scope=='full';cpu=scope=='cpu_engineering'
+    expected=_sealed(dict(format='original_rn18_initializer_fit_policy_v1',scope=scope,
+        protocol_sha256=cohort['protocol_sha256'],data_contract_sha256=cohort['data_contract_sha256'],
+        max_epochs=150 if full else 2,precision='32-true'if cpu else'bf16-mixed',
+        batch_size_by_role={r:2 if cpu else 260 for r in('train','val')},gradient_clip_val=1,
+        scheduler_T_max=150,scheduler_eta_min=5e-6,monitor='val_mae',monitor_mode='min',save_top_k=3,save_last=True,
+        early_stopping=False,num_sanity_val_steps=2 if full else 0,engineering_train_samples=None if full else 4 if cpu else 520,
+        native_global_loader_rng=True,workers=0 if cpu else 12,workers_by_role={r:0 if cpu else 12 for r in('train','val')},
+        loader=dict(pin_memory=False,persistent_workers=not cpu,prefetch_factor=None if cpu else 2,train_context=None,val_context=None if cpu else'forkserver'),
+        effective_fingertip_weight=.01,future_fusion_partition_content_sha256=FULL_FUTURE_PARTITION_SHA,
+        declared_devices=[2,3,4,5],single_rank=True,scientific_eligible=False,full_paper_complete=False,
+        logger='original TensorBoardLogger; owned output path/version only',bitwise_training_trajectory_guaranteed=False))
+    if policy!=expected:raise ValueError('saved initializer policy differs from fixed native scope recipe/budget')
+
+
+def _check_checkpoint_domains(checkpoint,identity,epochs,steps):
+    """Read native saved state directly; never construct a model or optimizer."""
+    import random
+    import torch
+    try:
+        names=identity['construction']['parameter_names'];schema=identity['construction']['model_schema']
+        if not names or len(set(names))!=len(names)or any(n not in schema for n in names):raise ValueError('native parameter inventory differs')
+        optimizers=checkpoint['optimizer_states'];schedulers=checkpoint['lr_schedulers']
+        if len(optimizers)!=1 or len(schedulers)!=1:raise ValueError('one native AdamW/cosine saved state required')
+        optimizer=optimizers[0];groups=optimizer['param_groups'];scheduler=schedulers[0]
+        if len(groups)!=1:raise ValueError('native all-parameter AdamW group required')
+        group=groups[0];ids=list(range(len(names)))
+        if (group['params']!=ids or set(optimizer['state'])!=set(ids)or list(group['betas'])!=[.9,.999]
+            or group['eps']!=1e-8 or group['weight_decay']!=.01 or group['amsgrad']is not False
+            or group['initial_lr']!=.0005 or any(group[k]is not False for k in('maximize','capturable','differentiable'))):
+            raise ValueError('saved native AdamW coverage/options differ')
+        lr=5e-6+(.0005-5e-6)*(1+math.cos(math.pi*epochs/150))/2
+        if (scheduler['T_max']!=150 or scheduler['eta_min']!=5e-6 or scheduler['base_lrs']!=[.0005]
+            or scheduler['last_epoch']!=epochs or scheduler['_step_count']!=epochs+1 or len(scheduler['_last_lr'])!=1
+            or not math.isclose(group['lr'],lr,rel_tol=1e-10,abs_tol=1e-14)
+            or not math.isclose(scheduler['_last_lr'][0],lr,rel_tol=1e-10,abs_tol=1e-14)):
+            raise ValueError('saved native cosine epoch/learning rate differs')
+        for index,name in enumerate(names):
+            state=optimizer['state'][index];step=state['step']
+            if(set(state)!={'step','exp_avg','exp_avg_sq'}or not isinstance(step,torch.Tensor)
+                or step.dtype!=torch.float32 or step.ndim!=0 or float(step)!=steps):raise ValueError('saved AdamW update counters differ')
+            for key in('exp_avg','exp_avg_sq'):
+                value=state[key]
+                if (not isinstance(value,torch.Tensor)or list(value.shape)!=schema[name]['shape']
+                    or str(value.dtype)!=schema[name]['dtype']or not bool(torch.isfinite(value).all())):
+                    raise ValueError('saved AdamW moments missing/malformed/nonfinite')
+        loops=checkpoint['loops']['fit_loop'];batches=math.ceil(identity['train_samples']/identity['policy']['batch_size_by_role']['train'])
+        if (loops['epoch_loop.state_dict']['_batches_that_stepped']!=steps
+            or loops['epoch_loop.automatic_optimization.optim_progress']['optimizer']['step']['total']!=dict(ready=steps,completed=steps)
+            or loops['epoch_loop.scheduler_progress']['total']!=dict(ready=epochs,completed=epochs)):
+            raise ValueError('saved native loop optimizer/scheduler counters differ')
+        for which,count in(('total',steps),('current',batches)):
+            if loops['epoch_loop.batch_progress'][which]!={k:count for k in('ready','started','processed','completed')}:
+                raise ValueError('saved native loop batch coverage differs')
+        expected_epoch=dict(ready=epochs,started=epochs,processed=epochs,completed=epochs-1)
+        if any(loops['epoch_progress'][which]!=expected_epoch for which in('total','current')):
+            raise ValueError('saved native epoch-boundary progress differs')
+        rng=checkpoint['rn18_initializer_fit']['rng']
+        if set(rng)!={'python','numpy','torch','cuda','generators'}or rng['generators']!={}:
+            raise ValueError('complete native global RNG state required')
+        random.Random(0).setstate(rng['python']);np.random.RandomState(0).set_state(rng['numpy'])
+        state=rng['torch']
+        if not isinstance(state,torch.Tensor)or state.dtype!=torch.uint8 or state.ndim!=1:
+            raise ValueError('native Torch CPU RNG bytes required')
+        torch.Generator(device='cpu').set_state(state)
+        if type(rng['cuda'])is not list or len(rng['cuda'])!=(0 if identity['policy']['scope']=='cpu_engineering'else 1):
+            raise ValueError('native single-rank CUDA RNG domain differs')
+        if any(not isinstance(x,torch.Tensor)or x.dtype!=torch.uint8 or x.ndim!=1 or x.numel()!=16 for x in rng['cuda']):
+            raise ValueError('native CUDA Philox RNG bytes differ')
+    except(KeyError,TypeError,IndexError,AttributeError,RuntimeError)as exc:
+        raise ValueError('complete native optimizer/scheduler/loop/RNG checkpoint required')from exc
 
 
 def rn18_initializer_stage_complete(policy,records):
@@ -303,7 +383,7 @@ def _validate_fit(output,identity,result,*,require_full):
     if (result['identity_sha256']!=identity['sha256'] or identity['fit_sources_sha256']!=_sources() or
         identity['native_loop_sources_sha256']!=_loop_sources() or result['scientific_eligible'] is not False or
         result['full_paper_complete'] is not False):raise ValueError('initializer fit/source/result identity differs')
-    _check_receipt(identity);policy=identity['policy']
+    _check_receipt(identity);policy=identity['policy'];_check_policy(policy,identity['cohort'])
     if (identity['cohort']['future_holdout_overlap_rows']!=dict(val=0,test=0)
         or identity['cohort']['data_contract_sha256']!=policy['data_contract_sha256']):
         raise ValueError('RN18 initializer full-trajectory contract/future holdout binding differs')
@@ -316,6 +396,7 @@ def _validate_fit(output,identity,result,*,require_full):
     if (not records or packet['identity']!=identity or packet['records']!=records or packet['epoch_boundary'] is not True or
         packet['completed_epochs']!=len(records) or result['completed_epochs']!=len(records) or
         result['optimizer_executions']!=steps or last['global_step']!=steps):raise ValueError('initializer actual epoch/optimizer/journal carry differs')
+    _check_checkpoint_domains(last,identity,len(records),steps)
     for i,r in enumerate(records):
         if (r['train_samples']!=samples or r['train_batches']!=batches or r['optimizer_executions']!=(i+1)*batches or
             r['global_step']!=(i+1)*batches or r['validation']['samples']!=identity['cohort']['counts']['val'] or
@@ -334,6 +415,7 @@ def _validate_fit(output,identity,result,*,require_full):
         p['records']!=records[:epoch+1] or records[epoch]['validation']['val_mae']!=score or
         selected['global_step']!=records[epoch]['global_step'] or _schema(selected['state_dict'])!=identity['construction']['model_schema'] or
         emg_initializer_state_sha256(selected['state_dict'])!=records[epoch]['model_sha256']):raise ValueError('selected initializer state/epoch differs')
+    _check_checkpoint_domains(selected,identity,epoch+1,records[epoch]['global_step'])
     done=rn18_initializer_stage_complete(policy,records);full=done and policy['scope']=='full'
     if (result['stage_complete'] is not done or result['full_training_terminated'] is not full or
         result['train_samples_per_epoch']!=[r['train_samples'] for r in records] or
@@ -409,6 +491,7 @@ def fit_rn18_initializer(cohort,output,*,scope='full',resume=False,stop_after_ep
             if p['identity']!=identity or p['epoch_boundary'] is not True:raise ValueError('owned complete initializer epoch required')
             if (type(p['completed_epochs']) is not int or not 1<=p['completed_epochs']<=policy['max_epochs'] or
                 len(p['records'])!=p['completed_epochs']):raise ValueError('saved initializer epoch is outside owned budget')
+            _check_checkpoint_domains(checkpoint,identity,p['completed_epochs'],checkpoint['global_step'])
             carry=_epoch_bytes(p['records'],identity['sha256']);path=output/'epochs.jsonl';raw=path.read_bytes()
             if not raw.startswith(carry):raise ValueError('initializer checkpoint/journal prefix differs')
             if len(raw)>len(carry):

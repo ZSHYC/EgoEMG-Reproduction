@@ -1,0 +1,76 @@
+{
+  "actual_green_exit_code": 0,
+  "actual_green_regressions": 18,
+  "actual_red_exit_code": 1,
+  "actual_red_tests": 18,
+  "all_important_fixed": true,
+  "author_material_fixes": 3,
+  "critical_remaining": 0,
+  "declined_scope_rulings": [
+    "ActualB260/BF16/12worker CUDA qualification remains mandatory and unclaimed",
+    "Fresh full150 and trained branch handoff remain mandatory and unclaimed",
+    "Missing Incre corpus and single-rank/four-device numerical equivalence remain disclosed limitations",
+    "Closed model/FK/MANA/operator suites and RN18 fusion data keep prior independent evidence",
+    "Unrelated EMG2Pose-S entry repair and active jobs use separate runtime evidence"
+  ],
+  "existing_completed_scientific_settings": 14,
+  "final_source_files_sha256": {
+    "egoemg_repro/rn18_initializer_cohort.py": "3a57e264fc316578c44aa813a6ae153854911373bb3b61edcf0750a8b8544be8",
+    "egoemg_repro/rn18_initializer_data.py": "700afbc082841236792900d9856bbc26bca7c870dc47ccf4c22f78a2a58bccff",
+    "egoemg_repro/rn18_initializer_train.py": "3f3270d2fe41eab05048ab2d271582e814cf18551cb432fa258947a7fefb501e"
+  },
+  "final_tests": {
+    "exit_code": 0,
+    "log_sha256": "cbf3142baecfc01adb4a02dd716a91567d8db50a034d39e30c7de74ffd8a8415",
+    "observed_utc": "2026-11-01T07:34:52.103405+00:00",
+    "passed": 98,
+    "seconds": 268.86,
+    "skipped": 0
+  },
+  "fixed_source_full_input_readmission_pending": true,
+  "fixed_source_owned_cpu_recovery_pending": true,
+  "fixes": [
+    {
+      "actual_native_resealed_one_epoch_export_regression": true,
+      "fix": "independently compare every saved scope-policy field with fixed native recipe; full remains150",
+      "problem": "resealed saved policy can lower native budget"
+    },
+    {
+      "fix": "pure saved110parameter AdamW/moments/steps,150cosine learning rate and epoch, native loop counters and all RNG domains at last/BEST/resume",
+      "neural_or_optimizer_construction_required": false,
+      "problem": "saved native training domains not checked by readers/export"
+    },
+    {
+      "actual_fresh_subprocess_stale_import_restore_regressions": 2,
+      "fix": "compare loaded declared functions/class methods and aliases with current approved source compilation; validate native reader/transform origins",
+      "problem": "restored provider bytes do not authenticate loaded reader callables"
+    }
+  ],
+  "format": "rn18_cotrain_single_producer_review_and_focused_fixes_v1",
+  "full_paper_complete": false,
+  "gpu_qualification_complete": false,
+  "important_remaining": 0,
+  "optional_no_torch": {
+    "exit_code": 0,
+    "log_sha256": "15e473a1df7903222c9830126658ff14c563348f9c25fbfd46cd8221327ec308",
+    "passed": 8,
+    "seconds": 3.39,
+    "skipped": 90
+  },
+  "prior_source_full_inputs_and_cpu_evidence_retained": true,
+  "regression_green_log_sha256": "581d58ddbc880b941c856c9f49ba4d112a85e308d8f0396f35790e445e363997",
+  "regression_test_files_sha256": {
+    "tests/test_rn18_initializer_cohort.py": "392d811f0e616521b617a65745945ec7a651106717113c24eadba39769f7437b",
+    "tests/test_rn18_initializer_data.py": "49ece553cacf688e9c3d4cd8a338e8a1f1b770edffaa00fc449f79f425984e4a",
+    "tests/test_rn18_initializer_provider_imports.py": "fc54aee0ab2dea18aa188e33b5fa1f21604faf037b295c1021e2bce52260b892",
+    "tests/test_rn18_initializer_train.py": "c01b33ed0454159a9940d0503de04512bb1c4c03e8afde51bb8e08977538c724"
+  },
+  "reviewed_base": "17c86e31e8a4eb3c43bf8284e32158745d0a543b",
+  "reviewed_critical": 0,
+  "reviewed_head": "de97cfa81bf511b6433ad7557ec819f38c57b534",
+  "reviewed_important": 3,
+  "reviewed_minor": 0,
+  "scientific_settings_added": 0,
+  "second_review_performed": false,
+  "trained_full_initializer_complete": false
+}

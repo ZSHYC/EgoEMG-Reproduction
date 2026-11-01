@@ -7,7 +7,10 @@ math remain unchanged. This module grants no trained-initializer eligibility.
 from __future__ import annotations
 
 import copy
+import importlib
+import inspect
 from pathlib import Path
+import types
 
 import numpy as np
 
@@ -24,10 +27,37 @@ ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
 ROLES=('train','val')
 SCOPES=('full','cuda_engineering','cpu_engineering')
+_COMPILED_PROVIDERS={}
+
+
+def _loaded_provider_exact(name,path):
+    """Compare loaded declared callables with approved bytes, without executing them."""
+    module=importlib.import_module(name);path=Path(path)
+    if Path(module.__file__).resolve()!=path.resolve():raise ValueError('imported reader provider origin differs')
+    digest=_file_hash(path);key=(str(path),digest)
+    if key not in _COMPILED_PROVIDERS:
+        _COMPILED_PROVIDERS[key]=compile(path.read_bytes(),module.__file__,'exec',dont_inherit=True)
+    def check(code,namespace):
+        for part in code.co_consts:
+            if not isinstance(part,types.CodeType)or part.co_name.startswith('<'):continue
+            value=inspect.getattr_static(namespace,part.co_name,None)
+            if not part.co_flags&inspect.CO_NEWLOCALS:
+                if not inspect.isclass(value):raise ValueError('imported reader provider class differs')
+                check(part,value);continue
+            if isinstance(value,(staticmethod,classmethod)):value=value.__func__
+            if isinstance(value,property):value=value.fget
+            if not inspect.isfunction(value)or value.__code__!=part:
+                raise ValueError('stale imported reader provider implementation: '+name+'.'+part.co_qualname)
+    check(_COMPILED_PROVIDERS[key],module)
+    return module
 
 
 def _source_check():
     if _file_hash(__file__)!=IMPORTED_SHA:raise ValueError('imported RN18 cotrain data source changed')
+    data=_loaded_provider_exact('egoemg_repro.emg_initializer_data',ROOT/'egoemg_repro/emg_initializer_data.py')
+    binding=_loaded_provider_exact('egoemg_repro.emg_initializer_cohort',ROOT/'egoemg_repro/emg_initializer_cohort.py')
+    if (_view is not data._view or _schema is not data._schema or EmgInitializerDataset is not data.EmgInitializerDataset
+        or _reader_binding is not binding._reader_binding):raise ValueError('imported reader provider alias differs')
 
 
 def _config_token(config):
@@ -38,6 +68,8 @@ def _config_token(config):
 def rn18_initializer_contract(upstream,config):
     _source_check();root,value=_validated(_safe(upstream),config);protocol=emg_initializer_protocol(root,config)
     _activate(root)
+    _loaded_provider_exact('egoemg.datasets.egoemg_memmap_dataset',root/'egoemg/datasets/egoemg_memmap_dataset.py')
+    _loaded_provider_exact('egoemg.transforms',root/'egoemg/transforms.py')
     from egoemg.datamodule import make_data_module
     dm=make_data_module(config)
     if(dm.batch_size!=260 or dm.num_workers!=12 or dm.eval_num_workers!=12 or dm.dataset_repeat!=1

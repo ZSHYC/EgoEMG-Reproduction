@@ -271,3 +271,76 @@ def test_initializer_families_and_future_fold_cannot_be_resealed(native_runs,tmp
             path.write_text(json.dumps(value))
             with pytest.raises(ValueError):m.read_rn18_initializer_fit(out,require_full=False)
         finally:path.write_bytes(raw)
+
+
+def test_resealed_one_epoch_budget_cannot_authorize_a_partial_initializer(native_runs,tmp_path):
+    """Change all dependent durable identities, not just the outer JSON seal."""
+    torch=pytest.importorskip('torch');m=api();root,out,_,_,_=native_runs
+    identity=json.loads((out/'identity.json').read_text())
+    prefix=json.loads((root/'prefix-result.json').read_text())
+    selected=out/'checkpoints'/prefix['selected_best']['file']
+    names=[out/'identity.json',out/'fit-result.json',out/'epochs.jsonl',out/'checkpoints/last.ckpt',selected]
+    raw={p:p.read_bytes()for p in names}
+    try:
+        identity['policy']['max_epochs']=1
+        from egoemg_repro.classic_emg import _hash
+        identity['policy']['sha256']=_hash({k:v for k,v in identity['policy'].items()if k!='sha256'})
+        identity['sha256']=_hash({k:v for k,v in identity.items()if k!='sha256'})
+        native=torch.load(str(selected),map_location='cpu',weights_only=False)
+        native['rn18_initializer_fit']['identity']=identity
+        torch.save(native,selected);torch.save(native,out/'checkpoints/last.ckpt')
+        (out/'identity.json').write_text(json.dumps(identity))
+        (out/'epochs.jsonl').write_bytes(m._epoch_bytes(native['rn18_initializer_fit']['records'],identity['sha256']))
+        prefix.update(identity_sha256=identity['sha256'],stage_complete=True,
+            last_checkpoint_sha256=hashlib.sha256((out/'checkpoints/last.ckpt').read_bytes()).hexdigest())
+        prefix['selected_best']['checkpoint_sha256']=hashlib.sha256(selected.read_bytes()).hexdigest()
+        prefix['sha256']=_hash({k:v for k,v in prefix.items()if k!='sha256'})
+        (out/'fit-result.json').write_text(json.dumps(prefix))
+        with pytest.raises(ValueError):m.export_rn18_initializer_best(out,tmp_path/'partial.pt',require_full=False)
+        assert not(tmp_path/'partial.pt').exists()
+    finally:
+        for p,b in raw.items():p.write_bytes(b)
+
+
+@pytest.mark.parametrize('damage',['max_epochs','scheduler_T_max','precision','batch','workers','selection'])
+def test_full_saved_policy_is_independent_of_its_resealed_claims(damage):
+    pytest.importorskip('torch');pytest.importorskip('pytorch_lightning');m=api()
+    p=m.rn18_initializer_fit_policy(UPSTREAM,config(),scope='full')
+    cohort=dict(protocol_sha256=p['protocol_sha256'],data_contract_sha256=p['data_contract_sha256'])
+    if damage=='max_epochs':p['max_epochs']=1
+    elif damage=='scheduler_T_max':p['scheduler_T_max']=1
+    elif damage=='precision':p['precision']='32-true'
+    elif damage=='batch':p['batch_size_by_role']['train']=2
+    elif damage=='workers':p['workers_by_role']['val']=0
+    else:p['save_top_k']=1
+    from egoemg_repro.classic_emg import _hash
+    p['sha256']=_hash({k:v for k,v in p.items()if k!='sha256'})
+    with pytest.raises(ValueError):m._check_policy(p,cohort)
+
+
+@pytest.mark.parametrize('damage',['optimizer_missing','scheduler_missing','loops_missing','rng_missing',
+    'adam_step','adam_betas','scheduler_tmax','rng_dtype','selected_optimizer'])
+def test_resealed_checkpoints_require_complete_native_training_domains(native_runs,damage):
+    torch=pytest.importorskip('torch');m=api();_,out,_,_,_=native_runs
+    result_path=out/'fit-result.json';old_result=result_path.read_bytes();result=json.loads(old_result)
+    path=out/'checkpoints'/result['selected_best']['file']if damage=='selected_optimizer'else out/'checkpoints/last.ckpt'
+    old=path.read_bytes()
+    try:
+        native=torch.load(str(path),map_location='cpu',weights_only=False)
+        if damage in('optimizer_missing','selected_optimizer'):native.pop('optimizer_states')
+        elif damage=='scheduler_missing':native.pop('lr_schedulers')
+        elif damage=='loops_missing':native.pop('loops')
+        elif damage=='rng_missing':native['rn18_initializer_fit'].pop('rng')
+        elif damage=='adam_step':next(iter(native['optimizer_states'][0]['state'].values()))['step']-=1
+        elif damage=='adam_betas':native['optimizer_states'][0]['param_groups'][0]['betas']=(.8,.999)
+        elif damage=='scheduler_tmax':native['lr_schedulers'][0]['T_max']=1
+        else:native['rn18_initializer_fit']['rng']['torch']=native['rn18_initializer_fit']['rng']['torch'].float()
+        torch.save(native,path)
+        digest=hashlib.sha256(path.read_bytes()).hexdigest()
+        if damage=='selected_optimizer':result['selected_best']['checkpoint_sha256']=digest
+        else:result['last_checkpoint_sha256']=digest
+        from egoemg_repro.classic_emg import _hash
+        result['sha256']=_hash({k:v for k,v in result.items()if k!='sha256'})
+        result_path.write_text(json.dumps(result))
+        with pytest.raises(ValueError):m.read_rn18_initializer_fit(out,require_full=False)
+    finally:path.write_bytes(old);result_path.write_bytes(old_result)
