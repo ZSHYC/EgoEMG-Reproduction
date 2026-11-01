@@ -1,0 +1,153 @@
+{
+  "actual_gpu_actions": 0,
+  "actual_live_observation": {
+    "actor": {
+      "matching_live": true,
+      "pid": 1911291,
+      "ppid": 1,
+      "sid": 1911291,
+      "start_ticks": 439845208,
+      "state": "S",
+      "torch_libraries_loaded": false,
+      "tty": 0
+    },
+    "all_frozen_source_hashes_exact": true,
+    "completed": null,
+    "failed": null,
+    "journal_complete_archives": 7,
+    "journal_complete_bytes": 691947520,
+    "journal_new_downloads": 6,
+    "journal_reused_archives": 1,
+    "native_worker": {
+      "matching_live": true,
+      "pid": 1912707,
+      "ppid": 1911291,
+      "sid": 1912707,
+      "start_ticks": 439857860,
+      "state": "S",
+      "torch_libraries_loaded": false,
+      "tty": 0
+    },
+    "observed_utc": "2026-11-01T22:14:51.778270+00:00",
+    "progress": {
+      "actor": {
+        "pid": 1911291,
+        "start_ticks": 439845208
+      },
+      "actual_gpu_actions": 0,
+      "all_public_train_payloads_received": false,
+      "completed_archive_bytes": 691947520,
+      "completed_archive_count": 7,
+      "current_archive_path": "train_aria/clip-001856.tar",
+      "current_worker": {
+        "pid": 1912707,
+        "start_ticks": 439857860
+      },
+      "full_paper_complete": false,
+      "numeric_qualification_complete": false,
+      "observed_utc": "2026-11-01T22:14:43.290747+00:00",
+      "target_archive_bytes": 294201743360,
+      "target_archive_count": 2804
+    },
+    "trailing_incomplete_journal_record_ignored": false
+  },
+  "actual_model_runs": 0,
+  "all_public_train_numeric_qualification_complete": false,
+  "all_public_train_payloads_received": false,
+  "author_mixture_reconstructed": false,
+  "dataset": "bop-benchmark/hot3d",
+  "dataset_revision": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+  "engineering_verification": {
+    "actual_whole2804_inventory_admitted_on_server": true,
+    "guard_cases": [
+      "source revision change",
+      "duplicate source path replacing another required clip",
+      "actual insufficient available capacity with existing source preserved",
+      "corrupt complete-length payload preserved and rejected"
+    ],
+    "local_GREEN_exit_code": 0,
+    "local_expected_RED_failures": 4,
+    "local_rejection_checks": 4,
+    "real_native_source_archive_received_and_postexit_SHA_rechecked": true,
+    "server_GREEN_exit_code": 0,
+    "server_rejection_checks": 4,
+    "tests_source_sha256": "b854e29cbd6bbcfef4854e9329f68bbede9030753516932e3af3b52f81b573ef"
+  },
+  "first_new_full_native_archive_qualification": {
+    "bytes": 103690240,
+    "native_exit_code": 0,
+    "native_worker": {
+      "pid": 1911294,
+      "start_ticks": 439845223
+    },
+    "observed_utc": "2026-11-01T22:13:19.671226+00:00",
+    "original_native_worker_closed": true,
+    "path": "train_aria/clip-001850.tar",
+    "reused_prior_archive": false,
+    "scientific_numeric_or_geometry_qualification": false,
+    "sha256": "3185648f6d99097d1f42b7933ead73ac8c56cbae54a1c703766dcda977e7e6b7",
+    "source_generation_unchanged": true,
+    "whole_file_sha256_exact_after_native_owner_exit": true
+  },
+  "format": "hot3d_complete_public_train_acquisition_live_start_v1",
+  "frozen_manifest_git_commit": "1b91857d997f8f15aefc2e79f7b125d3237a0a63",
+  "frozen_manifest_sha256": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+  "frozen_manifest_url": "https://github.com/ZSHYC/EgoEMG-Reproduction/blob/1b91857d997f8f15aefc2e79f7b125d3237a0a63/assets_hot3d_train_manifest.json",
+  "full_hot3d_acquired": false,
+  "full_paper_complete": false,
+  "launch": {
+    "actor": {
+      "pid": 1911291,
+      "start_ticks": 439845208
+    },
+    "actual_gpu_actions": 0,
+    "all2804_target_bytes": 294201743360,
+    "all_original2_source_generations_unchanged": true,
+    "four_server_guard_checks_exit_code": 0,
+    "full_paper_complete": false,
+    "manifest_sha256": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+    "native_binary_sha256": "e218243e2e742aedb78803e273e7d8a2b3e00286caf96c0bcf4fb3086b5a26e8",
+    "new_session": true,
+    "no_tty": true,
+    "observed_utc": "2026-11-01T22:12:26.739775+00:00",
+    "source_sha256": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381"
+  },
+  "native_downloader": {
+    "binary_sha256": "e218243e2e742aedb78803e273e7d8a2b3e00286caf96c0bcf4fb3086b5a26e8",
+    "preexisting_installed_binary_used": true,
+    "version": "aria2 version 1.36.0"
+  },
+  "observed_utc": "2026-11-01T22:16:13.944822+00:00",
+  "policy": {
+    "additional_complete_SHA256_after_native_exit_for_every_archive": true,
+    "automatic_retry": false,
+    "connections_per_archive": 1,
+    "disk_reserve_bytes": 214748364800,
+    "existing_qualification_archive_copies_reused": 2,
+    "file_preallocation": false,
+    "maximum_download_bytes_per_second": 33554432,
+    "new_model_or_test_dependencies_installed": false,
+    "on_failure": "Stop collector after the owned native child exits; retain original sources, partial file and native control metadata.",
+    "original_sources_mutated": false,
+    "publisher_LFS_SHA256_for_every_archive": true,
+    "simultaneous_native_downloads": 1
+  },
+  "previous_qualified_source_record": "hot3d-train-source-qualification-20261102.json",
+  "receiving_helper_sha256": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381",
+  "scientific_eligible": false,
+  "scope_limits": [
+    "The live/journal fields are a timestamped prefix observation, not a completion receipt, full independent corpus rehash or a new numeric dataset qualification.",
+    "The two original qualification files are copied without re-downloading or changing original source generations; one seed may be visited later in journal order, so journal totals are not a physical-file scan.",
+    "All2804 bytes must complete, every publisher LFS SHA must match and all receiving owners must exit before full-corpus postexit identity and parameter-content admission.",
+    "Only the original two qualification clips have completed the published full parameter/semantic qualification so far; new payload integrity does not establish MANO/geometry reconstruction or source-mixture equivalence.",
+    "No raw source archives, model assets, private paths, signed download URLs or account credentials are redistributed."
+  ],
+  "source_numeric_or_geometry_qualification_added_this_turn": false,
+  "target_archive_bytes": 294201743360,
+  "target_archive_count": 2804,
+  "target_device_archive_counts": {
+    "Aria": 1516,
+    "Quest3": 1288
+  },
+  "target_scope": "Every archive in the previously pinned public train_aria/train_quest3 inventory; not all HOT3D VRS, its withheld test GT, or a verified author approximately4M-frame selection."
+}
