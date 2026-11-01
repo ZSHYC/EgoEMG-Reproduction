@@ -1,0 +1,95 @@
+{
+  "actual_b64_qualification_complete": false,
+  "actual_checked_batches": 2,
+  "actual_checked_packets": [
+    {
+      "actual_emg_trajectory_shape": [
+        64,
+        22,
+        146
+      ],
+      "actual_points": 64,
+      "all_raw_arrays_and_source_targets_flags_exact": true,
+      "ordinal": 0,
+      "raw_file_sha256": "d5e8abbd376d9c29305334359f88afef3932e3a30b5317831a9a8b2335ef25ef",
+      "typed_arrays_sha256": {
+        "crop_valid_mask": "240f926b066e565ca3ed0e0e51dc206866b86c3dab8a24d0fe334344ab079789",
+        "emg_full_prediction": "86b471e3386fad14f763c56bd1f4ee4859e2ca574fdca8b315b7dddf155ff573",
+        "emg_prediction": "8a11357869577da04091dd026af48378cd15a90a91c269d34d5b3753b9294309",
+        "fusion_prediction": "90c72773374d18ce3355047f415c79b64af02a907386746fa9817b89e5ae4a1c",
+        "label_valid_mask": "172676f53aa174867559175edcc2bd755a2dc8eb8bd77a8fa8915b2cd84eee59",
+        "mae_emg_rad": "e70eaf4ec5b911b0364bcd92f57abe1406f120fa0b645394c0b2870af85b3f39",
+        "mae_fusion_rad": "ba6f1775f154209c599910436da6bc7f3a2e8c1c1234c0706bde2df348e69555",
+        "mae_vision_rad": "95bd5358ebb77857734f56c375240db65bd16cfba633117c39a227f18365e6ff",
+        "targets": "3455049fca8701d27a4bc4423861c60cba15db5c622a77f657147d3a28f95460",
+        "vision_prediction": "0501535ca64e36d87ad5b7e6c1ac4814bbed8741566b4fb73d2b118e2a7835e4"
+      }
+    },
+    {
+      "actual_emg_trajectory_shape": [
+        45,
+        22,
+        146
+      ],
+      "actual_points": 45,
+      "all_raw_arrays_and_source_targets_flags_exact": true,
+      "ordinal": 1,
+      "raw_file_sha256": "df8daa7b334272b10f05f38821830db205c5ea62f2b23d60e248bff48be4994d",
+      "typed_arrays_sha256": {
+        "crop_valid_mask": "75901f3aed0e3c168cfe40529b2072e582d04355158051720e894555906ca44c",
+        "emg_full_prediction": "a188b47971d53f230ee169f86be11fd18be3d216ef7dcf042248290571eb6628",
+        "emg_prediction": "c90b82b2fc16f092b39373ae60b28b87ff3138339866e7c76ed27206458543b9",
+        "fusion_prediction": "e0cc189eca8877af1b66e6c9da51c2b8b5713b1954e94f44b42e26bf1a179e8a",
+        "label_valid_mask": "75901f3aed0e3c168cfe40529b2072e582d04355158051720e894555906ca44c",
+        "mae_emg_rad": "5834bc9ae1504cfb3b7552083a98864af6595c4595712c596b861b7632c5f21d",
+        "mae_fusion_rad": "a0ec0b47e1a699266da589c37cb910d0c8bc4cd4814d5e6f48bdb8ca69a87a4f",
+        "mae_vision_rad": "e7646d12c28259c41e437c65a07c88d9df5546ed63672de181ba3206c4d2ab39",
+        "targets": "2abb91267ab0cbff4401c11e190163cfe2a03e76510e45e2421835a7b19ff578",
+        "vision_prediction": "81dfd363e4317d692bb3f1c56b65b606108c083175c6a8462e1143e0d7bdb148"
+      }
+    }
+  ],
+  "actual_checked_points": 109,
+  "actual_full_prediction_complete": false,
+  "actual_original_owners_matching_live": true,
+  "actual_qualification_worker": {
+    "pgrp": 1357187,
+    "pid": 1357187,
+    "sid": 1357187,
+    "start_ticks": "435667518",
+    "state": "R",
+    "uid": 1005
+  },
+  "all_raw_prediction_arrays_errors_midpoint_source_bindings_verified": true,
+  "bundle_sha256": "e4726f194e9c733e0f0981316606111bf75f625256be4cec907aa2817a5285ef",
+  "evidence_identity_sha256": "cb6d8d3e8ed266719c99aed7d2ca3b7038130083121f760842e3d9de552a8b1f",
+  "figure13_reproduced": false,
+  "first_batch_size": 64,
+  "format": "actual_trained_native_dense_b64_prefix_independent_raw_readback_v1",
+  "full_emg_time_steps": 146,
+  "full_paper_complete": false,
+  "hardware": {
+    "architecture": "x86_64",
+    "autocast": false,
+    "batch_size": 64,
+    "boot_id": "f119e6bc-c7bb-4dfe-9bba-1d6308678c78",
+    "cpu_model": "Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz",
+    "device": "cpu",
+    "drop_last": false,
+    "dtype": "float32",
+    "hostname": "node235",
+    "logical_cpus": 128,
+    "num_workers": 4,
+    "pin_memory": true,
+    "shuffle": false,
+    "torch_threads": 2,
+    "torch_version": "2.2.2+cu118"
+  },
+  "model_identity_sha256": "7543495ccd161d11bc2db25f277a7dfb1fddd4fd0051b9f1d0531e5faeea41fd",
+  "native_emg_center_index": 73,
+  "observed_utc": "2026-11-01T10:40:12.333797+00:00",
+  "raw_readback_has_no_model_construction_or_optimizer": true,
+  "scientific_eligible": false,
+  "second_group_tail_size": 45,
+  "source_commit": "2d55b25d9303a2c0271b7da73ff158f5f0a7ae1f"
+}
