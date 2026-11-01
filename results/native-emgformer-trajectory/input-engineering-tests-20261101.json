@@ -1,0 +1,103 @@
+{
+  "actual_exit_code": 0,
+  "actual_fixture_counts": {
+    "test": 8,
+    "val": 4
+  },
+  "actual_fixture_new_test_target_rows": 48000,
+  "actual_fixture_new_val_target_rows": 24000,
+  "actual_fixture_payload_file_count": 16,
+  "actual_full_target_shape": [
+    22,
+    12000
+  ],
+  "actual_skipped_tests": 0,
+  "actual_staged_source_file_count": 290,
+  "actual_summary": "28 passed, 1 warning in 355.14s",
+  "all_masked_offcenter_and_tail_nonfinite_labels_rejected": true,
+  "complete_input_bytes_and_rng_unchanged": true,
+  "cpu_engineering_loader": {
+    "batch_size": 2,
+    "num_workers": 0
+  },
+  "final_command": [
+    "/home/shihao/projects/EgoEMG-Reproduction/.runtime/env/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/data/shihao/egoemg-native-emgformer-trajectory-tests-trajectory-data-bounded-green-20261101/private/pytest-tmp",
+    "tests/test_emgformer_trajectory_data.py"
+  ],
+  "final_log_sha256": "1a5d81de5ca210155ebd89fac30ca26b1a1438db9a6409914b85af1bfe685dce",
+  "final_new_integration_review_pending": true,
+  "fixtures": "Explicit actual synthetic memmap IO, not full-release data or trained producer",
+  "format": "actual_native_emgformer_full_trajectory_input_engineering_tests_v1",
+  "full_fit_or_evaluation_permit": false,
+  "full_paper_complete": false,
+  "full_release_trajectory_input_admission_executed": false,
+  "independent_server_raw_log_and_all_staged_sources_reopened_exact": true,
+  "initial_red_log_sha256": "bc8ea246a3959cf30f7ce10213d3716c6205e978418fa5bfd3963627bf0f5d8b",
+  "initial_red_summary": "26 failed in27.41s: new module missing",
+  "model_and_optimizer_construction_denied_in_input_gate": true,
+  "native_loader": {
+    "batch_size": 500,
+    "drop_last": false,
+    "num_workers": 6,
+    "persistent_workers": true,
+    "pin_memory": false,
+    "prefetch_factor": 1,
+    "shuffle": false
+  },
+  "observed_utc": "2026-11-01T10:57:56.611902+00:00",
+  "original_full_window_wrist_float32_path_used": true,
+  "original_point_readers_preserved": true,
+  "parent_and_full_reader_mutations_and_resealed_receipts_rejected": true,
+  "pickle_preserves_full_views_and_rejects_source_generation_changes": true,
+  "post_admission_checks": "Live original identity/config/normalization/partitions/three canonical reader bindings under same physical file/source generation guards; no repeated datamodule reconstruction",
+  "pre_optimization_boundary_timing": {
+    "counts": {
+      "new_sources": {
+        "calls": 20,
+        "seconds": 0.14605494868010283
+      },
+      "point_cohort.check": {
+        "calls": 9,
+        "seconds": 23.251185005530715
+      },
+      "point_data_contract": {
+        "calls": 37,
+        "seconds": 22.011061714962125
+      },
+      "reader_binding": {
+        "calls": 48,
+        "seconds": 0.18913987278938293
+      },
+      "trajectory_dataset.check": {
+        "calls": 16,
+        "seconds": 0.4281347133219242
+      }
+    },
+    "engineering_only": true,
+    "model_constructions": 0,
+    "seconds": 31.031676741316915
+  },
+  "scientific_eligible": false,
+  "source_model_mathematics_suites_reopened": false,
+  "sources_sha256": {
+    "egoemg_repro/emg_initializer_data.py": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+    "egoemg_repro/emgformer_cohort.py": "c076a746abd25eb48fd4eb29135921c5cdeae8c083f9b38d423161a49fe25ea4",
+    "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
+    "egoemg_repro/emgformer_trajectory_data.py": "c1f66a7689022da7b471b2a4ee5ec2da0eb75a139be90eb5b1217e84de77b1fa",
+    "tests/test_emgformer_trajectory_data.py": "591484371de243d1e044c0c76fd44a7cf0c0782b02bd5a68c45f4de0df62b2d9"
+  },
+  "superseded_first_attempt": {
+    "actual_exit_code": 2,
+    "log_sha256": "f65c69e9cdee076ebe7f78224d1b2af36a500e7c0200b0b4d8112dab404cb46c",
+    "reason": "Measured redundant closed point-data configuration reconstruction; all original training and dense jobs untouched",
+    "summary": "8 passed in275.40s before explicit SIGINT of isolated pytest; not a completed suite"
+  },
+  "trained_model_full_trajectory_inference_executed": false
+}
