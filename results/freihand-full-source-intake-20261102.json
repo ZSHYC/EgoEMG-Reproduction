@@ -1,0 +1,615 @@
+{
+  "acquisition_scope": "Both v2 ZIPs linked by the captured official FreiHAND project page; not every historical variant, HanCo extension, or author-specific mixture.",
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "archives": {
+    "evaluation": {
+      "bytes": 758382230,
+      "file_members": 23766,
+      "file_name": "FreiHAND_pub_v2_eval.zip",
+      "members": 23773,
+      "membership_sha256": "9f7e99cf6b10d04a09c81cd6f03919cca37d8bee49b1c04c1381eabb52693e0e",
+      "sha256": "7f1968695971479149e28c0fe9495fabee930c48d171cfba739cfd7eeca35712",
+      "suffix_counts": {
+        ".jpg": 3960,
+        ".json": 3966,
+        ".npy": 3960,
+        ".png": 11880
+      },
+      "top_folder_file_counts": {
+        "<root>": 6,
+        "evaluation/anno": 3960,
+        "evaluation/colormap": 3960,
+        "evaluation/facemap": 3960,
+        "evaluation/rgb": 3960,
+        "evaluation/segmap": 3960,
+        "evaluation/verts_offset_map": 3960
+      },
+      "uncompressed_bytes": 5327713787
+    },
+    "main": {
+      "bytes": 3881833583,
+      "file_members": 166767,
+      "file_name": "FreiHAND_pub_v2.zip",
+      "members": 166772,
+      "membership_sha256": "90517394b9615857588c76ae913423871b369cf68d4dbe44c40d8cda53b77fd6",
+      "sha256": "0e1ce30e75d12d0874b0d39a93dee0dad8cd0121ebabf72d3c9745b0f68dca96",
+      "suffix_counts": {
+        ".jpg": 166760,
+        ".json": 7
+      },
+      "top_folder_file_counts": {
+        "<root>": 7,
+        "evaluation/rgb": 3960,
+        "training/mask": 32560,
+        "training/rgb": 130240
+      },
+      "uncompressed_bytes": 4929807319
+    }
+  },
+  "author_exact_freihand_source_version_known": false,
+  "author_mixture_reconstructed": false,
+  "distinct_file_paths_across_archives": 186571,
+  "distinct_paths_are_not_a_geometric_pose_or_global_content_deduplication": true,
+  "format": "freihand_both_official_v2_archives_complete_source_intake_v1",
+  "full_freihand_acquired": true,
+  "full_freihand_acquisition_scope": "two_official_linked_v2_archives_only",
+  "full_main_archive_acquired": true,
+  "full_paper_complete": false,
+  "image_id_summary": {
+    "evaluation/rgb": {
+      "contiguous_from_zero": true,
+      "count": 3960,
+      "maximum_id": 3959,
+      "minimum_id": 0
+    },
+    "training/mask": {
+      "contiguous_from_zero": true,
+      "count": 32560,
+      "maximum_id": 32559,
+      "minimum_id": 0
+    },
+    "training/rgb": {
+      "contiguous_from_zero": true,
+      "count": 130240,
+      "maximum_id": 130239,
+      "minimum_id": 0
+    }
+  },
+  "license": {
+    "raw_data_or_MANO_models_published": false,
+    "source_terms": "Official project research-only, no commercial use, citation required, no warranty"
+  },
+  "main_archive_recovery": {
+    "all167_range_byte_hashes_exact_and_contiguous": true,
+    "complete_new_ranges": 167,
+    "completed_utc": "2026-11-01T21:35:09.234901+00:00",
+    "continuation_policy": "Preserve original prefix and verified next MiB; exact16MiB HTTP206 ranges with If-Match, source total/length/type/encoding checks, 200GiB reserve, no automatic retry or authentication/route changes.",
+    "etag": "\"e760146f-5956df1c048bb\"",
+    "initial_GET_terminal_state": "premature response EOF; original process exited; no cause established beyond incomplete response body",
+    "original_failed_GET_reclassified_as_complete": false,
+    "original_prefix_and_qualified_MiB_byte_exact_in_assembled_archive": true,
+    "original_prefix_bytes": 1082183896,
+    "original_prefix_sha256": "1ab1bde3b33c1112b5c1b2f439d924113b82aa515bb12d5357a36c453174d08c",
+    "provider_cryptographic_whole_file_checksum_observed": false,
+    "qualified_next_range_bytes": 1048576,
+    "qualified_next_range_sha256": "a8172b07c55f425e886cd93163ea761f49235da623d6cb4a85e60d1fee7cb2f2",
+    "whole_file_sha256": "0e1ce30e75d12d0874b0d39a93dee0dad8cd0121ebabf72d3c9745b0f68dca96"
+  },
+  "mano_blocks_per_official_split_theta": {
+    "evaluation_mano.json": {
+      "poses": {
+        "max_finite": 3.1113211857300627,
+        "min_finite": -3.1098994391769503,
+        "nonfinite_values": 0,
+        "shape": [
+          3960,
+          1,
+          48
+        ],
+        "values": 190080
+      },
+      "scale": {
+        "max_finite": 1389.158943253091,
+        "min_finite": 402.13110283939335,
+        "nonfinite_values": 0,
+        "shape": [
+          3960,
+          1,
+          1
+        ],
+        "values": 3960
+      },
+      "scale_nonpositive_rows": 0,
+      "shapes": {
+        "max_finite": 0.3368922472000122,
+        "min_finite": -0.24491193890571594,
+        "nonfinite_values": 0,
+        "shape": [
+          3960,
+          1,
+          10
+        ],
+        "values": 39600
+      },
+      "uv_root": {
+        "max_finite": 154.4638865131269,
+        "min_finite": 61.5043189583479,
+        "nonfinite_values": 0,
+        "shape": [
+          3960,
+          1,
+          2
+        ],
+        "values": 7920
+      }
+    },
+    "training_mano.json": {
+      "poses": {
+        "max_finite": 3.1004528999328613,
+        "min_finite": -3.1360647678375244,
+        "nonfinite_values": 0,
+        "shape": [
+          32560,
+          1,
+          48
+        ],
+        "values": 1562880
+      },
+      "scale": {
+        "max_finite": 1502.5900915117873,
+        "min_finite": 408.1519289773521,
+        "nonfinite_values": 0,
+        "shape": [
+          32560,
+          1,
+          1
+        ],
+        "values": 32560
+      },
+      "scale_nonpositive_rows": 0,
+      "shapes": {
+        "max_finite": 2.5957040786743164,
+        "min_finite": -2.382390022277832,
+        "nonfinite_values": 0,
+        "shape": [
+          32560,
+          1,
+          10
+        ],
+        "values": 325600
+      },
+      "uv_root": {
+        "max_finite": 162.3353344018866,
+        "min_finite": 51.39799982247083,
+        "nonfinite_values": 0,
+        "shape": [
+          32560,
+          1,
+          2
+        ],
+        "values": 65120
+      }
+    }
+  },
+  "markers2mano_reproduced": false,
+  "observed_utc": "2026-11-01T21:51:06.118919+00:00",
+  "official_linked_v2_archives_received_and_qualified": true,
+  "official_parameter_convention": {
+    "hand_model_entry_flags": {
+      "flat_hand_mean": false,
+      "use_mean_pca": false,
+      "use_mean_pose": true,
+      "use_pca": false
+    },
+    "pose_indices": [
+      0,
+      48
+    ],
+    "pose_or_geometry_conversion_performed": false,
+    "separate_evaluation_scale_json": "Publisher hand/reference-bone metric scale; preserved separately from the weak-perspective scale in the 61-vector",
+    "shape_indices": [
+      48,
+      58
+    ],
+    "shape_per_received_sample": [
+      1,
+      61
+    ],
+    "translation_recipe": "backproject_ortho(uv_root,scale,focal,principal_point), then pose_by_root(root_id=9) subtracts the posed reference joint to set global translation",
+    "uv_root_indices": [
+      58,
+      60
+    ],
+    "weak_perspective_scale_indices": [
+      60,
+      61
+    ]
+  },
+  "official_toolbox_commit": "5ea4ab9763fea0eec988a52bfa563333cb16523f",
+  "physical_archive_bytes": 4640215813,
+  "physical_archive_file_members": 190533,
+  "pinned_sources": {
+    "fh_utils.py": {
+      "bytes": 5854,
+      "git_blob_sha1": "103b3e01aaea148939f72df947a69c5e60eb0385",
+      "sha256": "b5a3ffae58e7e50d4e91e1e346ed2fa70ea905f4657357bba75dbbfe26993738",
+      "url": "https://github.com/lmb-freiburg/freihand/blob/5ea4ab9763fea0eec988a52bfa563333cb16523f/utils/fh_utils.py"
+    },
+    "freihand-README.md": {
+      "bytes": 6320,
+      "git_blob_sha1": "4248c5cb5cdbf5c414fa6d4300a5ab8ecf87ff4e",
+      "sha256": "a83843cea407d96f3834a2c0604c54c53abe71d246548eda553388a3f488fa77",
+      "url": "https://github.com/lmb-freiburg/freihand/blob/5ea4ab9763fea0eec988a52bfa563333cb16523f/README.md"
+    },
+    "model.py": {
+      "bytes": 6748,
+      "git_blob_sha1": "42f7b84eced4fc2dd14fcb0f732b7be3728b51c8",
+      "sha256": "cec46f972a4959683a5b5d759d343d4f35782b4132be1244c5ac0686705b2b27",
+      "url": "https://github.com/lmb-freiburg/freihand/blob/5ea4ab9763fea0eec988a52bfa563333cb16523f/utils/model.py"
+    },
+    "view_samples.py": {
+      "bytes": 3921,
+      "git_blob_sha1": "25e90ea14d1bb1c37145cf208aee3717168beb90",
+      "sha256": "ce0f8eea72c1f4918dcbe40095f7c366911c4487eae3b2fbbd03ec608436d24f",
+      "url": "https://github.com/lmb-freiburg/freihand/blob/5ea4ab9763fea0eec988a52bfa563333cb16523f/view_samples.py"
+    }
+  },
+  "raw_root_annotation_files_by_logical_path": {
+    "evaluation_K.json": {
+      "bytes": 337775,
+      "sha256": "f4887519c169c557efb3e2d4d99ae9b18ec129cb7bc4f6b5df7e324e446caebb",
+      "source_crc32": 1279591644
+    },
+    "evaluation_errors.json": {
+      "bytes": 169390,
+      "sha256": "05a2639bc516cf2e64d6c0630f70d93fd052f3f53337982a5c378dc437a6556e",
+      "source_crc32": 59972223
+    },
+    "evaluation_mano.json": {
+      "bytes": 4683151,
+      "sha256": "8a5ce142ed579f5babb7a368e3b9967897f6b924150a975145884735e81f9240",
+      "source_crc32": 227552022
+    },
+    "evaluation_scale.json": {
+      "bytes": 85341,
+      "sha256": "9766307f8562c5ff5499c900d3ac7916d878a04494cca6dcec4eadb61d19a38b",
+      "source_crc32": 1275696193
+    },
+    "evaluation_verts.json": {
+      "bytes": 203589498,
+      "sha256": "1d3f0e1b489d399153fb946eab3672da1aea3095ceeb0678fc139e2a1ce292c5",
+      "source_crc32": 2991094692
+    },
+    "evaluation_xyz.json": {
+      "bytes": 5506793,
+      "sha256": "72aa38f5008f9d75d6fe873251b11d5286ba13442e5b95d2ce36ca422cee2ff0",
+      "source_crc32": 2429452144
+    },
+    "training_K.json": {
+      "bytes": 2778469,
+      "sha256": "4489ebaabfdb699225e659a99477fd908575a895b4dab5ccc7f32c59dcc9035b",
+      "source_crc32": 1243909503
+    },
+    "training_mano.json": {
+      "bytes": 41942120,
+      "sha256": "911d2c0b488052165b89d58fe0d8a2c92008a18486cd2cd47a4d42ac5bb87594",
+      "source_crc32": 77479264
+    },
+    "training_scale.json": {
+      "bytes": 700520,
+      "sha256": "271ca726584733ed9ebfc2e97e35704d890ba6a8f6d30887307130472f6f32fb",
+      "source_crc32": 3764846760
+    },
+    "training_verts.json": {
+      "bytes": 1673081861,
+      "sha256": "6ba37108eb5869a56db321de89e2cb7e5a01973b455898992253c96159e4cd44",
+      "source_crc32": 3553809547
+    },
+    "training_xyz.json": {
+      "bytes": 45249268,
+      "sha256": "a81fa216a316cfeedd3d8fd3dc74f2bd935a5aeb01bdd09c3274a08efd69f57c",
+      "source_crc32": 1628442186
+    }
+  },
+  "root_annotation_archive_membership": {
+    "evaluation": [
+      "evaluation_K.json",
+      "evaluation_errors.json",
+      "evaluation_mano.json",
+      "evaluation_scale.json",
+      "evaluation_verts.json",
+      "evaluation_xyz.json"
+    ],
+    "main": [
+      "evaluation_K.json",
+      "evaluation_scale.json",
+      "training_K.json",
+      "training_mano.json",
+      "training_scale.json",
+      "training_verts.json",
+      "training_xyz.json"
+    ]
+  },
+  "root_annotation_bytes_by_logical_path": 1978124186,
+  "root_annotation_numeric_by_logical_path": {
+    "evaluation_K.json": {
+      "finite_values": 35640,
+      "max_finite": 1130.3151600342965,
+      "min_finite": 0.0,
+      "nonfinite_values": 0,
+      "rows": 3960,
+      "shape": [
+        3960,
+        3,
+        3
+      ],
+      "values": 35640,
+      "whole_zero_rows": 0
+    },
+    "evaluation_errors.json": {
+      "finite_values": 7920,
+      "max_finite": 3.459017001136356,
+      "min_finite": 0.008898681005824102,
+      "nonfinite_values": 0,
+      "rows": 3960,
+      "shape": [
+        3960,
+        2
+      ],
+      "values": 7920,
+      "whole_zero_rows": 0
+    },
+    "evaluation_mano.json": {
+      "finite_values": 241560,
+      "max_finite": 1389.158943253091,
+      "min_finite": -3.1098994391769503,
+      "nonfinite_values": 0,
+      "rows": 3960,
+      "shape": [
+        3960,
+        1,
+        61
+      ],
+      "values": 241560,
+      "whole_zero_rows": 0
+    },
+    "evaluation_scale.json": {
+      "finite_values": 3960,
+      "max_finite": 0.035001430077554734,
+      "min_finite": 0.015406692594614815,
+      "nonfinite_values": 0,
+      "rows": 3960,
+      "shape": [
+        3960
+      ],
+      "values": 3960,
+      "whole_zero_rows": 0
+    },
+    "evaluation_verts.json": {
+      "finite_values": 9242640,
+      "max_finite": 1.0540969371795654,
+      "min_finite": -0.13338972628116608,
+      "nonfinite_values": 0,
+      "rows": 3960,
+      "shape": [
+        3960,
+        778,
+        3
+      ],
+      "values": 9242640,
+      "whole_zero_rows": 0
+    },
+    "evaluation_xyz.json": {
+      "finite_values": 249480,
+      "max_finite": 1.021538496017456,
+      "min_finite": -0.13338972628116608,
+      "nonfinite_values": 0,
+      "rows": 3960,
+      "shape": [
+        3960,
+        21,
+        3
+      ],
+      "values": 249480,
+      "whole_zero_rows": 0
+    },
+    "training_K.json": {
+      "finite_values": 293040,
+      "max_finite": 1214.18318200048,
+      "min_finite": 0.0,
+      "nonfinite_values": 0,
+      "rows": 32560,
+      "shape": [
+        32560,
+        3,
+        3
+      ],
+      "values": 293040,
+      "whole_zero_rows": 0
+    },
+    "training_mano.json": {
+      "finite_values": 1986160,
+      "max_finite": 1502.5900915117873,
+      "min_finite": -3.1360647678375244,
+      "nonfinite_values": 0,
+      "rows": 32560,
+      "shape": [
+        32560,
+        1,
+        61
+      ],
+      "values": 1986160,
+      "whole_zero_rows": 0
+    },
+    "training_scale.json": {
+      "finite_values": 32560,
+      "max_finite": 0.036357934818678814,
+      "min_finite": 0.015944540503821696,
+      "nonfinite_values": 0,
+      "rows": 32560,
+      "shape": [
+        32560
+      ],
+      "values": 32560,
+      "whole_zero_rows": 0
+    },
+    "training_verts.json": {
+      "finite_values": 75995040,
+      "max_finite": 1.056809663772583,
+      "min_finite": -0.13603942096233368,
+      "nonfinite_values": 0,
+      "rows": 32560,
+      "shape": [
+        32560,
+        778,
+        3
+      ],
+      "values": 75995040,
+      "whole_zero_rows": 0
+    },
+    "training_xyz.json": {
+      "finite_values": 2051280,
+      "max_finite": 1.0428340435028076,
+      "min_finite": -0.13515593111515045,
+      "nonfinite_values": 0,
+      "rows": 32560,
+      "shape": [
+        32560,
+        21,
+        3
+      ],
+      "values": 2051280,
+      "whole_zero_rows": 0
+    }
+  },
+  "root_annotation_numeric_values_by_logical_path": 90139280,
+  "scope_limits": [
+    "Only the two official linked v2 archive versions are acquired; the EgoEMG annotator authors exact FreiHAND version and selection remain unprovided.",
+    "No mesh reconstruction, MANO-version compatibility execution, coordinate/handedness transform, pose-mean conversion or geometry accuracy evaluation was performed.",
+    "CRC covers every archive file, while deep numeric checks cover root annotations only; supplementary per-frame JSON, image and offset-map semantics are not reconstructed.",
+    "evaluation_errors.json remains a publisher data field; it is not this reproduction model score and has no newly assigned unverified units.",
+    "Matching archive paths are byte-checked and counted once only for reporting; original archives, original values and train/evaluation roles remain separate.",
+    "Exact 11-source approximately712K mixture, author split/sampling/weights, markers2mano implementation/checkpoint and source-compatible geometry training remain incomplete."
+  ],
+  "shared_files_between_archives": {
+    "by_path_group": {
+      "<root>": 2,
+      "evaluation/rgb": 3960
+    },
+    "byte_different": 0,
+    "byte_equal": 3962,
+    "differing_examples": [],
+    "files": 3962
+  },
+  "shared_root_numeric_comparison": {
+    "evaluation_K.json": {
+      "all_ordered_values_equal": true,
+      "raw_bytes_equal": true,
+      "same_shape": true
+    },
+    "evaluation_scale.json": {
+      "all_ordered_values_equal": true,
+      "raw_bytes_equal": true,
+      "same_shape": true
+    }
+  },
+  "source_headers_observed": [
+    {
+      "accept_ranges": "bytes",
+      "authentication": "anonymous",
+      "content_length": "3881833583",
+      "content_type": "application/zip",
+      "etag": "\"e760146f-5956df1c048bb\"",
+      "final_url": "https://lmb.informatik.uni-freiburg.de/data/freihand/FreiHAND_pub_v2.zip",
+      "http_status": 200,
+      "label": "Download FreiHAND Dataset v2 (3.7GB)",
+      "last_modified": "Mon, 21 Oct 2019 16:12:03 GMT",
+      "method": "HEAD",
+      "observed_utc": "2026-11-01T21:06:44.470652+00:00",
+      "payload_started": false,
+      "url": "https://lmb.informatik.uni-freiburg.de/data/freihand/FreiHAND_pub_v2.zip"
+    },
+    {
+      "accept_ranges": "bytes",
+      "authentication": "anonymous",
+      "content_length": "758382230",
+      "content_type": "application/zip",
+      "etag": "\"2d33fe96-5d61201dd5e58\"",
+      "final_url": "https://lmb.informatik.uni-freiburg.de/data/freihand/FreiHAND_pub_v2_eval.zip",
+      "http_status": 200,
+      "label": "Download FreiHAND Dataset v2 - Evaluation set with annotations (724MB)",
+      "last_modified": "Fri, 21 Jan 2022 06:48:32 GMT",
+      "method": "HEAD",
+      "observed_utc": "2026-11-01T21:06:44.471182+00:00",
+      "payload_started": false,
+      "url": "https://lmb.informatik.uni-freiburg.de/data/freihand/FreiHAND_pub_v2_eval.zip"
+    }
+  ],
+  "source_page": {
+    "bytes": 25850,
+    "declared_charset": "iso-8859-1",
+    "sha256": "c5af10cd34e3ef1913132bde8871b353cb04fb355b5584a344de0f00a326f5ae",
+    "url": "https://lmb.informatik.uni-freiburg.de/resources/datasets/FreihandDataset.en.html"
+  },
+  "source_roles": {
+    "counts_are_not_people_or_verified_geometrically_unique_poses": true,
+    "distinct_rgb_paths": 134200,
+    "evaluation": {
+      "annotation_rows": 3960,
+      "rgb_files": 3960
+    },
+    "evaluation_automatically_reassigned_to_training": false,
+    "original_roles_and_parameter_values_preserved": true,
+    "role_indexed_annotation_rows": 36520,
+    "training": {
+      "annotation_rows": 32560,
+      "mask_files": 32560,
+      "rgb_files": 130240,
+      "rgb_versions_per_official_map_id": {
+        "auto": 32560,
+        "gs": 32560,
+        "hom": 32560,
+        "sample": 32560
+      }
+    }
+  },
+  "verification": {
+    "all167_new_main_ranges_rehashed_and_coverage_contiguous_after_exit": true,
+    "all4_original_receiving_and_auditing_owners_closed": true,
+    "all_files_in_both_complete_archives_CRC_checked": true,
+    "both_archives_and_all13_physical_root_annotations_full_sha256_exact_after_owner_exit": true,
+    "evaluation_numeric_qualification_record": "freihand-evaluation-source-intake-20261102.json",
+    "evaluation_server_numpy_vs_local_stdlib_recursive_scalar_all_numeric_statistics_exact": true,
+    "local_all13_raw_annotation_hashes_rechecked_for_this_combined_report": true,
+    "main_local_data_parser": {
+      "backend": "yajl2_c",
+      "buffer_bytes": 65536,
+      "installation_scope": "private data-reader --target directory; no model/test environment dependency changes",
+      "package": "ijson",
+      "publisher_pypi_sha256": "c14d568d31a322e8ed7e9735f6e355608a23cc6ff4b5da843515089dae4cbf5f",
+      "use_float": true,
+      "version": "3.6.0",
+      "wheel": "ijson-3.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+    },
+    "main_local_numeric_observed_utc": "2026-11-01T21:44:03.253120+00:00",
+    "main_local_numpy_imported": false,
+    "main_local_peak_rss_kib": 19296,
+    "main_local_scalar_source_sha256": "374bce2f981e06234a5bdb7d1248ee06cb6120e67851c2e21b868674fc61cc65",
+    "main_local_torch_imported": false,
+    "main_server_numeric_observed_utc": "2026-11-01T21:37:09.193934+00:00",
+    "main_server_numpy_vs_local_streaming_recursive_scalar_all_numeric_statistics_exact": true,
+    "model_or_test_environment_dependencies_changed": false,
+    "postexit_observed_utc": "2026-11-01T21:50:54.663815+00:00",
+    "postexit_readback_source_sha256": "3fa973c0dc92af0032cfd1963ffcaba66ee0754967ca0d9ec902a1733c7b566c",
+    "server_audit_sources_sha256": {
+      "evaluation": "defd59809746e2badc6434a40d0e07e8de4107da7680d09a979cb21ae922a6bf",
+      "main": "323aff131b7a5f2785d3ce0d2d0871e64efc9ce69224b741acb6543dc7c1232b"
+    },
+    "server_completed_reports_sha256": {
+      "evaluation": "2722d3683e7128143af48a1fe15f8643ef91e528d31cfb40c72a3c98b425de85",
+      "main": "668b315d6ba58d555b604806b0ca515ba12d85333fc334c4db5a7e3669da885e"
+    },
+    "source_report_helper_generations_and_membership_unchanged": true
+  }
+}

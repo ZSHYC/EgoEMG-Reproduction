@@ -1,4 +1,6 @@
 {
+  "author_exact_freihand_source_version_known": false,
+  "author_mixture_reconstructed": false,
   "evaluation_raw_root_annotation_files": {
     "evaluation_K.json": {
       "bytes": 337775,
@@ -33,17 +35,19 @@
   },
   "files": [
     {
+      "all_archive_file_CRC_checked": true,
       "etag_observed": "\"e760146f-5956df1c048bb\"",
       "expected_bytes": 3881833583,
       "filename": "FreiHAND_pub_v2.zip",
       "last_modified_observed": "Mon, 21 Oct 2019 16:12:03 GMT",
-      "payload_received_complete": false,
+      "payload_received_complete": true,
       "provider_cryptographic_whole_file_checksum_observed": false,
-      "received_sha256": null,
-      "source_role": "published main v2 archive; actual training/evaluation contents still to be audited",
+      "received_sha256": "0e1ce30e75d12d0874b0d39a93dee0dad8cd0121ebabf72d3c9745b0f68dca96",
+      "source_role": "published main v2 archive: training RGB/masks/five root annotations plus evaluation RGB/K/scale",
       "url": "https://lmb.informatik.uni-freiburg.de/data/freihand/FreiHAND_pub_v2.zip"
     },
     {
+      "all_archive_file_CRC_checked": true,
       "etag_observed": "\"2d33fe96-5d61201dd5e58\"",
       "expected_bytes": 758382230,
       "filename": "FreiHAND_pub_v2_eval.zip",
@@ -55,9 +59,51 @@
       "url": "https://lmb.informatik.uni-freiburg.de/data/freihand/FreiHAND_pub_v2_eval.zip"
     }
   ],
-  "format": "freihand_v2_public_archive_intake_manifest_v1",
-  "full_freihand_acquired": false,
+  "format": "freihand_v2_public_archive_intake_manifest_v2",
+  "full_freihand_acquired": true,
+  "full_freihand_acquisition_scope": "two_official_linked_v2_archives_only",
+  "full_paper_complete": false,
+  "main_raw_root_annotation_files": {
+    "evaluation_K.json": {
+      "bytes": 337775,
+      "sha256": "f4887519c169c557efb3e2d4d99ae9b18ec129cb7bc4f6b5df7e324e446caebb",
+      "source_crc32": 1279591644
+    },
+    "evaluation_scale.json": {
+      "bytes": 85341,
+      "sha256": "9766307f8562c5ff5499c900d3ac7916d878a04494cca6dcec4eadb61d19a38b",
+      "source_crc32": 1275696193
+    },
+    "training_K.json": {
+      "bytes": 2778469,
+      "sha256": "4489ebaabfdb699225e659a99477fd908575a895b4dab5ccc7f32c59dcc9035b",
+      "source_crc32": 1243909503
+    },
+    "training_mano.json": {
+      "bytes": 41942120,
+      "sha256": "911d2c0b488052165b89d58fe0d8a2c92008a18486cd2cd47a4d42ac5bb87594",
+      "source_crc32": 77479264
+    },
+    "training_scale.json": {
+      "bytes": 700520,
+      "sha256": "271ca726584733ed9ebfc2e97e35704d890ba6a8f6d30887307130472f6f32fb",
+      "source_crc32": 3764846760
+    },
+    "training_verts.json": {
+      "bytes": 1673081861,
+      "sha256": "6ba37108eb5869a56db321de89e2cb7e5a01973b455898992253c96159e4cd44",
+      "source_crc32": 3553809547
+    },
+    "training_xyz.json": {
+      "bytes": 45249268,
+      "sha256": "a81fa216a316cfeedd3d8fd3dc74f2bd935a5aeb01bdd09c3274a08efd69f57c",
+      "source_crc32": 1628442186
+    }
+  },
+  "official_linked_v2_archives_received_and_qualified": true,
   "official_toolbox_commit": "5ea4ab9763fea0eec988a52bfa563333cb16523f",
+  "qualification_observed_utc": "2026-11-01T21:51:06.118919+00:00",
+  "qualification_report": "results/freihand-full-source-intake-20261102.json",
   "raw_annotations_redistributed": false,
   "source_page": {
     "bytes": 25850,
@@ -65,5 +111,5 @@
     "sha256": "c5af10cd34e3ef1913132bde8871b353cb04fb355b5584a344de0f00a326f5ae",
     "url": "https://lmb.informatik.uni-freiburg.de/resources/datasets/FreihandDataset.en.html"
   },
-  "status": "Evaluation archive and six root annotations fully qualified; main archive continuation active at the separately timestamped observation"
+  "status": "Both official linked v2 archives received completely; all file CRCs, all root numeric values, shared paths and postexit complete SHA256 verified"
 }
