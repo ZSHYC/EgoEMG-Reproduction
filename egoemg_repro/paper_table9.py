@@ -140,3 +140,97 @@ def build_table9(repo):
             cell_weighting_specified=False,reported_left_right_consistency_bound_deg=2.,mae_deg=copy.deepcopy(PDF_REFERENCE)),
         source_files_sha256=sources)
     result['sha256']=_hash(result);return result
+
+
+ARTIFACT_FILES=('metrics.json','cells.csv','hand-gaps.csv','README.md')
+
+
+def _json_bytes(value):return (json.dumps(value,sort_keys=True,indent=2,ensure_ascii=False,allow_nan=False)+'\n').encode()
+
+
+def _csv_bytes(rows):
+    import csv
+    import io
+    stream=io.StringIO(newline='');writer=csv.DictWriter(stream,fieldnames=list(rows[0]),lineterminator='\n')
+    writer.writeheader();writer.writerows(rows);return stream.getvalue().encode()
+
+
+def _markdown(report):
+    lines=['# Table 9：保留完整结果的逐手轨迹明细','',
+        '以下30个单元由五份已完成、验证选模后的报告中的弧度绝对误差和／有效角时间计数独立重算；未新增训练或模型推理。','',
+        '**协议分列**：EMGFormer-S/M/L 为旧版保留配方，2,792 个测试手窗口，12000 输入／11490 输出；vemg2pose 与 NeuroPose 为原生配方、4,306 个测试手窗口，7790 输入，分别6000／7790 输出。两组并非同一受控测试人口。',
+        '各行沿用各自原模型的标签 mask、归一化、损失和时间对齐；未把中心评价填入轨迹表。','',
+        '| 方法 | 手 | Gesture (°) | User (°) | Both (°) | 测试手窗口总数 |',
+        '| --- | --- | ---: | ---: | ---: | ---: |']
+    def show(value,sign=False):return '—'if value is None else format(value,'+.6f'if sign else'.6f')
+    for model in report['models']:
+        for hand in HANDS:
+            cells=[c for c in report['cells']if c['method']==model['method']and c['hand']==hand]
+            lines.append('| '+ ' | '.join([model['method'],hand,*[show(c['mae_deg'])for c in cells],f"{model['requested_hand_windows']:,}"])+' |')
+    lines+=['','## 相对 PDF 显示数值的差（本次减 PDF，°）','',
+        'PDF 第23页 Table 9 为单纯 MAE，没有 SD 列；其逐手单元的用户／样本加权方式未明确。下列差值仅对照显示数字，不证明论文人口、聚合方式或配方等价。','',
+        '| 方法 | 手 | Gesture Δ | User Δ | Both Δ |','| --- | --- | ---: | ---: | ---: |']
+    for model in report['models']:
+        for hand in HANDS:
+            cells=[c for c in report['cells']if c['method']==model['method']and c['hand']==hand]
+            lines.append('| '+' | '.join([model['method'],hand,*[show(c['difference_from_paper_deg'],True)for c in cells]])+' |')
+    lines+=['',f"15组模型／划分的最大左右差为 **{report['max_absolute_hand_gap_deg']:.6f}°**。这是已有报告的描述性对账，不是独立的共享权重／镜像策略因果试验。",'',
+        '- [完整未舍入单元、来源与 PDF 对照](metrics.json)','- [30单元的误差和／有效角时间计数／MAE／差值](cells.csv)',
+        '- [15组左右手差值](hand-gaps.csv)','- [产物完整性记录](completion.json)','',
+        '本分析未替换正在等待的原生 EMGFormer 全轨迹评价，不增加科学实验设置。整篇论文复现尚未完成。','']
+    return '\n'.join(lines).encode()
+
+
+def _artifact_bytes(report):
+    return {'metrics.json':_json_bytes(report),'cells.csv':_csv_bytes(report['cells']),
+        'hand-gaps.csv':_csv_bytes(report['hand_gaps']),'README.md':_markdown(report)}
+
+
+def _completion(report,files):
+    result=dict(format='source_pinned_table9_artifact_completion_v1',report_sha256=report['sha256'],
+        files_sha256={n:hashlib.sha256(v).hexdigest()for n,v in files.items()},
+        source_reports_sha256={m['source_report']:m['source_report_sha256']for m in report['models']},
+        analysis_complete=True,full_paper_complete=False)
+    result['sha256']=_hash(result);return result
+
+
+def _output_location(repo,output,*,exists):
+    repo=_safe(repo);out=_safe(output,exists=exists)
+    for _,name,_ in SOURCE_REPORTS:
+        protected=(repo/name).parent
+        if out==protected or out in protected.parents or protected in out.parents:
+            raise ValueError('Table9 output overlaps a frozen source report directory')
+    return out
+
+
+def export_table9(repo,output):
+    import os
+    repo=_safe(repo);out=_output_location(repo,output,exists=False)
+    if out.exists():raise ValueError('fresh immutable Table9 output required')
+    report=build_table9(repo);files=_artifact_bytes(report);out.mkdir(mode=0o700)
+    for name,raw in files.items():
+        with(out/name).open('xb')as f:f.write(raw);f.flush();os.fsync(f.fileno())
+    if build_table9(repo)!=report:raise ValueError('Table9 original input/source generation changed during export')
+    with(out/'completion.json').open('xb')as f:f.write(_json_bytes(_completion(report,files)));f.flush();os.fsync(f.fileno())
+    return verify_table9(repo,out)
+
+
+def verify_table9(repo,output):
+    repo=_safe(repo);out=_output_location(repo,output,exists=True)
+    names=(*ARTIFACT_FILES,'completion.json');paths=[_safe(out/n)for n in names];guard=_StatGuard(paths)
+    report=build_table9(repo);files=_artifact_bytes(report)
+    expected={**files,'completion.json':_json_bytes(_completion(report,files))}
+    if set(p.name for p in out.iterdir())!=set(names)or any((out/n).read_bytes()!=raw for n,raw in expected.items()):
+        raise ValueError('Table9 output bytes differ from independent pinned-source reconstruction')
+    guard.check();return report
+
+
+def main():
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=('export','verify'))
+    parser.add_argument('--repo',required=True,type=Path);parser.add_argument('--output',required=True,type=Path)
+    args=parser.parse_args();value=(export_table9 if args.action=='export'else verify_table9)(args.repo,args.output)
+    print(json.dumps(dict(format=value['format'],sha256=value['sha256'],cells=len(value['cells']),full_paper_complete=False)))
+
+
+if __name__=='__main__':main()

@@ -96,3 +96,68 @@ def test_resealed_source_summary_cannot_replace_the_pinned_completed_report(tmp_
     m=api();copy_reports(tmp_path);p=tmp_path/'results/completed/emgformer-s/metrics.json';v=json.loads(p.read_text())
     v['completion_status']='training_complete';v['test']['sampling']['trajectory']['overall']['mae_deg']+=1;p.write_text(json.dumps(v))
     with pytest.raises(ValueError):m.build_table9(tmp_path)
+
+
+def export_api():
+    m=api()
+    if not hasattr(m,'export_table9')or not hasattr(m,'verify_table9'):pytest.fail('Table9 immutable export/verify missing')
+    return m
+
+
+@pytest.fixture(scope='module')
+def actual_output(tmp_path_factory):
+    m=export_api();root=tmp_path_factory.mktemp('actual-five-method-table9');m.export_table9(ROOT,root/'table')
+    return root/'table'
+
+
+def test_actual_export_has_all30_cells_and_verifies_exact_source_reduction(actual_output):
+    import csv
+    m=export_api();r=m.verify_table9(ROOT,actual_output)
+    with(actual_output/'cells.csv').open()as f:rows=list(csv.DictReader(f))
+    assert len(rows)==30 and {x['hand']for x in rows}=={'left','right'}
+    assert all(int(x['valid_angle_count'])>0 for x in rows)
+    assert len(list(csv.DictReader((actual_output/'hand-gaps.csv').open())))==15
+    assert not r['paper_numerical_equivalence_established']and not r['full_paper_complete']
+    assert all(x in(actual_output/'README.md').read_text()for x in ('2,792','4,306','Table 9','11490','6000','7790'))
+    with pytest.raises((ValueError,FileExistsError)):m.export_table9(ROOT,actual_output)
+
+
+@pytest.mark.parametrize('name',['metrics.json','cells.csv','hand-gaps.csv','README.md','completion.json'])
+@pytest.mark.parametrize('damage',['changed','missing'])
+def test_changed_output_generation_is_rejected(actual_output,name,damage):
+    m=export_api();p=actual_output/name;before=p.read_bytes()
+    try:
+        if damage=='changed':p.write_bytes(before+b'\n')
+        else:p.unlink()
+        with pytest.raises((ValueError,OSError)):m.verify_table9(ROOT,actual_output)
+    finally:p.write_bytes(before)
+
+
+def test_source_generation_change_inside_hash_is_rejected(tmp_path,monkeypatch):
+    m=api();copy_reports(tmp_path);p=tmp_path/'results/completed/emgformer-s/metrics.json';original=m._sha;done=False
+    def changed(path):
+        nonlocal done
+        digest=original(path)
+        if Path(path)==p and not done:done=True;p.write_bytes(p.read_bytes()+b' ')
+        return digest
+    monkeypatch.setattr(m,'_sha',changed)
+    with pytest.raises(ValueError):m.build_table9(tmp_path)
+
+
+def test_export_cannot_write_inside_a_frozen_model_report_directory():
+    m=export_api();target=ROOT/'results/completed/emgformer-s/forbidden-table9'
+    with pytest.raises(ValueError):m.export_table9(ROOT,target)
+    assert not target.exists()
+
+
+def test_separate_offline_cli_processes_reproduce_identical_artifact_bytes(tmp_path):
+    import hashlib,os,subprocess,sys
+    m=export_api();block=tmp_path/'block';block.mkdir()
+    (block/'sitecustomize.py').write_text("import builtins\noriginal=builtins.__import__\ndef blocked(name,*a,**k):\n if name.split('.')[0]in ('torch','pytorch_lightning'):raise RuntimeError('Table9 cannot import ML')\n return original(name,*a,**k)\nbuiltins.__import__=blocked\n")
+    env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONPATH=str(block)+os.pathsep+str(ROOT),PYTHONDONTWRITEBYTECODE='1')
+    source={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for _,name,_ in m.SOURCE_REPORTS}
+    for action,out in [('export',tmp_path/'one'),('export',tmp_path/'two'),('verify',tmp_path/'one')]:
+        p=subprocess.run([sys.executable,'-B','-m','egoemg_repro.paper_table9',action,'--repo',str(ROOT),'--output',str(out)],env=env,cwd=ROOT,capture_output=True,text=True,timeout=30)
+        assert p.returncode==0,p.stderr
+    assert {p.name:p.read_bytes()for p in(tmp_path/'one').iterdir()}=={p.name:p.read_bytes()for p in(tmp_path/'two').iterdir()}
+    assert all(hashlib.sha256((ROOT/n).read_bytes()).hexdigest()==h for n,h in source.items())

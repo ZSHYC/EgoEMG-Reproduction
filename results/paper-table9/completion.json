@@ -1,0 +1,20 @@
+{
+  "analysis_complete": true,
+  "files_sha256": {
+    "README.md": "80b49ddb668c51e81c3cb795cb45e7ba398220f5008405a08f02adf9b3e1e2dc",
+    "cells.csv": "2f01b09ff6130336e444681722da0e35333245089608ded996ae2097a592b47f",
+    "hand-gaps.csv": "3953529c03bda541667c90bdd6455ad9903cb091be3566f50cb7f8cbb38045c5",
+    "metrics.json": "d905d94afafe8ce37021e22d72e0a7244b3852f31a39922f0f7e96138a6dcada"
+  },
+  "format": "source_pinned_table9_artifact_completion_v1",
+  "full_paper_complete": false,
+  "report_sha256": "cf29e8a5c9f3a1186f1d5f5066f11bbee7b7c98ad0ac8edbb745c187202148a1",
+  "sha256": "4ac82be1441b8b427bd6d3071794682dadc714d0c63dfc72ceb80043770889d7",
+  "source_reports_sha256": {
+    "results/completed/emgformer-l/metrics.json": "c4e6bf1a00141040e4a0db3e649fea1425ffa912269bb45d7f93cb81a92eb6ee",
+    "results/completed/emgformer-m/metrics.json": "a85f9a11818684d4189af0c24d5bd7f7222059a9aa41360732c0743f5b648884",
+    "results/completed/emgformer-s/metrics.json": "1a263923298e3a033e43deee334e3d40266be77a439517db0cb1077a5e18c8ef",
+    "results/original-classic/neuropose/metrics.json": "b4b3e4cb8c96236e0369648bab4b99579b6cec4dedda2f53cc246a0d0db8e6a9",
+    "results/original-classic/vemg2pose/metrics.json": "ae6ca5322b2369568002733d8a10d4ab9f75d568a9dc02158ee56730a1a80fbe"
+  }
+}
