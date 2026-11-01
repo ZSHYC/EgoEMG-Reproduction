@@ -1,0 +1,87 @@
+{
+  "actual_execution_source_commit": "53272d738f571238b45ec3ab83540406c78eba63",
+  "device_hours_definition": "fit phase wall seconds / 3600 multiplied by one assigned device; not GPU utilization integral",
+  "excludes_pre_fit_full_input_admission_and_model_construction": true,
+  "excludes_separate_qualification_and_final_val_test_replay": true,
+  "field": "elapsed_fit_seconds",
+  "format": "actual_native_emgformer_complete_fit_wall_time_v1",
+  "full_paper_complete": false,
+  "gpu_active_kernel_time_measured": false,
+  "includes_sanity_validation_and_postfit_closure": true,
+  "includes_training_and_internal_validation": true,
+  "new_model_constructions": 0,
+  "new_training_updates": 0,
+  "observed_utc": "2026-11-01T12:54:29.964309+00:00",
+  "rows": [
+    {
+      "allocated_device_hours": 7.055943257324139,
+      "batch_size": 500,
+      "elapsed_fit_hours": 7.055943257324139,
+      "elapsed_fit_seconds": 25401.3957263669,
+      "epochs": 200,
+      "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+      "gpu_count": 1,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "optimizer_updates": 25000,
+      "original_artifact_sha256": {
+        "fit-result.json": "0ffb21370785eb9ab4a9ad5df4eda823995c8327ce6a2b4bba59bc0bf83a2394",
+        "identity.json": "8f2f33d583848b55d371ebaab0a6259e19dc02ba9fa797c79c580ce69036c457"
+      },
+      "original_complete_evidence_sha256": "24d8825b2b757e47822836142185d424cd6daaa0d1872a2aead1a6ca22b5bd0b",
+      "parameters": 3460134,
+      "precision": "bf16-mixed",
+      "size": "small",
+      "workers": 6
+    },
+    {
+      "allocated_device_hours": 7.4910389567262285,
+      "batch_size": 500,
+      "elapsed_fit_hours": 7.4910389567262285,
+      "elapsed_fit_seconds": 26967.740244214423,
+      "epochs": 200,
+      "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+      "gpu_count": 1,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "optimizer_updates": 25000,
+      "original_artifact_sha256": {
+        "fit-result.json": "50025b9afd3dec4088d5c7f83b0308269fa675ae4850aee2832c4632dffd2ebd",
+        "identity.json": "b86ed8a3eb69c639297242c95151cdc89b5e56b830490cd1379255944ff5fb90"
+      },
+      "original_complete_evidence_sha256": "ad59d65a0b32d791b85b25979e0ac2d901b95eab28c97cbc8556cc3b7d894c40",
+      "parameters": 6617382,
+      "precision": "bf16-mixed",
+      "size": "middle",
+      "workers": 6
+    },
+    {
+      "allocated_device_hours": 8.303334519327619,
+      "batch_size": 500,
+      "elapsed_fit_hours": 8.303334519327619,
+      "elapsed_fit_seconds": 29892.004269579425,
+      "epochs": 200,
+      "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+      "gpu_count": 1,
+      "gpu_name": "NVIDIA A800-SXM4-80GB",
+      "optimizer_updates": 25000,
+      "original_artifact_sha256": {
+        "fit-result.json": "022de6fd3f32e892befab416cf50f2c4c10042c3ed172680d644d0cd4b947f72",
+        "identity.json": "e2456674c7f189f950a48fa5d0e6e287571a45de2e07cb6720b6bb3ae888ab3d"
+      },
+      "original_complete_evidence_sha256": "c621682640ad1e6a162df706e743ca1dfc24d4b06470f0cee8a28267096ca029",
+      "parameters": 16320806,
+      "precision": "bf16-mixed",
+      "size": "large",
+      "workers": 6
+    }
+  ],
+  "rtx4090_equivalent_hours_reported": false,
+  "same_hardware_protocol_as_paper_established": false,
+  "source_files_match_published_completed_fit_proofs": true,
+  "source_nine_attributes_unchanged": true,
+  "timing_end": "fit-result field evaluation after closing loaders, source/witness guards and hashing final/last/selected model state",
+  "timing_source_file": "egoemg_repro/emgformer_train.py",
+  "timing_source_sha256": "3cc0be18daa1a405594a9c7c4998bd20d0efce26603c6069c823cb4d58e220e6",
+  "timing_start": "immediately before original Lightning Trainer.fit",
+  "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "validation_seconds_separately_measured": false
+}
