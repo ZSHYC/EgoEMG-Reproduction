@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+> **2026-11-01 密网格完整GT输入已核验，真实原生计算已开始**：[数据/原生流程证据](../results/native-dense-occlusion/README.md)覆盖ViT-S17,168手请求、RN18=11,114，实际β/姿态/变换/标志两次完整提取一致，6拥有者关闭；分别保留518/327个零姿态。30项数据检查＋20项入口检查通过。两路线真实双手MANO/遮挡小样本及独立原始包验证已结束，8阶段拥有者关闭，随后完整第一遍实际开始；各自后续独立核验及第二遍完整原生重放尚未结束。代码仍用官方1920×1080回退、原X镜像约定与固定原生几何数学，不声称实际视频/物理投影等价。模型预测、增益/SEM/Spearman和Figure13仍未完成，科学模型设置仍14。
+
 > **2026-11-01 密网格真实索引与来源覆盖验收**：[完整证据与剩余项](../results/native-dense-occlusion/README.md)已发布：ViT-S实际17,168唯一手请求，与PDF Figure13数量一致；RN18实际11,114。每路线两次原生重建完全一致、10拥有者关闭。另两进程从实际已完成的融合/视觉/EMG初始化来源重建分区，24次完整布尔行掩码独立核对、6拥有者关闭；ViT-S有1,280手窗口与融合训练输入范围相交，中心帧交集为0，原样本完整保留并披露。当前只完成密索引/输入覆盖分析；密GT几何、实际预测误差、bin/SEM/样条/Spearman及Figure13尚未完成，完整科学设置仍14。
 
 > **2026-11-01 标准几何统计导出验收（北京时间13:58）**：[完整聚合底表](../results/native-point-geometry/README.md)及[真实执行证明](../results/native-geometry-population-report-20261101.json)已经完成。一个完整导出进程、另一个独立原始链重算进程结果完全一致，19项新统计检查通过，6个本次拥有进程关闭并重新确认原20个几何拥有进程关闭。val有效1,505/零姿态71、test有效4,178/零姿态128；前方顶点全部越界6/20、全部顶点在相机后方/近相机28/42、存在可见顶点1,470/4,116。保留官方原始面积加权分数，测试均值0.4975225433仅为标准网格描述统计，不是论文自遮挡相关性。密1/4stride、真实模型预测/paired gain/SEM/Spearman、视频/物理投影等价和Figure13均仍欠；已完成科学模型设置仍14。
@@ -338,7 +340,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | Figure 10，p.18 | 11 源原始规模与约 712K 平衡混合物 | **来源调查已有，样本混合未重做** | 各源版本/许可/计数、确定性采样/去重/划分 manifest 与真实饼图；H2O/H2O-3D 身份待作者清单消歧 |
 | Figure 11，p.21 | 原 RGB 上 MANO 重投影及 UmeTrack/MANO 重建质量 | **未实现；外部资产依赖**；[IK][ik]与重投影相关官方入口已发布 | 随机抽样清单、原全帧/标定/变换、MANO 与 UmeTrack 资产、实际 overlay 和质量统计；crop 不能代替全帧重投影 |
 | Figure 12，p.26 | 59类Vision/Fusion散点，点大小=N、颜色=族群 | **旧版真实底表的原脚本参考及清晰展示PNG/SVG已生成并核验**；[图与口径](../results/paper-analysis/README.md)四视图×两公式共8组，原始绘图PDF中间物/颜色/点面积原样，另供完整范围/清晰标注；63产物重复逐字节一致 | 原脚本Top4字重叠、负收益标注循环、2.5度下界裁掉gesture-only的PinkyHook均披露并给补图；不证明PDF人口/数值精确等价 |
-| Figure 13，p.26 | 密采样自遮挡与视觉/融合误差、收益趋势和相关 | **[密索引与输入覆盖审计完成](../results/native-dense-occlusion/README.md)，实际17,168唯一手请求与PDF数量一致；密GT几何/预测/相关仍未运行**，见[几何准入](../results/legacy-geometry-complete-numeric-admission-20261101.json)；[评价][occlusion-eval]、[几何算法][occlusion]、[绘图][occlusion-plot]存在 | 仍需1/4stride密网格、原生GT mesh/相机/尺寸与过滤、逐样本底表、bin/SEM/趋势/Spearman；4,306标准网格唯一手样本不是论文17,168个密采样手样本 |
+| Figure 13，p.26 | 密采样自遮挡与视觉/融合误差、收益趋势和相关 | **[密索引/完整GT输入/来源覆盖完成，真实密几何在跑](../results/native-dense-occlusion/README.md)**：实际17,168唯一手请求；完整几何重放/预测/相关仍未验收，见[几何准入](../results/legacy-geometry-complete-numeric-admission-20261101.json)；[评价][occlusion-eval]、[几何算法][occlusion]、[绘图][occlusion-plot]存在 | 仍需1/4stride密网格、原生GT mesh/相机/尺寸与过滤、逐样本底表、bin/SEM/趋势/Spearman；4,306标准网格唯一手样本不是论文17,168个密采样手样本 |
 
 ## 数据、采集、标注与算法清单
 
@@ -365,7 +367,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy已核验，新原生RN18配方/数据及[两遍完整来源](../results/native-rn18-fusion-full-cohort-admission-20261101.json)已通过，真实预训练交接/模型/GPU/full仍欠；ViT-S+S原生CPU/GPU、真实训练分支交接及[结构图](../results/dataset-statistics/vision-fusion-architecture.md)已核验**。EMG为完成150轮的验证best133，视觉为完成124轮的last（按原加载规则）；ViT-S融合已完成150轮、最终测试、独立重放和报告核验。精确零是legacy明确适配，原生极小正态与PDF zero区别保留 |
 | D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[完整标准网格计算/重放](../results/native-point-geometry-standard-roles-20261101.json)及[聚合统计/独立重算](../results/native-point-geometry/README.md)完成**：5,882唯一手请求（5,683有效/199零姿态），20原几何＋6汇总拥有进程关闭；可见、越界、相机后方及逐手统计CSV/JSON均已导出 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格、模型误差/paired gain/Spearman和Figure13仍欠 |
-| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引和实际来源输入交集完成](../results/native-dense-occlusion/README.md)**：ViTS17,168、RN18=11,114，各两次完整原生重建；ViTS1,280手窗口与融合训练输入相交、中心交集0；密GT/预测/相关仍欠，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
+| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引和实际来源输入交集完成](../results/native-dense-occlusion/README.md)**：ViTS17,168、RN18=11,114，各两次完整原生重建；ViTS1,280手窗口与融合训练输入相交、中心交集0；完整GT数值输入已验收、真实原生几何及重放在跑，预测/相关仍欠，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
 
 ## 资产与外部依赖
 

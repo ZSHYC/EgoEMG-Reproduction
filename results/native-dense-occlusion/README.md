@@ -1,6 +1,6 @@
 # 原生密采样遮挡分析：索引与输入覆盖审计
 
-本目录记录Figure13所需密采样的真实准备证据。原始标准网格几何已另在[`../native-point-geometry/`](../native-point-geometry/README.md)完成；本目录尚无密网格GT几何、模型预测误差或相关系数结果。
+本目录记录Figure13所需密采样的真实准备证据。原始标准网格几何已另在[`../native-point-geometry/`](../native-point-geometry/README.md)完成；真实双手小样本原生几何与独立数组核验已完成，两条完整密网格计算/重放流程现已启动；完整几何、模型预测误差或相关系数仍未验收。
 
 ## 实际完整索引
 
@@ -45,9 +45,42 @@ assert first["identity"] == second["identity"]
 
 运行时设 `CUDA_VISIBLE_DEVICES=""`。RN18使用 `compose_rn18_fusion` 和 `recipe="rn18_s"`。返回值仅为只读索引及数据身份，不能当作模型、几何或完整科学实验的准入证据。22项原生索引检查和11项交集检查实际通过；两份完整运行证明分别见[索引](full-index-admission-20261101.json)与[来源交集](producer-footprint-audit-20261101.json)。
 
+## 完整GT数值输入与原生执行
+
+[完整GT数值输入证据](geometry-input-admission-20261101.json)已完成：两次独立全量准入，各自在提取前后重新核对全部37,778,344,975字节几何主体及元数据/β/标志来源，合计四次完整主体字节核对；全部导出typed数组和身份完全相同，6个拥有进程关闭。沿用先前完整有限值扫描的同一份已核验字节，未宣称重新扫描四次全部浮点数。读取采用流式SHA，未把12.7GB单文件整体读入Python字节对象。无Torch导入、学习模型/优化器/更新/CUDA，两个进程Python/NumPy随机状态未变。
+
+| 路线 | 时间点 | 左手非零姿态 | 右手非零姿态 | 左手零姿态 | 右手零姿态 | 手请求总数 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| vits_s | 8584 | 8332 | 8318 | 252 | 266 | 17168 |
+| rn18_s | 5557 | 5398 | 5389 | 159 | 168 | 11114 |
+
+零姿态、相机tracked、marker有效性及image stale等标志均保留。每条原生source request映射到其真实时间点/手，不使用标准网格分数的近邻替换。身份`8f2685496dfbbd272acf286db996c950693a27162f0b4bf0d92692d8dbcc2b7a`与导出数据只保留在私有服务器目录；公开文件只有统计/来源/哈希。
+
+[真实小样本与完整流程启动证明](native-probes-and-full-launch-20261101.json)：每路线实际完成一次双手原生执行及另一进程的原始包核验，共4个真实手点、2个实际右MANO几何层、4次原生mesh/遮挡调用；8个小样本阶段拥有进程全部关闭。随后每条路线的完整第一遍已实际开始；计划各两次完整原生执行与各自独立原始核验，完成后还须确认全部拥有进程退出、原生typed数组/行重放完全一致。当前未将这些计划计为完整几何结果。
+
+新入口调用未改动的已验收标准原生helper（源SHA`c2507b6d6308f3c9609a4931391a7863e7c4f3811a206b1bd485ead5a15f1634`）。独立验证直接编译该固定源码原`verify_geometry`的逐点验证循环，保留原投影/面积/可见性计算与严格行模式，未重写或优化已关闭的几何数学；只适配密网格IO、请求映射与完成范围。数据层30项检查、入口20项检查实际通过；零姿态单元测试使用模拟mesh函数，只证明IO/范围，真实MANO证明来自上述独立服务器小样本。
+
+原生入口提供`validate`、`run`与`verify`子命令。例如完整运行及独立核验：
+
+```bash
+CUDA_VISIBLE_DEVICES='' python -m egoemg_repro.occlusion_dense_geometry run \
+  --export /path/to/private/dense-export \
+  --evidence results/native-dense-occlusion/geometry-input-admission-20261101.json \
+  --recipe vits_s --mode complete_dense \
+  --metadata /path/to/legacy/metadata.npz \
+  --calibration /path/to/meta/GX010023_standard_calibration.json \
+  --upstream /path/to/pinned/official/repository \
+  --mano-assets /path/to/admitted/mano/assets --chumpy-dir /path/to/admitted/chumpy \
+  --output /path/to/new/native-dense-run
+CUDA_VISIBLE_DEVICES='' python -m egoemg_repro.occlusion_dense_geometry verify \
+  --output /path/to/new/native-dense-run
+```
+
+输入证明SHA固定为真实全量提取结果；任意自行重新封签的数据不获准。`validate`仅载入和选择，不运行几何；`bilateral_probe`只检验实际非零双手小样本，不能取得`complete_dense_geometry`。公开证明不会让缺失的私有数据或授权MANO模型自动出现。
+
 ## 尚未完成
 
-- 密网格所有实际姿态、世界/相机变换、标志与episodeβ提取、独立重建，以及原生GT MANO/遮挡的完整执行和重放。1947步长与标准7790步长不整除，不能用标准网格分数作近邻替换。
+- 完整原生GT MANO/遮挡的执行、独立原始核验、第二遍原生执行及完全重放验收仍在进行；真实姿态/世界相机/β/标志的完整提取与独立重建已经完成。1947步长与标准7790步长不整除，不能用标准网格分数作近邻替换。
 - 全部冻结视觉/EMG/融合模型的真实逐样本预测、无缺失的键连接、原生误差/转换与独立重放。RN18还需完成其正式训练及兼容初始化。
 - 官方过滤、自适应bin、SEM、加权三次样条、Spearman及图表与底表验收。
 - 实际episode视频尺寸、畸变与左右约定的物理投影一致性。1920×1080官方回退继续显式标注。

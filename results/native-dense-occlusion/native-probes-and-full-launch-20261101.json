@@ -1,0 +1,164 @@
+{
+  "actual_fresh_raw_verifications": 2,
+  "actual_genuine_bilateral_native_runs": 2,
+  "actual_mesh_function_calls": 4,
+  "actual_occlusion_calls": 4,
+  "actual_owned_probe_stages": 4,
+  "actual_right_mano_geometry_layers": 2,
+  "all_eight_original_probe_owners_closed": true,
+  "all_probe_source_runtime_and_packet_bytes_after_exit_exact": true,
+  "complete_dense_geometry": false,
+  "cuda_initialized": false,
+  "dense_grid_or_paired_gain_complete": false,
+  "existing_completed_scientific_settings": 14,
+  "figure13_reproduced": false,
+  "format": "actual_dense_native_bilateral_probes_and_full_launch_verified_v1",
+  "full_native_first_passes_started_both_recipes": true,
+  "full_native_owner_handles_matching_live": true,
+  "full_paper_complete": false,
+  "learned_pose_models_constructed": 0,
+  "optimizer_updates": 0,
+  "recipes": {
+    "rn18_s": {
+      "bundle_sha256": "b816d23e8aad8c2b30ae7b469478ed3fa585dee71dd9770ac874343811d6e539",
+      "expected_invalid_zero_pose_rows": 327,
+      "expected_unique_hand_points": 11114,
+      "full_first_pass_owner_handles": {
+        "descriptor_bindings": {},
+        "guardian": {
+          "pgrp": 1139301,
+          "pid": 1139301,
+          "sid": 1139301,
+          "start_ticks": "434230303",
+          "state": "R",
+          "uid": 1005
+        },
+        "owner": {
+          "pgrp": 1139018,
+          "pid": 1139018,
+          "sid": 1139018,
+          "start_ticks": "434229453",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker": {
+          "pgrp": 1139306,
+          "pid": 1139306,
+          "sid": 1139306,
+          "start_ticks": "434230307",
+          "state": "R",
+          "uid": 1005
+        }
+      },
+      "observed_full_progress": {
+        "completed_points": 568,
+        "expected_points": 11114,
+        "mode": "complete_dense",
+        "recipe": "rn18_s"
+      },
+      "original_full_controller_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1139018,
+          "start_ticks": "434229453"
+        },
+        "started_utc": "2026-11-01T06:36:29.186370+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1139017,
+          "start_ticks": "434229449"
+        }
+      },
+      "planned_complete_native_runs": 2,
+      "planned_total_raw_verifications_including_probe": 3,
+      "probe_identity_sha256": "7809c248d62cf0364c5125c894b396330eb5094a1ac739ec375489c100466966",
+      "probe_journal_file_sha256": "444765e2cafa6a92c49e4ee69ed7439eebd1c90037c4026ad8fc7ce6cdbbd676",
+      "probe_result_file_sha256": "39d2d4f73f8fb109d08f1543b822826c5f275fa3fd21917adca8e8ab9de1b683",
+      "probe_result_sha256": "e9a6473ed6fc3a1a0739a6a89934f6343b85e643a06a24ded7815f0968eaab1e",
+      "probe_scores": [
+        {
+          "hand": "left",
+          "occlusion_score": 0.5833200024986284,
+          "visible_ratio": 0.41667999750137164
+        },
+        {
+          "hand": "right",
+          "occlusion_score": 0.4163636784289175,
+          "visible_ratio": 0.5836363215710825
+        }
+      ]
+    },
+    "vits_s": {
+      "bundle_sha256": "ee0049e026100bc1cbdc5f1873f3aaa8c09966a86c925bc89a0c734340a9428d",
+      "expected_invalid_zero_pose_rows": 518,
+      "expected_unique_hand_points": 17168,
+      "full_first_pass_owner_handles": {
+        "descriptor_bindings": {},
+        "guardian": {
+          "pgrp": 1139288,
+          "pid": 1139288,
+          "sid": 1139288,
+          "start_ticks": "434230268",
+          "state": "R",
+          "uid": 1005
+        },
+        "owner": {
+          "pgrp": 1139010,
+          "pid": 1139010,
+          "sid": 1139010,
+          "start_ticks": "434229417",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker": {
+          "pgrp": 1139291,
+          "pid": 1139291,
+          "sid": 1139291,
+          "start_ticks": "434230272",
+          "state": "R",
+          "uid": 1005
+        }
+      },
+      "observed_full_progress": {
+        "completed_points": 572,
+        "expected_points": 17168,
+        "mode": "complete_dense",
+        "recipe": "vits_s"
+      },
+      "original_full_controller_handles": {
+        "automatic_retry": false,
+        "child": {
+          "pid": 1139010,
+          "start_ticks": "434229417"
+        },
+        "started_utc": "2026-11-01T06:36:28.830066+00:00",
+        "status": "running",
+        "wrapper": {
+          "pid": 1139009,
+          "start_ticks": "434229414"
+        }
+      },
+      "planned_complete_native_runs": 2,
+      "planned_total_raw_verifications_including_probe": 3,
+      "probe_identity_sha256": "131f78a0e82c05de28465e8eccbfd6f19c50401a77f66cb32b822a5d0423558c",
+      "probe_journal_file_sha256": "4d0fb673e558d0f8790256f88a2c6fc0f040f2c71385df78fbd1c96f67532df8",
+      "probe_result_file_sha256": "64fb59301c343603017e0893c1abec0a99c06c0bcda93e5deafb46d68f62c12c",
+      "probe_result_sha256": "364925868e1d76fc8c664fe74e5c1006fead32dc2f5275fbeac2ed2d4967efc3",
+      "probe_scores": [
+        {
+          "hand": "left",
+          "occlusion_score": 1.0,
+          "visible_ratio": 0.0
+        },
+        {
+          "hand": "right",
+          "occlusion_score": 1.0,
+          "visible_ratio": 0.0
+        }
+      ]
+    }
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "67faa195640c9d092ae80e861fed2ec12d60b411"
+}
