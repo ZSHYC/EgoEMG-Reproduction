@@ -1,0 +1,38 @@
+{
+  "actual_completed_neural_and_boolean_sources_consumed": true,
+  "actual_exit_code": 0,
+  "all_test_capsule_source_bytes_unchanged": true,
+  "checks": 21,
+  "figure7_reproduced": false,
+  "format": "original_qualitative_rgb_mesh_source_consumer_tests_v1",
+  "full_paper_complete": false,
+  "new_unit_snapshot": {
+    "egoemg_repro/qualitative_render.py": "a46dd25512c402b92b8dc03ce30d74a87411dd9e75738a8f0a19ab6aa8be1e80",
+    "tests/test_qualitative_render.py": "952deaa462754e36070da673799f7f053f324d552e6013a73fba81a840e1da2a",
+    "tests/test_qualitative_render_source.py": "53a2d6cd4f656b2c498901e33bc64b289eea9b856e00554a1754a07cfccd69d4"
+  },
+  "raw_log": ".....................                                                    [100%]\n21 passed in 162.92s (0:02:42)\n",
+  "raw_log_sha256": "6543fab01bc01857837607d6c11f9fd73a72783941926de1d3f6d45f82fe246f",
+  "result": {
+    "actor": {
+      "pgrp": 1621558,
+      "pid": 1621558,
+      "sid": 1621558,
+      "start_ticks": "437477481",
+      "state": "R",
+      "uid": 1005
+    },
+    "actual_exit_code": 0,
+    "construction_attempts": {
+      "learned_module": 0,
+      "optimizer": 0
+    },
+    "cuda_initialized": false,
+    "full_paper_complete": false,
+    "scientific_eligible": false,
+    "seconds": 163.08980271033943
+  },
+  "skipped": 0,
+  "source_base_commit": "96d266149d6ed8f6bf31862bfce60b694265efce",
+  "test_actor_independently_closed": true
+}
