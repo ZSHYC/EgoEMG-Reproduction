@@ -51,8 +51,14 @@
 - [x] Calculate per-row mean Euclidean vertex/joint error to GT in meters and millimeters, and full backend coordinate differences. Retain full input membership and raw per-row reductions; do not drop error cases or tune pose means, scale, mirroring, root or alignment.
 - [x] After all producing owners exit, independently rehash complete source/assets/outputs, reopen all typed arrays and recompute every aggregate/coverage count with0 model constructions and0 optimization.
 - [x] Perform one final review of this new complete geometry component after the actual full positive reference/independent execution and reader. Fix material findings in one phase; do not reopen old model/IK/annotation mathematics reviews.
-- [ ] Publish scoped aggregate evidence and update D07/FreiHAND status. Even a successful audit leaves author exact source selection/mixture, missing annotator assets, remaining data sources and whole-paper reproduction pending.
+- [x] Publish scoped aggregate evidence and update D07/FreiHAND status. Even a successful audit leaves author exact source selection/mixture, missing annotator assets, remaining data sources and whole-paper reproduction pending.
 
 ## Execution ruling
 
 This plan executes the already-authorized official-source route inline. The two real qualification rows protect the full run; they do not redefine its36,520-row target. Native IK's beta0/flat-mean/global-orientation policy is a separate original workflow and is not reused here.
+
+## Actual completion evidence
+
+Original setup, real2row qualification, full36,520row dual-backend pass and fresh model-free complete reader all terminated0; actual postexit packet SHA256 is`8f868c60e0d33b4577aa8903f188c8943d3e3346468f60d7c41901586314f11b`. Original10actors and extra collector closed. Worker SHA256c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2 is byte-identical in the public executor. Single fresh read-only final reviewer:Ready/Critical0/Important0/Minor0; no second review. Actual public-path13checks passed/0skip. Initial public source/result commit`e92c70bea26b0eeb559ef7fb88aaa593c298f0d4` was independently verified at2026-11-01T23:34:18.274065+00:00:actualpush0, anonymous exact branch ref, all8changed immutable rawURLs HTTP200 with exact bytes, tracked worktree clean. Publication metadata in this final bookkeeping commit records that prior verified source commit.
+
+This completes only this original-source geometry plan. Nonzero released-GT residuals and their scientific cause, author source selection/version/mixture, missing markers2mano implementation/recipe/checkpoint and the rest of the whole-paper objective remain open. No model score or full-paper completion is claimed.

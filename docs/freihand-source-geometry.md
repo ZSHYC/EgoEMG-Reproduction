@@ -36,3 +36,7 @@ EGOEMG_FREIHAND_GEOMETRY_CHECK_WORKER=scripts/paper/freihand_official_geometry.p
 ```
 
 其中private-check-root下需有`official/`和`licensed-mano-source/`两个已核验子目录。请求模板不是数据下载器或作者混合构建器；本单元不代替缺失的markers2mano模型、训练入口及权重。
+
+## 版本边界
+
+固定[官方README的MANO版本说明](https://github.com/lmb-freiburg/freihand/blob/5ea4ab9763fea0eec988a52bfa563333cb16523f/README.md#mano-version-and-freihand-v2)明确记载了模型版本变化及v2近似参数转换。这提供版本核查背景，不能直接证明本次非零评估残差的成因，也不能据此认定作者EgoEMG混合采用的版本已知。当前保留实际原函数输出和发布GT各自身份，后续诊断不能回写本次原始结果。

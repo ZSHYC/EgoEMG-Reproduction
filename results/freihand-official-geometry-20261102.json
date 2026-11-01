@@ -404,8 +404,19 @@
   "fixed_backend_coordinate_max_abs_bound_m": 1e-07,
   "format": "complete_official_freihand_geometry_source_qualification_v1",
   "full_paper_complete": false,
+  "initial_publication_verified": {
+    "all_changed_immutable_raw_http200_byte_exact": true,
+    "anonymous_branch_ref_exact": true,
+    "changed_files": 8,
+    "commit": "e92c70bea26b0eeb559ef7fb88aaa593c298f0d4",
+    "observed_utc": "2026-11-01T23:34:18.274065+00:00"
+  },
   "markers2mano_reproduced": false,
   "observed_utc": "2026-11-01T23:32:54.429806+00:00",
+  "official_version_context": {
+    "description": "The original authors document a MANO version change and approximate annotation conversion in v2. This does not by itself establish the cause of the measured evaluation residuals or the EgoEMG author-specific version.",
+    "source": "https://github.com/lmb-freiburg/freihand/blob/5ea4ab9763fea0eec988a52bfa563333cb16523f/README.md#mano-version-and-freihand-v2"
+  },
   "original_setup": {
     "actor": {
       "pid": 1949277,
@@ -424,6 +435,9 @@
     "source_sha256": "1347beb2afb0217ae2279ab62d0d37223dd77dad22396428fbf61ddfc07cefcd"
   },
   "public_contract_checks": {
+    "actual_public_path_checks": 13,
+    "actual_public_path_exit_code": 0,
+    "actual_public_path_log_sha256": "ee1db5279c9a044fc58a4198a02cacb2fa57db913251f82c638f925fa9b4cb77",
     "actual_server_checks": 13,
     "actual_server_exit_code": 0,
     "actual_server_log_sha256": "9936e66e782cf94c34b55abede497c9b756a3cc3b43bc06c3d8a8cbbf17b2837",
