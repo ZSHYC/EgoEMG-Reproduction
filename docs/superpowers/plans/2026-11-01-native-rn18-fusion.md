@@ -74,6 +74,8 @@
 
 ## Task 5: One review, actual qualification, full experiment and publication
 
+**Operational preparation:** `rn18_fusion_experiment.py` builds and runs20owned CLI phases (full-trained CPUreopen,10qualification,9formal), with a separate fresh native-fit acceptance action. Preparation can be implemented/tested while the producer trains; it does not close Task3/4full-positive acceptance, authorize an earlyGPU launch or satisfy this task. All scientific operators/fit/evaluation implementations remain unchanged. Whole-family review remains once after the actual full trained handoff succeeds.
+
 - [ ] One fresh-context review of this new family only, then one focused material RED→GREEN correction pass and relevant acceptance. No second review or closed ViT/WiLoR/geometry/RN backbone suite reruns.
 - [ ] Stage committed sources; finish actual full data/producer admission and fresh reopening. Wait for a truly available permitted GPU and exact predecessors; keep currently queued/reserved devices protected.
 - [ ] Qualify original batch200/10workers/BF16, fresh-process recovery, full validation/test/profile/report/raw verification and actual owned NVML consumer closure.

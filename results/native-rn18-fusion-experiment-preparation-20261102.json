@@ -1,0 +1,82 @@
+{
+  "actual_checks": {
+    "actual_exit_code": 0,
+    "failed": 0,
+    "log_sha256": "e6cdc4479d938d93b660e331d0afcc701c6fa435326ecd790b8e6692c7523a03",
+    "passed": 13,
+    "runtime": "existing server Python3.11; CUDA hidden; no new packages",
+    "seconds": 2.94,
+    "skipped": 0
+  },
+  "actual_cuda_qualification_completed": false,
+  "actual_owned_process_tests": [
+    "real ordered CPU workers",
+    "real exit7 plus live descendant cleanup stops later stage",
+    "actual output parent prepared before child"
+  ],
+  "actual_regressions_observed_red": [
+    "missing orchestrator:11failed",
+    "changed imported source:1failed",
+    "missing evaluation output parent:1failed"
+  ],
+  "actual_retained_fit_negative": {
+    "actual_completed_epochs": 2,
+    "actual_fit_result_sha256": "a86ad750974233c422e1bf780f3d1dae67616eef3185c511cb5279572a6ee350",
+    "actual_fixture_scope": "cpu_engineering",
+    "actual_optimizer_updates": 4,
+    "actual_rejections": {
+      "cuda_qualification": "actual native fusion budget, complete population or six-state recovery differs",
+      "full": "engineering fusion is not complete full training"
+    },
+    "all_rng_domains_unchanged": true,
+    "all_three_original_probe_actors_closed": true,
+    "cuda_initialized": false,
+    "independent_postexit_source_and_proof_exact": true,
+    "neural_constructors": 0,
+    "new_training_updates": 0,
+    "optimizer_constructors": 0,
+    "original_fixture_file_generations_unchanged": true,
+    "proof_file_sha256": "635e5c1f5ef191972eefbee470ebf791b802eb3581557c9b80d2530de1baef2c",
+    "result_file_sha256": "f92bfcfd7f407d79c18ebfa77f7efad3cd0b9cf176a79241eafaa31e5ff4ea5d",
+    "seconds": 15.466351345181465
+  },
+  "formal_fusion_fit_started": false,
+  "format": "native_rn18_fusion_original_batch_full_experiment_preparation_v1",
+  "full_paper_complete": false,
+  "full_trained_positive_handoff_verified": false,
+  "limitations": [
+    "prepared orchestration is not actual GPU qualification or completed150epoch fusion",
+    "full cotrain150/36150 producer and four-stage trained CPU handoff remain pending",
+    "one whole-family review remains after real full-positive handoff; no early GPU deployment",
+    "the existing14scientific settings and all model/reader/fit/eval operators remain unchanged"
+  ],
+  "observed_utc": "2026-11-01T19:11:52.348358+00:00",
+  "planned_execution": {
+    "early_stopping": false,
+    "formal_epochs": 150,
+    "formal_optimizer_updates": 46950,
+    "formal_stages": 9,
+    "fresh_formal_fit": true,
+    "native_cuda_batch_size": 200,
+    "native_cuda_workers": 10,
+    "owned_stages": 20,
+    "paired_test_raw_replay_and_report_verify": true,
+    "precision": "bf16-mixed",
+    "qualification_epochs": 2,
+    "qualification_optimizer_updates": 4,
+    "qualification_prefix_epochs": 1,
+    "qualification_prefix_optimizer_updates": 2,
+    "qualification_stages": 10,
+    "test_unique_hand_requests": 2792,
+    "trained_source_reopen": 1,
+    "validation_hand_requests": 1052,
+    "validation_native_replay_and_profile_before_test": true
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_files_sha256": {
+    "egoemg_repro/rn18_fusion_experiment.py": "7da07048ebf5160e62f8ad276f4d03f7c4ffba2168d1fd2d201ec220730627fd",
+    "tests/test_rn18_fusion_experiment.py": "c36d07bb5711bc3581ab98fed83b77e9c1c8b6f2f38a92f881dcc9aca7920083"
+  },
+  "whole_family_final_review_completed": false
+}
