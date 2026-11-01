@@ -1,0 +1,21 @@
+{
+  "actual_exit_code": 0,
+  "files_sha256": {
+    "egoemg_repro/native_ik_results.py": "6018115c9dc9536ab95d4d00dfd93e80b31a2e33d45d98bfc9c4460af1ad958d",
+    "scripts/paper/run_native_mano_ik.py": "ae510dcae1d168343f92e1a34a5a2daedefcaaf50f625d728dc1d511d4ecad89",
+    "tests/test_native_ik_results.py": "c197c63ea667b508e74f1472f418d7a22988c1f35e2afd3eac4954e1c9f92eba",
+    "tests/test_native_ik_workflow.py": "a41344b13bafb8ea97858ae1a2be034b15751f4a7aa07b37f0a07689c06bbef6"
+  },
+  "format": "native_ik_general_stream_results_workflow_new_tests_v1",
+  "full_paper_complete": false,
+  "missing_assembler_red_observed": true,
+  "missing_module_red_observed": true,
+  "observed_utc": "2026-11-01T13:49:38.680665+00:00",
+  "old_closed_model_math_and_input_runtime_suites_rerun": false,
+  "passed": 49,
+  "raw_log_sha256": "e981a7d6d606d47915bf92e8d8b173b7cd0e5820a12d4c1ab3a1e1d66d374ebd",
+  "scientific_eligible": false,
+  "seconds": 0.8,
+  "skipped": 0,
+  "structural_carriers_are_engineering_schema_tests_only": true
+}
