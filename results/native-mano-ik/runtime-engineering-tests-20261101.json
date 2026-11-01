@@ -1,0 +1,28 @@
+{
+  "format": "native_ik_runtime_and_real_frame_preflight_engineering_tests_v1",
+  "full_batch10096_gpu_qualification": false,
+  "full_new_ik_integration_review_complete": false,
+  "full_paper_complete": false,
+  "new_source_files_sha256": {
+    "assets/native_ik_dependency_sources.json": "da59ca6c488e08c409ebd3bc202fd244aa365b0e7c6fb3c75a7984710d65d75d",
+    "egoemg_repro/native_ik_runtime.py": "a8f1b495f193c921bb2a578f19396bc89de0f23e893e845505254959bbe9d541",
+    "tests/test_native_ik_runtime.py": "2aaa78f2d37c490afb87e6a67d1c37027c3a05086ecf1b8ba5c3af9eb0b69f72"
+  },
+  "no_mock_full_source_producer_positive": true,
+  "old_model_math_or_input_suite_rerun": false,
+  "ordinary_source_tests_use_existing_admitted_private_asset": true,
+  "original_synthetic_probe_rerun": false,
+  "real_frame_probe_preflight_seconds": 0.13,
+  "real_frame_probe_preflight_test_exit_code": 0,
+  "real_frame_probe_preflight_tests_passed": 7,
+  "real_frame_probe_source_sha256": "448e8ef94d44c1ff44698ba8a89b507d1980310faa4b02ab2cae232249436a8d",
+  "real_frame_probe_test_sha256": "233830f2482597353db533e83e732445271e73f23b5327f989501c522d36c72d",
+  "runtime_source_boundary_tests_passed": 15,
+  "runtime_source_test_exit_code": 0,
+  "runtime_source_test_raw_log_sha256": "0816d7fe9d6089d9e51de246697bdba96ab9936635d2965e4576780ceeeb9935",
+  "runtime_source_test_seconds": 2.1,
+  "runtime_source_tests_skipped": 0,
+  "source_admission_torch_free": true,
+  "source_and_asset_corruption_and_extra_provider_rejected": true,
+  "source_race_and_nine_attribute_changes_rejected": true
+}

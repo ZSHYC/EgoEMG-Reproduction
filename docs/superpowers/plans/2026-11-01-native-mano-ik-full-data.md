@@ -18,7 +18,7 @@
 - Original function uses right MANO for both hands, flat_hand_mean=True, beta=0, first3 pose values zeroed, X flip/fixed alignment and optional optimized rotation/translation. Do not substitute the separate occlusion-renderer policy or reinterpret the left-hand convention.
 - Preserve20-finger-angle output and two zero wrist inputs to FK. This work does not regenerate FE/RU wrists, recover the missing markers2mano model, or prove the legacy labels/PDF population equivalent.
 - CPU input admission imports no Torch or optimizer, records all input/source generations and complete pose hashes, and grants no completed label-regeneration or GPU permit.
-- No new GPU reservation until real default-batch qualification, source-bound execution and one final review of the complete new component. Existing GPU0/1/7 queues and foreign GPU3/6 remain protected.
+- No new full-data GPU queue until source-bound execution and one final review of the complete new component. Qualification uses a genuinely available permitted card after its exact predecessor closes; the full-label queue requires actual default-batch10096 qualification. Existing GPU0/1/7 queues and foreign GPU3/6 remain protected.
 
 ## Review Focus
 
@@ -41,13 +41,16 @@
 
 ## Task2: unchanged native batch optimizer and raw geometric reconstruction
 
-**Files:** create `scripts/paper/run_native_mano_ik.py`, `egoemg_repro/native_ik_results.py`, and focused tests.
+**Files:** create `scripts/paper/run_native_mano_ik.py`, `egoemg_repro/native_ik_runtime.py`, `egoemg_repro/native_ik_results.py`, `assets/native_ik_dependency_sources.json`, and focused tests. The runtime owns unchanged native dependency/model/optimizer calls; results owns typed persistence and model-free packet inspection; the CLI owns source-bound membership and process lifecycle.
 
 **Interfaces:** native batch producer consumes registered Task1 inputs and immutable selected `(hand,shard,batch)` membership; raw verifier consumes final angles/raw-angle/global-rotation/translation parameters, input identity and unchanged original assets.
 
+Runtime interface: `admit_ik_sources(upstream, manotorch, chumpy, mano_assets) -> IKSource`; `.identity`/`.check()` are Torch-free; `.build(device='cpu') -> IKRuntime`; `.optimize(canonical_poses, *, guard) -> dict` delegates original L-BFGS and retains final parameters/trace; `.rebuild(canonical_poses, angles, raw_angles, global_orient, trans_raw) -> dict` directly reconstructs original MANO/UmeTrack/matrix-exp geometry with0 optimization. Only source-admitted objects may build; the source archive is the exact25-file already-admitted manotorch revision and20-file Chumpy0.70, not a new installation or a guessed author checkout.
+
 - [ ] Write rejection tests before implementation for arbitrary batch membership, missing selected raw state, wrong hand/source/asset/policy, incomplete outputs, premature completion and mutated inputs during native consumption.
-- [ ] Invoke the original `optimize_batch` without changing its objective, L-BFGS updates, batching or stop conditions. Observe final optimizer parameters and actual step/closure counts while delegating each actual call to the original method; save raw and canonical input witnesses, angles, limits and unrounded geometry statistics.
-- [ ] Execute real bilateral engineering input first, then complete actual batch10096 qualification on a permitted device. Independently reconstruct MANO/UmeTrack FK/alignment and full per-frame residuals from final parameters with0 new IK updates; preserve genuine failures and closed actors. Do not rerun the closed synthetic probe.
+- [x] Invoke the original `optimize_batch` without changing its objective, L-BFGS updates or stop conditions. Runtime source boundaries15newchecks and probe preflight7checks passed without skips; genuine real bilateral CPUengineering used explicitly smaller2-row batches, retained final parameters and exact native return,61outersteps perhand/122total/1313closures. Source witnesses and raw geometric arrays retained privately.
+- [x] Execute real bilateral engineering input first and independently reconstruct MANO/UmeTrack/matrix-exp geometry with0 new IK updates. Actual4realframes,2produceroptimizations,4geometrylayersacrossproducer/freshreader; alltypedarrays/objectivesexact. Twofreshcompleteposeadmissions, postexitfull25.406GBrehash/source/asset9checks andall6originalactors+collectorclosed. Firstdependency compile ofunused originalPython2module and firstcapsule missingreference failures preserved; fixed packaging only, original source/operator unchanged. Closed synthetic probe not rerun.
+- [ ] Implement the general full-shard stream/raw-results/lifecycle CLI; the explicit four-frame probe is not a replacement. Then complete actual batch10096 qualification on a permitted device before full-label execution.
 - [ ] Complete relevant new tests and one final new-component review with one material fix phase. No old model/math review or second review.
 
 ## Task3: complete released rows, isolated labels and publication

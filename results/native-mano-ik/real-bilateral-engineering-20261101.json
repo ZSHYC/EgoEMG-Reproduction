@@ -1,0 +1,145 @@
+{
+  "actual_closed_original_process_count": 6,
+  "actual_closed_original_processes": [
+    {
+      "pid": 1514384,
+      "start_ticks": "436670079"
+    },
+    {
+      "pid": 1514385,
+      "start_ticks": "436670083"
+    },
+    {
+      "pgrp": 1514387,
+      "pid": 1514387,
+      "sid": 1514387,
+      "start_ticks": "436670092",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1514386,
+      "pid": 1514386,
+      "sid": 1514386,
+      "start_ticks": "436670088",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1515016,
+      "pid": 1515016,
+      "sid": 1515016,
+      "start_ticks": "436675128",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1515015,
+      "pid": 1515015,
+      "sid": 1515015,
+      "start_ticks": "436675124",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_pose_source_admissions_during_workflow": 2,
+  "actual_ended_utc": "2026-11-01T13:24:48.193438+00:00",
+  "actual_exit_code": 0,
+  "actual_geometry_frames_total": 4,
+  "actual_learned_pose_models_constructed": 0,
+  "actual_native_geometry_layers": 4,
+  "actual_native_optimizer_calls": 2,
+  "actual_native_optimizer_steps": 122,
+  "bundle_sha256": "59466f8d895b7631369c2037ca8b5d5004d251c4481597e17f258d318842f567",
+  "cuda_initialized": false,
+  "format": "actual_native_ik_real_bilateral_engineering_postexit_verified_v1",
+  "fresh_geometry_reader_optimizer_construction_and_step_denied": true,
+  "fresh_geometry_verifier_result_file_sha256": "c6397304a9310cb5a6392d93a3e25fc88f239788bc32867ef50d6621b38ba1fa",
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "hands": {
+    "left": {
+      "actual_ik_closure_evaluations": 621,
+      "actual_ik_optimizer_calls": 1,
+      "actual_ik_outer_steps": 61,
+      "final_angles_finite_and_inside_original_limits": true,
+      "fixed_model_state_sha256": "7593a095e60fc7de9932d9548ca28ea5dd9298d3cbad6d7601e074a1d0dd04ee",
+      "fresh_geometric_arrays_and_objective_exact": true,
+      "indices": [
+        331074,
+        331075
+      ],
+      "native_final_objective_mm2": 114.11334228515625,
+      "native_geometry_batch_size": 2,
+      "per_frame_mean_landmark_distance_mm": [
+        10.02575852834671,
+        10.02461955216021
+      ],
+      "per_frame_rms_landmark_distance_mm": [
+        10.682484394838745,
+        10.682285731403296
+      ],
+      "raw_state_file_sha256": "f7f8d1ff3010c078036caca59eb3d26d34efa81b9c6c11b1067d8ed9c9eea883"
+    },
+    "right": {
+      "actual_ik_closure_evaluations": 692,
+      "actual_ik_optimizer_calls": 1,
+      "actual_ik_outer_steps": 61,
+      "final_angles_finite_and_inside_original_limits": true,
+      "fixed_model_state_sha256": "7593a095e60fc7de9932d9548ca28ea5dd9298d3cbad6d7601e074a1d0dd04ee",
+      "fresh_geometric_arrays_and_objective_exact": true,
+      "indices": [
+        331074,
+        331075
+      ],
+      "native_final_objective_mm2": 99.1801986694336,
+      "native_geometry_batch_size": 2,
+      "per_frame_mean_landmark_distance_mm": [
+        9.134275776645817,
+        9.136351177763963
+      ],
+      "per_frame_rms_landmark_distance_mm": [
+        9.95744754966735,
+        9.960403929941556
+      ],
+      "raw_state_file_sha256": "f4ffdb9354ae3d71d6829fe8171c40a626c573120a8515444b7807fee1d3ef6e"
+    }
+  },
+  "input_identity_sha256": "8caead37a57825b3e75b497d20ceb1974431e6afb9781973027d3092aa9b52c6",
+  "native_default_batch10096_qualified": false,
+  "new_unit_snapshot": {
+    "base_commit": "de1b745db4f56c66f9726f779a2660c2416b8677",
+    "engineering_only": true,
+    "full_batch_qualification": false,
+    "new_unit_source_sha256": {
+      "assets/native_ik_dependency_sources.json": "da59ca6c488e08c409ebd3bc202fd244aa365b0e7c6fb3c75a7984710d65d75d",
+      "egoemg_repro/native_ik_runtime.py": "a8f1b495f193c921bb2a578f19396bc89de0f23e893e845505254959bbe9d541",
+      "scripts/paper/probe_native_mano_ik_real_frames.py": "448e8ef94d44c1ff44698ba8a89b507d1980310faa4b02ab2cae232249436a8d"
+    },
+    "snapshot_contains_uncommitted_unit": true
+  },
+  "observed_utc": "2026-11-01T13:29:04.676908+00:00",
+  "postexit_collector_actor": {
+    "pgrp": 1518236,
+    "pid": 1518236,
+    "sid": 1518236,
+    "start_ticks": "436702667",
+    "state": "R",
+    "uid": 1005
+  },
+  "postexit_collector_also_exited": true,
+  "postexit_collector_seconds": 23.308251445181668,
+  "postexit_collector_torch_unimported": true,
+  "postexit_complete_pose_payload_bytes_rehashed": 25406102400,
+  "postexit_complete_raw_source_witnesses_verified": true,
+  "postexit_frozen_source_file_count": 137,
+  "postexit_original_source_and_dependency_hashes_exact": true,
+  "postexit_source_nine_attributes_unchanged": true,
+  "producer_result_file_sha256": "f541f03b416c83bdea1c576f3de00efcdc734a8197a2013731ab406030ad2560",
+  "real_frame_annotation_accuracy_benchmark": false,
+  "scientific_eligible": false,
+  "scientific_model_training_updates": 0,
+  "source_base_commit": "de1b745db4f56c66f9726f779a2660c2416b8677",
+  "source_identity_sha256": "f5697debfd5191870c276a4c51617ee357875f95c1e8b092618fdfdfbac19b30",
+  "workflow_seconds": 92.64576450549066
+}
