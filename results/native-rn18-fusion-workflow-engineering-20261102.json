@@ -1,0 +1,49 @@
+{
+  "actual_cuda_qualification": false,
+  "actual_live_original_producer_observation": {
+    "actual_dependency": {
+      "full_paper_complete": false,
+      "full_trained_handoff_admitted": false,
+      "original_owners_live": {
+        "child": true,
+        "wrapper": true
+      },
+      "ready_for_independent_admission": false,
+      "scientific_eligible": false,
+      "status": "waiting"
+    },
+    "torch_imported": false
+  },
+  "actual_queue_launched": false,
+  "actual_tests": {
+    "actual_exit_code": 0,
+    "failed": 0,
+    "log_sha256": "8bef8056be3a33376ebe2c2716ada177d40ed6d7dda0bb21ae38ffae93fb1340",
+    "passed": 18,
+    "seconds": 11.41,
+    "skipped": 0
+  },
+  "coverage": [
+    "same original PID/start identities",
+    "source capsule hash plus file generation",
+    "actual complete zero exit required",
+    "all seven actual owned stages closed",
+    "all fourteen consumers and two producer owners closed",
+    "native GPU observation identities match original workers",
+    "original150epoch36150updates110tensor producer completion",
+    "child finalization is waited without restart or premature admission",
+    "both source-hash and terminal-read races reject",
+    "actual engineering80/2/6 cohort rejected before any full handoff output or learned constructor"
+  ],
+  "current_full_handoff_positive_verified": false,
+  "current_full_trained_native_constructor_verified": false,
+  "formal_full_fusion_fit_started": false,
+  "format": "rn18_native_full_producer_dependency_cpu_gate_engineering_v1",
+  "full_paper_complete": false,
+  "note": "readiness only allows a subsequent independent full data/producer reconstruction; synthetic gate records never admit trained weights",
+  "scientific_eligible": false,
+  "source_files_sha256": {
+    "egoemg_repro/rn18_fusion_workflow.py": "e0745ba638a86de62052f9ef886562a4fc7006336cc111a8159f417ae94372bb",
+    "tests/test_rn18_fusion_workflow.py": "6ffb26fd9354fa966a3882aee53e5ae2de04c2188c57d9aae2f89cdcb4712666"
+  }
+}
