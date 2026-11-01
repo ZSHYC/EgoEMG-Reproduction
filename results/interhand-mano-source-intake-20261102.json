@@ -1,0 +1,201 @@
+{
+  "all_input_generations_unchanged": true,
+  "all_json_keys_unique": true,
+  "all_nonnull_fit_schemas_and_values_verified": true,
+  "authors_exact_sample_mixture_reproduced": false,
+  "by_source_role": {
+    "test": {
+      "counts": {
+        "bilateral_fit_frames": 2184,
+        "captures": 8,
+        "finite_scalar_values": 553514,
+        "frames": 6890,
+        "left_fits": 4541,
+        "left_null": 2349,
+        "no_fit_frames": 0,
+        "right_fits": 4533,
+        "right_null": 2357,
+        "single_fit_frames": 4706,
+        "zero_pose_fits": 0
+      },
+      "fields": {
+        "pose": {
+          "count": 435552,
+          "max": 3.101956605911255,
+          "min": -2.9941399097442627,
+          "width": 48
+        },
+        "shape": {
+          "count": 90740,
+          "max": 2.9226937294006348,
+          "min": -5.917440414428711,
+          "width": 10
+        },
+        "trans": {
+          "count": 27222,
+          "max": 1.3067071437835693,
+          "min": -0.35533058643341064,
+          "width": 3
+        }
+      }
+    },
+    "train": {
+      "counts": {
+        "bilateral_fit_frames": 5423,
+        "captures": 27,
+        "finite_scalar_values": 1472601,
+        "frames": 18718,
+        "left_fits": 12064,
+        "left_null": 6654,
+        "no_fit_frames": 0,
+        "right_fits": 12077,
+        "right_null": 6641,
+        "single_fit_frames": 13295,
+        "zero_pose_fits": 0
+      },
+      "fields": {
+        "pose": {
+          "count": 1158768,
+          "max": 3.0559234619140625,
+          "min": -3.1134650707244873,
+          "width": 48
+        },
+        "shape": {
+          "count": 241410,
+          "max": 3.470184564590454,
+          "min": -8.223877906799316,
+          "width": 10
+        },
+        "trans": {
+          "count": 72423,
+          "max": 1.3743025064468384,
+          "min": -0.3889729380607605,
+          "width": 3
+        }
+      }
+    },
+    "val": {
+      "counts": {
+        "bilateral_fit_frames": 899,
+        "captures": 1,
+        "finite_scalar_values": 221735,
+        "frames": 2736,
+        "left_fits": 1796,
+        "left_null": 940,
+        "no_fit_frames": 0,
+        "right_fits": 1839,
+        "right_null": 897,
+        "single_fit_frames": 1837,
+        "zero_pose_fits": 0
+      },
+      "fields": {
+        "pose": {
+          "count": 174480,
+          "max": 2.9264185428619385,
+          "min": -2.912029981613159,
+          "width": 48
+        },
+        "shape": {
+          "count": 36350,
+          "max": 0.7053635716438293,
+          "min": -5.3661980628967285,
+          "width": 10
+        },
+        "trans": {
+          "count": 10905,
+          "max": 1.3305209875106812,
+          "min": -0.352692186832428,
+          "width": 3
+        }
+      }
+    }
+  },
+  "complete_three_parameter_files_received": true,
+  "files": {
+    "test": {
+      "bytes": 12303589,
+      "file_name": "InterHand2.6M_test_MANO_NeuralAnnot.json",
+      "http_status": 200,
+      "provider_mime_type": "application/json",
+      "provider_modified_time": "2022-06-28T16:46:17.990Z",
+      "sha256": "0fc89b6199f40cd25fce81a600950f1c02d012e43e755b9c552c0cd9de0af50f",
+      "source_drive_id": "1Ir2xwjAJSR8rd--_U2UrC_Uuljw9pl4v",
+      "source_url": "https://drive.google.com/file/d/1Ir2xwjAJSR8rd--_U2UrC_Uuljw9pl4v/view?usp=drivesdk"
+    },
+    "train": {
+      "bytes": 32821856,
+      "file_name": "InterHand2.6M_train_MANO_NeuralAnnot.json",
+      "http_status": 200,
+      "provider_mime_type": "application/json",
+      "provider_modified_time": "2022-06-28T16:47:08.262Z",
+      "sha256": "7eba8a09b9fd153d692a404c068fc82566b2274ada9fda85336c23a5070be9e8",
+      "source_drive_id": "1rTDQQbkUVBIrtsqRF24e4lbGAWb6rRTY",
+      "source_url": "https://drive.google.com/file/d/1rTDQQbkUVBIrtsqRF24e4lbGAWb6rRTY/view?usp=drivesdk"
+    },
+    "val": {
+      "bytes": 4918864,
+      "file_name": "InterHand2.6M_val_MANO_NeuralAnnot.json",
+      "http_status": 200,
+      "provider_mime_type": "application/json",
+      "provider_modified_time": "2022-06-28T16:48:49.836Z",
+      "sha256": "20a3c93425c43149d707e5c39fd156375a7eab9b9e7f4e433094960d93581363",
+      "source_drive_id": "1ry73BwPyR3Ui5XfOWuK9-LJZhC3D61HE",
+      "source_url": "https://drive.google.com/file/d/1ry73BwPyR3Ui5XfOWuK9-LJZhC3D61HE/view?usp=drivesdk"
+    }
+  },
+  "format": "all_three_interhand5fps_mano_source_json_numeric_audit_v1",
+  "full_interhand_dataset_received": false,
+  "full_paper_complete": false,
+  "independent_verification": {
+    "server_complete_numeric_pass_exact": true,
+    "server_postexit_readback": {
+      "actual_gpu_actions": 0,
+      "actual_model_runs": 0,
+      "all3_complete_source_files_rehashed_after_exit": true,
+      "all_local_and_server_numeric_statistics_exact": true,
+      "full_paper_complete": false,
+      "observed_utc": "2026-11-01T20:16:28.214978+00:00",
+      "original_server_writer_closed": true,
+      "python_version": "3.11.12",
+      "server_source_membership_exact": true,
+      "source_and_report_generations_unchanged": true
+    }
+  },
+  "markers2mano_model_recovered": false,
+  "mesh_or_markers_reconstructed": false,
+  "model_runs": 0,
+  "observed_utc": "2026-11-01T20:14:00.287492+00:00",
+  "official_semantics": {
+    "pose": "48 axis-angle coordinates minus MANO mean pose",
+    "shape": "10 shape coefficients",
+    "trans": "3 translation coordinates in meters"
+  },
+  "official_source_provenance": {
+    "records": {
+      "LICENSE": {
+        "bytes": 19333,
+        "http_status": 200,
+        "sha256": "336255dc30193e8e15d689d9481bb05673d89055718f3a96923a7ffb99adbbaf",
+        "url": "https://raw.githubusercontent.com/facebookresearch/InterHand2.6M/5d0e456f2345ef524bf71374141fbf3e11dd93f8/LICENSE"
+      },
+      "official-page.html": {
+        "bytes": 16670,
+        "http_status": 200,
+        "sha256": "573e819ee7905c90e56af5e28e2f871829c3f7a44567ee62e764240d8b048309",
+        "url": "https://mks0601.github.io/InterHand2.6M/"
+      }
+    },
+    "repository_revision": "5d0e456f2345ef524bf71374141fbf3e11dd93f8"
+  },
+  "original_null_slots_retained": true,
+  "publisher_bulk_sha256_supplied": false,
+  "raw_parameter_precision_and_values_unchanged": true,
+  "scientific_settings_added": 0,
+  "scope": "complete three parameter JSON files from the advertised5fpsv1 annotation link; source roles preserved; not complete image/annotation dataset or authors training mixture",
+  "source_rgb_images_received": false,
+  "total_bytes": 50044309,
+  "total_capture_role_pairs": 36,
+  "total_frames": 28344,
+  "total_nonnull_hand_fits": 36850,
+  "total_null_hand_slots": 19838
+}

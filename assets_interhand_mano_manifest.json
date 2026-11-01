@@ -1,0 +1,35 @@
+{
+  "authors_exact_mixture_reproduced": false,
+  "checksum_basis": "complete received source bytes independently rehashed locally and on server; not an authenticated publisher bulk SHA256",
+  "files": [
+    {
+      "drive_id": "1Ir2xwjAJSR8rd--_U2UrC_Uuljw9pl4v",
+      "expected_bytes": 12303589,
+      "filename": "InterHand2.6M_test_MANO_NeuralAnnot.json",
+      "group": "annotation_source_interhand5fps",
+      "role": "test",
+      "sha256": "0fc89b6199f40cd25fce81a600950f1c02d012e43e755b9c552c0cd9de0af50f"
+    },
+    {
+      "drive_id": "1rTDQQbkUVBIrtsqRF24e4lbGAWb6rRTY",
+      "expected_bytes": 32821856,
+      "filename": "InterHand2.6M_train_MANO_NeuralAnnot.json",
+      "group": "annotation_source_interhand5fps",
+      "role": "train",
+      "sha256": "7eba8a09b9fd153d692a404c068fc82566b2274ada9fda85336c23a5070be9e8"
+    },
+    {
+      "drive_id": "1ry73BwPyR3Ui5XfOWuK9-LJZhC3D61HE",
+      "expected_bytes": 4918864,
+      "filename": "InterHand2.6M_val_MANO_NeuralAnnot.json",
+      "group": "annotation_source_interhand5fps",
+      "role": "val",
+      "sha256": "20a3c93425c43149d707e5c39fd156375a7eab9b9e7f4e433094960d93581363"
+    }
+  ],
+  "format": "interhand26m_official5fps_v1_mano_parameter_source_inventory_v1",
+  "full_interhand_dataset_received": false,
+  "full_paper_complete": false,
+  "official_annotation_folder": "https://drive.google.com/drive/folders/12RNG9slv9i_TsXSoZ6pQAq-Fa98eGLoy",
+  "official_page": "https://mks0601.github.io/InterHand2.6M/"
+}
