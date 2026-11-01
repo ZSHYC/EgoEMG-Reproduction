@@ -64,15 +64,17 @@ Ordered join subcomponent also implemented: `occlusion_dense_predictions.join_de
 **Files:** new dense inference/replay and source-analysis adapters/tests, bottom tables/plots.
 **Interfaces:** source-bound completed producer admission and exact typed point join→native head predictions/raw radians→native degree/rounding columns→original plotting functions and independent aggregate verification.
 
-- [ ] RED→GREEN exact standalone/fusion center dispatch, full trained state/producer/config/footprint binding, genuine missing crop/mask handling and per-sample MAE conventions. Existing core model families stay closed.
-- [ ] RED→GREEN no missing/duplicate/reordered joins; source rounding/filter/bin/SEM/spline/Spearman boundary cases and raw-report reconstruction. Preserve original arrays and separate masked/pooled diagnostic metrics.
-- [ ] One new-unit review and one material fix pass, then relevant CPU acceptance. No second review or unrelated core suites.
-- [ ] Wait for genuinely available permitted GPU; run full frozen predictions for every native selected key, separate-process raw replay and complete analysis verification. No updates/test-selection/new training unless a required compatible producer is separately admitted.
+- [x] RED→GREEN exact standalone/fusion center dispatch, full trained state/producer/config/footprint binding, genuine missing crop/mask handling and per-sample MAE conventions. Existing core model families stay closed.
+- [x] RED→GREEN no missing/duplicate/reordered joins; source rounding/filter/bin/SEM/spline/Spearman boundary cases and raw-report reconstruction. Preserve original arrays and separate masked/pooled diagnostic metrics.
+- [x] One new-unit review and one material fix pass, then relevant CPU acceptance. No second review or unrelated core suites.
+- [x] Complete ViT-S native full frozen predictions on the official-supported CPU FP32 device after genuine B64 qualification: two actual17,168point/272batchpasses, new-process learned replay, original report and independent reconstruction allclosed. Postexit raw/input54file61.380GB/SHA/source/numericCSV/PNGverification passed,112explicitowning/dataworkeridentities+collectorclosed. No model updates or original GPU rescheduling.
+- [ ] Complete the RN18 route after its actual compatible producer training closes; preserve its11,114sourcekeys and independently bind its weights/inputs/replay/statistics. ViT-S completion cannot substitute for this route.
 
 ### Task 4: publication and full-paper accounting
 
-- [ ] Publish all source, aggregate CSV/JSON and scientific plots (PNG/SVG/PDF where useful), full population/crop/zero/geometry statistics, conversion/filter/fit details,ρ/p/SEM/bins/spline and actual run/owner/byte receipts; retain dataset/model/raw private payloads.
-- [ ] Mark only actual D20/Figure13 scope proved. Record exact legacy population/actual-video limitations and PDF/source numerical comparisons; keep every other full-paper obligation active until independently verified.
+- [x] Publish ViT-S full resultCSV/raw-radianCSV/binCSV/statisticsJSON/originalPNG/report/completion and postexit proof under results/native-dense-occlusion/vits-full; include actual16,650filter/16,409bin/241right-boundary populations, meanΔ0.119740877°,ρ0.023640393/p0.002283599 and source/PDF differences. Keep rawNPZ/model/dataset private.
+- [ ] Publish corresponding RN18 result artifacts only after actual complete source-bound execution; do not reuse ViT-S predictions.
+- [x] Mark only actual D20/Figure13 scope proved. ViT-S available-legacy pipeline is complete and scientific within its stated scope; PDF population/numerical/physical camera equivalence and RN18 remain unproven. Keep figure13_reproduced/full_paper_complete false and all other obligations active.
 
 ## Preflight rulings
 
