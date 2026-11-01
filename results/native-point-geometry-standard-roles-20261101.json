@@ -1,0 +1,110 @@
+{
+  "actual_fresh_raw_verifications": 4,
+  "actual_mesh_function_calls": 11764,
+  "actual_native_right_mano_geometry_layers": 4,
+  "actual_native_runs": 4,
+  "actual_occlusion_calls": 11366,
+  "actual_owned_stages": 8,
+  "actual_raw_native_packets_post_exit_rehashed": 11366,
+  "aggregate_visibility_offscreen_statistics_export_complete": false,
+  "all_source_input_runtime_and_raw_packet_post_exit_bytes_exact": true,
+  "all_twenty_original_owners_closed": true,
+  "both_standard_role_computations_complete": true,
+  "cuda_initialized": false,
+  "dense_grid_or_paired_gain_complete": false,
+  "exact_complete_typed_native_arrays_and_rows_replayed": true,
+  "existing_completed_scientific_settings": 14,
+  "figure13_reproduced": false,
+  "format": "actual_complete_standard_legacy_native_geometry_roles_verified_v1",
+  "full_paper_complete": false,
+  "geometry_policy": {
+    "actual_betas": true,
+    "depth_eps": 0.005,
+    "flat_hand_mean": false,
+    "global_orient": "native zero",
+    "hand_pose_slice": [
+      3,
+      48
+    ],
+    "left_faces_reverse": true,
+    "left_mirror_axis": "X",
+    "legacy_manifest_convention": "flip_local_z; source script X mirror retained and not claimed reconciled",
+    "right_mano_for_both_hands": true,
+    "window_half": 2,
+    "zero_beta_fallback": false
+  },
+  "learned_pose_models_constructed": 0,
+  "optimizer_updates": 0,
+  "paper_numerical_or_physical_projection_equivalence_established": false,
+  "resolution_policy": {
+    "actual_episode_video_dimensions_proven": false,
+    "distortion_applied": false,
+    "height": 1080,
+    "name": "author_fallback_1920x1080",
+    "original_intrinsics_scaling_unchanged": true,
+    "width": 1920
+  },
+  "roles": {
+    "test": {
+      "actual_counts_by_hand": {
+        "left": {
+          "native_geometry_rows": 2096,
+          "rows": 2153,
+          "zero_pose_rows": 57
+        },
+        "right": {
+          "native_geometry_rows": 2082,
+          "rows": 2153,
+          "zero_pose_rows": 71
+        }
+      },
+      "actual_exit_code": 0,
+      "actual_fresh_raw_verifications": 2,
+      "actual_mesh_function_calls": 8612,
+      "actual_native_runs": 2,
+      "actual_occlusion_calls": 8356,
+      "actual_raw_native_packets_rehashed": 8356,
+      "actual_unique_hand_points": 4306,
+      "bundle_sha256": "4fcc7f42a2bf15c336e5dff36cdfb3c5f02d8f34a58b4201cdafce2832be6fb4",
+      "native_output_journal_file_sha256": [
+        "69043fbfa7020b7b13efee7df796bc6585568fd4a15af9f1e579729c8eb8b025",
+        "69043fbfa7020b7b13efee7df796bc6585568fd4a15af9f1e579729c8eb8b025"
+      ],
+      "raw_workflow_file_sha256": "9da56386c7c3c77cd28717ae103f39f99fe07793e7dbdadaa417081ea8f695af",
+      "source_commit": "ef12cddd7199eb64f74eb0dfabb2db399cca171b"
+    },
+    "val": {
+      "actual_counts_by_hand": {
+        "left": {
+          "native_geometry_rows": 749,
+          "rows": 788,
+          "zero_pose_rows": 39
+        },
+        "right": {
+          "native_geometry_rows": 756,
+          "rows": 788,
+          "zero_pose_rows": 32
+        }
+      },
+      "actual_exit_code": 0,
+      "actual_fresh_raw_verifications": 2,
+      "actual_mesh_function_calls": 3152,
+      "actual_native_runs": 2,
+      "actual_occlusion_calls": 3010,
+      "actual_raw_native_packets_rehashed": 3010,
+      "actual_unique_hand_points": 1576,
+      "bundle_sha256": "a637fff264cfa70fe9801eb2b516f5a82de768ddbe36702788907fec4628625d",
+      "native_output_journal_file_sha256": [
+        "703b3e30119c6257d0a3b979bff5d0d03969307734033561557e7962fcc16632",
+        "703b3e30119c6257d0a3b979bff5d0d03969307734033561557e7962fcc16632"
+      ],
+      "raw_workflow_file_sha256": "cba650a53534fde41300819fef801da62af99d5191a6677334b6e63276cbf8d8",
+      "source_commit": "ef12cddd7199eb64f74eb0dfabb2db399cca171b"
+    }
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "total_unique_hand_points": 5882,
+  "unique_native_geometry_points": 5683,
+  "unique_zero_pose_rows_retained": 199
+}

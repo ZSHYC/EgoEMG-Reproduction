@@ -18,6 +18,7 @@ def api():return importlib.import_module('egoemg_repro.rn18_fusion_cohort')
 
 @pytest.fixture
 def files(tmp_path):
+    pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     data=tmp_path/'data';joint_store(data,n=9*W);crops=tmp_path/'crops';crop_store(crops,flat=True)
     np.repeat([0,1,2,3],[6*W,W,W,W]).astype(np.int8).tofile(data/'frame_split_id.dat')
     try:yield data,crops,config()

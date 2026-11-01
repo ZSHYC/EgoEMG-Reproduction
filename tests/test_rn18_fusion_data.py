@@ -24,12 +24,14 @@ def config():
 
 
 def dataset(data,crops,role,*,fraction=.12,norm=None,partitions=None):
+    pytest.importorskip('torch')
     m=api();cfg=config()
     return m.Rn18FusionDataset(data,partitions or m.build_rn18_fusion_partitions(LegacyStore(data),fraction),crops,
         upstream=UPSTREAM,config=cfg,normalization=m.rn18_fusion_normalization(UPSTREAM,cfg)if norm is None else norm,role=role)
 
 
 def test_native_hand_vector_normalization_and_failed_declared_namespace_are_explicit():
+    pytest.importorskip('torch')
     m=api();n=m.rn18_fusion_normalization(UPSTREAM,config())
     from egoemg.datasets.egoemg_memmap_dataset import EgoEmgMemmapDataset
     assert n['canonical_normalization_errors_by_hand']==dict(left='KeyError',right='KeyError')
@@ -110,6 +112,7 @@ def test_episode_tail_preserves_exact_randint_upper_and_offset(tmp_path,leftover
 
 @pytest.mark.parametrize('damage',['norm_vector','partition','dtype','layout_after_admission','file_after_admission'])
 def test_changed_native_inputs_or_cached_layout_cannot_pass(tmp_path,damage):
+    pytest.importorskip('torch')
     m=api();data=tmp_path/'data';joint_store(data,n=3*W);crops=tmp_path/'crops';crop_store(crops)
     if damage=='norm_vector':
         norm=m.rn18_fusion_normalization(UPSTREAM,config());norm['hands']['left']['std']=[1.]

@@ -1,0 +1,69 @@
+{
+  "actual_counts_by_hand": {
+    "left": {
+      "native_geometry_rows": 749,
+      "rows": 788,
+      "zero_pose_rows": 39
+    },
+    "right": {
+      "native_geometry_rows": 756,
+      "rows": 788,
+      "zero_pose_rows": 32
+    }
+  },
+  "actual_exit_code": 0,
+  "actual_fresh_raw_verifications": 2,
+  "actual_mesh_function_calls": 3152,
+  "actual_model_optimizer_updates": 0,
+  "actual_native_right_mano_geometry_layers": 2,
+  "actual_native_runs": 2,
+  "actual_occlusion_calls": 3010,
+  "actual_owned_stages": 4,
+  "actual_raw_native_packets_rehashed": 3010,
+  "actual_unique_hand_points": 1576,
+  "all_capsule_runtime_input_and_packet_bytes_post_exit_exact": true,
+  "all_ten_original_owners_closed": true,
+  "bundle_sha256": "a637fff264cfa70fe9801eb2b516f5a82de768ddbe36702788907fec4628625d",
+  "complete_standard_role": true,
+  "cuda_initialized": false,
+  "dense_grid_or_paired_gain_complete": false,
+  "exact_complete_typed_native_arrays_and_rows_replayed": true,
+  "existing_completed_scientific_settings": 14,
+  "format": "actual_complete_native_standard_role_geometry_post_exit_verification_v1",
+  "full_paper_complete": false,
+  "geometry_policy": {
+    "actual_betas": true,
+    "depth_eps": 0.005,
+    "flat_hand_mean": false,
+    "global_orient": "native zero",
+    "hand_pose_slice": [
+      3,
+      48
+    ],
+    "left_faces_reverse": true,
+    "left_mirror_axis": "X",
+    "legacy_manifest_convention": "flip_local_z; source script X mirror retained and not claimed reconciled",
+    "right_mano_for_both_hands": true,
+    "window_half": 2,
+    "zero_beta_fallback": false
+  },
+  "learned_pose_models_constructed": 0,
+  "native_output_journal_file_sha256": [
+    "703b3e30119c6257d0a3b979bff5d0d03969307734033561557e7962fcc16632",
+    "703b3e30119c6257d0a3b979bff5d0d03969307734033561557e7962fcc16632"
+  ],
+  "raw_workflow_file_sha256": "cba650a53534fde41300819fef801da62af99d5191a6677334b6e63276cbf8d8",
+  "resolution_policy": {
+    "actual_episode_video_dimensions_proven": false,
+    "distortion_applied": false,
+    "height": 1080,
+    "name": "author_fallback_1920x1080",
+    "original_intrinsics_scaling_unchanged": true,
+    "width": 1920
+  },
+  "role": "val",
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "scope": "one complete standard legacy role; full-paper/dense-grid/model-prediction conclusions are separate",
+  "source_commit": "ef12cddd7199eb64f74eb0dfabb2db399cca171b"
+}

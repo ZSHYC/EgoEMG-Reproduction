@@ -1,5 +1,11 @@
 # 全论文复现状态与证据清单
 
+> **2026-11-01 标准几何完整两角色验收（北京时间13:46）**：[真实两角色证明](../results/native-point-geometry-standard-roles-20261101.json)覆盖val1,576/test4,306唯一手点、每角色两遍原生计算及两次独立原始核验。5,683有效几何点＋199保留零姿态，4实际右MANO几何层、11,764原函数调用/11,366遮挡调用，20原拥有进程全部关闭，11,366数组包及来源退出后SHA一致。完整标准网格计算/重放现已结束；可见/越界统计及聚合图表导出仍欠，密1/4stride、模型预测/增益/相关、真实视频及物理等价未证明。
+
+> **2026-11-01 RN18融合完整来源与几何验证集（北京时间13:42）**：[RN18新路线](native-rn18-fusion.md)实际81检查及独立CPU重开通过，[真实完整输入两遍](../results/native-rn18-fusion-full-cohort-admission-20261101.json)确认53消费payload/61,377,230,438bytes、62,470／1,052／2,792唯一手样本、6原拥有进程关闭。只证明分区兼容的原生S200/0.02不能替代原cotrain-S150/0.01初始化；后者需在本留出区单独准备。实际融合模型/GPU/正式fit仍欠。
+
+> [完整几何val角色](../results/native-point-geometry-complete-val-20261101.json)1,576手点两遍原生计算/独立核验完成，1,505有效mesh＋71保留零姿态，10原拥有进程关闭，3,010原生包退出后SHA一致。测试两遍4,306点已计算，当前最后原始核验仍在跑；标准两角色汇总、密网格/paired gain/真实视频/PDF物理等价未完成，科学设置仍14。
+
 > **2026-11-01 几何边界修复与完整网格启动（北京时间13:01）**：[单次审查修复及真实验收](../results/native-point-geometry-review-corrections-20261101.json)关闭3项Important；47个真实回归先失败，当前83项普通检查通过，另1项合法MANO资产测试实际通过。两次双手原生执行逐数组/分数完全一致，12个拥有进程均关闭；已完成输入→实际β/MANO→世界/相机→原生遮挡集成。[标准val/test完整角色](../results/native-point-geometry-full-launch-20261101.json)共5,882手点、每角色两遍原生计算与独立核验已启动；仍在跑，不增加科学设置。回退1920×1080、未用畸变和镜像约定差异明确保留；密网格/真实视频/增益相关仍欠。
 
 > **2026-11-01 ResNet完整来源后续GPU队列（北京时间13:01）**：[三条后台队列](../results/native-resnet-full-cli-queue-20261101.json)均确认真实存活，分别等待GPU0/1/7的精确原生EMGFormer前序及全部消费者正常关闭，再执行原batch900/400/180、8workers/BF16的第2→4轮恢复、完整val/test原生与重放资格；通过后才在全新目录正式150轮上限训练并完成最终报告。没有抢占或重启原有训练，当前未开始新GPU资格/正式fit；科学完成设置仍14。
@@ -353,8 +359,8 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D15，§4.3/C.1 | 左右 remapping、dropout/frequency mask/noise/jitter 等 EMG 增强 | **现有仅声明的官方 rotation 适配**；不能称覆盖 PDF 全部增强。classic 默认/with_aug 与实际归一化由 resolved 配置裁决，缺真实新配方训练 |
 | D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M/L legacy完整运行已核验**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
-| D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy已核验；ViT-S+S原生CPU/GPU、真实训练分支交接及[结构图](../results/dataset-statistics/vision-fusion-architecture.md)已核验**。EMG为完成150轮的验证best133，视觉为完成124轮的last（按原加载规则）；ViT-S融合已完成150轮、最终测试、独立重放和报告核验。精确零是legacy明确适配，原生极小正态与PDF zero区别保留 |
-| D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **真实双手原生集成与独立重放通过，完整标准网格在跑**；[修复验收](../results/native-point-geometry-review-corrections-20261101.json)含实际β、MANO/world→camera/K/原遮挡，83普通检查+单独1真实资产测试；[val/test各两遍](../results/native-point-geometry-full-launch-20261101.json)共5,882手点尚未全量结束 | 原视频缺失，明确官方1920×1080回退且未用畸变；左右约定物理一致性和实际视频尺寸未证明，密网格仍欠；不得用crop遮挡代替 |
+| D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy已核验，新原生RN18配方/数据及[两遍完整来源](../results/native-rn18-fusion-full-cohort-admission-20261101.json)已通过，真实预训练交接/模型/GPU/full仍欠；ViT-S+S原生CPU/GPU、真实训练分支交接及[结构图](../results/dataset-statistics/vision-fusion-architecture.md)已核验**。EMG为完成150轮的验证best133，视觉为完成124轮的last（按原加载规则）；ViT-S融合已完成150轮、最终测试、独立重放和报告核验。精确零是legacy明确适配，原生极小正态与PDF zero区别保留 |
+| D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[val/test全部标准点两遍原生计算与独立核验完成](../results/native-point-geometry-standard-roles-20261101.json)**：5,882唯一手点（5,683有效/199零姿态），20原拥有者关闭，11,366数组包退出后SHA一致；可见/越界与聚合统计导出仍欠 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格、模型误差/paired gain/Spearman和Figure13仍欠 |
 | D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **未运行**，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
 
 ## 资产与外部依赖

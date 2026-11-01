@@ -56,3 +56,5 @@ EMGFormer S/M/L轨迹值来自原训练器最终测试；其独立锁定复算�
 2026-11-01补充：[ResNet三种完整来源各两遍准入](../native-resnet-full-cohort-admission-20261101.json)已完成，GPU资格/正式训练仍待执行，没有新增MAE行。
 
 2026-11-01 13:01补充：[几何修复与真实双手原生重放](../native-point-geometry-review-corrections-20261101.json)完成，完整标准val/test网格正在执行；密1/4stride与paired gain/Spearman仍欠，不能填Figure13。没有新增完整科学设置或MAE。
+
+2026-11-01 13:42补充：[RN18融合原生完整输入](../native-rn18-fusion-full-cohort-admission-20261101.json)两遍校验与所有拥有者关闭已完成；模型/初始化/GPU/full仍待。几何val两遍原生计算及核验结束、测试最后核验在跑；这些均不增加14项模型设置或新的MAE，Figure13仍未复现。
