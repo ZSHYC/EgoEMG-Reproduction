@@ -1,0 +1,147 @@
+{
+  "actual_complete_index_passes": 4,
+  "actual_exit_code": 0,
+  "actual_learned_pose_models_constructed": 0,
+  "actual_owned_stages": 4,
+  "all_capsule_and_output_bytes_after_exit_exact": true,
+  "all_ten_original_owners_closed": true,
+  "all_three_rng_domains_unchanged_in_all_four_processes": true,
+  "bundle_sha256": "a454922478f952a8b32d3f068a91c86b25c5f7ea469db00438938639b8705814",
+  "cuda_initialized": false,
+  "exact_typed_point_arrays_and_identities_rebuilt": true,
+  "existing_completed_scientific_settings": 14,
+  "figure13_reproduced": false,
+  "format": "actual_complete_native_dense_index_admission_verified_v1",
+  "full_index_input_files": 3,
+  "full_input_bytes_hashed": true,
+  "full_paper_complete": false,
+  "full_producer_footprint_intersections_measured": false,
+  "independent_unseen_input_footprints_proven": false,
+  "native_geometry_executed": false,
+  "optimizer_constructions": 0,
+  "optimizer_updates": 0,
+  "raw_workflow_file_sha256": "1c31afab0c4bb32e5b7bcf57ba2fc4536b16c1f2561ca27d06ca612f6942c137",
+  "recipes": {
+    "rn18_s": {
+      "dense_stride": 3000,
+      "episode_records": 41,
+      "groups": [
+        {
+          "hand": "left",
+          "points": 2136,
+          "split": "user"
+        },
+        {
+          "hand": "right",
+          "points": 2136,
+          "split": "user"
+        },
+        {
+          "hand": "left",
+          "points": 2997,
+          "split": "gesture"
+        },
+        {
+          "hand": "right",
+          "points": 2997,
+          "split": "gesture"
+        },
+        {
+          "hand": "left",
+          "points": 424,
+          "split": "both"
+        },
+        {
+          "hand": "right",
+          "points": 424,
+          "split": "both"
+        }
+      ],
+      "identity_files_sha256": [
+        "d5e5268a949b5741766cfe21dd3d81a97d10cc08da95f7e0583bd941eb00ef97",
+        "d5e5268a949b5741766cfe21dd3d81a97d10cc08da95f7e0583bd941eb00ef97"
+      ],
+      "identity_sha256": "8067516e982bb2b92c659bb70562c379603ca3a0699438c71c0168b33d2347ea",
+      "input_files_sha256": {
+        "frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+        "manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+        "metadata": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+      },
+      "max_samples_per_split": 0,
+      "model_or_geometry_permit": false,
+      "point_files_sha256": [
+        "a95e83098a2d1ab2f18e2783c7fdb3472bd6df1453359c646cbd7b6772dd2d3f",
+        "a95e83098a2d1ab2f18e2783c7fdb3472bd6df1453359c646cbd7b6772dd2d3f"
+      ],
+      "repeat": 1,
+      "selection": "native episode-start grid, center split only",
+      "total_rows": 66161725,
+      "unique_hand_points": 11114,
+      "upstream_experiment": "fusion/fusion_rn18_s_center_8ch",
+      "window_length": 12000,
+      "windows_crossing_center_split": 3504
+    },
+    "vits_s": {
+      "dense_stride": 1947,
+      "episode_records": 41,
+      "groups": [
+        {
+          "hand": "left",
+          "points": 3309,
+          "split": "user"
+        },
+        {
+          "hand": "right",
+          "points": 3309,
+          "split": "user"
+        },
+        {
+          "hand": "left",
+          "points": 4627,
+          "split": "gesture"
+        },
+        {
+          "hand": "right",
+          "points": 4627,
+          "split": "gesture"
+        },
+        {
+          "hand": "left",
+          "points": 648,
+          "split": "both"
+        },
+        {
+          "hand": "right",
+          "points": 648,
+          "split": "both"
+        }
+      ],
+      "identity_files_sha256": [
+        "49e4c87e5f4fb1305f0917dbc9e4d1f6ff9f8b5de77292bb747afac3ce992626",
+        "49e4c87e5f4fb1305f0917dbc9e4d1f6ff9f8b5de77292bb747afac3ce992626"
+      ],
+      "identity_sha256": "ed72111b07b1ce29ebcd4bc4c248317d5b934c666ce4edd744869dca3ffda845",
+      "input_files_sha256": {
+        "frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+        "manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+        "metadata": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+      },
+      "max_samples_per_split": 0,
+      "model_or_geometry_permit": false,
+      "point_files_sha256": [
+        "f3146190787004e8a76510c4e36ecd974e4a2991cae9cad0fbfeae1c7b6fd988",
+        "f3146190787004e8a76510c4e36ecd974e4a2991cae9cad0fbfeae1c7b6fd988"
+      ],
+      "repeat": 1,
+      "selection": "native episode-start grid, center split only",
+      "total_rows": 66161725,
+      "unique_hand_points": 17168,
+      "upstream_experiment": "fusion/fusion_vits_s_center_16ch_wl7790",
+      "window_length": 7790,
+      "windows_crossing_center_split": 3518
+    }
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "e73a4e4f166f669e24a9952a9c346ff60c0630df"
+}

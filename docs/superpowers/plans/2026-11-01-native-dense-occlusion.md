@@ -38,8 +38,8 @@
 
 ### Task 2: actual full dense populations and geometric inputs
 
-**Files:** new collector/CLI, tests and `results/native-dense-occlusion/` evidence; reuse closed finite-scan/source/kernel helpers without modifying them.
-**Interfaces:** exact fresh grid rebuild→typed point payload→numeric geometry admission, separate complete-mode identity; include independently reconstructed training/validation footprint intersections by model producer.
+**Files:** `egoemg_repro/occlusion_dense_footprints.py`, `tests/test_occlusion_dense_footprints.py`, new collector/CLI and `results/native-dense-occlusion/` evidence; reuse closed finite-scan/source/kernel helpers without modifying them.
+**Interfaces:** exact fresh grid rebuild→typed point payload→numeric geometry admission, separate complete-mode identity; `summarize_dense_footprints(points,partitions)` checks paired typed keys and uses closed union/intersection primitives to count unique temporal rows and separate overlapping hand requests. Include independently reconstructed training/validation footprint intersections by model producer.
 
 - [ ] Two detached fresh processes reopen all real legacy index inputs and both recipes; verify all keys/counts/order/typed bytes and source/model footprint diagnostics. Report actual unique counts, not a preset17168.
 - [ ] Extract every selected real pose/world/camera/tracked/stale/valid flag and actual episodebeta from fully admitted eight files. Verify full bytes/numerics/source/guards and fresh reconstruction; no learned model or native geometry permit from the index alone.
