@@ -1,0 +1,94 @@
+{
+  "chumpy_files": {
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/__init__.py": "f3521d4948776a6e6f2b54c5b02b28c4645c549493d36ef234637121e82d8875",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/api_compatibility.py": "77a7b63ec80e5c168efe77595635aa83632e350179d056787562e2dd3734755b",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/ch.py": "269f2a1cf22bf5ab0a659f7d0ebb516858d8aef70dc8c7a4e0537e84355b39e1",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/ch_ops.py": "7f53badde6669a34074c2a6e5bbea4dbcd234e5f805dfc67a34aa8b30f3b80bd",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/ch_random.py": "d83ea446a0f772c053c3bcaccd468b6c8323ecc07464609d209ad42f5fbfaa0c",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/extras.py": "062554d4514eb119a8665ff70e02b1afcfe7d9aff6b50b45c21e49ecc4a5ff4d",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/linalg.py": "697fc203be296b84641b236ad6dfe92357bf6c65cfddac311ce65de6d281cc1f",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/logic.py": "e837fa51e081dd7c6c2ac3b9559476b5be1615998d48f806c4f77e809248fce7",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/monitor.py": "7b0d58012ec709b44e6d6352901ac4d0c07c07792036eb3377a359597c74ebde",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/np_tensordot.py": "831962dac3321c68bb8c45c56cbec80bea419a95d450060daeac1bac89975271",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/optimization.py": "c4823b3103b2909bc77f912ed6fd0afae5b4257e2bf6130c11d905d7b8094c58",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/optimization_internal.py": "f897f988d4895c70a5fa472f40bd57ee0029472ed849bd32c58c1617ab8812a6",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/reordering.py": "0b3fb26aa7877f489691a9b231e4f03a993744aa0a47e6b14424f2e181fc1091",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/test_ch.py": "7f9c55b63eff2a8c5a4464545e567078f1477baa3356538eb24838c8d0f37aa9",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/test_inner_composition.py": "917ee7f8fabe12fb231b20a94136beea08467e997e7b803b010864c17f9f9f5b",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/test_linalg.py": "40ef748b6fd7444cb2ce65a9a0942a2e38db477fe0be6e98c9c6f50f4e46600e",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/test_optimization.py": "53be466055f70105e0aa87666d03e55160b198b82b0fb4f0a0fe394ed4c955d1",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/testing.py": "69e87e92da98dc48b1ad5f7960083ac6637b566f20d2ef46257f2d33a632dd43",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/utils.py": "1c2df6f8a2c7ebbf7e64737d924f6c178ea5954891f2d8678a1693b6b50db48a",
+    "/ABSOLUTE/PATH/TO/chumpy-provider/chumpy/version.py": "54161735d6f3260eed2a79ac3b7fdc16c5a2724cf590b3f023fe93fabddf46a9"
+  },
+  "licensed_root": "/ABSOLUTE/PATH/TO/licensed-mano-source",
+  "package_paths": [
+    "/ABSOLUTE/PATH/TO/chumpy-provider",
+    "/ABSOLUTE/PATH/TO/smplx-provider"
+  ],
+  "public_root": "/ABSOLUTE/PATH/TO/freihand-public-sources",
+  "raw_files": {
+    "evaluation": {
+      "K": {
+        "bytes": 337775,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/evaluation_K.json",
+        "sha256": "f4887519c169c557efb3e2d4d99ae9b18ec129cb7bc4f6b5df7e324e446caebb"
+      },
+      "mano": {
+        "bytes": 4683151,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/evaluation_mano.json",
+        "sha256": "8a5ce142ed579f5babb7a368e3b9967897f6b924150a975145884735e81f9240"
+      },
+      "verts": {
+        "bytes": 203589498,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/evaluation_verts.json",
+        "sha256": "1d3f0e1b489d399153fb946eab3672da1aea3095ceeb0678fc139e2a1ce292c5"
+      },
+      "xyz": {
+        "bytes": 5506793,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/evaluation_xyz.json",
+        "sha256": "72aa38f5008f9d75d6fe873251b11d5286ba13442e5b95d2ce36ca422cee2ff0"
+      }
+    },
+    "training": {
+      "K": {
+        "bytes": 2778469,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/training_K.json",
+        "sha256": "4489ebaabfdb699225e659a99477fd908575a895b4dab5ccc7f32c59dcc9035b"
+      },
+      "mano": {
+        "bytes": 41942120,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/training_mano.json",
+        "sha256": "911d2c0b488052165b89d58fe0d8a2c92008a18486cd2cd47a4d42ac5bb87594"
+      },
+      "verts": {
+        "bytes": 1673081861,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/training_verts.json",
+        "sha256": "6ba37108eb5869a56db321de89e2cb7e5a01973b455898992253c96159e4cd44"
+      },
+      "xyz": {
+        "bytes": 45249268,
+        "path": "/ABSOLUTE/PATH/TO/freihand-annotations/training_xyz.json",
+        "sha256": "a81fa216a316cfeedd3d8fd3dc74f2bd935a5aeb01bdd09c3274a08efd69f57c"
+      }
+    }
+  },
+  "runtime_files_sha256": {
+    "data/MANO_RIGHT.pkl": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767",
+    "utils/mano_core/lbs.py": "bec1572ed1476a004973d9e55cff1afc27e8f8656b710509e428197191385049",
+    "utils/mano_core/mano_loader.py": "8181fe883d29d3ade8269e96cc8ad50903b983d1e43822557530ad17ef37fafd",
+    "utils/mano_core/posemapper.py": "40c3bf9957b359db5eb52f6089ead9e44ad9ff5f22d4d0e20814ab149e94154d",
+    "utils/mano_core/verts.py": "b6d46e2688aef5a37124de190ca86ede19ed39a84818f3ac9ef022f3092fc7ee"
+  },
+  "runtime_root": "/ABSOLUTE/PATH/TO/private-original-setup-output",
+  "smplx_files": {
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/__init__.py": "c45c111b7736fe9f00b6b6ec7d1ced44ccd0ad2838cc57012d80d8b7080a9786",
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/body_models.py": "3de717b66a31368120570dedd45a42effc1ce7b93d780bd71ce6879c10eeff75",
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/joint_names.py": "c62c19a75b730ca427563be659ecac5c1002b355b1f81ea388bc54dc0ef9dc43",
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/lbs.py": "13e2bfc41be990763487b1c6ed4d01b24fae421d320da1592185bb7b8c725575",
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/utils.py": "310cb0da8a5e886af1d8f69b163fe2440134acb318ab287a4f13c96c06c96b39",
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/vertex_ids.py": "1fa22bcbdb89eec7640224b70140a1e9404baf078fa8667f9e0118026b4276be",
+    "/ABSOLUTE/PATH/TO/smplx-provider/smplx/vertex_joint_selector.py": "eb542d80acc31d50a258a7582203fe7bfdfeb95c082aaa155965f9a4cfdbf007"
+  },
+  "worker_source_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2"
+}

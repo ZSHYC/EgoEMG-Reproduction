@@ -36,10 +36,10 @@
 **Interfaces:** a private request binds six pinned public sources, five original licensed files, existing package providers and all original JSON inputs. `build_original(request)` returns the source-native pose function and its private model loader; `build_independent(request)` returns a CPU float64 backend. Both consume a source row `(mano[1,61],K[3,3])` and return `(xyz[21,3],verts[778,3])` without modifying inputs.
 
 - [x] Freeze six public source identities and verify all five licensed MD5 values. Actual five matches are retained in `actual-existing-five-input-identity.json`; no pickle/model execution occurred at that step.
-- [ ] Write and observe failing new checks for source/asset mismatch before construction, tip/order assembly, original camera/root arithmetic and invalid row/scale rejection. Implement only the needed orchestration/source adapters and run those checks to GREEN.
-- [ ] Run the unchanged original setup on private copies, bind its patched loader and original LBS operators, and verify existing package availability without installation. Preserve original models/source bytes.
-- [ ] Run one actual training and one actual evaluation row with both backends. Retain geometry/error arrays, source/provider identities, actual constructors and resource/exit evidence. Unexpected backend disagreement triggers diagnosis, not a new tolerance or another joint convention.
-- [ ] Verify both original qualification owners closed and all inputs unchanged before full execution. Qualification remains explicitly two-row engineering evidence.
+- [x] Write and observe failing new checks for source/asset mismatch before construction, tip/order assembly, original camera/root arithmetic and invalid row/scale rejection. Implement only the needed orchestration/source adapters and run those checks to GREEN.
+- [x] Run the unchanged original setup on private copies, bind its patched loader and original LBS operators, and verify existing package availability without installation. Preserve original models/source bytes.
+- [x] Run one actual training and one actual evaluation row with both backends. Retain geometry/error arrays, source/provider identities, actual constructors and resource/exit evidence. Unexpected backend disagreement triggers diagnosis, not a new tolerance or another joint convention.
+- [x] Verify both original qualification owners closed and all inputs unchanged before full execution. Qualification remains explicitly two-row engineering evidence.
 
 ## Task2: complete reference/independent passes and publication
 
@@ -47,10 +47,10 @@
 
 **Interfaces:** full mode processes exactly `(training,0..32559)` then `(evaluation,0..3959)`. Save each backend's float64[36520,778,3] vertices and[36520,21,3] joints plus full per-row GT/backend errors. A fresh model-free reader consumes only the closed immutable input/output identity packet.
 
-- [ ] Execute every original source row with the original Chumpy backend and every same row with the independent CPU backend. Persist completed-row journals separately from file lengths; preserve partial outputs on failure.
-- [ ] Calculate per-row mean Euclidean vertex/joint error to GT in meters and millimeters, and full backend coordinate differences. Retain full input membership and raw per-row reductions; do not drop error cases or tune pose means, scale, mirroring, root or alignment.
-- [ ] After all producing owners exit, independently rehash complete source/assets/outputs, reopen all typed arrays and recompute every aggregate/coverage count with0 model constructions and0 optimization.
-- [ ] Perform one final review of this new complete geometry component after the actual full positive reference/independent execution and reader. Fix material findings in one phase; do not reopen old model/IK/annotation mathematics reviews.
+- [x] Execute every original source row with the original Chumpy backend and every same row with the independent CPU backend. Persist completed-row journals separately from file lengths; preserve partial outputs on failure.
+- [x] Calculate per-row mean Euclidean vertex/joint error to GT in meters and millimeters, and full backend coordinate differences. Retain full input membership and raw per-row reductions; do not drop error cases or tune pose means, scale, mirroring, root or alignment.
+- [x] After all producing owners exit, independently rehash complete source/assets/outputs, reopen all typed arrays and recompute every aggregate/coverage count with0 model constructions and0 optimization.
+- [x] Perform one final review of this new complete geometry component after the actual full positive reference/independent execution and reader. Fix material findings in one phase; do not reopen old model/IK/annotation mathematics reviews.
 - [ ] Publish scoped aggregate evidence and update D07/FreiHAND status. Even a successful audit leaves author exact source selection/mixture, missing annotator assets, remaining data sources and whole-paper reproduction pending.
 
 ## Execution ruling

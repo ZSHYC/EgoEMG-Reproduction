@@ -1,0 +1,571 @@
+{
+  "actual": {
+    "actual_full_source_rows": 36520,
+    "actual_gpu_actions": 0,
+    "actual_optimizer_updates": 0,
+    "actual_terminal_state": {
+      "actual_exit_code": 0,
+      "automatic_retry": false,
+      "child": {
+        "pid": 1949882,
+        "start_ticks": "440176249"
+      },
+      "ended_utc": "2026-11-01T23:18:32.863721+00:00",
+      "started_utc": "2026-11-01T23:07:37.154084+00:00",
+      "status": "complete",
+      "wrapper": {
+        "pid": 1949881,
+        "start_ticks": "440176246"
+      }
+    },
+    "all26_frozen_sources_exact": true,
+    "all5_complete_native_float64_array_headers_bytes_sha256_exact": true,
+    "all8_raw_annotations_and27_provider_files_after_exit_exact": true,
+    "all_ordered_membership_keys_exact": true,
+    "arrays": {
+      "independent_joints.npy": {
+        "bytes": 18406208,
+        "dtype": "float64",
+        "sha256": "9cf630c5ebd9b5deb06f13bedad2eeb3e1d7d22494c36eb12be8deb61b285767",
+        "shape": [
+          36520,
+          21,
+          3
+        ]
+      },
+      "independent_vertices.npy": {
+        "bytes": 681901568,
+        "dtype": "float64",
+        "sha256": "d549a1f20ae6127a8ebdd998d03130d122cc9d8d5ebc9fc4f2e2794030adfce8",
+        "shape": [
+          36520,
+          778,
+          3
+        ]
+      },
+      "original_joints.npy": {
+        "bytes": 18406208,
+        "dtype": "float64",
+        "sha256": "e4f9f0fc428bcffd30e577e15758e60998f1e1ff915f5e45ed695f08ac3cb85a",
+        "shape": [
+          36520,
+          21,
+          3
+        ]
+      },
+      "original_vertices.npy": {
+        "bytes": 681901568,
+        "dtype": "float64",
+        "sha256": "bd8f0b4d71d972be35233651ee49bf99f3680d7e50bbfcac669b55c88977331a",
+        "shape": [
+          36520,
+          778,
+          3
+        ]
+      },
+      "row_errors.npy": {
+        "bytes": 1753088,
+        "dtype": "float64",
+        "sha256": "50b522edb9fc9258fc9f7c4933f25851216c4c2ffe4f316bd9fcea749482af78",
+        "shape": [
+          36520,
+          6
+        ]
+      }
+    },
+    "bundle_sha256": "f614b757d2c12aaac1b5c5c68c5cddfee33aaffb5e35fdafe9162f1a215c89c2",
+    "closed_tree_files": 75,
+    "format": "postexit_full_freihand_original_and_independent_geometry_raw_identity_v1",
+    "full_model_free_reopen": {
+      "actor": {
+        "pid": 1957429,
+        "start_ticks": 440236196
+      },
+      "actual_gpu_actions": 0,
+      "all_complete_typed_array_SHA256_exact": true,
+      "all_ordered_source_keys_exact": true,
+      "all_raw_per_row_error_values_exact": true,
+      "complete_rows": 36520,
+      "format": "independent_model_free_freihand_complete_geometry_reopen_v1",
+      "full_paper_complete": false,
+      "full_source_geometry_reopened": true,
+      "new_model_constructions": 0,
+      "new_optimizer_updates": 0,
+      "observed_utc": "2026-11-01T23:18:32.285363+00:00",
+      "phase": "full",
+      "producer_actor": {
+        "pid": 1951146,
+        "start_ticks": 440187317
+      },
+      "producer_closed": true,
+      "producer_report_sha256": "522302159ea356a0a59f9c5cc0c76c90b27a8d7c4b0d2c27a6ee56dd6634947f",
+      "source_and_output_generations_unchanged": true,
+      "source_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2",
+      "summaries_meters": {
+        "all": {
+          "backend_joint_max_abs_m": {
+            "max": 8.583417754337574e-09,
+            "mean": 5.60849460868142e-09,
+            "min": 2.7637805377622726e-09
+          },
+          "backend_vertex_max_abs_m": {
+            "max": 1.2948648930866113e-08,
+            "mean": 7.073149472375726e-09,
+            "min": 3.780198987168859e-09
+          },
+          "independent_joint_mean_m": {
+            "max": 0.010953416662029468,
+            "mean": 0.0003985761746192227,
+            "min": 1.8545360350874598e-08
+          },
+          "independent_vertex_mean_m": {
+            "max": 0.010854076677196551,
+            "mean": 0.0004141668545271007,
+            "min": 2.0981232451942392e-08
+          },
+          "original_joint_mean_m": {
+            "max": 0.010953416500649479,
+            "mean": 0.00039857617495921805,
+            "min": 1.826001040107735e-08
+          },
+          "original_vertex_mean_m": {
+            "max": 0.01085407682009496,
+            "mean": 0.0004141668595056066,
+            "min": 2.1138958579022903e-08
+          },
+          "rows": 36520
+        },
+        "evaluation": {
+          "backend_joint_max_abs_m": {
+            "max": 8.583417754337574e-09,
+            "mean": 5.828343295523692e-09,
+            "min": 2.7637805377622726e-09
+          },
+          "backend_vertex_max_abs_m": {
+            "max": 1.1552670042824786e-08,
+            "mean": 6.9641893060043555e-09,
+            "min": 4.082023163931581e-09
+          },
+          "independent_joint_mean_m": {
+            "max": 0.010953416662029468,
+            "mean": 0.0035977978539147365,
+            "min": 0.00021066460971366476
+          },
+          "independent_vertex_mean_m": {
+            "max": 0.010854076677196551,
+            "mean": 0.003741578507614063,
+            "min": 0.00022867229869312047
+          },
+          "original_joint_mean_m": {
+            "max": 0.010953416500649479,
+            "mean": 0.0035977978236678685,
+            "min": 0.0002106642269483665
+          },
+          "original_vertex_mean_m": {
+            "max": 0.01085407682009496,
+            "mean": 0.00374157849278572,
+            "min": 0.00022867260804699624
+          },
+          "rows": 3960
+        },
+        "training": {
+          "backend_joint_max_abs_m": {
+            "max": 8.53028003788836e-09,
+            "mean": 5.581756254876279e-09,
+            "min": 2.87959212724731e-09
+          },
+          "backend_vertex_max_abs_m": {
+            "max": 1.2948648930866113e-08,
+            "mean": 7.086401384501973e-09,
+            "min": 3.780198987168859e-09
+          },
+          "independent_joint_mean_m": {
+            "max": 0.0003262708522492487,
+            "mean": 9.481646056254795e-06,
+            "min": 1.8545360350874598e-08
+          },
+          "independent_vertex_mean_m": {
+            "max": 0.00032627277093839744,
+            "mean": 9.481653475983648e-06,
+            "min": 2.0981232451942392e-08
+          },
+          "original_joint_mean_m": {
+            "max": 0.0003262700011582651,
+            "mean": 9.481650116274064e-06,
+            "min": 1.826001040107735e-08
+          },
+          "original_vertex_mean_m": {
+            "max": 0.00032627213017562696,
+            "mean": 9.481660863430695e-06,
+            "min": 2.1138958579022903e-08
+          },
+          "rows": 32560
+        }
+      }
+    },
+    "full_paper_complete": false,
+    "independent_backend": {
+      "backend": "existing_SMPLX_float64_CPU",
+      "compatibility": {
+        "cPickle_alias_to_standard_pickle": true,
+        "chumpy_version": "0.70",
+        "inspect_getargspec_alias_added": false,
+        "numpy_version": "1.26.4",
+        "opencv_version": "4.10.0",
+        "process_local_numpy_aliases_added": [],
+        "shared_package_source_modified": false
+      },
+      "cuda_initialized": false,
+      "dtype": "float64",
+      "library_joint_output_used": false,
+      "model_constructions": 1,
+      "model_flags": {
+        "flat_hand_mean": false,
+        "is_rhand": true,
+        "num_pca_comps": 45,
+        "use_pca": false
+      },
+      "posed_mesh_regression_recomputed_after_translation": true,
+      "source_identity": {
+        "licensed_files": {
+          "models/MANO_RIGHT.pkl": {
+            "bytes": 3821356,
+            "md5": "fd5a9d35f914987cf1cc04ffe338caa1",
+            "sha256": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767"
+          },
+          "webuser/lbs.py": {
+            "bytes": 3198,
+            "md5": "d11c767d5db8d4a55b4ece1c46a4e4ac",
+            "sha256": "bec1572ed1476a004973d9e55cff1afc27e8f8656b710509e428197191385049"
+          },
+          "webuser/posemapper.py": {
+            "bytes": 1620,
+            "md5": "c5e9eacc535ec7d03060e0c8d6f80f45",
+            "sha256": "40c3bf9957b359db5eb52f6089ead9e44ad9ff5f22d4d0e20814ab149e94154d"
+          },
+          "webuser/smpl_handpca_wrapper_HAND_only.py": {
+            "bytes": 4785,
+            "md5": "5afc7a3eb1a6ce0c2dac1483338a5f58",
+            "sha256": "080347cf7c87e7931aad33517f0284437c86b6c8de52e6a4cb41507cc6d9497e"
+          },
+          "webuser/verts.py": {
+            "bytes": 3457,
+            "md5": "998c30fd83c473da6178aa2cb23b6a5d",
+            "sha256": "b6d46e2688aef5a37124de190ca86ede19ed39a84818f3ac9ef022f3092fc7ee"
+          }
+        },
+        "public_files": {
+          "fh_utils.py": {
+            "bytes": 5854,
+            "git_blob_sha1": "103b3e01aaea148939f72df947a69c5e60eb0385",
+            "sha256": "b5a3ffae58e7e50d4e91e1e346ed2fa70ea905f4657357bba75dbbfe26993738"
+          },
+          "freihand-README.md": {
+            "bytes": 6320,
+            "git_blob_sha1": "4248c5cb5cdbf5c414fa6d4300a5ab8ecf87ff4e",
+            "sha256": "a83843cea407d96f3834a2c0604c54c53abe71d246548eda553388a3f488fa77"
+          },
+          "mano_utils.py": {
+            "bytes": 1092,
+            "git_blob_sha1": "b8d2213873f49f526e3c266108e93e075f574ba5",
+            "sha256": "d464245367000c2a2707762a33ed7d7067f94405620c1f8a0003b112c4e63c8d"
+          },
+          "model.py": {
+            "bytes": 6748,
+            "git_blob_sha1": "42f7b84eced4fc2dd14fcb0f732b7be3728b51c8",
+            "sha256": "cec46f972a4959683a5b5d759d343d4f35782b4132be1244c5ac0686705b2b27"
+          },
+          "setup_mano.py": {
+            "bytes": 3681,
+            "git_blob_sha1": "08d59cb34a2dd4c217f2d55074484a24a9b4fd49",
+            "sha256": "1347beb2afb0217ae2279ab62d0d37223dd77dad22396428fbf61ddfc07cefcd"
+          },
+          "view_samples.py": {
+            "bytes": 3921,
+            "git_blob_sha1": "25e90ea14d1bb1c37145cf208aee3717168beb90",
+            "sha256": "ce0f8eea72c1f4918dcbe40095f7c366911c4487eae3b2fbbd03ec608436d24f"
+          }
+        }
+      },
+      "torch_version": "2.2.2+cu118"
+    },
+    "markers2mano_reproduced": false,
+    "membership_sha256": "34860a720b01d5e33e5827b06a7792bf63a3328d133c8f0ac7ffefbb4749cc91",
+    "observed_utc": "2026-11-01T23:19:03.722429+00:00",
+    "original_backend": {
+      "Python2_standalone_demo_omitted": true,
+      "backend": "pinned_original_FreiHAND_Chumpy",
+      "compatibility": {
+        "cPickle_alias_to_standard_pickle": true,
+        "chumpy_version": "0.70",
+        "inspect_getargspec_alias_added": true,
+        "numpy_version": "1.26.4",
+        "opencv_version": "4.10.0",
+        "process_local_numpy_aliases_added": [
+          "bool",
+          "int",
+          "float",
+          "complex",
+          "object",
+          "unicode",
+          "str"
+        ],
+        "shared_package_source_modified": false
+      },
+      "geometry_arithmetic_modified": false,
+      "geometry_function_AST_sha256": "8eb8e8b28c71debd67724a310b8ef12a4cab6a092264e4fa737e0900652bd817",
+      "model_constructions": 1,
+      "model_flags": {
+        "flat_hand_mean": false,
+        "ncomps": 45,
+        "use_pca": false
+      },
+      "original_numpy_loader_seed": 1,
+      "rendering_imports_unused_and_omitted": true,
+      "source_identity": {
+        "licensed_files": {
+          "models/MANO_RIGHT.pkl": {
+            "bytes": 3821356,
+            "md5": "fd5a9d35f914987cf1cc04ffe338caa1",
+            "sha256": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767"
+          },
+          "webuser/lbs.py": {
+            "bytes": 3198,
+            "md5": "d11c767d5db8d4a55b4ece1c46a4e4ac",
+            "sha256": "bec1572ed1476a004973d9e55cff1afc27e8f8656b710509e428197191385049"
+          },
+          "webuser/posemapper.py": {
+            "bytes": 1620,
+            "md5": "c5e9eacc535ec7d03060e0c8d6f80f45",
+            "sha256": "40c3bf9957b359db5eb52f6089ead9e44ad9ff5f22d4d0e20814ab149e94154d"
+          },
+          "webuser/smpl_handpca_wrapper_HAND_only.py": {
+            "bytes": 4785,
+            "md5": "5afc7a3eb1a6ce0c2dac1483338a5f58",
+            "sha256": "080347cf7c87e7931aad33517f0284437c86b6c8de52e6a4cb41507cc6d9497e"
+          },
+          "webuser/verts.py": {
+            "bytes": 3457,
+            "md5": "998c30fd83c473da6178aa2cb23b6a5d",
+            "sha256": "b6d46e2688aef5a37124de190ca86ede19ed39a84818f3ac9ef022f3092fc7ee"
+          }
+        },
+        "public_files": {
+          "fh_utils.py": {
+            "bytes": 5854,
+            "git_blob_sha1": "103b3e01aaea148939f72df947a69c5e60eb0385",
+            "sha256": "b5a3ffae58e7e50d4e91e1e346ed2fa70ea905f4657357bba75dbbfe26993738"
+          },
+          "freihand-README.md": {
+            "bytes": 6320,
+            "git_blob_sha1": "4248c5cb5cdbf5c414fa6d4300a5ab8ecf87ff4e",
+            "sha256": "a83843cea407d96f3834a2c0604c54c53abe71d246548eda553388a3f488fa77"
+          },
+          "mano_utils.py": {
+            "bytes": 1092,
+            "git_blob_sha1": "b8d2213873f49f526e3c266108e93e075f574ba5",
+            "sha256": "d464245367000c2a2707762a33ed7d7067f94405620c1f8a0003b112c4e63c8d"
+          },
+          "model.py": {
+            "bytes": 6748,
+            "git_blob_sha1": "42f7b84eced4fc2dd14fcb0f732b7be3728b51c8",
+            "sha256": "cec46f972a4959683a5b5d759d343d4f35782b4132be1244c5ac0686705b2b27"
+          },
+          "setup_mano.py": {
+            "bytes": 3681,
+            "git_blob_sha1": "08d59cb34a2dd4c217f2d55074484a24a9b4fd49",
+            "sha256": "1347beb2afb0217ae2279ab62d0d37223dd77dad22396428fbf61ddfc07cefcd"
+          },
+          "view_samples.py": {
+            "bytes": 3921,
+            "git_blob_sha1": "25e90ea14d1bb1c37145cf208aee3717168beb90",
+            "sha256": "ce0f8eea72c1f4918dcbe40095f7c366911c4487eae3b2fbbd03ec608436d24f"
+          }
+        }
+      },
+      "trusted_model_dictionary_supplied_to_original_loader": true
+    },
+    "original_owned_actor_count": 10,
+    "postexit_collector_also_closed": true,
+    "postexit_collector_no_numpy_chumpy_torch": true,
+    "private_postexit_packet_sha256": "8f868c60e0d33b4577aa8903f188c8943d3e3346468f60d7c41901586314f11b",
+    "raw_output_report_sha256": "522302159ea356a0a59f9c5cc0c76c90b27a8d7c4b0d2c27a6ee56dd6634947f",
+    "role_counts": {
+      "evaluation": 3960,
+      "training": 32560
+    },
+    "scientific_settings_added": 0,
+    "source_commit": "b17d782a8f52b0612f8620558d18480719242ac1",
+    "source_mixture_reproduced": false,
+    "tree_bytes": 1411581382,
+    "whole_output_tree_double_sha256_and_generation_exact": true,
+    "worker_source_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2"
+  },
+  "fixed_backend_coordinate_max_abs_bound_m": 1e-07,
+  "format": "complete_official_freihand_geometry_source_qualification_v1",
+  "full_paper_complete": false,
+  "markers2mano_reproduced": false,
+  "observed_utc": "2026-11-01T23:32:54.429806+00:00",
+  "original_setup": {
+    "actor": {
+      "pid": 1949277,
+      "start_ticks": "440171115"
+    },
+    "actor_closed": true,
+    "exit_code": 0,
+    "new_package_installations": 0,
+    "private_setup_output_sha256": {
+      "data/MANO_RIGHT.pkl": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767",
+      "utils/mano_core/lbs.py": "bec1572ed1476a004973d9e55cff1afc27e8f8656b710509e428197191385049",
+      "utils/mano_core/mano_loader.py": "8181fe883d29d3ade8269e96cc8ad50903b983d1e43822557530ad17ef37fafd",
+      "utils/mano_core/posemapper.py": "40c3bf9957b359db5eb52f6089ead9e44ad9ff5f22d4d0e20814ab149e94154d",
+      "utils/mano_core/verts.py": "b6d46e2688aef5a37124de190ca86ede19ed39a84818f3ac9ef022f3092fc7ee"
+    },
+    "source_sha256": "1347beb2afb0217ae2279ab62d0d37223dd77dad22396428fbf61ddfc07cefcd"
+  },
+  "public_contract_checks": {
+    "actual_server_checks": 13,
+    "actual_server_exit_code": 0,
+    "actual_server_log_sha256": "9936e66e782cf94c34b55abede497c9b756a3cc3b43bc06c3d8a8cbbf17b2837",
+    "path": "scripts/paper/check_freihand_official_geometry.py",
+    "sha256": "b44e6ef0d4b386ec972c983888bee7c6a843759731e46114005156260391ecca"
+  },
+  "public_source": {
+    "commit": "5ea4ab9763fea0eec988a52bfa563333cb16523f",
+    "repository": "https://github.com/lmb-freiburg/freihand"
+  },
+  "public_worker": {
+    "byte_identical_to_actual_full_worker": true,
+    "path": "scripts/paper/freihand_official_geometry.py",
+    "sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2"
+  },
+  "raw_assets_or_geometry_arrays_published": false,
+  "remaining": [
+    "nonzero released-GT reconstruction residuals are measured, with evaluation residual larger than training; no geometry/input tuning",
+    "EgoEMG authors exact FreiHAND version and selected rows are not supplied",
+    "remaining full source datasets, source sampling/tiers/weights/seed/dedup/split and approximately712K mixture",
+    "original markers2mano implementation/training recipe/matchingv51 checkpoint and full annotation chain"
+  ],
+  "scientific_pose_model_scores_added": 0,
+  "single_final_review": {
+    "critical": 0,
+    "declined_to_judge": [
+      "unrelated previously completed model and geometry families",
+      "scientific cause or acceptability of nonzero GT residuals; no new GT tolerance was invented",
+      "author exact source version/selection, approximately712K mixture and missing markers2mano assets",
+      "unrelated RN18 correction/GPU workflows and whole-paper completion",
+      "final public aggregate/status text had not yet been produced at review time"
+    ],
+    "important": 0,
+    "independently_reconstructed_original_patched_loader_sha256": "8181fe883d29d3ade8269e96cc8ad50903b983d1e43822557530ad17ef37fafd",
+    "minor": 0,
+    "read_only_remote_full_membership_headers_and_closed_workflow_spotchecks": true,
+    "review_count": 1,
+    "reviewed_worker_sha256": "c601b7482c3a96179abb5dc439cafd07ea7951c84bcb9d45da3443d4ffff8ac2",
+    "reviewer": "/root/freihand_geometry_final_review",
+    "verdict": "Ready"
+  },
+  "source_dataset": "both officially linked FreiHAND v2 train/evaluation archives; original roles and order retained",
+  "source_mixture_reproduced": false,
+  "summaries_meters": {
+    "all": {
+      "backend_joint_max_abs_m": {
+        "max": 8.583417754337574e-09,
+        "mean": 5.60849460868142e-09,
+        "min": 2.7637805377622726e-09
+      },
+      "backend_vertex_max_abs_m": {
+        "max": 1.2948648930866113e-08,
+        "mean": 7.073149472375726e-09,
+        "min": 3.780198987168859e-09
+      },
+      "independent_joint_mean_m": {
+        "max": 0.010953416662029468,
+        "mean": 0.0003985761746192227,
+        "min": 1.8545360350874598e-08
+      },
+      "independent_vertex_mean_m": {
+        "max": 0.010854076677196551,
+        "mean": 0.0004141668545271007,
+        "min": 2.0981232451942392e-08
+      },
+      "original_joint_mean_m": {
+        "max": 0.010953416500649479,
+        "mean": 0.00039857617495921805,
+        "min": 1.826001040107735e-08
+      },
+      "original_vertex_mean_m": {
+        "max": 0.01085407682009496,
+        "mean": 0.0004141668595056066,
+        "min": 2.1138958579022903e-08
+      },
+      "rows": 36520
+    },
+    "evaluation": {
+      "backend_joint_max_abs_m": {
+        "max": 8.583417754337574e-09,
+        "mean": 5.828343295523692e-09,
+        "min": 2.7637805377622726e-09
+      },
+      "backend_vertex_max_abs_m": {
+        "max": 1.1552670042824786e-08,
+        "mean": 6.9641893060043555e-09,
+        "min": 4.082023163931581e-09
+      },
+      "independent_joint_mean_m": {
+        "max": 0.010953416662029468,
+        "mean": 0.0035977978539147365,
+        "min": 0.00021066460971366476
+      },
+      "independent_vertex_mean_m": {
+        "max": 0.010854076677196551,
+        "mean": 0.003741578507614063,
+        "min": 0.00022867229869312047
+      },
+      "original_joint_mean_m": {
+        "max": 0.010953416500649479,
+        "mean": 0.0035977978236678685,
+        "min": 0.0002106642269483665
+      },
+      "original_vertex_mean_m": {
+        "max": 0.01085407682009496,
+        "mean": 0.00374157849278572,
+        "min": 0.00022867260804699624
+      },
+      "rows": 3960
+    },
+    "training": {
+      "backend_joint_max_abs_m": {
+        "max": 8.53028003788836e-09,
+        "mean": 5.581756254876279e-09,
+        "min": 2.87959212724731e-09
+      },
+      "backend_vertex_max_abs_m": {
+        "max": 1.2948648930866113e-08,
+        "mean": 7.086401384501973e-09,
+        "min": 3.780198987168859e-09
+      },
+      "independent_joint_mean_m": {
+        "max": 0.0003262708522492487,
+        "mean": 9.481646056254795e-06,
+        "min": 1.8545360350874598e-08
+      },
+      "independent_vertex_mean_m": {
+        "max": 0.00032627277093839744,
+        "mean": 9.481653475983648e-06,
+        "min": 2.0981232451942392e-08
+      },
+      "original_joint_mean_m": {
+        "max": 0.0003262700011582651,
+        "mean": 9.481650116274064e-06,
+        "min": 1.826001040107735e-08
+      },
+      "original_vertex_mean_m": {
+        "max": 0.00032627213017562696,
+        "mean": 9.481660863430695e-06,
+        "min": 2.1138958579022903e-08
+      },
+      "rows": 32560
+    }
+  }
+}
