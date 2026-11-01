@@ -52,3 +52,5 @@ EMGFormer S/M/L轨迹值来自原训练器最终测试；其独立锁定复算�
 原始报告与历史2026-10-29、2026-10-30汇总均保留。此表只纳入通过最终测试与复核的实验；当前训练轮数不计为新科学结果。完整范围见[全文状态](../../docs/full-paper-status.md)。
 
 [机器可读指标与来源SHA](completed-mae-20261101.json) · [CSV](completed-mae-20261101.csv) · [核心运行快照](../core-priority-status-20261101.json)
+
+2026-11-01补充：[ResNet三种完整来源各两遍准入](../native-resnet-full-cohort-admission-20261101.json)已完成，GPU资格/正式训练仍待执行，没有新增MAE行。
