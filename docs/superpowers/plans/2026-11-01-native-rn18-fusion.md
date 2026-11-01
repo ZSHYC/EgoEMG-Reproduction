@@ -38,9 +38,9 @@
 **Files:** create `egoemg_repro/rn18_fusion_literal.py`, `tests/test_rn18_fusion_literal.py`.
 **Interfaces:** `compose_rn18_fusion(upstream)->DictConfig`; `_validated(upstream,config)->(Path,dict)`; `rn18_fusion_protocol(upstream,config)->dict` safe source-bound metadata, no data/model/optimizer construction or checkpoint permit.
 
-- [ ] Write tests asserting exact source family,8/12000/1200/repeat1/all-role200/10workers, unused100, original Adam/cosine150/validation1/noEarlyStopping,0.02 and actual unfrozen flags; independently assert the declared norm asset/source hashes.
-- [ ] Add drift/binding rejection for wrong family, featurizer8→16, window/stride/repeat/cadence/optimizer/loss/freeze/branch-path changes. Forbid Hydra instantiation to prove metadata scope.
-- [ ] Observe actual missing-module RED in pinned CPU runtime; implement only composition, exact validation and safe metadata. Re-run the same tests without skips and commit actual source-bound evidence.
+- [x] Write tests asserting exact source family,8/12000/1200/repeat1/all-role200/10workers, unused100, original Adam/cosine150/validation1/noEarlyStopping,0.02 and actual unfrozen flags; independently assert the declared norm asset/source hashes.
+- [x] Add drift/binding rejection for wrong family, featurizer8→16, window/stride/repeat/cadence/optimizer/loss/freeze/branch-path changes. Forbid Hydra instantiation to prove metadata scope.
+- [x] Observe actual missing-module RED in pinned CPU runtime; implement only composition, exact validation and safe metadata. Re-run the same tests without skips and commit actual source-bound evidence.
 
 ## Task 2: Actual native center inputs and complete cohort
 
