@@ -85,6 +85,8 @@ This recovery adapter and its local fixtures are not evidence that the full 41-e
 
 ## Bounded transient recovery for the reviewed geometry selection
 
+2026-11-02另新增[完整双手marker/腕部8文件接收](raw-marker-acquisition.md)，清单为[`assets_markers_manifest.json`](../assets_markers_manifest.json)，44,196,032,300bytes。服务器已实际开始严格范围接收，独立于本机关机；坐标/刚体数据尚未全部取得，不能将其启动证明写成标注重生成完成。下方八个geometry文件的既有清单与结果保持原身份，不包含此次新增marker坐标。
+
 [`assets_geometry_manifest.json`](../assets_geometry_manifest.json) records eight additional old-release files totaling **37,778,344,975 bytes**: both MANO poses and world transforms, the camera transform/tracked flag, and both marker-validity arrays. Its exact IDs, sizes, dtypes and shapes were checked against the pinned old release manifest. It does not contain raw marker positions, full videos or the current release. Complete transfer is a prerequisite for later geometry admission, not proof that the occlusion experiment has run.
 
 An actual geometry transfer stopped on a TLS unexpected EOF after committing 45 new complete 16 MiB chunks. [`range_recovery.py`](../egoemg_repro/range_recovery.py) adds `BoundedRangeDownloader`, a callable accepted by the original `download_one`, around the **unchanged** strict range reader. It retries connection interruption, timeout, chunked transport failure and the observed SSL EOF at most three times at one stalled committed offset, waiting 1 then 2 seconds. The budget resets only when complete strict chunks advance. Certificate/proxy/other SSL failures, HTTP quota/permission responses, invalid range/type/length/body, storage failure and cancellation stop immediately. Final size/hash checks, atomic promotion and the original acquisition ledger remain authoritative.
