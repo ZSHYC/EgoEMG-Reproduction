@@ -1,0 +1,21 @@
+{
+  "actual_full150": false,
+  "actual_gpu_qualification": false,
+  "actual_local_verify_exit_code": 0,
+  "actual_server_deployment": false,
+  "all_code_compiled": true,
+  "all_sources_exact_git_commit": true,
+  "archive": "releases/rn18-cotrain-server-ab3e26f-20261101.tar.gz",
+  "archive_bytes": 1049065,
+  "archive_sha256": "ae08a906676af976ba727112353ff3b755f35682ff495a426f20a64b0146f005",
+  "code_only_archive_members_verified": true,
+  "contains_datasets": false,
+  "contains_model_weights": false,
+  "format": "pinned_server_bootstrap_package_verified_only_v1",
+  "full_paper_complete": false,
+  "regular_files": 268,
+  "server_deployment_still_pending": true,
+  "source_commit": "ab3e26f4efea63c0ca295199f6529b5037ac2948",
+  "wrong_machine_preflight_rejected": true,
+  "wrong_machine_wrote_state": false
+}
