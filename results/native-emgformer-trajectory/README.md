@@ -4,4 +4,8 @@
 
 这是实际合成memmap IO的工程验收：16个完整夹具文件，val4/test8手窗口；全验证目标覆盖24,000行、全测试48,000行。原始22×12000目标/生成mask、两手归一化EMG、float32腕角路径、无效掩码下的非中心/尾行NaN拒绝、伪造凭据、父点队列与完整读取器变更、序列化文件代际、原生batch500/6worker配置及CPU工程batch2读取均覆盖。父中心读取器保持原样；夹具不获完整发布数据身份。
 
-**尚未运行完整发布数据上的新全轨迹模型评价，没有新MAE。** 原生模型训练/中心报告另见[`../original-emgformer/`](../original-emgformer/small/README.md)。实际完整输入双遍准入、同一验证best的原生全轨迹前向、val/test独立重放、统计/报告、GPU资格与正式执行仍按[完整实施计划](../../docs/superpowers/plans/2026-11-01-native-emgformer-trajectory.md)推进。[接口与来源说明](../../docs/native-emgformer-trajectory.md)记录当前能力和限制；一次最终新组件审查等待前向/报告/CLI接通，不对数据子模块单独重复审查。
+另新增[21项原生前向/原始包/统计检查](results-engineering-tests-20261101.json)，实际通过、无跳过。采用真正的原始Lightning完整目标前向与明确的工程head，核验同次输出上下文/插值、BF16无损原始包、完整覆盖、两种MAE、轨迹/派生中心及十个Table12组。不是完整来源训练成绩。
+
+[实际完成200轮的S模型单窗口诊断](trained-small-full-window-diagnostic-20261101.json)也已结束：验证best第169轮，3,460,134参数完整严格重载，一个验证窗口的直接原生/捕获两次前向完全一致，模型前后状态相同；独立原始包读回、6拥有者关闭和退出后原始权重/来源字节核对均通过。实际12,000目标经左510/右0上下文、230步head输出对齐成11,490步；对齐中心映射原窗口6255，原中心点目标为6000（均零起算），必须分开报告。
+
+**尚未运行完整发布数据上的新全轨迹模型评价，没有新MAE。** 单窗口CPU诊断不替代全体完整目标准入或原batch500/6workers/BF16资格。原生模型训练/中心报告另见[`../original-emgformer/`](../original-emgformer/small/README.md)。实际完整输入双遍准入、同一验证best的完整val/test及其独立模型重放、报告/CLI生命周期、GPU资格与正式执行仍按[完整实施计划](../../docs/superpowers/plans/2026-11-01-native-emgformer-trajectory.md)推进。[接口与来源说明](../../docs/native-emgformer-trajectory.md)记录当前能力和限制；一次最终新组件审查等待前向/报告/CLI接通，不对数据子模块单独重复审查。

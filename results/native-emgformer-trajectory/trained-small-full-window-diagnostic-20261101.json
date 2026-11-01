@@ -1,0 +1,182 @@
+{
+  "actual_artifacts_after_exit_sha256": {
+    "private/owned-produce/stage-result.json": "8aaaedf5a9fa510e5eb86da3c3ef0db4e2335db767aafbe7305115aacf68853c",
+    "private/owned-verify/stage-result.json": "179766cf493136f4ad337fee403bff6b6b7d91fdb9d86092753e7b2ef05341bd",
+    "private/prefix.json": "5de482b013b458fa326a1dcc49a1fd59713ea6f34f0e1c09518667a34166c9fd",
+    "private/raw/000000.pt": "62d1ed2b65c9b0384cc1526aa71dfa5a7c9fa5ec0a4718dd6eb60984923ed810",
+    "private/raw/record.json": "462faa3c02d9c8032e71b5c29f5bff00617ca2a66f63e909ba8da8e54f4363fe",
+    "private/verification.json": "05b3eeaec298518c1dd9f28d246dd89bc04ab2a6dc5faac9c56b56d2587cf915",
+    "private/workflow-result.json": "4aa9bd243839ec98ef07808a0352c42069d56f2be22b166a048e9bbce882d64d"
+  },
+  "actual_b500_6worker_qualification": false,
+  "actual_closed_owners": [
+    {
+      "pid": 1395345,
+      "start_ticks": "435872147"
+    },
+    {
+      "pid": 1395346,
+      "start_ticks": "435872151"
+    },
+    {
+      "pgrp": 1395348,
+      "pid": 1395348,
+      "sid": 1395348,
+      "start_ticks": "435872160",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1395347,
+      "pid": 1395347,
+      "sid": 1395347,
+      "start_ticks": "435872156",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1396260,
+      "pid": 1396260,
+      "sid": 1396260,
+      "start_ticks": "435877786",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1396258,
+      "pid": 1396258,
+      "sid": 1396258,
+      "start_ticks": "435877783",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_selected_fit_artifacts_after_exit_sha256": {
+    "checkpoints/best-val_mae=val_mae=0.2583.ckpt": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+    "checkpoints/last.ckpt": "d1bb455da3bc19e42a284ab51fe113c1b82df6ef8e28f84f5fefb6545202c1ce",
+    "epochs.jsonl": "21370e56c1a6cb603c62b55553f9212d6d00cc118c35495cb4977ae68b096bb8",
+    "fit-result.json": "0ffb21370785eb9ab4a9ad5df4eda823995c8327ce6a2b4bba59bc0bf83a2394",
+    "identity.json": "8f2f33d583848b55d371ebaab0a6259e19dc02ba9fa797c79c580ce69036c457"
+  },
+  "actual_ended_utc": "2026-11-01T11:11:16.757486+00:00",
+  "actual_exit_code": 0,
+  "actual_original_checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+  "actual_prefix": {
+    "actor": {
+      "pgrp": 1395348,
+      "pid": 1395348,
+      "sid": 1395348,
+      "start_ticks": "435872160",
+      "state": "R",
+      "uid": 1005
+    },
+    "actual_b500_qualification": false,
+    "actual_complete_source_tensors_restored": true,
+    "actual_full_window_target_shape": [
+      1,
+      22,
+      12000
+    ],
+    "actual_learned_forwards": 2,
+    "actual_optimizer_updates": 0,
+    "actual_parameters": 3460134,
+    "actual_points": 1,
+    "actual_shapes": {
+      "mask": [
+        1,
+        11490
+      ],
+      "prediction": [
+        1,
+        22,
+        11490
+      ],
+      "raw_prediction": [
+        1,
+        22,
+        230
+      ],
+      "source_mask": [
+        1,
+        12000
+      ],
+      "source_target": [
+        1,
+        22,
+        12000
+      ],
+      "target": [
+        1,
+        22,
+        11490
+      ]
+    },
+    "actual_source_payload_bytes": 16540457757,
+    "actual_source_payload_files": 16,
+    "actual_trained_model_constructions": 1,
+    "alignment": {
+      "aligned_center_index": 5745,
+      "aligned_prediction_time_steps": 11490,
+      "left_context": 510,
+      "original_point_center_index": 6000,
+      "raw_prediction_time_steps": 230,
+      "right_context": 0,
+      "source_aligned_center_index": 6255,
+      "window_length": 12000
+    },
+    "construction_sha256": "236713f725a9c27d2b127e33980830d64dca10fa56f1b49ef977f72de6b6c395",
+    "cuda_initialized": false,
+    "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+    "format": "actual_trained_native_emgformer_small_one_val_window_prefix_v1",
+    "full_paper_complete": false,
+    "full_trajectory_input_corpus_admission": false,
+    "independent_direct_native_vs_capture_exact": true,
+    "input_before_after_exact": true,
+    "model_state_after_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+    "model_state_before_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+    "point_cohort_sha256": "5a1ecdbe53022ba02ccdb39ff39675f62db2b08662ec3d9fa39842f853b9539f",
+    "raw_packet_file_sha256": "62d1ed2b65c9b0384cc1526aa71dfa5a7c9fa5ec0a4718dd6eb60984923ed810",
+    "raw_record_file_sha256": "462faa3c02d9c8032e71b5c29f5bff00617ca2a66f63e909ba8da8e54f4363fe",
+    "role": "val",
+    "same_forward_head_alignment_exact": true,
+    "scientific_eligible": false,
+    "seconds": 50.70198808796704,
+    "selected_best": {
+      "checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+      "file": "best-val_mae=val_mae=0.2583.ckpt",
+      "score": 0.25830063223838806,
+      "validated": true
+    }
+  },
+  "actual_source_point_admission_payload_bytes": 16540457757,
+  "actual_source_point_admission_payload_files": 16,
+  "additional_postexit_raw_readback_has_no_model_or_optimizer_construction": true,
+  "all_six_original_owned_consumers_closed": true,
+  "bundle_sha256": "fb0ea7f8f9c6f870431f8e1c3abf26fc654a6270169d201369ef29493b033e2e",
+  "format": "actual_trained_native_emgformer_full_trajectory_prefix_verified_v1",
+  "frozen_source_bytes_after_exit_exact": true,
+  "full_heldout_trajectory_population_numerically_admitted": false,
+  "full_paper_complete": false,
+  "full_val_test_trajectory_evaluation_complete": false,
+  "hardware": {
+    "autocast": false,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch_threads": 2,
+    "torch_version": "2.2.2+cu118"
+  },
+  "independent_owned_raw_verification": true,
+  "new_trajectory_mae_reported": false,
+  "no_cross_device_bfloat16_interpolation_claim": true,
+  "observed_utc": "2026-11-01T11:12:44.026674+00:00",
+  "raw_tensor_dtypes": {
+    "mask": "torch.bool",
+    "prediction": "torch.float32",
+    "raw_prediction": "torch.float32",
+    "source_mask": "torch.bool",
+    "source_target": "torch.float32",
+    "target": "torch.float32"
+  },
+  "scientific_eligible": false,
+  "source_commit": "84ebf5e1a917c06e21298204352b27088c3fd06b"
+}
