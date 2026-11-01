@@ -12,6 +12,8 @@
 
 # EgoEMG Reproduction
 
+> **2026-11-01 RN18视觉来源与完整密GT验收**：[历史RN18 LAST](results/native-rn18-fusion-trained-vision-last-admission-20261101.json)完成两次独立全量输入准入、完整150轮/10,650更新来源核验及124张量导出/重开，6原拥有者关闭；它保留legacy0.01等来源差异，可作为本折融合的视觉分支。[RN18密GT](results/native-dense-occlusion/rn18-geometry-complete-20261101.json)11,114手请求两遍原生计算、三次独立原始核验及140,231数组重放一致，14原拥有者＋2后验拥有者关闭。EMG cotrain150轮、新原生融合训练、ViT密GT和Figure13仍未完成，科学模型设置仍14。
+
 > **当前目标 · 全论文复现进行中（2026-11-01）**
 >
 > 用户目标已扩展为论文全文；有歧义时优先固定官方代码。范围覆盖 **Tables 1–15、Figures 1–13、全部作者模型、EMG2Pose、标注与预处理、数据统计和派生分析**。原四项 legacy 基线是已完成的历史子集；新增 [ResNet-50](results/completed/resnet50/README.md)和[ResNet-152](results/completed/resnet152/README.md)均完成150轮、完整验证选模、最终测试与独立复算，全部中心 MAE 分别为6.640058°和5.982738°。新增[EMGFormer-L](results/completed/emgformer-l/README.md)也完成200轮、最终测试与独立中心复算，全部中心16.612111°。七项均保留legacy数据及0.01损失协议，不代表论文原表等价。[classic CPU训练与恢复](docs/classic-emg.md)、[短程CUDA数值/状态恢复](results/classic-cuda-numeric-engineering.md)和[原批量600/256容量检查](results/classic-cuda-capacity-engineering.md)已完成；[VEMG原生配方完整实验](results/original-classic/vemg2pose/README.md)已完成62轮早停训练、原生测试和独立完整复算，轨迹／中心MAE为16.452932°／16.347705°（新的4,306测试手样本队列）；[NeuroPose原生完整实验](results/original-classic/neuropose/README.md)也已完成73轮早停、最终测试与独立复算，轨迹／中心MAE为16.358404°／16.411552°；先前失败证据保留。新增[测试复算与完整报告](docs/classic-report.md)已完成审查修正与CPU集成，VEMG实际12阶段报告链已全部通过，最终公开字节与完成标记已核验。[手形统计与聚合图](results/dataset-statistics/shape-statistics.md)已从真实82手数据生成并核验，PDF显示微差与统计列歧义照实保留。全文状态与真正缺口见[全论文证据清单](docs/full-paper-status.md)，动态进展见[运行状态](docs/run-status.md)，验收范围见[全文设计](docs/superpowers/specs/2026-10-26-full-paper-reproduction-design.md)。
