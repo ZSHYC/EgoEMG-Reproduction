@@ -22,7 +22,7 @@ from .vision_literal_runtime import _schema,_versions,vision_state_sha256
 ROOT=Path(__file__).resolve().parents[1]
 IMPORTED_SHA=_file_hash(__file__)
 FORMAT='original_rn18_small_fusion_construction_v1'
-LOCAL=('rn18_fusion_literal','rn18_fusion_runtime','fusion_literal_runtime','vision_literal_runtime','classic_emg','data')
+LOCAL=('rn18_fusion_literal','rn18_fusion_runtime','rn18_fusion_trained_handoff','fusion_literal_runtime','vision_literal_runtime','classic_emg','data')
 RUNTIME=('torchvision.models.resnet','torch.nn.modules.module','torch.optim.adam','torch.optim.lr_scheduler')
 EMG_HEAD={'head.net.0.weight','head.net.0.bias','head.net.3.weight','head.net.3.bias'}
 _BRANCHES=weakref.WeakKeyDictionary()
@@ -56,7 +56,9 @@ class EngineeringRn18FusionInitializers:
     config:object
     _assets:tuple
 
-    def check(self):
+    def check(self,*,require_full=False):
+        if type(require_full)is not bool:raise ValueError('explicit full RN18 initializer requirement required')
+        if require_full:raise ValueError('engineering branches cannot initialize a full RN18 fit')
         record=_BRANCHES.get(self)
         if record is None:raise ValueError('registered RN18 engineering branches required')
         protocol=rn18_fusion_protocol(self.upstream,self.config)
@@ -91,8 +93,29 @@ def _saved(identity):
     try:
         _saved_initialization(identity)
         init=identity['initialization'];transfer=init['vision_transfer'];emg=init['emg_transfer']
+        full=identity['initializers_scope']=='full';lineage=identity['trained_initializers_identity']
+        key=identity['initializers_identity_sha256']
+        if not isinstance(key,str)or len(key)!=64 or any(c not in'0123456789abcdef'for c in key):
+            raise ValueError('complete initializer identity digest required')
+        if full:
+            from .rn18_fusion_vision_producer import LEGACY_FILES,FULL_FUTURE
+            if (not isinstance(lineage,dict)or lineage.get('sha256')!=key or
+                _hash({k:v for k,v in lineage.items()if k!='sha256'})!=key or
+                lineage['format']!='rn18_fusion_complete_trained_initializers_v1'or lineage['scope']!='full'or
+                lineage['trained_branches_admitted']is not True or lineage['producer_training_verified']is not True or
+                lineage['protocol_sha256']!=identity['protocol_sha256']or
+                lineage['fusion_partition_content_sha256']!=FULL_FUTURE or
+                lineage['vision']['producer']['source_checkpoint_sha256']!=LEGACY_FILES['last.pt']or
+                lineage['vision']['checkpoint_selection']!='LAST'or
+                lineage['emg']['full_initializer']is not True or lineage['emg']['completed_epochs']!=150 or
+                lineage['emg']['optimizer_executions']!=36150 or lineage['emg']['checkpoint_selection']!='native validation BEST'or
+                lineage['emg']['input_binding']['footprints']['overlap_rows']!=dict(val=0,test=0)or
+                any(lineage['files'][r]['sha256']!=init[r+'_file']['sha256']for r in('vision','emg'))):
+                raise ValueError('complete fixed-holdout trained RN18 initializer lineage required')
+        elif lineage is not None:raise ValueError('engineering construction cannot invent trained lineage')
         if (identity['format']!=FORMAT or identity['upstream_experiment']!='fusion/fusion_rn18_s_center_8ch'or
-            identity['initializers_scope']!='engineering'or identity['trained_branches_admitted']is not False or
+            identity['initializers_scope']not in('engineering','full')or identity['trained_branches_admitted']is not full or
+            init['initializer_training_provenance_verified']is not full or
             any(identity[k]is not False for k in('scientific_eligible','production_ready','full_paper_complete'))or
             transfer['backbone_tensors']!=120 or transfer['head_tensors']!=4 or
             len(emg['matched'])!=106 or
@@ -137,15 +160,17 @@ class PreparedRn18Fusion:
 def build_rn18_fusion_runtime(upstream,config,*,initializers=None,state=None,expected_initialization=None):
     """Run unchanged native factories, or strictly restore all saved native tensors.
 
-    The current public branch path accepts engineering registration only. A full
-    fit must separately admit completed trained producers before using a runtime.
+    Full construction requires the registered completed trained-producer handoff.
+    Runtime construction alone never grants a scientific training/result permit.
     """
     root,value=_validated(upstream,config);protocol=rn18_fusion_protocol(root,config)
     fresh=state is None and expected_initialization is None
     if fresh:
-        if type(initializers)is not EngineeringRn18FusionInitializers:
+        from .rn18_fusion_trained_handoff import TrainedRn18FusionInitializers
+        full=type(initializers)is TrainedRn18FusionInitializers
+        if type(initializers)not in(EngineeringRn18FusionInitializers,TrainedRn18FusionInitializers):
             raise ValueError('registered explicit RN18 initializers required')
-        initializers.check()
+        initializers.check(require_full=full)
         if initializers.upstream!=root or initializers.identity['protocol_sha256']!=protocol['sha256']:
             raise ValueError('RN18 initializer source/family differs')
         assets=initializers._assets;vision=assets[0][0];emg=assets[1][0]
@@ -190,7 +215,9 @@ def build_rn18_fusion_runtime(upstream,config,*,initializers=None,state=None,exp
         etransfer=_verify_emg(module.model,es,enames)
         initializers.check()
         identity=dict(format=FORMAT,upstream_experiment='fusion/fusion_rn18_s_center_8ch',
-            initializers_scope='engineering',trained_branches_admitted=False,
+            initializers_scope='full'if full else'engineering',trained_branches_admitted=full,
+            initializers_identity_sha256=initializers.identity['sha256'],
+            trained_initializers_identity=copy.deepcopy(initializers.identity)if full else None,
             scientific_eligible=False,production_ready=False,full_paper_complete=False,
             protocol_sha256=protocol['sha256'],sources_sha256=sources,runtime_versions=versions,
             model_schema=_schema(module.state_dict()),parameters=sum(p.numel()for p in module.parameters()),
@@ -198,13 +225,13 @@ def build_rn18_fusion_runtime(upstream,config,*,initializers=None,state=None,exp
             initialization=dict(vision_file=dict(bytes=assets[0][1][2],sha256=initializers.identity['files']['vision']['sha256'],state_sha256=vision_state_sha256(vs)),
                 emg_file=dict(bytes=assets[1][1][2],sha256=initializers.identity['files']['emg']['sha256'],state_sha256=vision_state_sha256(es)),
                 vision_transfer=vtransfer,emg_source_schema=_schema(es),emg_transfer=etransfer,
-                initializer_training_provenance_verified=False,
+                initializer_training_provenance_verified=full,
                 residual_rule='original normal(std=1e-5) last weight and zero bias; not overwritten'))
         identity['sha256']=_hash(identity)
     else:
         if _schema(module.state_dict())!=identity['model_schema']:raise ValueError('RN18 restore native factory schema differs')
         module.load_state_dict(state,strict=True)
         if vision_state_sha256(module.state_dict())!=vision_state_sha256(state):raise ValueError('RN18 strict restored tensor bytes differ')
-    result=PreparedRn18Fusion(module,identity,'fresh_engineering_branch_initialization'if fresh else'strict_self_contained_restore',
+    result=PreparedRn18Fusion(module,identity,('fresh_trained_branch_initialization'if full else'fresh_engineering_branch_initialization')if fresh else'strict_self_contained_restore',
         vision_state_sha256(module.state_dict()),root,copy.deepcopy(config),assets)
     _PREPARED.add(result);result.check();return result

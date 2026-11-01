@@ -1,5 +1,7 @@
 # RN18＋EMGFormer-S 原生融合
 
+新增[完整生产者交接读取器](rn18-trained-handoff.md)：逐项核验固定留出区cotrain历史、验证BEST、全部110张量、来源和实际共同输入，并将具体初始化身份写入构造记录。真实2轮／4更新工程生产者与未完成的服务器正式生产者均不能冒充完整初始化。正式150轮生产者的正向联合交接、融合训练和完整最终评价仍欠。
+
 本实验使用固定官方版本 `f7cbd048b7092139852270491d3859cd472e0311` 的 `fusion/fusion_rn18_s_center_8ch`。旧版已完成的 RN18＋S 结果保留原身份；当前新路线已完成原生模型接入的工程检查，真实训练分支权重交接和正式训练仍未完成。
 
 [实际配方与训练足迹分析](../results/native-rn18-fusion-feasibility-20261101.json)、[配置接口](../results/native-rn18-fusion-protocol-20261101.json)、[81项工程检查与独立CPU准入](../results/native-rn18-fusion-reader-and-cohort-cpu-20261101.json)和[真实完整输入两遍准入](../results/native-rn18-fusion-full-cohort-admission-20261101.json)分开记录。

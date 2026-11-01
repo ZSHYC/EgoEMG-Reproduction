@@ -59,6 +59,20 @@ def prepared(branches):
     return m.build_rn18_fusion_runtime(UPSTREAM,cfg,initializers=init),init
 
 
+def test_engineering_initializer_explicit_full_requirement_cannot_reach_a_native_factory(branches):
+    from egoemg_repro.rn18_fusion_literal import compose_rn18_fusion
+    init=api().engineering_rn18_fusion_initializers(UPSTREAM,compose_rn18_fusion(UPSTREAM),**branches)
+    init.check(require_full=False)
+    with pytest.raises(ValueError,match='engineering|full'):init.check(require_full=True)
+
+
+def test_saved_construction_binds_the_specific_registered_initializer_identity(branches):
+    p,init=prepared(branches)
+    assert p.identity['initializers_identity_sha256']==init.identity['sha256']
+    assert p.identity['trained_initializers_identity']is None
+    assert not p.identity['initialization']['initializer_training_provenance_verified']
+
+
 def batch():
     torch=pytest.importorskip('torch')
     return dict(emg=torch.linspace(-.2,.2,2*8*12000).reshape(2,8,12000),

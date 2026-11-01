@@ -1,0 +1,65 @@
+{
+  "actual_engineering_producer": {
+    "cohort_counts": {
+      "test": 6,
+      "train": 80,
+      "val": 2
+    },
+    "completed_epochs": 2,
+    "exported_native_tensors": 110,
+    "fresh_process_prefix_then_resume": true,
+    "optimizer_updates": 4,
+    "producer_not_retrained_for_final_suite": true,
+    "scope": "engineering only"
+  },
+  "actual_live_incomplete_full_producer_rejected": true,
+  "complete_common_raw_inputs_and_future_holdout_binding_checked": true,
+  "existing_vit_fusion_and_all_completed_scores_unchanged": true,
+  "final_relevant_suite": {
+    "actual_exit_code": 0,
+    "full_log_sha256": "4b1d9e3731f75a84638b9179b8be4e4e4a678a0aa887e408cbb93a3aa2d322bc",
+    "native_transformer_advisories": 17,
+    "passed": 34,
+    "runtime_cases": 19,
+    "seconds": 131.3,
+    "skipped": 0,
+    "trained_handoff_cases": 15
+  },
+  "formal_fusion_training_started": false,
+  "format": "rn18_trained_handoff_source_and_real_cpu_engineering_checks_v1",
+  "full_paper_complete": false,
+  "full_trained_producer_positive_admission_verified": false,
+  "initializer_identity_saved_in_runtime": true,
+  "native_rn18_fit_and_eval_modules_implemented": false,
+  "observed_missing_feature_red": {
+    "actual_exit_code": 1,
+    "failed": 1,
+    "fixture_errors": 12,
+    "full_log_sha256": "acc7cfb37b75bed0ccd14a8c919e24ba28b99444a1379b86c9a3171a1b0bb2e5",
+    "seconds": 2.41
+  },
+  "observed_runtime_binding_red": {
+    "actual_exit_code": 1,
+    "failed": 2,
+    "full_log_sha256": "4eec40484375108356c9094a99c3bb275bed6d168a6751b43d918796a679a18e",
+    "seconds": 7.2
+  },
+  "observed_utc": "2026-11-01T17:46:25.483413+00:00",
+  "official_upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "original_cotrain_fit_source_unchanged": true,
+  "reader_rng_unchanged": true,
+  "readers_model_and_optimizer_constructors_denied": true,
+  "registered_object_clone_scope_path_and_export_mutations_rejected": true,
+  "review_boundary": "one fresh unit review after native fit/eval implementation, as existing plan requires",
+  "scientific_eligible": false,
+  "self_contained_cold_cache_prediction_exact": true,
+  "source_and_tests_sha256": {
+    "egoemg_repro/rn18_fusion_handoff.py": "212fe881a6ea83e91b0c571b23d176c16c2b48190eb0660024ad02c5df824c75",
+    "egoemg_repro/rn18_fusion_runtime.py": "1534f932ef7d0efee1de4bc25d25a1f8c405648e597e5b9d8e1b7ec84e22c901",
+    "egoemg_repro/rn18_fusion_trained_handoff.py": "ae39723433de777b0091ec739a25970159a9770ace02e1b905d3ae3a5878a09f",
+    "tests/test_rn18_fusion_runtime.py": "5458a0589b4631f1488f1444989ea1c8928baf6e4943a6f269944e8db18a2dab",
+    "tests/test_rn18_fusion_trained_handoff.py": "3100cea773d5b25ae4902798ae99f334a0508ad5a843b68ba57a04a8b000103b"
+  },
+  "stable_legacy_vision_reader_unchanged": true,
+  "whole_new_unit_review_complete": false
+}
