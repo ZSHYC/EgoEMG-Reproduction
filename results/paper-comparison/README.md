@@ -44,7 +44,7 @@ EMGFormer S/M/L轨迹值来自原训练器最终测试；其独立锁定复算�
 
 - Table3的七视觉与两融合均已有可得旧版队列最终报告；这不消除与PDF的数据/训练/评价协议差异，也不证明同条件数值等价。
 - 原生官方配方EgoEMG EMGFormer S/M/L已通过GPU资格链，三项新的200轮训练正在进行；最终测试和独立核验仍欠，既有legacy结果按原协议保留。
-- RN18/RN50/RN152及RN18+S当前表内结果仍属legacy0.01；原生/明确派生0.02路线尚需训练与最终核验。[ResNet协议接口](../native-resnet-protocol-20261101.json)及[数据/真实模型CPU工程验证](../native-resnet-runtime-and-data-20261101.json)已完成，工程样本与完整benchmark准入分开；[每两轮验证的fit/续训/独立评估CPU工程链](../native-resnet-fit-eval-engineering-20261101.json)已通过75项检查；真实GPU资格、全量正式训练/评估和一次新组件审查仍欠。原生RN18+S应使用`fusion/fusion_rn18_s_center_8ch`，不可用名称相近的RN50+M/100轮配置替代。
+- RN18/RN50/RN152及RN18+S当前表内结果仍属legacy0.01；原生/明确派生0.02路线尚需训练与最终核验。[ResNet协议接口](../native-resnet-protocol-20261101.json)及[数据/真实模型CPU工程验证](../native-resnet-runtime-and-data-20261101.json)已完成，工程样本与完整benchmark准入分开；[每两轮验证的fit/续训/独立评估CPU工程链](../native-resnet-fit-eval-engineering-20261101.json)已通过75项检查；新组件单次审查及134项当前工程检查已通过，完整来源各两遍已核验；[三条后台后续队列](../native-resnet-full-cli-queue-20261101.json)已部署，真实GPU资格与全量正式训练/评估尚待实际执行。原生RN18+S应使用`fusion/fusion_rn18_s_center_8ch`，不可用名称相近的RN50+M/100轮配置替代。
 - Table11/13：EMG2Pose标准基准没有完整250轮训练与科学测试，不能直接拿EgoEMG MAE与该表相减。
 - Figure13：完整自遮挡分层曲线及Spearmanρ=0.049/p=0.001对应复算仍欠。
 - 数据版本、标签处理、测试人口、窗口/损失、掩码/聚合与单rank/六rank等差异未消除；没有PDF数值等价结论。
@@ -54,3 +54,5 @@ EMGFormer S/M/L轨迹值来自原训练器最终测试；其独立锁定复算�
 [机器可读指标与来源SHA](completed-mae-20261101.json) · [CSV](completed-mae-20261101.csv) · [核心运行快照](../core-priority-status-20261101.json)
 
 2026-11-01补充：[ResNet三种完整来源各两遍准入](../native-resnet-full-cohort-admission-20261101.json)已完成，GPU资格/正式训练仍待执行，没有新增MAE行。
+
+2026-11-01 13:01补充：[几何修复与真实双手原生重放](../native-point-geometry-review-corrections-20261101.json)完成，完整标准val/test网格正在执行；密1/4stride与paired gain/Spearman仍欠，不能填Figure13。没有新增完整科学设置或MAE。

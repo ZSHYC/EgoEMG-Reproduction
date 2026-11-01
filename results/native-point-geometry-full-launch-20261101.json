@@ -1,0 +1,86 @@
+{
+  "complete_standard_roles": false,
+  "dense_grid_or_paired_gain_complete": false,
+  "existing_completed_scientific_settings": 14,
+  "focused_review_correction_acceptance": "native-point-geometry-review-corrections-20261101.json",
+  "format": "native_point_geometry_complete_standard_role_detached_launch_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-11-01T05:01:32.694101+00:00",
+  "planned_total_actual_mesh_calls": 11764,
+  "resolution_policy": {
+    "actual_episode_video_dimensions_proven": false,
+    "distortion_applied": false,
+    "height": 1080,
+    "name": "author_fallback_1920x1080",
+    "original_intrinsics_scaling_unchanged": true,
+    "width": 1920
+  },
+  "roles": {
+    "test": {
+      "actual_both_owners_live": true,
+      "actual_progress": {
+        "completed_points": 487,
+        "expected_points": 4306,
+        "mode": "complete_role"
+      },
+      "actual_registered_handles": {
+        "child": {
+          "pid": 1060700,
+          "start_ticks": "433650750"
+        },
+        "wrapper": {
+          "pid": 1060699,
+          "start_ticks": "433650746"
+        }
+      },
+      "bundle_sha256": "4fcc7f42a2bf15c336e5dff36cdfb3c5f02d8f34a58b4201cdafce2832be6fb4",
+      "complete_native_replay": false,
+      "complete_standard_role": false,
+      "cuda_hidden": true,
+      "current_phase": "native-a",
+      "expected_unique_points": 4306,
+      "learned_pose_models_constructed": 0,
+      "optimizer_updates": 0,
+      "planned_actual_native_runs": 2,
+      "planned_actual_raw_verifications": 2,
+      "recorder_reparented_to_pid1": true,
+      "source_commit": "ef12cddd7199eb64f74eb0dfabb2db399cca171b",
+      "stdin_devnull": true
+    },
+    "val": {
+      "actual_both_owners_live": true,
+      "actual_progress": {
+        "completed_points": 460,
+        "expected_points": 1576,
+        "mode": "complete_role"
+      },
+      "actual_registered_handles": {
+        "child": {
+          "pid": 1060694,
+          "start_ticks": "433650711"
+        },
+        "wrapper": {
+          "pid": 1060693,
+          "start_ticks": "433650708"
+        }
+      },
+      "bundle_sha256": "a637fff264cfa70fe9801eb2b516f5a82de768ddbe36702788907fec4628625d",
+      "complete_native_replay": false,
+      "complete_standard_role": false,
+      "cuda_hidden": true,
+      "current_phase": "native-a",
+      "expected_unique_points": 1576,
+      "learned_pose_models_constructed": 0,
+      "optimizer_updates": 0,
+      "planned_actual_native_runs": 2,
+      "planned_actual_raw_verifications": 2,
+      "recorder_reparented_to_pid1": true,
+      "source_commit": "ef12cddd7199eb64f74eb0dfabb2db399cca171b",
+      "stdin_devnull": true
+    }
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "total_unique_standard_hand_points": 5882,
+  "zero_pose_rows_retained": true
+}

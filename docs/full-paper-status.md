@@ -1,5 +1,9 @@
 # 全论文复现状态与证据清单
 
+> **2026-11-01 几何边界修复与完整网格启动（北京时间13:01）**：[单次审查修复及真实验收](../results/native-point-geometry-review-corrections-20261101.json)关闭3项Important；47个真实回归先失败，当前83项普通检查通过，另1项合法MANO资产测试实际通过。两次双手原生执行逐数组/分数完全一致，12个拥有进程均关闭；已完成输入→实际β/MANO→世界/相机→原生遮挡集成。[标准val/test完整角色](../results/native-point-geometry-full-launch-20261101.json)共5,882手点、每角色两遍原生计算与独立核验已启动；仍在跑，不增加科学设置。回退1920×1080、未用畸变和镜像约定差异明确保留；密网格/真实视频/增益相关仍欠。
+
+> **2026-11-01 ResNet完整来源后续GPU队列（北京时间13:01）**：[三条后台队列](../results/native-resnet-full-cli-queue-20261101.json)均确认真实存活，分别等待GPU0/1/7的精确原生EMGFormer前序及全部消费者正常关闭，再执行原batch900/400/180、8workers/BF16的第2→4轮恢复、完整val/test原生与重放资格；通过后才在全新目录正式150轮上限训练并完成最终报告。没有抢占或重启原有训练，当前未开始新GPU资格/正式fit；科学完成设置仍14。
+
 > **2026-11-01 三种ResNet完整数据准入（北京时间12:52）**：[RN18/50/152各两遍完整输入校验](../results/native-resnet-full-cohort-admission-20261101.json)已通过，共6次真实完整内容读取，52个payload（含41份crop）一致；各角色202,020/3,152/8,612次消费，唯一手样本101,010/1,576/4,306。每种新进程独立重开得到完全相同内容身份，18个原拥有进程均已退出0；实际0模型/0优化器更新/无CUDA，随机状态未变。三种原全局batch900/400/180及8workers分别保留。下一步是真实GPU前缀/恢复与完整验证测试资格，之后再全新正式训练；数据准入不增加14个完整科学设置。
 
 > **2026-11-01 ResNet单次审查修复（北京时间12:25）**：新组件审查的两项Important问题已修复，[当前源码134项检查](../results/native-resnet-review-corrections-20261101.json)全部通过、无跳过：数据34、真实三主干运行时18、训练62、评估20。实际dtype/shape/strides/offset变更、三处helper源码变化及读取过程中的源码代际变更均先触发失败再修复；检查点读取、训练和缓存报告链均覆盖完整来源保护。三个独立CPU进程重开数据、生成并复核报告，均0模型/0更新/无CUDA。真实GPU资格、完整数据准入及正式训练仍待各自实证；没有重跑已封闭的核心模型，完成科学设置仍14。
@@ -350,7 +354,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D16，§4.3/C.1 | TDS/SE/RoPE/回归形状、输入与上下文对齐 | **S/M/L legacy完整运行已核验**，E1/E6；classic原模型tuple/真实shape已核验，数据和训练链尚待适配。按真实上下文校验分母，非因果/全窗行为不宣称在线延迟 |
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy已核验；ViT-S+S原生CPU/GPU、真实训练分支交接及[结构图](../results/dataset-statistics/vision-fusion-architecture.md)已核验**。EMG为完成150轮的验证best133，视觉为完成124轮的last（按原加载规则）；ViT-S融合已完成150轮、最终测试、独立重放和报告核验。精确零是legacy明确适配，原生极小正态与PDF zero区别保留 |
-| D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **原生逐帧运行尚未完成**；[完整几何数值准入](../results/legacy-geometry-complete-numeric-admission-20261101.json)已覆盖左右pose、world/camera、tracked/valid及实际β，合法MANO资产已验收 | 仍需原生mesh/世界→相机集成、左右约定和K适用性/真实视频尺寸，公开任何原代码fallback时必须显式标注；不得用crop遮挡代替 |
+| D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **真实双手原生集成与独立重放通过，完整标准网格在跑**；[修复验收](../results/native-point-geometry-review-corrections-20261101.json)含实际β、MANO/world→camera/K/原遮挡，83普通检查+单独1真实资产测试；[val/test各两遍](../results/native-point-geometry-full-launch-20261101.json)共5,882手点尚未全量结束 | 原视频缺失，明确官方1920×1080回退且未用畸变；左右约定物理一致性和实际视频尺寸未证明，密网格仍欠；不得用crop遮挡代替 |
 | D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **未运行**，见 Figure13；[官方绘图][occlusion-plot]的实际过滤/样条与 PDF 不同，按下节裁决并保留全部底表 |
 
 ## 资产与外部依赖

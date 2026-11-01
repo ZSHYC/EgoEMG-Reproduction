@@ -1,0 +1,179 @@
+{
+  "controller_sha256": "9fd4e26cf9d71da9fe1169d2511344c542483e1d42afe8ff3f4a6d57e836f57e",
+  "engineering_qualification_complete": false,
+  "existing_completed_scientific_settings": 14,
+  "format": "native_resnet_original_batch_detached_successor_queues_v1",
+  "fresh_full_fit_reuses_no_qualification_weights": true,
+  "full_data_admission": "native-resnet-full-cohort-admission-20261101.json",
+  "full_paper_complete": false,
+  "gpu_allocation_note": "RN18 waits for native EMGFormer-M onGPU0; RN50 waits for native EMGFormer-S onGPU1; RN152 waits for native EMGFormer-L onGPU7. No GPU access until exact predecessor exits0, every owned consumer closes and assigned GPU is idle.",
+  "observed_utc": "2026-11-01T05:01:32.694101+00:00",
+  "original_pretrained_assets": true,
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_review": "native-resnet-review-corrections-20261101.json",
+  "variants": {
+    "resnet152": {
+      "actual_both_owners_live": true,
+      "actual_registered_handles": {
+        "child": {
+          "pid": 1061672,
+          "start_ticks": "433657403"
+        },
+        "wrapper": {
+          "pid": 1061671,
+          "start_ticks": "433657400"
+        }
+      },
+      "bundle_sha256": "75f626a693db29ddef5afa955b337155942b823ef417f9fe8c2ae16a27ac0b08",
+      "current_phase": "waiting-exact-predecessor",
+      "early_stopping_actual_validation_checks": 30,
+      "full_fit_started": false,
+      "gpu_index": 7,
+      "gpu_qualification_complete": false,
+      "gpu_uuid": "GPU-83b7beb5-2729-4e3b-ed78-b949192152fb",
+      "idle_gpu_free_gib_required": 64,
+      "max_epochs": 150,
+      "no_automatic_retry": true,
+      "no_wait_deadline": true,
+      "original_batch": 180,
+      "planned_engineering_epochs": 4,
+      "planned_engineering_updates": 8,
+      "planned_full_role_counts": {
+        "test": 8612,
+        "train": 202020,
+        "val": 3152
+      },
+      "planned_native_and_replay_val_test_per_fit": true,
+      "planned_owned_stages": 19,
+      "planned_qualification_six_domain_restore": true,
+      "precision": "bf16-mixed",
+      "predecessor_all_owned_stages_must_close": true,
+      "predecessor_bundle_sha256": "7c503d3847394c09cc1ce9c584c7e553e7c0ba0de5a3ca1aae2068092e37e336",
+      "predecessor_handles": {
+        "child": {
+          "pid": 914196,
+          "start_ticks": "432577366"
+        },
+        "wrapper": {
+          "pid": 914195,
+          "start_ticks": "432577363"
+        }
+      },
+      "recorder_reparented_to_pid1": true,
+      "scientific_eligible": false,
+      "source_commit": "19526d3da4718fe957d478eea8ec9a013992ad02",
+      "stdin_devnull": true,
+      "validation_every_epochs": 2,
+      "workers": 8
+    },
+    "resnet18": {
+      "actual_both_owners_live": true,
+      "actual_registered_handles": {
+        "child": {
+          "pid": 1061677,
+          "start_ticks": "433657453"
+        },
+        "wrapper": {
+          "pid": 1061676,
+          "start_ticks": "433657451"
+        }
+      },
+      "bundle_sha256": "dce0027c3da6f348aff0971c38a621f3a58fc9aa66dc7e97528f48fc270ea361",
+      "current_phase": "waiting-exact-predecessor",
+      "early_stopping_actual_validation_checks": 30,
+      "full_fit_started": false,
+      "gpu_index": 0,
+      "gpu_qualification_complete": false,
+      "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+      "idle_gpu_free_gib_required": 64,
+      "max_epochs": 150,
+      "no_automatic_retry": true,
+      "no_wait_deadline": true,
+      "original_batch": 900,
+      "planned_engineering_epochs": 4,
+      "planned_engineering_updates": 8,
+      "planned_full_role_counts": {
+        "test": 8612,
+        "train": 202020,
+        "val": 3152
+      },
+      "planned_native_and_replay_val_test_per_fit": true,
+      "planned_owned_stages": 19,
+      "planned_qualification_six_domain_restore": true,
+      "precision": "bf16-mixed",
+      "predecessor_all_owned_stages_must_close": true,
+      "predecessor_bundle_sha256": "6c7cb37ec05889ef6f14cffc996ac1f09cc7999df62d883fa9ed4ffd32dc6b83",
+      "predecessor_handles": {
+        "child": {
+          "pid": 914202,
+          "start_ticks": "432577372"
+        },
+        "wrapper": {
+          "pid": 914201,
+          "start_ticks": "432577369"
+        }
+      },
+      "recorder_reparented_to_pid1": true,
+      "scientific_eligible": false,
+      "source_commit": "19526d3da4718fe957d478eea8ec9a013992ad02",
+      "stdin_devnull": true,
+      "validation_every_epochs": 2,
+      "workers": 8
+    },
+    "resnet50": {
+      "actual_both_owners_live": true,
+      "actual_registered_handles": {
+        "child": {
+          "pid": 1061691,
+          "start_ticks": "433657522"
+        },
+        "wrapper": {
+          "pid": 1061690,
+          "start_ticks": "433657519"
+        }
+      },
+      "bundle_sha256": "7515c11a54067128e419a4fab2e5982e6283a50b4359a272ad0c6efe42364324",
+      "current_phase": "waiting-exact-predecessor",
+      "early_stopping_actual_validation_checks": 30,
+      "full_fit_started": false,
+      "gpu_index": 1,
+      "gpu_qualification_complete": false,
+      "gpu_uuid": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae",
+      "idle_gpu_free_gib_required": 64,
+      "max_epochs": 150,
+      "no_automatic_retry": true,
+      "no_wait_deadline": true,
+      "original_batch": 400,
+      "planned_engineering_epochs": 4,
+      "planned_engineering_updates": 8,
+      "planned_full_role_counts": {
+        "test": 8612,
+        "train": 202020,
+        "val": 3152
+      },
+      "planned_native_and_replay_val_test_per_fit": true,
+      "planned_owned_stages": 19,
+      "planned_qualification_six_domain_restore": true,
+      "precision": "bf16-mixed",
+      "predecessor_all_owned_stages_must_close": true,
+      "predecessor_bundle_sha256": "75c45c3fb6e8868f608d2e9b514cb230e40b52fd24fe81edda4086aaca6ddf94",
+      "predecessor_handles": {
+        "child": {
+          "pid": 903600,
+          "start_ticks": "432494128"
+        },
+        "wrapper": {
+          "pid": 903599,
+          "start_ticks": "432494125"
+        }
+      },
+      "recorder_reparented_to_pid1": true,
+      "scientific_eligible": false,
+      "source_commit": "19526d3da4718fe957d478eea8ec9a013992ad02",
+      "stdin_devnull": true,
+      "validation_every_epochs": 2,
+      "workers": 8
+    }
+  }
+}

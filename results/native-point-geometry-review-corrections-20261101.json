@@ -1,0 +1,95 @@
+{
+  "actual_corrected_source_native_acceptance": {
+    "actual_exit_code": 0,
+    "actual_geometry_layers_including_test": 3,
+    "actual_licensed_runtime_test_log_sha256": "b4e794d82b9ffe8731817539319bdb3547742dd6943a694f470361caa6a4b19c",
+    "actual_licensed_runtime_test_passed": 1,
+    "actual_mesh_calls_including_test": 6,
+    "actual_occlusion_calls_including_test": 6,
+    "actual_owned_stages": 5,
+    "all_capsule_sources_post_exit_exact": true,
+    "all_native_runtime_sources_and_raw_packets_post_exit_exact": true,
+    "all_twelve_original_owners_closed": true,
+    "exact_typed_native_arrays_replayed": true,
+    "fresh_native_bilateral_runs": 2,
+    "fresh_raw_verifications": 2,
+    "point_results": [
+      {
+        "center_idx": 331075,
+        "hand": "left",
+        "occlusion_score": 0.4501061725652745,
+        "positive_depth_vertices": 778,
+        "visible_ratio": 0.5498938274347255,
+        "visible_vertices": 501
+      },
+      {
+        "center_idx": 331075,
+        "hand": "right",
+        "occlusion_score": 0.5047803722352726,
+        "positive_depth_vertices": 778,
+        "visible_ratio": 0.49521962776472744,
+        "visible_vertices": 417
+      }
+    ],
+    "raw_workflow_file_sha256": "c28170e52d7d7c4cd7c287addf2bb68913b41ad8c2ec0cae0c8b25a48845d2eb",
+    "seconds": 18.029369982890785
+  },
+  "actual_regressions": {
+    "green_licensed_skips": 1,
+    "green_log_sha256": "c846e3b9ce3231b652d8bc680d91fec6e2eeccd4e85b981149dab0ca4d3e36f8",
+    "green_passed": 83,
+    "red_failed": 47,
+    "red_licensed_skips": 1,
+    "red_log_sha256": "95d4acda1a2c432c69b40f0dfa4b2338a3dfbd6d482f65b881e09297801e7334",
+    "red_passed": 36
+  },
+  "bundle_sha256": "65b0549e8faffc15cb6bbbfc79097dc7baec1353fcc6fcad85895b56a40d5a54",
+  "complete_standard_role": false,
+  "cuda_initialized": false,
+  "dense_grid_or_paired_gain_complete": false,
+  "existing_completed_scientific_settings": 14,
+  "format": "native_point_geometry_focused_review_correction_acceptance_v1",
+  "full_paper_complete": false,
+  "geometry_policy": {
+    "actual_betas": true,
+    "depth_eps": 0.005,
+    "flat_hand_mean": false,
+    "global_orient": "native zero",
+    "hand_pose_slice": [
+      3,
+      48
+    ],
+    "left_faces_reverse": true,
+    "left_mirror_axis": "X",
+    "legacy_manifest_convention": "flip_local_z; source script X mirror retained and not claimed reconciled",
+    "right_mano_for_both_hands": true,
+    "window_half": 2,
+    "zero_beta_fallback": false
+  },
+  "independent_review": {
+    "critical": 0,
+    "focused_fix_passes": 1,
+    "important": 3,
+    "important_resolved": 3,
+    "minor": 0,
+    "second_review": false
+  },
+  "learned_pose_models_constructed": 0,
+  "observed_utc": "2026-11-01T04:59:37.255880+00:00",
+  "optimizer_updates": 0,
+  "resolution_policy": {
+    "actual_episode_video_dimensions_proven": false,
+    "distortion_applied": false,
+    "height": 1080,
+    "name": "author_fallback_1920x1080",
+    "original_intrinsics_scaling_unchanged": true,
+    "width": 1920
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "ef12cddd7199eb64f74eb0dfabb2db399cca171b",
+  "source_sha256": {
+    "scripts/paper/run_native_point_geometry.py": "c2507b6d6308f3c9609a4931391a7863e7c4f3811a206b1bd485ead5a15f1634",
+    "tests/test_native_point_geometry.py": "a64c2cee1189bd9496529b28dc42b31298001ffaf7cff7894ea14204b414145e"
+  }
+}
