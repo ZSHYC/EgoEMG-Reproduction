@@ -41,7 +41,8 @@ EMGFormer S/M/L轨迹值来自原训练器最终测试；其独立锁定复算�
 ## 核心缺口
 
 - Table3的七视觉与两融合均已有可得旧版队列最终报告；这不消除与PDF的数据/训练/评价协议差异，也不证明同条件数值等价。
-- 原生官方配方EgoEMG EMGFormer S/M/L仍缺新的GPU资格与完整训练；既有legacy结果按原协议保留。
+- 原生官方配方EgoEMG EMGFormer S/M/L已通过GPU资格链，三项新的200轮训练正在进行；最终测试和独立核验仍欠，既有legacy结果按原协议保留。
+- RN18/RN50/RN152及RN18+S当前表内结果仍属legacy0.01；原生/明确派生0.02路线尚需训练与最终核验。[ResNet协议接口](../native-resnet-protocol-20261101.json)只完成28项元数据检查，原生RN18+S应使用`fusion/fusion_rn18_s_center_8ch`，不可用名称相近的RN50+M/100轮配置替代。
 - Table11/13：EMG2Pose标准基准没有完整250轮训练与科学测试，不能直接拿EgoEMG MAE与该表相减。
 - Figure13：完整自遮挡分层曲线及Spearmanρ=0.049/p=0.001对应复算仍欠。
 - 数据版本、标签处理、测试人口、窗口/损失、掩码/聚合与单rank/六rank等差异未消除；没有PDF数值等价结论。

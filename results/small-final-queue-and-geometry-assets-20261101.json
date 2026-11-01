@@ -1,0 +1,154 @@
+{
+  "actual_existing_fit_owners_live": true,
+  "actual_final_queue_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 931213,
+      "start_ticks": "432663735"
+    },
+    "started_utc": "2026-11-01T02:15:32.010968+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 931212,
+      "start_ticks": "432663732"
+    }
+  },
+  "actual_queue_owners_live": true,
+  "actual_queue_recorder_reparented_to_pid1": true,
+  "actual_queue_stdin_dev_null_and_independent_sessions": true,
+  "all_current_main_workflow_owners_live": true,
+  "current_main_server_workflows": 8,
+  "format": "actual_small_final_queue_and_geometry_metadata_20261101_v1",
+  "full_paper_complete": false,
+  "geometry": {
+    "actual_episode_video_resolution_proven": false,
+    "beta_shape_per_hand": [
+      41,
+      10
+    ],
+    "calibration_declared_sensor_resolution": [
+      3840,
+      3360
+    ],
+    "completed_transfers": 6,
+    "geometry_numeric_admitted": false,
+    "new_completed": [
+      {
+        "filename": "mocap_right_valid.dat",
+        "recovery_statistics": {
+          "exhausted": false,
+          "last_failure_offset": null,
+          "scheduled_retries": 0,
+          "transient_failures": 0
+        },
+        "transfer_receipt": {
+          "bytes": 1389396225,
+          "checksum_basis": "local_transfer",
+          "drive_id": "14lCnNtA1kho2PADp5NexHJejoEEErsQs",
+          "sha256": "5c8ad53bb021aabc27fc92317ac10f814b4e1146cdaace4edbc883656c587dd8",
+          "url": "https://drive.google.com/uc?id=14lCnNtA1kho2PADp5NexHJejoEEErsQs",
+          "verified_at": "2026-11-01T02:04:00.487878+00:00"
+        }
+      },
+      {
+        "filename": "mocap_webcam_transform.dat",
+        "recovery_statistics": {
+          "exhausted": false,
+          "last_failure_offset": null,
+          "scheduled_retries": 0,
+          "transient_failures": 0
+        },
+        "transfer_receipt": {
+          "bytes": 3175762800,
+          "checksum_basis": "local_transfer",
+          "drive_id": "1UuzEdEpQuIzqEsIQ1qn1tZxRLPbby3jm",
+          "sha256": "ec8dbe5ad73a44e24b2028190ef2032763093692b7899f93b182f7d34e31b32d",
+          "url": "https://drive.google.com/uc?id=1UuzEdEpQuIzqEsIQ1qn1tZxRLPbby3jm",
+          "verified_at": "2026-11-01T02:17:57.345980+00:00"
+        }
+      }
+    ],
+    "observed_missing_array_sizes": {
+      "generated_mano_left_pose.dat": 6777995264,
+      "generated_mano_right_pose.dat": 0,
+      "mocap_right_valid.dat": 1389396225,
+      "mocap_webcam_transform.dat": 3175762800
+    },
+    "occlusion_reproduction_complete": false,
+    "required_arrays": 8,
+    "small_auxiliary_files_transferred": [
+      {
+        "bytes": 1366,
+        "filename": "GX010023_standard_calibration.json",
+        "reused_existing": false,
+        "sha256": "2b94a3c887e5aff600dc2d555121b74ac6cbd6670667e2f4c5c8688a434b3f8a"
+      },
+      {
+        "bytes": 1640,
+        "filename": "generated_mano_left_beta.dat",
+        "reused_existing": false,
+        "sha256": "cfc2b56a47e5a912cfd03e576a27920fb2c43a0152fc73e28b74f5ac9063d865"
+      },
+      {
+        "bytes": 1640,
+        "filename": "generated_mano_right_beta.dat",
+        "reused_existing": false,
+        "sha256": "48e6889f51db4cb45623731f7ae98a79f2d6498fa45048abb0b7c3fbd6af2628"
+      }
+    ]
+  },
+  "limitations": [
+    "The newS queue waits for actual250epochs/396000updates and original owned closure; it has not run inference or produced a score.",
+    "Geometry transfer6/8 is distinct from complete numeric/MANO/camera admission.",
+    "The calibration file declares3840x3360; actual episode video sizes remain unverified, and official occlusion fallback1920x1080 is not measured evidence.",
+    "The official helper reads but does not apply distortion coefficients in its K projection; preserve and identify literal behavior when the analysis is implemented."
+  ],
+  "new_inference_not_started": true,
+  "observed_utc": "2026-11-01T02:48:17.901711+00:00",
+  "old_training_not_restarted": true,
+  "queue_current_phase": "waiting_exact_existing_full250_fit",
+  "scientific_settings_added": 0,
+  "scientific_settings_complete": 14,
+  "small_final_evaluation": {
+    "actual_state": {
+      "automatic_retry": false,
+      "child": {
+        "pid": 931213,
+        "start_ticks": "432663735"
+      },
+      "started_utc": "2026-11-01T02:15:32.010968+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 931212,
+        "start_ticks": "432663732"
+      }
+    },
+    "bundle_sha256": "a7126dddd65e9f4052ba3d1131e6a88269291b745379ed5008c5ae2b467ed14e",
+    "deadline_seconds": null,
+    "evaluation_batch_size": 320,
+    "evaluation_precision": "32-true",
+    "evaluation_workers": 12,
+    "expected_full_epochs": 250,
+    "expected_full_updates": 396000,
+    "original_failed_driver_preserved": true,
+    "original_full250_fit_preserved_and_running": true,
+    "original_gpu_uuid": "GPU-3b5a6250-aa89-83c4-f375-844893f374f5",
+    "original_live_fit_state": {
+      "automatic_retry": false,
+      "child": {
+        "pid": 903983,
+        "start_ticks": "432500334"
+      },
+      "started_utc": "2026-11-01T01:48:18.002298+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 903982,
+        "start_ticks": "432500331"
+      }
+    },
+    "planned_evaluation_passes": 8,
+    "planned_managed_stages": 13,
+    "source_commit": "d8800033aac46309e425e76279978b2b61315b82",
+    "unchanged_original_module_count": 68
+  }
+}

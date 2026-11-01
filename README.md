@@ -10,6 +10,8 @@
 
 > **剩余实验续行 · 2026-11-01 10:04北京时间**：[七项服务器后台流程](results/full-paper-execution-20261101T0204.json)独立运行。原生EMGFormer-S已进入正式200轮；[原生M/L完整输入与GPU恢复](results/native-emgformer-ml-input-and-fit-qualification-20261101.json)通过，正在独立验证/测试资格链，其后自动进行各自200轮及最终评估。EMG2Pose S/M/L仍在完整来源准入。新增右手有效性文件完整1.389GB，几何传输5/8、其余三文件在服务器继续接收。本机关机不终止已部署流程；完成科学设置仍14，暂无新增最终成绩。
 
+> **后续工作补齐 · 2026-11-01**：[EMG2Pose-S训练后评估与几何进度](results/small-final-queue-and-geometry-assets-20261101.json)已记录：S最终评估队列在服务器独立等待250轮；几何传输6/8，标定与两手beta已就绪。[原生ResNet配置接口](results/native-resnet-protocol-20261101.json)28项检查通过，RN18/50/152的0.02官方/明确派生路线进入实现；原生ResNet训练和RN18+S官方配方尚未完成，科学完成设置仍14。
+
 > **结果与论文的差距：** [14项已完成MAE逐项对照](results/paper-comparison/README.md)保留Table2/3原表、当前结果和原始来源SHA；WiLoR为5.107042°对论文4.7°，ViT-S融合为6.342238°对论文5.5°。当前总体数值均高于PDF；数据和协议未完全对齐，不能声称同条件核心数值或全部模型优势已复现。
 
 > **新增协议审计：** 固定官方EgoEMG配置经Hydra合成与别名归约后，指尖项有效系数为0.02；既有legacy配方使用0.01。此前这一差异漏核，[实际11配置审计](results/official-loss-audit.md)已公开说明，旧结果与在跑legacy实验不能称为该官方损失的等价复现。EMG2Pose三项无此叠加，仍为0.01。

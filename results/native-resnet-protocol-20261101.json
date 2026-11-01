@@ -1,0 +1,1349 @@
+{
+  "actual_green": {
+    "exit_code": 0,
+    "log_sha256": "3fec1414c2612d7d9754a8f51435c62c4da47127a69bf32d2a3b9e2cf11475a7",
+    "passed": 28,
+    "seconds": 7.5,
+    "skipped": 0
+  },
+  "actual_red": {
+    "exit_code": 1,
+    "expected_failure": "new protocol module absent inside test bodies",
+    "failed": 28,
+    "log_sha256": "35606cab0740e95be0370ed40a96d115cea791016c2221093c3844f23e0123ae"
+  },
+  "data_or_numeric_corpus_admitted": false,
+  "data_projection_metadata_preflight": {
+    "compared_top_level_fields": [
+      "dataset",
+      "egoemg_emg_layout",
+      "skip_emg_loading",
+      "vision_num_frames",
+      "vision_frame_selection",
+      "vision_patch_size",
+      "per_episode_crops_dir",
+      "transforms"
+    ],
+    "datamodule_different_keys": [],
+    "metadata_only": true,
+    "numeric_or_corpus_admission": false,
+    "top_level_equal": {
+      "dataset": true,
+      "egoemg_emg_layout": true,
+      "per_episode_crops_dir": true,
+      "skip_emg_loading": true,
+      "transforms": true,
+      "vision_frame_selection": true,
+      "vision_num_frames": true,
+      "vision_patch_size": true
+    }
+  },
+  "format": "native_resnet_protocol_metadata_and_tdd_v1",
+  "full_paper_complete": false,
+  "full_training_started": false,
+  "gpu_qualification_complete": false,
+  "implementation_file_sha256": "07471737e142f48db05ba082d0f01d65bd77fff8e26635e0a29ee4c28de108cb",
+  "limitations": [
+    "Only RN18 has an author experiment at the pinned revision. RN50/152 explicitly derive RN18 with supported backbones and paper Table8 batches400/180.",
+    "This metadata/CPU check is not a model fit, GPU permit, benchmark score or proof of merged-data/PDF equivalence.",
+    "Completed legacy0.01 ResNet results retain their original identities."
+  ],
+  "model_or_optimizer_constructed": false,
+  "observed_utc": "2026-11-01T02:47:18.101309+00:00",
+  "protocols": {
+    "resnet152": {
+      "batch_size_by_role": {
+        "test": 180,
+        "train": 180,
+        "val": 180
+      },
+      "batch_size_semantics": "native make_data_module passes global batch_size; all roles use self.batch_size",
+      "callbacks": [
+        {
+          "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+          "filename": "resnet18-vision-{epoch:03d}-{val_mae:.4f}",
+          "mode": "min",
+          "monitor": "val_mae",
+          "save_last": true,
+          "save_top_k": 3
+        },
+        {
+          "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+        },
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 30
+        }
+      ],
+      "dataset_declarations": {
+        "test": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ],
+        "train": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "train"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": false,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "jitter": true,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 780,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "train"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": false,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "jitter": true,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 780,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ],
+        "val": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ]
+      },
+      "declared_training_corpus": "physically merged EgoEMG/ShowEE/Incre; no corpus admitted here",
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "explicit_overrides": [
+        "module.backbone_type=resnet152",
+        "batch_size=180"
+      ],
+      "format": "original_resnet_execution_contract_v1",
+      "full_paper_complete": false,
+      "loader": {
+        "drop_last": false,
+        "generator": null,
+        "persistent_workers": true,
+        "pin_memory": false,
+        "prefetch_factor": 2
+      },
+      "lr_scheduler": {
+        "frequency": 1,
+        "interval": "epoch",
+        "scheduler": {
+          "T_max": 150,
+          "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+          "eta_min": 1e-05
+        }
+      },
+      "mask_semantics": "original generated center label mask for22 angles; no legacy wrist cleanup",
+      "module": {
+        "_target_": "egoemg.models.modules.resnet_vision.ResNetVisionPose",
+        "backbone_type": "resnet152",
+        "freeze_backbone": false,
+        "head_dropout": 0.1,
+        "head_hidden": 512,
+        "out_channels": 22,
+        "pretrained": true
+      },
+      "optimizer": {
+        "_target_": "torch.optim.AdamW",
+        "amsgrad": false,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "lr": 0.0001,
+        "weight_decay": 0.01
+      },
+      "production_ready": false,
+      "raw_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      },
+      "recipe_origin": "explicit_rn18_recipe_and_paper_batch_derivation",
+      "repeat_by_role": {
+        "test": 2,
+        "train": 2,
+        "val": 2
+      },
+      "scientific_eligible": false,
+      "seed": 42,
+      "seed_policy": "original setup_runtime before original factory; metadata constructs no runtime",
+      "sha256": "76af7b12a544d6102fb675fc11b072743e8e34c8e07459ec984c7c3f2fc9b2e1",
+      "sources_sha256": {
+        "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+        "config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+        "config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+        "config/experiment/fusion/vision_resnet18.yaml": "bcac43b6a10292940cd475b50e2456a3247faa303548f158f6e1e5796c402580",
+        "config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+        "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+        "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+        "config/module/resnet_vision.yaml": "502d4703fb6a0e7693854ca1bafd31234ea3f5f93684d88409399a8c8195de18",
+        "config/transforms/noop.yaml": "93c32cf5aa1e2fe8f4b493ad997ce5de8ef47fc909a2999e93ff1601071061d4",
+        "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+        "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+        "egoemg/models/modules/resnet_vision.py": "a2c40c1ef84ec0463378b5d49a393a586ac97211d79afcff632f7eb6855c8d0a",
+        "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e"
+      },
+      "trainer": {
+        "check_val_every_n_epoch": 2,
+        "devices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "enable_model_summary": false,
+        "gradient_clip_val": 1,
+        "log_every_n_steps": 1,
+        "max_epochs": 150,
+        "precision": "bf16-mixed"
+      },
+      "unused_declared_val_batch_size": 256,
+      "upstream_experiment": "fusion/vision_resnet18",
+      "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "variant": "resnet152",
+      "vision_patch_size": 256,
+      "window": {
+        "eval_length": 7790,
+        "eval_stride": 7790,
+        "train_length": 7790,
+        "train_stride": 780
+      },
+      "workers_by_role": {
+        "test": 8,
+        "train": 8,
+        "val": 8
+      }
+    },
+    "resnet18": {
+      "batch_size_by_role": {
+        "test": 900,
+        "train": 900,
+        "val": 900
+      },
+      "batch_size_semantics": "native make_data_module passes global batch_size; all roles use self.batch_size",
+      "callbacks": [
+        {
+          "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+          "filename": "resnet18-vision-{epoch:03d}-{val_mae:.4f}",
+          "mode": "min",
+          "monitor": "val_mae",
+          "save_last": true,
+          "save_top_k": 3
+        },
+        {
+          "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+        },
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 30
+        }
+      ],
+      "dataset_declarations": {
+        "test": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ],
+        "train": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "train"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": false,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "jitter": true,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 780,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "train"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": false,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "jitter": true,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 780,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ],
+        "val": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ]
+      },
+      "declared_training_corpus": "physically merged EgoEMG/ShowEE/Incre; no corpus admitted here",
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "explicit_overrides": [],
+      "format": "original_resnet_execution_contract_v1",
+      "full_paper_complete": false,
+      "loader": {
+        "drop_last": false,
+        "generator": null,
+        "persistent_workers": true,
+        "pin_memory": false,
+        "prefetch_factor": 2
+      },
+      "lr_scheduler": {
+        "frequency": 1,
+        "interval": "epoch",
+        "scheduler": {
+          "T_max": 150,
+          "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+          "eta_min": 1e-05
+        }
+      },
+      "mask_semantics": "original generated center label mask for22 angles; no legacy wrist cleanup",
+      "module": {
+        "_target_": "egoemg.models.modules.resnet_vision.ResNetVisionPose",
+        "backbone_type": "resnet18",
+        "freeze_backbone": false,
+        "head_dropout": 0.1,
+        "head_hidden": 512,
+        "out_channels": 22,
+        "pretrained": true
+      },
+      "optimizer": {
+        "_target_": "torch.optim.AdamW",
+        "amsgrad": false,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "lr": 0.0001,
+        "weight_decay": 0.01
+      },
+      "production_ready": false,
+      "raw_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      },
+      "recipe_origin": "pinned_author_experiment",
+      "repeat_by_role": {
+        "test": 2,
+        "train": 2,
+        "val": 2
+      },
+      "scientific_eligible": false,
+      "seed": 42,
+      "seed_policy": "original setup_runtime before original factory; metadata constructs no runtime",
+      "sha256": "21369dab30147ca193cd45d0c7d401c9905880809f80aa2c7f0d5f3f3b9dcf26",
+      "sources_sha256": {
+        "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+        "config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+        "config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+        "config/experiment/fusion/vision_resnet18.yaml": "bcac43b6a10292940cd475b50e2456a3247faa303548f158f6e1e5796c402580",
+        "config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+        "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+        "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+        "config/module/resnet_vision.yaml": "502d4703fb6a0e7693854ca1bafd31234ea3f5f93684d88409399a8c8195de18",
+        "config/transforms/noop.yaml": "93c32cf5aa1e2fe8f4b493ad997ce5de8ef47fc909a2999e93ff1601071061d4",
+        "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+        "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+        "egoemg/models/modules/resnet_vision.py": "a2c40c1ef84ec0463378b5d49a393a586ac97211d79afcff632f7eb6855c8d0a",
+        "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e"
+      },
+      "trainer": {
+        "check_val_every_n_epoch": 2,
+        "devices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "enable_model_summary": false,
+        "gradient_clip_val": 1,
+        "log_every_n_steps": 1,
+        "max_epochs": 150,
+        "precision": "bf16-mixed"
+      },
+      "unused_declared_val_batch_size": 256,
+      "upstream_experiment": "fusion/vision_resnet18",
+      "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "variant": "resnet18",
+      "vision_patch_size": 256,
+      "window": {
+        "eval_length": 7790,
+        "eval_stride": 7790,
+        "train_length": 7790,
+        "train_stride": 780
+      },
+      "workers_by_role": {
+        "test": 8,
+        "train": 8,
+        "val": 8
+      }
+    },
+    "resnet50": {
+      "batch_size_by_role": {
+        "test": 400,
+        "train": 400,
+        "val": 400
+      },
+      "batch_size_semantics": "native make_data_module passes global batch_size; all roles use self.batch_size",
+      "callbacks": [
+        {
+          "_target_": "pytorch_lightning.callbacks.ModelCheckpoint",
+          "filename": "resnet18-vision-{epoch:03d}-{val_mae:.4f}",
+          "mode": "min",
+          "monitor": "val_mae",
+          "save_last": true,
+          "save_top_k": 3
+        },
+        {
+          "_target_": "pytorch_lightning.callbacks.LearningRateMonitor"
+        },
+        {
+          "_target_": "pytorch_lightning.callbacks.EarlyStopping",
+          "check_on_train_epoch_end": false,
+          "mode": "min",
+          "monitor": "val_mae",
+          "patience": 30
+        }
+      ],
+      "dataset_declarations": {
+        "test": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ],
+        "train": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "train"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": false,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "jitter": true,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 780,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "train"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": false,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "jitter": true,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 780,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ],
+        "val": [
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "left",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          },
+          {
+            "_target_": "egoemg.datasets.egoemg_memmap_dataset.EgoEmgMemmapDataset",
+            "allintra_root": null,
+            "allowed_splits": [
+              "user",
+              "gesture",
+              "both"
+            ],
+            "cached_vit_features_dir": null,
+            "center_target_only": true,
+            "channel_interpolate": false,
+            "dataset_name": "egoemg_unified",
+            "emg2pose_channel_indices": [
+              10,
+              12,
+              0,
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "emg_field_preference": "filtered_paper",
+            "emg_layout": "emg2pose_interpolate16",
+            "eval_center_stride": null,
+            "jitter": false,
+            "mano_npy_dir": null,
+            "memmap_dir": "./data/EgoEMG_full_memmap",
+            "modalities": [
+              "emg",
+              "joint_angles",
+              "labels"
+            ],
+            "norm_mode": "per-dataset",
+            "norm_stats_path": "./assets/per_dataset_norm_stats.json",
+            "per_episode_crops_dir": "./data/EgoEMG_crops",
+            "preload_features": false,
+            "skip_emg_loading": true,
+            "skip_fields": null,
+            "stride": 7790,
+            "target_hand": "right",
+            "video_root": null,
+            "vision_frame_selection": "center",
+            "vision_frame_stride": 1,
+            "vision_num_frames": 1,
+            "vision_patch_size": 256,
+            "window_length": 7790
+          }
+        ]
+      },
+      "declared_training_corpus": "physically merged EgoEMG/ShowEE/Incre; no corpus admitted here",
+      "effective_loss_weights": {
+        "landmark/fingertip": 0.02,
+        "mae": 1.0
+      },
+      "explicit_overrides": [
+        "module.backbone_type=resnet50",
+        "batch_size=400"
+      ],
+      "format": "original_resnet_execution_contract_v1",
+      "full_paper_complete": false,
+      "loader": {
+        "drop_last": false,
+        "generator": null,
+        "persistent_workers": true,
+        "pin_memory": false,
+        "prefetch_factor": 2
+      },
+      "lr_scheduler": {
+        "frequency": 1,
+        "interval": "epoch",
+        "scheduler": {
+          "T_max": 150,
+          "_target_": "torch.optim.lr_scheduler.CosineAnnealingLR",
+          "eta_min": 1e-05
+        }
+      },
+      "mask_semantics": "original generated center label mask for22 angles; no legacy wrist cleanup",
+      "module": {
+        "_target_": "egoemg.models.modules.resnet_vision.ResNetVisionPose",
+        "backbone_type": "resnet50",
+        "freeze_backbone": false,
+        "head_dropout": 0.1,
+        "head_hidden": 512,
+        "out_channels": 22,
+        "pretrained": true
+      },
+      "optimizer": {
+        "_target_": "torch.optim.AdamW",
+        "amsgrad": false,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "lr": 0.0001,
+        "weight_decay": 0.01
+      },
+      "production_ready": false,
+      "raw_loss_weights": {
+        "fingertip_distance": 0.01,
+        "landmark/fingertip": 0.01,
+        "mae": 1.0
+      },
+      "recipe_origin": "explicit_rn18_recipe_and_paper_batch_derivation",
+      "repeat_by_role": {
+        "test": 2,
+        "train": 2,
+        "val": 2
+      },
+      "scientific_eligible": false,
+      "seed": 42,
+      "seed_policy": "original setup_runtime before original factory; metadata constructs no runtime",
+      "sha256": "d05d6e647f5b5b2a9c6ff01483d7946587764ca9bb799e7cf01e05c15a30a564",
+      "sources_sha256": {
+        "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+        "config/datamodule/default.yaml": "3880045ee29d94703b62e8d3b476413469662ec641fa607e8f8d176ecbe16ef9",
+        "config/dataset/egoemg_unified_angle_regression.yaml": "7d7fd3cc222e3c81ea9f5bb52b2a77bd0d71a6f72745aecceab6687385b316d7",
+        "config/experiment/fusion/vision_resnet18.yaml": "bcac43b6a10292940cd475b50e2456a3247faa303548f158f6e1e5796c402580",
+        "config/lineage/_base.yaml": "07166017ea213f08b45f9a04432b28c9db03b6a061207f3d86c23fc98c3cb2f0",
+        "config/lineage/fusion.yaml": "45ee24f5e2b45f7596c858840f39960b23e9326d8759fe81846fb3b7eefd831d",
+        "config/lr_scheduler/cosine.yaml": "9b81949c6491bf97e2bfe772f2a971b9ba2c3d6086b8953ee0d2f43f2d58b86b",
+        "config/module/resnet_vision.yaml": "502d4703fb6a0e7693854ca1bafd31234ea3f5f93684d88409399a8c8195de18",
+        "config/transforms/noop.yaml": "93c32cf5aa1e2fe8f4b493ad997ce5de8ef47fc909a2999e93ff1601071061d4",
+        "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+        "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+        "egoemg/models/modules/resnet_vision.py": "a2c40c1ef84ec0463378b5d49a393a586ac97211d79afcff632f7eb6855c8d0a",
+        "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e"
+      },
+      "trainer": {
+        "check_val_every_n_epoch": 2,
+        "devices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "enable_model_summary": false,
+        "gradient_clip_val": 1,
+        "log_every_n_steps": 1,
+        "max_epochs": 150,
+        "precision": "bf16-mixed"
+      },
+      "unused_declared_val_batch_size": 256,
+      "upstream_experiment": "fusion/vision_resnet18",
+      "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+      "variant": "resnet50",
+      "vision_patch_size": 256,
+      "window": {
+        "eval_length": 7790,
+        "eval_stride": 7790,
+        "train_length": 7790,
+        "train_stride": 780
+      },
+      "workers_by_role": {
+        "test": 8,
+        "train": 8,
+        "val": 8
+      }
+    }
+  },
+  "remaining_unit_work": [
+    "genuine pretrained original runtime and strict complete-state reload",
+    "source-bound registered data companion admission and native loaders",
+    "native validation-every2 checkpoint/early-stop/recovery and selected-point evaluation",
+    "one new-unit review, actual GPU qualification and complete original/derived150max experiments"
+  ],
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_base_commit": "842f86aeb92cc95f5bdd47da8e035e7829485e82",
+  "test_file_sha256": "ef85fcc0591035f109b038aa8f373c36738f499a5ec3f308933786b005cc1d43"
+}
