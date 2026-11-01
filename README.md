@@ -1,3 +1,5 @@
+> **2026-11-01 最新推进 · 北京时间22:48**：[Figure7普通网格输入](results/native-qualitative/README.md)完成4,530选中手样本×2真实读取及退出后独立重建，原始49,830数组指纹一致；三模型普通网格推理和三类最终例图仍欠。[ViT-S完整遮挡分析](results/native-dense-occlusion/vits-full/README.md)此前已验收；论文人口／数值等价限制仍在，全文尚未完成。
+
 > **2026-11-01 最新推进 · 北京时间18:58**：[真实B64遮挡资格](results/native-dense-occlusion/trained-b64-qualification-complete-20261101.json)已通过：两遍各528点/12批精确重放，48个读取子进程＋6个资格阶段拥有者关闭；服务器自动进入完整17,168点×2遍预测，完整统计/相关/Figure13尚未完成。[原生EMGFormer全轨迹输入层](docs/native-emgformer-trajectory.md)新增28项检查全部通过、无跳过，保留中心结果并单独扫描完整窗口标签；这是val4/test8的真实memmap工程验收，尚未运行新全轨迹模型评价。完整原生S/M/L训练与中心报告已另完成，架构家族仍14，全文目标继续。
 
 > **2026-11-01 最新验收 · 北京时间18:38**：[原生EMGFormer-L](results/original-emgformer/large/README.md)完成200轮/25,000正式更新，验证best第142轮；完整val/test及独立重放通过，36当前＋6资格拥有进程关闭，2,792唯一样本中心pooled MAE **16.573467°**。S/M/L原生200轮与中心评价现均完成，新原生全轨迹评价仍欠，未替换Table2行，架构家族仍14。[遮挡完整预测入口](results/native-dense-occlusion/README.md#完整预测重放与报告入口)一次集成审查的两项实质问题已修正，新增25项检查通过；真实CPU batch64/4workers资格及后续完整双遍预测/报告队列已脱离本机启动，资格尚未完成，Figure13及全文仍未完成。RN18/50与EMG2Pose等原流程继续，RN152按原队列等待L闭环后自行启动。
