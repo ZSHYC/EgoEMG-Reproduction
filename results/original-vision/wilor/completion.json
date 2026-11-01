@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "curve-data.json": "56bc4c014bb9247249a9f1b615d41bfd0a1c7370f8a2b789ded075a92f8eb909",
+    "metrics.json": "341695b72f767035cc18652a835b6a6c913af43d1498c7a738e1b9ac3f560148",
+    "metrics.md": "871c9f8d1e20a448b056471981ac42c64b0b9c8623ea1cb60baab79e7a9cf116",
+    "training-curves.png": "7ca972f747c3385d34743af48421371b9d4e7f73f76d565d4749f572ac8f65ba",
+    "training-curves.svg": "c1f64181b99a6b89181b11dd736991d8b60a7a942ab7448dec7509a922c59418"
+  },
+  "format": "explicit_recovered_wilor_report_completion_v1",
+  "full_paper_complete": false,
+  "report_sha256": "439982617b521d2e75ffad372550d66e3370035d3c0af90fffaec3d035df7050",
+  "scientific_eligible": true,
+  "sha256": "a01eaa8aa6a0d05fdbd94576a3c3feb1dd115a9c5d0a4c72325a209d5fcdcccf"
+}

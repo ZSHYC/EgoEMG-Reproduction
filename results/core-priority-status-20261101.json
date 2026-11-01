@@ -1,0 +1,50 @@
+{
+  "all_three_requested_core_settings_complete": true,
+  "format": "core_priority_completed_status_v1",
+  "full_paper_complete": false,
+  "no_training_or_evaluation_restart_performed": true,
+  "observed_utc": "2026-11-01T01:31:59.817638+00:00",
+  "paper_numerical_equivalence_established": false,
+  "previous_active_snapshot": "results/core-priority-status-20261030.json",
+  "results": {
+    "fusion": {
+      "all_center_mae_deg": 6.342238287253475,
+      "completed_epochs": 150,
+      "evaluation_controller_exit_code": 0,
+      "evaluation_ended_utc": "2026-10-31T15:49:47.690913+00:00",
+      "optimizer_executions": 296550,
+      "result_file_sha256": "d831ece7c9541293cdff968dc891018aaef0af0339221167fa6d8f7cda291db7",
+      "result_path": "results/original-fusion/vit-small-emgformer-small/metrics.json",
+      "selected_epoch_human": 108,
+      "status": "complete",
+      "test_consumed_samples": 8612,
+      "test_unique_hand_samples": 4306,
+      "training_controller_exit_code": 0,
+      "vision_valid_center_mae_deg": 6.205655974974723
+    },
+    "vit_l": {
+      "all_center_mae_deg": 6.229673746026347,
+      "completed_epochs": 132,
+      "optimizer_executions": 74184,
+      "paper_avg_mae_deg": 5.4,
+      "result_path": "results/original-vision/vit-large/metrics.json",
+      "status": "complete"
+    },
+    "wilor": {
+      "all_center_mae_deg": 5.1070423618802225,
+      "completed_epochs": 30,
+      "evaluation_controller_exit_code": 0,
+      "evaluation_ended_utc": "2026-10-30T08:11:55.587613+00:00",
+      "optimizer_executions": 336720,
+      "result_file_sha256": "341695b72f767035cc18652a835b6a6c913af43d1498c7a738e1b9ac3f560148",
+      "result_path": "results/original-vision/wilor/metrics.json",
+      "selected_epoch_human": 30,
+      "status": "complete",
+      "test_consumed_samples": 8612,
+      "test_unique_hand_samples": 4306,
+      "training_controller_exit_code": 0,
+      "vision_valid_center_mae_deg": 4.952077363497622
+    }
+  },
+  "scientific_settings_completed": 14
+}

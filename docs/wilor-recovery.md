@@ -1,5 +1,7 @@
 # WiLoR 显式恢复
 
+> **2026-11-01 核心结果验收**：真实30轮/336,720更新、验证best第30轮、完整原生测试/独立重放/报告核验已完成；全部中心MAE5.107042°、有图4.952077°。原6轮父状态和磁盘失败保留，不保证不中断同轨迹。[最终报告与完整曲线](../results/original-vision/wilor/README.md)。下文原“待完成”段落保留为当时的实现与验收记录。
+
 原30轮实验在第6轮后保存last时因磁盘保留量退出。新增恢复入口保持原631,631,657参数、batch18/BF16/0worker和官方训练逻辑，在新目录恢复完整状态，使用独立的恢复格式记录中断与新进程；原失败目录、身份和日志保留。完整实现范围见[续训设计](superpowers/specs/2026-10-29-wilor-explicit-recovery-design.md)与[实施计划](superpowers/plans/2026-10-29-wilor-explicit-recovery.md)。
 
 [父检查点准入证据](../results/wilor-explicit-recovery-parent-admission-20261029.json)已完成：当前0b464b0源码、115冻结成员，实际只读检查59.818秒/控制器61.320秒/exit0，四个拥有者退出；没有构造模型、优化器或执行更新/CUDA。选中第6轮checkpoint（67,344步），而不是只有5轮的last；后续top3/last所需四份原始包的模型、AdamW、调度器、Lightning循环、RNG和回调历史均通过原生产校验，全部原文件九项属性未变。新增41项检查0.98秒通过，覆盖父身份/日志、原进程关闭、callback状态键和元数据变化等边界。

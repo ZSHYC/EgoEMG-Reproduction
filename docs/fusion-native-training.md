@@ -1,5 +1,7 @@
 # ViT-S + EMGFormer-S 原生融合训练
 
+> **2026-11-01 核心结果验收**：原定150轮/296,550更新已完整结束，不早停；验证best为原索引107（第108轮）。完整原生测试、独立重放和报告复核均已完成，全部中心MAE6.342238°、有图6.205656°。[最终报告与150轮曲线](../results/original-fusion/vit-small-emgformer-small/README.md)。32轮后显式六域恢复及不中断轨迹不保证的边界保留，下文早期运行描述按其实施日期解读。
+
 当前在实现[全文设计](superpowers/specs/2026-10-26-full-paper-reproduction-design.md)内的正式融合实验。[实施计划](superpowers/plans/2026-10-28-native-fusion-training.md)分开登记权重交接、完整训练、冻结评价和实际GPU/完整运行；本文的接口存在不表示完整150轮已完成，也不增加已完成模型数。
 
 ## 官方执行配方

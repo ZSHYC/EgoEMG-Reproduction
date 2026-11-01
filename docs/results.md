@@ -1,5 +1,7 @@
 # 结果与训练曲线
 
+> **2026-11-01 核心结果验收**：用户优先指定的ViT-L、WiLoR、ViT-S＋EMGFormer-S融合均已完成完整训练、最终测试、独立完整重放与报告核验。新增[WiLoR](../results/original-vision/wilor/README.md)30轮/336,720更新、全部/有图中心5.107042°/4.952077°；新增[ViT-S融合](../results/original-fusion/vit-small-emgformer-small/README.md)150轮/296,550更新、全部/有图中心6.342238°/6.205656°。两项各8,612次测试消费/4,306唯一手样本，验证选优为第30/108轮，7/8个评估阶段均退出0；各自20/22个原拥有进程身份已确认关闭，选中原始检查点实际SHA一致。科学完成设置增至14；[终态快照](../results/core-priority-status-20261101.json)与[论文数值参照](../results/paper-comparison/README.md)已更新。旧版/单rank及中断恢复边界保留，整篇论文与PDF等价仍未完成。以下较早条目按其各自日期作为历史记录保留。
+
 2026-10-28新增原生配方、旧版队列完整结果：[VEMG2Pose](../results/original-classic/vemg2pose/README.md)轨迹/中心16.452932°/16.347705°；[DINOv2 ViT-S/14](../results/original-vision/vit-small/README.md)全部/有图中心6.464179°/6.324737°，124轮/69,688更新、16阶段完成及额外独立重开核验通过。ViT-S按原repeat2消费8,612次、唯一4,306手样本，完整[曲线](../results/original-vision/vit-small/training-curves.png)和[执行合成配置](../results/original-vision/vit-small/execution-contract.json)均已公开。新增[DINOv2 ViT-B/14](../results/original-vision/vit-base/README.md)也已完成94轮/52,828更新、16阶段与额外独立重开，全部/有图中心6.761261°/6.623680°，4,306唯一手样本；作者缺独立B YAML，按S配方显式派生，实际B参数/真实预训练已核验，[94轮曲线](../results/original-vision/vit-base/training-curves.png)和[配置来源](../results/original-vision/vit-base/execution-contract.json)已公开。这些实验采用7,790点/原生0.02配方，与下文12,000点/0.01 legacy实验使用不同输入和测试集合，分开报告；论文数值等价及整篇论文完成仍未证明。
 
 
