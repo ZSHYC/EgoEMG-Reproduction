@@ -13,6 +13,7 @@ from pathlib import Path
 
 import numpy as np
 
+from . import classic_emg_cohort as _cohort
 from .classic_emg_cohort import _safe,_json,_StatGuard
 
 REVISION='f7cbd048b7092139852270491d3859cd472e0311'
@@ -34,6 +35,7 @@ def _sha(path):
 def _hash(value):return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 
 IMPORTED_SHA=_sha(__file__)
+IMPORTED_HELPER_SHA=_sha(_cohort.__file__)
 
 
 def _add(counter,values):
@@ -117,6 +119,7 @@ def _scan_context(root,upstream,*,require_full=True,chunk_rows=1048576):
     code_paths=[Path(__file__),code/'classic_emg_cohort.py'];official=[upstream/n for n in SOURCE_PINS]
     guard=_StatGuard([*inputs,*code_paths,*official]);source_hashes={p.name:_sha(p)for p in code_paths}
     if source_hashes[Path(__file__).name]!=IMPORTED_SHA:raise ValueError('imported timing analysis source changed')
+    if source_hashes['classic_emg_cohort.py']!=IMPORTED_HELPER_SHA:raise ValueError('imported timing helper source changed')
     official_hashes={n:_sha(upstream/n)for n in SOURCE_PINS}
     if official_hashes!=SOURCE_PINS:raise ValueError('fixed official timing semantics source differs')
     manifest=_json(inputs[0]);n=manifest['total_rows'];fields=manifest['fields']
@@ -221,15 +224,58 @@ def _directory_state(path):
 
 
 def export_release_timing(root,upstream,output,*,require_full=True):
-    import os
+    import os,tempfile
     out=_location(root,upstream,output,exists=False)
     if out.exists():raise ValueError('fresh immutable timing output required')
     report,guard=_scan_context(root,upstream,require_full=require_full);files=_artifact_bytes(report);guard.check();out.mkdir(mode=0o700)
-    for name,raw in files.items():
-        with(out/name).open('xb')as f:f.write(raw);f.flush();os.fsync(f.fileno())
-    guard.check()
-    with(out/'completion.json').open('xb')as f:f.write(_json_bytes(_completion(report,files)));f.flush();os.fsync(f.fileno())
-    guard.check();return report
+    identity=_directory_state(out)[0][:3];directory=os.open(out,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+    output_guard=_StatGuard([]);temporary=None;linked=False;completion_identity=None
+    def file_stamp(value):return(value.st_dev,value.st_ino,value.st_size,value.st_mtime_ns,value.st_ctime_ns)
+    def check(state,expected):
+        guard.check();output_guard.check()
+        if _directory_state(out)!=state:raise ValueError('timing output generation changed during export')
+        if any((out/name).read_bytes()!=raw for name,raw in expected.items()):raise ValueError('written timing artifact bytes changed')
+        output_guard.check();guard.check()
+        if _directory_state(out)!=state:raise ValueError('timing output generation changed while checking export bytes')
+    try:
+        value=os.fstat(directory)
+        if(value.st_dev,value.st_ino,value.st_mode)!=identity:raise ValueError('timing output directory was replaced')
+        for name,raw in files.items():
+            with os.fdopen(os.open(name,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600,dir_fd=directory),'wb')as f:
+                f.write(raw);f.flush();os.fsync(f.fileno());output_guard.add(out/name)
+                if file_stamp(os.fstat(f.fileno()))!=output_guard.paths[out/name]:raise ValueError('timing output file was replaced during creation')
+        before=_directory_state(out)
+        if before[0][:3]!=identity or before[1]!=tuple(sorted(files)):raise ValueError('timing output directory generation or membership differs')
+        completion=_json_bytes(_completion(report,files))
+        descriptor,name=tempfile.mkstemp(prefix='.'+out.name+'-completion-',dir=out.parent);temporary=Path(name)
+        with os.fdopen(descriptor,'wb')as f:
+            f.write(completion);f.flush();os.fsync(f.fileno());value=os.fstat(f.fileno());completion_identity=(value.st_dev,value.st_ino)
+        check(before,files)
+        # An exclusive atomic link publishes the marker only after all four
+        # written artifacts, the directory and the inputs pass their checks.
+        os.link(temporary,'completion.json',dst_dir_fd=directory,follow_symlinks=False);linked=True
+        temporary.unlink();temporary=None;os.fsync(directory)
+        value=os.stat('completion.json',dir_fd=directory,follow_symlinks=False)
+        if(value.st_dev,value.st_ino)!=completion_identity:raise ValueError('timing completion was replaced during publication')
+        output_guard.add(out/'completion.json');after=_directory_state(out)
+        if after[0][:3]!=identity or after[1]!=tuple(sorted((*files,'completion.json'))):raise ValueError('timing output changed during completion publication')
+        check(after,{**files,'completion.json':completion});return report
+    except BaseException:
+        if linked:
+            try:
+                value=os.stat('completion.json',dir_fd=directory,follow_symlinks=False)
+                if(value.st_dev,value.st_ino)==completion_identity:os.unlink('completion.json',dir_fd=directory);os.fsync(directory)
+            except OSError:pass
+            try:
+                # If the directory and marker were moved, remove only this
+                # export's inode at the visible location, never a foreign one.
+                path=_safe(out/'completion.json');value=path.lstat()
+                if(value.st_dev,value.st_ino)==completion_identity:path.unlink()
+            except(ValueError,OSError):pass
+        raise
+    finally:
+        if temporary is not None:temporary.unlink(missing_ok=True)
+        os.close(directory)
 
 
 def verify_release_timing(root,upstream,output,*,require_full=True):

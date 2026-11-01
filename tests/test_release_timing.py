@@ -190,3 +190,46 @@ def test_fresh_offline_cli_export_and_verify_keep_identical_bytes_without_ml(tmp
         assert p.returncode==0,p.stderr
     assert {p.name:p.read_bytes()for p in(tmp_path/'one').iterdir()}=={p.name:p.read_bytes()for p in(tmp_path/'two').iterdir()}
     assert before=={p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in data.iterdir()}
+
+
+@pytest.mark.parametrize('damage',['artifact_bytes','directory_replacement'])
+def test_export_rejects_output_changes_before_publishing_completion(tmp_path,monkeypatch,damage):
+    m=export_api();data=fixture(tmp_path/'data');out=tmp_path/'out';original=m._completion
+    def changed(report,files):
+        value=original(report,files)
+        if damage=='artifact_bytes':
+            p=out/'metrics.json';p.write_bytes(p.read_bytes()+b'\n')
+        else:
+            old=tmp_path/'replaced';out.rename(old);out.mkdir()
+            for p in old.iterdir():p.rename(out/p.name)
+        return value
+    monkeypatch.setattr(m,'_completion',changed)
+    with pytest.raises(ValueError):m.export_release_timing(data,UPSTREAM,out,require_full=False)
+    assert not(out/'completion.json').exists()
+
+
+def test_helper_changed_after_real_import_is_rejected_before_scanning(tmp_path):
+    import os,shutil,subprocess,sys
+    package=tmp_path/'package';package.mkdir();shutil.copytree(ROOT/'egoemg_repro',package/'egoemg_repro',ignore=shutil.ignore_patterns('__pycache__'))
+    data=fixture(tmp_path/'data')
+    code="from pathlib import Path\nimport egoemg_repro.release_timing as m\np=Path(m.__file__).with_name('classic_emg_cohort.py');p.write_bytes(p.read_bytes()+b'\\n')\ntry:m.scan_release_timing("+repr(str(data))+","+repr(str(UPSTREAM))+",require_full=False)\nexcept ValueError:pass\nelse:raise AssertionError('changed imported helper was attributed to new disk bytes')\n"
+    env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONPATH=str(package),PYTHONDONTWRITEBYTECODE='1')
+    p=subprocess.run([sys.executable,'-B','-c',code],cwd=package,env=env,capture_output=True,text=True,timeout=30)
+    assert p.returncode==0,p.stderr
+
+
+@pytest.mark.parametrize('damage',['artifact_bytes','directory_replacement'])
+def test_late_export_failure_removes_its_completion_marker(tmp_path,monkeypatch,damage):
+    import os
+    m=export_api();data=fixture(tmp_path/'data');out=tmp_path/'out';original=os.link
+    def changed(*args,**kwargs):
+        original(*args,**kwargs)
+        if damage=='artifact_bytes':
+            p=out/'metrics.json';p.write_bytes(p.read_bytes()+b'\n')
+        else:
+            old=tmp_path/'replaced';out.rename(old);out.mkdir()
+            for p in old.iterdir():p.rename(out/p.name)
+    monkeypatch.setattr(os,'link',changed)
+    with pytest.raises((ValueError,OSError)):m.export_release_timing(data,UPSTREAM,out,require_full=False)
+    assert not(out/'completion.json').exists()
+    assert not list(tmp_path.glob('.out-completion-*'))
