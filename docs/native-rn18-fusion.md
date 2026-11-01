@@ -1,6 +1,6 @@
 # RN18＋EMGFormer-S 原生融合
 
-本实验使用固定官方版本 `f7cbd048b7092139852270491d3859cd472e0311` 的 `fusion/fusion_rn18_s_center_8ch`。旧版已完成的 RN18＋S 结果保留原身份；当前新路线尚未完成真实分支权重交接、模型接入和正式训练。
+本实验使用固定官方版本 `f7cbd048b7092139852270491d3859cd472e0311` 的 `fusion/fusion_rn18_s_center_8ch`。旧版已完成的 RN18＋S 结果保留原身份；当前新路线已完成原生模型接入的工程检查，真实训练分支权重交接和正式训练仍未完成。
 
 [实际配方与训练足迹分析](../results/native-rn18-fusion-feasibility-20261101.json)、[配置接口](../results/native-rn18-fusion-protocol-20261101.json)、[81项工程检查与独立CPU准入](../results/native-rn18-fusion-reader-and-cohort-cpu-20261101.json)和[真实完整输入两遍准入](../results/native-rn18-fusion-full-cohort-admission-20261101.json)分开记录。
 
@@ -29,4 +29,8 @@
 
 RN18兼容cotrain-S初始化的[两次完整轨迹数据准入](../results/rn18-cotrain-full-input-admission-20261101.json)已完成：62,470训练/1,052验证，16份payload/16,540,457,757字节，4次整文件哈希及全部可能轨迹目标检查一致，12原拥有进程关闭。初始化测试集不打开；未来融合留出区身份固定44e9ebc8…b4bd0。新的训练/恢复适配正在工程验证，正式150轮初始化、完整验证BEST和RN18融合150轮仍未完成；数据准入不授予权重交接资格。
 
-初始化的[专用训练/恢复与来源说明](rn18-cotrain-initializer.md)和[独立CPU流程](../results/rn18-cotrain-native-cpu-recovery-20261101.json)已完成工程验收：80项检查通过，实际两轮/4更新及六域恢复、完整工程验证、110张量导出一致；14原拥有者关闭。下一步是本新增producer的一次审查、原batch260/12workers真实GPU资格和新鲜完整150轮。这些工程证据仍不提供完整初始化权重。
+初始化的[专用训练/恢复与来源说明](rn18-cotrain-initializer.md)记录了一次审查、3项重要修正及修正版98项检查；[修正版独立CPU流程](../results/rn18-cotrain-native-cpu-recovery-fixed-20261101.json)实际两轮/4更新、六域恢复、完整工程验证和110张量导出一致，14原拥有者关闭。[服务器队列](../results/rn18-cotrain-fixed-source-server-queue-20261101.json)已部署并等待原生RN18视觉完整流程退出，随后执行原batch260/12workers真实GPU资格和新鲜完整150轮。这些工程证据仍不提供完整初始化权重。
+
+[融合运行时工程检查](../results/native-rn18-fusion-runtime-tests-20261101.json)已通过：17项新增原生运行时检查及本路线配置/数据/准入/运行时共98项，0skip；禁用Torch时40项通过、58项明确skip。诊断使用明确标记的未训练本地分支，拒绝工程凭据重封装为完整训练权重。完整视觉124个张量均精确加载，其中120个骨干张量包含20个BatchNorm计数器。EMG完整来源有110个张量；官方加载器迁移106个featurizer/decoder张量，明确跳过4个预测头张量，保留融合残差头的原始tiny-normal初始化。未强制迁移被官方排除的头。
+
+实际原生中心前向/损失/反向和Adam更新已检查，视觉与BatchNorm保持原配置的可训练行为；新进程在空资产缓存及禁止网络时，从完整状态重建，预测完全一致。该恢复入口仅从完整保存状态提取临时视觉包以满足官方构造器的本地路径要求，不依赖原分支文件，也不改写官方模型或数学。独立拥有CPU流程尚待退出后验收；完整训练来源交接、六域fit恢复、GPU资格、150轮及最终评价仍是后续必需项。

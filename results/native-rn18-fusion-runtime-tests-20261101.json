@@ -1,0 +1,64 @@
+{
+  "actual_missing_module_red": {
+    "exit_code": 1,
+    "failed": 17,
+    "log_sha256": "b1406d6d8137669da3e4743be785e62bd34e39438997e0eab4787f2d6506f326",
+    "seconds": 3.67
+  },
+  "actual_native_runtime_focused": {
+    "exit_code": 0,
+    "log_sha256": "267435bc34da86cfb525264fee993314a48ff5fac98db113da3e915cc8719683",
+    "passed": 17,
+    "seconds": 60.26,
+    "skipped": 0
+  },
+  "actual_new_family_integration": {
+    "exit_code": 0,
+    "log_sha256": "d8b4da7e560c94186a6bea09fcba821d8d0b6a77214f34ef6fab7c11764a25ca",
+    "native_transformer_advisory_warnings": 16,
+    "observed_utc": "2026-11-01T08:07:06.001871+00:00",
+    "passed": 98,
+    "seconds": 187.91,
+    "skipped": 0
+  },
+  "cold_asset_cache_and_network_forbidden_verified": true,
+  "emg_source_tensors_accounted": 110,
+  "existing_completed_scientific_settings": 14,
+  "format": "rn18_fusion_native_runtime_engineering_tests_v1",
+  "full_fit_or_resume_verified": false,
+  "full_paper_complete": false,
+  "gpu_qualification_complete": false,
+  "head_rule": "native Lightning allowed-prefix transfer excludes head; residual remains native normal(std=1e-5)/zero bias",
+  "optional_torch_unavailable": {
+    "exit_code": 0,
+    "log_sha256": "b908424fd8ac5f19d21000bad7bd5219a9381e53baf77ab932e20cb57e72defe",
+    "passed": 40,
+    "seconds": 14.51,
+    "skipped": 58
+  },
+  "original_batchnorm_counters_exact": 20,
+  "original_emg_eligible_tensors_copied_exact": 106,
+  "original_emg_head_tensors_intentionally_skipped": 4,
+  "original_native_center_forward_loss_backward_adam_verified": true,
+  "original_unfrozen_vision_and_bn_verified": true,
+  "original_vision_backbone_tensors_exact": 120,
+  "original_vision_head_tensors_exact": 4,
+  "owned_cpu_workflow_complete": false,
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "scope": "engineering local/untrained branches only",
+  "self_contained_fresh_process_prediction_exact": true,
+  "source_files_sha256": {
+    "egoemg_repro/rn18_fusion_cohort.py": "0eca1ac9b5e46421b667d4a50539b14d4a9df6f70cce04d383d7b0f5a4ae225a",
+    "egoemg_repro/rn18_fusion_data.py": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+    "egoemg_repro/rn18_fusion_literal.py": "1160b90b66b8a9155c4ddad17e7f7cba1322d3f146b6da7011dc5539214fd5e7",
+    "egoemg_repro/rn18_fusion_runtime.py": "c5fb4421382a05296f5ea2958408306fe359470b179d530b98f36d48b2289efd",
+    "tests/test_rn18_fusion_cohort.py": "92b489642d5a6ef1b822b25f76c83fcc609f81edc45eb86be9d2677360b19991",
+    "tests/test_rn18_fusion_data.py": "67941fee980a6321369b4b5e29ef33606432140b64bda05c0e904bc39ea825b5",
+    "tests/test_rn18_fusion_literal.py": "1d75c9d92f36034891935670abca46f39a5667836d8eb7ede96f5c5fdd32610b",
+    "tests/test_rn18_fusion_runtime.py": "ea1d215f84404bda2d5ad8325bc9ec922337814333b836f84d2d891941052bee"
+  },
+  "trained_branches_admitted": false,
+  "upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "upstream_experiment": "fusion/fusion_rn18_s_center_8ch"
+}
