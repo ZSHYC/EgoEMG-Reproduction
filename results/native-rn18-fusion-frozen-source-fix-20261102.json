@@ -1,0 +1,100 @@
+{
+  "actual_full_cpu_handoff": {
+    "actions": [
+      "admit",
+      "reopen",
+      "construct",
+      "restore"
+    ],
+    "bundle_sha256": "17209565fcb5b1dedc45cd988a993df1df0f272eda3976896e4d152f0a156a7a",
+    "complete_positive_verified": false,
+    "full_counts": {
+      "test": 2792,
+      "train": 62470,
+      "val": 1052
+    },
+    "matching_original_recorder_live": true,
+    "matching_original_stage_worker_live": true,
+    "no_automatic_retry": true,
+    "snapshot_utc": "2026-11-01T23:02:16.184738+00:00",
+    "source_commit": "98ab9b35dde57ffcd8c4cd362de59ed739581d2f",
+    "status": "running"
+  },
+  "actual_fusion_cuda_qualification": false,
+  "actual_regression": {
+    "advisories": "19 unchanged native Transformer nested-tensor warnings",
+    "cuda_hidden": true,
+    "green_deselected": 1,
+    "green_deselection_reason": "original live-partial-producer case is no longer applicable after actual producer completion",
+    "green_failed": 0,
+    "green_log_sha256": "4adde7e687c59dd8a1903160da4a250d27a6e27135193983db82c94ca587b51f",
+    "green_passed": 35,
+    "green_skipped": 0,
+    "observed_utc": "2026-11-01T23:00:26.096580+00:00",
+    "red_failed": 2,
+    "red_log_sha256": "429fd274f7abe34a000ad72a98e83d32d97d31a6dbd3a119429f6615ca614d2b",
+    "retained_producer_constructed_no_new_model_or_optimizer": true,
+    "reused_actual_old_two_epoch_producer": true
+  },
+  "correction": {
+    "frozen_cotrain_provider_sha256": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+    "frozen_provider_bytes_preserved": true,
+    "rn18_validator": "egoemg_repro/rn18_fusion_transfer.py",
+    "scientific_recipe_changed": false,
+    "source_commit": "98ab9b35dde57ffcd8c4cd362de59ed739581d2f",
+    "strict_full_lineage_checks_preserved": true,
+    "trained_receipt_flag_preserved": true
+  },
+  "failed_attempts": [
+    {
+      "actual_exit_code": 1,
+      "cause": "generic saved-transfer check unconditionally required unverified-training flag",
+      "failed_stage": "construct",
+      "source_commit": "1d4a88d52161ec4d70a3f500560457c2fc50876b"
+    },
+    {
+      "actual_exit_code": 1,
+      "all153_frozen_members_preserved": true,
+      "all4_owners_closed": true,
+      "cause": "shared-validator source modification differed from completed cotrain input-provider identity",
+      "failed_stage": "admit",
+      "source_commit": "1fdf3f4c2e58eb05f3777b49f87516d29339e694"
+    }
+  ],
+  "formal_fusion_fit_started": false,
+  "format": "rn18_complete_cotrain_producer_and_frozen_source_handoff_fix_checkpoint_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-11-01T23:02:40.977260+00:00",
+  "pending": [
+    "all four actual complete-producer/cohort CPU handoff actions and postexit raw verification",
+    "one final whole-new-RN18-family review",
+    "original CUDA batch200/10worker qualification",
+    "fresh native150epoch/46950update fusion and full paired final2792 evaluation"
+  ],
+  "producer_workflow": {
+    "actual_exit_code": 0,
+    "actual_full_export_reopen_file_sha256": "e41b2e60dea80d79dcd739c217675f4247246be2877b352afb10f3acc3262a7d",
+    "actual_original_handles_closed": 16,
+    "bundle_sha256": "5996ac62b680b494de38651db73c44fedf2d4bb50ff84b0c3223e6bf2e806117",
+    "completed_epochs": 150,
+    "ended_utc": "2026-11-01T22:35:23.189820+00:00",
+    "export_file_sha256": "4d53b5c6c548a16e29f466cd1917c2be62246adeb9cf0f730febcde3f71a5922",
+    "export_tensor_inventory": 110,
+    "fit_identity_sha256": "b4f12902824d1a23dca3e9214da29d3581a75f1a8320543cced8c84f43f8c735",
+    "fit_result_sha256": "1d03e34cdbfbb64dec21607205792dcdef05b66d2a7556a0e1fdd22df6bac025",
+    "metric_scope": "exact cotrain initializer native validation selection; not a paper center-test score",
+    "native_selected_epoch": 74,
+    "optimizer_executions": 36150,
+    "original_owned_stages": 7,
+    "source_commit": "ab3e26f4efea63c0ca295199f6529b5037ac2948",
+    "validation_best": {
+      "checkpoint_sha256": "914af66d516bcba3dc6e09742fc1135af64e4e04e874ece4d63abf59030f532d",
+      "file": "egoemg-small-incre-cotrain-wl12000-epoch=074-val_mae=0.2435.ckpt",
+      "score": 0.24354727566242218,
+      "validated": true
+    },
+    "workflow_file_sha256": "1dffda0bbcf4f12362b3e5ce06f9a92b4aadd7c3606855658bf6768d24c72df8"
+  },
+  "scientific_eligible": false,
+  "scientific_settings_added": 0
+}
