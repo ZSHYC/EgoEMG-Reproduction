@@ -85,7 +85,7 @@ This recovery adapter and its local fixtures are not evidence that the full 41-e
 
 ## Bounded transient recovery for the reviewed geometry selection
 
-2026-11-02另新增[完整双手marker/腕部8文件接收](raw-marker-acquisition.md)，清单为[`assets_markers_manifest.json`](../assets_markers_manifest.json)，44,196,032,300bytes。服务器已实际开始严格范围接收，独立于本机关机；坐标/刚体数据尚未全部取得，不能将其启动证明写成标注重生成完成。下方八个geometry文件的既有清单与结果保持原身份，不包含此次新增marker坐标。
+2026-11-02另新增[完整双手marker/腕部8文件接收](raw-marker-acquisition.md)，清单为[`assets_markers_manifest.json`](../assets_markers_manifest.json)，44,196,032,300bytes。服务器曾实际启动严格范围接收，随后因非206响应停止，保留1GiB部分文件，见[实际终态](../results/legacy-marker-non206-stop-20261102.json)；坐标/刚体数据尚未全部取得，不能将启动证明写成标注重生成完成。下方八个geometry文件的既有清单与结果保持原身份，不包含此次新增marker坐标。
 
 [`assets_geometry_manifest.json`](../assets_geometry_manifest.json) records eight additional old-release files totaling **37,778,344,975 bytes**: both MANO poses and world transforms, the camera transform/tracked flag, and both marker-validity arrays. Its exact IDs, sizes, dtypes and shapes were checked against the pinned old release manifest. It does not contain raw marker positions, full videos or the current release. Complete transfer is a prerequisite for later geometry admission, not proof that the occlusion experiment has run.
 

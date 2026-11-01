@@ -1,3 +1,7 @@
+> **2026-11-02 原生ResNet-18完整结果**：[报告／原始JSON／真实训练曲线](results/original-resnet/resnet18/README.md)完成150轮／33,750更新，验证best第136轮；完整测试、独立typed重放和退出后52文件57.145GB来源核验均已结束，原40＋收集4个拥有进程关闭。唯一手样本中心MAE **6.607195°**，有图子集 **6.469979°**；论文RN18 Avg5.9°，数值差约+0.71°。新[14模型数值参照](results/paper-comparison/README.md)保留历史legacy及其匹配融合收益，不把不同协议混作受控排名，整篇仍未完成。
+>
+> RN18兼容cotrain-S已通过原batch260／12workers的真实GPU资格2轮／4更新与六域恢复，正式150轮正在运行；融合正式训练仍欠。RN50/152接续触发GPU保护停止，依赖的轨迹与IK资格队列也已退出，见[实际停止记录](results/native-resnet-recovery-v2-resource-stop-20261102.json)。新增marker/腕部接收遇非206停止，1GiB部分文件保留，未重试或视为完整来源。ViT-S三类定性图与完整密遮挡分析此前均已验收，详见[全文当前清单](docs/full-paper-status.md)；以下较早条目是各自时点的历史快照。
+
 > **2026-11-01 最新推进 · 北京时间22:48**：[Figure7普通网格输入](results/native-qualitative/README.md)完成4,530选中手样本×2真实读取及退出后独立重建，原始49,830数组指纹一致；三模型普通网格推理和三类最终例图仍欠。[ViT-S完整遮挡分析](results/native-dense-occlusion/vits-full/README.md)此前已验收；论文人口／数值等价限制仍在，全文尚未完成。
 
 > **2026-11-01 最新推进 · 北京时间18:58**：[真实B64遮挡资格](results/native-dense-occlusion/trained-b64-qualification-complete-20261101.json)已通过：两遍各528点/12批精确重放，48个读取子进程＋6个资格阶段拥有者关闭；服务器自动进入完整17,168点×2遍预测，完整统计/相关/Figure13尚未完成。[原生EMGFormer全轨迹输入层](docs/native-emgformer-trajectory.md)新增28项检查全部通过、无跳过，保留中心结果并单独扫描完整窗口标签；这是val4/test8的真实memmap工程验收，尚未运行新全轨迹模型评价。完整原生S/M/L训练与中心报告已另完成，架构家族仍14，全文目标继续。

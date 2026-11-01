@@ -1,0 +1,91 @@
+{
+  "actual_stage_result": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "error_type": "OwnedStageError",
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 1659829,
+      "pid": 1659829,
+      "sid": 1659829,
+      "start_ticks": "437845881",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 1659828,
+      "pid": 1659828,
+      "sid": 1659828,
+      "start_ticks": "437845874",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "failed",
+    "worker": {
+      "pgrp": 1659830,
+      "pid": 1659830,
+      "sid": 1659830,
+      "start_ticks": "437845885",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 1
+  },
+  "all4_original_owners_closed": true,
+  "all_original_bytes_retained": true,
+  "automatic_retry": false,
+  "bundle_sha256": "5d5a21bb2c62dbda45ad765fbed261400c45c706cbcf047dfe061ec65ffc0d7c",
+  "execution_state": {
+    "actual_exit_code": 1,
+    "automatic_retry": false,
+    "child": {
+      "pid": 1659828,
+      "start_ticks": "437845874"
+    },
+    "ended_utc": "2026-11-01T16:44:04.071197+00:00",
+    "started_utc": "2026-11-01T16:39:13.403754+00:00",
+    "status": "failed",
+    "wrapper": {
+      "pid": 1659827,
+      "start_ticks": "437845871"
+    }
+  },
+  "execution_state_file_sha256": "680e8e2083ac052f2ddade69500f6babb7aac2de4244df4ff5640a56d3db7bdc",
+  "format": "actual_legacy_marker_non206_stop_and_partial_preservation_v1",
+  "full_files_received": 0,
+  "full_paper_complete": false,
+  "independent_full_readback_started": false,
+  "labels_regenerated": false,
+  "new_download_attempt_launched": false,
+  "new_http_diagnostic_requested": false,
+  "observed_utc": "2026-11-01T16:51:55.915453+00:00",
+  "partial": {
+    "bytes": 1073741824,
+    "filename": "mocap_left_keypoints.dat.part",
+    "first64_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+    "nine_attributes": [
+      64512,
+      28087600198,
+      1073741824,
+      1793551441514940522,
+      1793551441514940522,
+      33204,
+      1005,
+      1005,
+      1
+    ],
+    "sha256": "7e308e9c54778783bedcc90cf8f28a3b6e278c823f415b0cf0e212d3db085b75"
+  },
+  "partial_is_full_chunk_multiple": true,
+  "provider_http_status_not_recorded": true,
+  "provider_quota_confirmed": false,
+  "root": "/data/shihao/egoemg-legacy-marker-intake-4151da2b5cb8-20261102",
+  "source_capsule_files_after_exit_exact": 145,
+  "source_commit": "4151da2b5cb88ea77769f63544cd4885ef2363f6",
+  "stop_reason": "public response was not HTTP 206; strict transport rejected it before append",
+  "torch_unimported": true,
+  "worker_log_file_sha256": "ffde47fcfbc5fd6a80faa6c9b20d80b011a76b72a73f5b4dfb3e04ea8f8fb228"
+}

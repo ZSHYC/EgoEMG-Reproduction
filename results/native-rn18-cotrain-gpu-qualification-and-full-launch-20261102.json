@@ -1,0 +1,200 @@
+{
+  "actual_original_native_tensors": 110,
+  "all8_qualification_worker_guardian_actors_closed": true,
+  "all_frozen_capsule_files_sha256_exact": 122,
+  "bundle_sha256": "5996ac62b680b494de38651db73c44fedf2d4bb50ff84b0c3223e6bf2e806117",
+  "collector_torch_unimported": true,
+  "final_fusion_model_trained": false,
+  "format": "actual_rn18_cotrain_original_batch_cuda_qualification_and_full150_started_v1",
+  "full_fit_actual_nvml": {
+    "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+    "memory_MiB": 23128,
+    "pid": 1684926
+  },
+  "full_fit_complete": false,
+  "full_fit_complete_epoch_records": 1,
+  "full_fit_last_complete_updates": 241,
+  "full_fit_matching_live_worker": {
+    "pid": 1684926,
+    "start_ticks": "437978825",
+    "state": "R",
+    "uid": 1005
+  },
+  "full_fit_required_epochs": 150,
+  "full_fit_required_updates": 36150,
+  "full_paper_complete": false,
+  "matching_live_outer_owners": {
+    "child": {
+      "pid": 1217092,
+      "start_ticks": "434691150",
+      "state": "S",
+      "uid": 1005
+    },
+    "wrapper": {
+      "pid": 1217091,
+      "start_ticks": "434691147",
+      "state": "S",
+      "uid": 1005
+    }
+  },
+  "new_learned_forwards_by_observer": 0,
+  "observed_utc": "2026-11-01T17:05:46.158883+00:00",
+  "original_batch": 260,
+  "original_workers": 12,
+  "qualification_epochs": 2,
+  "qualification_export_is_full_initializer": false,
+  "qualification_fit_sha256": "1851af0290d2af46aa085ca0181ffc4db2af7af6de21c4d9b2e9eea4601a89c5",
+  "qualification_full_validation_replay_exact": true,
+  "qualification_receipt_file_sha256": "8112b0d19f217257d6f3850d0e131ec132c6449b6f0ee7247674a3fb484a8d69",
+  "qualification_selected_export_file_sha256": "a7a2c65ea733511b4dd75bef24533602de82dd81177bf76daa3de7e070432a95",
+  "qualification_six_domain_restore_exact": {
+    "callbacks": true,
+    "loops": true,
+    "model": true,
+    "optimizer": true,
+    "rng": true,
+    "scheduler": true
+  },
+  "qualification_stages": {
+    "qual-export": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 1684727,
+        "pid": 1684727,
+        "sid": 1684727,
+        "start_ticks": "437977573",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 1217092,
+        "pid": 1217092,
+        "sid": 1217092,
+        "start_ticks": "434691150",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 1684732,
+        "pid": 1684732,
+        "sid": 1684732,
+        "start_ticks": "437977577",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    "qual-prefix": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 1676914,
+        "pid": 1676914,
+        "sid": 1676914,
+        "start_ticks": "437953698",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 1217092,
+        "pid": 1217092,
+        "sid": 1217092,
+        "start_ticks": "434691150",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 1676917,
+        "pid": 1676917,
+        "sid": 1676917,
+        "start_ticks": "437953702",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    "qual-reopen": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 1684831,
+        "pid": 1684831,
+        "sid": 1684831,
+        "start_ticks": "437978291",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 1217092,
+        "pid": 1217092,
+        "sid": 1217092,
+        "start_ticks": "434691150",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 1684836,
+        "pid": 1684836,
+        "sid": 1684836,
+        "start_ticks": "437978295",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    "qual-resume": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 1679970,
+        "pid": 1679970,
+        "sid": 1679970,
+        "start_ticks": "437964044",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 1217092,
+        "pid": 1217092,
+        "sid": 1217092,
+        "start_ticks": "434691150",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 1679974,
+        "pid": 1679974,
+        "sid": 1679974,
+        "start_ticks": "437964048",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    }
+  },
+  "qualification_updates": 4,
+  "root": "/data/shihao/egoemg-rn18-cotrain-original-full-cli-20261101",
+  "scientific_settings_added": 0,
+  "source_commit": "ab3e26f4efea63c0ca295199f6529b5037ac2948"
+}

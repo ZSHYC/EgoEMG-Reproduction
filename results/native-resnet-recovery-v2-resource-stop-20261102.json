@@ -1,0 +1,336 @@
+{
+  "actual_native_resume_worker_logs_present": true,
+  "all12_original_owners_closed": [
+    {
+      "pid": 1643057,
+      "start_ticks": "437681907"
+    },
+    {
+      "pid": 1643058,
+      "start_ticks": "437681911"
+    },
+    {
+      "pgrp": 1656040,
+      "pid": 1656040,
+      "sid": 1656040,
+      "start_ticks": "437817206",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1656037,
+      "pid": 1656037,
+      "sid": 1656037,
+      "start_ticks": "437817202",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pid": 1643120,
+      "start_ticks": "437682038"
+    },
+    {
+      "pid": 1643123,
+      "start_ticks": "437682041"
+    },
+    {
+      "pgrp": 1660093,
+      "pid": 1660093,
+      "sid": 1660093,
+      "start_ticks": "437848491",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1660090,
+      "pid": 1660090,
+      "sid": 1660090,
+      "start_ticks": "437848486",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pid": 1644210,
+      "start_ticks": "437693174"
+    },
+    {
+      "pid": 1644211,
+      "start_ticks": "437693178"
+    },
+    {
+      "pid": 1644314,
+      "start_ticks": "437693403"
+    },
+    {
+      "pid": 1644315,
+      "start_ticks": "437693405"
+    }
+  ],
+  "automatic_retry": false,
+  "checkpoint_files_not_modified_by_this_collector": true,
+  "exact_conflicting_pid_was_logged": false,
+  "foreign_identity_at_failure_independently_proven": false,
+  "format": "actual_native_resnet_recovery_v2_gpu_guard_and_dependency_stop_v1",
+  "full_paper_complete": false,
+  "gpu_guard_message": "additional GPU process arrived; abort owned stage only",
+  "jobs": {
+    "ik-qualification": {
+      "bundle_sha256": "d3974b68d2464081d57e5eb031a3ba9b70ea4f057156b7f541cab9f36dc8bb58",
+      "execution_log_sha256": "09b3db8cf4b6c9aed76a2e65b0bdbc5da381b4681f68507167245227e1b00741",
+      "full_report_completed": false,
+      "original_owners_closed": [
+        {
+          "pid": 1644314,
+          "start_ticks": "437693403"
+        },
+        {
+          "pid": 1644315,
+          "start_ticks": "437693405"
+        }
+      ],
+      "root": "/data/shihao/egoemg-native-ik-qualification-recovery-queue-45a63dd86668-20261102",
+      "source_capsule_files_after_exit_exact": 144,
+      "stages": [],
+      "started_owned_stages": 0,
+      "state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1644315,
+          "start_ticks": "437693405"
+        },
+        "ended_utc": "2026-11-01T17:12:20.428759+00:00",
+        "started_utc": "2026-11-01T16:13:48.712969+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1644314,
+          "start_ticks": "437693403"
+        }
+      },
+      "state_file_sha256": "f350df0424d2b7c8d0fd8e1a3a47ae2d0223b89b106df168151dfea3ab5282e2"
+    },
+    "resnet152": {
+      "bundle_sha256": "7823d2332d6c890f70d0663ac1e5e3406171bf20274a6e0706962b3fde6d8431",
+      "execution_log_sha256": "5eca57f49a5bb15c1314c53bb5e066a3ee91d2022eae7cba7e75ccc32870ff00",
+      "full_report_completed": false,
+      "original_owners_closed": [
+        {
+          "pid": 1643120,
+          "start_ticks": "437682038"
+        },
+        {
+          "pid": 1643123,
+          "start_ticks": "437682041"
+        },
+        {
+          "pgrp": 1660093,
+          "pid": 1660093,
+          "sid": 1660093,
+          "start_ticks": "437848491",
+          "state": "R",
+          "uid": 1005
+        },
+        {
+          "pgrp": 1660090,
+          "pid": 1660090,
+          "sid": 1660090,
+          "start_ticks": "437848486",
+          "state": "R",
+          "uid": 1005
+        }
+      ],
+      "root": "/data/shihao/egoemg-native-resnet152-recovery-v2-45a63dd86668-20261102",
+      "source_capsule_files_after_exit_exact": 142,
+      "stages": [
+        {
+          "file_sha256": "bfc40d7fb4626bc3f32a11ba21069ec5ddc0e9f547fdc9cc470fc9768f3b6f1a",
+          "result": {
+            "all_owned_consumers_exited": true,
+            "descriptor_bindings": {},
+            "error_type": "AssertionError",
+            "format": "egoemg_owned_stage_v1",
+            "guardian": {
+              "pgrp": 1660090,
+              "pid": 1660090,
+              "sid": 1660090,
+              "start_ticks": "437848486",
+              "state": "R",
+              "uid": 1005
+            },
+            "kill_escalation_used": false,
+            "owner": {
+              "pgrp": 1643123,
+              "pid": 1643123,
+              "sid": 1643123,
+              "start_ticks": "437682041",
+              "state": "R",
+              "uid": 1005
+            },
+            "reason": "owner_abort",
+            "scientific_complete": false,
+            "status": "failed",
+            "worker": {
+              "pgrp": 1660093,
+              "pid": 1660093,
+              "sid": 1660093,
+              "start_ticks": "437848491",
+              "state": "R",
+              "uid": 1005
+            },
+            "worker_exit_code": 1
+          },
+          "stage": "owned-full-fit",
+          "worker_log_sha256": "5f2403df2883e68ef1d062e13c87abe0b4710461546f0ce2788ee553e1f689d3"
+        }
+      ],
+      "started_owned_stages": 1,
+      "state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1643123,
+          "start_ticks": "437682041"
+        },
+        "ended_utc": "2026-11-01T17:12:17.706697+00:00",
+        "started_utc": "2026-11-01T16:11:55.069191+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1643120,
+          "start_ticks": "437682038"
+        }
+      },
+      "state_file_sha256": "29207097f8b380c5645a86c49c9c3683fb518ef1aed5896d53ac249a2b734556"
+    },
+    "resnet50": {
+      "bundle_sha256": "cf30ccc864e391ef03fd0425e45e749b29ce57c62d614826b114372b6dcc76a8",
+      "execution_log_sha256": "60670a8bf8a8dbf396c4de65e5e9ed26f09952914e9a8a5e65715c43d3eb4f6b",
+      "full_report_completed": false,
+      "original_owners_closed": [
+        {
+          "pid": 1643057,
+          "start_ticks": "437681907"
+        },
+        {
+          "pid": 1643058,
+          "start_ticks": "437681911"
+        },
+        {
+          "pgrp": 1656040,
+          "pid": 1656040,
+          "sid": 1656040,
+          "start_ticks": "437817206",
+          "state": "R",
+          "uid": 1005
+        },
+        {
+          "pgrp": 1656037,
+          "pid": 1656037,
+          "sid": 1656037,
+          "start_ticks": "437817202",
+          "state": "R",
+          "uid": 1005
+        }
+      ],
+      "root": "/data/shihao/egoemg-native-resnet50-recovery-v2-45a63dd86668-20261102",
+      "source_capsule_files_after_exit_exact": 142,
+      "stages": [
+        {
+          "file_sha256": "160e63520f41c96338567dd159c5c4ea503467bdbeb4547e09c08f4821c3bab0",
+          "result": {
+            "all_owned_consumers_exited": true,
+            "descriptor_bindings": {},
+            "error_type": "AssertionError",
+            "format": "egoemg_owned_stage_v1",
+            "guardian": {
+              "pgrp": 1656037,
+              "pid": 1656037,
+              "sid": 1656037,
+              "start_ticks": "437817202",
+              "state": "R",
+              "uid": 1005
+            },
+            "kill_escalation_used": false,
+            "owner": {
+              "pgrp": 1643058,
+              "pid": 1643058,
+              "sid": 1643058,
+              "start_ticks": "437681911",
+              "state": "R",
+              "uid": 1005
+            },
+            "reason": "owner_abort",
+            "scientific_complete": false,
+            "status": "failed",
+            "worker": {
+              "pgrp": 1656040,
+              "pid": 1656040,
+              "sid": 1656040,
+              "start_ticks": "437817206",
+              "state": "R",
+              "uid": 1005
+            },
+            "worker_exit_code": 1
+          },
+          "stage": "owned-full-fit",
+          "worker_log_sha256": "43fe9426a1e2991cc8eee17835374ac5714a8436dd9be36ef80716265dc8cfc6"
+        }
+      ],
+      "started_owned_stages": 1,
+      "state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1643058,
+          "start_ticks": "437681911"
+        },
+        "ended_utc": "2026-11-01T17:12:16.680673+00:00",
+        "started_utc": "2026-11-01T16:11:53.767431+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1643057,
+          "start_ticks": "437681907"
+        }
+      },
+      "state_file_sha256": "798766ae6600010f45e4f56b727a2e3c8250be438e7e70b81e20bb3f2394d7ba"
+    },
+    "trajectory": {
+      "bundle_sha256": "04485165c7d5f793833edf464e640666d7f2b8985ee4e9d7b4fafd8c0705ebb2",
+      "execution_log_sha256": "eb1e7b2d823ba692f8632b97f39080e6a56c0fec3e30c1e1a05321247e65dacc",
+      "full_report_completed": false,
+      "original_owners_closed": [
+        {
+          "pid": 1644210,
+          "start_ticks": "437693174"
+        },
+        {
+          "pid": 1644211,
+          "start_ticks": "437693178"
+        }
+      ],
+      "root": "/data/shihao/egoemg-native-trajectory-recovery-queue-45a63dd86668-20261102",
+      "source_capsule_files_after_exit_exact": 156,
+      "stages": [],
+      "started_owned_stages": 0,
+      "state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1644211,
+          "start_ticks": "437693178"
+        },
+        "ended_utc": "2026-11-01T17:12:18.288996+00:00",
+        "started_utc": "2026-11-01T16:13:46.436438+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1644210,
+          "start_ticks": "437693174"
+        }
+      },
+      "state_file_sha256": "64f108f8aab2e61ce6ea6a6d7e1afc3fca557b9d07eefd20373f25fa9b6a3163"
+    }
+  },
+  "new_attempt_launched": false,
+  "observed_utc": "2026-11-01T17:19:49.886050+00:00",
+  "six_domain_restore_not_revalidated_by_this_collector": true,
+  "torch_unimported": true
+}

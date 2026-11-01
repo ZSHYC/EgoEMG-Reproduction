@@ -1,0 +1,103 @@
+{
+  "actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 1671849,
+      "start_ticks": "437924108"
+    },
+    "started_utc": "2026-11-01T16:52:15.740721+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 1671848,
+      "start_ticks": "437924105"
+    }
+  },
+  "all_collector_capsule_files_sha256_exact": 143,
+  "bundle_sha256": "5ba66fdbc3a622dc4ad32134f77de2bcbd4b0b2432f811e52e1e47046ec58d68",
+  "collector_complete": false,
+  "collector_log_tail": "{\"phase\": \"waiting-exact-native-RN18-full-workflow-closure\", \"root\": \"/data/shihao/egoemg-native-resnet18-full-cli-20261101\", \"handles\": {\"wrapper\": {\"pid\": 1061676, \"start_ticks\": \"433657451\"}, \"child\": {\"pid\": 1061677, \"start_ticks\": \"433657453\"}}, \"deadline_seconds\": null}\n",
+  "collector_model_free_stage_started": false,
+  "format": "actual_native_rn18_postexit_collector_queued_v1",
+  "full_paper_complete": false,
+  "matching_live_collector_owners": {
+    "child": {
+      "pid": 1671849,
+      "ppid": 1671848,
+      "start_ticks": "437924108",
+      "state": "S",
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "pid": 1671848,
+      "ppid": 1,
+      "start_ticks": "437924105",
+      "state": "S",
+      "tty_nr": 0
+    }
+  },
+  "matching_live_target_owners": {
+    "child": {
+      "pid": 1061677,
+      "ppid": 1061676,
+      "start_ticks": "433657453",
+      "state": "S",
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "pid": 1061676,
+      "ppid": 1,
+      "start_ticks": "433657451",
+      "state": "S",
+      "tty_nr": 0
+    }
+  },
+  "observed_utc": "2026-11-01T16:53:03.464384+00:00",
+  "root": "/data/shihao/egoemg-native-rn18-postexit-collector-c6ae9052d225-20261102",
+  "source_commit": "c6ae9052d225aa2b6342a56015eda6eb7d55f164",
+  "target_execution_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 1061677,
+      "start_ticks": "433657453"
+    },
+    "started_utc": "2026-11-01T05:01:09.191654+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 1061676,
+      "start_ticks": "433657451"
+    }
+  },
+  "target_full_fit_summary": {
+    "completed_epochs": 150,
+    "full_training_terminated": true,
+    "optimizer_executions": 33750,
+    "selected_best": {
+      "checkpoint_sha256": "02cffbc8719185ff130b5879ca2ae8d3465e170ba16044bb0ff9f34967162f16",
+      "completed_epochs": 136,
+      "file": "resnet18-vision-epoch=135-val_mae=0.1066.ckpt",
+      "score": 0.10657446831464767,
+      "validated": true
+    },
+    "sha256": "12bcd686f8dde2c66858c4cbf941c74a5db4a8fdf37fb4ae3298b880ecd9f656"
+  },
+  "target_full_workflow_complete": false,
+  "target_root": "/data/shihao/egoemg-native-resnet18-full-cli-20261101",
+  "target_stage_status": {
+    "owned-full-accept": "success",
+    "owned-full-fit": "success",
+    "owned-full-freeze": "success",
+    "owned-full-test-native": "started",
+    "owned-full-val-native": "success",
+    "owned-full-val-replay": "success",
+    "owned-qual-accept": "success",
+    "owned-qual-freeze": "success",
+    "owned-qual-prefix": "success",
+    "owned-qual-report": "success",
+    "owned-qual-resume": "success",
+    "owned-qual-test-native": "success",
+    "owned-qual-test-replay": "success",
+    "owned-qual-val-native": "success",
+    "owned-qual-val-replay": "success",
+    "owned-qual-verify": "success"
+  }
+}

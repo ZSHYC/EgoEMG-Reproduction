@@ -1,5 +1,7 @@
 # RN18融合的原指定cotrain-S初始化
 
+> **2026-11-02实际GPU推进**：[原batch资格与正式启动记录](../results/native-rn18-cotrain-gpu-qualification-and-full-launch-20261102.json)确认batch260／12workers／BF16完成第1轮前缀→第2轮恢复，共4次真实更新，完整1,052窗口验证与六域恢复精确一致；原生BEST导出与另进程重开110张量通过，4个资格阶段的8个worker/guardian已退出。父流程沿用原身份，于17:01:22 UTC开始独立新鲜150轮，已观察到第1轮／241更新及GPU0真实拥有者；资格导出仍标记为非完整initializer，正式150轮／36,150更新、正式BEST及未来融合训练尚未完成。
+
 这是`fusion/fusion_rn18_s_center_8ch`的前置训练，使用固定官方版本`f7cbd048b7092139852270491d3859cd472e0311`中的`emgformer/regression_egoemg_incre_cotrain_wl12000_small`。它不新增一项论文模型成绩，也不表示RN18融合已经训练完成。
 
 现有ViT融合的cotrain初始化用了另一组留出区，不能直接交接；在跑的原生EMGFormer-S使用200轮/指尖0.02，也不能代替本实验的150轮/0.01。新读取器保留原生模型、损失、优化器、完整轨迹及原始随机增强，只将可用旧版数据绑定到RN18融合的固定留出区。

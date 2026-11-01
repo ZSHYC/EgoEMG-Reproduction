@@ -1,0 +1,18 @@
+{
+  "actual_epochs": 150,
+  "actual_validation_checks": 75,
+  "files_sha256": {
+    "learning-curves.png": "d40bcb7f650b362ad75684a8d0f074158b660fa63c6cb0dc351c1f30ddc992fd",
+    "learning-curves.svg": "9576de6f9d2c086307f6dfdcf88b0bbfd009777a334da91e7a03f66b805a6e7a"
+  },
+  "format": "native_rn18_complete_training_history_plot_v1",
+  "full_paper_complete": false,
+  "matplotlib_version": "3.9.4",
+  "missing_odd_epoch_validation_not_filled": true,
+  "renderer_path": "scripts/paper/render_native_rn18_history.py",
+  "renderer_source_sha256": "096b2598d2931494f45a35c4cfa894927c0299d10169e5a0e013e07b36dd45c0",
+  "selected_completed_epoch": 136,
+  "source_history_sha256": "d4057c2d2829ddf8cef424e592af4931aadcc765b766844e5af7ab779b979634",
+  "source_report_sha256": "7ffafc5cf7ac1960c6cd75509c22cd15fd92daaf0c727d0415f6ca2dadc1067c",
+  "test_scores_not_used_for_plot_or_selection": true
+}
