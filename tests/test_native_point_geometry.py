@@ -2,6 +2,7 @@
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -48,6 +49,7 @@ def point_files(tmp_path,m,monkeypatch,damage=None):
     elif damage=='beta_nan':arrays['left_beta'][0,0]=np.nan
     elif damage=='missing_beta':del arrays['right_beta']
     elif damage=='unknown_array':arrays['unbound_extra']=np.zeros(2)
+    elif damage=='zero_left_pose':arrays['left_pose'][0]=0.
     points=tmp_path/'native-test-geometry.npz';np.savez_compressed(points,**arrays)
     value=dict(format='actual_legacy_complete_geometry_numeric_scan_v1',total_rows=100,episode_count=2,
         full_numeric_scan_complete=True,structural_admission_passed=True,scientific_eligible=False,full_paper_complete=False,
@@ -115,3 +117,56 @@ def test_post_admission_memmap_style_dtype_or_input_file_mutations_reject(tmp_pa
 def test_resolution_policy_is_explicit_and_never_an_observed_video_claim(policy):
     m=api()
     with pytest.raises(ValueError):m.validate_resolution_policy(policy)
+
+
+class MissingNativeMesh:
+    def __init__(self):self.calls=[]
+    def get_mano_verts_world(self,*args):
+        self.calls.append(args);return None,None
+
+
+def test_zero_pose_is_retained_and_native_mesh_none_is_not_a_fabricated_score(tmp_path,monkeypatch):
+    m=api();data=load(m,point_files(tmp_path,m,monkeypatch,'zero_left_pose'));native=MissingNativeMesh()
+    row,arrays=m.geometry_frame(native,data,'left',0,video_root=tmp_path,device='cpu')
+    assert row['status']=='invalid_zero_pose'and row['occlusion_score']is None and arrays is None
+    assert row['center_idx']==10 and row['hand']=='left'and len(native.calls)==1
+
+
+@pytest.mark.parametrize('hand,base',[('left',1.),('right',2.)])
+def test_valid_pose_native_failure_raises_with_actual_hand_beta_and_no_zero_substitute(tmp_path,monkeypatch,hand,base):
+    m=api();data=load(m,point_files(tmp_path,m,monkeypatch));native=MissingNativeMesh()
+    with pytest.raises(RuntimeError,match='native'):m.geometry_frame(native,data,hand,0,video_root=tmp_path,device='cpu')
+    assert len(native.calls)==1
+    np.testing.assert_array_equal(native.calls[0][1],np.arange(10,dtype=np.float32)+base)
+    assert native.calls[0][4]is(hand=='left')
+
+
+@pytest.mark.parametrize('hand,index',[(None,0),('middle',0),('left',-1),('right',999),('left',True)])
+def test_frame_selector_rejects_unknown_hand_or_index_before_native_call(tmp_path,monkeypatch,hand,index):
+    m=api();data=load(m,point_files(tmp_path,m,monkeypatch));native=MissingNativeMesh()
+    with pytest.raises(ValueError):m.geometry_frame(native,data,hand,index,video_root=tmp_path,device='cpu')
+    assert not native.calls
+
+
+def test_run_rejects_implicit_resolution_before_any_runtime_or_input_io():
+    from types import SimpleNamespace
+    with pytest.raises(ValueError):api().run_geometry(SimpleNamespace(resolution_policy=None))
+
+
+def test_verifier_rejects_partial_output_without_importing_a_runtime(tmp_path):
+    with pytest.raises(ValueError):api().verify_geometry(tmp_path)
+
+
+@pytest.mark.skipif(not os.environ.get('EGOEMG_GEOMETRY_NATIVE_TEST_REQUEST'),reason='licensed assets and authentic point request required')
+def test_real_native_bilateral_geometry_and_raw_packet_corruption(tmp_path):
+    from types import SimpleNamespace
+    q=json.loads(Path(os.environ['EGOEMG_GEOMETRY_NATIVE_TEST_REQUEST']).read_text())
+    q['output']=tmp_path/'native-probe';assert q['mode']=='bilateral_probe'
+    m=api();result=m.run_geometry(SimpleNamespace(**q))
+    assert result['actual_mesh_calls']==2 and result['actual_occlusion_calls']==2
+    assert result['actual_right_mano_geometry_layers_constructed']==1
+    assert result['learned_pose_models_constructed']==0 and result['optimizer_updates']==0 and not result['cuda_initialized']
+    assert not result['complete_standard_role']and not result['scientific_eligible']
+    assert m.verify_geometry(q['output'])==result
+    point=next((q['output']/'points').glob('*.npz'));point.write_bytes(point.read_bytes()+b'changed packet')
+    with pytest.raises(ValueError):m.verify_geometry(q['output'])

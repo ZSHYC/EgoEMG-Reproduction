@@ -48,10 +48,10 @@
 
 **Interfaces:** `run_geometry(args)->dict` calls the pinned native functions, writes one private exact native-array packet and one ordered JSONL row per selected hand point, then a closed result. `verify_geometry(output:Path)->dict` reopens packets/source/input fingerprints and independently recomputes per-point area-weighted ratios; it never constructs a learned pose model or grants a full role from probe records.
 
-- [ ] Write boundary tests before native glue: unknown policy rejects, absent required beta rejects, zero pose yields an explicit retained row, valid-pose nativeNone raises, changed source/input packet rejects. Add a real runtime test gated on licensed local assets rather than a mock claiming mesh execution.
-- [ ] Run new negative cases and observe actual failures; implement the smallest IO/dispatch layer. Preserve original right-MANO/left-mirror math and native K/camera transforms; save verts_world/verts_cam/faces/visible/area_weights/projections/zbuffer and their exact typed hashes privately.
-- [ ] Execute a detached real bilateral probe, then a fresh-process independent probe replay. Expected: one real right-MANO geometry layer each, two actual source mesh/occlusion calls, finite778vertices/1,538faces, exact native packets/scores/selection; no learned pose models/optimizer/CUDA and all owned consumers close. This proves an integration only, not full D19/Figure13.
-- [ ] Run relevant unit checks and fresh raw verification, commit source/probe evidence. No re-review of the closed IK/MANO asset mathematics.
+- [x] Write boundary tests before native glue: unknown policy rejects, absent required beta rejects, zero pose yields an explicit retained row, valid-pose nativeNone raises, changed source/input packet rejects. Add a real runtime test gated on licensed local assets rather than a mock claiming mesh execution.
+- [x] Run new negative cases and observe actual failures; implement the smallest IO/dispatch layer. Preserve original right-MANO/left-mirror math and native K/camera transforms; save verts_world/verts_cam/faces/visible/area_weights/projections/zbuffer and their exact typed hashes privately.
+- [x] Execute a detached real bilateral probe, then a fresh-process independent probe replay. Expected: one real right-MANO geometry layer each, two actual source mesh/occlusion calls, finite778vertices/1,538faces, exact native packets/scores/selection; no learned pose models/optimizer/CUDA and all owned consumers close. This proves an integration only, not full D19/Figure13.
+- [x] Run relevant unit checks and fresh raw verification, commit source/probe evidence. No re-review of the closed IK/MANO asset mathematics.
 
 ### Task 3: one review, complete standard-grid geometry and public aggregate
 
