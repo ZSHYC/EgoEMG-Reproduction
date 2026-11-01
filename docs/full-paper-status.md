@@ -1,3 +1,5 @@
+> **2026-11-01 最新验收 · 18:07北京时间**：[原生EMGFormer-M](../results/original-emgformer/middle/README.md)完成200轮/25,000正式更新，验证best第124轮；完整val/test及独立重放通过，36当前＋6资格拥有者关闭，中心pooled MAE **16.441148°**。这是中心评价，未替换Table2轨迹行。遮挡分析的[两遍完整配对输入](../results/native-dense-occlusion/paired-full-io-complete-20261101.json)也已结束：54文件/61,379,659,366字节四次完整SHA核对，28,282请求每遍全部保留，6拥有者关闭；[真实训练三模型载入10项检查](../results/native-dense-occlusion/trained-model-tests-20261101.json)通过，实际完整预测/Figure13仍未完成。ResNet-18资格链已结束并于17:59进入正式训练，ResNet-50正式训练也在跑，L与EMG2Pose等原流程继续；科学架构家族仍14。
+
 # 全论文复现状态与证据清单
 
 > **2026-11-01 两条路线完整密GT均已验收**：[ViT-S真实完成证据](../results/native-dense-occlusion/vits-geometry-complete-20261101.json)新增17,168手请求双遍原生计算、三次原始核验和216,450数组精确重放；14原拥有者＋2比较拥有者全部退出。连同既有RN18，共28,282请求/845保留零姿态，32拥有者已关闭；原生数学与1920×1080官方回退保持。16项统计与26项连接检查已通过，真实冻结模型预测、paired gain/Spearman与Figure13仍未完成。
@@ -293,7 +295,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 | 数据/模型 | 官方发布内容与已核验接口 | 本项目状态与真正欠缺 |
 | --- | --- | --- |
 | EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **legacy轨迹与[原生200轮/中心最终评价](../results/original-emgformer/small/README.md)分别完成**；新原生25,000更新、best169轮，2,792唯一点/59,576有效角度，pooled中心16.582811°；完整val/test新进程精确重放及20阶段/42拥有者关闭。原生全轨迹测试尚欠，未把中心值填入Table2轨迹对比；数据/单rank/PDF等价未证明 |
-| EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
+| EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **legacy轨迹与[原生200轮/中心最终评价](../results/original-emgformer/middle/README.md)分别完成**；新原生25,000更新、best124轮，2,792唯一点/59,576有效角度，中心pooled16.441148°。完整val/test新进程精确重放，36当前＋6资格拥有者关闭；原生完整轨迹测试仍欠，未替换Table2轨迹行 |
 | EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
 | EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **完整运行、已核验（原生配方／旧版数据单rank适配）**；[实际结果](../results/original-classic/vemg2pose/README.md)为62轮早停、10,535更新、4,306测试手样本，轨迹／中心16.452932°／16.347705°。目标手8ch/WL7790输出6000；原批量600、完整验证选模、原生test和独立复算／报告完成。六rank、原表数据和标注等价未证明 |
 | EgoEMG NeuroPose | [官方配置][neuropose]及真实CNN模型；16槽、tuple输出、0/0上下文、22角、6,354,969参数 | **[原生完整实验已完成](../results/original-classic/neuropose/README.md)**：73轮/29,043实际更新，原patience50早停、best第23轮；全测试轨迹16.358404°/中心16.411552°，验证冻结/独立精确复算/报告曲线验收均通过，20拥有者退出。原256/16-mixed/WL7790/全槽归一化旋转/clip0/val_loss保留，单rank与原六rank差异披露；不宣称续训轨迹或PDF数值等价 |
@@ -377,7 +379,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D17，§4.4/C.2 | 7视觉模型的真实主干、初始化、角度头、损失和训练 | **七视觉均已有可得队列完整结果**，RN18/50/152为legacy，DINO-S/B/L与WiLoR为原生/明确派生配方；来源、真实预训练、旧版/单rank及缺失作者独立YAML边界分列，完整PDF协议等价仍未证明 |
 | D18，§4.5/C.2 | 两对残差融合、时间池化、分支来源、末层初始化 | **RN18+S legacy保留；[新原生路线](native-rn18-fusion.md)98运行时检查和23真实视觉来源检查通过，历史完整RN18 LAST已实际独立准入，尚待本折cotrain-S150验证BEST、联合交接及原生融合150轮/最终评价；ViT-S+S原生完整150轮及最终独立报告已完成**。ViT路线EMG为完成150轮的验证best133，视觉为完成124轮的last；旧精确零适配与原生极小正态/PDF zero的差异保留 |
 | D19，D.6 Eq.4 | camera-space自遮挡z-buffer、5×5邻域/5mm、三角面积加权 | **[完整标准网格计算/重放](../results/native-point-geometry-standard-roles-20261101.json)及[聚合统计/独立重算](../results/native-point-geometry/README.md)完成**：5,882唯一手请求（5,683有效/199零姿态），20原几何＋6汇总拥有进程关闭；可见、越界、相机后方及逐手统计CSV/JSON均已导出 | 原视频缺失，官方1920×1080回退/未用畸变及左右约定未证明物理一致；密网格GT已另验收，真实模型误差/paired gain/Spearman和Figure13仍欠 |
-| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引/输入/来源交集及两路线完整密GT](../results/native-dense-occlusion/README.md)均完成**：ViT-S216,450与RN18的140,231数组精确重放，32拥有者关闭；统计16项、连接26项、配对原生输入13项检查通过；实际54文件的完整配对读取/独立第二遍仍在进行。ViT-S1,280手窗口与融合训练输入相交、中心交集0，完整保留。冻结模型完整预测/真实收益/相关/Figure13仍待完成，RN18还须正式融合/初始化；未改样本换取严格隔离或套用PDF的ρ/p |
+| D20，D.6 | 1/4 stride 密测、bin、SEM、paired gain、趋势与 Spearman | **[密索引/输入/来源交集及两路线完整密GT](../results/native-dense-occlusion/README.md)均完成**：ViT-S216,450与RN18的140,231数组精确重放，32拥有者关闭；统计16项、连接26项、配对原生输入13项检查通过；实际54文件/61.380GB两遍完整配对读取及四次完整SHA均已结束，6拥有者关闭；真实训练三模型完整载入10项与原生前向18项检查通过。ViT-S1,280手窗口与融合训练输入相交、中心交集0，完整保留。冻结模型完整预测/真实收益/相关/Figure13仍待完成，RN18还须正式融合/初始化；未改样本换取严格隔离或套用PDF的ρ/p |
 
 ## 资产与外部依赖
 

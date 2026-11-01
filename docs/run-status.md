@@ -1,3 +1,5 @@
+> **2026-11-01 最新验收 · 18:07北京时间**：[原生EMGFormer-M](../results/original-emgformer/middle/README.md)完成200轮/25,000正式更新，验证best第124轮；完整val/test及独立重放通过，36当前＋6资格拥有者关闭，中心pooled MAE **16.441148°**。这是中心评价，未替换Table2轨迹行。遮挡分析的[两遍完整配对输入](../results/native-dense-occlusion/paired-full-io-complete-20261101.json)也已结束：54文件/61,379,659,366字节四次完整SHA核对，28,282请求每遍全部保留，6拥有者关闭；[真实训练三模型载入10项检查](../results/native-dense-occlusion/trained-model-tests-20261101.json)通过，实际完整预测/Figure13仍未完成。ResNet-18资格链已结束并于17:59进入正式训练，ResNet-50正式训练也在跑，L与EMG2Pose等原流程继续；科学架构家族仍14。
+
 # 运行状态
 
 > **2026-11-01 密采样配对输入进入完整读取**：[13项原生读取检查与完整流程](../results/native-dense-occlusion/README.md#同窗不同模型来源的原生输入)通过真实小型memmap/LMDB和官方完整读取器比对；独立后台进程正在读取ViT-S17,168/RN18的11,114个手请求。实际需要旧53文件加额外episode4 crop，共54文件/61,379,659,366字节；额外文件已匹配旧传输SHA。09:29:37 UTC首次ViT读取到4,000点，缺图/无效标签均保留；两个完整读取与后验重放尚未结束，0模型/更新/CUDA，Figure13仍未完成。

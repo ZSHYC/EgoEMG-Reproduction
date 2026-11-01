@@ -1,0 +1,41 @@
+{
+  "actual_complete_dense_predictions": false,
+  "actual_exit_code": 0,
+  "actual_native_mask_protocol": "B x 1 bool preserved; no B x 1 x 1 insertion or22-angle expansion",
+  "actual_real_trained_models_forward_tested_in_this_suite": false,
+  "actual_real_trained_probe_observation_that_prompted_regression": "native source forward returned mask B x 1 and EMG output B x22 x146, center73; first engineering probe consumed key0 twice and did not establish two unique requests",
+  "actual_source_whole_evaluation_module_collate_parity": true,
+  "actual_test_summary": "18 passed, 0 skipped in 3.31s",
+  "adapter_positive_modules": "explicit engineering doubles; not trained producer or full population evidence",
+  "collate_does_not_construct_learned_models": true,
+  "cpu_autocast_regression_red": "1 failed in 1.16s",
+  "cpu_autocast_rejected": true,
+  "figure13_reproduced": false,
+  "first_implementation_result": "7 failed, 7 passed in 1.22s: installed Torch has zero-argument is_autocast_enabled",
+  "format": "actual_native_paired_dense_dispatch_adapter_tests_v1",
+  "full_dense_input_or_inference_permit": false,
+  "full_paper_complete": false,
+  "independent_standalone_8channel_packet_not_fusion_slice": true,
+  "initial_missing_module_red": "14 failed in 1.18s",
+  "literal_unmasked22_angle_per_sample_mean": true,
+  "log_sha256": "3ece4743fdbcf5f7c613d188209691136f5cf98a2c869d1227f593961d28b44c",
+  "missing_crop_and_false_label_masks_retained": true,
+  "native_full_trajectory_midpoint_retained": true,
+  "native_two_dimensional_label_mask_regression_red": "1 failed in 1.04s",
+  "nonfinite_or_mismatched_pairs_rejected": true,
+  "observed_utc": "2026-11-01T10:06:14.119555+00:00",
+  "prior_16case_log_sha256": "1784aba836737f8fa48c8278f9f30a74c0f3a295c81314994fec07991cdab7ce",
+  "prior_16case_sources_sha256": {
+    "egoemg_repro/occlusion_dense_inference.py": "20e6462a9d6965ce2f8a19dff1b75f2126c492e43acb2c6e05d1f01d176290e2",
+    "tests/test_occlusion_dense_inference.py": "1c472e3c3b585881486c3d12b55c5fce319340871bf5b92261a123ac248e5827"
+  },
+  "scientific_eligible": false,
+  "source_b64_split_hand_tails_preserved": true,
+  "source_collate_omits_emg_channel_mask": true,
+  "source_whole_module_import_environment_fix": "15 passed /1 missing smplx; reused read-only existing WiLoR deps without installing or changing training environments",
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_inference.py": "c1d3378391630a6ec86deb34100186869da71cdaf91a6ee1974d325253f064c0",
+    "tests/test_occlusion_dense_inference.py": "0ffe079d8717add38025350679a1d0b7ed50fc6dd88f663bf8a4bb7eccfb11db"
+  },
+  "standalone_forward_receives_emg_only_without_label_length_interpolation": true
+}

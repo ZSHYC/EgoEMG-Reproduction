@@ -43,7 +43,7 @@ EMGFormer S/M/L轨迹值来自原训练器最终测试；其独立锁定复算�
 ## 核心缺口
 
 - Table3的七视觉与两融合均已有可得旧版队列最终报告；这不消除与PDF的数据/训练/评价协议差异，也不证明同条件数值等价。
-- [原生EMGFormer-S](../original-emgformer/small/README.md)200轮/25,000更新、完整中心val/test和新进程精确重放现已完成，20阶段/42拥有者关闭；2,792唯一点的中心pooled MAE16.582811°。这是中心评价，未替换上表Table2轨迹行或据此与14.7°计算直接差值。M/L原生200轮及最终评价仍在进行；新原生完整轨迹测试仍欠，既有legacy结果保留。
+- [原生EMGFormer-S](../original-emgformer/small/README.md)200轮/25,000更新、完整中心val/test和新进程精确重放现已完成，20阶段/42拥有者关闭；2,792唯一点的中心pooled MAE16.582811°。这是中心评价，未替换上表Table2轨迹行或据此与14.7°计算直接差值。[原生M](../original-emgformer/middle/README.md)也已完成200轮/25,000更新，验证best第124轮，中心pooled16.441148°；36当前＋6资格拥有者关闭。L仍在正式训练；S/M新原生完整轨迹测试仍欠，既有legacy结果保留。
 - RN18/RN50/RN152及RN18+S当前表内结果仍属legacy0.01；原生/明确派生0.02路线尚需训练与最终核验。[ResNet协议接口](../native-resnet-protocol-20261101.json)及[数据/真实模型CPU工程验证](../native-resnet-runtime-and-data-20261101.json)已完成，工程样本与完整benchmark准入分开；[每两轮验证的fit/续训/独立评估CPU工程链](../native-resnet-fit-eval-engineering-20261101.json)已通过75项检查；新组件单次审查及134项当前工程检查已通过，完整来源各两遍已核验；[三条后台后续队列](../native-resnet-full-cli-queue-20261101.json)已部署，真实GPU资格与全量正式训练/评估尚待实际执行。原生RN18+S应使用`fusion/fusion_rn18_s_center_8ch`，不可用名称相近的RN50+M/100轮配置替代。
 - Table11/13：EMG2Pose标准基准没有完整250轮训练与科学测试，不能直接拿EgoEMG MAE与该表相减。
 - Figure13：完整自遮挡分层曲线及Spearmanρ=0.049/p=0.001对应复算仍欠。

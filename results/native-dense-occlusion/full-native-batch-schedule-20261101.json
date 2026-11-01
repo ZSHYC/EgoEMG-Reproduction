@@ -1,0 +1,62 @@
+{
+  "accepted_complete_io_journal_file_sha256": "0de3c5c995fe1be446eac354c434e56c362ea0ed5ac771070a178d9755989fbd",
+  "actual_batch_size": 64,
+  "actual_batches": 272,
+  "actual_source_points": 17168,
+  "current_adapter_source_sha256": "c1d3378391630a6ec86deb34100186869da71cdaf91a6ee1974d325253f064c0",
+  "figure13_reproduced": false,
+  "format": "actual_complete_vits_native_group_batch_schedule_v1",
+  "full_dense_inference_permit": false,
+  "full_paper_complete": false,
+  "full_prediction_batch_size_qualification": false,
+  "groups": [
+    {
+      "batches": 52,
+      "hand": "left",
+      "last_batch_size": 45,
+      "points": 3309,
+      "split": "user"
+    },
+    {
+      "batches": 52,
+      "hand": "right",
+      "last_batch_size": 45,
+      "points": 3309,
+      "split": "user"
+    },
+    {
+      "batches": 73,
+      "hand": "left",
+      "last_batch_size": 19,
+      "points": 4627,
+      "split": "gesture"
+    },
+    {
+      "batches": 73,
+      "hand": "right",
+      "last_batch_size": 19,
+      "points": 4627,
+      "split": "gesture"
+    },
+    {
+      "batches": 11,
+      "hand": "left",
+      "last_batch_size": 8,
+      "points": 648,
+      "split": "both"
+    },
+    {
+      "batches": 11,
+      "hand": "right",
+      "last_batch_size": 8,
+      "points": 648,
+      "split": "both"
+    }
+  ],
+  "independent_group_reconstruction_exact": true,
+  "model_or_optimizer_constructions": 0,
+  "no_points_dropped_or_cross_group_batches": true,
+  "observed_utc": "2026-11-01T10:07:40.089867+00:00",
+  "schedule_sha256": "898526aa75f100dd290ae908f08f2102e1e3b11a7819ec69b9af68fb38628573",
+  "torch_unimported": true
+}

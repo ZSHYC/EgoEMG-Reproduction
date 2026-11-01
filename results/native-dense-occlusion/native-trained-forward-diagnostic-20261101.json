@@ -1,0 +1,64 @@
+{
+  "actual_batch_size": 2,
+  "actual_dense_indices": [
+    0,
+    0
+  ],
+  "actual_emg_center_index": 73,
+  "actual_emg_full_prediction_shape": [
+    2,
+    22,
+    146
+  ],
+  "actual_fusion_emg_shape": [
+    2,
+    16,
+    7790
+  ],
+  "actual_fusion_prediction_shape": [
+    2,
+    22,
+    1
+  ],
+  "actual_label_mask_values": [
+    [
+      true
+    ],
+    [
+      true
+    ]
+  ],
+  "actual_missing_crop_still_predicted": true,
+  "actual_optimizer_updates": 0,
+  "actual_optimizers_constructed": 0,
+  "actual_standalone_emg_shape": [
+    2,
+    8,
+    7790
+  ],
+  "actual_unique_hand_requests": 1,
+  "actual_vision_prediction_shape": [
+    2,
+    22,
+    1
+  ],
+  "cuda_initialized": false,
+  "diagnostic_selection_note": "initial key0 and first missing-crop key both resolved to0; two consumptions/one unique point, not two unique requests",
+  "figure13_reproduced": false,
+  "format": "actual_trained_native_dense_forward_interface_diagnostic_v1",
+  "full_dense_inference_permit": false,
+  "full_dense_predictions_complete": false,
+  "full_paper_complete": false,
+  "full_prediction_batch_size_qualification": false,
+  "model_and_input_load_seconds": 110.8237318713218,
+  "model_identity_sha256": "7543495ccd161d11bc2db25f277a7dfb1fddd4fd0051b9f1d0531e5faeea41fd",
+  "native_forward_seconds": 1.0383345875889063,
+  "scientific_eligible": false,
+  "source_checkpoint_sha256": {
+    "emg": "4b60c5e4b2cd6ff0ad30a75e5a97ec2baca2741ca76fdf7a7086742f1b66c654",
+    "fusion": "a3ade1c4b6ba4615ebe51eb60523872a3d114f09e591c289c731d3754c439a99",
+    "vision": "7c3949607c1657bf1d727ab0aeaa21c7edc89977f5b25e6281d99ebe7a1896f4"
+  },
+  "source_model_states_before_after_exact": true,
+  "source_native_unmasked_per_sample_errors_finite": true
+}

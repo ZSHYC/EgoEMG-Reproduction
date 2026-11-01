@@ -1,0 +1,476 @@
+{
+  "actual_complete_paired_io_passes": 2,
+  "actual_complete_raw_input_hash_passes": 4,
+  "actual_ended_utc": "2026-11-01T09:43:36.026406+00:00",
+  "actual_exit_code": 0,
+  "actual_frozen_model_predictions_complete": false,
+  "actual_learned_models_constructed": 0,
+  "actual_optimizer_updates": 0,
+  "actual_optimizers_constructed": 0,
+  "actual_raw_input_bytes_per_hash_pass": 61379659366,
+  "actual_raw_input_file_count": 54,
+  "actual_total_paired_hand_requests": 28282,
+  "actual_typed_input_fingerprints_rebuilt_per_pass": 311102,
+  "all_postexit_capsule_and_journal_bytes_exact": true,
+  "all_six_original_owners_closed": true,
+  "all_three_rng_domains_unchanged_in_both_actual_workers": true,
+  "bundle_sha256": "3d45e21add3877a9c3420b6afeaf28c5da5d006715da3fd6e49123541ea02b80",
+  "collector_torch_unimported": true,
+  "complete_raw_input_files_sha256": {
+    "crop:000000": "b15f5a10097f2a62d62e2feed4a2ffb14ac6321bcfc810ab931cb46320710e2c",
+    "crop:000001": "775b150b678e1137b42de1346f471bca46245517ad99802e2e87f100ddf9e7fd",
+    "crop:000002": "277fda78397f91330c7f88b90ccd9f7de494b51d0968fb782a044c38cce7a555",
+    "crop:000003": "a30cb36538437428c3daae08489a0906d75b128733e843504e27c044d9f28540",
+    "crop:000004": "9d6f29d5cf60eaf89155cb6d55d391ad1c938919ce77b54d06e7bfdf1560e51f",
+    "crop:000005": "7697d1f19e989e358001d4170976dcdb16994abf5f27cb1e0c408e7197c3a3b9",
+    "crop:000006": "99d066667fb3829822f4e0991d04b74ee8e8e3387027e15deee722a4cb8b1e36",
+    "crop:000007": "f4a75858da15fa4de17a4efc5139f12a9c8776c2f3ecabe9d1f4e07cc5fc01ac",
+    "crop:000008": "6edbeeffca3dbd059e98669c57d002ef3be47a6d30724371342b9439935df148",
+    "crop:000009": "cd8558913dd80ea174d175c89a13ea7d9351ca4fbc979d6452694f5c77c7b203",
+    "crop:000010": "e759d503e8cdc702f22933216a0d76c88e0b05b1105bd879b6f616baa33ecc85",
+    "crop:000011": "f424de4b2d4634dc9357a9ebc880f1d6cf3b1a15bdd2e1938edbc913dbb813ec",
+    "crop:000012": "b5dede28b116ab602d9b7a1e3c1193094c889ed53280976cb65e504079aaaf3e",
+    "crop:000013": "d8fb56539cfd1685ff64916050896ae07ae7b697227c935d05ec80df469c5b97",
+    "crop:000014": "526f8c8373df7f66065f2b64c4cbbb206921e293383b1e6bdc840df664cf2d08",
+    "crop:000015": "8394d176a10f2fc3541b4fca0d380c11491ea348ac8d802f22ae6197b3bd8074",
+    "crop:000016": "7d19aee8432be7c08fd40cf4ee507f00cf424a8365adfc655e31d2831c1af1fa",
+    "crop:000017": "02a5fb38f7433741bd6bd1ba04f67b8ffada369424ce884d44263387f2c669ea",
+    "crop:000018": "d2d9b538cb8299687493f86af9231c9219737b4536480101fc755ae3ee7f1f7c",
+    "crop:000019": "9c1c5c2dc1ef327808e55bf571f7906f432b49768e2ce441302942fea2944cf7",
+    "crop:000020": "4a58c8c0b91de2ce3cd1c18bddedf88dd45641f19dba097b8f08d6f0f10c9124",
+    "crop:000021": "1b5f08f70a1d2d80707cb74fc3c8ff32291c39552e2d75167f0e7148214f5b17",
+    "crop:000022": "93ee5ca40eb40714156d7716ab87d09b553cd639653d73c47a8afc977043e4e2",
+    "crop:000023": "1ac92783c0e08b3f29ad23ccbdaa3f02a321a7d00bc40174e8b6c2dc8eeffd08",
+    "crop:000024": "f8358d529951863ed7386f2f088403f23c88ee03cb1a9a239f36f6bc6fbf6334",
+    "crop:000025": "cdd5c63397720674a2c1a0bfc4e3355ca842cb387bc82f521d06299657eb5e43",
+    "crop:000026": "97ddb188b67630473546f4616950774bea65452d489bf23252ea401c0bae2e31",
+    "crop:000027": "3b889be0d52f3e90fd67eb7ea43e01f6b5eac6cf302199e580149899ff845b3a",
+    "crop:000028": "61410a401658e46694e9cdfa8b7ac24fdc8a4847243628af5ad05f6e8e5fc908",
+    "crop:000029": "8d72c1b6764a22c41687aa82cde64373325e137f1602da2a975f24ba78ccf32e",
+    "crop:000030": "3b455d4bf4949eb491ee95fd30395167c963c511e0ad683e05891c62fdd247d7",
+    "crop:000031": "e45b69f3d12ac7b3c6075ea999ae14f2dbad9f5e1589c494aa229d967574ac13",
+    "crop:000032": "4cd6f884123b620c3dad2b7c1f5032439271899903409cee631ef926a19694a3",
+    "crop:000033": "e75435e21109f950f6e0b173a923538d9edd226b31c1db0f90bafc8d318d8d7c",
+    "crop:000034": "5d0076843e0c1cb184c8258d20eb87b9b48e254e641e42ef5e6a249d2495a117",
+    "crop:000035": "05415309365bdb1ac9a55dc51e3df9525e12457b094093dbc9359c6b11d70645",
+    "crop:000036": "f4a6230851668c004383fd0c8ad720b85c90987f2279c313b4bfe2d003d8a2b7",
+    "crop:000037": "dde3d6cce131d1643ed8af81848cef94b223d02703bf11534e0071844ce9825f",
+    "crop:000038": "d7398042dc7ecd68da65c25b9c2b738d32f05eec2c60f94c50dfb4d5f8d0eb61",
+    "crop:000039": "9aa11c775909fc08cc6948bfb9c478dfb007b5bda0e96b5c0ee87f2215665319",
+    "crop:000040": "57c637a804559009fcdc209b120283a953e5b3f37c33f8b2d45ce841ef664d6e",
+    "field:emg_left_filtered": "b948e1879bc6044a54758c865a137acb5b580ded18eca2f4a7d84d3f976ec3ea",
+    "field:emg_right_filtered": "2aeac3c7262fd42d7770051fe9df73660bafaf4627bc70626802fe13067e88d3",
+    "field:frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+    "field:generated_joint_angles_left": "85d03d9e992d5d085000d0d26ab25ab5f1a015ee509460d0131fbbbb2252005f",
+    "field:generated_joint_angles_right": "383922f2a6f9a6ee5c5109e88d1b65c4d62c8a77435ee0fcbe7b2ef222f4d5e7",
+    "field:generated_label_valid": "30486e402450e0a3eaddec6ab185ea6575bbc478fb41837a6ce981014d79eea2",
+    "field:image_webcam_frame_index": "4b5ada48bf96a59278761f41525d2153634b2937c40e57c0b6b96ad4d97d2508",
+    "field:mocap_left_wrist_pitch": "325372afc973aa10680e73cd956cde4ff245ebf0cdee650fce63edd5aa450cee",
+    "field:mocap_left_wrist_yaw": "d3d6936ba37ef517370f5f6c53ec5a6d6dd7667c7c619092e4faccb7c67d0730",
+    "field:mocap_right_wrist_pitch": "8c31710cd300927041524093ab151cd7bcc359924f4cb76fe582c492507b2d1b",
+    "field:mocap_right_wrist_yaw": "bc157f87c16a51df507abdb7d83e23da91ce45a17954dabbeb383a777fdd5fdb",
+    "metadata:episodes": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+    "metadata:manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+  },
+  "crop_and_label_counts_independently_rebuilt_from_typed_boolean_fingerprints": true,
+  "cuda_initialized": false,
+  "dense_only_extra_payload_provenance": {
+    "acquisition_ledger_file_sha256": "d85c1417e0dea3a28d79c437ea5849a011b3f7890139cdce0e3cb6b416aad556",
+    "actual_file_sha256": "9d6f29d5cf60eaf89155cb6d55d391ad1c938919ce77b54d06e7bfdf1560e51f",
+    "actual_source_file_matches_historical_transfer_sha": true,
+    "bytes": 2428928,
+    "catalog_entry_content_sha256": "0059427ce3ef472a6cdb64ba600db0bf5b3312a59aa47acc512e589ad061af85",
+    "catalog_file_sha256": "a5d7509fcc466c78c3729e320e6c566d63a0e340cf62118a1d6ccea53474c859",
+    "checksum_basis": "previous local-transfer SHA plus current full-file hash; no publisher checksum claim",
+    "current_catalog_metadata_episode_join_exact": true,
+    "dense_full_input_io_complete": false,
+    "episode_index": 4,
+    "figure13_reproduced": false,
+    "format": "actual_previously_acquired_dense_only_crop_file_admission_v1",
+    "full_paper_complete": false,
+    "historical_acquisition_entry": {
+      "bytes": 2428928,
+      "checksum_basis": "local_transfer",
+      "drive_id": "1ZoOwJmBckgVjAGNGOtrzFpiPoBsZ6RJZ",
+      "sha256": "9d6f29d5cf60eaf89155cb6d55d391ad1c938919ce77b54d06e7bfdf1560e51f",
+      "url": "https://drive.google.com/uc?id=1ZoOwJmBckgVjAGNGOtrzFpiPoBsZ6RJZ",
+      "verified_at": "2026-10-25T07:00:53.246762+00:00"
+    },
+    "learned_pose_models_constructed": 0,
+    "metadata_file_sha256": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+    "new_download_performed": false,
+    "not_consumed_by_previous_standard_full_footprint_cohort": true,
+    "optimizer_updates": 0,
+    "publisher_checksum_available": false,
+    "scientific_eligible": false
+  },
+  "exact_complete_keys_and_pairwise_typed_input_fingerprints_equal": true,
+  "figure13_reproduced": false,
+  "files_sha256": {
+    "private/paired-a/result.json": "45af3f4650ea15961ea093ab6957504247ab4772f5bcebc0282ef60ad657ec9a",
+    "private/paired-a/rn18_s-inputs.jsonl": "630977cd8f01076f788ac39673d13501155d81c5dd230dbffd29907dcad793ca",
+    "private/paired-a/vits_s-inputs.jsonl": "0de3c5c995fe1be446eac354c434e56c362ea0ed5ac771070a178d9755989fbd",
+    "private/paired-b/result.json": "151713c4036a5a199d1dbe74532b7e83b3e9b09d70b253d49e4f6c5be4eb1232",
+    "private/paired-b/rn18_s-inputs.jsonl": "630977cd8f01076f788ac39673d13501155d81c5dd230dbffd29907dcad793ca",
+    "private/paired-b/vits_s-inputs.jsonl": "0de3c5c995fe1be446eac354c434e56c362ea0ed5ac771070a178d9755989fbd"
+  },
+  "format": "actual_complete_dense_paired_source_inputs_postexit_verified_v1",
+  "full_paper_complete": false,
+  "full_source_input_io_complete": true,
+  "raw_workflow_file_sha256": "7d4a6be90143d3f2a354a0e9298d3aac3e738ac8f9b3dbca03cbb5f9ea58dccd",
+  "recipes": {
+    "rn18_s": {
+      "all_eleven_typed_input_fingerprints_equal": true,
+      "counts": {
+        "crop_missing": 440,
+        "crop_present": 10674,
+        "label_invalid": 327,
+        "label_valid": 10787,
+        "points": 11114
+      },
+      "exact_source_keys_rebuilt_from_accepted_typed_grid": true,
+      "groups": {
+        "both:left": 424,
+        "both:right": 424,
+        "gesture:left": 2997,
+        "gesture:right": 2997,
+        "user:left": 2136,
+        "user:right": 2136
+      },
+      "input_identity": {
+        "crop_and_label_masks_retained": true,
+        "dense_stride": 3000,
+        "figure13_reproduced": false,
+        "format": "source_native_dense_paired_input_io_v1",
+        "full_input_or_model_admitted": false,
+        "full_paper_complete": false,
+        "fusion_input_channels": 8,
+        "fusion_normalization": {
+          "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+          "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+          "canonical_normalization_errors_by_hand": {
+            "left": "KeyError",
+            "right": "KeyError"
+          },
+          "declared_namespace": "egoemg_unified",
+          "epsilon": 1e-06,
+          "estimated_from_project_train_rows": false,
+          "format": "original_rn18_fusion_legacy_normalization_v1",
+          "full_paper_complete": false,
+          "hands": {
+            "left": {
+              "dtype": "float32",
+              "mean": [
+                -7.231502723026306e-13,
+                1.448950443135033e-12,
+                -1.6892440571347755e-11,
+                -1.252661689654655e-11,
+                -1.2940328496247044e-11,
+                9.326261117548196e-12,
+                -2.8426799109082523e-11,
+                -3.779553493094001e-12
+              ],
+              "std": [
+                3.821516513824463,
+                4.0033464431762695,
+                4.532995700836182,
+                3.3738908767700195,
+                4.099949836730957,
+                4.044180393218994,
+                4.2281413078308105,
+                5.456417560577393
+              ]
+            },
+            "right": {
+              "dtype": "float32",
+              "mean": [
+                1.5540511585920846e-11,
+                -1.920762576768098e-10,
+                3.077472998658237e-11,
+                -7.338346076635194e-12,
+                -3.7279259540445864e-11,
+                2.417382787001099e-11,
+                3.4983644453534524e-11,
+                -1.1016149797926644e-11
+              ],
+              "std": [
+                12.625292778015137,
+                29.244260787963867,
+                12.783987045288086,
+                14.19461441040039,
+                14.211451530456543,
+                13.55282974243164,
+                17.53721809387207,
+                14.340578079223633
+              ]
+            }
+          },
+          "normalization_namespace": "egoemg",
+          "physical_fields": {
+            "left": "emg_left_filtered",
+            "right": "emg_right_filtered"
+          },
+          "requested_field": "filtered_paper",
+          "scientific_eligible": false,
+          "sha256": "93ff2015094d64e9f0c3d8fe4e0aeba1f0fef1df83e3111b4534da8b3e370c15",
+          "substitution": "explicit legacy namespace in the unchanged declared author alias asset"
+        },
+        "index_identity_sha256": "8067516e982bb2b92c659bb70562c379603ca3a0699438c71c0168b33d2347ea",
+        "jitter": false,
+        "native_point_wrist_conversion": true,
+        "reader_methods": [
+          "EgoEmgMemmapDataset._getitem_center_supervised",
+          "EgoEmgMemmapDataset._getitem_center_supervised_emg"
+        ],
+        "recipe": "rn18_s",
+        "repeat": 1,
+        "scientific_eligible": false,
+        "sha256": "8740a685e0c46fcacd6140c9e3cc9b15f4a241a99d20349757ea7a5e798a10b6",
+        "source_files_sha256": {
+          "classic_emg": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+          "classic_emg_cohort": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+          "data": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+          "emg_initializer_literal": "f0439d1a8d05bbf078570f806b88b2ab553f00990a91edde1563a5611250800f",
+          "fusion_literal_cohort": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+          "fusion_literal_data": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+          "occlusion_dense_data": "1168b9b9f7d069ef638e549c8433bf49b530a065216e5bcd20959cf6b64c59ab",
+          "occlusion_dense_inputs": "36a332016e1f05fdab1f0a7b59476fd9de97b59bf4aef1b9a9d1038723454246",
+          "rn18_fusion_data": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+          "upstream/assets/per_dataset_norm_stats_repro_filtered_paper_alias.json": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+          "upstream/egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+          "upstream/egoemg/datasets/layout_utils.py": "34293ab35a3138f4bd04847bf604968536d8720d9f2302d88f2a03db25ac50e8",
+          "upstream/egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59",
+          "vision_literal_data": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b"
+        },
+        "standalone_input_channels": 8,
+        "standalone_normalization": {
+          "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+          "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+          "epsilon": 1e-06,
+          "estimated_from_project_train_rows": false,
+          "format": "original_emg_initializer_per_hand_normalization_v1",
+          "full_paper_complete": false,
+          "hands": {
+            "left": {
+              "dtype": "float32",
+              "mean": [
+                -7.231502723026306e-13,
+                1.448950443135033e-12,
+                -1.6892440571347755e-11,
+                -1.252661689654655e-11,
+                -1.2940328496247044e-11,
+                9.326261117548196e-12,
+                -2.8426799109082523e-11,
+                -3.779553493094001e-12
+              ],
+              "std": [
+                3.821516513824463,
+                4.0033464431762695,
+                4.532995700836182,
+                3.3738908767700195,
+                4.099949836730957,
+                4.044180393218994,
+                4.2281413078308105,
+                5.456417560577393
+              ]
+            },
+            "right": {
+              "dtype": "float32",
+              "mean": [
+                1.5540511585920846e-11,
+                -1.920762576768098e-10,
+                3.077472998658237e-11,
+                -7.338346076635194e-12,
+                -3.7279259540445864e-11,
+                2.417382787001099e-11,
+                3.4983644453534524e-11,
+                -1.1016149797926644e-11
+              ],
+              "std": [
+                12.625292778015137,
+                29.244260787963867,
+                12.783987045288086,
+                14.19461441040039,
+                14.211451530456543,
+                13.55282974243164,
+                17.53721809387207,
+                14.340578079223633
+              ]
+            }
+          },
+          "namespace": "egoemg",
+          "native_loader": "EgoEmgMemmapDataset._load_norm_stats",
+          "physical_legacy_field": "filtered",
+          "production_ready": false,
+          "requested_field": "filtered_paper",
+          "scientific_eligible": false
+        },
+        "standalone_window_policy": "exact selected fusion window; no independent 12000-point center filtering",
+        "unique_hand_points": 11114,
+        "window_length": 12000,
+        "windows_crossing_center_split": 3504
+      },
+      "journal_file_sha256": "630977cd8f01076f788ac39673d13501155d81c5dd230dbffd29907dcad793ca"
+    },
+    "vits_s": {
+      "all_eleven_typed_input_fingerprints_equal": true,
+      "counts": {
+        "crop_missing": 695,
+        "crop_present": 16473,
+        "label_invalid": 518,
+        "label_valid": 16650,
+        "points": 17168
+      },
+      "exact_source_keys_rebuilt_from_accepted_typed_grid": true,
+      "groups": {
+        "both:left": 648,
+        "both:right": 648,
+        "gesture:left": 4627,
+        "gesture:right": 4627,
+        "user:left": 3309,
+        "user:right": 3309
+      },
+      "input_identity": {
+        "crop_and_label_masks_retained": true,
+        "dense_stride": 1947,
+        "figure13_reproduced": false,
+        "format": "source_native_dense_paired_input_io_v1",
+        "full_input_or_model_admitted": false,
+        "full_paper_complete": false,
+        "fusion_input_channels": 16,
+        "fusion_normalization": {
+          "asset": "upstream://assets/per_dataset_norm_stats_unified.json",
+          "asset_sha256": "6a0d029147fd3f4befef5c33f82c9044606de5a8b335b15ffa434ad3767701f5",
+          "canonical_declared_asset": "upstream://assets/per_dataset_norm_stats.json",
+          "canonical_declared_asset_sha256": "b787a1ef98d48f434cb808e0e61e49c1ee0c09fae5b7ca9fc6a05ba4b14ee122",
+          "canonical_declared_namespace_available": false,
+          "canonical_error_type": "KeyError",
+          "epsilon": 1e-06,
+          "estimated_from_project_train_rows": false,
+          "format": "fusion_fixed_normalization_v1",
+          "full_paper_complete": false,
+          "limitation": "legacy-only rows; public pooled-stat sampling is not the independent retained training rows or proof of merged-source/PDF equivalence",
+          "mean": 0.00011658444197544563,
+          "namespace": "egoemg_unified__filtered_paper",
+          "order": "float32 T,8; original zero-fill16; original fixed scalar; original role transforms; transpose16,T",
+          "physical_fields": {
+            "left": "emg_left_filtered",
+            "right": "emg_right_filtered"
+          },
+          "production_ready": false,
+          "requested_field_preference": "filtered_paper",
+          "sample_dataset_name": "egoemg",
+          "scientific_eligible": false,
+          "sha256": "5eb2cbca3904ca98d2edf2abc9f77e8a1845087a31b04e03b14cddb11e8cec1c",
+          "sources_sha256": {
+            "egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+            "egoemg/datasets/layout_utils.py": "34293ab35a3138f4bd04847bf604968536d8720d9f2302d88f2a03db25ac50e8",
+            "egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59"
+          },
+          "std": 10.839283499203331,
+          "substitution": "explicit same-revision official unified-stat asset; canonical model config is unchanged"
+        },
+        "index_identity_sha256": "ed72111b07b1ce29ebcd4bc4c248317d5b934c666ce4edd744869dca3ffda845",
+        "jitter": false,
+        "native_point_wrist_conversion": true,
+        "reader_methods": [
+          "EgoEmgMemmapDataset._getitem_center_supervised",
+          "EgoEmgMemmapDataset._getitem_center_supervised_emg"
+        ],
+        "recipe": "vits_s",
+        "repeat": 1,
+        "scientific_eligible": false,
+        "sha256": "721ba98d065eb5b9c0a0271d33f06577d9217a68974e025d4f0dc7110cfdcfc5",
+        "source_files_sha256": {
+          "classic_emg": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+          "classic_emg_cohort": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+          "data": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+          "emg_initializer_literal": "f0439d1a8d05bbf078570f806b88b2ab553f00990a91edde1563a5611250800f",
+          "fusion_literal_cohort": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+          "fusion_literal_data": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+          "occlusion_dense_data": "1168b9b9f7d069ef638e549c8433bf49b530a065216e5bcd20959cf6b64c59ab",
+          "occlusion_dense_inputs": "36a332016e1f05fdab1f0a7b59476fd9de97b59bf4aef1b9a9d1038723454246",
+          "rn18_fusion_data": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+          "upstream/assets/per_dataset_norm_stats_repro_filtered_paper_alias.json": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+          "upstream/egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+          "upstream/egoemg/datasets/layout_utils.py": "34293ab35a3138f4bd04847bf604968536d8720d9f2302d88f2a03db25ac50e8",
+          "upstream/egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59",
+          "upstream/upstream://assets/per_dataset_norm_stats_unified.json": "6a0d029147fd3f4befef5c33f82c9044606de5a8b335b15ffa434ad3767701f5",
+          "vision_literal_data": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b"
+        },
+        "standalone_input_channels": 8,
+        "standalone_normalization": {
+          "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+          "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+          "epsilon": 1e-06,
+          "estimated_from_project_train_rows": false,
+          "format": "original_emg_initializer_per_hand_normalization_v1",
+          "full_paper_complete": false,
+          "hands": {
+            "left": {
+              "dtype": "float32",
+              "mean": [
+                -7.231502723026306e-13,
+                1.448950443135033e-12,
+                -1.6892440571347755e-11,
+                -1.252661689654655e-11,
+                -1.2940328496247044e-11,
+                9.326261117548196e-12,
+                -2.8426799109082523e-11,
+                -3.779553493094001e-12
+              ],
+              "std": [
+                3.821516513824463,
+                4.0033464431762695,
+                4.532995700836182,
+                3.3738908767700195,
+                4.099949836730957,
+                4.044180393218994,
+                4.2281413078308105,
+                5.456417560577393
+              ]
+            },
+            "right": {
+              "dtype": "float32",
+              "mean": [
+                1.5540511585920846e-11,
+                -1.920762576768098e-10,
+                3.077472998658237e-11,
+                -7.338346076635194e-12,
+                -3.7279259540445864e-11,
+                2.417382787001099e-11,
+                3.4983644453534524e-11,
+                -1.1016149797926644e-11
+              ],
+              "std": [
+                12.625292778015137,
+                29.244260787963867,
+                12.783987045288086,
+                14.19461441040039,
+                14.211451530456543,
+                13.55282974243164,
+                17.53721809387207,
+                14.340578079223633
+              ]
+            }
+          },
+          "namespace": "egoemg",
+          "native_loader": "EgoEmgMemmapDataset._load_norm_stats",
+          "physical_legacy_field": "filtered",
+          "production_ready": false,
+          "requested_field": "filtered_paper",
+          "scientific_eligible": false
+        },
+        "standalone_window_policy": "exact selected fusion window; no independent 12000-point center filtering",
+        "unique_hand_points": 17168,
+        "window_length": 7790,
+        "windows_crossing_center_split": 3518
+      },
+      "journal_file_sha256": "0de3c5c995fe1be446eac354c434e56c362ea0ed5ac771070a178d9755989fbd"
+    }
+  },
+  "scientific_eligible": false,
+  "source_commit": "a1a41d4b69f2478c95dd8cbf96550ba57eba39d8",
+  "trained_model_or_full_inference_permit": false,
+  "workflow_seconds": 965.6978664603084
+}

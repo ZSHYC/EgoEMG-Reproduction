@@ -1,3 +1,5 @@
+> **2026-11-01 最新验收 · 18:07北京时间**：[原生EMGFormer-M](results/original-emgformer/middle/README.md)完成200轮/25,000正式更新，验证best第124轮；完整val/test及独立重放通过，36当前＋6资格拥有者关闭，中心pooled MAE **16.441148°**。这是中心评价，未替换Table2轨迹行。遮挡分析的[两遍完整配对输入](results/native-dense-occlusion/paired-full-io-complete-20261101.json)也已结束：54文件/61,379,659,366字节四次完整SHA核对，28,282请求每遍全部保留，6拥有者关闭；[真实训练三模型载入10项检查](results/native-dense-occlusion/trained-model-tests-20261101.json)通过，实际完整预测/Figure13仍未完成。ResNet-18资格链已结束并于17:59进入正式训练，ResNet-50正式训练也在跑，L与EMG2Pose等原流程继续；科学架构家族仍14。
+
 ![EgoEMG 独立复现：以固定官方源码连接腕部肌电、第一视角图像与手部姿态估计。](docs/assets/banner.svg)
 
 > **2026-11-01 RN18初始化修正版已部署 · 15:58北京时间**：[RN18兼容cotrain-S](docs/rn18-cotrain-initializer.md)一次审查修正后的98项工程检查、两次完整数据重验及独立CPU恢复/原生BEST导出已通过；[原batch260/12workers后续队列](results/rn18-cotrain-fixed-source-server-queue-20261101.json)已在服务器独立运行，等待原生RN18视觉完整流程退出后才执行GPU资格和新鲜150轮，当前尚未开始正式训练。[EMG2Pose-S启动入口修复](results/emg2pose-small-spawn-entry-repair-20261101.json)保留原19轮检查点，新后台流程重新核验完整来源后接续，最终评价队列同步等待新流程。已完成科学设置仍14，全文复现尚未完成。

@@ -1,0 +1,58 @@
+{
+  "actual_bound_forward_regression_red": "1 failed, 1 passed in 113.70s",
+  "actual_exit_code": 0,
+  "actual_full_dense_predictions_complete": false,
+  "actual_initial_missing_module_red": "1 failed, 7 errors in 1.08s",
+  "actual_model_forward_computation_tested": false,
+  "actual_native_classes": [
+    "EmgPredictionModule/MidFusionPoseFormer",
+    "VisionViTPose",
+    "Emg2PoseFormer"
+  ],
+  "actual_test_summary": "10 passed, 0 skipped, 2 native transformer warnings in 122.51s",
+  "actual_trained_producer_positive_not_synthetic": true,
+  "all_complete_source_and_strict_native_model_tensors_compared": true,
+  "changed_roles_training_mode_or_tensor_state_rejected": true,
+  "cpu_fp32_reload_cuda_uninitialized": true,
+  "dense_full_input_or_inference_permit": false,
+  "figure13_reproduced": false,
+  "fixture_actual_fusion_epochs": 150,
+  "fixture_checkpoint_sha256": {
+    "emg": "4b60c5e4b2cd6ff0ad30a75e5a97ec2baca2741ca76fdf7a7086742f1b66c654",
+    "fusion": "a3ade1c4b6ba4615ebe51eb60523872a3d114f09e591c289c731d3754c439a99",
+    "vision": "7c3949607c1657bf1d727ab0aeaa21c7edc89977f5b25e6281d99ebe7a1896f4"
+  },
+  "fixture_fusion_fit_identity_sha256": "346621600534bc77c589c23e7e5db800641c42c4533eb2a823b03af6f92a618c",
+  "fixture_fusion_fit_result_sha256": "c63aecb035e6496f691f05399379743deb021cfae0cdd379708db68bc50bfb42",
+  "fixture_standalone_sources": {
+    "emg": {
+      "checkpoint_selection": "completed native EMG validation best; complete source-fit-bound export",
+      "checkpoint_sha256": "4b60c5e4b2cd6ff0ad30a75e5a97ec2baca2741ca76fdf7a7086742f1b66c654",
+      "complete_source_tensors": 110,
+      "completed_epochs": 150,
+      "model_state_sha256": "62449b78bfd44f7126654d1b72181ed2db96adff974cac559244020755c8bd66",
+      "optimizer_executions": 36450,
+      "selected_epoch": 133
+    },
+    "vision": {
+      "checkpoint_selection": "completed native vision last; not validation best",
+      "checkpoint_sha256": "7c3949607c1657bf1d727ab0aeaa21c7edc89977f5b25e6281d99ebe7a1896f4",
+      "completed_epochs": 124,
+      "model_state_sha256": "2bc2e3e6f816cdb9ad6ee13cc56a7857da43a4d33f4b3fd0ad41b9f3ba42877f",
+      "optimizer_executions": 69688
+    }
+  },
+  "format": "actual_completed_dense_triplet_native_reload_checks_v1",
+  "full_paper_complete": false,
+  "log_sha256": "30aa16427681273ce9f0fe5046880e2ff367a74686d888dea1ac1de455ef350d",
+  "observed_utc": "2026-11-01T09:49:36.382794+00:00",
+  "optimizers_denied_during_model_admission": true,
+  "original_bound_method_restore_allowed": true,
+  "scientific_eligible": false,
+  "sources_sha256": {
+    "egoemg_repro/occlusion_dense_models.py": "417af8e8adca024c7ad81eb483852dd11cb1e040f4f8c99cc032b07b3ecbdc16",
+    "tests/test_occlusion_dense_models.py": "d8546685c5bc7e8bb6c8ce9bfedfd7f49be0868544d7668c5b67e51ecb78c915"
+  },
+  "standalone_models_use_original_author_evaluation_constructors": true,
+  "wrong_bound_instance_or_stale_patch_rejected": true
+}
