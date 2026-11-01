@@ -1,3 +1,5 @@
+> **2026-11-02 HOI4D手部来源接收**：[完整官方手部参数归档及独立核验](../results/hoi4d-hand-source-intake-20261102.md)取得425,303,390bytes／490,584条记录；所有50,530,065个数值有限，1条维度例外原样保留。服务器不同算法全量复核及退出后全SHA通过，1,858行sequence覆盖精确一致；当前release清单的176个清单外／1289个无对应参数序列差异单列。没有重建mesh、改写标签或训练新模型；完整来源、作者混合与标注器资产仍欠，全文未完成。
+
 > **2026-11-02 HOT3D训练来源推进**：[完整公开清单与双设备片段资格](../results/hot3d-train-source-qualification-20261102.md)固定2,804个训练归档／294,201,743,360bytes；实际完整取得2个归档／300帧，600份MANO和UmeTrack记录、602个原始JSON成员已在服务器独立解析及退出后复核。真实MANO是15维PCA，UmeTrack是22角和字典腕变换，已按官方加载器记录README差异，未转换／重建／训练。完整HOT3D、作者精确11源混合与markers2mano资产仍欠；原训练继续，全文未完成。
 
 > **2026-11-02 RN18正式流程入口准备**：[20阶段编排及真实拒绝证据](../results/native-rn18-fusion-experiment-preparation-20261102.json)已通过13项新增检查；真实两轮CPU模型不能冒充CUDA资格或完整模型，独立读取0构造／0更新／无CUDA，3原拥有者关闭。完整cotrain、真实联合交接与一次整路线审查后，才部署原200／10worker资格及新鲜150轮／46,950更新融合；本次未启动新GPU任务、未新增科学成绩。
@@ -404,7 +406,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | D04，A.4 | DC、50/100Hz notch、bandpass/rolloff、mV 与边界、原始 EMG | **旧版双手各41段原官方FFT重生成、独立复核及全量新旧filtered数值对照完成**；[重生成](../results/dataset-statistics/emg-fft-bilateral-full.md)：每手66,161,725行/8通道，合计4.234GB有限输出。[频率/首段对照](../results/dataset-statistics/emg-fft-first-episode.md)与[全1,058,587,600值对账](../results/dataset-statistics/emg-fft-full-comparison.md)均完成，左右最大差4.768e-7/9.537e-7，输入SHA/九项属性未变；不声称逐字节相同。独立单位标定、当前发布/PDF等价仍未证明，保留整episode非局部依赖 |
 | D05，B.1.1 | 21 虚拟 marker、MANO 顶点索引、左右 convention、局部坐标和刚体恢复 | **官方推理规格部分可读，未重运行**，见[官方推理入口][m2m]；[合法MANO资产已验收](../results/mano-existing-native-asset-admission-20261029.json)，两手valid已取得；[坐标/腕部8文件接收](raw-marker-acquisition.md)因非206停止、保留1GiB部分，仍缺完整坐标、标注模型及实际逐帧重建产物 |
 | D06，B.1.2 | 图 Transformer、8 维 Laplacian PE、最短路 attention bias、β/θ6D→MANO | **未实现、外部资产缺口**；[本轮官方公开范围核查](../results/markers2mano-public-availability-20261102.md)涵盖四个完整默认树、当前main／v0.1.0及相关Release；仍未取得模型包／匹配v51权重。源码还要求archive的4x姿态头；fallback不是已核验训练配置，不得以未训练替身验收 |
-| D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **InterHand三份MANO参数已接收；[HOT3D全部公开train清单与双设备完整片段已核验](../results/hot3d-train-source-qualification-20261102.md)**，不是作者混合物采样完成。HOT3D仅接收2／2,804片段；仍缺完整来源、精确样本清单、采样 seed/权重、版本与来源划分；图中比例不是实采数据 |
+| D07，B.1.3 | 11 源参数/mesh、tier 采样、约 712K 混合、去重和 train/val/test | **InterHand三份参数及[HOI4D完整手部参数ZIP](../results/hoi4d-hand-source-intake-20261102.md)已接收核验；[HOT3D公开train清单与双设备片段](../results/hot3d-train-source-qualification-20261102.md)已核验**。HOI4D保留1条维度例外及176个清单外sequence；HOT3D仅2／2,804片段。完整来源、精确样本清单、采样 seed/权重、版本与划分仍欠，作者约712K混合未重建 |
 | D08，B.1.3 | 50% 不增强；8 类为 bone length、global scale、近邻 swap、dropout 插值、neighbor blend、Gaussian noise、局部 drift、spike outlier | **未实现**；缺官方变换训练代码、精确参数/组合与概率、确定性检查和图9产物；不能用姿态模型 EMG 增强替代 |
 | D09，B.1.3 Eq.2 | vertex MSE + 5×marker MSE 的 annotator 训练、选模与质量评价 | **未运行**；缺训练入口、schedule、选择规则、权重与完整曲线。姿态基线 L1+tip 损失不等于该训练 |
 | D10，§3.2/B.1.3 | marker/vertex 误差、invalid rate、InterHand 子集与重投影质量 | **真实标注误差未重测**；[发布mask全帧覆盖](../results/dataset-semantics/full-frame-validity.md)已实测，但不等于原标注器invalid判据或精度。仍缺单位、质量划分与误差分布；3.2mm正文per-marker/附录per-vertex矛盾保留 |
@@ -440,7 +442,7 @@ Table 12 的官方组映射：proximal=[0,1,4,5,8,9,12,13,16,17]，mid=[2,6,10,1
 | GigaHands（PDF 写 GigaHand） | [固定作者README](https://github.com/brown-ivl/GigaHands/blob/8ad3ef9a50157f44a7eef5645b0766362110a961/README.md)仍指向hand_poses.tar.gz；2026-11-02本次单次HEAD实际返回404，[公开issue26](https://github.com/brown-ivl/GigaHands/issues/26)有近期下载失败报告，未见维护者替代链接 | 原10月26日约11.30GB的HEAD调查不是当前可下载证明；未启动接收，不将其他用户Globus拒绝信息当成本次HTTP状态，仍欠完整实物／许可与抽样核验 |
 | HOT3D | **[公开train清单及双设备完整片段核验完成](../results/hot3d-train-source-qualification-20261102.md)**：固定HF版本的2,804归档／294.202GB清单；实际2个完整归档206,510,080bytes／300帧／600份MANO记录已双端独立复核。15维PCA及UmeTrack22角/字典腕变换按实际数据与官方加载器记录 | 仅2／2,804训练片段，完整VRS仍需申请；不是作者约4M帧来源、完整混合物或几何/训练验收。参数保留原值，未将文档20角描述强加于实际22项 |
 | ARCTIC | [官方数据说明](https://github.com/zc-alexfan/arctic/blob/master/docs/data/README.md)，raw_seqs/meta 可独立于数百 GB 图像获取 | 需本人注册与 research license；相关模型另有许可，未取得训练数据 |
-| HOI4D | [官方页](https://hoi4d.github.io/)公开 Hand Pose/Camera/Annotations 链接 | 参数包传输与大小未验证，不笼统写必须申请账号 |
+| HOI4D | **[官方手部参数ZIP已完整接收并双端全量核验](../results/hoi4d-hand-source-intake-20261102.md)**：425,303,390bytes／490,584原始记录／1,858sequence；50,530,065数值均有限，1条标量pose/短kps记录原样保留 | 当前release.txt2971sequence与归档存在176清单外／1289无对应参数的差异，未自行重设作者混合划分；RGB-D、相机、其他标注、双手几何和精确11源混合仍欠 |
 | HanCo | [官方数据页](https://lmb.informatik.uni-freiburg.de/resources/datasets/HanCo.en.html)提供 shape/calib/meta 分包 | 调查时官方旧下载端点 404，需恢复或核验正式镜像；research-only 条款与采样待闭合 |
 | DexYCB | [官方页](https://dex-ycb.github.io/)有全包/按 subject 分包与 MANO 相关标签 | 未发现独立完整 MANO-only 小包；可单 subject 集成，不能当全量 mixture 完成 |
 | H2O / H2O-3D | 文字引 [Kwon H2O](https://github.com/taeinkwon/h2odataset)，图写 H2O3D 76K、与 [H2O-3D](https://github.com/shreyashampali/ho3d)相近 | 数据集身份未决；前者需注册、后者有公开链接，不能混同；需作者精确来源清单 |

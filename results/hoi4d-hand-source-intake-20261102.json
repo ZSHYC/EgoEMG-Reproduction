@@ -1,0 +1,525 @@
+{
+  "acquisition": {
+    "method": "Official project Hand Pose link -> anonymous OneDrive page -> normal Download control -> full local ZIP -> complete server copy",
+    "raw_parameters_published_in_repository": false,
+    "sha256_origin": "Computed from complete received archive; server complete-copy and post-exit whole-file hashes independently match. It is not a publisher signature.",
+    "transient_download_credentials_published": false,
+    "visible_file_metadata": {
+      "anonymous_download_button_visible": true,
+      "bytes_exact_not_yet_reported": true,
+      "displayed_added_by": "Yunze Liu",
+      "displayed_modified": "2/15/2023 10:32 PM",
+      "displayed_size": "406 MB",
+      "file_name": "HOI4D_Hand_pose.zip",
+      "no_login_or_signup_performed": true,
+      "observed_utc": "2026-11-01T20:55:09.071767+00:00",
+      "provider": "Microsoft OneDrive public sharing page reached from official HOI4D Hand Pose link"
+    },
+    "whole_archive_provider_checksum_observed": false
+  },
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "actual_schema_exception": {
+    "bytes": 374,
+    "member": "Hand_pose/handpose_right_hand/ZY20210800001/H1/C3/N44/S115/s03/T1/25.pickle",
+    "observed_utc": "2026-11-01T20:59:36.962964+00:00",
+    "record_index": 131135,
+    "schemas": {
+      "beta": {
+        "dtype": "float32",
+        "shape": [
+          10
+        ],
+        "type": "ndarray"
+      },
+      "kps2D": {
+        "dtype": "int64",
+        "shape": [
+          2
+        ],
+        "type": "ndarray"
+      },
+      "poseCoeff": {
+        "dtype": null,
+        "shape": null,
+        "type": "float32"
+      },
+      "trans": {
+        "dtype": "float32",
+        "shape": [
+          3
+        ],
+        "type": "ndarray"
+      }
+    },
+    "sha256": "ef217773d7aebb74173dd9fe08b417bdb13d80e0c5d55c06db0ee7ebbcca7f64"
+  },
+  "all_raw_numeric_values": 50530065,
+  "all_raw_numeric_values_finite": true,
+  "archive": {
+    "bytes": 425303390,
+    "file_name": "HOI4D_Hand_pose.zip",
+    "member_payload_identity_sha256": "a5171c8c6551ac2a4de011c74d0840b21a3794a9f6e5128a0bdcc31724313af8",
+    "members": 497277,
+    "pickle_files": 490584,
+    "sha256": "399d38c4e793305b5b6abad8e34e8e28569fb384065ffff81bce155372ae8080",
+    "uncompressed_payload_bytes": 439072159
+  },
+  "author_mixture_reconstructed": false,
+  "beta_consistency": "Exactly one dtype/shape/value byte fingerprint per source H ID, shared across received left/right records; H IDs are not an independently verified population count.",
+  "complete_linked_hand_parameter_archive_acquired": true,
+  "counts": {
+    "all_zero_full_pose_by_hand": {
+      "left": 0,
+      "right": 0
+    },
+    "bilateral_frame_ids": 31793,
+    "by_hand": {
+      "left": 31845,
+      "right": 458739
+    },
+    "by_role_human": {
+      "left/H1": 14055,
+      "left/H2": 3588,
+      "left/H3": 4741,
+      "left/H4": 9461,
+      "right/H1": 147134,
+      "right/H2": 128646,
+      "right/H3": 67393,
+      "right/H4": 115566
+    },
+    "hand_parameter_records": 490584,
+    "noncanonical_shape_records_by_hand": {
+      "left": 0,
+      "right": 1
+    },
+    "nonfinite_fit_records_by_hand": {
+      "left": 0,
+      "right": 0
+    },
+    "sequences": 1858,
+    "sequences_per_hand": {
+      "left": 167,
+      "right": 1858
+    },
+    "source_human_ids": 4,
+    "unique_annotated_frame_ids": 458791
+  },
+  "documented_parameter_recipe": {
+    "beta": "10 shape parameters; original source values retained",
+    "kps2D": "21x2 rendered 2D projections in the documented normal schema",
+    "poseCoeff": "3 global rotation parameters plus 45 MANO pose parameters; official example use_pca=False, ncomps=45, flat_hand_mean=True",
+    "source_hand_roles": "Original left/right folder names preserved; the README example constructs a right-hand layer, not an independently verified bilateral convention",
+    "trans": "Camera-frame translation; the official example converts MANO millimeter outputs to meters before adding trans"
+  },
+  "fields": {
+    "beta": {
+      "documented_shape_records": 490584,
+      "dtypes": {
+        "float32": 490584
+      },
+      "finite_values": 4905840,
+      "max_finite": 6.441978454589844,
+      "min_finite": -6.323129177093506,
+      "nonfinite_values": 0,
+      "other_shape_records": 0,
+      "source_shapes": {
+        "(10,)": 490584
+      },
+      "source_types": {
+        "ndarray": 490584
+      },
+      "values": 4905840
+    },
+    "kps2D": {
+      "documented_shape_records": 490583,
+      "dtypes": {
+        "int64": 490584
+      },
+      "finite_values": 20604488,
+      "max_finite": 1329388,
+      "min_finite": -717608,
+      "nonfinite_values": 0,
+      "other_shape_records": 1,
+      "source_shapes": {
+        "(2,)": 1,
+        "(21, 2)": 490583
+      },
+      "source_types": {
+        "ndarray": 490584
+      },
+      "values": 20604488
+    },
+    "poseCoeff": {
+      "documented_shape_records": 490583,
+      "dtypes": {
+        "float32": 490584
+      },
+      "finite_values": 23547985,
+      "max_finite": 5.679760456085205,
+      "min_finite": -4.161799430847168,
+      "nonfinite_values": 0,
+      "other_shape_records": 1,
+      "source_shapes": {
+        "()": 1,
+        "(48,)": 490583
+      },
+      "source_types": {
+        "float32": 1,
+        "ndarray": 490583
+      },
+      "values": 23547985
+    },
+    "trans": {
+      "documented_shape_records": 490584,
+      "dtypes": {
+        "float32": 490584
+      },
+      "finite_values": 1471752,
+      "max_finite": 2.64983868598938,
+      "min_finite": -1.2138891220092773,
+      "nonfinite_values": 0,
+      "other_shape_records": 0,
+      "source_shapes": {
+        "(3,)": 490584
+      },
+      "source_types": {
+        "ndarray": 490584
+      },
+      "values": 1471752
+    }
+  },
+  "format": "hoi4d_official_complete_hand_archive_intake_report_v1",
+  "full_hoi4d_acquired": false,
+  "full_paper_complete": false,
+  "instructions_commit": "15478666c44af86740d537e89b72cd47efeb44f8",
+  "license": {
+    "declared_by_official_project": "CC BY-NC 4.0",
+    "legal_code_access": "Complete legal text read through web tool; local direct HTML request returned403. No raw origin-HTML hash is claimed for the web readback.",
+    "legal_code_url": "https://creativecommons.org/licenses/by-nc/4.0/legalcode.en",
+    "mano_models_redistributed": false
+  },
+  "observed_utc": "2026-11-01T21:03:46.318782+00:00",
+  "official_source_page": "https://hoi4d.github.io/",
+  "pickle_globals_used": {
+    "numpy.core.multiarray._reconstruct": 490584,
+    "numpy.core.multiarray.scalar": 1,
+    "numpy.dtype": 490584,
+    "numpy.ndarray": 490584
+  },
+  "raw_beta_variants_by_hand_human": {
+    "left/H1": 1,
+    "left/H2": 1,
+    "left/H3": 1,
+    "left/H4": 1,
+    "right/H1": 1,
+    "right/H2": 1,
+    "right/H3": 1,
+    "right/H4": 1
+  },
+  "raw_beta_variants_by_human_both_hands": {
+    "H1": 1,
+    "H2": 1,
+    "H3": 1,
+    "H4": 1
+  },
+  "release_comparison": {
+    "annotated_sequences_in_release": 1682,
+    "annotated_sequences_outside_current_release": 176,
+    "outside_release_sequences": [
+      "ZY20210800001/H1/C1/N15/S99/s04/T1",
+      "ZY20210800001/H1/C1/N16/S100/s04/T1",
+      "ZY20210800001/H1/C1/N16/S100/s04/T2",
+      "ZY20210800001/H1/C1/N17/S100/s04/T1",
+      "ZY20210800001/H1/C1/N17/S100/s04/T2",
+      "ZY20210800001/H1/C1/N18/S108/s01/T1",
+      "ZY20210800001/H1/C1/N18/S108/s01/T2",
+      "ZY20210800001/H1/C2/N01/S338/s01/T2",
+      "ZY20210800001/H1/C2/N02/S212/s01/T1",
+      "ZY20210800001/H1/C2/N02/S338/s01/T1",
+      "ZY20210800001/H1/C2/N03/S212/s01/T1",
+      "ZY20210800001/H1/C2/N03/S337/s01/T1",
+      "ZY20210800001/H1/C2/N03/S337/s01/T2",
+      "ZY20210800001/H1/C2/N04/S212/s01/T1",
+      "ZY20210800001/H1/C2/N04/S337/s01/T1",
+      "ZY20210800001/H1/C2/N05/S212/s02/T1",
+      "ZY20210800001/H1/C2/N06/S212/s02/T1",
+      "ZY20210800001/H1/C2/N07/S212/s02/T1",
+      "ZY20210800001/H1/C2/N07/S337/s03/T2",
+      "ZY20210800001/H1/C2/N08/S212/s02/T5",
+      "ZY20210800001/H1/C2/N08/S337/s03/T1",
+      "ZY20210800001/H1/C2/N09/S212/s03/T2",
+      "ZY20210800001/H1/C2/N09/S214/s04/T1",
+      "ZY20210800001/H1/C2/N09/S337/s04/T1",
+      "ZY20210800001/H1/C2/N09/S337/s04/T2",
+      "ZY20210800001/H1/C2/N10/S212/s03/T2",
+      "ZY20210800001/H1/C2/N10/S214/s03/T1",
+      "ZY20210800001/H1/C20/N32/S292/s04/T3",
+      "ZY20210800001/H1/C5/N01/S57/s01/T2",
+      "ZY20210800001/H1/C5/N02/S57/s02/T2",
+      "ZY20210800001/H1/C5/N04/S57/s02/T1",
+      "ZY20210800001/H1/C5/N05/S57/s01/T1",
+      "ZY20210800001/H1/C5/N09/S369/s01/T1",
+      "ZY20210800001/H1/C5/N09/S369/s02/T2",
+      "ZY20210800001/H1/C5/N09/S369/s03/T1",
+      "ZY20210800001/H1/C5/N09/S369/s04/T4",
+      "ZY20210800001/H1/C5/N10/S57/s03/T1",
+      "ZY20210800001/H1/C7/N01/S270/s01/T1",
+      "ZY20210800001/H1/C7/N01/S274/s03/T3",
+      "ZY20210800001/H1/C7/N01/S280/s01/T5",
+      "ZY20210800001/H1/C7/N02/S270/s01/T1",
+      "ZY20210800001/H1/C7/N02/S274/s03/T3",
+      "ZY20210800001/H1/C7/N02/S280/s01/T5",
+      "ZY20210800001/H1/C7/N03/S270/s01/T1",
+      "ZY20210800001/H1/C7/N03/S274/s04/T3",
+      "ZY20210800001/H1/C7/N03/S280/s01/T5",
+      "ZY20210800001/H1/C7/N04/S270/s01/T1",
+      "ZY20210800001/H1/C7/N04/S274/s04/T3",
+      "ZY20210800001/H1/C7/N04/S280/s01/T5",
+      "ZY20210800001/H1/C7/N05/S270/s02/T1",
+      "ZY20210800001/H1/C7/N05/S274/s04/T3",
+      "ZY20210800001/H1/C7/N05/S280/s02/T5",
+      "ZY20210800001/H1/C7/N06/S270/s02/T1",
+      "ZY20210800001/H1/C7/N06/S274/s04/T3",
+      "ZY20210800001/H1/C7/N06/S280/s02/T5",
+      "ZY20210800001/H1/C7/N07/S270/s02/T1",
+      "ZY20210800001/H1/C7/N07/S274/s05/T3",
+      "ZY20210800001/H1/C7/N07/S280/s02/T5",
+      "ZY20210800001/H1/C7/N08/S270/s02/T1",
+      "ZY20210800001/H1/C7/N08/S274/s05/T3",
+      "ZY20210800001/H1/C7/N08/S280/s02/T5",
+      "ZY20210800001/H1/C7/N09/S270/s03/T1",
+      "ZY20210800001/H1/C7/N09/S274/s05/T3",
+      "ZY20210800001/H1/C7/N09/S280/s03/T5",
+      "ZY20210800001/H1/C7/N10/S270/s03/T1",
+      "ZY20210800001/H1/C7/N10/S274/s05/T3",
+      "ZY20210800001/H1/C7/N10/S280/s03/T5",
+      "ZY20210800002/H2/C2/N02/S28/s01/T1",
+      "ZY20210800002/H2/C2/N04/S28/s02/T1",
+      "ZY20210800002/H2/C2/N05/S28/s03/T3",
+      "ZY20210800002/H2/C2/N06/S28/s03/T3",
+      "ZY20210800002/H2/C2/N09/S28/s05/T1",
+      "ZY20210800002/H2/C2/N09/S28/s05/T3",
+      "ZY20210800002/H2/C2/N10/S28/s05/T1",
+      "ZY20210800002/H2/C2/N10/S28/s05/T3",
+      "ZY20210800002/H2/C5/N01/S122/s01/T1",
+      "ZY20210800002/H2/C5/N01/S255/s01/T1",
+      "ZY20210800002/H2/C5/N01/S261/s03/T3",
+      "ZY20210800002/H2/C5/N01/S267/s01/T5",
+      "ZY20210800002/H2/C5/N02/S122/s01/T1",
+      "ZY20210800002/H2/C5/N02/S122/s01/T3",
+      "ZY20210800002/H2/C5/N02/S255/s01/T1",
+      "ZY20210800002/H2/C5/N02/S261/s03/T3",
+      "ZY20210800002/H2/C5/N02/S267/s01/T5",
+      "ZY20210800002/H2/C5/N03/S255/s01/T1",
+      "ZY20210800002/H2/C5/N03/S261/s04/T3",
+      "ZY20210800002/H2/C5/N03/S267/s01/T5",
+      "ZY20210800002/H2/C5/N04/S122/s02/T1",
+      "ZY20210800002/H2/C5/N04/S122/s02/T3",
+      "ZY20210800002/H2/C5/N04/S255/s01/T1",
+      "ZY20210800002/H2/C5/N04/S261/s04/T3",
+      "ZY20210800002/H2/C5/N04/S267/s01/T5",
+      "ZY20210800002/H2/C5/N05/S255/s02/T1",
+      "ZY20210800002/H2/C5/N05/S261/s04/T3",
+      "ZY20210800002/H2/C5/N05/S267/s02/T5",
+      "ZY20210800002/H2/C5/N06/S122/s03/T1",
+      "ZY20210800002/H2/C5/N06/S255/s02/T1",
+      "ZY20210800002/H2/C5/N06/S261/s04/T3",
+      "ZY20210800002/H2/C5/N06/S267/s02/T5",
+      "ZY20210800002/H2/C5/N07/S122/s04/T1",
+      "ZY20210800002/H2/C5/N07/S122/s04/T3",
+      "ZY20210800002/H2/C5/N07/S255/s02/T1",
+      "ZY20210800002/H2/C5/N07/S261/s05/T3",
+      "ZY20210800002/H2/C5/N07/S267/s02/T5",
+      "ZY20210800002/H2/C5/N08/S122/s04/T1",
+      "ZY20210800002/H2/C5/N08/S122/s04/T3",
+      "ZY20210800002/H2/C5/N08/S255/s02/T1",
+      "ZY20210800002/H2/C5/N08/S261/s05/T3",
+      "ZY20210800002/H2/C5/N08/S267/s02/T5",
+      "ZY20210800002/H2/C5/N09/S122/s02/T1",
+      "ZY20210800002/H2/C5/N09/S255/s03/T1",
+      "ZY20210800002/H2/C5/N09/S261/s05/T3",
+      "ZY20210800002/H2/C5/N09/S267/s03/T5",
+      "ZY20210800002/H2/C5/N10/S122/s05/T1",
+      "ZY20210800002/H2/C5/N10/S255/s03/T1",
+      "ZY20210800002/H2/C5/N10/S261/s05/T3",
+      "ZY20210800002/H2/C5/N10/S267/s03/T5",
+      "ZY20210800003/H3/C1/N17/S86/s05/T1",
+      "ZY20210800003/H3/C1/N17/S86/s05/T2",
+      "ZY20210800003/H3/C2/N01/S215/s01/T4",
+      "ZY20210800003/H3/C2/N01/S52/s02/T1",
+      "ZY20210800003/H3/C2/N02/S215/s01/T4",
+      "ZY20210800003/H3/C2/N02/S52/s02/T1",
+      "ZY20210800003/H3/C2/N03/S215/s01/T4",
+      "ZY20210800003/H3/C2/N03/S52/s03/T1",
+      "ZY20210800003/H3/C2/N04/S215/s01/T4",
+      "ZY20210800003/H3/C2/N04/S52/s03/T1",
+      "ZY20210800003/H3/C2/N05/S215/s02/T4",
+      "ZY20210800003/H3/C2/N05/S52/s04/T1",
+      "ZY20210800003/H3/C2/N06/S215/s02/T4",
+      "ZY20210800003/H3/C2/N07/S215/s02/T4",
+      "ZY20210800003/H3/C2/N08/S215/s02/T4",
+      "ZY20210800003/H3/C2/N09/S215/s03/T5",
+      "ZY20210800003/H3/C2/N10/S215/s03/T5",
+      "ZY20210800004/H4/C1/N07/S194/s02/T4",
+      "ZY20210800004/H4/C1/N07/S237/s02/T1",
+      "ZY20210800004/H4/C1/N08/S194/s02/T4",
+      "ZY20210800004/H4/C1/N08/S237/s02/T1",
+      "ZY20210800004/H4/C1/N09/S18/s01/T1",
+      "ZY20210800004/H4/C1/N09/S18/s01/T3",
+      "ZY20210800004/H4/C1/N09/S194/s03/T4",
+      "ZY20210800004/H4/C1/N09/S237/s03/T1",
+      "ZY20210800004/H4/C1/N10/S194/s03/T4",
+      "ZY20210800004/H4/C1/N10/S237/s03/T1",
+      "ZY20210800004/H4/C1/N11/S194/s03/T4",
+      "ZY20210800004/H4/C1/N11/S237/s03/T1",
+      "ZY20210800004/H4/C1/N11/S242/s01/T2",
+      "ZY20210800004/H4/C1/N12/S194/s03/T4",
+      "ZY20210800004/H4/C1/N12/S237/s03/T1",
+      "ZY20210800004/H4/C1/N12/S242/s01/T2",
+      "ZY20210800004/H4/C1/N15/S194/s04/T4",
+      "ZY20210800004/H4/C1/N15/S237/s04/T1",
+      "ZY20210800004/H4/C1/N15/S242/s02/T2",
+      "ZY20210800004/H4/C1/N16/S194/s04/T4",
+      "ZY20210800004/H4/C1/N16/S237/s04/T1",
+      "ZY20210800004/H4/C1/N16/S242/s02/T2",
+      "ZY20210800004/H4/C1/N16/S9/s04/T3",
+      "ZY20210800004/H4/C1/N17/S194/s05/T4",
+      "ZY20210800004/H4/C1/N17/S237/s05/T1",
+      "ZY20210800004/H4/C1/N17/S242/s02/T2",
+      "ZY20210800004/H4/C1/N18/S194/s05/T4",
+      "ZY20210800004/H4/C1/N18/S237/s05/T1",
+      "ZY20210800004/H4/C1/N18/S242/s02/T2",
+      "ZY20210800004/H4/C2/N01/S16/s01/T5",
+      "ZY20210800004/H4/C2/N02/S16/s01/T5",
+      "ZY20210800004/H4/C2/N03/S16/s01/T1",
+      "ZY20210800004/H4/C2/N04/S16/s01/T1",
+      "ZY20210800004/H4/C2/N04/S364/s04/T1",
+      "ZY20210800004/H4/C2/N05/S10/s01/T1",
+      "ZY20210800004/H4/C2/N05/S10/s01/T5",
+      "ZY20210800004/H4/C2/N07/S10/s02/T1",
+      "ZY20210800004/H4/C2/N08/S364/s04/T1",
+      "ZY20210800004/H4/C2/N10/S11/s01/T5",
+      "ZY20210800004/H4/C5/N09/S366/s02/T1",
+      "ZY20210800004/H4/C5/N09/S366/s02/T3",
+      "ZY20210800004/H4/C5/N09/S366/s03/T1"
+    ],
+    "records_in_release": 445894,
+    "records_outside_release": 44690,
+    "release_sequences": 2971,
+    "release_sequences_without_hand_parameter_files": 1289
+  },
+  "scope_limits": [
+    "The complete linked Hand Pose ZIP is acquired; full HOI4D RGB-D, cameras and other annotations are not acquired by this unit.",
+    "490584 raw parameter records include one dimensionally noncanonical record; no scalar-to-48-vector expansion or source-record filtering was performed.",
+    "Current release.txt has2971 sequences; archive1858 sequences include176 outside it and omit1289 on it. Exact author source version and split/mixing roles remain unresolved.",
+    "Finite numeric values and complete CRCs do not establish MANO geometry quality, valid projections, annotation accuracy or training eligibility.",
+    "Original hand roles, frame IDs and raw parameters remain unchanged; no mirror, pose-mean adjustment, PCA conversion, mesh generation or annotation-model training was performed.",
+    "The EgoEMG author exact11-source712K mixture, sampler/deduplication/splits, markers2mano model package and matching weights remain missing."
+  ],
+  "sources": {
+    "README": {
+      "bytes": 7668,
+      "git_blob_sha1": "417dee19155ba9d8f5cfedf60e4483ca06d20379",
+      "raw_url": "https://raw.githubusercontent.com/leolyliu/HOI4D-Instructions/15478666c44af86740d537e89b72cd47efeb44f8/README.md",
+      "sha256": "4cedf0eea779d9743d8ba6ec064e3518767729e7305f284dd2b44726e7935cc7",
+      "url": "https://github.com/leolyliu/HOI4D-Instructions/blob/15478666c44af86740d537e89b72cd47efeb44f8/README.md"
+    },
+    "official_page": {
+      "bytes": 12291,
+      "http_status": 200,
+      "observed_utc": "2026-11-01T20:52:53.345696+00:00",
+      "official_links": {
+        "Annotations": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIuAQAAAAABELgpzxDxCz58Qov76-wpvw?e=qhyY0h",
+        "CC BY-NC 4.0": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "Camera Parameters": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIqAQAAAAABZBWQ3p5gxd-tu_3rOeSo_A?e=GjWeg8",
+        "Dataset Instructions": "https://github.com/leolyliu/HOI4D-Instructions",
+        "Hand Pose": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIrAQAAAAABHyHqDhs5CpJAkWTAQoGWxQ?e=ALFMCD"
+      },
+      "sha256": "0943110e2747cc5dbff1bd2958d8bcf69687cf33c2371e0842ff66807e5c07cb",
+      "url": "https://hoi4d.github.io/"
+    },
+    "release_list": {
+      "bytes": 110612,
+      "git_blob_sha1": "a528d66bfb2e757b9b8bf502113569a281f98114",
+      "raw_url": "https://raw.githubusercontent.com/leolyliu/HOI4D-Instructions/15478666c44af86740d537e89b72cd47efeb44f8/release.txt",
+      "sha256": "11f9008cab3c4cc1439c49f0741e3e08a896276b2d2235981ee1da906e615503",
+      "url": "https://github.com/leolyliu/HOI4D-Instructions/blob/15478666c44af86740d537e89b72cd47efeb44f8/release.txt"
+    }
+  },
+  "verification": {
+    "actual_gpu_actions": 0,
+    "actual_model_runs": 0,
+    "all1858_sequence_rows_exact": true,
+    "all490584_members_decoded_and_crcs_checked": true,
+    "all_numeric_and_source_groups_exact": true,
+    "initial_local_audit_stop": "An initial documented-shape-only audit stopped on the actual scalar poseCoeff/kps2D(2,) record. After reproducing the source bytes, the audit retained original type/shape histograms and marked this exception without inventing a 48-vector, removing it, or replacing source bytes. The complete rerun and independent server pass agree.",
+    "local": "Complete ZIP SHA256, all member CRCs, constrained NumPy pickle classes, stdlib scalar finite/range reductions, original type/shape histograms, source role/frame/release/beta grouping",
+    "postexit_readback": {
+      "actual_gpu_actions": 0,
+      "actual_model_runs": 0,
+      "all1858_sequence_rows_exact": true,
+      "all490584_raw_pickle_records_independently_checked": true,
+      "all5_complete_source_files_rehashed_after_exit": true,
+      "all_input_and_report_generations_unchanged": true,
+      "all_numeric_counts_ranges_shape_type_and_global_histograms_exact": true,
+      "all_release_and_beta_variant_statistics_exact": true,
+      "author_mixture_reconstructed": false,
+      "completed_report_sha256": "937e177f1c691c63126a085e007185f2ac560955547114ab732603f684b3257d",
+      "frozen_verifier_sha256": "8005f7299e9f99b3d8fb54151d3037553912a13c54bf4a9ecc7b8eadda4743c3",
+      "full_hoi4d_acquired": false,
+      "full_paper_complete": false,
+      "independent_actor": {
+        "pid": 1860743,
+        "start_ticks": 439418257
+      },
+      "independent_full_verifier_closed": true,
+      "observed_utc": "2026-11-01T21:02:44.811032+00:00",
+      "original_source_receiver_closed": true,
+      "python_version": "3.11.12",
+      "source_and_result_membership_exact": true
+    },
+    "server": "Independent complete ZIP read and constrained NumPy decode; batched NumPy numeric reductions and per-sequence two-hand frame occupancy matrices"
+  },
+  "within_sequence_sorted_frame_id_delta_histogram": {
+    "1": 486897,
+    "10": 16,
+    "11": 33,
+    "12": 67,
+    "13": 64,
+    "14": 76,
+    "15": 95,
+    "16": 113,
+    "17": 122,
+    "18": 87,
+    "19": 124,
+    "2": 80,
+    "20": 114,
+    "21": 133,
+    "22": 78,
+    "23": 78,
+    "24": 77,
+    "25": 66,
+    "26": 49,
+    "27": 48,
+    "28": 30,
+    "29": 24,
+    "3": 2,
+    "30": 20,
+    "31": 9,
+    "32": 8,
+    "33": 11,
+    "34": 4,
+    "35": 2,
+    "36": 1,
+    "37": 2,
+    "39": 1,
+    "4": 4,
+    "40": 1,
+    "5": 2,
+    "6": 4,
+    "7": 1,
+    "8": 7,
+    "9": 9
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "dataset": "HOI4D",
+  "files": [
+    {
+      "expected_bytes": 425303390,
+      "filename": "HOI4D_Hand_pose.zip",
+      "official_download_sharing_url": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIrAQAAAAABHyHqDhs5CpJAkWTAQoGWxQ?e=ALFMCD",
+      "official_source_page": "https://hoi4d.github.io/",
+      "payload_acquired_complete": true,
+      "provider_cryptographic_whole_file_checksum_observed": false,
+      "received_sha256": "399d38c4e793305b5b6abad8e34e8e28569fb384065ffff81bce155372ae8080",
+      "source_hand_roles": [
+        "left",
+        "right"
+      ]
+    }
+  ],
+  "format": "hoi4d_official_hand_parameter_archive_manifest_v1",
+  "license": "CC BY-NC 4.0 per official project page",
+  "metadata_sources": {
+    "README": {
+      "bytes": 7668,
+      "git_blob_sha1": "417dee19155ba9d8f5cfedf60e4483ca06d20379",
+      "raw_url": "https://raw.githubusercontent.com/leolyliu/HOI4D-Instructions/15478666c44af86740d537e89b72cd47efeb44f8/README.md",
+      "sha256": "4cedf0eea779d9743d8ba6ec064e3518767729e7305f284dd2b44726e7935cc7",
+      "url": "https://github.com/leolyliu/HOI4D-Instructions/blob/15478666c44af86740d537e89b72cd47efeb44f8/README.md"
+    },
+    "official_page": {
+      "bytes": 12291,
+      "http_status": 200,
+      "observed_utc": "2026-11-01T20:52:53.345696+00:00",
+      "official_links": {
+        "Annotations": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIuAQAAAAABELgpzxDxCz58Qov76-wpvw?e=qhyY0h",
+        "CC BY-NC 4.0": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "Camera Parameters": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIqAQAAAAABZBWQ3p5gxd-tu_3rOeSo_A?e=GjWeg8",
+        "Dataset Instructions": "https://github.com/leolyliu/HOI4D-Instructions",
+        "Hand Pose": "https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIrAQAAAAABHyHqDhs5CpJAkWTAQoGWxQ?e=ALFMCD"
+      },
+      "sha256": "0943110e2747cc5dbff1bd2958d8bcf69687cf33c2371e0842ff66807e5c07cb",
+      "url": "https://hoi4d.github.io/"
+    },
+    "release_list": {
+      "bytes": 110612,
+      "git_blob_sha1": "a528d66bfb2e757b9b8bf502113569a281f98114",
+      "raw_url": "https://raw.githubusercontent.com/leolyliu/HOI4D-Instructions/15478666c44af86740d537e89b72cd47efeb44f8/release.txt",
+      "sha256": "11f9008cab3c4cc1439c49f0741e3e08a896276b2d2235981ee1da906e615503",
+      "url": "https://github.com/leolyliu/HOI4D-Instructions/blob/15478666c44af86740d537e89b72cd47efeb44f8/release.txt"
+    }
+  },
+  "pose_geometry_or_author_training_mixture_reproduced": false,
+  "raw_data_redistributed_in_repository": false,
+  "scope": "Complete official linked Hand Pose ZIP only; excludes RGB-D, camera/object/other annotations, benchmark split reconstruction and author exact mixture"
+}
