@@ -1,3 +1,5 @@
+> **2026-11-01 最新验收 · 北京时间18:38**：[原生EMGFormer-L](../results/original-emgformer/large/README.md)完成200轮/25,000正式更新，验证best第142轮；完整val/test及独立重放通过，36当前＋6资格拥有进程关闭，2,792唯一样本中心pooled MAE **16.573467°**。S/M/L原生200轮与中心评价现均完成，新原生全轨迹评价仍欠，未替换Table2行，架构家族仍14。[遮挡完整预测入口](../results/native-dense-occlusion/README.md#完整预测重放与报告入口)一次集成审查的两项实质问题已修正，新增25项检查通过；真实CPU batch64/4workers资格及后续完整双遍预测/报告队列已脱离本机启动，资格尚未完成，Figure13及全文仍未完成。RN18/50与EMG2Pose等原流程继续，RN152按原队列等待L闭环后自行启动。
+
 > **2026-11-01 最新验收 · 18:07北京时间**：[原生EMGFormer-M](../results/original-emgformer/middle/README.md)完成200轮/25,000正式更新，验证best第124轮；完整val/test及独立重放通过，36当前＋6资格拥有者关闭，中心pooled MAE **16.441148°**。这是中心评价，未替换Table2轨迹行。遮挡分析的[两遍完整配对输入](../results/native-dense-occlusion/paired-full-io-complete-20261101.json)也已结束：54文件/61,379,659,366字节四次完整SHA核对，28,282请求每遍全部保留，6拥有者关闭；[真实训练三模型载入10项检查](../results/native-dense-occlusion/trained-model-tests-20261101.json)通过，实际完整预测/Figure13仍未完成。ResNet-18资格链已结束并于17:59进入正式训练，ResNet-50正式训练也在跑，L与EMG2Pose等原流程继续；科学架构家族仍14。
 
 # 全论文复现状态与证据清单
