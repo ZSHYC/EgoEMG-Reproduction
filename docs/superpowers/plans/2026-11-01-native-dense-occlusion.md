@@ -41,7 +41,9 @@
 **Files:** `egoemg_repro/occlusion_dense_footprints.py`, `tests/test_occlusion_dense_footprints.py`, new collector/CLI and `results/native-dense-occlusion/` evidence; reuse closed finite-scan/source/kernel helpers without modifying them.
 **Interfaces:** exact fresh grid rebuild→typed point payload→numeric geometry admission, separate complete-mode identity; `summarize_dense_footprints(points,partitions)` checks paired typed keys and uses closed union/intersection primitives to count unique temporal rows and separate overlapping hand requests. Include independently reconstructed training/validation footprint intersections by model producer.
 
-- [ ] Two detached fresh processes reopen all real legacy index inputs and both recipes; verify all keys/counts/order/typed bytes and source/model footprint diagnostics. Report actual unique counts, not a preset17168.
+- [x] Two detached fresh processes per recipe reopen all real legacy index inputs; all keys/counts/order/typed bytes agree. Actual ViTS17168/RN18=11114, all10ownersclosed; no preset count.
+- [x] Two fresh complete audits reconstruct actual completed ViTS fusion/vision-initializer/EMG-initializer partitions and the admitted future RN18 dataset, verifying24 full boolean row masks. ViTS1280handwindows intersect fusion training inputs while all heldout centers remain outside; retain/disclose all original keys.
+- [ ] After RN18 fusion/initializer training closes, bind its actual producer partitions and weights before RN18 dense prediction; prospective dataset diagnostics alone are insufficient.
 - [ ] Extract every selected real pose/world/camera/tracked/stale/valid flag and actual episodebeta from fully admitted eight files. Verify full bytes/numerics/source/guards and fresh reconstruction; no learned model or native geometry permit from the index alone.
 - [ ] Stage immutable committed source; execute full original geometry plus independent fresh native replay/verification for dense grids, retaining private arrays. Same accepted source helper/operator policy, no changed rasterizer or new licensed-math review. Close all exact owners and export actual populations.
 

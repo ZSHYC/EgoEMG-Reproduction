@@ -1,0 +1,232 @@
+{
+  "actual_complete_fresh_audits": 2,
+  "actual_completed_vits_fusion_and_initializer_footprints_measured": true,
+  "actual_exit_code": 0,
+  "actual_independent_full_boolean_mask_checks": 24,
+  "actual_owned_stages": 2,
+  "actual_seconds": 24.476536620408297,
+  "all_capsule_and_aggregate_bytes_after_exit_exact": true,
+  "all_six_original_owners_closed": true,
+  "audit": {
+    "accepted_rn18_cohort_workflow_sha256": "365e248b9689de403a56e3bbe03b3684d4d1477d8f24c09c8eaabadd472f78ee",
+    "actual_full_input_files_sha256": {
+      "frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+      "manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+      "metadata": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+    },
+    "actual_fusion_report_file_sha256": "d831ece7c9541293cdff968dc891018aaef0af0339221167fa6d8f7cda291db7",
+    "actual_independent_full_boolean_mask_checks": 12,
+    "actual_index_workflow_file_sha256": "1c31afab0c4bb32e5b7bcf57ba2fc4536b16c1f2561ca27d06ca612f6942c137",
+    "all_native_dense_samples_retained": true,
+    "checkpoint_tensors_admitted": false,
+    "cuda_initialized": false,
+    "figure13_reproduced": false,
+    "format": "actual_native_dense_vs_fixed_producer_footprints_v1",
+    "full_paper_complete": false,
+    "independent_unseen_input_footprints_proven": false,
+    "learned_pose_models_constructed": 0,
+    "native_geometry_executed": false,
+    "optimizer_updates": 0,
+    "python_numpy_rng_unchanged": true,
+    "recipes": {
+      "rn18_s": {
+        "dense_identity_sha256": "8067516e982bb2b92c659bb70562c379603ca3a0699438c71c0168b33d2347ea",
+        "producers": {
+          "future_fusion_dataset": {
+            "any_training_input_overlap": true,
+            "checkpoint_tensors_reopened": false,
+            "dense_input_union_rows": 19773000,
+            "full_paper_complete": false,
+            "hand_requests": 11114,
+            "independent_full_boolean_row_mask_verified": true,
+            "model_or_geometry_permit": false,
+            "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+            "producer_kind": "fixed future dataset; native RN18 fusion fit pending",
+            "producer_partition_content_sha256": "44e9ebc8a2f63a79699c5a976bf2717b0fe7a376427c7c46f538d0745c2b4bd0",
+            "roles": {
+              "test": {
+                "centers_in_producer_rows": 10452,
+                "intersection_rows": 16752000,
+                "overlapping_hand_requests": 11106,
+                "producer_input_union_rows": 16752000
+              },
+              "train": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 928778,
+                "overlapping_hand_requests": 756,
+                "producer_input_union_rows": 41609029
+              },
+              "val": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 883980,
+                "overlapping_hand_requests": 726,
+                "producer_input_union_rows": 6312000
+              }
+            },
+            "scientific_eligible": false,
+            "source_cohort_sha256": "1736318c9faf5740417ca676cd520d47ada84d16eac31f865e9cdf24a9f2e38c",
+            "source_data_and_checkpoint_admitted": false,
+            "source_fit_identity_sha256": null,
+            "source_fit_result_content_sha256": null,
+            "source_fit_result_file_sha256": null,
+            "unique_temporal_windows": 5557
+          }
+        },
+        "unique_hand_points": 11114
+      },
+      "vits_s": {
+        "dense_identity_sha256": "ed72111b07b1ce29ebcd4bc4c248317d5b934c666ce4edd744869dca3ffda845",
+        "producers": {
+          "emg_initializer": {
+            "any_training_input_overlap": true,
+            "checkpoint_tensors_reopened": false,
+            "dense_input_union_rows": 18734726,
+            "full_paper_complete": false,
+            "hand_requests": 17168,
+            "independent_full_boolean_row_mask_verified": true,
+            "model_or_geometry_permit": false,
+            "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+            "producer_kind": "actual completed fit partition bound to accepted full fusion lineage",
+            "producer_partition_content_sha256": "452a4b16ec2edf1662f92708fa775353b36af517d20a8a6097f6faf7e3f1461d",
+            "roles": {
+              "test": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 0,
+                "overlapping_hand_requests": 0,
+                "producer_input_union_rows": 0
+              },
+              "train": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 917476,
+                "overlapping_hand_requests": 1196,
+                "producer_input_union_rows": 41775270
+              },
+              "val": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 0,
+                "overlapping_hand_requests": 0,
+                "producer_input_union_rows": 3492000
+              }
+            },
+            "scientific_eligible": false,
+            "source_cohort_sha256": "adce16994ab76f9f14efac050d663410b4da10a793a69334d93646f6610134ca",
+            "source_data_and_checkpoint_admitted": false,
+            "source_fit_identity_sha256": "377a2a280fca4b712294d951becd022b3979662737ef525e1a9909a6d99e020f",
+            "source_fit_result_content_sha256": "3b2eb7fae4bacd528d683aa3d773b95dc97dadcce22b29953261ed69ed5cd9ae",
+            "source_fit_result_file_sha256": "585ff068aac1426c66fca2c84c2dc2a14f5c0a85d5d9b56cbcbb49e62fc0a1fe",
+            "unique_temporal_windows": 8584
+          },
+          "fusion": {
+            "any_training_input_overlap": true,
+            "checkpoint_tensors_reopened": false,
+            "dense_input_union_rows": 18734726,
+            "full_paper_complete": false,
+            "hand_requests": 17168,
+            "independent_full_boolean_row_mask_verified": true,
+            "model_or_geometry_permit": false,
+            "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+            "producer_kind": "actual completed fit partition bound to accepted full fusion lineage",
+            "producer_partition_content_sha256": "37623c78591368aab9ee7bcebe47850aa3eb978ce620a97309bbcbfb0211166d",
+            "roles": {
+              "test": {
+                "centers_in_producer_rows": 16450,
+                "intersection_rows": 16455447,
+                "overlapping_hand_requests": 17168,
+                "producer_input_union_rows": 16771870
+              },
+              "train": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 1111032,
+                "overlapping_hand_requests": 1280,
+                "producer_input_union_rows": 42261539
+              },
+              "val": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 324828,
+                "overlapping_hand_requests": 600,
+                "producer_input_union_rows": 6138520
+              }
+            },
+            "scientific_eligible": false,
+            "source_cohort_sha256": "1b7bbca1836fc96cf8ea3e10d9a37c8db9a2edec327365ed55c1cae8289b2592",
+            "source_data_and_checkpoint_admitted": false,
+            "source_fit_identity_sha256": "346621600534bc77c589c23e7e5db800641c42c4533eb2a823b03af6f92a618c",
+            "source_fit_result_content_sha256": "c63aecb035e6496f691f05399379743deb021cfae0cdd379708db68bc50bfb42",
+            "source_fit_result_file_sha256": "81a38c3027ff2bc0e07d91394ced1ac9bca757b81872b9969d9b1f1315560be5",
+            "unique_temporal_windows": 8584
+          },
+          "vision_initializer": {
+            "any_training_input_overlap": true,
+            "checkpoint_tensors_reopened": false,
+            "dense_input_union_rows": 18734726,
+            "full_paper_complete": false,
+            "hand_requests": 17168,
+            "independent_full_boolean_row_mask_verified": true,
+            "model_or_geometry_permit": false,
+            "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+            "producer_kind": "actual completed fit partition bound to accepted full fusion lineage",
+            "producer_partition_content_sha256": "87d7e2008def6b7a475674232b180b3fbef6b104986994c9dc733d8662f4b95d",
+            "roles": {
+              "test": {
+                "centers_in_producer_rows": 16450,
+                "intersection_rows": 16455447,
+                "overlapping_hand_requests": 17168,
+                "producer_input_union_rows": 16771870
+              },
+              "train": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 1047052,
+                "overlapping_hand_requests": 1280,
+                "producer_input_union_rows": 42127839
+              },
+              "val": {
+                "centers_in_producer_rows": 0,
+                "intersection_rows": 324828,
+                "overlapping_hand_requests": 600,
+                "producer_input_union_rows": 6138520
+              }
+            },
+            "scientific_eligible": false,
+            "source_cohort_sha256": "4580be4fcf98e1f5e683477db12bd2d2020a61cfd0a79755a2cea1171b2cecab",
+            "source_data_and_checkpoint_admitted": false,
+            "source_fit_identity_sha256": "c9101f7e0de6b5c00690c10265cf911fe0315e42fd011a5b519e28f22ccbfd29",
+            "source_fit_result_content_sha256": "c37fec4cf32569e7aa6eec0bcb69379e3bf38d6c1d8f767a0f65f50b4afd2067",
+            "source_fit_result_file_sha256": "d8baa9ef6adf118ba86cc03165e00a7e31c73e99bc05fcf42eb1e5a92bd80ce1",
+            "unique_temporal_windows": 8584
+          }
+        },
+        "unique_hand_points": 17168
+      }
+    },
+    "torch_imported": false
+  },
+  "bundle_sha256": "446490e931db78c3fecc1440095d30a936a7e0eaf8110d373f5970eae27923f8",
+  "checkpoint_tensors_admitted": false,
+  "cuda_initialized": false,
+  "exact_audit_results_rebuilt": true,
+  "existing_completed_scientific_settings": 14,
+  "figure13_reproduced": false,
+  "format": "actual_complete_dense_vs_accepted_producer_footprints_verified_v1",
+  "full_paper_complete": false,
+  "full_producer_footprint_intersections_measured": false,
+  "learned_pose_models_constructed": 0,
+  "native_geometry_executed": false,
+  "optimizer_updates": 0,
+  "prior_operational_attempts": [
+    {
+      "actual_exit_code": 1,
+      "all_four_original_owners_closed": true,
+      "reason": "audit initially used result.json; source uses fit-result.json"
+    },
+    {
+      "actual_exit_code": 1,
+      "all_four_original_owners_closed": true,
+      "reason": "audit initially compared result content seal to accepted lineage raw file SHA; actual source raw bytes match lineage"
+    }
+  ],
+  "raw_workflow_file_sha256": "80bad3cc5e1fe46d55533a9bb0d8cf41834347ccee832cf47e65e68f95d067db",
+  "rn18_future_dataset_only": true,
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "source_commit": "ecc67aa6cbd2c41502808dbf92f77310124b684d"
+}
