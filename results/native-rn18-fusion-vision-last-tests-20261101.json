@@ -1,0 +1,74 @@
+{
+  "actual_all124_exported_native_tensors_exact": true,
+  "actual_completed_legacy_source": {
+    "effective_fingertip_weight": 0.01,
+    "epochs": 150,
+    "jitter": false,
+    "masks": "legacy wrist-valid plus finite masking and nan_to_num",
+    "native_model_tensors": 124,
+    "native_optimizer_parameters": 64,
+    "normalization": "train-only per-hand/channel",
+    "optimizer_updates": 10650,
+    "selected_source": "LAST",
+    "source_checkpoint_sha256": "e9bf7c7fa2abee7997c2c7c50f750137ded4ae8dad1cba998f52392516db5fc0",
+    "validation_selected_step": 6319
+  },
+  "actual_current_fusion_input_counts": {
+    "test": 2792,
+    "train": 62470,
+    "val": 1052
+  },
+  "actual_fresh_source_input_and_native_typed_export_reopen_exact": true,
+  "actual_full_input_and_missing_reopen_red": {
+    "failed": 1,
+    "missing": "read_rn18_fusion_vision_last",
+    "passed": 22,
+    "seconds": 204.42
+  },
+  "actual_native_handoff_tests": {
+    "exit_code": 0,
+    "log_sha256": "d482858a2bf13444c7d6fd93a5071021543853c00748c1fcac75e37713f98b46",
+    "observed_utc": "2026-11-01T08:26:30.862392+00:00",
+    "passed": 23,
+    "seconds": 97.34,
+    "skipped": 0
+  },
+  "additional_legacy_wrist_valid_payload_files": 2,
+  "emg_initializer_admitted": false,
+  "existing_completed_scientific_settings": 14,
+  "format": "rn18_fusion_trained_legacy_vision_admission_tests_v1",
+  "full_paper_complete": false,
+  "fusion_initializers_complete": false,
+  "future_holdout_training_overlap_rows": {
+    "test": 0,
+    "val": 0
+  },
+  "historical_reader_isolated_and_whitelisted": true,
+  "legacy_producer_input_counts": {
+    "test": 2792,
+    "train": 63172,
+    "val": 1052
+  },
+  "missing_module_red": {
+    "failed": 22,
+    "seconds": 3.04
+  },
+  "optional_no_torch": {
+    "exit_code": 0,
+    "log_sha256": "00dd30fe2a2a70024ca91fe29a28ffd89129c42e153b200e8af82b003013a4ec",
+    "passed": 2,
+    "seconds": 0.16,
+    "skipped": 21
+  },
+  "owned_two_process_full_input_workflow_complete": false,
+  "producer_read_and_export_neural_and_optimizer_constructors_denied": true,
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "scope": "vision-only trained source and actual-data test admission; no complete two-branch fusion permit",
+  "shared_actual_payload_files": 53,
+  "source_files_sha256": {
+    "egoemg_repro/rn18_fusion_handoff.py": "d42b3b32e8c42fe977cd7186971ce4d5b4b1f2c4d835bbeb68a6f943d043cd6c",
+    "egoemg_repro/rn18_fusion_vision_producer.py": "46080ff9dc1f491ecf1375109ec191204c38f032f2929cb4de62777f1fd10801",
+    "tests/test_rn18_fusion_handoff.py": "8a85bc51a783edbbddbfc4ba2c9f083a71fba51483ac93f0a8fdba18027b214f"
+  }
+}
