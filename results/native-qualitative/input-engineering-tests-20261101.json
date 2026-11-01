@@ -1,0 +1,40 @@
+{
+  "actual_exit_code": 0,
+  "actual_test_actor": {
+    "pgrp": 1559854,
+    "pid": 1559854,
+    "sid": 1559854,
+    "start_ticks": "437008319",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_test_actor_closed": true,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "explicit_tested_unit_snapshot": {
+    "egoemg_repro/qualitative_data.py": "a7bc25051149749e007d515bf5bc5c5fc155781274694cd1cd16b4f2072cb919",
+    "tests/test_qualitative_data.py": "3b8bb710dc9cc8b7997c7e1353de749d877a9209180cf54b666a004e0d6726a4"
+  },
+  "figure7_reproduced": false,
+  "format": "source_native_qualitative_candidate_new_engineering_tests_v1",
+  "full_paper_complete": false,
+  "learned_model_and_optimizer_construction_denied": true,
+  "local_initial_runtime_missing_dependency": "cv2; no installation or fake provider used",
+  "model_or_geometry_permit": false,
+  "old_closed_suites_repeated": false,
+  "passed": 23,
+  "raw_log_sha256": "649c434c2f90b4de6ff15f59bcad7fd9886e1a4633fba732837ad358bdef0853",
+  "scientific_eligible": false,
+  "seconds": 22.27,
+  "shared_runtime_modified": false,
+  "skipped": 0,
+  "source_base_commit": "f581db73b520d2074ecbf57f13806995e5e4dbe7",
+  "source_race_green_seconds": 1.64,
+  "source_race_red_observed": true,
+  "source_race_red_seconds": 0.75,
+  "source_race_regressions_green": 2,
+  "source_sampling_oracle": "AST-compiled original find_fusion_wins.main reset/subsample block"
+}
