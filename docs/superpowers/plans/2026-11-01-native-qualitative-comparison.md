@@ -37,7 +37,7 @@
 
 - [x] Write missing-module RED tests for both normal strides, source defaults, original AST sampling oracle including cap>n/cap0/empty/reset-per-hand, exact native source membership/order/tails, crossing windows, RNG/bytes unchanged, registered object/copies/generation/schema/symlink/reference rejection. Run only this new suite.
 - [x] Implement minimal byte-bound registered data component; compare tests to actual original source functions. No learned model/optimizer/geometry/CUDA permit. Watch new tests GREEN without skips.
-- [ ] Two fresh actual admissions for each of default500 and all0 for both recipes. Save exact private typed arrays/identities, compare current old dense point payloads by full hand/episode/start/end/center keys and report real intersection/missing counts. Close all actual actors and fresh postexit reader; publish data-only evidence.
+- [x] Two fresh actual admissions for each of default500 and all0 for both recipes. Save exact private typed arrays/identities, compare current old dense point payloads by full hand/episode/start/end/center keys and report real intersection/missing counts. Close all actual actors and fresh postexit reader; publish data-only evidence.
 
 ## Task2: actual frozen predictions, original ranking and FK visual output
 

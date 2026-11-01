@@ -1,0 +1,489 @@
+{
+  "actual_closed_original_actor_count": 18,
+  "actual_closed_original_actors": [
+    {
+      "pid": 1562319,
+      "start_ticks": "437027155"
+    },
+    {
+      "pid": 1562320,
+      "start_ticks": "437027158"
+    },
+    {
+      "pgrp": 1562323,
+      "pid": 1562323,
+      "sid": 1562323,
+      "start_ticks": "437027177",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562322,
+      "pid": 1562322,
+      "sid": 1562322,
+      "start_ticks": "437027173",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562441,
+      "pid": 1562441,
+      "sid": 1562441,
+      "start_ticks": "437027595",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562440,
+      "pid": 1562440,
+      "sid": 1562440,
+      "start_ticks": "437027592",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562567,
+      "pid": 1562567,
+      "sid": 1562567,
+      "start_ticks": "437028020",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562566,
+      "pid": 1562566,
+      "sid": 1562566,
+      "start_ticks": "437028016",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562686,
+      "pid": 1562686,
+      "sid": 1562686,
+      "start_ticks": "437028442",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562684,
+      "pid": 1562684,
+      "sid": 1562684,
+      "start_ticks": "437028438",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562812,
+      "pid": 1562812,
+      "sid": 1562812,
+      "start_ticks": "437028870",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562811,
+      "pid": 1562811,
+      "sid": 1562811,
+      "start_ticks": "437028866",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562925,
+      "pid": 1562925,
+      "sid": 1562925,
+      "start_ticks": "437029289",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1562924,
+      "pid": 1562924,
+      "sid": 1562924,
+      "start_ticks": "437029286",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1563043,
+      "pid": 1563043,
+      "sid": 1563043,
+      "start_ticks": "437029722",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1563040,
+      "pid": 1563040,
+      "sid": 1563040,
+      "start_ticks": "437029718",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1563157,
+      "pid": 1563157,
+      "sid": 1563157,
+      "start_ticks": "437030141",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1563156,
+      "pid": 1563156,
+      "sid": 1563156,
+      "start_ticks": "437030137",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_index_admissions": 8,
+  "actual_consumed_index_input_files": 3,
+  "actual_consumed_input_bytes_per_admission": 66188232,
+  "actual_ended_utc": "2026-11-01T14:23:20.362396+00:00",
+  "actual_exit_code": 0,
+  "all18_original_actors_closed": true,
+  "all_exact_dense_cache_key_intersections_rebuilt": true,
+  "all_point_arrays_and_identities_exact": true,
+  "all_three_rng_domains_unchanged": true,
+  "bundle_sha256": "4abea374fa769cb7642a4d25c92133192816d1f9639d452247fd5b78752a8672",
+  "category_labels_assigned": false,
+  "combinations": {
+    "rn18_s-all": {
+      "all_typed_arrays_and_identities_exact": true,
+      "cap": 0,
+      "dense_map_sha256": "60eca467f38493c0786ecca1e48597d3db0441cafdc6ec4e6c5e147f467508e8",
+      "dense_stride": 3000,
+      "exact_key_intersection": 2792,
+      "figure7_reproduced": false,
+      "full_paper_complete": false,
+      "groups": [
+        {
+          "hand": "left",
+          "native_points": 538,
+          "selected_native_indices_sha256": "debcc34bf0d12124cf71bfebbcd41a001d033cb9cc03e97e709dd6f54ae5e632",
+          "selected_points": 538,
+          "split": "user"
+        },
+        {
+          "hand": "right",
+          "native_points": 538,
+          "selected_native_indices_sha256": "debcc34bf0d12124cf71bfebbcd41a001d033cb9cc03e97e709dd6f54ae5e632",
+          "selected_points": 538,
+          "split": "user"
+        },
+        {
+          "hand": "left",
+          "native_points": 754,
+          "selected_native_indices_sha256": "f072e9425f2ac14c290347da27527fe60c62b4511e8cfb53848c5ae637dc3c33",
+          "selected_points": 754,
+          "split": "gesture"
+        },
+        {
+          "hand": "right",
+          "native_points": 754,
+          "selected_native_indices_sha256": "f072e9425f2ac14c290347da27527fe60c62b4511e8cfb53848c5ae637dc3c33",
+          "selected_points": 754,
+          "split": "gesture"
+        },
+        {
+          "hand": "left",
+          "native_points": 104,
+          "selected_native_indices_sha256": "50b1ff25c4afa19bea12de7bd4784a11e464de120746d6823c39cd2cd48a1ccf",
+          "selected_points": 104,
+          "split": "both"
+        },
+        {
+          "hand": "right",
+          "native_points": 104,
+          "selected_native_indices_sha256": "50b1ff25c4afa19bea12de7bd4784a11e464de120746d6823c39cd2cd48a1ccf",
+          "selected_points": 104,
+          "split": "both"
+        }
+      ],
+      "identity_files_sha256": [
+        "d802fa9b30b910a0fc1118745a9d8f2877af4aa731efab35d10c6a7441df8720",
+        "d802fa9b30b910a0fc1118745a9d8f2877af4aa731efab35d10c6a7441df8720"
+      ],
+      "identity_sha256": "f30d6f63cdf958bca481c69b010a07fcb94ab3aa9f902e830feb672c84b65caa",
+      "independent_vectorized_grid_and_original_source_sampling_exact": true,
+      "missing_from_dense": 0,
+      "model_or_geometry_permit": false,
+      "native_hand_points": 2792,
+      "old_dense_point_file_sha256": "a95e83098a2d1ab2f18e2783c7fdb3472bd6df1453359c646cbd7b6772dd2d3f",
+      "ordinary_stride": 12000,
+      "point_archive_bytes_equal": true,
+      "point_files_sha256": [
+        "46dbf6d18ed2967e1b29eb03b1fcf4c006675613088d85eeedc5de78f819885c",
+        "46dbf6d18ed2967e1b29eb03b1fcf4c006675613088d85eeedc5de78f819885c"
+      ],
+      "raw_index_only": true,
+      "recipe": "rn18_s",
+      "scientific_eligible": false,
+      "selected_hand_points": 2792,
+      "source_nine_attributes_unchanged": true,
+      "window_length": 12000,
+      "windows_crossing_center_split": 890
+    },
+    "rn18_s-default": {
+      "all_typed_arrays_and_identities_exact": true,
+      "cap": 500,
+      "dense_map_sha256": "fb91eb0b189e3fc82bf902a607d2d239dc59a6e27e68f413abdf62665e5fc115",
+      "dense_stride": 3000,
+      "exact_key_intersection": 2208,
+      "figure7_reproduced": false,
+      "full_paper_complete": false,
+      "groups": [
+        {
+          "hand": "left",
+          "native_points": 538,
+          "selected_native_indices_sha256": "ea08710db9f453ce8ca40da9743a1a91ddf9efae81bd3c1f34e85c2f411b3286",
+          "selected_points": 500,
+          "split": "user"
+        },
+        {
+          "hand": "right",
+          "native_points": 538,
+          "selected_native_indices_sha256": "ea08710db9f453ce8ca40da9743a1a91ddf9efae81bd3c1f34e85c2f411b3286",
+          "selected_points": 500,
+          "split": "user"
+        },
+        {
+          "hand": "left",
+          "native_points": 754,
+          "selected_native_indices_sha256": "23a47cfe69e8aae663da456c8e09744fddb9c02272302fc5f92b8147b3c38900",
+          "selected_points": 500,
+          "split": "gesture"
+        },
+        {
+          "hand": "right",
+          "native_points": 754,
+          "selected_native_indices_sha256": "23a47cfe69e8aae663da456c8e09744fddb9c02272302fc5f92b8147b3c38900",
+          "selected_points": 500,
+          "split": "gesture"
+        },
+        {
+          "hand": "left",
+          "native_points": 104,
+          "selected_native_indices_sha256": "50b1ff25c4afa19bea12de7bd4784a11e464de120746d6823c39cd2cd48a1ccf",
+          "selected_points": 104,
+          "split": "both"
+        },
+        {
+          "hand": "right",
+          "native_points": 104,
+          "selected_native_indices_sha256": "50b1ff25c4afa19bea12de7bd4784a11e464de120746d6823c39cd2cd48a1ccf",
+          "selected_points": 104,
+          "split": "both"
+        }
+      ],
+      "identity_files_sha256": [
+        "08d4fd9bbae0a9f463590ee5d317d5b6c704cb421da9cb32ca9dc733093a8b0f",
+        "08d4fd9bbae0a9f463590ee5d317d5b6c704cb421da9cb32ca9dc733093a8b0f"
+      ],
+      "identity_sha256": "936c1b320df9982e3af8e05938eb52470e0925ca3703788e95ff2135cf0c24de",
+      "independent_vectorized_grid_and_original_source_sampling_exact": true,
+      "missing_from_dense": 0,
+      "model_or_geometry_permit": false,
+      "native_hand_points": 2792,
+      "old_dense_point_file_sha256": "a95e83098a2d1ab2f18e2783c7fdb3472bd6df1453359c646cbd7b6772dd2d3f",
+      "ordinary_stride": 12000,
+      "point_archive_bytes_equal": true,
+      "point_files_sha256": [
+        "c00323e486450af39b04bb24222df2fbdad9534d415f12f91831b2bc3bd1ec3d",
+        "c00323e486450af39b04bb24222df2fbdad9534d415f12f91831b2bc3bd1ec3d"
+      ],
+      "raw_index_only": true,
+      "recipe": "rn18_s",
+      "scientific_eligible": false,
+      "selected_hand_points": 2208,
+      "source_nine_attributes_unchanged": true,
+      "window_length": 12000,
+      "windows_crossing_center_split": 652
+    },
+    "vits_s-all": {
+      "all_typed_arrays_and_identities_exact": true,
+      "cap": 0,
+      "dense_map_sha256": "83753a603cc498426fcbc8b71f3e500f25f298d935546969a89313e00fe678e3",
+      "dense_stride": 1947,
+      "exact_key_intersection": 18,
+      "figure7_reproduced": false,
+      "full_paper_complete": false,
+      "groups": [
+        {
+          "hand": "left",
+          "native_points": 830,
+          "selected_native_indices_sha256": "18ecd76e2661ba1d37be21082303370ab588f6eeb6913a78818565fe433aefbd",
+          "selected_points": 830,
+          "split": "user"
+        },
+        {
+          "hand": "right",
+          "native_points": 830,
+          "selected_native_indices_sha256": "18ecd76e2661ba1d37be21082303370ab588f6eeb6913a78818565fe433aefbd",
+          "selected_points": 830,
+          "split": "user"
+        },
+        {
+          "hand": "left",
+          "native_points": 1162,
+          "selected_native_indices_sha256": "69cffac8e8330b7124653ecb250e1d3427af2a58db843cb8ec95ac12c57067b4",
+          "selected_points": 1162,
+          "split": "gesture"
+        },
+        {
+          "hand": "right",
+          "native_points": 1162,
+          "selected_native_indices_sha256": "69cffac8e8330b7124653ecb250e1d3427af2a58db843cb8ec95ac12c57067b4",
+          "selected_points": 1162,
+          "split": "gesture"
+        },
+        {
+          "hand": "left",
+          "native_points": 161,
+          "selected_native_indices_sha256": "e3efa6a14e8b50e844d80a73b38042e6f89777be317c7485ea5b0d00366b081d",
+          "selected_points": 161,
+          "split": "both"
+        },
+        {
+          "hand": "right",
+          "native_points": 161,
+          "selected_native_indices_sha256": "e3efa6a14e8b50e844d80a73b38042e6f89777be317c7485ea5b0d00366b081d",
+          "selected_points": 161,
+          "split": "both"
+        }
+      ],
+      "identity_files_sha256": [
+        "0670a394bb84826772244d58a530d771d19650863e5fe0984f4da680f3f1df34",
+        "0670a394bb84826772244d58a530d771d19650863e5fe0984f4da680f3f1df34"
+      ],
+      "identity_sha256": "ac11cffb51904dc979df758e51df72930784b8ccd1e1ee8aefa2318baaf82d6a",
+      "independent_vectorized_grid_and_original_source_sampling_exact": true,
+      "missing_from_dense": 4288,
+      "model_or_geometry_permit": false,
+      "native_hand_points": 4306,
+      "old_dense_point_file_sha256": "f3146190787004e8a76510c4e36ecd974e4a2991cae9cad0fbfeae1c7b6fd988",
+      "ordinary_stride": 7790,
+      "point_archive_bytes_equal": true,
+      "point_files_sha256": [
+        "e50e260c56b570daa2642b4910f658827b1f4044b254aa8028709524c022adb8",
+        "e50e260c56b570daa2642b4910f658827b1f4044b254aa8028709524c022adb8"
+      ],
+      "raw_index_only": true,
+      "recipe": "vits_s",
+      "scientific_eligible": false,
+      "selected_hand_points": 4306,
+      "source_nine_attributes_unchanged": true,
+      "window_length": 7790,
+      "windows_crossing_center_split": 482
+    },
+    "vits_s-default": {
+      "all_typed_arrays_and_identities_exact": true,
+      "cap": 500,
+      "dense_map_sha256": "86786b3fa456e23575d28c8a4265b324e46fdc8c2a2252bc9eede288855b70fe",
+      "dense_stride": 1947,
+      "exact_key_intersection": 10,
+      "figure7_reproduced": false,
+      "full_paper_complete": false,
+      "groups": [
+        {
+          "hand": "left",
+          "native_points": 830,
+          "selected_native_indices_sha256": "cb62131f98f1f6b38d4cb22b043b835ad29a5a4273a8f9346346381176ffba00",
+          "selected_points": 500,
+          "split": "user"
+        },
+        {
+          "hand": "right",
+          "native_points": 830,
+          "selected_native_indices_sha256": "cb62131f98f1f6b38d4cb22b043b835ad29a5a4273a8f9346346381176ffba00",
+          "selected_points": 500,
+          "split": "user"
+        },
+        {
+          "hand": "left",
+          "native_points": 1162,
+          "selected_native_indices_sha256": "2effc903b38cd5ddc7b6747d26939a9319f56d1d971d49d2e8d3e36e8ed01623",
+          "selected_points": 500,
+          "split": "gesture"
+        },
+        {
+          "hand": "right",
+          "native_points": 1162,
+          "selected_native_indices_sha256": "2effc903b38cd5ddc7b6747d26939a9319f56d1d971d49d2e8d3e36e8ed01623",
+          "selected_points": 500,
+          "split": "gesture"
+        },
+        {
+          "hand": "left",
+          "native_points": 161,
+          "selected_native_indices_sha256": "e3efa6a14e8b50e844d80a73b38042e6f89777be317c7485ea5b0d00366b081d",
+          "selected_points": 161,
+          "split": "both"
+        },
+        {
+          "hand": "right",
+          "native_points": 161,
+          "selected_native_indices_sha256": "e3efa6a14e8b50e844d80a73b38042e6f89777be317c7485ea5b0d00366b081d",
+          "selected_points": 161,
+          "split": "both"
+        }
+      ],
+      "identity_files_sha256": [
+        "11b8ce4d1a83960016e6b7a4706ef6015f0375e1f8e4487db3b806a2c09ef011",
+        "11b8ce4d1a83960016e6b7a4706ef6015f0375e1f8e4487db3b806a2c09ef011"
+      ],
+      "identity_sha256": "a29d001e3f60c6d95493833776c30309e6208bdc5a7de792ee7212f587c479f5",
+      "independent_vectorized_grid_and_original_source_sampling_exact": true,
+      "missing_from_dense": 2312,
+      "model_or_geometry_permit": false,
+      "native_hand_points": 4306,
+      "old_dense_point_file_sha256": "f3146190787004e8a76510c4e36ecd974e4a2991cae9cad0fbfeae1c7b6fd988",
+      "ordinary_stride": 7790,
+      "point_archive_bytes_equal": true,
+      "point_files_sha256": [
+        "2666015f8ac635f6fc20bd2871323ce30cb362f059c9b6a0e2b48e58452c8622",
+        "2666015f8ac635f6fc20bd2871323ce30cb362f059c9b6a0e2b48e58452c8622"
+      ],
+      "raw_index_only": true,
+      "recipe": "vits_s",
+      "scientific_eligible": false,
+      "selected_hand_points": 2322,
+      "source_nine_attributes_unchanged": true,
+      "window_length": 7790,
+      "windows_crossing_center_split": 230
+    }
+  },
+  "complete_input_hashes": {
+    "frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+    "manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09",
+    "metadata": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57"
+  },
+  "cuda_initialized": false,
+  "figure7_reproduced": false,
+  "format": "independently_verified_complete_qualitative_ordinary_grid_inputs_v1",
+  "full_paper_complete": false,
+  "independent_complete_grid_and_original_AST_subsample_oracle": true,
+  "learned_pose_models_constructed": 0,
+  "model_or_geometry_permit": false,
+  "native_geometry_executed": false,
+  "observed_utc": "2026-11-01T14:25:22.846150+00:00",
+  "optimizer_updates": 0,
+  "postexit_collector_actor": {
+    "pgrp": 1564705,
+    "pid": 1564705,
+    "sid": 1564705,
+    "start_ticks": "437042761",
+    "state": "R",
+    "uid": 1005
+  },
+  "postexit_collector_also_exited": true,
+  "postexit_collector_seconds": 0.4833065075799823,
+  "postexit_collector_torch_unimported": true,
+  "postexit_original_source_nine_attributes_unchanged": true,
+  "postexit_source_capsule_files_sha256_exact": 137,
+  "scientific_eligible": false,
+  "source_commit": "5100d159229fa36ea5054dafdb898481699e0782",
+  "workflow_seconds": 33.95538567658514
+}
