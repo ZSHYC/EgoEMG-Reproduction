@@ -12,6 +12,8 @@
 
 # EgoEMG Reproduction
 
+> **2026-11-01 原生EMGFormer-S完整实验验收**：[200轮与最终报告](results/original-emgformer/small/README.md)完成25,000次正式更新，验证best为第169轮；完整val/test各由新进程精确重放，20阶段/42拥有者全部退出。2,792唯一测试手样本的中心pooled MAE为16.582811°，原生batch加权为16.577803°。原始三份报告按字节发布，未替换legacy轨迹值或声称Table2轨迹14.7°已对齐；S仍计入既有14个架构家族，M/L及其他全文缺口继续进行。
+
 > **2026-11-01 遮挡统计接口已对齐官方脚本**：[16项实际检查与来源诊断](results/native-dense-occlusion/README.md#官方误差转换与统计接口)通过。独立进程执行未修改官方绘图main，全部bin均值/SEM、200点加权三次样条、Spearman和抽样索引完全一致；工程PNG不计论文实验。真实完整密网格模型预测、Figure13仍未完成，科学模型设置仍14。
 
 > **2026-11-01 RN18视觉来源与完整密GT验收**：[历史RN18 LAST](results/native-rn18-fusion-trained-vision-last-admission-20261101.json)完成两次独立全量输入准入、完整150轮/10,650更新来源核验及124张量导出/重开，6原拥有者关闭；它保留legacy0.01等来源差异，可作为本折融合的视觉分支。[RN18密GT](results/native-dense-occlusion/rn18-geometry-complete-20261101.json)11,114手请求两遍原生计算、三次独立原始核验及140,231数组重放一致，14原拥有者＋2后验拥有者关闭。EMG cotrain150轮、新原生融合训练、ViT密GT和Figure13仍未完成，科学模型设置仍14。

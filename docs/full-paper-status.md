@@ -1,5 +1,7 @@
 # 全论文复现状态与证据清单
 
+> **2026-11-01 原生EMGFormer-S完整实验验收**：[200轮与最终报告](../results/original-emgformer/small/README.md)完成25,000次正式更新，验证best为第169轮；完整val/test各由新进程精确重放，20阶段/42拥有者全部退出。2,792唯一测试手样本的中心pooled MAE为16.582811°，原生batch加权为16.577803°。原始三份报告按字节发布，未替换legacy轨迹值或声称Table2轨迹14.7°已对齐；S仍计入既有14个架构家族，M/L及其他全文缺口继续进行。
+
 > **2026-11-01 遮挡统计接口验收**：[16项实际检查](../results/native-dense-occlusion/source-analysis-tests-20261101.json)通过，完整未修改官方绘图main在独立进程生成工程PNG；bin均值/SEM、200点加权三次样条、Spearman和散点索引完全一致。[真实入口诊断](../results/native-dense-occlusion/source-inference-compatibility-20261101.json)记录失效EMG配置与旧attention补丁报错；后续须使用同版本原生中心前向和真实完成的来源。尚无完整密网格冻结预测/科学相关性结果，Figure13和全论文仍未完成，科学设置仍14。
 
 > **2026-11-01 RN18视觉来源与密GT更新**：[真实历史LAST来源验收](../results/native-rn18-fusion-trained-vision-last-admission-20261101.json)完成两次独立全量输入/导出重开、原150轮/10,650更新及124张量核对，6原拥有者关闭；[RN18完整密GT](../results/native-dense-occlusion/rn18-geometry-complete-20261101.json)11,114手请求双遍原生、三次独立原始核验及140,231数组重放一致，14原拥有者和2后验拥有者关闭。EMG cotrain150轮及原生融合训练、ViT密GT、预测/相关与Figure13仍待完成；全文未完成，科学设置仍14。
@@ -288,7 +290,7 @@ EgoEMG 有 14 个主要模型设置（5 EMG、7 视觉、2 融合），EMG2Pose 
 
 | 数据/模型 | 官方发布内容与已核验接口 | 本项目状态与真正欠缺 |
 | --- | --- | --- |
-| EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **完整运行、已核验（legacy）**，见 E1/E2；原表精确等价未证明 |
+| EgoEMG EMGFormer-S | 官方 EMGFormer 与 S 配置 | **legacy轨迹与[原生200轮/中心最终评价](../results/original-emgformer/small/README.md)分别完成**；新原生25,000更新、best169轮，2,792唯一点/59,576有效角度，pooled中心16.582811°；完整val/test新进程精确重放及20阶段/42拥有者关闭。原生全轨迹测试尚欠，未把中心值填入Table2轨迹对比；数据/单rank/PDF等价未证明 |
 | EgoEMG EMGFormer-M | 6 层、256 维、8 heads、FFN 1,024 | **完整运行、已核验（legacy）**，见 E1/E2；不替代 L |
 | EgoEMG EMGFormer-L | [L YAML][large]：8 层、384 维、12 heads、FFN 1,536；实际 16,320,806 参数、22 输出、510/0 上下文 | **完整运行、已核验（legacy）**，见[独立结果](../results/completed/emgformer-l/README.md)；200轮/25,400更新，全部中心16.612111°，轨迹审计边界与配方差异保留 |
 | EgoEMG vemg2pose | [官方配置][vemg]及真实 LSTM 模型；实际预测22角、tuple输出、1790/0上下文，5,963,948参数，基类元数据仍写20 | **完整运行、已核验（原生配方／旧版数据单rank适配）**；[实际结果](../results/original-classic/vemg2pose/README.md)为62轮早停、10,535更新、4,306测试手样本，轨迹／中心16.452932°／16.347705°。目标手8ch/WL7790输出6000；原批量600、完整验证选模、原生test和独立复算／报告完成。六rank、原表数据和标注等价未证明 |
