@@ -62,13 +62,13 @@
 
 **Interfaces:** `resnet_fit_policy(upstream,config,*,scope='full')`; `fit_resnet(cohort,output,*,scope='full',resume=False,stop_after_epoch=None,cohort_receipt=None)`; `read_resnet_fit(output,*,require_full=True)`; `run_resnet_pass(cohort,fit_path,output,*,role,kind,reference=None,profile=None,require_full=True)`, validation freeze/report/verify interfaces analogous to the closed native point evaluators.
 
-- [ ] RED: actual CPU RN18 engineering prefix through epoch2 then a fresh process to epoch4, original validation only at2/4, native best/min selection, six-domain restore and independent saved validation replay. Use explicit small synthetic data, never a benchmark claim.
-- [ ] RED: missing/duplicate/partial epochs, falsely filled odd-epoch validation, wrong batch/roles/callbacks, incomplete state, changed source/cohort/selection and engineering-as-full reports reject.
-- [ ] Retain native callbacks/optimizer/scheduler and helpers for complete checkpoint tensors/journals. Full mode keeps max150/early stopping and original sanity behavior. Engineering may use CPU B2/0workers or genuine GPU native batch/workers,4 epochs, with a complete-epoch2 prefix; scheduler remains150.
-- [ ] GPU engineering uses two native training batches per epoch and complete registered val/test roles. No reduced validation or test population. Record eight actual optimizer updates across4 engineering epochs.
-- [ ] Record every actual training epoch and only the genuine even-epoch validations; checkpoint readers must preserve native cadence/loop state and accept real early stopping/max termination without retraining.
-- [ ] Reuse original metric/point-reader semantics. Freeze validation/selection before test; independent processes must reopen the same complete selected state, inputs and population. Preserve the chosen native precision/backends; distinguish trainer and default-script evaluation views if they differ.
-- [ ] Observe new suites and source-bound CPU fit/evaluation integration to terminal success. Exact checkpoint restoration is distinct from a bitwise uninterrupted persistent-worker trajectory.
+- [x] RED: actual CPU RN18 engineering prefix through epoch2 then a fresh process to epoch4, original validation only at2/4, native best/min selection, six-domain restore and independent saved validation replay. Use explicit small synthetic data, never a benchmark claim.
+- [x] RED: missing/duplicate/partial epochs, falsely filled odd-epoch validation, wrong batch/roles/callbacks, incomplete state, changed source/cohort/selection and engineering-as-full reports reject.
+- [x] Retain native callbacks/optimizer/scheduler and helpers for complete checkpoint tensors/journals. Full mode keeps max150/early stopping and original sanity behavior. Engineering may use CPU B2/0workers or genuine GPU native batch/workers,4 epochs, with a complete-epoch2 prefix; scheduler remains150.
+- [x] GPU engineering uses two native training batches per epoch and complete registered val/test roles. No reduced validation or test population. Record eight actual optimizer updates across4 engineering epochs.
+- [x] Record every actual training epoch and only the genuine even-epoch validations; checkpoint readers must preserve native cadence/loop state and accept real early stopping/max termination without retraining.
+- [x] Reuse original metric/point-reader semantics. Freeze validation/selection before test; independent processes must reopen the same complete selected state, inputs and population. Preserve the chosen native precision/backends; distinguish trainer and default-script evaluation views if they differ.
+- [x] Observe new suites and source-bound CPU fit/evaluation integration to terminal success. Exact checkpoint restoration is distinct from a bitwise uninterrupted persistent-worker trajectory.
 
 ## Task 4: one review, genuine GPU admission and complete experiments
 

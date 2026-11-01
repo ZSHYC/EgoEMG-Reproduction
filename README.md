@@ -10,6 +10,8 @@
 
 > **剩余实验续行 · 2026-11-01 10:04北京时间**：[七项服务器后台流程](results/full-paper-execution-20261101T0204.json)独立运行。原生EMGFormer-S已进入正式200轮；[原生M/L完整输入与GPU恢复](results/native-emgformer-ml-input-and-fit-qualification-20261101.json)通过，正在独立验证/测试资格链，其后自动进行各自200轮及最终评估。EMG2Pose S/M/L仍在完整来源准入。新增右手有效性文件完整1.389GB，几何传输5/8、其余三文件在服务器继续接收。本机关机不终止已部署流程；完成科学设置仍14，暂无新增最终成绩。
 
+> **ResNet训练/评估进展 · 2026-11-01**：[原生CPU完整工程链](results/native-resnet-fit-eval-engineering-20261101.json)75项通过：真实RN18第2→4轮CLI续训、六状态一致、原生每两轮验证、完整验证/测试独立重放和报告新进程复核均完成。当前为工程样本；真实GPU资格、正式训练和新组件审查仍待完成，科学完成设置仍14。
+
 > **ResNet接入进展 · 2026-11-01**：[数据与真实模型恢复证据](results/native-resnet-runtime-and-data-20261101.json)已记录合并76项通过及门控更新后18项运行时通过，三种ResNet的原始ImageNet初始化、0.02损失梯度、完整状态/预测独立恢复已核验。数据检查采用工程样本；原生验证间隔、正式训练和最终测试仍待完成，科学完成设置保持14。
 
 > **后续工作补齐 · 2026-11-01**：[EMG2Pose-S训练后评估与几何进度](results/small-final-queue-and-geometry-assets-20261101.json)已记录：S最终评估队列在服务器独立等待250轮；几何传输6/8，标定与两手beta已就绪。[原生ResNet配置接口](results/native-resnet-protocol-20261101.json)28项检查通过，RN18/50/152的0.02官方/明确派生路线进入实现；原生ResNet训练和RN18+S官方配方尚未完成，科学完成设置仍14。

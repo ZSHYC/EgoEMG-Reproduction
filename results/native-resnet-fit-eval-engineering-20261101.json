@@ -1,0 +1,346 @@
+{
+  "all_recorded_owned_processes_closed": true,
+  "audit_policy": "one deep validation per distinct fit within each guarded DAG transaction; every independent top-level audit reopens raw evidence; cycle and generation-change rejection tested",
+  "cohort_registered_full_legacy": false,
+  "complete_engineering_fit_count": 2,
+  "engineering_fits": [
+    {
+      "checkpoint_boundary": "native_validation_end_before_train_epoch_end",
+      "completed_epochs": 4,
+      "final_model_state_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "fit_result_file_sha256": "63e6aa6f5604e227fe4edde420bcb8a03197deacdaf3ff076bf2e4a9e95faf54",
+      "fit_result_sha256": "6a35c65459144249dfed83a5686ab82c6f7bbe84dcaeafa86ac2a0ca66dcb909",
+      "identity_sha256": "b68827c25abcfd4f7e888215eb18195899e974be8500ac8915f4787655307710",
+      "native_factory_hyperparameters_bound": true,
+      "optimizer_executions": 8,
+      "resume_observation_sha256": "8f33ad5362207ef8a5f37442c4bf588b0706eb1da69060c0b4a21e87d5f3be2c",
+      "resume_parent_checkpoint_sha256": "d95a7ee2ba7c5dc94e292468555b2633a70eb5078db3b517aff1f21dba82cdf9",
+      "resume_process": {
+        "pid": 995897,
+        "start_ticks": "433208591",
+        "uid": 1005
+      },
+      "resume_process_closed": true,
+      "resume_start_exact": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "scientific_eligible": false,
+      "scope": "cpu_engineering",
+      "selected_best": {
+        "checkpoint_sha256": "18a608d246671208c56eb35d5a61892b83c8b035b2b76030979e603403de7d0c",
+        "completed_epochs": 4,
+        "file": "resnet18-vision-epoch=003-val_mae=0.8690.ckpt",
+        "score": 0.8690303564071655,
+        "validated": true
+      },
+      "train_samples_per_epoch": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "val_samples_per_epoch": [
+        null,
+        4,
+        null,
+        4
+      ],
+      "validation_epochs": [
+        2,
+        4
+      ]
+    },
+    {
+      "checkpoint_boundary": "native_validation_end_before_train_epoch_end",
+      "completed_epochs": 4,
+      "final_model_state_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "fit_result_file_sha256": "9645a334f138df409c7762f4ec2b110f7cf0f28efa03bfd220a5985bb8a3da10",
+      "fit_result_sha256": "7151c842d85ba10251bc3919ae24d09f08bdd0ac0a92d3f996ae09ad18539379",
+      "identity_sha256": "c54254f79c80798317fc475345b8a92ae0ffd5ecc583856741baaf686728802c",
+      "native_factory_hyperparameters_bound": true,
+      "optimizer_executions": 8,
+      "resume_observation_sha256": "a8da34cd0627483509f825780383fa91c2f11d8825c2e10d8ba562f272f11858",
+      "resume_parent_checkpoint_sha256": "a6c268a69fdd720deb6c4cb25c4e86c17eb348607d7509e16cc2dd2fae49101a",
+      "resume_process": {
+        "pid": 996906,
+        "start_ticks": "433214689",
+        "uid": 1005
+      },
+      "resume_process_closed": true,
+      "resume_start_exact": {
+        "callbacks": true,
+        "loops": true,
+        "model": true,
+        "optimizer": true,
+        "rng": true,
+        "scheduler": true
+      },
+      "scientific_eligible": false,
+      "scope": "cpu_engineering",
+      "selected_best": {
+        "checkpoint_sha256": "e71f0ca6a2cc356cca63b349769185e9e4c5db8c9f1fecc5d1d82d8fa245b9a8",
+        "completed_epochs": 4,
+        "file": "resnet18-vision-epoch=003-val_mae=0.8690.ckpt",
+        "score": 0.8690303564071655,
+        "validated": true
+      },
+      "train_samples_per_epoch": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "val_samples_per_epoch": [
+        null,
+        4,
+        null,
+        4
+      ],
+      "validation_epochs": [
+        2,
+        4
+      ]
+    }
+  ],
+  "existing_completed_scientific_settings": 14,
+  "format": "native_resnet_complete_cpu_fit_eval_engineering_20261101_v1",
+  "frozen_validation_profile_sha256": "f2516d95c6aeb55a123f1f30326971168b741439c529d08f3ceab5a34851b796",
+  "full_benchmark_fit_complete": false,
+  "full_paper_complete": false,
+  "full_registered_cohort_admission_for_resnet_complete": false,
+  "gpu_qualification_complete": false,
+  "independent_cli_acceptance": {
+    "all_reports_engineering_only": true,
+    "complete_engineering_fit_count": 2,
+    "cuda_initialized": false,
+    "driver_sha256": "90ce3e0931c143f0c5399b8cc33ead267e708d053b652ff11323388b2195e14d",
+    "empty_pretrained_cache": true,
+    "epochs_per_fit": 4,
+    "existing_completed_scientific_settings": 14,
+    "format": "resnet_cpu_fresh_cli_admission_report_reopen_v1",
+    "full_paper_complete": false,
+    "model_constructions_during_acceptance": 0,
+    "note": "two independently created module fixtures, each genuine prefix2 then fresh CLI resume4; no uninterrupted-trajectory claim",
+    "observed_utc": "2026-11-01T03:58:57.677403+00:00",
+    "optimizer_updates_during_acceptance": 0,
+    "optimizer_updates_per_fit": 8,
+    "phases": [
+      {
+        "constructors_forbidden": true,
+        "cuda_initialized": false,
+        "elapsed_seconds": 9.58055851701647,
+        "evidence_sha256": "12c3daed7b18320cdaaffb4d47c93db47e2148e66307e0db861891f3418d3a31",
+        "exit_code": 0,
+        "log_sha256": "e2bc04565ae3c3953a4dd72007d39872c5c247e941ce431f5e41ae7e4e642e1b",
+        "mode": "admit",
+        "model_constructions": 0,
+        "optimizer_updates": 0,
+        "process": {
+          "pid": 1005613,
+          "start_ticks": "433281488",
+          "uid": 1005
+        },
+        "scientific_eligible": false,
+        "sha256": "aa2e0abdfaac30bb33aaca86ab58243f69f0f98a0fd489c41fa43873432ace94"
+      },
+      {
+        "constructors_forbidden": true,
+        "cuda_initialized": false,
+        "elapsed_seconds": 11.182557073421776,
+        "evidence_sha256": "14a206660d100093f5d99d83338979da7c68619041736a7d5bfdad918b2e0ef6",
+        "exit_code": 0,
+        "log_sha256": "7d24cd68661ce0316fb9654eb9d788c28ca8b0d6c4f90aa37bc1b632b26b953f",
+        "mode": "report",
+        "model_constructions": 0,
+        "optimizer_updates": 0,
+        "process": {
+          "pid": 1005772,
+          "start_ticks": "433282446",
+          "uid": 1005
+        },
+        "scientific_eligible": false,
+        "sha256": "d23b81f4a83e8768eb6487d35d463f5de8e21c77b9881a229e4b82095c3a805e"
+      },
+      {
+        "constructors_forbidden": true,
+        "cuda_initialized": false,
+        "elapsed_seconds": 7.3758576810359955,
+        "evidence_sha256": "51e0e031bf07de905598f568f1254b70afd3fdf485d4afd99d4b8452707329b3",
+        "exit_code": 0,
+        "log_sha256": "7d24cd68661ce0316fb9654eb9d788c28ca8b0d6c4f90aa37bc1b632b26b953f",
+        "mode": "verify",
+        "model_constructions": 0,
+        "optimizer_updates": 0,
+        "process": {
+          "pid": 1005919,
+          "start_ticks": "433283564",
+          "uid": 1005
+        },
+        "scientific_eligible": false,
+        "sha256": "d23b81f4a83e8768eb6487d35d463f5de8e21c77b9881a229e4b82095c3a805e"
+      }
+    ],
+    "report_files_sha256": {
+      "completion.json": "84543464332ee2fedff9d9f943d14ee1d9a4aec1532b9f30c2cac4fb581f6b19",
+      "metrics.json": "ce77bb5daefd37dc8a1c35e242293e4f29eddae6076e8a4a378b926f16e85df9",
+      "metrics.md": "ff84527bb11d4446ffbb2729fae98cde7765d1d202d6501bb92d03e376a22026"
+    },
+    "scientific_eligible": false,
+    "scientific_settings_added": 0
+  },
+  "independent_native_replay_passes": [
+    {
+      "duplicate_consumptions": 2,
+      "finished_ns": 1793504882115621494,
+      "kind": "native",
+      "model_after_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "model_before_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "payload_file_sha256": "4a7b42b4ce43234fe8a5ff48933d031dc3a8229594538e8e2389681df1d04bf9",
+      "prediction_sha256": "11f1aaf45046eb4aa0fc788a7637982dd801c7a96cc7ec7385c6f21a67d5e7d9",
+      "process": {
+        "pid": 997358,
+        "start_ticks": "433217072",
+        "uid": 1005
+      },
+      "process_closed": true,
+      "role": "val",
+      "samples": 4,
+      "saved_fit_validation": {
+        "completed_epoch": 4,
+        "evaluation_pose_sha256": "298701c60a60fafdd64b75cfead0c4f275954e8a96a815579eacd9d9ae915d2e",
+        "fit_native_mae_rad": 0.8690303564071655,
+        "fit_pose_sha256": "298701c60a60fafdd64b75cfead0c4f275954e8a96a815579eacd9d9ae915d2e",
+        "native_mae_difference_rad": 0.0,
+        "pose_exact_match": true,
+        "view_policy": "fit validation and standalone native evaluation are recorded separately; selected checkpoint is unchanged; independent standalone replay remains exact"
+      },
+      "scientific_eligible": false,
+      "sha256": "eb21a79bede833681bcb1ea22069cc8d43537314b1cf1a882767664304019201",
+      "started_ns": 1793504880221816010,
+      "unique_samples": 2
+    },
+    {
+      "duplicate_consumptions": 2,
+      "finished_ns": 1793504904564625007,
+      "kind": "replay",
+      "model_after_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "model_before_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "payload_file_sha256": "4a7b42b4ce43234fe8a5ff48933d031dc3a8229594538e8e2389681df1d04bf9",
+      "prediction_sha256": "11f1aaf45046eb4aa0fc788a7637982dd801c7a96cc7ec7385c6f21a67d5e7d9",
+      "process": {
+        "pid": 997745,
+        "start_ticks": "433219071",
+        "uid": 1005
+      },
+      "process_closed": true,
+      "role": "val",
+      "samples": 4,
+      "saved_fit_validation": {
+        "completed_epoch": 4,
+        "evaluation_pose_sha256": "298701c60a60fafdd64b75cfead0c4f275954e8a96a815579eacd9d9ae915d2e",
+        "fit_native_mae_rad": 0.8690303564071655,
+        "fit_pose_sha256": "298701c60a60fafdd64b75cfead0c4f275954e8a96a815579eacd9d9ae915d2e",
+        "native_mae_difference_rad": 0.0,
+        "pose_exact_match": true,
+        "view_policy": "fit validation and standalone native evaluation are recorded separately; selected checkpoint is unchanged; independent standalone replay remains exact"
+      },
+      "scientific_eligible": false,
+      "sha256": "d820810bc4f5cd8460e7593292045c6ec64507242249dfd3835340010d863f0d",
+      "started_ns": 1793504902890577077,
+      "unique_samples": 2
+    },
+    {
+      "duplicate_consumptions": 6,
+      "finished_ns": 1793504937554905542,
+      "kind": "native",
+      "model_after_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "model_before_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "payload_file_sha256": "7621514f11de62e8d00344df2a86eccbfad44461fad6159b39003ff2df6ec496",
+      "prediction_sha256": "8b0d17861f60a230bc22e16d7804abac01667a408efeafa00746bbd3d3942f2e",
+      "process": {
+        "pid": 998236,
+        "start_ticks": "433222283",
+        "uid": 1005
+      },
+      "process_closed": true,
+      "role": "test",
+      "samples": 12,
+      "saved_fit_validation": null,
+      "scientific_eligible": false,
+      "sha256": "8fbc7e9381cc22cea8605920af5c37d5bd16afeaf0f21272dbbcbf921f596181",
+      "started_ns": 1793504935523462990,
+      "unique_samples": 6
+    },
+    {
+      "duplicate_consumptions": 6,
+      "finished_ns": 1793504964336566810,
+      "kind": "replay",
+      "model_after_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "model_before_sha256": "b7118d2275f7bc11f012625837838b19fd0b35ee8e4e86de9e4134ee2dba9921",
+      "payload_file_sha256": "7621514f11de62e8d00344df2a86eccbfad44461fad6159b39003ff2df6ec496",
+      "prediction_sha256": "8b0d17861f60a230bc22e16d7804abac01667a408efeafa00746bbd3d3942f2e",
+      "process": {
+        "pid": 998627,
+        "start_ticks": "433224674",
+        "uid": 1005
+      },
+      "process_closed": true,
+      "role": "test",
+      "samples": 12,
+      "saved_fit_validation": null,
+      "scientific_eligible": false,
+      "sha256": "52d00c32ecd8df076e280059183f5d01b703b3a5ca3b66e905835a4ec9f4b07b",
+      "started_ns": 1793504962394335454,
+      "unique_samples": 6
+    }
+  ],
+  "independent_new_unit_review_complete": false,
+  "miniature_data_counts": {
+    "test": 12,
+    "train": 156,
+    "val": 4
+  },
+  "native_checkpoint_boundary": "native_validation_end_before_train_epoch_end",
+  "previous_prerequisites": {
+    "artifact": "native-resnet-runtime-and-data-20261101.json",
+    "scope": "prior28metadata/30data/18runtime checks and genuine three-backbone construction; not rerun as75 new cases",
+    "source_files_unchanged": true
+  },
+  "production_ready": false,
+  "raw_chain_generation_guarded_file_count": 437,
+  "saved_validation_reproduced_exactly": true,
+  "scientific_eligible": false,
+  "scientific_settings_added": 0,
+  "scope": "original RN18 synthetic CPU engineering fit and independent point evaluation only; RN50/152 share implemented interfaces but have no GPU qualification or full fit here",
+  "separate_evaluation_view_note": "supervised original Trainer/native7790 point role; unified_center_eval fixed12000 paired view is a separate source protocol",
+  "source_files_sha256": {
+    "egoemg_repro/resnet_eval.py": "c169bbc90c1b9b5f65dcd2f44b643291409b89eaf6a3968bb86edfaa35842a46",
+    "egoemg_repro/resnet_train.py": "bee072cfa0211ffc3e99f299e0cc95e91186b0333c9f50fbea4ac3b13a252981",
+    "tests/test_resnet_eval.py": "8ab98bd42646570e66d84a2e4c8e17cf85f7fc7b64f227ac609c4f3104da7cc4",
+    "tests/test_resnet_train.py": "f0ae2e59061dba617b24e4880be288c3de4254ff64fc563a16f6220e5cc08ffc"
+  },
+  "source_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+  "tests": {
+    "absent_torch_policy": {
+      "exit_code": 0,
+      "log_sha256": "01f6cf0b1d23d70803de17381f0e727cb537e3f704cabd1281b588fa4bf37984",
+      "passed": 33,
+      "skipped": 42,
+      "skips_are_not_model_passes": true
+    },
+    "pinned_cpu": {
+      "exit_code": 0,
+      "log_sha256": "adb3aee4677236e29e8e67fc959461b9920b6c92eb6770fc3c7bf4f54308815f",
+      "passed": 75,
+      "seconds": 274.0,
+      "skipped": 0,
+      "warning_count": 5
+    }
+  },
+  "verified_utc": "2026-11-01T04:02:40.417958+00:00"
+}
