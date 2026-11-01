@@ -102,3 +102,91 @@ def test_source_replacement_inside_hash_cannot_create_a_mixed_generation(tmp_pat
 def test_declared_episode_count_must_match_the_complete_numeric_metadata(tmp_path):
     data=fixture(tmp_path/'data');p=data/'manifest.json';value=json.loads(p.read_text());value['num_episodes']=1;p.write_text(json.dumps(value))
     with pytest.raises(ValueError):api().scan_release_timing(data,UPSTREAM,require_full=False)
+
+
+def export_api():
+    m=api()
+    if not hasattr(m,'export_release_timing'):pytest.fail('immutable release timing export missing')
+    return m
+
+
+@pytest.fixture(scope='module')
+def actual_export(tmp_path_factory):
+    m=export_api();root=tmp_path_factory.mktemp('release-timing-output');data=fixture(root/'data')
+    m.export_release_timing(data,UPSTREAM,root/'out',require_full=False);return data,root/'out'
+
+
+def test_deterministic_export_reconstructs_all_histograms_and_original_rows(actual_export):
+    data,out=actual_export;m=export_api();r=m.verify_release_timing(data,UPSTREAM,out,require_full=False)
+    assert r['statistics']['rows']==8 and r['statistics']['global']['timestamp_step_us']['count']==6
+    assert not r['full_legacy_population_verified']and not r['hardware_synchronization_accuracy_established']
+    assert set(p.name for p in out.iterdir())=={'metrics.json','episodes.csv','histograms.csv','README.md','completion.json'}
+    with pytest.raises(ValueError):m.export_release_timing(data,UPSTREAM,out,require_full=False)
+
+
+@pytest.mark.parametrize('name',['metrics.json','episodes.csv','histograms.csv','README.md','completion.json'])
+@pytest.mark.parametrize('damage',['changed','missing'])
+def test_mutated_or_missing_export_artifacts_are_rejected(actual_export,name,damage):
+    data,out=actual_export;p=out/name;raw=p.read_bytes()
+    try:
+        if damage=='changed':p.write_bytes(raw+b'\n')
+        else:p.unlink()
+        with pytest.raises((ValueError,OSError)):export_api().verify_release_timing(data,UPSTREAM,out,require_full=False)
+    finally:p.write_bytes(raw)
+
+
+@pytest.mark.parametrize('action',['export','verify'])
+def test_input_generation_guard_survives_artifact_preparation(tmp_path,monkeypatch,action):
+    m=export_api();data=fixture(tmp_path/'data');out=tmp_path/'out'
+    if action=='verify':m.export_release_timing(data,UPSTREAM,out,require_full=False)
+    original=m._artifact_bytes
+    def changed(report):
+        raw=original(report);a=np.memmap(data/'timestamp_us.dat',mode='r+',dtype='int64');a[0]+=1;a.flush();a._mmap.close();return raw
+    monkeypatch.setattr(m,'_artifact_bytes',changed)
+    with pytest.raises(ValueError):
+        (m.export_release_timing if action=='export'else m.verify_release_timing)(data,UPSTREAM,out,require_full=False)
+
+
+def test_output_directory_membership_is_rechecked_after_completion_read(tmp_path,monkeypatch):
+    m=export_api();data=fixture(tmp_path/'data');out=tmp_path/'out';m.export_release_timing(data,UPSTREAM,out,require_full=False)
+    original=Path.read_bytes
+    def changed(path):
+        raw=original(path)
+        if path==out/'completion.json':(out/'unexpected').touch()
+        return raw
+    monkeypatch.setattr(Path,'read_bytes',changed)
+    with pytest.raises(ValueError):m.verify_release_timing(data,UPSTREAM,out,require_full=False)
+
+
+def test_code_generation_is_guarded_before_its_first_hash(tmp_path,monkeypatch):
+    import shutil
+    m=api();data=fixture(tmp_path/'data');code=tmp_path/'code';code.mkdir()
+    for name in ('release_timing.py','classic_emg_cohort.py'):shutil.copyfile(ROOT/'egoemg_repro'/name,code/name)
+    monkeypatch.setattr(m,'__file__',str(code/'release_timing.py'));original=m._sha;helper=code/'classic_emg_cohort.py';done=False
+    def changed(path):
+        nonlocal done
+        value=original(path)
+        if Path(path)==helper and not done:done=True;helper.write_bytes(helper.read_bytes()+b'\n')
+        return value
+    monkeypatch.setattr(m,'_sha',changed)
+    with pytest.raises(ValueError):m.scan_release_timing(data,UPSTREAM,require_full=False)
+    assert done
+
+
+def test_output_cannot_overlap_readonly_data_or_official_sources(tmp_path):
+    m=export_api();data=fixture(tmp_path/'data')
+    with pytest.raises(ValueError):m.export_release_timing(data,UPSTREAM,data/'out',require_full=False)
+    with pytest.raises(ValueError):m.export_release_timing(data,UPSTREAM,UPSTREAM/'forbidden-timing-export',require_full=False)
+
+
+def test_fresh_offline_cli_export_and_verify_keep_identical_bytes_without_ml(tmp_path):
+    import hashlib,os,subprocess,sys
+    data=fixture(tmp_path/'data');block=tmp_path/'block';block.mkdir()
+    (block/'sitecustomize.py').write_text("import builtins\noriginal=builtins.__import__\ndef blocked(name,*a,**k):\n if name.split('.')[0]in ('torch','pytorch_lightning'):raise RuntimeError('timing reader cannot import ML')\n return original(name,*a,**k)\nbuiltins.__import__=blocked\n")
+    env=dict(os.environ,CUDA_VISIBLE_DEVICES='',PYTHONPATH=str(block)+os.pathsep+str(ROOT),PYTHONDONTWRITEBYTECODE='1')
+    before={p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in data.iterdir()}
+    for action,out in [('export',tmp_path/'one'),('export',tmp_path/'two'),('verify',tmp_path/'one')]:
+        p=subprocess.run([sys.executable,'-B','-m','egoemg_repro.release_timing',action,'--data',str(data),'--upstream',str(UPSTREAM),'--output',str(out),'--allow-partial'],env=env,cwd=ROOT,capture_output=True,text=True,timeout=30)
+        assert p.returncode==0,p.stderr
+    assert {p.name:p.read_bytes()for p in(tmp_path/'one').iterdir()}=={p.name:p.read_bytes()for p in(tmp_path/'two').iterdir()}
+    assert before=={p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in data.iterdir()}

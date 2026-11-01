@@ -154,3 +154,103 @@ def _scan_context(root,upstream,*,require_full=True,chunk_rows=1048576):
 
 def scan_release_timing(root,upstream,*,require_full=True,chunk_rows=1048576):
     result,guard=_scan_context(root,upstream,require_full=require_full,chunk_rows=chunk_rows);guard.check();return result
+
+
+FILES=('metrics.json','episodes.csv','histograms.csv','README.md')
+
+
+def _json_bytes(value):return(json.dumps(value,sort_keys=True,indent=2,ensure_ascii=False,allow_nan=False)+'\n').encode()
+
+
+def _csv(rows):
+    import csv,io
+    stream=io.StringIO(newline='');writer=csv.DictWriter(stream,fieldnames=list(rows[0]),lineterminator='\n');writer.writeheader();writer.writerows(rows)
+    return stream.getvalue().encode()
+
+
+def _artifact_bytes(report):
+    s=report['statistics'];g=s['global'];camera=g['camera'];episodes=[]
+    for ep in s['by_episode']:
+        episodes.append(dict(episode=ep['scope'],rows=ep['rows'],nominal_duration_seconds=ep['nominal_duration_seconds'],
+            recorded_timestamp_span_us=ep['recorded_timestamp_span_us'],timestamp_pairs=ep['timestamp_step_us']['count'],
+            stale_rows=ep['camera']['stale_rows'],index_negative_rows=ep['camera']['index_negative_rows'],
+            metadata_usable_rows=ep['camera']['metadata_usable_rows'],raw_delta_min_ms=ep['recorded_delta_ms']['min'],
+            raw_delta_max_ms=ep['recorded_delta_ms']['max'],metadata_usable_delta_p50_ms=ep['metadata_usable_delta_ms']['quantiles']['p50'],
+            metadata_usable_delta_p95_ms=ep['metadata_usable_delta_ms']['quantiles']['p95'],int32max_delta_rows=ep['camera']['int32max_delta_rows']))
+    hist=s['histograms'];ties=sum(x['count']for x in hist if x['scope']=='all'and x['measure']=='timestamp_step_us'and x['value']==0)
+    backwards=sum(x['count']for x in hist if x['scope']=='all'and x['measure']=='timestamp_step_us'and x['value']<0)
+    lines=['# 已发布时钟与 webcam 对齐字段：全行诊断','',
+        '完整legacy行人口已核验。'if report['full_legacy_population_verified']else'仅小样本工程诊断，未核验完整legacy人口。','',
+        '| 字段统计 | 实际值 |','| --- | ---: |',f"| 行数／episode数 | {s['rows']:,}／{s['episodes']} |",
+        f"| 名义2kHz行数对应秒数 | {g['nominal_duration_seconds']} |",f"| 段内相邻时间戳对 | {g['timestamp_step_us']['count']:,} |",
+        f'| 重复时间戳对 | {ties:,} |',f'| 倒退时间戳对 | {backwards:,} |',f"| stale为True的行 | {camera['stale_rows']:,} |",
+        f"| 相机索引负值行 | {camera['index_negative_rows']:,} |",f"| 非stale且索引非负行 | {camera['metadata_usable_rows']:,} |",
+        f"| 原始delta等于INT32_MAX的行 | {camera['int32max_delta_rows']:,} |",'',
+        '所有原始delta（含可能填充值）的分位数：`'+json.dumps(g['recorded_delta_ms']['quantiles'],sort_keys=True)+'`。',
+        '非stale且索引非负子集的delta分位数：`'+json.dumps(g['metadata_usable_delta_ms']['quantiles'],sort_keys=True)+'`。','',
+        '固定官方代码说明：timestamp_us为已发布时钟字段，存在量化／重复与跨段跳变；模型使用名义2kHz行索引。本分析保留所有段内原值差分，仅描述字段，不把差分用作模型dt或原始硬件同步精度。episode边界不计为相邻对，块边界仍保留相邻对。','',
+        'stale与索引分别计数，非负索引不单独证明帧可用。元数据可用子集只定义为stale=False且frame_index>=0，未检查视频像素、crop存在或原始视频FPS。INT32_MAX候选值留在全部原始直方图与分位数中，未修复、删除或重写数据。','',
+        '来源是旧版已对齐字段。v3关于Incre填充值的说明不等于本legacy数据的硬件生成证据；原IMU、设备时间戳、双视频／ZED与插值同步重建仍待核验。没有训练模型或新增科学成绩，整篇论文尚未完成。','',
+        '- [完整计数、分位数、直方图与来源](metrics.json)','- [逐episode汇总](episodes.csv)',
+        '- [全部整数直方图及确切分母](histograms.csv)','- [产物完整性记录](completion.json)','']
+    return{'metrics.json':_json_bytes(report),'episodes.csv':_csv(episodes),'histograms.csv':_csv(hist),'README.md':'\n'.join(lines).encode()}
+
+
+def _completion(report,files):
+    return dict(format='released_timing_artifact_completion_v1',report_sha256=report['sha256'],
+        files_sha256={k:hashlib.sha256(v).hexdigest()for k,v in files.items()},input_files_sha256=report['input_files_sha256'],full_paper_complete=False)
+
+
+def _location(root,upstream,output,*,exists):
+    out=_safe(output,exists=exists)
+    for p in (_safe(root),_safe(upstream)):
+        if out==p or out in p.parents or p in out.parents:raise ValueError('timing output overlaps immutable inputs')
+    return out
+
+
+def _directory_state(path):
+    import stat
+    path=_safe(path)
+    def stamp():
+        v=path.lstat()
+        if not stat.S_ISDIR(v.st_mode):raise ValueError('timing output must remain a nonsymlink directory')
+        return(v.st_dev,v.st_ino,v.st_mode,v.st_mtime_ns,v.st_ctime_ns)
+    before=stamp();names=tuple(sorted(p.name for p in path.iterdir()))
+    if stamp()!=before:raise ValueError('timing directory changed during enumeration')
+    return before,names
+
+
+def export_release_timing(root,upstream,output,*,require_full=True):
+    import os
+    out=_location(root,upstream,output,exists=False)
+    if out.exists():raise ValueError('fresh immutable timing output required')
+    report,guard=_scan_context(root,upstream,require_full=require_full);files=_artifact_bytes(report);guard.check();out.mkdir(mode=0o700)
+    for name,raw in files.items():
+        with(out/name).open('xb')as f:f.write(raw);f.flush();os.fsync(f.fileno())
+    guard.check()
+    with(out/'completion.json').open('xb')as f:f.write(_json_bytes(_completion(report,files)));f.flush();os.fsync(f.fileno())
+    guard.check();return report
+
+
+def verify_release_timing(root,upstream,output,*,require_full=True):
+    out=_location(root,upstream,output,exists=True);before=_directory_state(out);names=(*FILES,'completion.json')
+    if before[1]!=tuple(sorted(names)):raise ValueError('timing artifact membership differs')
+    output_guard=_StatGuard([out/n for n in names]);report,input_guard=_scan_context(root,upstream,require_full=require_full)
+    files=_artifact_bytes(report);input_guard.check();expected={**files,'completion.json':_json_bytes(_completion(report,files))}
+    if any((out/n).read_bytes()!=raw for n,raw in expected.items()):raise ValueError('timing artifacts differ from independent full-input reconstruction')
+    output_guard.check()
+    if _directory_state(out)!=before:raise ValueError('timing output generation changed during verification')
+    input_guard.check();return report
+
+
+def main():
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=('export','verify'))
+    for name in ('data','upstream','output'):parser.add_argument('--'+name,type=Path,required=True)
+    parser.add_argument('--allow-partial',action='store_true',help='explicit fixture diagnostics; never a complete-corpus permit')
+    a=parser.parse_args();value=(export_release_timing if a.action=='export'else verify_release_timing)(a.data,a.upstream,a.output,require_full=not a.allow_partial)
+    print(json.dumps(dict(sha256=value['sha256'],rows=value['statistics']['rows'],episodes=value['statistics']['episodes'],
+        full_legacy_population_verified=value['full_legacy_population_verified'],full_paper_complete=False)))
+
+
+if __name__=='__main__':main()
