@@ -19,7 +19,8 @@ def main():
     from egoemg_repro.qualitative_run import load_qualitative_evidence,admit_qualitative_run_inputs
     from egoemg_repro.qualitative_flags import admit_qualitative_flags
     from egoemg_repro.qualitative_render import export_qualitative_candidates
-    evidence=load_qualitative_evidence(evidence=args.evidence,paired_root=args.paired_root,upstream=args.upstream)
+    evidence=load_qualitative_evidence(evidence=args.evidence,paired_root=args.paired_root,upstream=args.upstream,
+        producer_root=Path(args.first).parent.parent)
     inputs=admit_qualitative_run_inputs(evidence,data=args.data,crops=args.crops)
     flags=admit_qualitative_flags(evidence,data=args.data,geometry=args.geometry)
     result=export_qualitative_candidates(inputs,args.first,args.second,flags=flags,output=args.output,limit=args.limit)

@@ -1,0 +1,295 @@
+{
+  "actual_exact_actors_closed": [
+    {
+      "pid": 1550179,
+      "start_ticks": "436924583"
+    },
+    {
+      "pid": 1550180,
+      "start_ticks": "436924586"
+    },
+    {
+      "pid": 1061671,
+      "start_ticks": "433657400"
+    },
+    {
+      "pid": 1061672,
+      "start_ticks": "433657403"
+    },
+    {
+      "pgrp": 1380193,
+      "pid": 1380193,
+      "sid": 1380193,
+      "start_ticks": "435771631",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1380197,
+      "pid": 1380197,
+      "sid": 1380197,
+      "start_ticks": "435771635",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pid": 1061690,
+      "start_ticks": "433657519"
+    },
+    {
+      "pid": 1061691,
+      "start_ticks": "433657522"
+    },
+    {
+      "pgrp": 1291101,
+      "pid": 1291101,
+      "sid": 1291101,
+      "start_ticks": "435231264",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1291104,
+      "pid": 1291104,
+      "sid": 1291104,
+      "start_ticks": "435231268",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pid": 1475593,
+      "start_ticks": "436356068"
+    },
+    {
+      "pid": 1475598,
+      "start_ticks": "436356071"
+    }
+  ],
+  "all12_recorded_outer_and_fit_actors_closed": true,
+  "foreign_gpu_occupancy_verified_different_account": true,
+  "foreign_processes_modified": false,
+  "format": "native_resnet_resource_guard_stop_v1",
+  "full_paper_complete": false,
+  "jobs": {
+    "egoemg-native-ik-B10096-qualification-queue-8f2904b7a940-20261101": {
+      "execution_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1550180,
+          "start_ticks": "436924586"
+        },
+        "ended_utc": "2026-11-01T15:31:17.817978+00:00",
+        "started_utc": "2026-11-01T14:05:40.523122+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1550179,
+          "start_ticks": "436924583"
+        }
+      },
+      "execution_state_sha256": "ea84d0915a67a7a229a4ee5786486e01ab9498cc0bde1963166a7bb4297c213f",
+      "log_sha256": "b8bf0e7ccc4c58954b005b1cf23887c61d74907fb22869b8d31c91f3c11ce69b"
+    },
+    "egoemg-native-resnet152-full-cli-20261101": {
+      "execution_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1061672,
+          "start_ticks": "433657403"
+        },
+        "ended_utc": "2026-11-01T15:31:13.737438+00:00",
+        "started_utc": "2026-11-01T05:01:08.692981+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1061671,
+          "start_ticks": "433657400"
+        }
+      },
+      "execution_state_sha256": "16c3f15c71041212061fdbf29cbf053f6f50dc1674a4b35d4c85fba46b3b9487",
+      "last_checkpoints": [
+        {
+          "bytes": 712141151,
+          "file": "private/full-fit/checkpoints/last.ckpt",
+          "sha256": "afe82fe741a616cde8af818d5876d12318411c0498fcb9c7d4bcf556bf0fac82"
+        },
+        {
+          "bytes": 712138911,
+          "file": "private/full-fit/checkpoints/resnet18-vision-epoch=023-val_mae=0.0934.ckpt",
+          "sha256": "504ed96e3016e82a1ee59b41c5fc8f1c48c5a47b2ade3cdb5b83f2f3b78d772a"
+        },
+        {
+          "bytes": 712140383,
+          "file": "private/full-fit/checkpoints/resnet18-vision-epoch=027-val_mae=0.0924.ckpt",
+          "sha256": "1cd5752e998d0e7866b7c31a4c9990a075c6768fe257c654e5aae2f37585c774"
+        },
+        {
+          "bytes": 712141151,
+          "file": "private/full-fit/checkpoints/resnet18-vision-epoch=029-val_mae=0.0902.ckpt",
+          "sha256": "afe82fe741a616cde8af818d5876d12318411c0498fcb9c7d4bcf556bf0fac82"
+        }
+      ],
+      "last_journals": {
+        "private/full-fit/epochs.jsonl": {
+          "sha256": "9e5eeacda66522502ab9bdddb66a6ebdb0776da16e03280e0ee491189063a097",
+          "tail": [
+            "{\"identity_sha256\":\"05818fcf828c99327cd95b6145c3d782205cfe26ce658ff54087db81a869cfe1\",\"previous_sha256\":\"b54c84cd77422d58c363a46dd676f9459728abc88dcb9f07a5e1b6f25284ef1a\",\"record\":{\"early\":{\"best_score\":0.09243589639663696,\"stopped_epoch\":0,\"wait_count\":0},\"epoch\":28,\"global_step\":32567,\"model_sha256\":\"eedf57a3be3e376c6ed0515b20e351e37683909675c9f4e38117e9b3ba4af71b\",\"optimizer_executions\":32567,\"train_batches\":1123,\"train_loss\":0.18244493356401076,\"train_samples\":202020,\"validation\":null},\"sha256\":\"687bce7dfdd64f86de9498d3cd6fcfc44163540d89dfde7a77aa18eadf0f0230\"}",
+            "{\"identity_sha256\":\"05818fcf828c99327cd95b6145c3d782205cfe26ce658ff54087db81a869cfe1\",\"previous_sha256\":\"687bce7dfdd64f86de9498d3cd6fcfc44163540d89dfde7a77aa18eadf0f0230\",\"record\":{\"early\":{\"best_score\":0.09021536260843277,\"stopped_epoch\":0,\"wait_count\":0},\"epoch\":29,\"global_step\":33690,\"model_sha256\":\"54eaa2aa0b899462df55378cbe8b9a8266368c38551231db9c84f0bfc3e4d617\",\"optimizer_executions\":33690,\"train_batches\":1123,\"train_loss\":0.18065147797148626,\"train_samples\":202020,\"validation\":{\"prediction_sha256\":\"28e31d323a8414bda96fc239e99bc30b875b133b5c7093f9da7b65e984d4200a\",\"samples\":3152,\"val_mae\":0.09021536260843277}},\"sha256\":\"ec381fbcb79c4cb22b711e951cb2a8c280940636fa4de46bf8e388eccbd94f8e\"}"
+          ]
+        }
+      },
+      "log_sha256": "d1bc6e66ea6d3236a4868d2f95d0f4789dada2a074cdde7a369dc76d68204d75",
+      "stage_result": {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "error_type": "AssertionError",
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 1380193,
+          "pid": 1380193,
+          "sid": 1380193,
+          "start_ticks": "435771631",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 1061672,
+          "pid": 1061672,
+          "sid": 1061672,
+          "start_ticks": "433657403",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "owner_abort",
+        "scientific_complete": false,
+        "status": "failed",
+        "worker": {
+          "pgrp": 1380197,
+          "pid": 1380197,
+          "sid": 1380197,
+          "start_ticks": "435771635",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 1
+      },
+      "stage_result_sha256": "b800da7833dd01324fe47241ea2d311511143033764a6a4dc23bb889a5a3555f"
+    },
+    "egoemg-native-resnet50-full-cli-20261101": {
+      "execution_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1061691,
+          "start_ticks": "433657522"
+        },
+        "ended_utc": "2026-11-01T15:31:13.763824+00:00",
+        "started_utc": "2026-11-01T05:01:09.882867+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1061690,
+          "start_ticks": "433657519"
+        }
+      },
+      "execution_state_sha256": "1dfbc285d03f803833409035e36ab45844647abecf21afd6eab02f252c9db0d2",
+      "last_checkpoints": [
+        {
+          "bytes": 295588240,
+          "file": "private/full-fit/checkpoints/last.ckpt",
+          "sha256": "c857fbda70062cde8a55a6011983a2b5c82a32ce7de5f9077fcdefb2facd5f7f"
+        },
+        {
+          "bytes": 295583760,
+          "file": "private/full-fit/checkpoints/resnet18-vision-epoch=059-val_mae=0.0969.ckpt",
+          "sha256": "4c2c2d8296a9bb5a039ae78fa97c1206728c678363f727a5ae0532dcf45859fd"
+        },
+        {
+          "bytes": 295585232,
+          "file": "private/full-fit/checkpoints/resnet18-vision-epoch=063-val_mae=0.0972.ckpt",
+          "sha256": "82a2a2d7fd6deb1c30ce7fb67b30a2cf0e26e0323236da005cc076a489f2ed2d"
+        },
+        {
+          "bytes": 295586768,
+          "file": "private/full-fit/checkpoints/resnet18-vision-epoch=067-val_mae=0.0966.ckpt",
+          "sha256": "22e8d23a6d390d93493066ed4590132f55b6ec13a7247873f330fa60fa48dcd9"
+        }
+      ],
+      "last_journals": {
+        "private/full-fit/epochs.jsonl": {
+          "sha256": "4b182667a76e5b405250677b4f5fa170878ea0e6dc885827ec7ecee2426cda5c",
+          "tail": [
+            "{\"identity_sha256\":\"76f1e33229bed78163d9abda7878e3d58d14db32324798deee6ebab3b99d8eb7\",\"previous_sha256\":\"ad3209ff11aff58c9b205a7945ee39ab1b0f0f09daacea3913db7f079df40c2c\",\"record\":{\"early\":{\"best_score\":0.0965564101934433,\"stopped_epoch\":0,\"wait_count\":2},\"epoch\":71,\"global_step\":36432,\"model_sha256\":\"d123498289e967bba32aee85ca65b3db5baa33107958bd2d558641e1e452d4f1\",\"optimizer_executions\":36432,\"train_batches\":506,\"train_loss\":0.16032259751754094,\"train_samples\":202020,\"validation\":{\"prediction_sha256\":\"f7969d86d12f3233e5bfb604c38103b8d48eaa07abf703b67bc24b30d55db1e1\",\"samples\":3152,\"val_mae\":0.09726038575172424}},\"sha256\":\"a15bb1b7f9e2e311c4c68eafe4e74a8b1964631a4e5181f27b4e8805878ebd1a\"}",
+            "{\"identity_sha256\":\"76f1e33229bed78163d9abda7878e3d58d14db32324798deee6ebab3b99d8eb7\",\"previous_sha256\":\"a15bb1b7f9e2e311c4c68eafe4e74a8b1964631a4e5181f27b4e8805878ebd1a\",\"record\":{\"early\":{\"best_score\":0.0965564101934433,\"stopped_epoch\":0,\"wait_count\":2},\"epoch\":72,\"global_step\":36938,\"model_sha256\":\"6cc05b29aafa100a65f44bcbfa9085d7b5e75d290297fb61d5628c3b5cbfdb38\",\"optimizer_executions\":36938,\"train_batches\":506,\"train_loss\":0.15995161524917476,\"train_samples\":202020,\"validation\":null},\"sha256\":\"ee5dc2ce2b7d6500b16769336032ee8d9848dcaf209db8980c4a76af2b7ba820\"}"
+          ]
+        }
+      },
+      "log_sha256": "faf43d9fc5d4ff6d6b5e7f890f1ab9f4dfd4df4e708615c2e3191e4459ee96a2",
+      "stage_result": {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "error_type": "AssertionError",
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 1291101,
+          "pid": 1291101,
+          "sid": 1291101,
+          "start_ticks": "435231264",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 1061691,
+          "pid": 1061691,
+          "sid": 1061691,
+          "start_ticks": "433657522",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "owner_abort",
+        "scientific_complete": false,
+        "status": "failed",
+        "worker": {
+          "pgrp": 1291104,
+          "pid": 1291104,
+          "sid": 1291104,
+          "start_ticks": "435231268",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 1
+      },
+      "stage_result_sha256": "dcfdace7c7a620884cef136b12ba8bc5ae8e85e65ffb1f7035f101d462a87d24"
+    },
+    "egoemg-native-trajectory-full-gpu-queue-983fd9338f4a-20261101": {
+      "execution_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1475598,
+          "start_ticks": "436356071"
+        },
+        "ended_utc": "2026-11-01T15:31:16.964969+00:00",
+        "started_utc": "2026-11-01T12:30:55.368033+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1475593,
+          "start_ticks": "436356068"
+        }
+      },
+      "execution_state_sha256": "26be0cdafce41e05b518eadb4c84573e90004fe031b1bd977d9bebeba40aacec",
+      "log_sha256": "05b78dfe6a0b12de7bcbdaae69f871fd05c15139ae04d6d78be71da408a088e1"
+    }
+  },
+  "last_checkpoint_requires_native_prefix_admission": true,
+  "native_IK_B10096_qualification_started": false,
+  "native_IK_full_label_workflow_created": false,
+  "native_SML_trajectory_started": false,
+  "observed_utc": "2026-11-01T15:42:52.581409+00:00",
+  "partial_checkpoints_and_journals_preserved": true,
+  "reason": "assigned GPU acquired additional processes from a different account; owned training aborted, dependent queues rejected failed predecessor",
+  "resnet152_last_journal_completed_epochs": 30,
+  "resnet50_last_journal_completed_epochs": 73,
+  "training_restarted": false
+}

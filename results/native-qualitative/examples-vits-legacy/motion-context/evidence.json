@@ -1,0 +1,103 @@
+{
+  "center_RGB_matches_saved_model_input": true,
+  "center_frame_index": 349,
+  "format": "actual_same_episode_neighbour_crop_context_v1",
+  "frames": [
+    {
+      "file": "frame_00000347.jpg",
+      "frame_index": 347,
+      "jpeg_sha256": "4f33e86001e8f8aefc40cc6bff0ac12e184407f6be891d68deee1ce1258e7242",
+      "offset": -2,
+      "rgb_typed_sha256": "9c601b4345eb5d16cc6c13db51f1738f6a533e2efbaac75a80df8f414b6a556d"
+    },
+    {
+      "file": "frame_00000348.jpg",
+      "frame_index": 348,
+      "jpeg_sha256": "10d73c9648463aa394228e749b10bd0fc94fb65ecfc497999bc1ab88153d2549",
+      "offset": -1,
+      "rgb_typed_sha256": "9db3648803e8e362503da5b0a4d6b2fb66e33425df82c06d100292d755c63ad8"
+    },
+    {
+      "file": "frame_00000349.jpg",
+      "frame_index": 349,
+      "jpeg_sha256": "c0e2eb687e983a73d20db03bb206f30a306c042492d73eda5ae2d246a1c504e4",
+      "offset": 0,
+      "rgb_typed_sha256": "2d8e629be52ab1ad96da8e723bd4dc3c0cc94274055652b05cb61e696a0b5b97"
+    },
+    {
+      "file": "frame_00000350.jpg",
+      "frame_index": 350,
+      "jpeg_sha256": "ede73dadf93d1c8bc837160aafdaf10aa876c4d22095d909016eba46d084efcc",
+      "offset": 1,
+      "rgb_typed_sha256": "7157e978794ed958d07f0fb589f10d7ae45fa429190e0696af6c201edfe31a41"
+    },
+    {
+      "file": "frame_00000351.jpg",
+      "frame_index": 351,
+      "jpeg_sha256": "832db30071d8f184046d2817503b272a81aaee2e3bbae7622d70844ab55cb7ee",
+      "offset": 2,
+      "rgb_typed_sha256": "7a7bc0b2403a47cc7a1cd819e721505c8977399aa58ff68dd8e0611da2840732"
+    }
+  ],
+  "key": {
+    "center_idx": 33501510,
+    "ep_idx": 22,
+    "group_index": 1,
+    "hand": "left",
+    "native_index": 565,
+    "sequence": 1254,
+    "split": "gesture",
+    "window_end": 33505405,
+    "window_start": 33497615
+  },
+  "no_predictions_on_neighbour_frames": true,
+  "physical_motion_ground_truth_proven": false,
+  "rank": 85,
+  "source_field": "image_webcam_frame_index",
+  "source_nine_attributes": {
+    "/home/shihao/projects/EgoEMG-Reproduction/data/crops/episode_000022.data.mdb": [
+      2050,
+      7889053,
+      551043072,
+      1792821376297501390,
+      1792821376920504952,
+      33204,
+      1005,
+      1005,
+      1
+    ],
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/image_webcam_frame_index.dat": [
+      2050,
+      7888621,
+      264646900,
+      1778044927000000000,
+      1792817967940874798,
+      33152,
+      1005,
+      1005,
+      2
+    ],
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/manifest.json": [
+      2050,
+      6830917,
+      9419,
+      1778047598000000000,
+      1792817013799534151,
+      33152,
+      1005,
+      1005,
+      1
+    ],
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/metadata.npz": [
+      2050,
+      6830919,
+      17088,
+      1778047601000000000,
+      1792817016717564333,
+      33152,
+      1005,
+      1005,
+      1
+    ]
+  }
+}

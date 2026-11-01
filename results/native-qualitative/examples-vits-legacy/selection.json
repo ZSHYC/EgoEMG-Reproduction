@@ -1,0 +1,139 @@
+{
+  "accepted_boolean_proof_sha256": "dc63fa66693b45f5928a81a3d51577c3e590930943665cef77f054dc8a43e1d9",
+  "accepted_prediction_proof_sha256": "1021f819d6c5371a43643715d4b3495bdf4f2017b087fcb028c8c4fdaf349e71",
+  "all3_scientific_row_pixels_unchanged": true,
+  "candidate_index_file_sha256": "8fbd35f4960ed7a14c15a0861bbb103d4aabfda4938d60edc6c026256bde3291",
+  "candidate_pool_proof_file_sha256": "cc54b1df54524458bc0eac97fa826fdc8771fc79e665c7ce639c79a8afe5cc77",
+  "case_selection_policy": "visually inspected all120 candidates in four rank-ordered contact sheets; manually selected rank1/99/85 for three descriptive visual conditions; no model tuning or unbiased aggregate claim",
+  "composite_caption_added_without_changing_any_scientific_row_pixels": true,
+  "composite_png_file": "figure7-vits-legacy-examples.png",
+  "composite_png_file_sha256": "6e06cbdcd33794f52b707e6038c2417f65082c33ab347bccf5f002f81538bcf8",
+  "error_csv_file_sha256": "2e122983a73f998afb1f49ccfa429d97412d88b2c9645ce4a2d818f98930ae5f",
+  "figure7_reproduced": false,
+  "format": "manually_reviewed_original_ordinary_qualitative_examples_v1",
+  "full_paper_complete": false,
+  "motion_context_files_sha256": {
+    "motion-context/evidence.json": "ad776d9d51e6b01c6fadd55ca7acef5dd16b68af522c25ef55d6955625f15b0a",
+    "motion-context/frame_00000347.jpg": "4f33e86001e8f8aefc40cc6bff0ac12e184407f6be891d68deee1ce1258e7242",
+    "motion-context/frame_00000348.jpg": "10d73c9648463aa394228e749b10bd0fc94fb65ecfc497999bc1ab88153d2549",
+    "motion-context/frame_00000349.jpg": "c0e2eb687e983a73d20db03bb206f30a306c042492d73eda5ae2d246a1c504e4",
+    "motion-context/frame_00000350.jpg": "ede73dadf93d1c8bc837160aafdaf10aa876c4d22095d909016eba46d084efcc",
+    "motion-context/frame_00000351.jpg": "832db30071d8f184046d2817503b272a81aaee2e3bbae7622d70844ab55cb7ee",
+    "motion-context/motion-context.png": "053b23f9fddab604c1e299934900901b4417c5d24728dbd6646b6ff6a180494a"
+  },
+  "physical_projection_proven": false,
+  "pool_selection_policy": "stable original gain rank; first displayable actual crops up to explicit review-pool limit",
+  "review_corrections_file_sha256": "9d195e0da58bc97f8ae414abeb83bdb930460c73b3451afd7f74ae982193fbab",
+  "review_status": "one_fresh_final_review_one_important_fixed_eight_RED_to_GREEN_regressions",
+  "selected_examples": [
+    {
+      "arrays_file": "rank_0001_seq_001898.npz",
+      "arrays_file_sha256": "4d9ddf7d12a8340006613d0ca93c001c53559976be818e251fc00a8242d497dc",
+      "condition": "self_occlusion",
+      "errors_deg": {
+        "emg": 29.56693505644798,
+        "fusion": 12.901540933549404,
+        "vision": 19.882277065515517
+      },
+      "errors_rad": {
+        "emg": 0.516002357006073,
+        "fusion": 0.22515778243541718,
+        "vision": 0.3469856381416321
+      },
+      "gain_deg": 6.980736131966114,
+      "key": {
+        "center_idx": 51282876,
+        "ep_idx": 33,
+        "group_index": 1,
+        "hand": "right",
+        "native_index": 925,
+        "sequence": 1898,
+        "split": "gesture",
+        "window_end": 51286771,
+        "window_start": 51278981
+      },
+      "manual_visual_rationale_zh": "手指握拢，掌侧屈曲关节和部分指尖被指体遮挡，二维轮廓重叠。人工选作自遮挡示例；不提供遮挡原因的传感器真值。",
+      "metadata_file": "rank_0001_seq_001898.json",
+      "metadata_file_sha256": "8b545f17d5c0e793bc3de6977b8848fbe3fa8273393bdef7c40e3750761d784e",
+      "panel_metadata_sha256": "c773b0cc2188e004123ef8b837401cee5ca34f097bd071439a27df00047e225c",
+      "png_file": "rank_0001_seq_001898.png",
+      "png_file_sha256": "6d6365bd7854103c1270853f0a91cf9f9baf5d35087029ee185c8716b3f51148",
+      "rank": 1,
+      "selection_is_manual_visual_interpretation": true
+    },
+    {
+      "arrays_file": "rank_0099_seq_002031.npz",
+      "arrays_file_sha256": "809621bc1c28cdd50b351b0a905e4c955456a23165f381e9e855bf15f0cfa8bf",
+      "condition": "depth_ambiguity",
+      "errors_deg": {
+        "emg": 8.76742409169674,
+        "fusion": 4.619293230772018,
+        "vision": 6.3799831487238405
+      },
+      "errors_rad": {
+        "emg": 0.15300914645195007,
+        "fusion": 0.08061593770980835,
+        "vision": 0.11134351044893265
+      },
+      "gain_deg": 1.7606899179518223,
+      "key": {
+        "center_idx": 9705568,
+        "ep_idx": 8,
+        "group_index": 2,
+        "hand": "left",
+        "native_index": 31,
+        "sequence": 2031,
+        "split": "both",
+        "window_end": 9709463,
+        "window_start": 9701673
+      },
+      "manual_visual_rationale_zh": "手掌近乎侧向相机，四指在图像中重合为很窄的轮廓；沿视线的间距与屈曲深度难从此单张RGB分辨。人工选作深度歧义示例，未新增深度测量。",
+      "metadata_file": "rank_0099_seq_002031.json",
+      "metadata_file_sha256": "dc5f7ff7ee0bd1d83522f83d1985e4a57d9a61bc51c4a74ca38001cd76ce9d9f",
+      "panel_metadata_sha256": "b95029f7fe41be18f40875368cd9dfeb2a498cc4fa147c7fbeb66da647a49481",
+      "png_file": "rank_0099_seq_002031.png",
+      "png_file_sha256": "47bbf2ba1f6abda9c9df31487bc9e075cf764d7f4edd1e5ffd0fdc990b137877",
+      "rank": 99,
+      "selection_is_manual_visual_interpretation": true
+    },
+    {
+      "arrays_file": "rank_0085_seq_001254.npz",
+      "arrays_file_sha256": "d83b32821e3620bc3bb76aa3bd9e72e30681b6f584f82223bfff83e2621563b2",
+      "condition": "motion_blur",
+      "errors_deg": {
+        "emg": 12.506017380952834,
+        "fusion": 6.536869635432958,
+        "vision": 8.369485035538673
+      },
+      "errors_rad": {
+        "emg": 0.21825510263442993,
+        "fusion": 0.1140814945101738,
+        "vision": 0.14606431126594543
+      },
+      "gain_deg": 1.8326154001057147,
+      "key": {
+        "center_idx": 33501510,
+        "ep_idx": 22,
+        "group_index": 1,
+        "hand": "left",
+        "native_index": 565,
+        "sequence": 1254,
+        "split": "gesture",
+        "window_end": 33505405,
+        "window_start": 33497615
+      },
+      "manual_visual_rationale_zh": "手部边缘出现拖影，指间边界模糊，背景杆件边界相对清楚；同episode第347–351帧可见手部位置和朝向连续变化。人工判断与运动模糊一致，未测快门，不能排除分辨率或失焦的贡献。",
+      "metadata_file": "rank_0085_seq_001254.json",
+      "metadata_file_sha256": "5ffea566a7344cf7b535166d52371de5b820f6a5b639b1cc5e153bf8239e94ed",
+      "panel_metadata_sha256": "6d14c1b1907ad942f43856e646f649d20b7dc58360ffd74ee21e51a6ebeada2c",
+      "png_file": "rank_0085_seq_001254.png",
+      "png_file_sha256": "65b01bacd4eaedc6a76270082710360179d4e6e55bb65eb5db8ec316857af7ae",
+      "rank": 85,
+      "selection_is_manual_visual_interpretation": true
+    }
+  ],
+  "source_commit": "df1b963af48a06d7914d741fe37c986e88a38568",
+  "source_model_identity_sha256": "7543495ccd161d11bc2db25f277a7dfb1fddd4fd0051b9f1d0531e5faeea41fd",
+  "supported_vits_legacy_three_visual_examples_complete": true,
+  "visual_categories_have_sensor_ground_truth": false
+}

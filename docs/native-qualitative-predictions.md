@@ -28,6 +28,23 @@ python scripts/paper/run_native_qualitative.py verify \
 
 原始追踪标志使用单独的真实布尔文件准入，新增[14项检查](../results/native-qualitative/flag-source-engineering-tests-20261101.json)已通过，包括全部2,322点与独立原始memmap读取逐项比较。新版脚本的`mocap_head_valid`显式映射到旧版`mocap_webcam_tracked`，`image_head_stale`映射到`image_webcam_stale`；左右手各自读取21个marker的`any()`，不使用生成标签或裁剪掩码替代。四个完整文件共2,911,115,900字节，须匹配已独立验收的旧版几何来源并在提取前后重新核对；当前字段映射不证明新版人口或物理相机等价。所有选中点的标志均保留，预测之后才过滤。
 
-[实际预测快照](../results/native-qualitative/frozen-prediction-running-20261101.json)记录当前源版本的独立后台执行；完整两遍原始包、模型状态和进程关闭尚待验收，不能使用中间进度作为最终指标。
+[实际预测快照](../results/native-qualitative/frozen-prediction-running-20261101.json)已成为历史记录；[完整双遍结果](../results/native-qualitative/frozen-predictions-complete-20261101.json)现已验收，每遍2,322点/38批，全部原始数组精确重放、模型状态不变、60拥有者与退出后独立复核进程关闭。不能将定性抽样分母替换为全量表格分母。
 
-[完整布尔来源闭环](../results/native-qualitative/boolean-flags-complete-20261101.json)现已完成：两个独立实际准入／导出、6个原始拥有者与退出后NumPy复核进程均已关闭，四文件完整字节与所有2,322点逐项一致。原始条件会保留2,242点；未追踪20、无有效手marker64、陈旧帧0，前两者存在重叠。所有2,322点继续进行预测，之后才按这些标志排序；不能把标签有效性直接当作该过滤条件。此闭环只证明过滤输入，未证明两遍模型预测、三类例图或新版数据人口等价。
+[完整布尔来源闭环](../results/native-qualitative/boolean-flags-complete-20261101.json)现已完成：两个独立实际准入／导出、6个原始拥有者与退出后NumPy复核进程均已关闭，四文件完整字节与所有2,322点逐项一致。原始条件会保留2,242点；未追踪20、无有效手marker64、陈旧帧0，前两者存在重叠。所有2,322点继续进行预测，之后才按这些标志排序；不能把标签有效性直接当作该过滤条件。此闭环本身只证明过滤输入；两遍模型预测已由独立完整证明验收，三类例图与新版数据人口等价仍欠。
+
+同点候选池入口如下。它只消费已独立验收并实际关闭的双遍预测来源；固定完整来源证明和所有原始文件须保持。每张候选保留实际RGB、四组22角、原始前20角网格、未舍入误差、公共视角及全部文件SHA。默认120只限制供人工检查的图片数，不改变2,242点完整收益排序；缺RGB样本仍留在排名中。不会自动赋予三类条件标签。
+
+```bash
+python scripts/paper/render_native_qualitative.py \
+  --paired-root /path/to/completed-ordinary-paired-io \
+  --upstream /path/to/pinned-official-source \
+  --data /path/to/legacy --crops /path/to/crops \
+  --geometry /path/to/legacy-geometry \
+  --first /path/to/completed-neural-workflow/private/pass-a \
+  --second /path/to/completed-neural-workflow/private/pass-b \
+  --output /path/to/new-candidate-pool --limit 120
+```
+
+[21项来源／导图检查](../results/native-qualitative/render-source-engineering-tests-20261101.json)已通过、零跳过，包含真实完成来源的第一名可显示样例、GT与预测数组、RGB类型和尺寸、PNG及误差连接；也拒绝未注册对象和改写的完成证明。数值测试的合成RGB不会用作科研例图。原始网格采用每姿态0.09尺寸归一化，数值MAE仍包括两个腕角，显示不包括腕角；孤立网格共用显示视角，不声称是物理RGB重投影。
+
+输入代码包准入现在会重新计算 `stage-receipt.json` 的完整主体SHA，并校验其每个源码／请求文件；全部文件继续受九项属性保护，不能只保留旧bundle字段或五份元数据就取得完整来源身份。读取历史完成预测时，`verify`／`compare`通过 `--producer-root /path/to/accepted-completed-neural-workflow` 指定已独立验收的生产代码包；同时核对固定完整证明、实际关闭、全部绑定源码及原始文件。生产身份保留历史真实SHA，当前读取器SHA单独放在 `reader_provenance` 中；只允许读取边界升级，其他数值助手必须匹配。历史证据只可读，不能开始新forward。新的 `infer` 使用当前生产身份并拒绝 `--producer-root`；候选导图从 `--first` 自动取得已完成的历史生产根目录。这样无需为一次来源校验修复重新执行已完成的模型推理。

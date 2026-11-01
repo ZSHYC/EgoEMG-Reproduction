@@ -13,17 +13,19 @@ def main():
     p.add_argument('mode',choices=('infer','verify','compare'))
     p.add_argument('--evidence',default=str(ROOT/'results/native-qualitative'))
     p.add_argument('--paired-root',required=True)
+    p.add_argument('--producer-root',help='accepted historical frozen workflow, for read-only verification')
     p.add_argument('--upstream',required=True)
     p.add_argument('--data');p.add_argument('--crops');p.add_argument('--fit')
     p.add_argument('--pass-root');p.add_argument('--replay-of');p.add_argument('--output',required=True)
     a=p.parse_args()
+    if a.mode=='infer'and a.producer_root:p.error('--producer-root is read-only; omit it for new inference')
     from egoemg_repro.qualitative_run import (load_qualitative_evidence,admit_qualitative_run_inputs,
         run_qualitative_pass,read_qualitative_pass,compare_qualitative_passes)
     from egoemg_repro.occlusion_dense_run import _seal,_write_json
     from egoemg_repro.occlusion_dense_data import _typed_sha
     from egoemg_repro.classic_emg import _hash
     from egoemg_repro.emg2pose_memory_process import process_identity
-    e=load_qualitative_evidence(evidence=a.evidence,paired_root=a.paired_root,upstream=a.upstream)
+    e=load_qualitative_evidence(evidence=a.evidence,paired_root=a.paired_root,upstream=a.upstream,producer_root=a.producer_root)
     if a.mode=='infer':
         if not all((a.data,a.crops,a.fit)):p.error('infer requires --data, --crops and --fit')
         inputs=admit_qualitative_run_inputs(e,data=a.data,crops=a.crops)

@@ -22,7 +22,7 @@ def consumers():
     from egoemg_repro.qualitative_run import load_qualitative_evidence,admit_qualitative_run_inputs
     from egoemg_repro.qualitative_flags import admit_qualitative_flags
     state=json.loads((PRED/'private/execution-state.json').read_text());assert state['status']=='complete'and state['actual_exit_code']==0
-    e=load_qualitative_evidence(evidence=ROOT/'results/native-qualitative',paired_root=PAIRED,upstream=UPSTREAM)
+    e=load_qualitative_evidence(evidence=ROOT/'results/native-qualitative',paired_root=PAIRED,upstream=UPSTREAM,producer_root=PRED)
     inputs=admit_qualitative_run_inputs(e,data=DATA,crops=CROPS)
     flags=admit_qualitative_flags(e,data=DATA,geometry=GEOM)
     return inputs,flags
@@ -70,3 +70,11 @@ def test_existing_output_and_same_pass_cannot_be_promoted_as_a_new_pair(consumer
     inputs,flags=consumers
     with pytest.raises(ValueError):
         export_qualitative_candidates(inputs,PRED/'private/pass-a',PRED/'private/pass-a',flags=flags,output=tmp_path/'same',limit=1)
+
+
+def test_historical_reader_inputs_cannot_start_a_new_forward(consumers,tmp_path):
+    from egoemg_repro.qualitative_run import run_qualitative_pass
+    inputs,_=consumers
+    with pytest.raises(ValueError,match='read-only'):
+        run_qualitative_pass(inputs,tmp_path/'must-not-read',tmp_path/'must-not-create')
+    assert not(tmp_path/'must-not-create').exists()

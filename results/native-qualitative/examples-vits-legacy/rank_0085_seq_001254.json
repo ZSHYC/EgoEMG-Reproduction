@@ -1,0 +1,112 @@
+{
+  "accepted_flag_proof_sha256": "dc63fa66693b45f5928a81a3d51577c3e590930943665cef77f054dc8a43e1d9",
+  "accepted_prediction_proof_sha256": "1021f819d6c5371a43643715d4b3495bdf4f2017b087fcb028c8c4fdaf349e71",
+  "figure7_reproduced": false,
+  "file_sha256": "65b01bacd4eaedc6a76270082710360179d4e6e55bb65eb5db8ec316857af7ae",
+  "full_paper_complete": false,
+  "paired_input_identity_sha256": "0688fc091c4d14089cb572a977e150a770989e5dc5c0922f78a57b1e735dd44f",
+  "panel_metadata": {
+    "arrays_sha256": {
+      "emg:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "emg:unscaled_vertices": "da05c9c348e0d198d8b8eff93118910a0591bbf283dc1759728cd02e26b9c66c",
+      "emg:vertices": "91ede8586c83d15c9f91063971bb70b45c74be0a30cd50f121939414d7a6cfef",
+      "fusion:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "fusion:unscaled_vertices": "0cbfaeb81442ef74f5680e3c957e8981a494efd5963206c884724cb08b7cf78f",
+      "fusion:vertices": "ce6a3e64052f3ed64fb01eac136d3ccf21f369fbcdd5bb2c6d0746e7b310fc03",
+      "gt:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "gt:unscaled_vertices": "69ff0995b4270201eed2e4280686d05b095c2756dd54e6cbce6211ddd4caa676",
+      "gt:vertices": "7482a2df06d4311ec2b959bf43770fe99529faa33b6cee2bcab289940afa4ca2",
+      "pose:emg": "6aedd1fd7a86dbd1750e7aeea0e9974a08704512437806f49938b914165780f8",
+      "pose:fusion": "c01a54b414b6fa2fc735e5d455c6514c401dd63c9a933adef60fc0a25819c3cf",
+      "pose:gt": "ef2302d3ef11de7a5bf51230b8b0e7f5108cbe8717e057dfea12b218da49c041",
+      "pose:vision": "7aa1d85b1ce105c6460942b5d07631064831685c333627bff697f41b188db476",
+      "rgb": "2d8e629be52ab1ad96da8e723bd4dc3c0cc94274055652b05cb61e696a0b5b97",
+      "vision:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "vision:unscaled_vertices": "7acbc858a57a3a1b4399824221a5d57404ac1ffaf3d8b53464eb252e412b2d4b",
+      "vision:vertices": "f2f3a3ca7570ac325a55c6b79951b5bfd3dedeec7e04c38cefb7d1ea9740e056"
+    },
+    "crop_valid": true,
+    "delta_rad": 0.03198281675577164,
+    "errors_deg": {
+      "emg": 12.506017380952834,
+      "fusion": 6.536869635432958,
+      "vision": 8.369485035538673
+    },
+    "errors_rad": {
+      "emg": 0.21825510263442993,
+      "fusion": 0.1140814945101738,
+      "vision": 0.14606431126594543
+    },
+    "figure7_reproduced": false,
+    "format": "same_key_original_qualitative_numeric_panel_v1",
+    "full_paper_complete": false,
+    "geometry_adapter_source_sha256": "aeb3e64e90ad50ab936514883e8f49bdef32ca047829973bd7d9c1ffa8a5fdb8",
+    "geometry_source_files_sha256": {
+      "egoemg/UmeTrack/dataset/generic_hand_model.json": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31",
+      "egoemg/UmeTrack/lib/common/hand.py": "f225e339e8b73de258c2bf87072a7af3f857b4ffed68532159f60417b0a88136",
+      "egoemg/UmeTrack/lib/common/hand_skinning.py": "307b322fbfc785346325737f831b61c581e45bd1a819444d71a5e13895c43d6e",
+      "egoemg/UmeTrack/lib/common/pytorch3d_transforms_so3.py": "8392acd6c420e24f576c34c8deafbac8b52a41dc8343dccc42084af2b959e9a1",
+      "egoemg/UmeTrack/lib/tracker/video_pose_data.py": "b1d08ec7ce9dc773ceca67a8e2c9d39569e2999aee67cd77861606c3cd297428",
+      "scripts/eval/find_fusion_wins.py": "69d063ebe7d06fae067a5d9b18eb52dd1116e06eafd9b1f991ed1b20e03116f0"
+    },
+    "input_typed_sha256": {
+      "fusion:emg": "ebbdfd7983be81100fd83e96d1593a8809dc22b32a13d75a78bc18ef472df65b",
+      "fusion:emg_channel_mask": "64f6452d54efc5e9121ac102d776d3825a7155ae810d7377a1385cc5e8e7312d",
+      "fusion:joint_angles": "b51cc9d2ea950fb58200bce44d9e11c071d6b79bbdfb173cd1a17a70512834e6",
+      "fusion:label_valid_mask": "b65b3a00e129517a0b43bf43e44c2e1c74821281013a5d978179d6b4efc00b93",
+      "fusion:vision_frame_indices": "49378951223e75194178039550e125766a2883e70e3dd3aff4eeca48152bf066",
+      "fusion:vision_img": "9f43dc8daabf6dea0b33f3c1992a4cf74209ce09bbe8c9a426764948e9c75f25",
+      "fusion:vision_valid_mask": "b65b3a00e129517a0b43bf43e44c2e1c74821281013a5d978179d6b4efc00b93",
+      "standalone:emg": "27fe46543c90304dde0e3e024cb8eccd459cedf19fe946839ea1ab71005737fd",
+      "standalone:emg_channel_mask": "55e541ac98d35f8957d5cb7ac6015d86917b24db33bdc00ec2f3f3e1c930d371",
+      "standalone:joint_angles": "b51cc9d2ea950fb58200bce44d9e11c071d6b79bbdfb173cd1a17a70512834e6",
+      "standalone:label_valid_mask": "b65b3a00e129517a0b43bf43e44c2e1c74821281013a5d978179d6b4efc00b93"
+    },
+    "key": {
+      "center_idx": 33501510,
+      "ep_idx": 22,
+      "group_index": 1,
+      "hand": "left",
+      "native_index": 565,
+      "sequence": 1254,
+      "split": "gesture",
+      "window_end": 33505405,
+      "window_start": 33497615
+    },
+    "label_valid": true,
+    "left_rgb_already_canonical": true,
+    "mesh_finger_angles": 20,
+    "native_mesh_normalization": "each pose separately: median vertex span -> 0.09 when span >1e-6",
+    "normalized_rgb_sha256": "9f43dc8daabf6dea0b33f3c1992a4cf74209ce09bbe8c9a426764948e9c75f25",
+    "numeric_error_angles": 22,
+    "physical_rgb_projection_proven": false,
+    "scientific_eligible": false,
+    "shared_view": {
+      "azimuth": -70.0,
+      "elevation": 20.0,
+      "limits": [
+        [
+          -0.12170076146721841,
+          0.013055352121591576
+        ],
+        [
+          -0.08237012345343829,
+          0.05238599013537169
+        ],
+        [
+          -0.07369368486106397,
+          0.06106242872774602
+        ]
+      ],
+      "projection": "ortho",
+      "zoom": 1.5
+    },
+    "trained_source_admitted": false,
+    "wrist_angles_displayed": false
+  },
+  "png_pixels_sha256": "acc708f04a63a660d50e647f603ddebf2598d56a1eb661e7515319033e70b9e1",
+  "rank": 85,
+  "renderer_source_sha256": "a46dd25512c402b92b8dc03ce30d74a87411dd9e75738a8f0a19ab6aa8be1e80",
+  "source_model_identity_sha256": "7543495ccd161d11bc2db25f277a7dfb1fddd4fd0051b9f1d0531e5faeea41fd",
+  "trained_source_admitted": false
+}

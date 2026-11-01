@@ -119,6 +119,7 @@ class QualitativeEvidence:
     def check(self):
         s=_registered(self,_EVIDENCE,QualitativeEvidence);s['guard'].check()
         if _hash(s['identity'])!=s['identity_hash']:raise ValueError('ordinary prediction evidence identity changed')
+        if _hash(s['reader_provenance'])!=s['reader_provenance_hash']:raise ValueError('ordinary reader provenance changed')
 
     @property
     def identity(self):self.check();return copy.deepcopy(_EVIDENCE[self]['identity'])
@@ -126,12 +127,54 @@ class QualitativeEvidence:
     @property
     def upstream(self):self.check();return _EVIDENCE[self]['upstream']
 
+    @property
+    def reader_provenance(self):self.check();return copy.deepcopy(_EVIDENCE[self]['reader_provenance'])
+
     def records(self):self.check();return [json.loads(line)for line in _EVIDENCE[self]['records']]
 
     def keys(self):return [r['key']for r in self.records()]
 
 
-def load_qualitative_evidence(*,evidence,paired_root,upstream):
+def _admit_capsule(root,manifest,expected,guard):
+    if _hash({k:v for k,v in manifest.items()if k!='bundle_sha256'})!=expected:
+        raise ValueError('complete accepted source capsule manifest body differs')
+    for name,digest in manifest['files_sha256'].items():
+        relative=Path(name)
+        if relative.is_absolute()or'..'in relative.parts:raise ValueError('capsule source must stay inside its root')
+        path=_safe(root/relative);guard.add(path)
+        if file_sha256(path)!=digest:raise ValueError('accepted source capsule file bytes differ')
+        guard.check()
+
+
+def _historical_producer_sources(root,current,guard):
+    """Read old outputs under their actual, independently accepted producer bytes."""
+    from .emg2pose_memory_process import process_identity
+    proof=ROOT/'results/native-qualitative/frozen-predictions-complete-20261101.json';guard.add(proof)
+    if file_sha256(proof)!='1021f819d6c5371a43643715d4b3495bdf4f2017b087fcb028c8c4fdaf349e71':
+        raise ValueError('fixed complete historical frozen producer proof required')
+    accepted=_json(proof);root=_safe(root)
+    workflow=_closed_workflow(root,accepted['raw_workflow_file_sha256'],guard)
+    path=root/'private/stage-receipt.json';guard.add(path);manifest=_json(path)
+    if (manifest['source_commit']!=accepted['source_commit']or workflow['source_commit']!=accepted['source_commit']
+        or workflow['bundle_sha256']!=accepted['bundle_sha256']):raise ValueError('same accepted historical producer required')
+    _admit_capsule(root,manifest,accepted['bundle_sha256'],guard)
+    for name,digest in accepted['files_sha256'].items():
+        path=_safe(root/name);guard.add(path)
+        if file_sha256(path)!=digest:raise ValueError('accepted historical producer raw graph differs')
+    for actor in accepted['actual_closed_original_actors']:
+        now=process_identity(actor['pid'])
+        if now is not None and now['start_ticks']==str(actor['start_ticks']):
+            raise ValueError('historical producer or loader owner still present')
+    identity=_sealed(_json(root/'private/pass-a/identity.json'))
+    if identity['sha256']!=accepted['prediction_identity_sha256']:raise ValueError('same historical prediction identity required')
+    sources=identity['source_files_sha256']
+    if (set(sources)!=set(current)or any(manifest['files_sha256'].get(n)!=h for n,h in sources.items())
+        or any(current[n]!=h for n,h in sources.items()if n!='egoemg_repro/qualitative_run.py')):
+        raise ValueError('historical numeric producer helpers differ; only reader admission may change')
+    guard.check();return sources
+
+
+def load_qualitative_evidence(*,evidence,paired_root,upstream,producer_root=None):
     guard,sources=_guard();path=_safe(Path(evidence)/PROOF);guard.add(path)
     if file_sha256(path)!=PROOF_SHA:raise ValueError('fixed independently reconstructed ordinary input proof required')
     proof=_json(path);root=_safe(paired_root)
@@ -147,6 +190,13 @@ def load_qualitative_evidence(*,evidence,paired_root,upstream):
         or workflow['source_commit']!=proof['source_commit']or manifest['source_commit']!=proof['source_commit']
         or workflow['bundle_sha256']!=proof['bundle_sha256']or manifest['bundle_sha256']!=proof['bundle_sha256']
         or workflow['actual_complete_io_passes']!=4):raise ValueError('same complete actual ordinary source graph required')
+    _admit_capsule(root,manifest,proof['bundle_sha256'],guard)
+    reader_provenance=dict(current_source_files_sha256=copy.deepcopy(sources),historical_producer_root=None,
+        historical_producer_source_files_sha256=None)
+    if producer_root is not None:
+        sources=_historical_producer_sources(producer_root,sources,guard)
+        reader_provenance.update(historical_producer_root=str(_safe(producer_root)),
+            historical_producer_source_files_sha256=copy.deepcopy(sources))
     directory=root/'private/vits_s-a';identity_path=directory/'identity.json';journal=directory/'samples.jsonl'
     guard.add(identity_path);guard.add(journal)
     identity=_json(identity_path);accepted=proof['recipes']['vits_s']
@@ -173,7 +223,8 @@ def load_qualitative_evidence(*,evidence,paired_root,upstream):
         selected_hand_points=2322,crop_missing_retained=80,label_invalid_retained=64,
         source_model_identity_sha256=MODEL_ID,ordinary_dense_collation_AST_exact=True,
         trained_model_or_inference_permit=False,figure7_reproduced=False,full_paper_complete=False)
-    result=QualitativeEvidence();_EVIDENCE[result]=dict(guard=guard,identity=value,identity_hash=_hash(value),records=lines,upstream=upstream)
+    result=QualitativeEvidence();_EVIDENCE[result]=dict(guard=guard,identity=value,identity_hash=_hash(value),records=lines,upstream=upstream,
+        reader_provenance=reader_provenance,reader_provenance_hash=_hash(reader_provenance))
     result.check();return result
 
 
@@ -281,6 +332,8 @@ def compare_qualitative_passes(first,second,*,evidence):
 
 def run_qualitative_pass(inputs,fusion_fit,output,*,replay_of=None):
     _registered(inputs,_INPUTS,QualitativeRunInputs);inputs.check();evidence=inputs.evidence
+    if evidence.reader_provenance['historical_producer_root']is not None:
+        raise ValueError('historical producer evidence is read-only; new inference needs current producer identity')
     previous=read_qualitative_pass(replay_of,evidence=evidence)if replay_of is not None else None
     import torch
     from .occlusion_dense_models import load_dense_trained_models

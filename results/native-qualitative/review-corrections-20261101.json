@@ -1,0 +1,68 @@
+{
+  "actual_exit_code": 0,
+  "actual_historical_2322_key_and_raw_prediction_identity_preserved": true,
+  "actual_test_actor": {
+    "pgrp": 1634673,
+    "pid": 1634673,
+    "sid": 1634673,
+    "start_ticks": "437587572",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_test_actor_closed": true,
+  "all_test_capsule_bytes_unchanged": true,
+  "checks_by_test_file": {
+    "test_qualitative_flags.py": 11,
+    "test_qualitative_provenance.py": 7,
+    "test_qualitative_render.py": 18,
+    "test_qualitative_render_source.py": 4,
+    "test_qualitative_run.py": 20
+  },
+  "closed_selection_input_ranking_FK_core_math_suites_repeated": false,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "correction": "rehash accepted manifest body and every guarded capsule file; retain lifetime guards; explicit independently accepted historical producer read-only admission with current validator provenance separate",
+  "critical_findings": 0,
+  "cuda_initialized": false,
+  "current_tested_unit_snapshot": {
+    "egoemg_repro/qualitative_run.py": "c9dd2ff076506bae9070f2758ed02c353cf1402d21795df8542271d7d77477bf",
+    "scripts/paper/render_native_qualitative.py": "9abc139077d3c1babaa4aa2f2d4e4e046ef62a8e4f0ea44b24b0139a111375be",
+    "scripts/paper/run_native_qualitative.py": "4812cbfcd8a0aa395a96f8aa3ca4a743b4196a0c0231150941d566c05a096867",
+    "tests/test_qualitative_provenance.py": "0f3eb5f6b8cc097b2dfcfbe60e1afc325c830869bbc01e72736ed8a2427bf262",
+    "tests/test_qualitative_render_source.py": "acd72f291a34fe6002e66a9903f91dce852d14a7087fca4d6c2321960a6b5661"
+  },
+  "deferred_minors": [],
+  "figure7_reproduced": false,
+  "final_checks": 60,
+  "final_skipped": 0,
+  "finding": "paired-input admission trusted opaque manifest bundle without its body or all139 historical source bytes",
+  "format": "native_qualitative_single_final_review_corrections_v1",
+  "fresh_final_review_count": 1,
+  "full_paper_complete": false,
+  "historical_readonly_RED_log_sha256": "434c84ed7776f2c2e3daa7d364350db1a0950c02295ba51f8c9c196918a7141d",
+  "important_findings": 1,
+  "initial_seven_RED_log_sha256": "ff1987909a5008b199a434690bd085021921da6c8453405561bf1a477bb6665b",
+  "material_fix_passes": 1,
+  "minor_findings": 0,
+  "new_neural_inference_performed": false,
+  "new_regressions_GREEN": 8,
+  "new_regressions_RED": 8,
+  "raw_log": "............................................................             [100%]\n60 passed in 144.42s (0:02:24)\n",
+  "raw_log_sha256": "5dc31bc1182bc5efd47da24b9523324a0cb189db5e72c7852970b4f35f82989f",
+  "reviewed_base_commit": "f0fd8a4406fb41b011b92c89bd3bfe7192422819",
+  "reviewed_implementation_commit": "df1b963af48a06d7914d741fe37c986e88a38568",
+  "rulings": [
+    "Closed Dense/IK/core mathematics use existing accepted evidence; risk: any pre-existing mathematics defect remains outside this new-unit review.",
+    "Whole Figure7/RN18/current-cohort/markers2mano/physicalXYZ-wrists/resource-stopped work remain pending; risk of overclaim avoided by explicit status flags.",
+    "Isolated shared mesh display does not claim physical RGB reprojection; risk: camera-equivalence interpretation would be unsupported.",
+    "Condition labels remain manual visual interpretations, not sensor or causal truth; risk: possible condition ambiguity retained in rationale and neighbouring crops.",
+    "Rank-selected wins are illustrative, not aggregate evidence; risk: selection bias prevents a population superiority claim.",
+    "Pure numeric helpers grant no trained-source admission; the registered actual export path supplies it; risk: bypassing that path supplies no provenance permit.",
+    "Final source/license captions and complete receipt/artifact graph are author publication gates; risk: stale outputs or missing rights attribution checked before promotion.",
+    "No supported-workflow defect established for hypothetical runtime monkeypatches or unrelated style; risk: own-process arbitrary execution is outside this source-admission trust boundary."
+  ],
+  "scientific_eligible": false,
+  "second_review_performed": false
+}
