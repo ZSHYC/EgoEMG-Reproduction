@@ -1,0 +1,40 @@
+{
+  "actual_all2322_selected_flags_compared_to_direct_raw_memmaps": true,
+  "actual_exit_code": 0,
+  "actual_test_actor": {
+    "pgrp": 1594702,
+    "pid": 1594702,
+    "sid": 1594702,
+    "start_ticks": "437274462",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_test_actor_closed": true,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "explicit_legacy_aliases": {
+    "image_head_stale": "image_webcam_stale",
+    "mocap_head_valid": "mocap_webcam_tracked"
+  },
+  "explicit_tested_unit_snapshot": {
+    "egoemg_repro/qualitative_flags.py": "d8ce48a4610c22d8916f6332bbef9325600384125ba794f7d5ae1e328606b072",
+    "tests/test_qualitative_flags.py": "143e584e65212738e5c268661579f21ced459dbdf2b457c5a6434bf73842c267",
+    "tests/test_qualitative_flags_source.py": "9ec5820bbc3377f40af0cf44670f5352ea5d04cba2ee53631294f01a1dee95eb"
+  },
+  "figure7_reproduced": false,
+  "format": "new_ordinary_original_boolean_filter_source_engineering_tests_v1",
+  "full_frozen_predictions_complete": false,
+  "full_paper_complete": false,
+  "model_or_geometry_permit": false,
+  "passed": 14,
+  "raw_log_sha256": "0d06623090da2a3296efb13732a58f3f9692f96e050baf11ab165a18a65e7e78",
+  "real_full_boolean_files_bytes": 2911115900,
+  "scientific_eligible": false,
+  "seconds": 8.82,
+  "skipped": 0,
+  "source_base_commit": "7fe8ea87a630eb044735c7d901f5e4564c9a0bcb",
+  "source_reference_sha256": "d89f6298787e4eaae8a12207703f9a0b18f9959f90e8f03b69bf3dbbaaebbfdb"
+}

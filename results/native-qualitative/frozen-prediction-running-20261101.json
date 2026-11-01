@@ -1,0 +1,37 @@
+{
+  "actual_first_pass_progress": {
+    "batches": 16,
+    "hand": "right",
+    "points": 1000,
+    "seconds": 234.79800175875425,
+    "split": "user",
+    "total_batches": 38,
+    "total_points": 2322
+  },
+  "actual_full_frozen_predictions_complete": false,
+  "all_owners_closed": false,
+  "bundle_sha256": "a443b83c70f3adfc21df8a6ba63a9e8c9c6d809bbc1456e61cbf61ec854edfad",
+  "figure7_reproduced": false,
+  "format": "actual_ordinary_frozen_prediction_running_snapshot_v1",
+  "full_paper_complete": false,
+  "intended_batches_each": 38,
+  "intended_complete_passes": 2,
+  "intended_points_each": 2322,
+  "observed_utc": "2026-11-01T15:06:06.472258+00:00",
+  "original_owners": [
+    {
+      "matching_live": true,
+      "pid": 1590555,
+      "role": "wrapper",
+      "tty": 0
+    },
+    {
+      "matching_live": true,
+      "pid": 1590556,
+      "role": "child",
+      "tty": 0
+    }
+  ],
+  "scientific_eligible": false,
+  "source_commit": "7fe8ea87a630eb044735c7d901f5e4564c9a0bcb"
+}

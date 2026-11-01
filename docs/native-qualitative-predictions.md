@@ -25,3 +25,7 @@ python scripts/paper/run_native_qualitative.py verify \
 ```
 
 实际来源证明固定为`ordinary-paired-inputs-complete-20261101.json`的完整SHA，不接受重新封装的小样本或借来的模型标识来授权推理。原始包工具的数值测试不授予训练来源许可。新增[27项检查](../results/native-qualitative/frozen-runtime-engineering-tests-20261101.json)已在既有服务器CPU环境通过，未安装或修改共享依赖，未重复旧模型数学套件。
+
+原始追踪标志使用单独的真实布尔文件准入，新增[14项检查](../results/native-qualitative/flag-source-engineering-tests-20261101.json)已通过，包括全部2,322点与独立原始memmap读取逐项比较。新版脚本的`mocap_head_valid`显式映射到旧版`mocap_webcam_tracked`，`image_head_stale`映射到`image_webcam_stale`；左右手各自读取21个marker的`any()`，不使用生成标签或裁剪掩码替代。四个完整文件共2,911,115,900字节，须匹配已独立验收的旧版几何来源并在提取前后重新核对；当前字段映射不证明新版人口或物理相机等价。所有选中点的标志均保留，预测之后才过滤。
+
+[实际预测快照](../results/native-qualitative/frozen-prediction-running-20261101.json)记录当前源版本的独立后台执行；完整两遍原始包、模型状态和进程关闭尚待验收，不能使用中间进度作为最终指标。
