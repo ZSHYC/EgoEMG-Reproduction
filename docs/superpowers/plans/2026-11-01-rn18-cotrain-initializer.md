@@ -47,9 +47,9 @@
 **Files:** create `egoemg_repro/rn18_initializer_cohort.py`, tests, full CPU collector and evidence.
 **Interfaces:** `admit_rn18_initializer_cohort(data,*,upstream,config,normalization,expected=None,require_full=True)` returns registered `Rn18InitializerCohort(datasets,partitions,identity,check)`; reuse native loader via explicitscope.
 
-- [ ] RED for complete raw hashes, full possible jitter/target finiteness including masked-false/wrist rows, typed reader/generation/source/config/normalization mutation and unregistered/resealed receipt rejection.
-- [ ] Implement source-before-import/read guards, complete path/byte/schema bindings and independent live registry. Preserve closed source/hash helpers; use streaming for large actual files and content hash actual providers on check. Expected no constructor RNG/model/optimizer/CUDA changes.
-- [ ] Independently produce/reopen a real small numeric cohort, then stage exact committed sources for two complete actual-data passes. Expected actual62470/1052, matching future44e9... roles, all consumed payload SHA/finite trajectories equal, all original owners closed0. Data acceptance alone is no trained initializer.
+- [x] RED for complete raw hashes, full possible jitter/target finiteness including masked-false/wrist rows, typed reader/generation/source/config/normalization mutation and unregistered/resealed receipt rejection.
+- [x] Implement source-before-import/read guards, complete path/byte/schema bindings and independent live registry. Preserve closed source/hash helpers; use streaming for large actual files and content hash actual providers on check. Expected no constructor RNG/model/optimizer/CUDA changes.
+- [x] Independently produce/reopen a real small numeric cohort, then stage exact committed sources for two complete actual-data passes. Expected actual62470/1052, matching future44e9... roles, all consumed payload SHA/finite trajectories equal, all original owners closed0. Data acceptance alone is no trained initializer.
 
 ### Task 3: original fit/recovery and validationBEST export
 

@@ -17,6 +17,7 @@ def api():return importlib.import_module('egoemg_repro.rn18_initializer_cohort')
 
 
 def args(root):
+    pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     from egoemg_repro.emg_initializer_literal import emg_initializer_normalization
     return dict(data=root,upstream=UPSTREAM,config=config(),normalization=emg_initializer_normalization(UPSTREAM),require_full=False)
 
@@ -26,7 +27,7 @@ def admit(root,**kw):
 
 
 def test_complete_numeric_targets_and_actual_content_identity_reopen_without_rng_or_models(tmp_path):
-    import torch
+    torch=pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     m=api();source(tmp_path,optional_labels=True);a=args(tmp_path)
     py=random.getstate();ns=np.random.get_state();ts=torch.get_rng_state().clone()
     c=m.admit_rn18_initializer_cohort(**a);c.check();again=m.admit_rn18_initializer_cohort(expected=c.identity,**a)

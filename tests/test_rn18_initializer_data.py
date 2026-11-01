@@ -15,7 +15,12 @@ from test_emg_initializer_literal import UPSTREAM,config
 def api():return importlib.import_module('egoemg_repro.rn18_initializer_data')
 
 
+def require_runtime():
+    pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
+
+
 def dataset(root,role='train',fraction=.12,**overrides):
+    require_runtime()
     m=api();cfg=config()
     from egoemg_repro.emg_initializer_literal import emg_initializer_normalization
     args=dict(data=root,partitions=m.build_rn18_initializer_partitions(LegacyStore(root),fraction),upstream=UPSTREAM,
@@ -24,6 +29,7 @@ def dataset(root,role='train',fraction=.12,**overrides):
 
 
 def test_original_cotrain_recipe_and_actual12worker_loader_contract():
+    require_runtime()
     m=api();p=m.rn18_initializer_contract(UPSTREAM,config());native=p['producer_protocol']
     assert native['upstream_experiment']=='emgformer/regression_egoemg_incre_cotrain_wl12000_small'
     assert native['trainer']['max_epochs']==150 and native['effective_loss_weights']['landmark/fingertip']==.01
@@ -36,6 +42,7 @@ def test_original_cotrain_recipe_and_actual12worker_loader_contract():
 
 @pytest.mark.parametrize('damage',['epochs','lr','loss','workers'])
 def test_modified_cotrain_recipe_cannot_be_constructed_as_exact_initializer(damage):
+    require_runtime()
     m=api();cfg=config()
     if damage=='epochs':cfg.trainer.max_epochs=200
     elif damage=='lr':cfg.optimizer.lr=.00005
@@ -73,7 +80,7 @@ def test_invalid_holdout_fraction_rejects(tmp_path,fraction):
 @pytest.mark.parametrize('hand',['left','right'])
 @pytest.mark.parametrize('optional_labels',[False,True])
 def test_native_full_reader_values_masks_and_rng_exact_both_roles(tmp_path,role,hand,optional_labels):
-    import torch
+    torch=pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     m=api();source(tmp_path,optional_labels=optional_labels);ds=dataset(tmp_path,role);cfg=config()
     from egoemg.datasets.egoemg_memmap_dataset import EgoEmgMemmapDataset
     from egoemg.transforms import Compose
@@ -98,7 +105,7 @@ def test_native_full_reader_values_masks_and_rng_exact_both_roles(tmp_path,role,
 
 @pytest.mark.parametrize('leftover',[0,1,17,1200])
 def test_native_last_jitter_offset_is_not_clipped_and_false_mask_is_retained(tmp_path,leftover):
-    import torch
+    torch=pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     m=api();source(tmp_path,n=W+leftover);store=LegacyStore(tmp_path)
     store.field('generated_label_valid')
     mask=np.memmap(tmp_path/'generated_label_valid.dat',mode='r+',dtype=bool,shape=(W+leftover,2));mask[:,0]=False;mask.flush()
@@ -133,7 +140,7 @@ def test_mutated_reader_cannot_become_native_loader(tmp_path,damage):
 
 
 def test_exact12worker_forkserver_validation_reads_full_native_values_and_closes(tmp_path):
-    import torch
+    torch=pytest.importorskip('torch');pytest.importorskip('pytorch_lightning')
     m=api();source(tmp_path);ds=dataset(tmp_path,'val');loader=m.native_rn18_initializer_loader(ds,scope='full')
     assert loader.batch_size==260 and loader.num_workers==12 and loader.persistent_workers and loader.prefetch_factor==2
     assert loader.pin_memory is False and loader.generator is None and loader.multiprocessing_context.get_start_method()=='forkserver'
