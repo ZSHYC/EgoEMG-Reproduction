@@ -22,4 +22,6 @@
 
 训练入口是`egoemg_repro.rn18_initializer_train`。完整训练必须重新准入实际数据，并提供独立冻结的完整数值receipt；工程数据、旧实验的相似配方或重新封装的JSON都不能获得完整权重交接资格。fit、checkpoint和export使用RN18专属身份，拒绝另一初始化实验族。恢复核对模型、AdamW、scheduler、callbacks、native loops和Python/NumPy/Torch随机状态，并在继续前完整重放冻结验证。实际worker/iterator需要重建，不保证与未中断persistent-worker训练逐步相同。
 
+[独立CPU恢复与导出](../results/rn18-cotrain-native-cpu-recovery-20261101.json)已实际完成：6个拥有阶段全部退出0、14原拥有者关闭；真实一轮前缀接续到两轮/4次更新，模型、优化器、scheduler、callbacks、loops和RNG六域恢复一致，完整工程验证重放一致，110个原生张量与实际验证BEST一致，退出后新进程重新读取通过。部分训练不能导出，工程结果不能冒充完整初始化。80项完整运行时检查通过；明确禁用Torch时8项纯检查通过、72项运行时检查skip。
+
 当前完整150轮、真实GPU资格及验证BEST权重尚未完成；RN18融合仍需其视觉LAST来源验收、两个分支交接、原生融合150轮和最终独立评价。完整论文目标继续保留。
