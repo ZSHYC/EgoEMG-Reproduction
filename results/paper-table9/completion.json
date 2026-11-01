@@ -4,12 +4,12 @@
     "README.md": "80b49ddb668c51e81c3cb795cb45e7ba398220f5008405a08f02adf9b3e1e2dc",
     "cells.csv": "2f01b09ff6130336e444681722da0e35333245089608ded996ae2097a592b47f",
     "hand-gaps.csv": "3953529c03bda541667c90bdd6455ad9903cb091be3566f50cb7f8cbb38045c5",
-    "metrics.json": "d905d94afafe8ce37021e22d72e0a7244b3852f31a39922f0f7e96138a6dcada"
+    "metrics.json": "7a2a8c021e48d19c73df7fb83edf54e3a046160e9d7235d04d4b4e5bc4ce8176"
   },
   "format": "source_pinned_table9_artifact_completion_v1",
   "full_paper_complete": false,
-  "report_sha256": "cf29e8a5c9f3a1186f1d5f5066f11bbee7b7c98ad0ac8edbb745c187202148a1",
-  "sha256": "4ac82be1441b8b427bd6d3071794682dadc714d0c63dfc72ceb80043770889d7",
+  "report_sha256": "2355befe3d086062cc6aa4a95ffea76a5188a87febdff1be825be9df6b827d67",
+  "sha256": "666565f28675591589d6a1fc5d14c3055b8514586ff62bc892f93a4791556018",
   "source_reports_sha256": {
     "results/completed/emgformer-l/metrics.json": "c4e6bf1a00141040e4a0db3e649fea1425ffa912269bb45d7f93cb81a92eb6ee",
     "results/completed/emgformer-m/metrics.json": "a85f9a11818684d4189af0c24d5bd7f7222059a9aa41360732c0743f5b648884",

@@ -698,10 +698,10 @@
     "visually_inspected": true
   },
   "scientific_settings_added": 0,
-  "sha256": "cf29e8a5c9f3a1186f1d5f5066f11bbee7b7c98ad0ac8edbb745c187202148a1",
+  "sha256": "2355befe3d086062cc6aa4a95ffea76a5188a87febdff1be825be9df6b827d67",
   "source_boundary": "three retained legacy EMGFormer protocols and two completed original native classic protocols; different population, window, objective, normalization and masks remain separate; no controlled ranking claim",
   "source_files_sha256": {
     "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
-    "egoemg_repro/paper_table9.py": "e8e7eaa33739af78c351f1fe1e519b330bf445d05efe528c0191a656f2ee85d5"
+    "egoemg_repro/paper_table9.py": "101e7732ee4e7230200b8fa5c071378df80b8f47bc851121704bca834b825aed"
   }
 }

@@ -144,6 +144,42 @@ def test_source_generation_change_inside_hash_is_rejected(tmp_path,monkeypatch):
     with pytest.raises(ValueError):m.build_table9(tmp_path)
 
 
+def test_code_generation_guard_precedes_the_first_source_hash(tmp_path,monkeypatch):
+    m=api();code=tmp_path/'code'/'egoemg_repro';code.mkdir(parents=True)
+    for name in ('paper_table9.py','classic_emg_cohort.py'):
+        shutil.copyfile(ROOT/'egoemg_repro'/name,code/name)
+    helper=code/'classic_emg_cohort.py';original=m._sha;done=False
+    monkeypatch.setattr(m,'__file__',str(code/'paper_table9.py'))
+    def changed(path):
+        nonlocal done
+        digest=original(path)
+        if Path(path)==helper and not done:
+            done=True;helper.write_bytes(helper.read_bytes()+b'\n')
+        return digest
+    monkeypatch.setattr(m,'_sha',changed)
+    with pytest.raises(ValueError):m.build_table9(ROOT)
+    assert done
+
+
+def test_verify_keeps_source_guard_alive_while_artifacts_are_rebuilt(tmp_path,monkeypatch):
+    m=export_api();copy_reports(tmp_path);out=tmp_path/'table';m.export_table9(tmp_path,out)
+    source=tmp_path/'results/completed/emgformer-s/metrics.json';original=m._artifact_bytes
+    def changed(report):
+        raw=original(report);source.write_bytes(source.read_bytes()+b' ');return raw
+    monkeypatch.setattr(m,'_artifact_bytes',changed)
+    with pytest.raises(ValueError):m.verify_table9(tmp_path,out)
+
+
+def test_verify_rechecks_directory_membership_after_reading_completion(tmp_path,actual_output,monkeypatch):
+    m=export_api();out=tmp_path/'table';shutil.copytree(actual_output,out);original=Path.read_bytes
+    def changed(path):
+        raw=original(path)
+        if path==out/'completion.json':(out/'unexpected.txt').write_text('added during verification')
+        return raw
+    monkeypatch.setattr(Path,'read_bytes',changed)
+    with pytest.raises(ValueError):m.verify_table9(ROOT,out)
+
+
 def test_export_cannot_write_inside_a_frozen_model_report_directory():
     m=export_api();target=ROOT/'results/completed/emgformer-s/forbidden-table9'
     with pytest.raises(ValueError):m.export_table9(ROOT,target)

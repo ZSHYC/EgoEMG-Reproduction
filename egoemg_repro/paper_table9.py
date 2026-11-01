@@ -12,6 +12,7 @@ import json
 import math
 from pathlib import Path
 import re
+import stat
 
 from .classic_emg_cohort import _safe,_json,_StatGuard
 
@@ -102,10 +103,11 @@ def _selected(value,legacy,method):
     return selected
 
 
-def build_table9(repo):
-    repo=_safe(repo);sources=_sources();code_root=Path(__file__).resolve().parents[1]
+def _build_table9_context(repo):
+    repo=_safe(repo);code_root=Path(__file__).resolve().parents[1]
     paths=[_safe(repo/n)for _,n,_ in SOURCE_REPORTS]
-    guard=_StatGuard([*paths,*[code_root/n for n in sources]])
+    guard=_StatGuard([*paths,code_root/'egoemg_repro/paper_table9.py',code_root/'egoemg_repro/classic_emg_cohort.py'])
+    sources=_sources();guard.check()
     models=[];cells=[];gaps=[]
     for index,((method,name,digest),path)in enumerate(zip(SOURCE_REPORTS,paths)):
         if _sha(path)!=digest:raise ValueError('pinned complete Table9 source report bytes differ: '+method)
@@ -139,7 +141,11 @@ def build_table9(repo):
         paper_reference=dict(pdf_sha256=PDF_SHA256,printed_page=23,table=9,visually_inspected=True,
             cell_weighting_specified=False,reported_left_right_consistency_bound_deg=2.,mae_deg=copy.deepcopy(PDF_REFERENCE)),
         source_files_sha256=sources)
-    result['sha256']=_hash(result);return result
+    result['sha256']=_hash(result);guard.check();return result,guard
+
+
+def build_table9(repo):
+    report,guard=_build_table9_context(repo);guard.check();return report
 
 
 ARTIFACT_FILES=('metrics.json','cells.csv','hand-gaps.csv','README.md')
@@ -203,26 +209,47 @@ def _output_location(repo,output,*,exists):
     return out
 
 
+def _directory_state(path):
+    path=_safe(path)
+    def stamp():
+        value=path.lstat()
+        if not stat.S_ISDIR(value.st_mode):raise ValueError('Table9 output must remain a nonsymlink directory')
+        return(value.st_dev,value.st_ino,value.st_mode,value.st_mtime_ns,value.st_ctime_ns)
+    before=stamp();names=tuple(sorted(p.name for p in path.iterdir()))
+    if stamp()!=before:raise ValueError('Table9 output directory changed during enumeration')
+    return before,names
+
+
+class _DirectoryGuard:
+    def __init__(self,path,names):
+        self.path=path;self.before=_directory_state(path)
+        if self.before[1]!=tuple(sorted(names)):raise ValueError('Table9 output directory membership differs')
+
+    def check(self):
+        if _directory_state(self.path)!=self.before:raise ValueError('Table9 output directory generation changed during verification')
+
+
 def export_table9(repo,output):
     import os
     repo=_safe(repo);out=_output_location(repo,output,exists=False)
     if out.exists():raise ValueError('fresh immutable Table9 output required')
-    report=build_table9(repo);files=_artifact_bytes(report);out.mkdir(mode=0o700)
+    report,input_guard=_build_table9_context(repo);files=_artifact_bytes(report);input_guard.check();out.mkdir(mode=0o700)
     for name,raw in files.items():
         with(out/name).open('xb')as f:f.write(raw);f.flush();os.fsync(f.fileno())
-    if build_table9(repo)!=report:raise ValueError('Table9 original input/source generation changed during export')
+    input_guard.check()
     with(out/'completion.json').open('xb')as f:f.write(_json_bytes(_completion(report,files)));f.flush();os.fsync(f.fileno())
-    return verify_table9(repo,out)
+    input_guard.check();verified=verify_table9(repo,out);input_guard.check();return verified
 
 
 def verify_table9(repo,output):
     repo=_safe(repo);out=_output_location(repo,output,exists=True)
-    names=(*ARTIFACT_FILES,'completion.json');paths=[_safe(out/n)for n in names];guard=_StatGuard(paths)
-    report=build_table9(repo);files=_artifact_bytes(report)
+    names=(*ARTIFACT_FILES,'completion.json');directory_guard=_DirectoryGuard(out,names)
+    paths=[_safe(out/n)for n in names];guard=_StatGuard(paths)
+    report,input_guard=_build_table9_context(repo);files=_artifact_bytes(report);input_guard.check()
     expected={**files,'completion.json':_json_bytes(_completion(report,files))}
     if set(p.name for p in out.iterdir())!=set(names)or any((out/n).read_bytes()!=raw for n,raw in expected.items()):
         raise ValueError('Table9 output bytes differ from independent pinned-source reconstruction')
-    guard.check();return report
+    guard.check();directory_guard.check();input_guard.check();return report
 
 
 def main():

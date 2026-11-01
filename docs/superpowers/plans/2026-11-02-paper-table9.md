@@ -41,7 +41,7 @@
 **Files:** same module/tests; create results/paper-table9/{metrics.json,cells.csv,hand-gaps.csv,README.md,completion.json}; update docs/full-paper-status.md Table9 row only plus current checkpoint.
 **Interfaces:** export_table9(repo,output)->report; verify_table9(repo,output)->report; python -m egoemg_repro.paper_table9 export|verify --repo PATH --output PATH.
 
-- [ ] Write tests for altered raw source bytes, reader races, deterministic exports, exact independent CLI roundtrip, changed/missing output files and readonly source bytes; watch each missing-feature RED.
-- [ ] Implement fresh immutable output, stable CSV/Markdown and final completion marker after independently rebuilding source reductions. No plots are needed for this tabular result.
-- [ ] Run relevant tests without skips; execute real five-report export and separate fresh-process verify with Torch imports forbidden. Inspect all30actual cells/counts/conservation and preserve source/report/PDF hashes.
-- [ ] One fresh final review of this new component, one focused material fix if required, then publish the exact tested artifact/source bytes. Update Table9 at its true derived-analysis scope; all remaining full-paper requirements remain open.
+- [x] Write tests for altered raw source bytes, reader races, deterministic exports, exact independent CLI roundtrip, changed/missing output files and readonly source bytes; watch each missing-feature RED.
+- [x] Implement fresh immutable output, stable CSV/Markdown and final completion marker after independently rebuilding source reductions. No plots are needed for this tabular result.
+- [x] Run relevant tests without skips; execute real five-report export and separate fresh-process verify with Torch imports forbidden. Inspect all30actual cells/counts/conservation and preserve source/report/PDF hashes.
+- [x] One fresh final review of this new component, one focused material fix if required, then publish the exact tested artifact/source bytes. Update Table9 at its true derived-analysis scope; all remaining full-paper requirements remain open.

@@ -2,9 +2,9 @@
   "actual_cells": 30,
   "actual_checks": {
     "failed": 0,
-    "log_sha256": "44b51cf9168ec987795565760b7b972e5ee1556d10c5bfa91e3339de830ae247",
-    "passed": 29,
-    "seconds": 3.56,
+    "log_sha256": "93e661fd67c40176db7a9d5d2914ef6d4fddeb4dc27e636e3befa74aec9c220b",
+    "passed": 32,
+    "seconds": 3.75,
     "skipped": 0
   },
   "actual_fresh_processes": 3,
@@ -18,20 +18,33 @@
   "artifact_files_sha256": {
     "README.md": "80b49ddb668c51e81c3cb795cb45e7ba398220f5008405a08f02adf9b3e1e2dc",
     "cells.csv": "2f01b09ff6130336e444681722da0e35333245089608ded996ae2097a592b47f",
-    "completion.json": "6d7ebcabf0b95a3f42cefe670d54943284361037c9541627fb99ec60684422a7",
+    "completion.json": "b670338282ca1c634fc219ee6f8599630aadd747f4a8d5a57194ae9b89704548",
     "hand-gaps.csv": "3953529c03bda541667c90bdd6455ad9903cb091be3566f50cb7f8cbb38045c5",
-    "metrics.json": "d905d94afafe8ce37021e22d72e0a7244b3852f31a39922f0f7e96138a6dcada"
+    "metrics.json": "7a2a8c021e48d19c73df7fb83edf54e3a046160e9d7235d04d4b4e5bc4ce8176"
+  },
+  "final_review": {
+    "all_generation_regressions_passed": true,
+    "critical": 0,
+    "fresh_reviews": 1,
+    "important": 1,
+    "important_fixed": 1,
+    "minor": 0,
+    "output_directory_identity_and_membership_guarded": true,
+    "source_guards_cover_whole_operation": true,
+    "targeted_generation_regressions": 3,
+    "targeted_regressions_observed_red": 3
   },
   "format": "actual_table9_pinned_report_export_validation_v1",
   "full_paper_complete": false,
   "max_absolute_hand_gap_deg": 1.237646336545108,
+  "observed_utc": "2026-11-01T18:59:45.142608+00:00",
   "paper_cell_aggregation_equivalence_established": false,
   "paper_numerical_equivalence_established": false,
-  "report_sha256": "cf29e8a5c9f3a1186f1d5f5066f11bbee7b7c98ad0ac8edbb745c187202148a1",
+  "report_sha256": "2355befe3d086062cc6aa4a95ffea76a5188a87febdff1be825be9df6b827d67",
   "scientific_settings_added": 0,
   "source_files_sha256": {
-    "egoemg_repro/paper_table9.py": "e8e7eaa33739af78c351f1fe1e519b330bf445d05efe528c0191a656f2ee85d5",
-    "tests/test_paper_table9.py": "d14217b7b2b6ef5960b1775a14d0af50d1d9ced5e399bbc6e8c8bf660eb8cfc7"
+    "egoemg_repro/paper_table9.py": "101e7732ee4e7230200b8fa5c071378df80b8f47bc851121704bca834b825aed",
+    "tests/test_paper_table9.py": "b8672840cea553950e03de6b6be78c1eeda3ebb43e6ccc7cec7a10eeeb0bd87e"
   },
   "source_pdf_page_visually_inspected": true,
   "source_pdf_printed_page": 23,
