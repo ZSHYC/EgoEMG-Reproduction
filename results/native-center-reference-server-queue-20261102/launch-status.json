@@ -1,0 +1,114 @@
+{
+  "CPU24_selected_weight_forwards_already_accepted": true,
+  "actual_GPU_qualification_neural_passes_started": 0,
+  "actual_full4282_neural_passes_started": 0,
+  "actual_process_and_source_observation": {
+    "full_paper_complete": false,
+    "jobs": {
+      "GPU": {
+        "actual_stage_actors": [],
+        "all_registered_source_bytes_sha256_exact": true,
+        "controller_log_tail": "",
+        "registered_controller": {
+          "matching_live": true,
+          "pid": 2226277,
+          "ppid": 1,
+          "sid": 2226277,
+          "start_ticks": "442039130",
+          "state": "S",
+          "tty": 0
+        },
+        "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+        "state": {
+          "full_paper_complete": false,
+          "scope": "engineering",
+          "stages": [],
+          "started_utc": "2026-11-02T04:18:06.153175+00:00",
+          "status": "running",
+          "wrapper": {
+            "pid": 2226277,
+            "start_ticks": "442039130"
+          }
+        }
+      },
+      "chain": {
+        "actual_stage_actors": [],
+        "all_registered_source_bytes_sha256_exact": true,
+        "controller_log_tail": "",
+        "registered_controller": {
+          "matching_live": true,
+          "pid": 2229345,
+          "ppid": 1,
+          "sid": 2229345,
+          "start_ticks": "442061243",
+          "state": "S",
+          "tty": 0
+        },
+        "root": "/data/shihao/egoemg-native-center-reference-auto-full-chain-4846c9a79eab-20261102",
+        "state": {
+          "full_paper_complete": false,
+          "phase": "waiting-original-GPU-qualification-exit0-and-physical-closure",
+          "stages": [],
+          "started_utc": "2026-11-02T04:21:47.289136+00:00",
+          "status": "running",
+          "wrapper": {
+            "pid": 2229345,
+            "start_ticks": "442061243"
+          }
+        }
+      }
+    },
+    "new_neural_forwards_by_observer": 0,
+    "observed_utc": "2026-11-02T04:22:11.008397+00:00"
+  },
+  "automatic_pipeline_requires_GPU_qualification_exit0_and_closed_original_actors": true,
+  "automatic_pipeline_stops_on_actual_failure_without_retry": true,
+  "format": "actual_registered_shared_center_GPU_and_automatic_full_chain_deployment_v1",
+  "full_paper_complete": false,
+  "full_reference_model_evaluation_complete": false,
+  "new_component83_tests_and_single_review_fixed": true,
+  "observed_utc": "2026-11-02T04:22:11.008397+00:00",
+  "planned_full_neural_passes": 6,
+  "planned_full_requests_per_pass": 4282,
+  "planned_total_full_neural_forwards": 25692,
+  "registrations": {
+    "GPU": {
+      "actual_controller": {
+        "pid": 2226277,
+        "start_ticks": "442039130"
+      },
+      "archive_sha256": "988b45500b5665605c2e5876ed42cbe4be8dd58ac1c2180eedac9b453db029f8",
+      "frozen_members_sha256": {
+        "config.json": "8f63be20753efba75b0a71ce317ca9437af7f47310e4ff83336680955a5ffe39",
+        "controller.py": "5442b9b7687577ff0da1c576cc20682a6892d97ea9da554c529093f390e9be23",
+        "verify.py": "e9fe0db249b85f33cfc3fae9eaf43a8b9178ea43b85c77571e26608041e3c11d"
+      },
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+      "scope": "engineering",
+      "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+    },
+    "chain": {
+      "actual_controller": {
+        "pid": 2229345,
+        "start_ticks": "442061243"
+      },
+      "archive_sha256": "240400cef10d2955f0f7e3d1c4454eec3967ddc66787e9fdec6ac68f45c12fa5",
+      "frozen_members_sha256": {
+        "accept-gpu.py": "e2a54c297a71d403e552f87265c01070326059a2eec69cec9d265e501a6c53e5",
+        "config.json": "32e8e15730a3bbee8abbd0764af61adca1f7c2668f035abbd8d1d8abf9ab2181",
+        "controller.py": "d706abee37faff96ba94fbe4725f48aae2022f3beeb614c1b0f49c0c9ad22c10",
+        "full-config-template.json": "70c62e8759371c29ba3bb9286ec048a7b6f4a910a908cd98f7210824790fb439",
+        "full-controller.py": "27923361b1474383ee6647fab3ef4e28fa935bc5923ff597d5c265c0457abea7"
+      },
+      "full_paper_complete": false,
+      "planned_full_root": "/data/shihao/egoemg-native-center-reference-six-full-passes-4846c9a79eab-20261102",
+      "root": "/data/shihao/egoemg-native-center-reference-auto-full-chain-4846c9a79eab-20261102",
+      "scope": "continuation-and-pending-only",
+      "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+    }
+  },
+  "scientific_eligible": false,
+  "server_detached_continuation_after_local_shutdown": true,
+  "third_independent_postexit_arithmetic_verification_deployed": false
+}

@@ -1,0 +1,56 @@
+{
+  "accepted_alignment_report_sha256": {
+    "large": "0a87b22f8a939e07edece7711814f06be95d86bbd6d20d11ef14bc47c708b241",
+    "middle": "4848d1606d1e90f2af28351fdd7243f56a46921d193bc30ed55907185c290c7c",
+    "small": "9d4df56557c25dc838a7e6cdb020866f667574d9c431697166a1ea1c355917c9"
+  },
+  "admitted_inputs": "/data/shihao/egoemg-native-center-reference-full-inputs-224f057b6564-20261102",
+  "device": "cuda:0",
+  "expected_raw_steps": {
+    "large": 230,
+    "middle": 230,
+    "small": 230
+  },
+  "full_paper_complete": false,
+  "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+  "new_sources_sha256": {
+    "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+    "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
+    "scripts/paper/collect_native_center_reference.py": "80d003fc9dcc837140200c15db7cb0f53b2e8188989679c3362d541806c91530",
+    "scripts/paper/run_native_center_reference.py": "30e2da0d384559e8b5e524f5fc23c334b766fb0af0cea32eb293e36c82462ccc",
+    "tests/test_center_reference_collection.py": "2bce3fc25eb80763fde1347507cb2a44070745b8bf4104811a12ad57a2518d4c",
+    "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2",
+    "tests/test_center_reference_eval.py": "e2219d63b83288dc057a3126af3d8a1c547c538c8f6761d70a53bc5311b2c91f"
+  },
+  "package": "/data/shihao/egoemg-native-center-reference-review-green-088be54dbce3-20261102",
+  "previous_GPU0_workflow": {
+    "actual_complete": false,
+    "actual_original_owners_matching_live": true,
+    "actual_state": {
+      "automatic_retry": false,
+      "child": {
+        "pid": 2130637,
+        "start_ticks": "441272131"
+      },
+      "started_utc": "2026-11-02T02:10:15.970618+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 2130636,
+        "start_ticks": "441272128"
+      }
+    },
+    "bundle_sha256": "40db412217df95041a270e6064dcc62ed57d01fb0a4cd115078b57c2f1077dff",
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-rn18-fusion-recovered69-full150-fc660d94d494-v2-20261102",
+    "scope": "native RN18fusion admitted69 checkpoint recovery to original150 budget plus original full evaluation; wait genuinely idle GPU0, no repeated qualification or initializer training",
+    "source_commit": "fc660d94d494db144d138e3457e197115cec390f"
+  },
+  "requests_per_pass": 4,
+  "scope": "engineering",
+  "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95",
+  "source_fits": {
+    "large": "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit",
+    "middle": "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit",
+    "small": "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "actual_controller": {
+    "pid": 2229345,
+    "start_ticks": "442061243"
+  },
+  "archive_sha256": "240400cef10d2955f0f7e3d1c4454eec3967ddc66787e9fdec6ac68f45c12fa5",
+  "frozen_members_sha256": {
+    "accept-gpu.py": "e2a54c297a71d403e552f87265c01070326059a2eec69cec9d265e501a6c53e5",
+    "config.json": "32e8e15730a3bbee8abbd0764af61adca1f7c2668f035abbd8d1d8abf9ab2181",
+    "controller.py": "d706abee37faff96ba94fbe4725f48aae2022f3beeb614c1b0f49c0c9ad22c10",
+    "full-config-template.json": "70c62e8759371c29ba3bb9286ec048a7b6f4a910a908cd98f7210824790fb439",
+    "full-controller.py": "27923361b1474383ee6647fab3ef4e28fa935bc5923ff597d5c265c0457abea7"
+  },
+  "full_paper_complete": false,
+  "planned_full_root": "/data/shihao/egoemg-native-center-reference-six-full-passes-4846c9a79eab-20261102",
+  "root": "/data/shihao/egoemg-native-center-reference-auto-full-chain-4846c9a79eab-20261102",
+  "scope": "continuation-and-pending-only",
+  "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+}

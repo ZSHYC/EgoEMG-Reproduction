@@ -1,0 +1,23 @@
+{
+  "GPU_qualification": {
+    "actual_controller": {
+      "pid": 2226277,
+      "start_ticks": "442039130"
+    },
+    "archive_sha256": "988b45500b5665605c2e5876ed42cbe4be8dd58ac1c2180eedac9b453db029f8",
+    "frozen_members_sha256": {
+      "config.json": "8f63be20753efba75b0a71ce317ca9437af7f47310e4ff83336680955a5ffe39",
+      "controller.py": "5442b9b7687577ff0da1c576cc20682a6892d97ea9da554c529093f390e9be23",
+      "verify.py": "e9fe0db249b85f33cfc3fae9eaf43a8b9178ea43b85c77571e26608041e3c11d"
+    },
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+    "scope": "engineering",
+    "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+  },
+  "full_paper_complete": false,
+  "full_root": "/data/shihao/egoemg-native-center-reference-six-full-passes-4846c9a79eab-20261102",
+  "package": "/data/shihao/egoemg-native-center-reference-review-green-088be54dbce3-20261102",
+  "scope": "continuation-and-pending-only",
+  "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+}

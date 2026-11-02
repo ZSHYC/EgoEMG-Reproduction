@@ -1,0 +1,106 @@
+{
+  "accepted_alignment_report_sha256": {
+    "large": "0a87b22f8a939e07edece7711814f06be95d86bbd6d20d11ef14bc47c708b241",
+    "middle": "4848d1606d1e90f2af28351fdd7243f56a46921d193bc30ed55907185c290c7c",
+    "small": "9d4df56557c25dc838a7e6cdb020866f667574d9c431697166a1ea1c355917c9"
+  },
+  "admitted_inputs": "/data/shihao/egoemg-native-center-reference-full-inputs-224f057b6564-20261102",
+  "cpu_qualification": {
+    "accepted_artifact_files_sha256": {
+      "private/completed.json": "24c9d18c4e77a462275e5885468a18050b72d054c81fcc8f6d60dcaadd1bdc3d",
+      "private/large/native/pass.json": "3101563d40d1ce0bb3d1941201f34b6fc13de2ec4532bc5ed7d2af97251104be",
+      "private/large/native/predictions.pt": "33b07dc9ade8b9a026466b034cdc4a52b463ef9c0fa90d9fc1d4ac29d3f32a3f",
+      "private/large/qualification.json": "ec00686bcd6f3b4227f5cbdac117f055f71ad62eb08fd1a1d9b0f4bac655d2d4",
+      "private/large/replay/pass.json": "d095a12e0f245587ffd9560ffb05493d8358c3a562e05cca866b2536d49624a1",
+      "private/large/replay/predictions.pt": "33b07dc9ade8b9a026466b034cdc4a52b463ef9c0fa90d9fc1d4ac29d3f32a3f",
+      "private/middle/native/pass.json": "d9a5b7fab0abbf7bf22a7877f630d8fa851cf222c382b03453b2d9b769551adf",
+      "private/middle/native/predictions.pt": "16a69941bac29d55db4822e3e868f4df34a636b2956807622e4de424e3e7f041",
+      "private/middle/qualification.json": "aefb362b636dd6421143f4843a6fd98394d81c6bfa2111392ca24db793f93fb9",
+      "private/middle/replay/pass.json": "14050d2a84fc112ed5782899f671873df4f7dfa21a2ffd39dc03d9097c1f601c",
+      "private/middle/replay/predictions.pt": "16a69941bac29d55db4822e3e868f4df34a636b2956807622e4de424e3e7f041",
+      "private/small/native/pass.json": "9ce8f493c747ca774fb075cb87dfeb1f8ea1950d1d0bbb79954671e769e8ff10",
+      "private/small/native/predictions.pt": "d9878fbb0064a8b7c28490622a4d1a24cf869ea77a60d711fcefd8ef2af9a974",
+      "private/small/qualification.json": "00bd574bbb562f21f5b2cefc5c702cf354bccc2dfa5b8d7a0a478745f5cfc4ad",
+      "private/small/replay/pass.json": "40b42e817556f6d7e852f5c95171107f63ad3a515caafcad1dd0f5c18680273c",
+      "private/small/replay/predictions.pt": "d9878fbb0064a8b7c28490622a4d1a24cf869ea77a60d711fcefd8ef2af9a974"
+    },
+    "actual_controller": {
+      "pid": 2214357,
+      "start_ticks": "441945316"
+    },
+    "archive_sha256": "613804fd763cc80aed401685e07aa177150093a145adabad35aa607ff09fe5ad",
+    "frozen_members_sha256": {
+      "config.json": "3e5580ca6059d41d8d9c0477d005eb47623d69173475e98a080b596304c40cf9",
+      "controller.py": "7d6af2cb2761bf7e8883be36265cdade796cce5e954ed85ae51703659655a0b5",
+      "verify.py": "5a4cb4993926d7c55d1de6fae1967cce1d049e34ca69441546a42394a8e3aad7"
+    },
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102",
+    "scope": "engineering",
+    "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+  },
+  "device": "cuda:0",
+  "expected_raw_steps": {
+    "large": 230,
+    "middle": 230,
+    "small": 230
+  },
+  "full_paper_complete": false,
+  "gpu_qualification": {
+    "actual_controller": {
+      "pid": 2226277,
+      "start_ticks": "442039130"
+    },
+    "archive_sha256": "988b45500b5665605c2e5876ed42cbe4be8dd58ac1c2180eedac9b453db029f8",
+    "frozen_members_sha256": {
+      "config.json": "8f63be20753efba75b0a71ce317ca9437af7f47310e4ff83336680955a5ffe39",
+      "controller.py": "5442b9b7687577ff0da1c576cc20682a6892d97ea9da554c529093f390e9be23",
+      "verify.py": "e9fe0db249b85f33cfc3fae9eaf43a8b9178ea43b85c77571e26608041e3c11d"
+    },
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+    "scope": "engineering",
+    "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+  },
+  "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+  "new_sources_sha256": {
+    "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+    "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
+    "scripts/paper/collect_native_center_reference.py": "80d003fc9dcc837140200c15db7cb0f53b2e8188989679c3362d541806c91530",
+    "scripts/paper/run_native_center_reference.py": "30e2da0d384559e8b5e524f5fc23c334b766fb0af0cea32eb293e36c82462ccc",
+    "tests/test_center_reference_collection.py": "2bce3fc25eb80763fde1347507cb2a44070745b8bf4104811a12ad57a2518d4c",
+    "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2",
+    "tests/test_center_reference_eval.py": "e2219d63b83288dc057a3126af3d8a1c547c538c8f6761d70a53bc5311b2c91f"
+  },
+  "package": "/data/shihao/egoemg-native-center-reference-review-green-088be54dbce3-20261102",
+  "previous_GPU0_workflow": {
+    "actual_complete": false,
+    "actual_original_owners_matching_live": true,
+    "actual_state": {
+      "automatic_retry": false,
+      "child": {
+        "pid": 2130637,
+        "start_ticks": "441272131"
+      },
+      "started_utc": "2026-11-02T02:10:15.970618+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 2130636,
+        "start_ticks": "441272128"
+      }
+    },
+    "bundle_sha256": "40db412217df95041a270e6064dcc62ed57d01fb0a4cd115078b57c2f1077dff",
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-rn18-fusion-recovered69-full150-fc660d94d494-v2-20261102",
+    "scope": "native RN18fusion admitted69 checkpoint recovery to original150 budget plus original full evaluation; wait genuinely idle GPU0, no repeated qualification or initializer training",
+    "source_commit": "fc660d94d494db144d138e3457e197115cec390f"
+  },
+  "requests_per_pass": 4282,
+  "scope": "full",
+  "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95",
+  "source_fits": {
+    "large": "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit",
+    "middle": "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit",
+    "small": "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit"
+  }
+}
