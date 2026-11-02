@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "config.json": "96290e85c34197f1e8039c23e8adb49b09bb3d03f46007c6aa39c3e198926988",
+    "controller.py": "b8e7c10baa5d1fd8b95ee64feccda55a282d96d2760e6f649b290275867feb09",
+    "scripts/paper/verify_native_center_reference.py": "b0d0f1d769234d48021a07c2de543aeff7f2a11645e187b76ea260203b906570"
+  },
+  "format": "actual_third_independent_native_center_reference_reader_capsule_v1",
+  "full_paper_complete": false,
+  "source_commit": "18511be52f6a1d75649b0dccdb9f2c60e4369dc6"
+}

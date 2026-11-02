@@ -1,0 +1,75 @@
+{
+  "actual_data_bytes_hashed_by_this_reader": 0,
+  "actual_full_raw_packets_read": 0,
+  "actual_incomplete_source_refusal": {
+    "actor": {
+      "pid": 2243511,
+      "start_ticks": "442151571"
+    },
+    "actor_physically_closed": true,
+    "actual_expected_exit_code": 1,
+    "actual_refusal": "required original completion document absent while original workflow running",
+    "format": "actual_current_source_incomplete_chain_refusal_zero_model_execution_v1",
+    "full_model_arithmetic_executed": false,
+    "full_paper_complete": false,
+    "new_neural_forwards": 0,
+    "new_optimizer_updates": 0,
+    "no_output_directory_created": true,
+    "observed_utc": "2026-11-02T04:36:51.748049+00:00",
+    "source_program_and_import_contract_loaded": true
+  },
+  "actual_registered_process_and_source_observation": {
+    "actual_stage_actors": [],
+    "all_registered_source_bytes_sha256_exact": true,
+    "controller_log_tail": "",
+    "registered_controller": {
+      "matching_live": true,
+      "pid": 2241446,
+      "ppid": 1,
+      "sid": 2241446,
+      "start_ticks": "442138055",
+      "state": "S",
+      "tty": 0
+    },
+    "root": "/data/shihao/egoemg-native-center-reference-independent-final-18511be52f6a-20261102",
+    "state": {
+      "full_paper_complete": false,
+      "phase": "waiting-original-full-chain-exit0-and-all-owned-source-actors-absent",
+      "started_utc": "2026-11-02T04:34:35.394865+00:00",
+      "status": "running",
+      "wrapper": {
+        "pid": 2241446,
+        "start_ticks": "442138055"
+      }
+    }
+  },
+  "automatic_read_after_original_complete_chain_and_owned_actor_closure": true,
+  "format": "actual_deployed_third_independent_arithmetic_reader_waiting_v1",
+  "full_independent_arithmetic_complete": false,
+  "full_paper_complete": false,
+  "independent_new_unit_tests": 20,
+  "observed_utc": "2026-11-02T04:37:29.700781+00:00",
+  "parent_and_reader_explicitly_CPU_only": true,
+  "reader_and_parent_physical_exit_must_be_confirmed_before_publication": true,
+  "reader_planned_data_source_bytes": 17069751557,
+  "reader_planned_data_source_files": 17,
+  "reader_planned_full_model_packets": 6,
+  "registration": {
+    "actual_controller": {
+      "pid": 2241446,
+      "start_ticks": "442138055"
+    },
+    "archive_sha256": "3cf97fb9f852be4d6e48e8e6aca31f0976959a7bf2d1082eb417aa746bdcce24",
+    "frozen_members_sha256": {
+      "config.json": "96290e85c34197f1e8039c23e8adb49b09bb3d03f46007c6aa39c3e198926988",
+      "controller.py": "b8e7c10baa5d1fd8b95ee64feccda55a282d96d2760e6f649b290275867feb09",
+      "scripts/paper/verify_native_center_reference.py": "b0d0f1d769234d48021a07c2de543aeff7f2a11645e187b76ea260203b906570"
+    },
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-independent-final-18511be52f6a-20261102",
+    "scope": "third-independent-full-arithmetic-waiting",
+    "source_commit": "18511be52f6a1d75649b0dccdb9f2c60e4369dc6"
+  },
+  "scientific_eligible": false,
+  "source_and_unit_tests_qualified": 103
+}
