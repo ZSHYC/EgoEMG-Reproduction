@@ -1,0 +1,134 @@
+{
+  "actual_source_complete": true,
+  "assigned_gpu_uuid": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae",
+  "export_torch_unimported": true,
+  "format": "actual_complete_native_trajectory_role_hardware_and_recorded_intervals_v1",
+  "full_paper_complete": false,
+  "new_cuda_contexts": 0,
+  "new_learned_forwards": 0,
+  "new_learned_model_constructions": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T01:13:08.646407+00:00",
+  "phases": {
+    "test-native": {
+      "actor": {
+        "pgrp": 2047456,
+        "pid": 2047456,
+        "sid": 2047456,
+        "start_ticks": "440762323",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_size": 500,
+      "finished_ns": 1793580599974336632,
+      "hardware": {
+        "accelerator": "gpu",
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "name": "NVIDIA A800-SXM4-80GB",
+        "total_memory": 85094825984,
+        "visible_device": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae"
+      },
+      "original_model_constructions": 1,
+      "original_model_forwards": 6,
+      "original_optimizer_updates": 0,
+      "precision": "bf16-mixed",
+      "recorded_function_interval_seconds": 215.404539368,
+      "samples": 2792,
+      "source_pass_document_file_sha256": "5e76371414d2f4817ae17aa789f572d3a753cfed6c918edfe65345d9b5a90e71",
+      "started_ns": 1793580384569797264,
+      "workers": 6
+    },
+    "test-replay": {
+      "actor": {
+        "pgrp": 2053229,
+        "pid": 2053229,
+        "sid": 2053229,
+        "start_ticks": "440796873",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_size": 500,
+      "finished_ns": 1793581006157769846,
+      "hardware": {
+        "accelerator": "gpu",
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "name": "NVIDIA A800-SXM4-80GB",
+        "total_memory": 85094825984,
+        "visible_device": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae"
+      },
+      "original_model_constructions": 1,
+      "original_model_forwards": 6,
+      "original_optimizer_updates": 0,
+      "precision": "bf16-mixed",
+      "recorded_function_interval_seconds": 269.982957786,
+      "samples": 2792,
+      "source_pass_document_file_sha256": "f8820273290ccc2f31468de2ce0cc4dc7a336aa2a1a56c8c5d82582039bfa570",
+      "started_ns": 1793580736174812060,
+      "workers": 6
+    },
+    "val-native": {
+      "actor": {
+        "pgrp": 2035769,
+        "pid": 2035769,
+        "sid": 2035769,
+        "start_ticks": "440709526",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_size": 500,
+      "finished_ns": 1793579944323198775,
+      "hardware": {
+        "accelerator": "gpu",
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "name": "NVIDIA A800-SXM4-80GB",
+        "total_memory": 85094825984,
+        "visible_device": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae"
+      },
+      "original_model_constructions": 1,
+      "original_model_forwards": 3,
+      "original_optimizer_updates": 0,
+      "precision": "bf16-mixed",
+      "recorded_function_interval_seconds": 86.292448829,
+      "samples": 1052,
+      "source_pass_document_file_sha256": "9deb480a5e8c29f34a96c0bea30232e0143940f3a31d2624f78941a02b52f4f5",
+      "started_ns": 1793579858030749946,
+      "workers": 6
+    },
+    "val-replay": {
+      "actor": {
+        "pgrp": 2039952,
+        "pid": 2039952,
+        "sid": 2039952,
+        "start_ticks": "440727361",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_size": 500,
+      "finished_ns": 1793580159991371150,
+      "hardware": {
+        "accelerator": "gpu",
+        "cuda_runtime": "11.8",
+        "cudnn": 8700,
+        "name": "NVIDIA A800-SXM4-80GB",
+        "total_memory": 85094825984,
+        "visible_device": "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae"
+      },
+      "original_model_constructions": 1,
+      "original_model_forwards": 3,
+      "original_optimizer_updates": 0,
+      "precision": "bf16-mixed",
+      "recorded_function_interval_seconds": 126.076119022,
+      "samples": 1052,
+      "source_pass_document_file_sha256": "15033068b32f2adc9cbd3177775298f554217a63e1baa7aae6f8f1a219428968",
+      "started_ns": 1793580033915252128,
+      "workers": 6
+    }
+  },
+  "size": "middle",
+  "timing_scope": "Exactly run_trajectory_pass started_ns to finished_ns: starts after CLI initial input admission; finished_ns is recorded before final packet statistics/resealing and owned worker teardown. It is not full CLI/stage elapsed, isolated neural latency/FPS, cumulative training or isolated paper GPU-hours.",
+  "timing_source_file": "egoemg_repro/emgformer_trajectory_eval.py",
+  "timing_source_file_sha256": "0a85fc8df618113cba2181e62a8229e90542e91e5d4804901d430e08494a4a5c"
+}
