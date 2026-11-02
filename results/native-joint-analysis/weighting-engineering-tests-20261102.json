@@ -1,0 +1,47 @@
+{
+  "actual_native_raw_data_rows_consumed": 0,
+  "additional_finite_overflow_red": {
+    "actual_exit_code": 1,
+    "failed_tests": 2,
+    "log_sha256": "0382223c6463f2a16b8fe229d00d35da5cf00ee0f48b452fa82e0a7ae8b60c33"
+  },
+  "analytical_case": {
+    "caption_interpretation_mae_rad": 1.6,
+    "invalid_requested_window_weight_retained": true,
+    "pooled_mae_rad": 2.230769230769231,
+    "requested_hand_windows": 5,
+    "windows_with_valid_angles": 4
+  },
+  "clean_process_requires_neither_torch_nor_numpy": true,
+  "engineering_arithmetic_only": true,
+  "final_green": {
+    "actual_exit_code": 0,
+    "log_sha256": "e0394e0de3b0d1707069051db4dc6c724532b76239950836a9b897a8b5b4e23d",
+    "passed_tests": 20,
+    "pytest_reported_seconds": 0.09,
+    "skipped_tests": 0
+  },
+  "format": "native_joint_weighting_arithmetic_engineering_verification_v1",
+  "full_paper_complete": false,
+  "implementation_base": "504ad6d304069f7ad949429301dfb879536c0e44",
+  "initial_missing_module_red": {
+    "actual_exit_code": 1,
+    "failed_tests": 18,
+    "log_sha256": "8c216d08bc1f647b38099fdb3c3945f06e4bac59980780dcb95869b1bc3af072"
+  },
+  "input_order_independent_and_not_mutated": true,
+  "missing_populated_group_is_null_not_omitted": true,
+  "module_sha256": "1854da7b1f9aee5d31dfaee2c63f20faa7441f51daeb744bbba7b5d42380c4ea",
+  "native_table12_analysis_complete": false,
+  "new_component_final_review_complete": false,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T01:26:49.007422+00:00",
+  "paper_numerical_equivalence_established": false,
+  "pinned_upstream_commit": "f7cbd048b7092139852270491d3859cd472e0311",
+  "plan_sha256": "ba88d2e5740cd91b8b18988307e9b0ff71605330c3f487a54f312e083969151f",
+  "public_private_sentinels_absent": true,
+  "raw_packet_collector_implemented": false,
+  "tests_sha256": "3f955edc19de0acab885b3440b4b1cfbd55f8128c6cee2a56677a80a24c6e906",
+  "unchanged_closed_joint_reducer_sha256": "9762be3e41e33ec65a72ed7c7b66c62f3d39baffade7a3b8e9d5309fa498e549"
+}
