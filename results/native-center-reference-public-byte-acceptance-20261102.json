@@ -1,0 +1,97 @@
+{
+  "actual_public_branch_head": "e350af6417a9781c937fa23b879d31666f94fe94",
+  "actual_push_exit_code": 0,
+  "all_anonymous_immutable_raw_http200_byte_exact": true,
+  "changed_file_count": 14,
+  "files": {
+    "docs/full-paper-status.md": {
+      "bytes": 197238,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:43.021320+00:00",
+      "sha256": "27ccb8b98e6225afc30b5a816b46e65543668b6fc665ee948a72a054c2a6ee9f"
+    },
+    "docs/superpowers/plans/2026-11-02-native-center-reference.md": {
+      "bytes": 9681,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:45.073229+00:00",
+      "sha256": "d0c546b3db40afa8037c5452ef33942ee7fd1f0ecea1c6d4702f50c64f53d032"
+    },
+    "results/native-center-reference-full-final-QC-20261102.json": {
+      "bytes": 1391,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:47.059590+00:00",
+      "sha256": "7628a02ea5e610bb57a5f05d523dfe89f5818a2473d25bc705ea21907bf94145"
+    },
+    "results/native-center-reference-independent-reader-queue-20261102/README.md": {
+      "bytes": 2370,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:50.857632+00:00",
+      "sha256": "ff9cac407f474ba621340c7a86419c004a35d95e023bc15b0391527f69229bc5"
+    },
+    "results/native-center-reference-server-queue-20261102/README.md": {
+      "bytes": 2563,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:52.903505+00:00",
+      "sha256": "954d427c246c2948feb13a28d277bfb7a459f6acf9c9b657af53e5009ef6aa18"
+    },
+    "results/native-paper-table10/README.md": {
+      "bytes": 3587,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:54.997058+00:00",
+      "sha256": "51cf930653f8bdd1bf6997af7e028af5fa82870e4bac49ba5a576b04f977e4be"
+    },
+    "results/native-paper-table10/cells.csv": {
+      "bytes": 918,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:17:57.050829+00:00",
+      "sha256": "58e9a77f24f2487b9ecb9a9a347e31d2b6865e13b8de2736fc677eb1f30e26b2"
+    },
+    "results/native-paper-table10/final-export-readback.json": {
+      "bytes": 2947,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:00.893084+00:00",
+      "sha256": "29e8f260ddd94650f58996a1aaf72a22b7bad0be11da5e3f6ac659a866fd9f06"
+    },
+    "results/native-paper-table10/metrics.json": {
+      "bytes": 54813,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:03.171034+00:00",
+      "sha256": "d37221f2982455a277cc33c3c8196df92bfcbb6add851e745aeae04bfd311677"
+    },
+    "results/native-paper-table10/paper-comparison.csv": {
+      "bytes": 1121,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:05.154249+00:00",
+      "sha256": "5b2632515465b920bd3d21a72e412c9d41806936164883eb34a00b07dccd4128"
+    },
+    "results/native-paper-table10/postexit-closure.json": {
+      "bytes": 1469,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:07.238777+00:00",
+      "sha256": "5f1e65d95b49509a2103ec8297e148fcabe53189425242c3aeb5738969885190"
+    },
+    "results/native-paper-table10/publication-manifest.json": {
+      "bytes": 1278,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:11.064685+00:00",
+      "sha256": "41d68704d4f9f6966e275695ad3134921da177426413bbe9187d5bca445415bf"
+    },
+    "results/native-paper-table10/users.csv": {
+      "bytes": 7604,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:13.076565+00:00",
+      "sha256": "4e7392c508a1e2d002b602dbcdf9c06048318dcd8b57d278fef3e2b85583043f"
+    },
+    "results/native-paper-table10/verification.json": {
+      "bytes": 91965,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T05:18:15.461138+00:00",
+      "sha256": "eeea575617ddcd1727512a3e9949f133e3f903e10ae9ef4ed6290d7f36225d1d"
+    }
+  },
+  "initial_parallel_anonymous_verifier_rate_limited": false,
+  "observed_utc": "2026-11-02T05:18:16.461508+00:00",
+  "resumable_verification_obeyed_backoff": true,
+  "source_base": "34d606f0a26790cea8016364081d1914cea93132",
+  "tracked_worktree_clean": true
+}
