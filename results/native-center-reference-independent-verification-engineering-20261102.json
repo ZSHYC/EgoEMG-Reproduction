@@ -1,0 +1,53 @@
+{
+  "CSV_missing_entry_RED": 5,
+  "actual_experiment_source_package": "/data/shihao/egoemg-native-center-reference-review-green-088be54dbce3-20261102",
+  "actual_experiment_source_package_manifest_sha256": "02353ba2c394926f2a5b3b80e36d6d089829abd67cdea3db3cca29798f845f0f",
+  "all340_original_experiment_package_members_sha256_exact": true,
+  "all342_test_source_members_sha256_exact": true,
+  "all_test_actors_physically_closed": true,
+  "combined_current_server_GREEN": 103,
+  "format": "actual_independent_reference_verifier_20_new_tests_103_combined_v1",
+  "full_model_result_complete": false,
+  "full_paper_complete": false,
+  "independent_verifier_local_GREEN": 20,
+  "initial_arithmetic_missing_entry_RED": 15,
+  "log_sha256": "17234d9e1951a1758d00773e1186128e9301226c6fd554e323c84832a8f795b8",
+  "log_tail": "........................................................................ [ 69%]\n...............................                                          [100%]\n103 passed in 7.34s\n",
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "new_sources_sha256": {
+    "scripts/paper/verify_native_center_reference.py": "b0d0f1d769234d48021a07c2de543aeff7f2a11645e187b76ea260203b906570",
+    "tests/test_center_reference_verification.py": "4186973d226ec90359e540bd0b9493f1762cb92a30b6a5d679483c6f73e5331f"
+  },
+  "observed_utc": "2026-11-02T04:33:48.108116+00:00",
+  "old_model_mathematics_and_old_suites_not_repeated": true,
+  "reader_actual_full_model_packets_not_yet_executed": true,
+  "test_registration": {
+    "actual_recorder": {
+      "pid": 2239681,
+      "start_ticks": "442125812"
+    },
+    "archive_sha256": "ca997eafdb6f6e26997021c37ca06b9c5af0cb924b090ea0185be39337876ead",
+    "frozen_file_count": 342,
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-independent103-green-528ee94bf8b5-20261102",
+    "scientific_eligible": false,
+    "source_commit": "528ee94bf8b500f429446270e512776e88de32a9"
+  },
+  "test_state": {
+    "actual_exit_code": 0,
+    "child": {
+      "pid": 2239683,
+      "start_ticks": "442125816"
+    },
+    "ended_utc": "2026-11-02T04:32:40.975727+00:00",
+    "full_paper_complete": false,
+    "scientific_eligible": false,
+    "started_utc": "2026-11-02T04:32:32.820240+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2239681,
+      "start_ticks": "442125812"
+    }
+  }
+}

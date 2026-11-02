@@ -52,7 +52,7 @@
 
 ### Task 3: 完整新进程重放、Table10与公开来源闭环
 
-**Files:** Create `scripts/paper/collect_native_center_reference.py`, `results/native-paper-table10/`; Test `tests/test_center_reference_collection.py`; Modify `docs/full-paper-status.md`。
+**Files:** Create `scripts/paper/collect_native_center_reference.py`, `scripts/paper/verify_native_center_reference.py`, `results/native-paper-table10/`; Test `tests/test_center_reference_collection.py`, `tests/test_center_reference_verification.py`; Modify `docs/full-paper-status.md`。
 
 **Interfaces:** 独立CPU读取消费完整pass、模型/源/共同清单身份，输出9个split用户mean/SD、3个Avg以及每单元有效分母；现有视觉预测只按固定共同清单连接目标，不按误差选择。
 
@@ -63,3 +63,5 @@
 - [ ] 更新Table10实际状态与全文checkpoint，源/旧结果均未改变；只有所有交付实际验收才勾选完成，保持全论文goal active直到全部其余必需项也完成。
 
 当前状态：**Task1已完成**：[17项新组件检查](../../../results/native-center-reference-data-engineering-20261102.json)及[完整4282输入的两个独立进程／退出后17.07GB来源重hash](../../../results/native-center-reference-input-admission/README.md)均通过，四原输入/读取拥有者已退出；源代码224f057保持。**Task2/3继续执行**：新增三部分组件共83/83检查通过；真实选定S/M/L的CPU四请求原生及独立重放共24次前向、12来源拥有者与独立读取者均已退出。最初S验收脚本把raw步数写成1915，已按官方与已验收轨迹的230更正；保留失败记录并复用成功S产物，无重复前向。一次新组件审查提出的资格摘要来源绑定问题已由7个RED→GREEN负例和真实6包/16文件重新读取修正；GPU资格、完整六次4282请求预测和独立Table10交付仍未完成；尚无新的全量模型分数。保留本计划workspace/ledger，不重跑已关闭的来源审计、旧数学或输入资格。
+
+第三独立算术读取器已实现：15项原始包／均值／SD／分母检查和5项CSV检查均观察RED→GREEN，四部分新组件服务器套件103/103通过，342冻结成员及两测试拥有者退出已核验；原实验340成员保持。该读取器不调用实验数值归约器，最终将重hash17个实际数据源、读取六个完整typed包并逐项比较匿名表和CSV。全量实际执行、读取者退出和最终发布仍欠，不把新单元检查视为全量模型结果。
