@@ -45,8 +45,8 @@
 
 **Interfaces:** `run_reference_pass(source_fit, admitted_inputs, output, *, kind, reference=None)`以冻结模型身份执行；`read_reference_pass(output)`拒绝来源/人口/typed包不一致。输出所有4282请求的原始point parts、输入指纹、前后模型状态、原生逐手float32旁证及既有point充分统计量，不产生训练状态。
 
-- [ ] 编写并观察失败的资格/全量混用、错误BEST/源模型、错误窗口中心/手/mask、FP32变BF16、取样异常、重复/缺失请求、输入变动和独立进程身份测试。
-- [ ] 最小实现严格现有原生构造/全state加载；保持原module.model forward及raw输出中点，复用 `emgformer_statistics`；不修改任何旧runtime/reducer。
+- [x] 编写并观察失败的资格/全量混用、错误BEST/源模型、错误窗口中心/手/mask、FP32变BF16、取样异常、重复/缺失请求、输入变动和独立进程身份测试。
+- [x] 最小实现严格现有原生构造/全state加载；保持原module.model forward及raw输出中点，复用 `emgformer_statistics`；不修改任何旧runtime/reducer。
 - [ ] 新组件整套通过；真实三规模CPU/GPU短资格及逐字节严格重载；短资格不得写科学完成。与现有官方模型数学的关系通过调用边界和真实原生输出证明，不重新审查或测试旧模型内部数学。
 - [ ] 入口与来源/运行协议提交；一次新组件最终审查，实质发现一次修正并以失败再通过的测试核验，不二次审查已关闭数学。
 

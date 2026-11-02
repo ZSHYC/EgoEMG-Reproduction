@@ -1,0 +1,131 @@
+{
+  "actual_three_results": {
+    "final59": {
+      "all337_frozen_members_sha256_exact": true,
+      "all_two_actors_physically_closed": true,
+      "log_sha256": "ea96a9df3837040bb8d53d23c5a992f0a80166e5a3064af3008ea030c3faac61",
+      "log_tail": "...........................................................              [100%]\n59 passed in 7.32s\n",
+      "state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2207929,
+          "start_ticks": "441892436"
+        },
+        "ended_utc": "2026-11-02T03:53:47.167298+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T03:53:39.016302+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2207928,
+          "start_ticks": "441892431"
+        }
+      }
+    },
+    "first54": {
+      "all337_frozen_members_sha256_exact": true,
+      "all_two_actors_physically_closed": true,
+      "log_sha256": "389331043a9781855602e739082dd7f9cc49dabc4eb1ce8613cbcd17e30cee95",
+      "log_tail": "......................................................                   [100%]\n54 passed in 7.26s\n",
+      "state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2204358,
+          "start_ticks": "441863560"
+        },
+        "ended_utc": "2026-11-02T03:48:58.358371+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T03:48:50.260230+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2204357,
+          "start_ticks": "441863556"
+        }
+      }
+    },
+    "source59": {
+      "all337_frozen_members_sha256_exact": true,
+      "all_two_actors_physically_closed": true,
+      "log_sha256": "f7836db1c280229b1957d21c8da5967c13ee9336d398972d704af29da9fdeae7",
+      "log_tail": "...........................................................              [100%]\n59 passed in 7.36s\n",
+      "state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2207182,
+          "start_ticks": "441887243"
+        },
+        "ended_utc": "2026-11-02T03:52:55.183136+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T03:52:47.086854+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2207181,
+          "start_ticks": "441887238"
+        }
+      }
+    }
+  },
+  "actual_three_test_capsules": {
+    "final59": {
+      "actual_recorder": {
+        "pid": 2207928,
+        "start_ticks": "441892431"
+      },
+      "archive_sha256": "03c894ed3ab4a1447cb37598c47e00cec18c33997efb62c6a697630ac670ff82",
+      "frozen_file_count": 337,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task2-final-green-873e315156ea-20261102",
+      "scientific_eligible": false,
+      "source_commit": "873e315156eabeac35cc99b09449a4688b3d62ef"
+    },
+    "first54": {
+      "actual_recorder": {
+        "pid": 2204357,
+        "start_ticks": "441863556"
+      },
+      "archive_sha256": "50aa0650d84185b7d371f7efd312a170fa2549c2c3f83e7f1ff217cd9aaec35e",
+      "frozen_file_count": 337,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task2-tests-873e315156ea-20261102",
+      "scientific_eligible": false,
+      "source_commit": "873e315156eabeac35cc99b09449a4688b3d62ef"
+    },
+    "source59": {
+      "actual_recorder": {
+        "pid": 2207181,
+        "start_ticks": "441887238"
+      },
+      "archive_sha256": "c358e75f1bf975af0c0cb1bb6a48adb2a44b0b254b13f3f9e01aac812d8256c4",
+      "frozen_file_count": 337,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task2-source-green-873e315156ea-20261102",
+      "scientific_eligible": false,
+      "source_commit": "873e315156eabeac35cc99b09449a4688b3d62ef"
+    }
+  },
+  "all_six_test_and_recorder_actors_physically_closed": true,
+  "current_new_component_suite_passed": 59,
+  "current_source_and_tests_sha256": {
+    "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
+    "scripts/paper/run_native_center_reference.py": "30e2da0d384559e8b5e524f5fc23c334b766fb0af0cea32eb293e36c82462ccc",
+    "tests/test_center_reference_eval.py": "e2219d63b83288dc057a3126af3d8a1c547c538c8f6761d70a53bc5311b2c91f"
+  },
+  "format": "actual_native_center_reference_eval_new_component_engineering_tests_v1",
+  "full_paper_complete": false,
+  "full_reference_model_evaluation_complete": false,
+  "initial_missing_entry_RED_failures": 37,
+  "new_component_final_review_complete": false,
+  "no_dependency_installation": true,
+  "observed_utc": "2026-11-02T03:55:34.466121+00:00",
+  "old_model_mathematics_and_suites_not_repeated": true,
+  "original_200epoch_metadata_files_for_unit_tests_are_real_accepted_source_bytes": true,
+  "real_selected_weight_CPU_qualification_complete": false,
+  "real_selected_weight_GPU_qualification_complete": false,
+  "source_base": "873e315156eabeac35cc99b09449a4688b3d62ef",
+  "source_state_and_moving_input_GREEN_passed": 8,
+  "source_state_and_moving_input_RED_failures": 8,
+  "weights_not_used_by_unit_fixture": true,
+  "whole_project_pytest_claimed": false
+}
