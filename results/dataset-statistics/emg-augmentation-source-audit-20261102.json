@@ -1,0 +1,836 @@
+{
+  "actual_audit_worker_source_sha256": "b8bb9300ce414aa858a2a987d453e3b9f8f9caa5874275dc1342421327643208",
+  "actual_source_audit": {
+    "actor": {
+      "pid": 2059083,
+      "start_ticks": "440833737",
+      "uid": 1005
+    },
+    "actual_completed_fit_bindings": {
+      "large": {
+        "fit_path": "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit",
+        "fit_result_file_sha256": "022de6fd3f32e892befab416cf50f2c4c10042c3ed172680d644d0cd4b947f72",
+        "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+        "identity_file_sha256": "e2456674c7f189f950a48fa5d0e6e287571a45de2e07cb6720b6bb3ae888ab3d",
+        "protocol_sha256": "a419b01bc58d70a9635405c50ecacdd296f4a7f70490157e273b733b6c0fb89c"
+      },
+      "middle": {
+        "fit_path": "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit",
+        "fit_result_file_sha256": "50025b9afd3dec4088d5c7f83b0308269fa675ae4850aee2832c4632dffd2ebd",
+        "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+        "identity_file_sha256": "b86ed8a3eb69c639297242c95151cdc89b5e56b830490cd1379255944ff5fb90",
+        "protocol_sha256": "c2a09e84f03aad228acbf9cd1e06451d98e9b9d7a460a541fc57827ed27f94f3"
+      },
+      "small": {
+        "fit_path": "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit",
+        "fit_result_file_sha256": "0ffb21370785eb9ab4a9ad5df4eda823995c8327ce6a2b4bba59bc0bf83a2394",
+        "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+        "identity_file_sha256": "8f2f33d583848b55d371ebaab0a6259e19dc02ba9fa797c79c580ce69036c457",
+        "protocol_sha256": "31b287e746e9c69f77937425c8e4a9cbc97d3ca9520d5bc3ef4c15a62105d409"
+      }
+    },
+    "actual_metadata_files_sha256": {
+      "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit/fit-result.json": "022de6fd3f32e892befab416cf50f2c4c10042c3ed172680d644d0cd4b947f72",
+      "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit/identity.json": "e2456674c7f189f950a48fa5d0e6e287571a45de2e07cb6720b6bb3ae888ab3d",
+      "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit/fit-result.json": "50025b9afd3dec4088d5c7f83b0308269fa675ae4850aee2832c4632dffd2ebd",
+      "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit/identity.json": "b86ed8a3eb69c639297242c95151cdc89b5e56b830490cd1379255944ff5fb90",
+      "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit/fit-result.json": "0ffb21370785eb9ab4a9ad5df4eda823995c8327ce6a2b4bba59bc0bf83a2394",
+      "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit/identity.json": "8f2f33d583848b55d371ebaab0a6259e19dc02ba9fa797c79c580ce69036c457",
+      "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102/private/experiment/full-fit/identity.json": "c72a5d9b8dc1d62c9a995194c47c184a3ec2773fdcd36006115a07dc97c6daf8"
+    },
+    "actual_metadata_nine_attributes": {
+      "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit/fit-result.json": [
+        64512,
+        19339595365,
+        16905,
+        1793528954978875720,
+        1793528954979875732,
+        33204,
+        1005,
+        1005,
+        1
+      ],
+      "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit/identity.json": [
+        64512,
+        19417194918,
+        164472,
+        1793499061196685516,
+        1793499061196685516,
+        33204,
+        1005,
+        1005,
+        1
+      ],
+      "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit/fit-result.json": [
+        64512,
+        10827828644,
+        16907,
+        1793525955838061731,
+        1793525955838061731,
+        33204,
+        1005,
+        1005,
+        1
+      ],
+      "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit/identity.json": [
+        64512,
+        11814895591,
+        159143,
+        1793498987194678304,
+        1793498987195678318,
+        33204,
+        1005,
+        1005,
+        1
+      ],
+      "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit/fit-result.json": [
+        64512,
+        321464466,
+        16905,
+        1793523742779292608,
+        1793523742780292621,
+        33204,
+        1005,
+        1005,
+        1
+      ],
+      "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit/identity.json": [
+        64512,
+        319787077,
+        151692,
+        1793498340843576984,
+        1793498340843576984,
+        33204,
+        1005,
+        1005,
+        1
+      ],
+      "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102/private/experiment/full-fit/identity.json": [
+        64512,
+        6614922703,
+        504485,
+        1793578142020127391,
+        1793578142021127399,
+        33204,
+        1005,
+        1005,
+        1
+      ]
+    },
+    "actual_validation_chain_is_identity_on_values": true,
+    "all_python_numpy_torch_rng_restored_after_synthetic_probes": true,
+    "all_three_completed_200_fit_construction_source_catalogs_exact": true,
+    "construction_attempts": {
+      "neural_module": 0,
+      "optimizer": 0
+    },
+    "cuda_initialized": false,
+    "deterministic_actual_baseline_chain_probes": [
+      {
+        "actual_selected_shift": -1,
+        "dtype": "torch.float32",
+        "expected_circular_roll_exact": true,
+        "input_shape": [
+          32,
+          8
+        ],
+        "is_left_right_mirror": false,
+        "output_array_sha256": "b33d58fcd3d7c9f2413874da9cf45901809a819495971ef46701a4c0df3c10a6",
+        "output_shape": [
+          32,
+          8
+        ],
+        "seed": 0
+      },
+      {
+        "actual_selected_shift": 0,
+        "dtype": "torch.float32",
+        "expected_circular_roll_exact": true,
+        "input_shape": [
+          32,
+          8
+        ],
+        "is_left_right_mirror": false,
+        "output_array_sha256": "74e88b823293b68c9217d2977e17f84e5eed597b0c73af9e89bb9c51f796a292",
+        "output_shape": [
+          32,
+          8
+        ],
+        "seed": 1
+      },
+      {
+        "actual_selected_shift": 1,
+        "dtype": "torch.float32",
+        "expected_circular_roll_exact": true,
+        "input_shape": [
+          32,
+          8
+        ],
+        "is_left_right_mirror": false,
+        "output_array_sha256": "c7b9d660161020aeba0d081a94314553c618e35b946f0b7a2faf9d12e72145a3",
+        "output_shape": [
+          32,
+          8
+        ],
+        "seed": 3
+      }
+    ],
+    "format": "actual_source_and_completed_fit_emg_augmentation_audit_v1",
+    "full_paper_complete": false,
+    "new_neural_forwards": 0,
+    "new_optimizer_updates": 0,
+    "new_training_or_scientific_settings": 0,
+    "observed_utc": "2026-11-02T00:57:15.652981+00:00",
+    "paper_like_optional_cpu_preset": {
+      "to_tensor": {
+        "_target_": "egoemg.transforms.ExtractToTensor",
+        "field": "emg"
+      },
+      "transforms": {
+        "test": [
+          {
+            "_target_": "egoemg.transforms.ExtractToTensor",
+            "field": "emg"
+          }
+        ],
+        "train": [
+          {
+            "_target_": "egoemg.transforms.ExtractField",
+            "field": "emg"
+          },
+          {
+            "_target_": "egoemg.transforms.RotationAugmentation",
+            "channel_dim": -1
+          },
+          {
+            "_target_": "egoemg.transforms.ToFloatTensor"
+          },
+          {
+            "_target_": "egoemg.transforms.RandomChannelMask",
+            "channel_dim": -1,
+            "mask_prob": 0.25,
+            "mask_value": 0.0,
+            "max_masked": null,
+            "min_masked": 0
+          },
+          {
+            "_target_": "egoemg.transforms.RandomTimeMask",
+            "mask_value": 0.0,
+            "max_mask_size": 500,
+            "min_mask_size": 0,
+            "num_masks": 0,
+            "time_dim": 0
+          },
+          {
+            "_target_": "egoemg.transforms.RandomFrequencyMask",
+            "max_mask_size": 128,
+            "min_mask_size": 0,
+            "num_masks": 3,
+            "time_dim": 0
+          },
+          {
+            "_target_": "egoemg.transforms.RandomGaussianNoise",
+            "apply_prob": 0.5,
+            "max_snr_db": 35,
+            "min_snr_db": 25,
+            "time_dim": 0
+          }
+        ],
+        "val": [
+          {
+            "_target_": "egoemg.transforms.ExtractToTensor",
+            "field": "emg"
+          }
+        ]
+      }
+    },
+    "paper_like_optional_preset_not_selected_by_three_main_baselines": true,
+    "physical_left_hand_column_orientation_not_proven": true,
+    "probe_input_scope": "explicit32x8synthetic float32 signal; no real data or learned forward",
+    "resolved_original_recipes": {
+      "EMGFormer-large": {
+        "actual_completed_fit_bound": true,
+        "all_recorded_upstream_config_and_native_sources_match": true,
+        "batch_augmentation": null,
+        "dataset_jitter_by_role": {
+          "test": [
+            false,
+            false
+          ],
+          "train": [
+            true,
+            true
+          ],
+          "val": [
+            false,
+            false
+          ]
+        },
+        "experiment": "emgformer/egoemg_emgformer_large",
+        "fit_identity_sha256": "09345ccd7de94a6eddf90b17fbb0af708f9035f18fa02fc7eda64a82a1454924",
+        "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+        "parameters": 16320806,
+        "protocol_sha256": "a419b01bc58d70a9635405c50ecacdd296f4a7f70490157e273b733b6c0fb89c",
+        "recorded_source_catalog_sha256": "8f92611db1adfd2762a0898cd93d5b41d40fdebd949bd55db0ad31052be43169",
+        "recorded_upstream_source_catalog_count": 246,
+        "selected_best": {
+          "checkpoint_sha256": "896871c83cb46ac12a755ab4dcee0f89b0995cae8fdcfac6df47ec6820ce1605",
+          "file": "best-val_mae=val_mae=0.2554.ckpt",
+          "score": 0.255403995513916,
+          "validated": true
+        },
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        },
+        "window": {
+          "eval_length": 12000,
+          "eval_stride": 12000,
+          "train_length": 12000,
+          "train_stride": 1200
+        }
+      },
+      "EMGFormer-middle": {
+        "actual_completed_fit_bound": true,
+        "all_recorded_upstream_config_and_native_sources_match": true,
+        "batch_augmentation": null,
+        "dataset_jitter_by_role": {
+          "test": [
+            false,
+            false
+          ],
+          "train": [
+            true,
+            true
+          ],
+          "val": [
+            false,
+            false
+          ]
+        },
+        "experiment": "emgformer/egoemg_emgformer_middle",
+        "fit_identity_sha256": "a8528dc865c082689629009374e9f1c7e115df45ace5eb4ad31c515a1c77408b",
+        "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+        "parameters": 6617382,
+        "protocol_sha256": "c2a09e84f03aad228acbf9cd1e06451d98e9b9d7a460a541fc57827ed27f94f3",
+        "recorded_source_catalog_sha256": "8f92611db1adfd2762a0898cd93d5b41d40fdebd949bd55db0ad31052be43169",
+        "recorded_upstream_source_catalog_count": 246,
+        "selected_best": {
+          "checkpoint_sha256": "c9a62af344490dc530a89e4f6b861a5463cd8e9b8aa05fb5380d171776ee36ff",
+          "file": "best-val_mae=val_mae=0.2578.ckpt",
+          "score": 0.25775474309921265,
+          "validated": true
+        },
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        },
+        "window": {
+          "eval_length": 12000,
+          "eval_stride": 12000,
+          "train_length": 12000,
+          "train_stride": 1200
+        }
+      },
+      "EMGFormer-small": {
+        "actual_completed_fit_bound": true,
+        "all_recorded_upstream_config_and_native_sources_match": true,
+        "batch_augmentation": null,
+        "dataset_jitter_by_role": {
+          "test": [
+            false,
+            false
+          ],
+          "train": [
+            true,
+            true
+          ],
+          "val": [
+            false,
+            false
+          ]
+        },
+        "experiment": "emgformer/egoemg_emgformer_small",
+        "fit_identity_sha256": "4058385e8b5f32f640c66bcda1f829bdecd382121a2a15f87b8175feb515e3bd",
+        "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+        "parameters": 3460134,
+        "protocol_sha256": "31b287e746e9c69f77937425c8e4a9cbc97d3ca9520d5bc3ef4c15a62105d409",
+        "recorded_source_catalog_sha256": "8f92611db1adfd2762a0898cd93d5b41d40fdebd949bd55db0ad31052be43169",
+        "recorded_upstream_source_catalog_count": 246,
+        "selected_best": {
+          "checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+          "file": "best-val_mae=val_mae=0.2583.ckpt",
+          "score": 0.25830063223838806,
+          "validated": true
+        },
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        },
+        "window": {
+          "eval_length": 12000,
+          "eval_stride": 12000,
+          "train_length": 12000,
+          "train_stride": 1200
+        }
+      },
+      "NeuroPose-default": {
+        "actual_completed_fit_bound": false,
+        "batch_augmentation": null,
+        "experiment": "emg2pose/regression_neuropose_egoemg",
+        "scope": "original resolved configuration only; no new full input/model/training admission",
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        }
+      },
+      "NeuroPose-with-aug": {
+        "actual_completed_fit_bound": false,
+        "batch_augmentation": null,
+        "experiment": "emg2pose/regression_neuropose_egoemg_with_aug",
+        "scope": "original resolved configuration only; no new full input/model/training admission",
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractField",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation",
+              "channel_dim": -1
+            },
+            {
+              "_target_": "egoemg.transforms.ToFloatTensor"
+            },
+            {
+              "_target_": "egoemg.transforms.RandomChannelMask",
+              "channel_dim": -1,
+              "mask_prob": 0.25,
+              "mask_value": 0.0,
+              "max_masked": null,
+              "min_masked": 0
+            },
+            {
+              "_target_": "egoemg.transforms.RandomTimeMask",
+              "mask_value": 0.0,
+              "max_mask_size": 500,
+              "min_mask_size": 0,
+              "num_masks": 0,
+              "time_dim": 0
+            },
+            {
+              "_target_": "egoemg.transforms.RandomFrequencyMask",
+              "max_mask_size": 128,
+              "min_mask_size": 0,
+              "num_masks": 3,
+              "time_dim": 0
+            },
+            {
+              "_target_": "egoemg.transforms.RandomGaussianNoise",
+              "apply_prob": 0.5,
+              "max_snr_db": 35,
+              "min_snr_db": 25,
+              "time_dim": 0
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        }
+      },
+      "RN18-fusion": {
+        "actual_completed_fit_bound": false,
+        "batch_augmentation": null,
+        "current_formal_identity_sha256": "34832e737a03dc3ab1287446a5bc9270aaf429e1221228b18b2a8b6fd36b7719",
+        "experiment": "fusion/fusion_rn18_s_center_8ch",
+        "formal_training_completion_not_inferred": true,
+        "immutable_current_formal_fit_config_bound": true,
+        "scope": "original resolved configuration only; no new full input/model/training admission",
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractField",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation",
+              "channel_dim": -1
+            },
+            {
+              "_target_": "egoemg.transforms.ToFloatTensor"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        }
+      },
+      "VEMG-default": {
+        "actual_completed_fit_bound": false,
+        "batch_augmentation": null,
+        "experiment": "emg2pose/regression_vemg2pose_egoemg",
+        "scope": "original resolved configuration only; no new full input/model/training admission",
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        }
+      },
+      "VEMG-with-aug": {
+        "actual_completed_fit_bound": false,
+        "batch_augmentation": null,
+        "experiment": "emg2pose/regression_vemg2pose_egoemg_with_aug",
+        "scope": "original resolved configuration only; no new full input/model/training admission",
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractField",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation",
+              "channel_dim": -1
+            },
+            {
+              "_target_": "egoemg.transforms.ToFloatTensor"
+            },
+            {
+              "_target_": "egoemg.transforms.RandomChannelMask",
+              "channel_dim": -1,
+              "mask_prob": 0.25,
+              "mask_value": 0.0,
+              "max_masked": null,
+              "min_masked": 0
+            },
+            {
+              "_target_": "egoemg.transforms.RandomTimeMask",
+              "mask_value": 0.0,
+              "max_mask_size": 500,
+              "min_mask_size": 0,
+              "num_masks": 0,
+              "time_dim": 0
+            },
+            {
+              "_target_": "egoemg.transforms.RandomFrequencyMask",
+              "max_mask_size": 128,
+              "min_mask_size": 0,
+              "num_masks": 3,
+              "time_dim": 0
+            },
+            {
+              "_target_": "egoemg.transforms.RandomGaussianNoise",
+              "apply_prob": 0.5,
+              "max_snr_db": 35,
+              "min_snr_db": 25,
+              "time_dim": 0
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        }
+      },
+      "ViT-S-fusion": {
+        "actual_completed_fit_bound": false,
+        "batch_augmentation": null,
+        "experiment": "fusion/fusion_vits_s_center_16ch",
+        "scope": "original resolved configuration only; no new full input/model/training admission",
+        "transforms": {
+          "test": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ],
+          "train": [
+            {
+              "_target_": "egoemg.transforms.ExtractField",
+              "field": "emg"
+            },
+            {
+              "_target_": "egoemg.transforms.RotationAugmentation",
+              "channel_dim": -1
+            },
+            {
+              "_target_": "egoemg.transforms.ToFloatTensor"
+            }
+          ],
+          "val": [
+            {
+              "_target_": "egoemg.transforms.ExtractToTensor",
+              "field": "emg"
+            }
+          ]
+        }
+      }
+    },
+    "source_package_root": "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102",
+    "upstream_clean_before_and_after": true,
+    "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311",
+    "upstream_selected_source_files_sha256": {
+      "config/augmentation/batch_aug_best_v2_no_mixup.yaml": "dd1282e093f82c3e3b59c20a6511b53e2d9801b47eb335d0b36f6c034c0445f7",
+      "config/base.yaml": "ad72b515105ebb426bc4123276d33fec4bcf60c63ccd8f0c23049e97fa8435c7",
+      "config/experiment/emg2pose/regression_neuropose_egoemg.yaml": "f1d3ecba77a1b21ea849b40d6d75487e68f358875024b4d094f4ef62df4d4509",
+      "config/experiment/emg2pose/regression_neuropose_egoemg_with_aug.yaml": "a797bcc5cfde37a2bb7010c454d111b027059d1b4556614a1fc1dd53921afa24",
+      "config/experiment/emg2pose/regression_vemg2pose_egoemg.yaml": "3ec4bd97b4f9a215228a4de516acf28d908f2672870e4175cf0d0c2ffb51c3cd",
+      "config/experiment/emg2pose/regression_vemg2pose_egoemg_with_aug.yaml": "e3c13acf365ca31f3fb83a439f711b64f2abffb197bd8532bbf2eb8a23e81f46",
+      "config/experiment/emgformer/egoemg_emgformer_large.yaml": "8e4befabf6eb4c6d5e73354c8e2878212751942771769314b7864ffa426f08ce",
+      "config/experiment/emgformer/egoemg_emgformer_middle.yaml": "7da0217b0e48ae474de619fa0af9b4655b93f1f1c2f4189484687b50a9ce01ca",
+      "config/experiment/emgformer/egoemg_emgformer_small.yaml": "11613a9eff82fc95b6d2522c13108ee66f9a3ca04955b50e5ebbb90f408e444f",
+      "config/experiment/fusion/fusion_rn18_s_center_8ch.yaml": "a3a61a800e32cc803b500ee248c9e4724a9090f2874ec3b9f7228dd4fd3cd399",
+      "config/experiment/fusion/fusion_vits_s_center_16ch.yaml": "f510e80d0a6060c8e18e520e6ffc33ec052097ab5043df812a7f1b84da446633",
+      "config/transforms/emgformer_regression_aug_best.yaml": "0cb1919bb6a91e7182db3afecbd74433c93a08e4db00690ed8210cacaec604a2",
+      "config/transforms/emgformer_regression_aug_extended.yaml": "62dca2bda541cc2e37e027ec1c79674d2804ebc7ac7a1351a78dffa6c4880d4d",
+      "config/transforms/emgformer_regression_no_aug.yaml": "c0cc5d0b541b493234ce13cc1465534c26e7dffb76bb88587763e49ddf89f290",
+      "config/transforms/rotation_augmentation.yaml": "26dc30cd6d20b154e8fbcdfdb3b450c87a9927f05780fed005834213ea2d2005",
+      "egoemg/_train_utils.py": "b510bbb938d5d82e03016c8009cb26e94f4e38a34995ec038ee89a2b576604f1",
+      "egoemg/datamodule.py": "98e7153a103a51d14777bf2ca89db0e3f9c4d734517a6003e9dd993c25a911a6",
+      "egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+      "egoemg/lightning.py": "f32b97dab2bb94aff35d0513d964b15087a859caaf11f36030f79074edae1899",
+      "egoemg/train.py": "ac61da9adff1775a9e6f405879420ea91cb15159dac4dbf6194e12108822681e",
+      "egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59",
+      "egoemg/transforms_batch.py": "030bf002dcf0ac9db4d07b56418dfdde42f40cac9e047449d9e3c67a453eeb45"
+    }
+  },
+  "all_paper_augmentations_active_in_main_recipes": false,
+  "format": "paper_and_actual_completed_fit_emg_augmentation_source_audit_v1",
+  "full_paper_complete": false,
+  "independent_postexit_readback": {
+    "actual_audit_actor_closed": true,
+    "actual_upstream_source22_and_metadata7_files_sha256_and_generations_exact": true,
+    "audit_actor": {
+      "pid": 2059083,
+      "start_ticks": "440833737",
+      "uid": 1005
+    },
+    "fit_metadata_count": 7,
+    "format": "closed_native_emg_augmentation_audit_independent_metadata_readback_v1",
+    "full_paper_complete": false,
+    "new_cuda_contexts": 0,
+    "new_learned_forwards": 0,
+    "new_model_constructors": 0,
+    "new_optimizer_updates": 0,
+    "observed_utc": "2026-11-02T00:58:13.919577+00:00",
+    "original_actual_adapter_helpers_sha256": {
+      "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+      "egoemg_repro/emg_initializer_data.py": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+      "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
+      "egoemg_repro/emgformer_literal.py": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
+      "egoemg_repro/emgformer_runtime.py": "7691be8aacfb6a6796225ee91be9a19643d585a83512134178aa8ea354513bbb"
+    },
+    "original_source_package_bundle_sha256": "e67b8ba1203d6515ee704384755208580e5dc904afc4eb07227acd7ba75d39b1",
+    "original_source_package_commit": "e53ecbef4581b033e6019ad73acd581eb860970d",
+    "readback_actor": {
+      "pid": 2060362,
+      "start_ticks": "440839921"
+    },
+    "torch_unimported": true,
+    "upstream_source_count": 22
+  },
+  "independent_readback_actor_closure": {
+    "actual_readback_actor_closed": true,
+    "new_neural_work": 0,
+    "observed_utc": "2026-11-02T01:00:48.051874+00:00",
+    "readback_actor": {
+      "pid": 2060362,
+      "start_ticks": "440839921"
+    }
+  },
+  "main_original_code_augmentation_scope_verified": true,
+  "new_scientific_settings_added": 0,
+  "observed_utc": "2026-11-02T01:00:48.051874+00:00",
+  "paper": {
+    "appendixC1_physical_pdf_page": 21,
+    "filename": "EgoEMG.pdf",
+    "section4_3_physical_pdf_page": 6,
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725"
+  },
+  "paper_numerical_equivalence_established": false,
+  "physical_left_hand_mirror_equivalence_proven": false,
+  "semantic_findings": [
+    {
+      "actual_selected_three_completed_fits": "CPU ExtractToTensor -> RotationAugmentation, val/test ExtractToTensor only, batch_augmentation null",
+      "paper_claim": "C.1 gives channel dropout p0.25,3 frequency masks width<=128,Gaussian SNR25-35dB p0.5,temporal jitter +/-40ms",
+      "status": "original-code main recipe verified; not paper-augmentation equivalence",
+      "topic": "selected_main_EMGFormer_augmentation"
+    },
+    {
+      "active_in_classic_with_aug_resolved_configs": true,
+      "channel_mask_probability": 0.25,
+      "frequency_mask_count": 3,
+      "gaussian_probability": 0.5,
+      "gaussian_snr_db": [
+        25,
+        35
+      ],
+      "max_frequency_width_bins": 128,
+      "minimum_frequency_width_bins": 0,
+      "new_training_of_this_preset_performed": false,
+      "selected_by_three_main_EMGFormer_recipes": false,
+      "topic": "available_optional_paper_like_preset",
+      "upstream_path": "config/transforms/emgformer_regression_aug_best.yaml"
+    },
+    {
+      "actual_numeric_three_branches_verified": true,
+      "actual_source": "uniform numpy choice of -1,0,1; cyclic roll on final channel axis",
+      "hand_specific_mirror_performed_by_this_operator": false,
+      "physical_stored_left_hand_column_orientation_proven": false,
+      "topic": "rotation",
+      "train_role_only_by_config": true
+    },
+    {
+      "largest_interior_offset_ms": 599.5,
+      "largest_interior_offset_samples": 1199,
+      "offset_direction": "nonnegative window-anchor offset",
+      "paper_plus_minus40ms_equivalence": false,
+      "sampling_hz": 2000,
+      "selected_train_stride_samples": 1200,
+      "selected_train_window_samples": 12000,
+      "source_rule": "if leftover>0, add numpy.randint(0,min(stride,leftover)); upper bound exclusive",
+      "topic": "temporal_window_jitter",
+      "validation_and_test_jitter": false
+    },
+    {
+      "RN18_current_immutable_formal_identity_matched": true,
+      "effective_original_CPU_list": [
+        "ExtractField",
+        "RotationAugmentation",
+        "ToFloatTensor"
+      ],
+      "effective_original_batch_augmentation": null,
+      "other_complete_fusion_fit_re_admitted_here": false,
+      "reason": "Final experiment overrides replace the inherited list; the defaults group name alone does not prove its entire transform chain is active",
+      "source_default_group": "emgformer_regression_aug_extended",
+      "topic": "fusion_effective_list"
+    },
+    {
+      "markers2mano_Figure9_or_B1_3_augmentation_completed": false,
+      "new_MAE_or_scientific_setting": false,
+      "new_model_training": false,
+      "old_model_or_upstream_code_changed": false,
+      "paper_score_gap_causation_established": false,
+      "topic": "scope"
+    }
+  ]
+}
