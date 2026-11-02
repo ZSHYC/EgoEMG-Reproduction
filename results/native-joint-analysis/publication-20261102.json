@@ -1,0 +1,169 @@
+{
+  "actual_public_branch_head": "fc660d94d494db144d138e3457e197115cec390f",
+  "actual_push_exit_code": 0,
+  "all_anonymous_immutable_raw_http200_byte_exact": true,
+  "changed_file_count": 26,
+  "files": {
+    "docs/full-paper-status.md": {
+      "bytes": 189354,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:16.272488+00:00",
+      "sha256": "e292713e9cd00cb9466851434369046f27ecdf2980d999f0933fc25b1c558648"
+    },
+    "docs/superpowers/plans/2026-11-01-native-mano-ik-full-data.md": {
+      "bytes": 12043,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:18.076147+00:00",
+      "sha256": "42d8cdba1e48db48b6a388b5c1018c3c2445d7a1c0f32329dd92f307a7f9ba30"
+    },
+    "docs/superpowers/plans/2026-11-02-native-joint-weighted-analysis.md": {
+      "bytes": 11906,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:20.635577+00:00",
+      "sha256": "6ba851b00c041060dfdbd35badd3058405c3c88e68c328fe653d60f8b12718d4"
+    },
+    "results/native-emgformer-trajectory/README.md": {
+      "bytes": 7656,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:22.851834+00:00",
+      "sha256": "c011d4379fe5444edb2a78761823afd7f0a1a122e4a49206094b022108b7ff1c"
+    },
+    "results/native-joint-analysis/README.md": {
+      "bytes": 5609,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:24.724907+00:00",
+      "sha256": "a280f306243f477e6b80f7738913d8b891d22a77ac6b04229a29030cc518d6c2"
+    },
+    "results/native-joint-analysis/artifact-verification-20261102.json": {
+      "bytes": 1054,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:26.721783+00:00",
+      "sha256": "ed1e456abdb93a9c3aed714e4687f61b9fa02cec00d303e3f606c7e4eb14b75d"
+    },
+    "results/native-joint-analysis/controller-source.py": {
+      "bytes": 7251,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:28.717037+00:00",
+      "sha256": "841a4eec7aa83cc9ce9c150ca2cdfa83938012d950a2d27825281faec9cf3dc0"
+    },
+    "results/native-joint-analysis/large/analysis.json": {
+      "bytes": 102688,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:30.969439+00:00",
+      "sha256": "a6a0e2e2f9a55318150ebac05bd674278a6eed18ca74b5ba6c0ed8177802cf14"
+    },
+    "results/native-joint-analysis/large/analysis.pending.json": {
+      "bytes": 102593,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:33.088091+00:00",
+      "sha256": "c32efbfe71eb3e5d1b4573cdf2e6f2b9b665c862df5098bd6027940ff2601906"
+    },
+    "results/native-joint-analysis/large/completion.json": {
+      "bytes": 2652,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:35.167740+00:00",
+      "sha256": "83cdc4ca11d7455bf85dce332316abb266e135db179c33f434f1d6a710736cc6"
+    },
+    "results/native-joint-analysis/large/verification.json": {
+      "bytes": 802,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:36.975441+00:00",
+      "sha256": "0f902e19332d86d92a15c10d5529367cb26a84ced3648d0d476f7ab2b2a876d8"
+    },
+    "results/native-joint-analysis/middle/analysis.json": {
+      "bytes": 102679,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:40.787354+00:00",
+      "sha256": "0ac2a294f185da68c0d18448928aae8a59c14b70e41b0eaf3cfbc622e68015f3"
+    },
+    "results/native-joint-analysis/middle/analysis.pending.json": {
+      "bytes": 102584,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:43.008494+00:00",
+      "sha256": "50e7005bd63efe871811969e05d873508094eed4a994597be769e5167a93a9c6"
+    },
+    "results/native-joint-analysis/middle/completion.json": {
+      "bytes": 2653,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:44.998313+00:00",
+      "sha256": "3ffd4d363f8313f1c589e840b53ea38dd2495fecec285430be8313e06d2aea52"
+    },
+    "results/native-joint-analysis/middle/verification.json": {
+      "bytes": 803,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:46.892568+00:00",
+      "sha256": "ff3a91c2fb0cadeb6b8b20f398b604d2adea6b917c4551541ca014753e8ed35f"
+    },
+    "results/native-joint-analysis/postexit-acceptance-20261102.json": {
+      "bytes": 23945,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:48.896284+00:00",
+      "sha256": "5e66a2d2efb1efbb04f9742dbcc68a475c6bed6251320d216daa4df07d88e6ac"
+    },
+    "results/native-joint-analysis/small/analysis.json": {
+      "bytes": 102669,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:50.978310+00:00",
+      "sha256": "9c00af900c3256ed0bf80cc63115515524c9f36daa39efae024a687f5c4f68e5"
+    },
+    "results/native-joint-analysis/small/analysis.pending.json": {
+      "bytes": 102574,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:53.001882+00:00",
+      "sha256": "17e049035a76f5f7f2e42a8f18ba68a4cd12072660e6e495ec7d46c73ec84c03"
+    },
+    "results/native-joint-analysis/small/completion.json": {
+      "bytes": 2652,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:54.780868+00:00",
+      "sha256": "a1dfed905e017b681d93a0e48411be7c392bb284edccf9d4b5a28752420b0f7b"
+    },
+    "results/native-joint-analysis/small/verification.json": {
+      "bytes": 802,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:56.979679+00:00",
+      "sha256": "ee23da1f39d186e9681b403c521a6d2b0c8080fb6b8032ee40fb5899c80685ae"
+    },
+    "results/native-joint-analysis/split-hand-group-counts.csv": {
+      "bytes": 23102,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:05:58.950470+00:00",
+      "sha256": "7b229f49e53aca4b4ad11d32cef126af247b9a88c66b0adca6207f37d542bc6f"
+    },
+    "results/native-joint-analysis/table12-caption-interpretation-request-weighted.csv": {
+      "bytes": 2902,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:06:00.912851+00:00",
+      "sha256": "6f5c76f063e56e7c40db1fbbfca59afb5b682ef6e2630551ff3dff8c021eb841"
+    },
+    "results/native-joint-analysis/table12-native-two-weight-views.json": {
+      "bytes": 112973,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:06:02.964577+00:00",
+      "sha256": "8c610fa4be8e4bd87f80297ef7dee394bed36d4f31bfa5e8df7f8d216818b852"
+    },
+    "results/native-joint-analysis/table12-native-valid-angle-pooled.csv": {
+      "bytes": 3356,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:06:04.912669+00:00",
+      "sha256": "fe870513126ff1bab60db981ed71256a94e777993cb0780809b81e5484bc9051"
+    },
+    "results/native-joint-analysis/workflow-result.json": {
+      "bytes": 7821,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:06:06.947817+00:00",
+      "sha256": "1cacb9ab9dfa77758ee8b3817ccaee3cc21abcfb7d4541459fd721d584c3f134"
+    },
+    "results/native-mano-ik/default-batch-qualification-and-full-queue-20261102.json": {
+      "bytes": 23163,
+      "http_status": 200,
+      "observed_utc": "2026-11-02T02:06:08.971105+00:00",
+      "sha256": "8d779e13228b48dcb80f59eae327e49281c6b3b4dc2a32e6455c8399c8104fe9"
+    }
+  },
+  "initial_parallel_anonymous_verifier_rate_limited": false,
+  "observed_utc": "2026-11-02T02:06:09.971556+00:00",
+  "resumable_verification_obeyed_backoff": true,
+  "source_base": "bdf59e746e0d9854c59f5b316f4b50d0490f2fc0",
+  "tracked_worktree_clean": true
+}
