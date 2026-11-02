@@ -1,0 +1,279 @@
+{
+  "actual_owned_stages": [
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2004966,
+        "pid": 2004966,
+        "sid": 2004966,
+        "start_ticks": "440527179",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2004967,
+        "pid": 2004967,
+        "sid": 2004967,
+        "start_ticks": "440527183",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2007663,
+        "pid": 2007663,
+        "sid": 2007663,
+        "start_ticks": "440544668",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2007664,
+        "pid": 2007664,
+        "sid": 2007664,
+        "start_ticks": "440544671",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2011818,
+        "pid": 2011818,
+        "sid": 2011818,
+        "start_ticks": "440565410",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2011820,
+        "pid": 2011820,
+        "sid": 2011820,
+        "start_ticks": "440565414",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2013889,
+        "pid": 2013889,
+        "sid": 2013889,
+        "start_ticks": "440578362",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2013890,
+        "pid": 2013890,
+        "sid": 2013890,
+        "start_ticks": "440578366",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2018969,
+        "pid": 2018969,
+        "sid": 2018969,
+        "start_ticks": "440609682",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2018970,
+        "pid": 2018970,
+        "sid": 2018970,
+        "start_ticks": "440609685",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2025663,
+        "pid": 2025663,
+        "sid": 2025663,
+        "start_ticks": "440649989",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2025664,
+        "pid": 2025664,
+        "sid": 2025664,
+        "start_ticks": "440649993",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2030584,
+        "pid": 2030584,
+        "sid": 2030584,
+        "start_ticks": "440680319",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2004963,
+        "pid": 2004963,
+        "sid": 2004963,
+        "start_ticks": "440527169",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2030586,
+        "pid": 2030586,
+        "sid": 2030586,
+        "start_ticks": "440680323",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    }
+  ],
+  "all_owned_consumers_exited": true,
+  "finished_ns": 1793579788434711708,
+  "format": "closed_native_trajectory_workflow_v1",
+  "full_paper_complete": false,
+  "parent_torch_unimported": true,
+  "report_file_sha256": "9d4df56557c25dc838a7e6cdb020866f667574d9c431697166a1ea1c355917c9",
+  "scientific_eligible": true,
+  "sha256": "48462ec5921de2321d348c77bece92f00e41c4c216fd4b53cdbca50b38f9b334",
+  "sources_sha256": {
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "egoemg_repro/emg_initializer_cohort.py": "7c3624c1d22640144ea2e2d79c369fad917c5a9a4e48f1e60ef36048bf43a5b2",
+    "egoemg_repro/emg_initializer_data.py": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+    "egoemg_repro/emgformer_cohort.py": "c076a746abd25eb48fd4eb29135921c5cdeae8c083f9b38d423161a49fe25ea4",
+    "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
+    "egoemg_repro/emgformer_eval.py": "32f5be097a57793f1c899d0a530873728a6424a556bda9e3ab3825ebb6307480",
+    "egoemg_repro/emgformer_literal.py": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
+    "egoemg_repro/emgformer_runtime.py": "7691be8aacfb6a6796225ee91be9a19643d585a83512134178aa8ea354513bbb",
+    "egoemg_repro/emgformer_train.py": "3cc0be18daa1a405594a9c7c4998bd20d0efce26603c6069c823cb4d58e220e6",
+    "egoemg_repro/emgformer_trajectory_data.py": "c1f66a7689022da7b471b2a4ee5ec2da0eb75a139be90eb5b1217e84de77b1fa",
+    "egoemg_repro/emgformer_trajectory_eval.py": "0a85fc8df618113cba2181e62a8229e90542e91e5d4804901d430e08494a4a5c",
+    "egoemg_repro/emgformer_trajectory_results.py": "6b5b8415c48f9108904df2330881fa93cee4fb4115d2560b8cb817fc1d0cc17b",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/paper_analysis.py": "9762be3e41e33ec65a72ed7c7b66c62f3d39baffade7a3b8e9d5309fa498e549",
+    "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_eval.py": "63553900476855dc0cf9ecc2f97f841e33225470488066de39af23465565c581",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7",
+    "egoemg_repro/wilor_native_train.py": "91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2",
+    "scripts/paper/run_emgformer_trajectory.py": "91c767c71e5d26e9f2460cff7c60191327b9dc0e0f7783fe894bd84563707d7d"
+  },
+  "trajectory_pipeline_complete": true
+}

@@ -1,0 +1,427 @@
+{
+  "actual_complete_original_role_passes": {
+    "test-native": {
+      "actor": {
+        "pgrp": 2013890,
+        "pid": 2013890,
+        "sid": 2013890,
+        "start_ticks": "440578366",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_learned_forwards": 6,
+      "actual_optimizer_updates": 0,
+      "alignment": {
+        "aligned_center_index": 5745,
+        "aligned_prediction_time_steps": 11490,
+        "left_context": 510,
+        "original_point_center_index": 6000,
+        "raw_prediction_time_steps": 230,
+        "right_context": 0,
+        "source_aligned_center_index": 6255,
+        "window_length": 12000
+      },
+      "all_loader_workers_closed": true,
+      "batch_size": 500,
+      "precision": "bf16-mixed",
+      "samples": 2792,
+      "workers": 6
+    },
+    "test-replay": {
+      "actor": {
+        "pgrp": 2018970,
+        "pid": 2018970,
+        "sid": 2018970,
+        "start_ticks": "440609685",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_learned_forwards": 6,
+      "actual_optimizer_updates": 0,
+      "alignment": {
+        "aligned_center_index": 5745,
+        "aligned_prediction_time_steps": 11490,
+        "left_context": 510,
+        "original_point_center_index": 6000,
+        "raw_prediction_time_steps": 230,
+        "right_context": 0,
+        "source_aligned_center_index": 6255,
+        "window_length": 12000
+      },
+      "all_loader_workers_closed": true,
+      "batch_size": 500,
+      "precision": "bf16-mixed",
+      "samples": 2792,
+      "workers": 6
+    },
+    "val-native": {
+      "actor": {
+        "pgrp": 2004967,
+        "pid": 2004967,
+        "sid": 2004967,
+        "start_ticks": "440527183",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_learned_forwards": 3,
+      "actual_optimizer_updates": 0,
+      "alignment": {
+        "aligned_center_index": 5745,
+        "aligned_prediction_time_steps": 11490,
+        "left_context": 510,
+        "original_point_center_index": 6000,
+        "raw_prediction_time_steps": 230,
+        "right_context": 0,
+        "source_aligned_center_index": 6255,
+        "window_length": 12000
+      },
+      "all_loader_workers_closed": true,
+      "batch_size": 500,
+      "precision": "bf16-mixed",
+      "samples": 1052,
+      "workers": 6
+    },
+    "val-replay": {
+      "actor": {
+        "pgrp": 2007664,
+        "pid": 2007664,
+        "sid": 2007664,
+        "start_ticks": "440544671",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_learned_forwards": 3,
+      "actual_optimizer_updates": 0,
+      "alignment": {
+        "aligned_center_index": 5745,
+        "aligned_prediction_time_steps": 11490,
+        "left_context": 510,
+        "original_point_center_index": 6000,
+        "raw_prediction_time_steps": 230,
+        "right_context": 0,
+        "source_aligned_center_index": 6255,
+        "window_length": 12000
+      },
+      "all_loader_workers_closed": true,
+      "batch_size": 500,
+      "precision": "bf16-mixed",
+      "samples": 1052,
+      "workers": 6
+    }
+  },
+  "actual_durable_training_updates": 25000,
+  "actual_fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+  "actual_report_sha256": "9a2fca381d852a251ecfbdd13b51385582d9d4c43a42b6c53e2ddad82f28343d",
+  "actual_training_completed_epochs": 200,
+  "additional_independent_reader_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2035780,
+      "pid": 2035780,
+      "sid": 2035780,
+      "start_ticks": "440709564",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 2032450,
+      "pid": 2032450,
+      "sid": 2032450,
+      "start_ticks": "440691194",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2035781,
+      "pid": 2035781,
+      "sid": 2035781,
+      "start_ticks": "440709568",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "all16_original_size_actors_closed": [
+    {
+      "pgrp": 2004963,
+      "pid": 2004963,
+      "sid": 2004963,
+      "start_ticks": "440527169",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004960,
+      "pid": 2004960,
+      "sid": 2004960,
+      "start_ticks": "440527166",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004967,
+      "pid": 2004967,
+      "sid": 2004967,
+      "start_ticks": "440527183",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004966,
+      "pid": 2004966,
+      "sid": 2004966,
+      "start_ticks": "440527179",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2007664,
+      "pid": 2007664,
+      "sid": 2007664,
+      "start_ticks": "440544671",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2007663,
+      "pid": 2007663,
+      "sid": 2007663,
+      "start_ticks": "440544668",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2011820,
+      "pid": 2011820,
+      "sid": 2011820,
+      "start_ticks": "440565414",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2011818,
+      "pid": 2011818,
+      "sid": 2011818,
+      "start_ticks": "440565410",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2013890,
+      "pid": 2013890,
+      "sid": 2013890,
+      "start_ticks": "440578366",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2013889,
+      "pid": 2013889,
+      "sid": 2013889,
+      "start_ticks": "440578362",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2018970,
+      "pid": 2018970,
+      "sid": 2018970,
+      "start_ticks": "440609685",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2018969,
+      "pid": 2018969,
+      "sid": 2018969,
+      "start_ticks": "440609682",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2025664,
+      "pid": 2025664,
+      "sid": 2025664,
+      "start_ticks": "440649993",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2025663,
+      "pid": 2025663,
+      "sid": 2025663,
+      "start_ticks": "440649989",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2030586,
+      "pid": 2030586,
+      "sid": 2030586,
+      "start_ticks": "440680323",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2030584,
+      "pid": 2030584,
+      "sid": 2030584,
+      "start_ticks": "440680319",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "all24_original_loader_workers_closed": true,
+  "all2_independent_reader_actors_closed": [
+    {
+      "pgrp": 2035781,
+      "pid": 2035781,
+      "sid": 2035781,
+      "start_ticks": "440709568",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2035780,
+      "pid": 2035780,
+      "sid": 2035780,
+      "start_ticks": "440709564",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "collector_bundle_sha256": "a8142defd862a580340ed832f832d11afd36b2f559d8dc7f5cab26946bed3e64",
+  "collector_files_sha256": {
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "private/recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+    "private/request.json": "1b64c643ff8bc240997a2070d1bd4378a7df3c5f0dd47a9b07f0f512ea3b628e",
+    "private/runtime-probe.py": "db9922b78075e16c630dc231c7151007863db33ffe8b14432253c836c8abf530",
+    "private/worker.py": "77e18ac6087719dedc39efd428a4254fbab1ab66fc3a43404ea30a077ba7ee95"
+  },
+  "collector_source_commit": "acc4ccb42966e35594b6db27c1b2d23e2d9fa82e",
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "format": "actual_native_emgformer_complete_size_and_closed_independent_postexit_acceptance_v1",
+  "full_input_payload_bytes": 16540457757,
+  "full_input_payload_files": 16,
+  "full_input_payload_sha256_verified_by_existing_native_reader": {
+    "field:emg_left_filtered": "b948e1879bc6044a54758c865a137acb5b580ded18eca2f4a7d84d3f976ec3ea",
+    "field:emg_right_filtered": "2aeac3c7262fd42d7770051fe9df73660bafaf4627bc70626802fe13067e88d3",
+    "field:frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+    "field:generated_joint_angles_left": "85d03d9e992d5d085000d0d26ab25ab5f1a015ee509460d0131fbbbb2252005f",
+    "field:generated_joint_angles_right": "383922f2a6f9a6ee5c5109e88d1b65c4d62c8a77435ee0fcbe7b2ef222f4d5e7",
+    "field:generated_label_valid": "30486e402450e0a3eaddec6ab185ea6575bbc478fb41837a6ce981014d79eea2",
+    "field:label_gesture_active": "27bfef6dc99d98110613acc8685dad1ee5321f119098d9bac772c27d4f77d7cb",
+    "field:label_gesture_class": "55a07d9d639483e54eef963a527d50554902d632eea4e42a29651f40f83b4212",
+    "field:mocap_left_wrist_angles_valid": "d48e0430adac0b7ffd0e048e05cdd0fc084c90f28387ca79406dbf62bc9d9389",
+    "field:mocap_left_wrist_pitch": "325372afc973aa10680e73cd956cde4ff245ebf0cdee650fce63edd5aa450cee",
+    "field:mocap_left_wrist_yaw": "d3d6936ba37ef517370f5f6c53ec5a6d6dd7667c7c619092e4faccb7c67d0730",
+    "field:mocap_right_wrist_angles_valid": "6175793773e197b2cdb825d0b131ad686afeaeb1180b9852e0953b7fd986349d",
+    "field:mocap_right_wrist_pitch": "8c31710cd300927041524093ab151cd7bcc359924f4cb76fe582c492507b2d1b",
+    "field:mocap_right_wrist_yaw": "bc157f87c16a51df507abdb7d83e23da91ce45a17954dabbeb383a777fdd5fdb",
+    "metadata:episodes": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+    "metadata:manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+  },
+  "full_paper_complete": false,
+  "full_trajectory_targets_used_only_for_new_evaluation": true,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T00:42:12.457804+00:00",
+  "original_bundle_sha256": "cc02413f0c82d8b0ac09583e7255d666527cc75e58d3b7d08d1aa6a7763cacfa",
+  "original_fit_epoch_journal_sha256": "21370e56c1a6cb603c62b55553f9212d6d00cc118c35495cb4977ae68b096bb8",
+  "original_point_selected_validation_best_unchanged": true,
+  "original_report_files_sha256": {
+    "completion.json": "6f63776e5cd4d75843dcd1ca028cb0182c4bf0cf3565ca2e980daa41c2080c57",
+    "metrics.json": "9d4df56557c25dc838a7e6cdb020866f667574d9c431697166a1ea1c355917c9",
+    "metrics.md": "b5aa667d89aed3924dc761ae6ecc9325a0fd3311dc1d43f1b6de270f409d46a5",
+    "metrics.pending.json": "ebcaadfdc1cc7ac571e999ffcfc3e655b5d9982df58163b091a62c01a066dd97",
+    "verification.json": "9b4d459849f27ed9a27078acb87c73dcff5b48c0112712283af507967207d4cf",
+    "workflow-result.json": "a0924d46ffcc4065dc7c4ebb431be8cd2cf9980966f22787805236983900fc53"
+  },
+  "original_size_outer_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2004960,
+      "pid": 2004960,
+      "sid": 2004960,
+      "start_ticks": "440527166",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 1701856,
+      "pid": 1701856,
+      "sid": 1701856,
+      "start_ticks": "438130415",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2004963,
+      "pid": 2004963,
+      "sid": 2004963,
+      "start_ticks": "440527169",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "original_source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+  "paper_numerical_equivalence_established": false,
+  "postexit_cuda_initialized": false,
+  "postexit_readback_seconds": 305.6813307451084,
+  "prior_point_test_exposure_disclosed": true,
+  "public_training_history_csv_sha256": "984480bbf4f94c3dc3c985a11dc3e0b8476b377d2d4b2cfe394e75bde3cd6b5b",
+  "raw_tensor_payload_sha256_physically_verified_by_existing_native_reader": {
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-native/raw/000000.pt": "6f656b36bddc195f5be2bc3beb697ac58eaee8f450bfb0d1a2558ca0821e1240",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-native/raw/000001.pt": "c7e5285018be0c9978ad63aff85260438c79c88766bc7a82dda2c8cf67bcd296",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-native/raw/000002.pt": "9e8a6f662a3f5bd1497f6d3d08c1f621635cac1cf85da1aca90d062a64ab0c35",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-native/raw/000003.pt": "3cd6f68eab468f95c63462a6e9fc7d745e7d794334361bd2114899e4d275e226",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-native/raw/000004.pt": "cc8e2e2dff15339f9e38e89f147777a2601f4ccf1bd12311a050d8634b6e1b24",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-native/raw/000005.pt": "ad73dce8c7dee4c92df7f975c7cf903966f28efc206a3d2de6a34040753efe6b",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-replay/raw/000000.pt": "6f656b36bddc195f5be2bc3beb697ac58eaee8f450bfb0d1a2558ca0821e1240",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-replay/raw/000001.pt": "c7e5285018be0c9978ad63aff85260438c79c88766bc7a82dda2c8cf67bcd296",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-replay/raw/000002.pt": "9e8a6f662a3f5bd1497f6d3d08c1f621635cac1cf85da1aca90d062a64ab0c35",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-replay/raw/000003.pt": "3cd6f68eab468f95c63462a6e9fc7d745e7d794334361bd2114899e4d275e226",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-replay/raw/000004.pt": "cc8e2e2dff15339f9e38e89f147777a2601f4ccf1bd12311a050d8634b6e1b24",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/test-replay/raw/000005.pt": "ad73dce8c7dee4c92df7f975c7cf903966f28efc206a3d2de6a34040753efe6b",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/val-native/raw/000000.pt": "827259c8a3ec8b7cc5a0a8079886abdb08a9bb782160e2673a4be0c9f47cdb60",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/val-native/raw/000001.pt": "030a4e6dabb9d996cdbe933d2df6f4f1a3b27bc2de95d1af75c06375944ef374",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/val-native/raw/000002.pt": "fbc3ae141c7073f05cbbd9b3cb8af48d4cf5a7e407e0632a31102dfd7e268d08",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/val-replay/raw/000000.pt": "827259c8a3ec8b7cc5a0a8079886abdb08a9bb782160e2673a4be0c9f47cdb60",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/val-replay/raw/000001.pt": "030a4e6dabb9d996cdbe933d2df6f4f1a3b27bc2de95d1af75c06375944ef374",
+    "/data/shihao/egoemg-native-trajectory-shared-lineage-queue-14a9a1e4486d-20261102/private/small-flow/val-replay/raw/000002.pt": "fbc3ae141c7073f05cbbd9b3cb8af48d4cf5a7e407e0632a31102dfd7e268d08"
+  },
+  "readback_file_sha256": "94d098fbeee5881950a92e625ce8d433ca285ef624ed90808c64f4e5ee0c5309",
+  "scientific_eligible": true,
+  "selected_best": {
+    "checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+    "file": "best-val_mae=val_mae=0.2583.ckpt",
+    "score": 0.25830063223838806,
+    "validated": true
+  },
+  "selected_completed_epoch": 169,
+  "size": "small",
+  "source_parent_queue_can_still_run_other_sizes": true,
+  "source_parent_queue_not_claimed_closed": true,
+  "training_curve_selection_uses_trajectory_test": false,
+  "training_validation_curve_target_shape": [
+    22,
+    1
+  ]
+}

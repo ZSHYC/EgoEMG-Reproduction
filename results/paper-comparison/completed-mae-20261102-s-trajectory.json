@@ -1,0 +1,497 @@
+{
+  "completed_experiment_settings": 14,
+  "completed_experiment_settings_semantics": "14 model/table entries; native recipe reruns do not add model families and this field is not a count of all distinct completed protocol runs",
+  "current_metric_semantics": "Per-row actual source-bound metrics; latest complete native center reports use unique-first valid-angle pooled MAE; retained trajectory/legacy rows keep their own definitions.",
+  "format": "completed_mae_paper_numeric_reference_v1",
+  "full_paper_complete": false,
+  "historical_protocol_rows": [
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 1.8848868848579308,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "center",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ResNet-18",
+      "numeric_error_above_paper_percent": 31.947235336575087,
+      "our_mae_deg": 7.784886884857931,
+      "paper_avg_mae_deg": 5.9,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "de64bb247399a3b1123c8c06c25afeb505f91379e301e3e51b85a0a87a49f9ed",
+      "result_path": "results/completed/resnet18/metrics.json",
+      "verification": "original trainer final test and independent center recomputation"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 1.3400579456163744,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "center",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ResNet-50",
+      "numeric_error_above_paper_percent": 25.28411218144102,
+      "our_mae_deg": 6.640057945616374,
+      "paper_avg_mae_deg": 5.3,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "2d31bf8f64adbf201ee05972efd637acb0dd9839b571c7a324536e896e679541",
+      "result_path": "results/completed/resnet50/metrics.json",
+      "verification": "original trainer final test and independent center recomputation"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 1.589435193832113,
+      "evaluation": "trajectory",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "trajectory",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "EMGFormer-S",
+      "numeric_error_above_paper_percent": 10.812484311783077,
+      "our_mae_deg": 16.289435193832112,
+      "paper_avg_mae_deg": 14.7,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 2,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "1a263923298e3a033e43deee334e3d40266be77a439517db0cb1077a5e18c8ef",
+      "result_path": "results/completed/emgformer-s/metrics.json",
+      "verification": "original trainer final trajectory; independent audit recomputed centers only"
+    }
+  ],
+  "limitations": [
+    "Different data release, test cohorts, label preprocessing and masks prevent a controlled paper-equivalent comparison.",
+    "Some retained legacy rows use12000-point/0.01; the new primary RN18 uses7790-point/effective0.02. Coarse protocol group labels do not prove identical loaders, cohorts or initializations.",
+    "Legacy2792 hand centers and native4306 unique hand samples differ from the PDF4278 reference.",
+    "Current native RN18/RN50 User/Both each share one released metadata subject key with training; label names do not prove strict unseen-user independence.",
+    "Single rank, one seed and legacy-only source do not establish author six-rank, merged-source, current-release or multi-seed equivalence.",
+    "Numeric gaps use rounded paper Avg and are descriptive arithmetic references, not isolated implementation effects.",
+    "The historical matched legacy fusion gain retains the original7.784887 RN18 baseline; it is not recomputed against the new native6.607195 primary row.",
+    "Native EMGFormer center-only reports are not substituted for Table2 trajectory results.",
+    "Full-paper data acquisition, markers2mano, wrist/IK regeneration and other declared tables/figures remain separate requirements.",
+    "Native RN50 is an explicit source-backed RN18-config/backbone/Table8-batch derivative because an independent author RN50 YAML is absent. Its shared-GPU interrupted continuation preserves six saved domains but not guaranteed bitwise uninterrupted batches; latest invocation elapsed is not total paper GPU-hours.",
+    "Native S trajectory is the full11490-step output of the same200-epoch point-validation-selected model; its derived aligned center maps source6255, whereas the original point report uses6000. Original point test exposure is disclosed; no new checkpoint selection from trajectory or test. Old41-episode/single-rank and PDF population/aggregation differences remain.",
+    "Native S available metadata User and Both each share one subject key with train; gesture shares36. These are release keys, not independently verified people; temporal disjointness does not remove whole-episode upstream filter dependence. Generated labels are not regenerated by the missing author annotation pipeline."
+  ],
+  "matched_legacy_fusion_gain": {
+    "absolute_reduction_deg": 0.991353648517733,
+    "cross_protocol_gain_superiority_claimed": false,
+    "fusion_mae_deg": 6.793533236340198,
+    "matched_legacy_population_sha256": "4cf005e68d2c3db3af7ac67028779c8535c1075218a04995662ca55b8f0ee371",
+    "paper_reference_reduction_deg": 0.5,
+    "paper_reference_relative_error_reduction_percent": 8.47457627118644,
+    "relative_error_reduction_percent": 12.734335940654129,
+    "vision_mae_deg": 7.784886884857931
+  },
+  "matched_legacy_fusion_gain_source_paths": [
+    "results/completed/resnet18/metrics.json",
+    "results/completed/fusion-rn18-s/metrics.json"
+  ],
+  "matched_legacy_fusion_gain_uses_current_primary_resnet18": false,
+  "observed_utc": "2026-11-02T00:43:45.362049+00:00",
+  "paper": {
+    "filename": "EgoEMG.pdf",
+    "pages": 34,
+    "paper_avg_semantics": "per-sample weighted mean MAE across test splits; displayed to one decimal",
+    "paper_split_semantics": "per-user mean plus standard deviation, not the Avg column",
+    "physical_pdf_page": 8,
+    "reference_tables": [
+      2,
+      3
+    ],
+    "sha256": "124318dce75d9af00ab4d8427acf01315cf83ae1992082b783d5a488c2474725"
+  },
+  "paper_core_metrics_all_reproduced": false,
+  "paper_numerical_equivalence_established": false,
+  "pending_core_results": [
+    {
+      "paper_table": 2,
+      "status": "Native S full200 selected point-validation BEST169 now has complete full-trajectory1052val/2792test/native replay/report plus independent closed CPU readback; M workflow active and L follows in the unchanged queue; not all3 trajectory results complete",
+      "target": "native official-code EgoEMG EMGFormer S/M/L"
+    },
+    {
+      "paper_table": 3,
+      "status": "RN18 and explicit RN50 derivative native full results complete; RN152 still running; compatible cotrain150 and full RN18 fusion qualification complete, separate fresh native fusion150 is active, final report remains pending",
+      "target": "native ResNet152 and native RN18+S"
+    },
+    {
+      "paper_table": 11,
+      "paper_user_stage_mae_deg": {
+        "large": 12.25,
+        "middle": 12.39,
+        "small": 12.34
+      },
+      "status": "Three actual full-source250 jobs remain incomplete; exact official S stride3900 versus M/L780 is preserved",
+      "target": "EMG2Pose standard benchmark S/M/L"
+    },
+    {
+      "paper_figure": 13,
+      "paper_p": 0.001,
+      "paper_rho": 0.049,
+      "status": "ViT-S legacy complete17168-point analysis retained; native RN18 fusion/prediction and physical-camera/population equivalence remain incomplete",
+      "target": "occlusion/fusion gain Spearman correlation"
+    }
+  ],
+  "previous_snapshot_file": "completed-mae-20261102-rn50.json",
+  "previous_snapshot_file_sha256": "ac055f3d0cb08d6450b35b378c829d13026160a65cded30b7e5a12c848bb104e",
+  "primary_reference_policy": "Most recent completed source-bound native recipe and matching trajectory/center reduction where available; original legacy/other rows retained explicitly; no controlled cross-protocol ranking",
+  "rows": [
+    {
+      "aligned_center_is_original_point_center": false,
+      "arithmetic_difference_from_rounded_paper_avg_deg": 1.8376962100657224,
+      "bitwise_uninterrupted_training_trajectory_guaranteed": false,
+      "completion_evidence_file_sha256": "764a2172bd8ac8437c059dad735322b979cdd185d493d8c72d42960b125bde3d",
+      "completion_evidence_path": "results/native-emgformer-trajectory/small/postexit-acceptance.json",
+      "consumed_samples": 2792,
+      "evaluation": "trajectory",
+      "full_trajectory_context_and_alignment": {
+        "aligned_center_index": 5745,
+        "aligned_prediction_time_steps": 11490,
+        "left_context": 510,
+        "original_point_center_index": 6000,
+        "raw_prediction_time_steps": 230,
+        "right_context": 0,
+        "source_aligned_center_index": 6255,
+        "window_length": 12000
+      },
+      "historical_legacy_result_retained": true,
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "trajectory",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "EMGFormer-S",
+      "numeric_error_above_paper_percent": 12.501334762351846,
+      "original_point_validation_selected_checkpoint_preserved": true,
+      "our_mae_deg": 16.53769621006572,
+      "paper_avg_mae_deg": 14.7,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 2,
+      "primary_row_uses_most_recent_complete_native_recipe": true,
+      "prior_point_test_exposure_disclosed": true,
+      "protocol_group": "native_emgformer_12000_002_legacy_cohort",
+      "result_file_sha256": "9d4df56557c25dc838a7e6cdb020866f667574d9c431697166a1ea1c355917c9",
+      "result_path": "results/native-emgformer-trajectory/small/metrics.json",
+      "unique_hand_samples": 2792,
+      "valid_trajectory_angle_count": 684769448,
+      "verification": "Same native200/25000 point-validation BEST169; actual batch500/6workers/BF16 complete1052val/2792test native and fresh model replay, seven stages and16size actors/24loader workers closed; extra existing-reader complete16-source/raw graph CPU readback and both reader actors closed; no new learning"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 2.286139956188105,
+      "evaluation": "trajectory",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "trajectory",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "EMGFormer-M",
+      "numeric_error_above_paper_percent": 16.099577156254252,
+      "our_mae_deg": 16.486139956188104,
+      "paper_avg_mae_deg": 14.2,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 2,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "a85f9a11818684d4189af0c24d5bd7f7222059a9aa41360732c0743f5b648884",
+      "result_path": "results/completed/emgformer-m/metrics.json",
+      "verification": "original trainer final trajectory; independent audit recomputed centers only"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 2.3911325931846115,
+      "evaluation": "trajectory",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "trajectory",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "EMGFormer-L",
+      "numeric_error_above_paper_percent": 16.838961923835292,
+      "our_mae_deg": 16.59113259318461,
+      "paper_avg_mae_deg": 14.2,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 2,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "c4e6bf1a00141040e4a0db3e649fea1425ffa912269bb45d7f93cb81a92eb6ee",
+      "result_path": "results/completed/emgformer-l/metrics.json",
+      "verification": "original trainer final trajectory; independent audit recomputed centers only"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.5529321024344629,
+      "evaluation": "trajectory",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "statistics",
+        "trajectory",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "VEMG2Pose",
+      "numeric_error_above_paper_percent": 3.4775603926695764,
+      "our_mae_deg": 16.452932102434463,
+      "paper_avg_mae_deg": 15.9,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 2,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "ae6ca5322b2369568002733d8a10d4ab9f75d568a9dc02158ee56730a1a80fbe",
+      "result_path": "results/original-classic/vemg2pose/metrics.json",
+      "verification": "native final test and independent complete typed replay"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.25840356672132714,
+      "evaluation": "trajectory",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "statistics",
+        "trajectory",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "NeuroPose",
+      "numeric_error_above_paper_percent": 1.6049910976480009,
+      "our_mae_deg": 16.35840356672133,
+      "paper_avg_mae_deg": 16.1,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 2,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "b4b3e4cb8c96236e0369648bab4b99579b6cec4dedda2f53cc246a0d0db8e6a9",
+      "result_path": "results/original-classic/neuropose/metrics.json",
+      "verification": "native final test and independent complete typed replay"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.707195072275157,
+      "completion_evidence_file_sha256": "62568fb11efcd9883484e0c4bba95c52792fd9e154bcd05177cdc56006ec89e4",
+      "completion_evidence_path": "results/native-rn18-full-complete-20261102.json",
+      "consumed_samples": 8612,
+      "evaluation": "center",
+      "historical_legacy_result_retained": true,
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ResNet-18",
+      "numeric_error_above_paper_percent": 11.98635715720604,
+      "our_mae_deg": 6.607195072275157,
+      "paper_avg_mae_deg": 5.9,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "primary_row_uses_most_recent_complete_native_recipe": true,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "cbe2e4098aed0099d4452dd6d160425034ac4b5c6493d7793e3626da2e6db4de",
+      "result_path": "results/original-resnet/resnet18/metrics.json",
+      "unique_hand_samples": 4306,
+      "valid_unique_angle_count": 91916,
+      "verification": "Native150 fit, complete val/test exact typed replay; all19 stages/40 original actors closed; extra model-free raw/checkpoint/full52-source post-exit audit and all4 collector actors closed"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.5809983837219077,
+      "bitwise_uninterrupted_training_trajectory_guaranteed": false,
+      "completion_evidence_file_sha256": "b672570e2427389dc84d7b0e466388bfbda661a53d6c0e2432c3715712d46b29",
+      "completion_evidence_path": "results/native-resnet50-full-complete-20261102.json",
+      "consumed_samples": 8612,
+      "evaluation": "center",
+      "explicitly_derived_recipe": true,
+      "historical_legacy_result_retained": true,
+      "identical_protocol_comparison": false,
+      "independent_author_yaml_available": false,
+      "json_metric_path": [
+        "test",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ResNet-50",
+      "numeric_error_above_paper_percent": 10.962233655130337,
+      "our_mae_deg": 5.8809983837219075,
+      "paper_avg_mae_deg": 5.3,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "primary_row_uses_most_recent_complete_native_recipe": true,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "711458482aa1e7d4a83168bd0a41c64105b12611bb5992f3dcd0852dd2c795ec",
+      "result_path": "results/original-resnet/resnet50/metrics.json",
+      "shared_gpu_and_interruption_history_disclosed": true,
+      "unique_hand_samples": 4306,
+      "valid_unique_angle_count": 91916,
+      "verification": "Explicit RN50-backbone/Table8-batch400 derivative; native150/75900, full val/test replay; current9stages/20actors plus20reused qualification consumers closed; model-free full52-source/checkpoint/raw report reader and all4collectoractors closed"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.8827382434934252,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "center",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ResNet-152",
+      "numeric_error_above_paper_percent": 17.308593009675,
+      "our_mae_deg": 5.982738243493425,
+      "paper_avg_mae_deg": 5.1,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "cdf66338b9935fd6e60204b525b9cc97e419430503b79f0c9d3fa39c98f34514",
+      "result_path": "results/completed/resnet152/metrics.json",
+      "verification": "original trainer final test and independent center recomputation"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.46417881543194195,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ViT-S",
+      "numeric_error_above_paper_percent": 7.736313590532373,
+      "our_mae_deg": 6.464178815431942,
+      "paper_avg_mae_deg": 6.0,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "148b96026cee545cce088bb8d40906ffc6222853cac71b757536e53b1e70bbe4",
+      "result_path": "results/original-vision/vit-small/metrics.json",
+      "verification": "native final test and independent complete typed replay"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.9612607519793155,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ViT-B",
+      "numeric_error_above_paper_percent": 16.57346124102268,
+      "our_mae_deg": 6.761260751979315,
+      "paper_avg_mae_deg": 5.8,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "fe0532c724b9cff66b7d73bd74198aa344f7acb3795d7c8ea306a075cfbcf80b",
+      "result_path": "results/original-vision/vit-base/metrics.json",
+      "verification": "native final test and independent complete typed replay"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.829673746026347,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ViT-L",
+      "numeric_error_above_paper_percent": 15.36432863011754,
+      "our_mae_deg": 6.229673746026347,
+      "paper_avg_mae_deg": 5.4,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "cfce440aa89e43c411073d309d1c4d9ffa2f55aae4d4991c5f48b487a88de75a",
+      "result_path": "results/original-vision/vit-large/metrics.json",
+      "verification": "native full fit with genuine exact-state continuation; final test and independent complete typed replay; report and fresh verifier stage passed"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 1.3935332363401978,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "sampling",
+        "center",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "RN18 + EMGFormer-S",
+      "numeric_error_above_paper_percent": 25.806171043337002,
+      "our_mae_deg": 6.793533236340198,
+      "paper_avg_mae_deg": 5.4,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "legacy_12000_001",
+      "result_file_sha256": "fd38a15eead0ce32d78e62726f703d02cd16fd0da990f8ebd9ea0d3c9f5d0698",
+      "result_path": "results/completed/fusion-rn18-s/metrics.json",
+      "verification": "original trainer final test and independent center recomputation"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.40704236188022236,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "statistics",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "WiLoR",
+      "numeric_error_above_paper_percent": 8.66047578468558,
+      "our_mae_deg": 5.1070423618802225,
+      "paper_avg_mae_deg": 4.7,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "native_7790_002_legacy_cohort",
+      "result_file_sha256": "341695b72f767035cc18652a835b6a6c913af43d1498c7a738e1b9ac3f560148",
+      "result_path": "results/original-vision/wilor/metrics.json",
+      "verification": "original full budget; genuine exact-state continuation; selected-best full native test and independent complete typed replay; fresh report verifier passed"
+    },
+    {
+      "arithmetic_difference_from_rounded_paper_avg_deg": 0.8422382872534753,
+      "evaluation": "center",
+      "identical_protocol_comparison": false,
+      "json_metric_path": [
+        "test",
+        "unique_first_repeat",
+        "all",
+        "overall",
+        "mae_deg"
+      ],
+      "model": "ViT-S + EMGFormer-S",
+      "numeric_error_above_paper_percent": 15.313423404608642,
+      "our_mae_deg": 6.342238287253475,
+      "paper_avg_mae_deg": 5.5,
+      "paper_numerical_equivalence_established": false,
+      "paper_table": 3,
+      "protocol_group": "native_fusion_7790_002_legacy_cohort",
+      "result_file_sha256": "d831ece7c9541293cdff968dc891018aaef0af0339221167fa6d8f7cda291db7",
+      "result_path": "results/original-fusion/vit-small-emgformer-small/metrics.json",
+      "verification": "original full budget; genuine exact-state continuation; selected-best full native test and independent complete typed replay; fresh report verifier passed"
+    }
+  ]
+}
