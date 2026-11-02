@@ -1,0 +1,394 @@
+{
+  "actual_total_neural_forwards": 24,
+  "all_six_pass_and_raw_packet_files_sha256": {
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/large/native/pass.json": "3101563d40d1ce0bb3d1941201f34b6fc13de2ec4532bc5ed7d2af97251104be",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/large/native/predictions.pt": "33b07dc9ade8b9a026466b034cdc4a52b463ef9c0fa90d9fc1d4ac29d3f32a3f",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/large/replay/pass.json": "d095a12e0f245587ffd9560ffb05493d8358c3a562e05cca866b2536d49624a1",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/large/replay/predictions.pt": "33b07dc9ade8b9a026466b034cdc4a52b463ef9c0fa90d9fc1d4ac29d3f32a3f",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/middle/native/pass.json": "d9a5b7fab0abbf7bf22a7877f630d8fa851cf222c382b03453b2d9b769551adf",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/middle/native/predictions.pt": "16a69941bac29d55db4822e3e868f4df34a636b2956807622e4de424e3e7f041",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/middle/replay/pass.json": "14050d2a84fc112ed5782899f671873df4f7dfa21a2ffd39dc03d9097c1f601c",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/middle/replay/predictions.pt": "16a69941bac29d55db4822e3e868f4df34a636b2956807622e4de424e3e7f041",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/small/native/pass.json": "9ce8f493c747ca774fb075cb87dfeb1f8ea1950d1d0bbb79954671e769e8ff10",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/small/native/predictions.pt": "d9878fbb0064a8b7c28490622a4d1a24cf869ea77a60d711fcefd8ef2af9a974",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/small/replay/pass.json": "40b42e817556f6d7e852f5c95171107f63ad3a515caafcad1dd0f5c18680273c",
+    "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102/private/small/replay/predictions.pt": "d9878fbb0064a8b7c28490622a4d1a24cf869ea77a60d711fcefd8ef2af9a974"
+  },
+  "all_source_package_files_sha256_exact": true,
+  "all_twelve_CPU_workflow_actors_physically_closed": [
+    {
+      "pid": 2214357,
+      "start_ticks": "441945316"
+    },
+    {
+      "pid": 2210175,
+      "start_ticks": "441910418"
+    },
+    {
+      "pid": 2210667,
+      "start_ticks": "441914697"
+    },
+    {
+      "pid": 2214358,
+      "start_ticks": "441945322"
+    },
+    {
+      "pid": 2214453,
+      "start_ticks": "441945618"
+    },
+    {
+      "pid": 2215008,
+      "start_ticks": "441949866"
+    },
+    {
+      "pid": 2215474,
+      "start_ticks": "441954082"
+    },
+    {
+      "pid": 2215573,
+      "start_ticks": "441954372"
+    },
+    {
+      "pid": 2216032,
+      "start_ticks": "441958264"
+    },
+    {
+      "pid": 2216500,
+      "start_ticks": "441962339"
+    },
+    {
+      "pid": 2210173,
+      "start_ticks": "441910414"
+    },
+    {
+      "pid": 2211143,
+      "start_ticks": "441918932"
+    }
+  ],
+  "completion_sha256": "24c9d18c4e77a462275e5885468a18050b72d054c81fcc8f6d60dcaadd1bdc3d",
+  "format": "actual_closed_selected_SML_CPU_shared_center_qualification_v1",
+  "full_paper_complete": false,
+  "full_reference_model_evaluation_complete": false,
+  "independent_reader": {
+    "pid": 2221777,
+    "start_ticks": "442006200"
+  },
+  "independent_reader_physically_closed_after_exit0": true,
+  "models": {
+    "large": {
+      "native": {
+        "finished_ns": 1793592276727673290,
+        "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+        "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+        "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+        "kind": "native",
+        "model_after_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+        "model_before_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+        "native_runtime_construction_calls": 1,
+        "neural_forwards": 4,
+        "optimizer_construction_attempts": 0,
+        "optimizer_updates": 0,
+        "prediction_sha256": "8af32c8cedf7b7c990d0bdc4836016b31c864afe662085dd2f4ab000081f4f78",
+        "process": {
+          "pid": 2215573,
+          "start_ticks": "441954372",
+          "uid": 1005
+        },
+        "raw_prediction_steps": [
+          230
+        ],
+        "runtime_policy": {
+          "autocast_enabled": false,
+          "batch_size": 1,
+          "cuda_matmul_allow_tf32": true,
+          "cudnn_allow_tf32": true,
+          "device": "cpu",
+          "gpu_uuid": null,
+          "matmul_precision": "high",
+          "point_selector": "raw[...,T//2:T//2+1]",
+          "precision": "32-true"
+        },
+        "samples": 4,
+        "scope": "engineering",
+        "sha256": "9a370f300bb71bdd605af622093fb379bf75f9c53cddabfeddc4e3de5f6d64ec",
+        "size": "large",
+        "source_indices": [
+          0,
+          2140,
+          2141,
+          4281
+        ],
+        "started_ns": 1793592240268059207
+      },
+      "replay": {
+        "finished_ns": 1793592317465667649,
+        "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+        "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+        "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+        "kind": "replay",
+        "model_after_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+        "model_before_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+        "native_runtime_construction_calls": 1,
+        "neural_forwards": 4,
+        "optimizer_construction_attempts": 0,
+        "optimizer_updates": 0,
+        "prediction_sha256": "8af32c8cedf7b7c990d0bdc4836016b31c864afe662085dd2f4ab000081f4f78",
+        "process": {
+          "pid": 2216032,
+          "start_ticks": "441958264",
+          "uid": 1005
+        },
+        "raw_prediction_steps": [
+          230
+        ],
+        "runtime_policy": {
+          "autocast_enabled": false,
+          "batch_size": 1,
+          "cuda_matmul_allow_tf32": true,
+          "cudnn_allow_tf32": true,
+          "device": "cpu",
+          "gpu_uuid": null,
+          "matmul_precision": "high",
+          "point_selector": "raw[...,T//2:T//2+1]",
+          "precision": "32-true"
+        },
+        "samples": 4,
+        "scope": "engineering",
+        "sha256": "00bafaac0402c57c4a3736e060cba25569e7eca2c2988f890be11578d9158592",
+        "size": "large",
+        "source_indices": [
+          0,
+          2140,
+          2141,
+          4281
+        ],
+        "started_ns": 1793592279194478808
+      }
+    },
+    "middle": {
+      "native": {
+        "finished_ns": 1793592192602023403,
+        "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+        "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+        "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+        "kind": "native",
+        "model_after_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+        "model_before_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+        "native_runtime_construction_calls": 1,
+        "neural_forwards": 4,
+        "optimizer_construction_attempts": 0,
+        "optimizer_updates": 0,
+        "prediction_sha256": "e01a1eb7d5a1520df592b89456254a2b1ff39333731178b39a065065849b2c02",
+        "process": {
+          "pid": 2214453,
+          "start_ticks": "441945618",
+          "uid": 1005
+        },
+        "raw_prediction_steps": [
+          230
+        ],
+        "runtime_policy": {
+          "autocast_enabled": false,
+          "batch_size": 1,
+          "cuda_matmul_allow_tf32": true,
+          "cudnn_allow_tf32": true,
+          "device": "cpu",
+          "gpu_uuid": null,
+          "matmul_precision": "high",
+          "point_selector": "raw[...,T//2:T//2+1]",
+          "precision": "32-true"
+        },
+        "samples": 4,
+        "scope": "engineering",
+        "sha256": "3101ec96978c1ece3d856dcb749bcd88c2eb2b6c5517c7b755b3865da3c720f2",
+        "size": "middle",
+        "source_indices": [
+          0,
+          2140,
+          2141,
+          4281
+        ],
+        "started_ns": 1793592153046064517
+      },
+      "replay": {
+        "finished_ns": 1793592234886053039,
+        "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+        "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+        "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+        "kind": "replay",
+        "model_after_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+        "model_before_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+        "native_runtime_construction_calls": 1,
+        "neural_forwards": 4,
+        "optimizer_construction_attempts": 0,
+        "optimizer_updates": 0,
+        "prediction_sha256": "e01a1eb7d5a1520df592b89456254a2b1ff39333731178b39a065065849b2c02",
+        "process": {
+          "pid": 2215008,
+          "start_ticks": "441949866",
+          "uid": 1005
+        },
+        "raw_prediction_steps": [
+          230
+        ],
+        "runtime_policy": {
+          "autocast_enabled": false,
+          "batch_size": 1,
+          "cuda_matmul_allow_tf32": true,
+          "cudnn_allow_tf32": true,
+          "device": "cpu",
+          "gpu_uuid": null,
+          "matmul_precision": "high",
+          "point_selector": "raw[...,T//2:T//2+1]",
+          "precision": "32-true"
+        },
+        "samples": 4,
+        "scope": "engineering",
+        "sha256": "26af6340945a95cb130fec89899795579781f939728574f54ae4d0b014abb2c5",
+        "size": "middle",
+        "source_indices": [
+          0,
+          2140,
+          2141,
+          4281
+        ],
+        "started_ns": 1793592195223657405
+      }
+    },
+    "small": {
+      "native": {
+        "finished_ns": 1793591841080183862,
+        "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+        "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+        "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+        "kind": "native",
+        "model_after_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+        "model_before_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+        "native_runtime_construction_calls": 1,
+        "neural_forwards": 4,
+        "optimizer_construction_attempts": 0,
+        "optimizer_updates": 0,
+        "prediction_sha256": "e2e292425f481adc6877336e0a7fe2701fea4631a9eae9e7c43374c033b53390",
+        "process": {
+          "pid": 2210175,
+          "start_ticks": "441910418",
+          "uid": 1005
+        },
+        "raw_prediction_steps": [
+          230
+        ],
+        "runtime_policy": {
+          "autocast_enabled": false,
+          "batch_size": 1,
+          "cuda_matmul_allow_tf32": true,
+          "cudnn_allow_tf32": true,
+          "device": "cpu",
+          "gpu_uuid": null,
+          "matmul_precision": "high",
+          "point_selector": "raw[...,T//2:T//2+1]",
+          "precision": "32-true"
+        },
+        "samples": 4,
+        "scope": "engineering",
+        "sha256": "34a26a3d2c8f082fbc44faddec93e23451236f068af39cbd30bbbc0f559307ec",
+        "size": "small",
+        "source_indices": [
+          0,
+          2140,
+          2141,
+          4281
+        ],
+        "started_ns": 1793591800804795720
+      },
+      "replay": {
+        "finished_ns": 1793591883430751951,
+        "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+        "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+        "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+        "kind": "replay",
+        "model_after_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+        "model_before_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+        "native_runtime_construction_calls": 1,
+        "neural_forwards": 4,
+        "optimizer_construction_attempts": 0,
+        "optimizer_updates": 0,
+        "prediction_sha256": "e2e292425f481adc6877336e0a7fe2701fea4631a9eae9e7c43374c033b53390",
+        "process": {
+          "pid": 2210667,
+          "start_ticks": "441914697",
+          "uid": 1005
+        },
+        "raw_prediction_steps": [
+          230
+        ],
+        "runtime_policy": {
+          "autocast_enabled": false,
+          "batch_size": 1,
+          "cuda_matmul_allow_tf32": true,
+          "cudnn_allow_tf32": true,
+          "device": "cpu",
+          "gpu_uuid": null,
+          "matmul_precision": "high",
+          "point_selector": "raw[...,T//2:T//2+1]",
+          "precision": "32-true"
+        },
+        "samples": 4,
+        "scope": "engineering",
+        "sha256": "66ace06172f2aa02565712ea3f9d9b21ba49e6f9e070526d83dc33fe7b575055",
+        "size": "small",
+        "source_indices": [
+          0,
+          2140,
+          2141,
+          4281
+        ],
+        "started_ns": 1793591843543399673
+      }
+    }
+  },
+  "observed_utc": "2026-11-02T04:12:36.856413+00:00",
+  "optimizer_updates": 0,
+  "preserved_verifier_only_failure": {
+    "actual_and_official_source_raw_steps": 230,
+    "expected_raw_steps_in_first_operational_verifier": 1915,
+    "first_controller_and_failed_verifier_physically_closed": true,
+    "recovery_registration": {
+      "actual_controller": {
+        "pid": 2214357,
+        "start_ticks": "441945316"
+      },
+      "archive_sha256": "613804fd763cc80aed401685e07aa177150093a145adabad35aa607ff09fe5ad",
+      "frozen_members_sha256": {
+        "config.json": "3e5580ca6059d41d8d9c0477d005eb47623d69173475e98a080b596304c40cf9",
+        "controller.py": "7d6af2cb2761bf7e8883be36265cdade796cce5e954ed85ae51703659655a0b5",
+        "verify.py": "5a4cb4993926d7c55d1de6fae1967cce1d049e34ca69441546a42394a8e3aad7"
+      },
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102",
+      "scope": "engineering",
+      "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+    },
+    "successful_S_native_and_replay_reused_without_repeating_neural_forwards": true
+  },
+  "real_selected_weight_CPU_qualification_complete": true,
+  "real_selected_weight_GPU_qualification_complete": false,
+  "registration": {
+    "actual_controller": {
+      "pid": 2214357,
+      "start_ticks": "441945316"
+    },
+    "archive_sha256": "613804fd763cc80aed401685e07aa177150093a145adabad35aa607ff09fe5ad",
+    "frozen_members_sha256": {
+      "config.json": "3e5580ca6059d41d8d9c0477d005eb47623d69173475e98a080b596304c40cf9",
+      "controller.py": "7d6af2cb2761bf7e8883be36265cdade796cce5e954ed85ae51703659655a0b5",
+      "verify.py": "5a4cb4993926d7c55d1de6fae1967cce1d049e34ca69441546a42394a8e3aad7"
+    },
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102",
+    "scope": "engineering",
+    "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+  },
+  "requests_per_pass": 4,
+  "scope": "engineering",
+  "source_package_files": 337
+}

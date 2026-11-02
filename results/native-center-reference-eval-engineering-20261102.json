@@ -1,4 +1,5 @@
 {
+  "CPU_qualification_proof": "results/native-center-reference-CPU-qualification-20261102.json",
   "actual_three_results": {
     "final59": {
       "all337_frozen_members_sha256_exact": true,
@@ -121,7 +122,7 @@
   "observed_utc": "2026-11-02T03:55:34.466121+00:00",
   "old_model_mathematics_and_suites_not_repeated": true,
   "original_200epoch_metadata_files_for_unit_tests_are_real_accepted_source_bytes": true,
-  "real_selected_weight_CPU_qualification_complete": false,
+  "real_selected_weight_CPU_qualification_complete": true,
   "real_selected_weight_GPU_qualification_complete": false,
   "source_base": "873e315156eabeac35cc99b09449a4688b3d62ef",
   "source_state_and_moving_input_GREEN_passed": 8,

@@ -1,0 +1,62 @@
+{
+  "actual_closed_actors": [
+    {
+      "pid": 2219357,
+      "start_ticks": "441987020"
+    },
+    {
+      "pid": 2219358,
+      "start_ticks": "441987023"
+    }
+  ],
+  "actual_test_registration": {
+    "actual_recorder": {
+      "pid": 2219357,
+      "start_ticks": "441987020"
+    },
+    "archive_sha256": "1c717ec6c5ca29fe4f58b878300966b57a253da14df30e64591a3f522a2c9f08",
+    "frozen_file_count": 339,
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-task3-tests-b4f68c4ad070-20261102",
+    "scientific_eligible": false,
+    "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+  },
+  "actual_test_state": {
+    "actual_exit_code": 0,
+    "child": {
+      "pid": 2219358,
+      "start_ticks": "441987023"
+    },
+    "ended_utc": "2026-11-02T04:09:32.979156+00:00",
+    "full_paper_complete": false,
+    "scientific_eligible": false,
+    "started_utc": "2026-11-02T04:09:24.893165+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2219357,
+      "start_ticks": "441987020"
+    }
+  },
+  "all339_frozen_source_members_sha256_exact": true,
+  "current_combined_new_component_suite_passed": 76,
+  "final_review_complete": false,
+  "format": "actual_closed_center_reference_collection_new_component_tests_v1",
+  "full_paper_complete": false,
+  "full_reference_model_evaluation_complete": false,
+  "initial_collection_missing_entry_RED_failures": 17,
+  "no_dependency_installation": true,
+  "observed_utc": "2026-11-02T04:12:36.856413+00:00",
+  "old_model_math_and_suites_not_repeated": true,
+  "pytest_log_sha256": "4ff7e37a8b6bd1cde8b8c9010550aab83da33fb8616664e9e8ace558ace51d22",
+  "pytest_log_tail": "........................................................................ [ 94%]\n....                                                                     [100%]\n76 passed in 7.23s\n",
+  "source_and_tests_sha256": {
+    "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+    "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
+    "scripts/paper/collect_native_center_reference.py": "1e3cb35f25161ce6f1ff5a408d080b7aa6d2f64df8ee8b63d22ef4024468f45c",
+    "scripts/paper/run_native_center_reference.py": "30e2da0d384559e8b5e524f5fc23c334b766fb0af0cea32eb293e36c82462ccc",
+    "tests/test_center_reference_collection.py": "20acafee0466703c8a7d4e19a270df87e9b5f2a4896a17e0a7f2a40ae8d4c3e7",
+    "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2",
+    "tests/test_center_reference_eval.py": "e2219d63b83288dc057a3126af3d8a1c547c538c8f6761d70a53bc5311b2c91f"
+  },
+  "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+}
