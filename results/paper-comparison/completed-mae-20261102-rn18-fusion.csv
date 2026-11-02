@@ -1,0 +1,15 @@
+model,paper_table,evaluation,paper_avg_mae_deg,our_mae_deg,arithmetic_difference_from_rounded_paper_avg_deg,protocol_group,result_path
+EMGFormer-S,2,trajectory,14.7,16.53769621006572,1.8376962100657224,native_emgformer_12000_002_legacy_cohort,results/native-emgformer-trajectory/small/metrics.json
+EMGFormer-M,2,trajectory,14.2,16.419418096895782,2.219418096895783,native_emgformer_12000_002_legacy_cohort,results/native-emgformer-trajectory/middle/metrics.json
+EMGFormer-L,2,trajectory,14.2,16.574094876419654,2.3740948764196546,native_emgformer_12000_002_legacy_cohort,results/native-emgformer-trajectory/large/metrics.json
+VEMG2Pose,2,trajectory,15.9,16.452932102434463,0.5529321024344629,native_7790_002_legacy_cohort,results/original-classic/vemg2pose/metrics.json
+NeuroPose,2,trajectory,16.1,16.35840356672133,0.25840356672132714,native_7790_002_legacy_cohort,results/original-classic/neuropose/metrics.json
+ResNet-18,3,center,5.9,6.607195072275157,0.707195072275157,native_7790_002_legacy_cohort,results/original-resnet/resnet18/metrics.json
+ResNet-50,3,center,5.3,5.8809983837219075,0.5809983837219077,native_7790_002_legacy_cohort,results/original-resnet/resnet50/metrics.json
+ResNet-152,3,center,5.1,5.982738243493425,0.8827382434934252,legacy_12000_001,results/completed/resnet152/metrics.json
+ViT-S,3,center,6.0,6.464178815431942,0.46417881543194195,native_7790_002_legacy_cohort,results/original-vision/vit-small/metrics.json
+ViT-B,3,center,5.8,6.761260751979315,0.9612607519793155,native_7790_002_legacy_cohort,results/original-vision/vit-base/metrics.json
+ViT-L,3,center,5.4,6.229673746026347,0.829673746026347,native_7790_002_legacy_cohort,results/original-vision/vit-large/metrics.json
+RN18 + EMGFormer-S,3,center,5.4,6.1890975393160295,0.7890975393160291,native_rn18_fusion_12000_002_legacy_cohort,results/original-fusion/rn18-emgformer-small/metrics.json
+WiLoR,3,center,4.7,5.1070423618802225,0.40704236188022236,native_7790_002_legacy_cohort,results/original-vision/wilor/metrics.json
+ViT-S + EMGFormer-S,3,center,5.5,6.342238287253475,0.8422382872534753,native_fusion_7790_002_legacy_cohort,results/original-fusion/vit-small-emgformer-small/metrics.json

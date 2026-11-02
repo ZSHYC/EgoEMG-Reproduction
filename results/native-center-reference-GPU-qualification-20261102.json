@@ -1,0 +1,615 @@
+{
+  "actual_total_GPU_neural_forwards": 24,
+  "all10_original_GPU_actors_physically_closed": [
+    {
+      "pid": 2226277,
+      "start_ticks": "442039130"
+    },
+    {
+      "pid": 2254555,
+      "start_ticks": "442222801"
+    },
+    {
+      "pid": 2255468,
+      "start_ticks": "442229257"
+    },
+    {
+      "pid": 2256114,
+      "start_ticks": "442233398"
+    },
+    {
+      "pid": 2256445,
+      "start_ticks": "442235901"
+    },
+    {
+      "pid": 2257452,
+      "start_ticks": "442242242"
+    },
+    {
+      "pid": 2258056,
+      "start_ticks": "442246396"
+    },
+    {
+      "pid": 2258382,
+      "start_ticks": "442248900"
+    },
+    {
+      "pid": 2259178,
+      "start_ticks": "442255258"
+    },
+    {
+      "pid": 2259722,
+      "start_ticks": "442259396"
+    }
+  ],
+  "format": "actual_closed_selected_SML_GPU_shared_center_qualification_v1",
+  "full_paper_complete": false,
+  "full_reference_model_evaluation_complete": false,
+  "independent_acceptance_file_sha256": "1652095cba8ff036430997f917b4c8f1c8c3eaf19f62a0663792f2ef1112d7e7",
+  "independent_acceptance_reader_physically_closed_after_exit0": true,
+  "independently_accepted_six_raw_packets": {
+    "accepted_registration": {
+      "accepted_artifact_files_sha256": {
+        "private/completed.json": "bec524a75ae6bf3e01e6f4440f956558ce722e3e4ea182447044493c8b97c45b",
+        "private/large/native/pass.json": "8910ac3bea70db2400f6d5297c0525f588898c8acae26796607c7bdd660c2dce",
+        "private/large/native/predictions.pt": "8c417de284cd51c95bbb40e242828a743a1b078367954747a57faaeba6f23d32",
+        "private/large/qualification.json": "4a48a71c9ab84e398d10b88b40f5c25b904ea985d6a5e2562687e262606ce4e2",
+        "private/large/replay/pass.json": "308d651b2d2383093424bf28539d5aece5a319103c596acd6262134a12e9576d",
+        "private/large/replay/predictions.pt": "8c417de284cd51c95bbb40e242828a743a1b078367954747a57faaeba6f23d32",
+        "private/middle/native/pass.json": "0255d941e86e111a811f384a9fc1888b217a7774653e7a6a9e82c1b7960b1e6f",
+        "private/middle/native/predictions.pt": "a188a109dbc82a5075d7bdf5ea15b325069123dc9d1030a59af8ba7112f82c91",
+        "private/middle/qualification.json": "90bf8da0cb3d8a6a13e5222736bc06b9283fee1c5ccfac7a45cfdb5fbde1fe94",
+        "private/middle/replay/pass.json": "aceb77e784566a547a022b84c8a5199941f08d468cd35230b9288921d0a10f3d",
+        "private/middle/replay/predictions.pt": "a188a109dbc82a5075d7bdf5ea15b325069123dc9d1030a59af8ba7112f82c91",
+        "private/small/native/pass.json": "2c239c03bc1b1a65bf57ac4f173f810190cae73aaf0bc6317631b3dd80f52f53",
+        "private/small/native/predictions.pt": "293d58481038dc3602d3409bd15507eae1fb3a69bcbfd7647606ac37a0055e1d",
+        "private/small/qualification.json": "177af23506c3b95382da23c55c88fbb51519793bfcaa805e4a154c8f59a9e21a",
+        "private/small/replay/pass.json": "bb81b963b9c288c6c412ef9f518f7b448715912a08376cec3308532412b90308",
+        "private/small/replay/predictions.pt": "293d58481038dc3602d3409bd15507eae1fb3a69bcbfd7647606ac37a0055e1d"
+      },
+      "actual_controller": {
+        "pid": 2226277,
+        "start_ticks": "442039130"
+      },
+      "archive_sha256": "988b45500b5665605c2e5876ed42cbe4be8dd58ac1c2180eedac9b453db029f8",
+      "frozen_members_sha256": {
+        "config.json": "8f63be20753efba75b0a71ce317ca9437af7f47310e4ff83336680955a5ffe39",
+        "controller.py": "5442b9b7687577ff0da1c576cc20682a6892d97ea9da554c529093f390e9be23",
+        "verify.py": "e9fe0db249b85f33cfc3fae9eaf43a8b9178ea43b85c77571e26608041e3c11d"
+      },
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+      "scope": "engineering",
+      "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+    },
+    "actual_models": {
+      "large": {
+        "both_original_producers_physically_closed": true,
+        "engineering_only": true,
+        "format": "actual_selected_native_reference_GPU_four_request_qualification_v1",
+        "full_paper_complete": false,
+        "full_reference_model_evaluation_complete": false,
+        "model_free_reader_construction_attempts": {
+          "learned_module": 0,
+          "optimizer": 0
+        },
+        "native": {
+          "finished_ns": 1793595223886810385,
+          "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+          "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+          "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+          "kind": "native",
+          "model_after_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+          "model_before_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+          "native_runtime_construction_calls": 1,
+          "neural_forwards": 4,
+          "optimizer_construction_attempts": 0,
+          "optimizer_updates": 0,
+          "prediction_sha256": "fcdcea436e9a126e2470485bd76aa53e29f938ffd5d68705df33de9b8b7ece61",
+          "process": {
+            "pid": 2258382,
+            "start_ticks": "442248900",
+            "uid": 1005
+          },
+          "raw_prediction_steps": [
+            230
+          ],
+          "runtime_policy": {
+            "autocast_enabled": false,
+            "batch_size": 1,
+            "cuda_matmul_allow_tf32": true,
+            "cudnn_allow_tf32": true,
+            "device": "cuda:0",
+            "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+            "matmul_precision": "high",
+            "point_selector": "raw[...,T//2:T//2+1]",
+            "precision": "32-true"
+          },
+          "samples": 4,
+          "scope": "engineering",
+          "sha256": "03b72d19c83f2637416eca75c06c651b4db5eacae1d665f595fdd145cfbbe51b",
+          "size": "large",
+          "source_indices": [
+            0,
+            2140,
+            2141,
+            4281
+          ],
+          "started_ns": 1793595186949989806
+        },
+        "reader": {
+          "pid": 2259722,
+          "start_ticks": "442259396"
+        },
+        "reader_cuda_initialized": false,
+        "replay": {
+          "finished_ns": 1793595287749672792,
+          "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+          "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+          "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+          "kind": "replay",
+          "model_after_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+          "model_before_sha256": "c1ac1bf35d4dbc8e8cf58555da150e3aa7b9961c413cd346d6f6ecda981262ae",
+          "native_runtime_construction_calls": 1,
+          "neural_forwards": 4,
+          "optimizer_construction_attempts": 0,
+          "optimizer_updates": 0,
+          "prediction_sha256": "fcdcea436e9a126e2470485bd76aa53e29f938ffd5d68705df33de9b8b7ece61",
+          "process": {
+            "pid": 2259178,
+            "start_ticks": "442255258",
+            "uid": 1005
+          },
+          "raw_prediction_steps": [
+            230
+          ],
+          "runtime_policy": {
+            "autocast_enabled": false,
+            "batch_size": 1,
+            "cuda_matmul_allow_tf32": true,
+            "cudnn_allow_tf32": true,
+            "device": "cuda:0",
+            "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+            "matmul_precision": "high",
+            "point_selector": "raw[...,T//2:T//2+1]",
+            "precision": "32-true"
+          },
+          "samples": 4,
+          "scope": "engineering",
+          "sha256": "99bc7ccde1bd2a4857973fb029280bee764c174f3b7174438a87113dad23448c",
+          "size": "large",
+          "source_indices": [
+            0,
+            2140,
+            2141,
+            4281
+          ],
+          "started_ns": 1793595250517979977
+        },
+        "size": "large",
+        "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95",
+        "strict_named_state_restore_exact": true,
+        "typed_prediction_target_mask_and_identity_exact": true
+      },
+      "middle": {
+        "both_original_producers_physically_closed": true,
+        "engineering_only": true,
+        "format": "actual_selected_native_reference_GPU_four_request_qualification_v1",
+        "full_paper_complete": false,
+        "full_reference_model_evaluation_complete": false,
+        "model_free_reader_construction_attempts": {
+          "learned_module": 0,
+          "optimizer": 0
+        },
+        "native": {
+          "finished_ns": 1793595093947014347,
+          "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+          "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+          "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+          "kind": "native",
+          "model_after_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+          "model_before_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+          "native_runtime_construction_calls": 1,
+          "neural_forwards": 4,
+          "optimizer_construction_attempts": 0,
+          "optimizer_updates": 0,
+          "prediction_sha256": "255f6dde9566256fbb18af3865a3193ed2510e9c55bcf32d30df4cd5ede46cc2",
+          "process": {
+            "pid": 2256445,
+            "start_ticks": "442235901",
+            "uid": 1005
+          },
+          "raw_prediction_steps": [
+            230
+          ],
+          "runtime_policy": {
+            "autocast_enabled": false,
+            "batch_size": 1,
+            "cuda_matmul_allow_tf32": true,
+            "cudnn_allow_tf32": true,
+            "device": "cuda:0",
+            "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+            "matmul_precision": "high",
+            "point_selector": "raw[...,T//2:T//2+1]",
+            "precision": "32-true"
+          },
+          "samples": 4,
+          "scope": "engineering",
+          "sha256": "c1c490e6e2f7828c7b98edc1e9e8247eddbc976bdc02b37374d87d89d6b4b002",
+          "size": "middle",
+          "source_indices": [
+            0,
+            2140,
+            2141,
+            4281
+          ],
+          "started_ns": 1793595057035685489
+        },
+        "reader": {
+          "pid": 2258056,
+          "start_ticks": "442246396"
+        },
+        "reader_cuda_initialized": false,
+        "replay": {
+          "finished_ns": 1793595156802337193,
+          "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+          "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+          "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+          "kind": "replay",
+          "model_after_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+          "model_before_sha256": "0daa58fcc0dfa202abaad39e80cb1d26ab72c252959e9b27a9896c03b212a551",
+          "native_runtime_construction_calls": 1,
+          "neural_forwards": 4,
+          "optimizer_construction_attempts": 0,
+          "optimizer_updates": 0,
+          "prediction_sha256": "255f6dde9566256fbb18af3865a3193ed2510e9c55bcf32d30df4cd5ede46cc2",
+          "process": {
+            "pid": 2257452,
+            "start_ticks": "442242242",
+            "uid": 1005
+          },
+          "raw_prediction_steps": [
+            230
+          ],
+          "runtime_policy": {
+            "autocast_enabled": false,
+            "batch_size": 1,
+            "cuda_matmul_allow_tf32": true,
+            "cudnn_allow_tf32": true,
+            "device": "cuda:0",
+            "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+            "matmul_precision": "high",
+            "point_selector": "raw[...,T//2:T//2+1]",
+            "precision": "32-true"
+          },
+          "samples": 4,
+          "scope": "engineering",
+          "sha256": "809ba533e9699a824a5f1ac02f42ea3932efabe7415e14d0ee928154feaf54ff",
+          "size": "middle",
+          "source_indices": [
+            0,
+            2140,
+            2141,
+            4281
+          ],
+          "started_ns": 1793595120320261161
+        },
+        "size": "middle",
+        "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95",
+        "strict_named_state_restore_exact": true,
+        "typed_prediction_target_mask_and_identity_exact": true
+      },
+      "small": {
+        "both_original_producers_physically_closed": true,
+        "engineering_only": true,
+        "format": "actual_selected_native_reference_GPU_four_request_qualification_v1",
+        "full_paper_complete": false,
+        "full_reference_model_evaluation_complete": false,
+        "model_free_reader_construction_attempts": {
+          "learned_module": 0,
+          "optimizer": 0
+        },
+        "native": {
+          "finished_ns": 1793594963775682798,
+          "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+          "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+          "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+          "kind": "native",
+          "model_after_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+          "model_before_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+          "native_runtime_construction_calls": 1,
+          "neural_forwards": 4,
+          "optimizer_construction_attempts": 0,
+          "optimizer_updates": 0,
+          "prediction_sha256": "cc13febc29449a222a41ce3b158e60491d08df547488aed7aafeb91dc852cf09",
+          "process": {
+            "pid": 2254555,
+            "start_ticks": "442222801",
+            "uid": 1005
+          },
+          "raw_prediction_steps": [
+            230
+          ],
+          "runtime_policy": {
+            "autocast_enabled": false,
+            "batch_size": 1,
+            "cuda_matmul_allow_tf32": true,
+            "cudnn_allow_tf32": true,
+            "device": "cuda:0",
+            "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+            "matmul_precision": "high",
+            "point_selector": "raw[...,T//2:T//2+1]",
+            "precision": "32-true"
+          },
+          "samples": 4,
+          "scope": "engineering",
+          "sha256": "c2998491bf639328b536a471464df078914a1dd2279a95adede10ea198222e64",
+          "size": "small",
+          "source_indices": [
+            0,
+            2140,
+            2141,
+            4281
+          ],
+          "started_ns": 1793594925954352504
+        },
+        "reader": {
+          "pid": 2256114,
+          "start_ticks": "442233398"
+        },
+        "reader_cuda_initialized": false,
+        "replay": {
+          "finished_ns": 1793595026753227503,
+          "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+          "grid_sha256": "64d0ec80b78fae5bcd7767dc681cd48693e876ef8bb1af3798e36ec0e21a9c87",
+          "input_admission_sha256": "d699c00ca7f8842e55a682f21845356ad9a61c4a1ce81f39fb785285e76e0af5",
+          "kind": "replay",
+          "model_after_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+          "model_before_sha256": "0fd0f5c7d3d2afa18d65ea6d465f0a26a984de04d9cbbf189b64fec4049ae1bf",
+          "native_runtime_construction_calls": 1,
+          "neural_forwards": 4,
+          "optimizer_construction_attempts": 0,
+          "optimizer_updates": 0,
+          "prediction_sha256": "cc13febc29449a222a41ce3b158e60491d08df547488aed7aafeb91dc852cf09",
+          "process": {
+            "pid": 2255468,
+            "start_ticks": "442229257",
+            "uid": 1005
+          },
+          "raw_prediction_steps": [
+            230
+          ],
+          "runtime_policy": {
+            "autocast_enabled": false,
+            "batch_size": 1,
+            "cuda_matmul_allow_tf32": true,
+            "cudnn_allow_tf32": true,
+            "device": "cuda:0",
+            "gpu_uuid": "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+            "matmul_precision": "high",
+            "point_selector": "raw[...,T//2:T//2+1]",
+            "precision": "32-true"
+          },
+          "samples": 4,
+          "scope": "engineering",
+          "sha256": "c451fa9dea92bc7c220ae41ba9b1146ce4a77ddeb3146830ce7b6312eb1c4231",
+          "size": "small",
+          "source_indices": [
+            0,
+            2140,
+            2141,
+            4281
+          ],
+          "started_ns": 1793594990536231592
+        },
+        "size": "small",
+        "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95",
+        "strict_named_state_restore_exact": true,
+        "typed_prediction_target_mask_and_identity_exact": true
+      }
+    },
+    "construction_attempts": {
+      "learned_module": 0,
+      "optimizer": 0
+    },
+    "cuda_initialized": false,
+    "format": "actual_independent_closed_GPU_qualification_acceptance_v1",
+    "full_model_evaluation_complete": false,
+    "full_paper_complete": false,
+    "new_learned_forwards": 0,
+    "new_optimizer_updates": 0,
+    "original_qualification_completion_sha256": "bec524a75ae6bf3e01e6f4440f956558ce722e3e4ea182447044493c8b97c45b",
+    "qualification": {
+      "accepted_artifact_files_sha256": {
+        "private/completed.json": "bec524a75ae6bf3e01e6f4440f956558ce722e3e4ea182447044493c8b97c45b",
+        "private/large/native/pass.json": "8910ac3bea70db2400f6d5297c0525f588898c8acae26796607c7bdd660c2dce",
+        "private/large/native/predictions.pt": "8c417de284cd51c95bbb40e242828a743a1b078367954747a57faaeba6f23d32",
+        "private/large/qualification.json": "4a48a71c9ab84e398d10b88b40f5c25b904ea985d6a5e2562687e262606ce4e2",
+        "private/large/replay/pass.json": "308d651b2d2383093424bf28539d5aece5a319103c596acd6262134a12e9576d",
+        "private/large/replay/predictions.pt": "8c417de284cd51c95bbb40e242828a743a1b078367954747a57faaeba6f23d32",
+        "private/middle/native/pass.json": "0255d941e86e111a811f384a9fc1888b217a7774653e7a6a9e82c1b7960b1e6f",
+        "private/middle/native/predictions.pt": "a188a109dbc82a5075d7bdf5ea15b325069123dc9d1030a59af8ba7112f82c91",
+        "private/middle/qualification.json": "90bf8da0cb3d8a6a13e5222736bc06b9283fee1c5ccfac7a45cfdb5fbde1fe94",
+        "private/middle/replay/pass.json": "aceb77e784566a547a022b84c8a5199941f08d468cd35230b9288921d0a10f3d",
+        "private/middle/replay/predictions.pt": "a188a109dbc82a5075d7bdf5ea15b325069123dc9d1030a59af8ba7112f82c91",
+        "private/small/native/pass.json": "2c239c03bc1b1a65bf57ac4f173f810190cae73aaf0bc6317631b3dd80f52f53",
+        "private/small/native/predictions.pt": "293d58481038dc3602d3409bd15507eae1fb3a69bcbfd7647606ac37a0055e1d",
+        "private/small/qualification.json": "177af23506c3b95382da23c55c88fbb51519793bfcaa805e4a154c8f59a9e21a",
+        "private/small/replay/pass.json": "bb81b963b9c288c6c412ef9f518f7b448715912a08376cec3308532412b90308",
+        "private/small/replay/predictions.pt": "293d58481038dc3602d3409bd15507eae1fb3a69bcbfd7647606ac37a0055e1d"
+      },
+      "actual_closed_actors": [
+        {
+          "pid": 2226277,
+          "start_ticks": "442039130"
+        },
+        {
+          "pid": 2254555,
+          "start_ticks": "442222801"
+        },
+        {
+          "pid": 2255468,
+          "start_ticks": "442229257"
+        },
+        {
+          "pid": 2256114,
+          "start_ticks": "442233398"
+        },
+        {
+          "pid": 2256445,
+          "start_ticks": "442235901"
+        },
+        {
+          "pid": 2257452,
+          "start_ticks": "442242242"
+        },
+        {
+          "pid": 2258056,
+          "start_ticks": "442246396"
+        },
+        {
+          "pid": 2258382,
+          "start_ticks": "442248900"
+        },
+        {
+          "pid": 2259178,
+          "start_ticks": "442255258"
+        },
+        {
+          "pid": 2259722,
+          "start_ticks": "442259396"
+        }
+      ],
+      "actual_neural_forwards": 24,
+      "completion_sha256": "bec524a75ae6bf3e01e6f4440f956558ce722e3e4ea182447044493c8b97c45b",
+      "models": [
+        "small",
+        "middle",
+        "large"
+      ],
+      "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+      "scope": "engineering"
+    },
+    "reader": {
+      "pid": 2259829,
+      "start_ticks": "442259845"
+    },
+    "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+  },
+  "observed_utc": "2026-11-02T04:57:10.385827+00:00",
+  "optimizer_updates": 0,
+  "original_terminal_state": {
+    "actual_exit_code": 0,
+    "ended_utc": "2026-11-02T04:54:52.676691+00:00",
+    "full_paper_complete": false,
+    "scope": "engineering",
+    "stages": [
+      {
+        "actual_exit_code": 0,
+        "name": "small-native",
+        "status": "complete",
+        "worker": {
+          "pid": 2254555,
+          "start_ticks": "442222801"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "small-replay",
+        "status": "complete",
+        "worker": {
+          "pid": 2255468,
+          "start_ticks": "442229257"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "small-verify",
+        "status": "complete",
+        "worker": {
+          "pid": 2256114,
+          "start_ticks": "442233398"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "middle-native",
+        "status": "complete",
+        "worker": {
+          "pid": 2256445,
+          "start_ticks": "442235901"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "middle-replay",
+        "status": "complete",
+        "worker": {
+          "pid": 2257452,
+          "start_ticks": "442242242"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "middle-verify",
+        "status": "complete",
+        "worker": {
+          "pid": 2258056,
+          "start_ticks": "442246396"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "large-native",
+        "status": "complete",
+        "worker": {
+          "pid": 2258382,
+          "start_ticks": "442248900"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "large-replay",
+        "status": "complete",
+        "worker": {
+          "pid": 2259178,
+          "start_ticks": "442255258"
+        }
+      },
+      {
+        "actual_exit_code": 0,
+        "name": "large-verify",
+        "status": "complete",
+        "worker": {
+          "pid": 2259722,
+          "start_ticks": "442259396"
+        }
+      }
+    ],
+    "started_utc": "2026-11-02T04:18:06.153175+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2226277,
+      "start_ticks": "442039130"
+    }
+  },
+  "real_selected_weight_GPU_qualification_complete": true,
+  "registration": {
+    "actual_controller": {
+      "pid": 2226277,
+      "start_ticks": "442039130"
+    },
+    "archive_sha256": "988b45500b5665605c2e5876ed42cbe4be8dd58ac1c2180eedac9b453db029f8",
+    "frozen_members_sha256": {
+      "config.json": "8f63be20753efba75b0a71ce317ca9437af7f47310e4ff83336680955a5ffe39",
+      "controller.py": "5442b9b7687577ff0da1c576cc20682a6892d97ea9da554c529093f390e9be23",
+      "verify.py": "e9fe0db249b85f33cfc3fae9eaf43a8b9178ea43b85c77571e26608041e3c11d"
+    },
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-native-center-reference-GPU-qualification-4846c9a79eab-20261102",
+    "scope": "engineering",
+    "source_commit": "4846c9a79eab54d65b8514d980145e4bdb077f95"
+  },
+  "requests_per_pass": 4,
+  "scope": "engineering"
+}

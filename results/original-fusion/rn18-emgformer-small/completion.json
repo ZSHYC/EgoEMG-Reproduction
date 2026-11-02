@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "curve-data.json": "cd6e0ec89f9be14bdbd93d59941f1368a060f1aea310fdc2e2273233d2faf1b3",
+    "metrics.json": "69c28c2feed9f6862ebfb450a8acf1eb066cf65fb7ea2c50dbc1ddf34c5c7bf7",
+    "metrics.md": "c97cb56980a63abaaf95776a9a6c6a0c7ce760e2a35eda6c87f7a47eac161f6b",
+    "training-curves.png": "a8801a2f6902bc53a9f624c267206410d013694fd05f7edda253b0e415dade66",
+    "training-curves.svg": "24c9b97d29ccc99147208875e7cfe5e406fe02c0788889d8500da75fddf57edb"
+  },
+  "format": "original_rn18_fusion_public_report_completion_v1",
+  "full_paper_complete": false,
+  "report_sha256": "ab1fb5a8740c479ab448d0543c69ccd70582dd370d74cb1db0a6d5755bd5de81",
+  "scientific_eligible": true,
+  "sha256": "a0f1c588dc91811e0597214364089ae185bda0348a378c226080c2a3140f4d4a"
+}
