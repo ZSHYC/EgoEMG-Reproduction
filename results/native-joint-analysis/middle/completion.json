@@ -1,0 +1,88 @@
+{
+  "accepted_source_proof_sha256": "667d29bf4cf29a46c52e69e248ff807ff9fa39e6e7f9e5b0fd22df4abdf96b3b",
+  "actual_owned_collection_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2122684,
+      "pid": 2122684,
+      "sid": 2122684,
+      "start_ticks": "441198143",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 2121686,
+      "pid": 2121686,
+      "sid": 2121686,
+      "start_ticks": "441189478",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2122685,
+      "pid": 2122685,
+      "sid": 2122685,
+      "start_ticks": "441198146",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "actual_owned_verification_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2123601,
+      "pid": 2123601,
+      "sid": 2123601,
+      "start_ticks": "441205389",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 2121686,
+      "pid": 2121686,
+      "sid": 2121686,
+      "start_ticks": "441189478",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2123602,
+      "pid": 2123602,
+      "sid": 2123602,
+      "start_ticks": "441205393",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "all4analysis_actors_physically_closed": true,
+  "analysis_reader_complete": true,
+  "format": "owned_closed_native_joint_analysis_completion_v1",
+  "full_paper_complete": false,
+  "independent_stdlib_cells_recomputed": true,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "paper_numerical_equivalence_established": false,
+  "pending_file_sha256": "50e7005bd63efe871811969e05d873508094eed4a994597be769e5167a93a9c6",
+  "private_records_file_sha256": "25362101e820a2bb3109ad7801050f269fd21188155e931a6a797937e8216f8f",
+  "sha256": "b5e642bdbd835d0a5ba66f1920662738a4967dca7e8ba150c1f3939af18d9b01",
+  "size": "middle",
+  "source_bundle_sha256": "0dff9d880989a8704106d9414f33596daa9f51f54a8a919a81e0dad5409d2592",
+  "source_commit": "80b0c956c1d9c4732c89aa7630887206ce7be1f6",
+  "source_generations_unchanged": true,
+  "source_run_scientific_eligible": true,
+  "verification_file_sha256": "ff3a91c2fb0cadeb6b8b20f398b604d2adea6b917c4551541ca014753e8ed35f"
+}

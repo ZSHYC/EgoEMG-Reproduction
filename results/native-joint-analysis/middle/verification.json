@@ -1,0 +1,23 @@
+{
+  "actual_verifier_actor": {
+    "pgrp": 2123602,
+    "pid": 2123602,
+    "sid": 2123602,
+    "start_ticks": "441205393",
+    "uid": 1005
+  },
+  "all_cells_independently_recomputed": true,
+  "analysis_reader_complete": false,
+  "format": "independent_stdlib_native_joint_verification_v1",
+  "full_paper_complete": false,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "pending_file_sha256": "50e7005bd63efe871811969e05d873508094eed4a994597be769e5167a93a9c6",
+  "private_records_file_sha256": "25362101e820a2bb3109ad7801050f269fd21188155e931a6a797937e8216f8f",
+  "producer_actor_physically_closed": true,
+  "scope": "full",
+  "sha256": "3babc5c55c5d4085d7b35a7e699b8d5ef1e08c9d5432ae2f433fe5ec7ee0fb35",
+  "size": "middle",
+  "source_generations_unchanged": true,
+  "stdlib_only": true
+}

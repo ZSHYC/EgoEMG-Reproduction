@@ -1,0 +1,20 @@
+{
+  "all13_authentic_server_exports_byte_exact": true,
+  "all14analysis_actors_and_postexit_reader_closed_by_actual_acceptance": true,
+  "all2792_requests_preserved_including32_fully_invalid": true,
+  "all30_pdf_displayed_values_and_sha_exact": true,
+  "all3_original_full_trajectory_baselines_preserved": true,
+  "all3_pending_to_complete_and_independent_verification_chains_exact": true,
+  "all3_request_target_mask_hand_split_populations_equal": true,
+  "all_group_sums_counts_and_weighted_numerators_independently_recomputed": true,
+  "format": "native_joint_table12_complete_artifact_independent_stdlib_check_v1",
+  "full_paper_complete": false,
+  "max_caption_vs_primary_absolute_difference_deg": 0.02965379992211936,
+  "new_component51green_source_bytes_preserved": true,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T02:03:12.490786+00:00",
+  "primary_and_caption30rows_each_and270split_hand_group_rows_exact": true,
+  "public_schema_contains_no_private_window_user_maps": true,
+  "stdlib_only": true
+}
