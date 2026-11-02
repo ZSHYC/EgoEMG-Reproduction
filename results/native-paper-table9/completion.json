@@ -1,0 +1,24 @@
+{
+  "analysis_complete": true,
+  "files_sha256": {
+    "README.md": "9f2272c3b393bf80020b72be49ed7f723a237c02c044f79cac46a41e7d43b81d",
+    "assemble-source.py": "0322669929975133dde4370c50e5723ccadbe1ebb7c12b10090fb2f746701aaf",
+    "cells.csv": "c9b67dae71f2bde17a0236fc0858869523523d68928ba96bf135c2f478ec9b2e",
+    "hand-gaps.csv": "1a38538016b7a65258c7c926c651583eb229fc65c7a543cfcd28957c7a201c96",
+    "metrics.json": "46f457f12b9403fc6e1da2116c74566fd217077aa00119dc064ebbba6e88d91e"
+  },
+  "format": "actual_native_table9_source_bound_artifact_completion_v1",
+  "full_paper_complete": false,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "report_sha256": "2bd4bd8a2fd61901d0c6e92aa330b1f81061265928a2a2d45e0f3b4d17c557eb",
+  "sha256": "15218dd7d0704bc387643db7f626d26a36651ef6a7104708ea5827fe31a8e8cc",
+  "source_or_training_completion_created_by_arithmetic": false,
+  "source_reports_sha256": {
+    "results/native-emgformer-trajectory/large/metrics.json": "0a87b22f8a939e07edece7711814f06be95d86bbd6d20d11ef14bc47c708b241",
+    "results/native-emgformer-trajectory/middle/metrics.json": "4848d1606d1e90f2af28351fdd7243f56a46921d193bc30ed55907185c290c7c",
+    "results/native-emgformer-trajectory/small/metrics.json": "9d4df56557c25dc838a7e6cdb020866f667574d9c431697166a1ea1c355917c9",
+    "results/original-classic/neuropose/metrics.json": "b4b3e4cb8c96236e0369648bab4b99579b6cec4dedda2f53cc246a0d0db8e6a9",
+    "results/original-classic/vemg2pose/metrics.json": "ae6ca5322b2369568002733d8a10d4ab9f75d568a9dc02158ee56730a1a80fbe"
+  }
+}

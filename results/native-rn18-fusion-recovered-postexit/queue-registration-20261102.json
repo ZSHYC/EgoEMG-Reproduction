@@ -1,0 +1,165 @@
+{
+  "actual_full_readback_complete": false,
+  "actual_later_target_progress_observed": {
+    "assigned_gpu_compute_apps": [
+      "2130888, GPU-bb3b892e-454f-e10e-c305-5ab94db2c384"
+    ],
+    "complete_epoch_records": 79,
+    "full_fit_result_exists": false,
+    "full_paper_complete": false,
+    "last_durable_updates": 24727,
+    "observed_utc": "2026-11-02T02:30:39.358101+00:00",
+    "observer_no_neural_forwards": true,
+    "resume_observations": [
+      {
+        "actual": {
+          "expected": {
+            "callbacks": "9de02e5dba07481e6efc19561a81ab0988d79556e0e45af838ad9763a0990e7e",
+            "loops": "9ce4b537d880d366e0efdf2a93ceab81b6887e7f4595e279277998ba1b0dffc6",
+            "model": "9af996e4f185f3e1167b5cdfd7f3c271cd53674a4b39ab5bfd637a9acf5af948",
+            "optimizer": "470e304c18d0fac5ece42d365ecaa24fd5150bb79cb9ba6c8875d8b9d9c1779f",
+            "rng": "48df23acc8311f28faf9d61007f1d129d036b7766f91f1003a9498a0d1f3b563",
+            "scheduler": "aca715dde4b0d9b237cc8bacf041b1f22a3f584a1693d2a3499f46850da31a4e"
+          },
+          "identity_sha256": "34832e737a03dc3ab1287446a5bc9270aaf429e1221228b18b2a8b6fd36b7719",
+          "observed": {
+            "callbacks": "9de02e5dba07481e6efc19561a81ab0988d79556e0e45af838ad9763a0990e7e",
+            "loops": "9ce4b537d880d366e0efdf2a93ceab81b6887e7f4595e279277998ba1b0dffc6",
+            "model": "9af996e4f185f3e1167b5cdfd7f3c271cd53674a4b39ab5bfd637a9acf5af948",
+            "optimizer": "470e304c18d0fac5ece42d365ecaa24fd5150bb79cb9ba6c8875d8b9d9c1779f",
+            "rng": "48df23acc8311f28faf9d61007f1d129d036b7766f91f1003a9498a0d1f3b563",
+            "scheduler": "aca715dde4b0d9b237cc8bacf041b1f22a3f584a1693d2a3499f46850da31a4e"
+          },
+          "parent_checkpoint_sha256": "3581e7850eae6f39db382e9ea8c322efc27953198b10415e0f16681d9f5c7b8b"
+        },
+        "file": "aa8ac7d523ab43b781da813372d9b971.json",
+        "physical_sha256": "5f8990ad4c4619b16c8e3453a402d878ad8fbfa967c38db97c8ba15965789bc6"
+      }
+    ]
+  },
+  "actual_queue_actors": {
+    "child": {
+      "actual_start_ticks": "441323401",
+      "expected_start_ticks": "441323401",
+      "matching_live": true,
+      "pid": 2137070,
+      "ppid": 2137068,
+      "sid": 2137070,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-recovered-final-postexit-collector-d3f896d6f23e-20261102/private/execution.log",
+        "2": "/data/shihao/egoemg-rn18-fusion-recovered-final-postexit-collector-d3f896d6f23e-20261102/private/execution.log"
+      },
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "actual_start_ticks": "441323398",
+      "expected_start_ticks": "441323398",
+      "matching_live": true,
+      "pid": 2137068,
+      "ppid": 1,
+      "sid": 2137068,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-recovered-final-postexit-collector-d3f896d6f23e-20261102/private/recorder.stdout",
+        "2": "/data/shihao/egoemg-rn18-fusion-recovered-final-postexit-collector-d3f896d6f23e-20261102/private/recorder.stdout"
+      },
+      "tty_nr": 0
+    }
+  },
+  "actual_queue_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2137070,
+      "start_ticks": "441323401"
+    },
+    "started_utc": "2026-11-02T02:18:48.671266+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2137068,
+      "start_ticks": "441323398"
+    }
+  },
+  "actual_readback_stage_created": false,
+  "actual_six_domain_restore_matches_admitted69_saved_state": true,
+  "actual_target_actors": {
+    "child": {
+      "actual_start_ticks": "441272131",
+      "expected_start_ticks": "441272131",
+      "matching_live": true,
+      "pid": 2130637,
+      "ppid": 2130636,
+      "sid": 2130637,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-recovered69-full150-fc660d94d494-v2-20261102/private/execution.log",
+        "2": "/data/shihao/egoemg-rn18-fusion-recovered69-full150-fc660d94d494-v2-20261102/private/execution.log"
+      },
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "actual_start_ticks": "441272128",
+      "expected_start_ticks": "441272128",
+      "matching_live": true,
+      "pid": 2130636,
+      "ppid": 1,
+      "sid": 2130636,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-recovered69-full150-fc660d94d494-v2-20261102/private/recorder.stdout",
+        "2": "/data/shihao/egoemg-rn18-fusion-recovered69-full150-fc660d94d494-v2-20261102/private/recorder.stdout"
+      },
+      "tty_nr": 0
+    }
+  },
+  "actual_target_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2130637,
+      "start_ticks": "441272131"
+    },
+    "started_utc": "2026-11-02T02:10:15.970618+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2130636,
+      "start_ticks": "441272128"
+    }
+  },
+  "all_queue_and_target_source_members_exact": true,
+  "archived_reader_sources_sha256": {
+    "controller-source.py": "10de13bc5381467c2bdb86dfc765d25698bb5e4a5a487f1a130d8a5bcc54c125",
+    "worker-source.py": "896aaf1a9b3417373fd5e02797f3805faa26500eb852032b249be0713980a0eb"
+  },
+  "expected_input_bytes": 61377230438,
+  "expected_input_files": 53,
+  "expected_lineage_and_cpu_admission_actors_required_closed": 50,
+  "expected_training_total_epochs": 150,
+  "expected_training_total_updates": 46950,
+  "format": "actual_recovered69_rn18_fusion_independent_postexit_queue_registration_v1",
+  "frozen_collector_files_sha256": {
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "private/recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+    "private/request.json": "0e2ff8161b88b6eb3f7e809653bc129ef52560a1ad6a5bc46c22dad683c0b5ba",
+    "private/runtime-probe.py": "10de13bc5381467c2bdb86dfc765d25698bb5e4a5a487f1a130d8a5bcc54c125",
+    "private/worker.py": "896aaf1a9b3417373fd5e02797f3805faa26500eb852032b249be0713980a0eb"
+  },
+  "full_paper_complete": false,
+  "full_result_and_postexit_acceptance_complete": false,
+  "new_reader_neural_forwards": 0,
+  "new_reader_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T02:28:57.068708+00:00",
+  "preserve_original_failed_state_and_saved69_lineage": true,
+  "reader_will_construct_learned_models": false,
+  "reader_will_use_cuda": false,
+  "repeated_qualification": false,
+  "source_bundle_sha256": "efcd9f5169116c4f37689de559fe965bca4b01363aadb72ee21353b6641c0004",
+  "source_commit": "d3f896d6f23e9c24c8c3ded2cb261ed546f7ae5b",
+  "target_bundle_sha256": "40db412217df95041a270e6064dcc62ed57d01fb0a4cd115078b57c2f1077dff",
+  "target_frozen_source_members": 150,
+  "target_source_commit": "fc660d94d494db144d138e3457e197115cec390f"
+}

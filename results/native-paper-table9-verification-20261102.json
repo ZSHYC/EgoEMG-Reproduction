@@ -1,0 +1,95 @@
+{
+  "actual_positive_runtime": "existing /home/zshyc/EgoEMG/.venv Python; no dependency installation",
+  "actual_producer_processes_closed": [
+    {
+      "actual_actor": {
+        "cuda_visible_devices": "",
+        "ml_import_attempts": [],
+        "numpy_imported": true,
+        "pid": 140543,
+        "start_ticks": "14014001",
+        "torch_imported": false
+      },
+      "actual_exit_code": 0,
+      "label": "first",
+      "log_sha256": "764d93d0ad4666d912bbc9484b3b29ac9700f15214a9f42195ae496602426e9b"
+    },
+    {
+      "actual_actor": {
+        "cuda_visible_devices": "",
+        "ml_import_attempts": [],
+        "numpy_imported": true,
+        "pid": 140547,
+        "start_ticks": "14014014",
+        "torch_imported": false
+      },
+      "actual_exit_code": 0,
+      "label": "second",
+      "log_sha256": "764d93d0ad4666d912bbc9484b3b29ac9700f15214a9f42195ae496602426e9b"
+    },
+    {
+      "actual_actor": {
+        "cuda_visible_devices": "",
+        "ml_import_attempts": [],
+        "numpy_imported": false,
+        "pid": 140551,
+        "start_ticks": "14014027",
+        "torch_imported": false
+      },
+      "actual_exit_code": 1,
+      "label": "wrong-point-source",
+      "log_sha256": "632fea0e59f71855d634864ebbbd279d0b088e6b05d29c3d9c5a849ca65e2dac"
+    }
+  ],
+  "all6artifact_bytes_reconstructed_identically_in_two_fresh_processes": true,
+  "all_five_methods_same_test_population": false,
+  "all_new_markdown_relative_links_exist": true,
+  "all_prior_legacy_table9_and_original_reports_unchanged": true,
+  "conditions_exceeding_reported_pdf_two_degree_bound": [
+    {
+      "absolute_gap_deg": 2.93310504616737,
+      "left_mae_deg": 16.322384187282083,
+      "method": "EMGFormer-S",
+      "right_mae_deg": 19.255489233449453,
+      "split": "user"
+    },
+    {
+      "absolute_gap_deg": 2.2952124871694934,
+      "left_mae_deg": 17.19923972670902,
+      "method": "EMGFormer-S",
+      "right_mae_deg": 19.494452213878514,
+      "split": "both"
+    },
+    {
+      "absolute_gap_deg": 2.1345877668992195,
+      "left_mae_deg": 16.863007547050987,
+      "method": "EMGFormer-L",
+      "right_mae_deg": 18.997595313950207,
+      "split": "user"
+    }
+  ],
+  "format": "actual_native_table9_reconstruction_negative_source_and_independent_artifact_verification_v1",
+  "full_paper_complete": false,
+  "independent_verifier": {
+    "all30cells_raw_source_counts_sums_and_decimal_means_exact": true,
+    "all_original_hand_split_overall_margins_and15gaps_exact": true,
+    "classic12_cells_unchanged": true,
+    "stdlib_only": true,
+    "three_above_two_degree_conditions_preserved": true
+  },
+  "initial_default_python_attempt_missing_numpy_before_output": true,
+  "max_absolute_hand_gap_deg": 2.93310504616737,
+  "native_SML_completed_source_protocols": true,
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "numeric_check_completed_utc": "2026-11-02T02:25:53.352148+00:00",
+  "observed_utc": "2026-11-02T02:32:21.661680+00:00",
+  "pdf_table30_displayed_values_and_page22_prose_visually_checked": true,
+  "pinned_source_count": 34,
+  "producer_no_torch_or_lightning_imports": true,
+  "producer_source_sha256": "0322669929975133dde4370c50e5723ccadbe1ebb7c12b10090fb2f746701aaf",
+  "producer_uses_existing_numpy_dependency": true,
+  "source_commit": "d3f896d6f23e9c24c8c3ded2cb261ed546f7ae5b",
+  "visual_check_confirmed_after_numeric_check": true,
+  "wrong_point_source_rejected_before_output_creation": true
+}
