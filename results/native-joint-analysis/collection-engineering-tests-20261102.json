@@ -1,0 +1,122 @@
+{
+  "actual_native_three_model_raw_analysis_complete": false,
+  "actual_owned_test_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2109707,
+      "pid": 2109707,
+      "sid": 2109707,
+      "start_ticks": "441122477",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 2109706,
+      "pid": 2109706,
+      "sid": 2109706,
+      "start_ticks": "441122471",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2109708,
+      "pid": 2109708,
+      "sid": 2109708,
+      "start_ticks": "441122480",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "actual_recorder_and_controller": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 2109706,
+      "start_ticks": "441122471"
+    },
+    "ended_utc": "2026-11-02T01:45:39.754706+00:00",
+    "started_utc": "2026-11-02T01:45:19.372196+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2109705,
+      "start_ticks": "441122468"
+    }
+  },
+  "actual_test_exit_code": 0,
+  "all4_test_owners_physically_closed": true,
+  "all_frozen_source_files_exact": true,
+  "engineering_only": true,
+  "engineering_requested_windows_per_raw_role": 6,
+  "fixed_baseline_contract": "exact angle counts; existing1e-4degree MAE/sum tolerance; no override",
+  "fixed_independent_arithmetic_comparison": {
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 2e-12
+  },
+  "format": "native_joint_raw_collection_and_independent_stdlib_engineering_tests_v1",
+  "full_paper_complete": false,
+  "independent_and_source_gate_red": {
+    "failed_tests": 9,
+    "passed_tests": 37,
+    "source_bundle_sha256": "30c5ded4c861350732d6ffd1bd3bec46ce71b7d58076830701d89f7873ecac05"
+  },
+  "independent_verifier_rejects_live_producer": true,
+  "independent_verifier_uses_standard_library_only": true,
+  "initial_missing_collector_red": {
+    "actual_exit_code": 1,
+    "failed_tests": 17,
+    "log_sha256": "34d25d821810dc5cc4cdd9d12663b4f7b404b59fefa1c1faec46d42635e0ed2b"
+  },
+  "intermediate_raw_io_green": {
+    "passed_tests": 37,
+    "source_bundle_sha256": "33c83ffb909dc4f81fc0485005eaa35c06dc99e81a7eb63e67ae0417f6deaeb5"
+  },
+  "intermediate_source_and_stdlib_green": {
+    "passed_tests": 46,
+    "source_bundle_sha256": "560c61162ffcdef93a9e4641bfd3b543b1139346698a9c54ad92ab1233a37313"
+  },
+  "model_and_optimizer_constructors_denied": true,
+  "new_component_final_review_complete": false,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T01:47:26.186777+00:00",
+  "packet_batch_size": 2,
+  "parent_torch_unimported": true,
+  "passed_tests": 47,
+  "population_and_cross_cell_red": {
+    "failed_tests": 2,
+    "passed_tests": 45,
+    "source_bundle_sha256": "3c3f6a5f5b2584bd69adb5dffc610c6affc2d8783384d7a8d06e8e90dc71d6cb"
+  },
+  "public_schema_rejects_private_fields": true,
+  "pytest_reported_seconds": 17.3,
+  "raw_dtype": "bfloat16",
+  "raw_roles": [
+    "native",
+    "replay"
+  ],
+  "runtime": {
+    "cuda_initialized": false,
+    "lightning": "2.5.0.post0",
+    "numpy": "1.26.4",
+    "pytest": "8.2.2",
+    "python": "3.11.12",
+    "torch": "2.2.2+cu118"
+  },
+  "skipped_tests": 0,
+  "source_base_commit": "3f7aff6cd83c20bf14f24f6d44629d4d71912472",
+  "source_bundle_sha256": "b6b337fea0956c43df4da3fca1a1b0fedfd0438a65ef8db6b82d0b5fa9ee2205",
+  "tested_uncommitted_unit_snapshot": true,
+  "unit_files_sha256": {
+    "egoemg_repro/native_joint_analysis.py": "1854da7b1f9aee5d31dfaee2c63f20faa7441f51daeb744bbba7b5d42380c4ea",
+    "scripts/paper/collect_native_joint_analysis.py": "99be6d2143dd24e87af5f702e9fabef02199587f31a26e174d3049251c31c775",
+    "tests/test_native_joint_analysis.py": "3f955edc19de0acab885b3440b4b1cfbd55f8128c6cee2a56677a80a24c6e906",
+    "tests/test_native_joint_collection.py": "d0f213efbc7b3777cd29f026099017c9933517b75139e7a56385c768cdb22627"
+  }
+}
