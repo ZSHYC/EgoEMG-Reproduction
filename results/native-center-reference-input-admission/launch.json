@@ -1,0 +1,15 @@
+{
+  "actual_controller": {
+    "pid": 2187184,
+    "start_ticks": "441740445"
+  },
+  "all_frozen_members_sha256": {
+    "config.json": "a73a4a4adb7f1ddf4ae7156d9ca233e6592c3970e3128bb7dfe9fa7be16cd8f3",
+    "controller.py": "db91c186adcdb11edfed305c8b9039a07a11a051b834ac69eec0a798a4b15add",
+    "worker.py": "0a89cb1e579e09412d6f54484b1d74dddcbf817c8903e8394bba78eb60491ecd"
+  },
+  "archive_sha256": "2d45ac53e3ddbd4c16302cbef7d7c6ea1d9ca7bea5435df1a6b55b49dbf82bc8",
+  "full_paper_complete": false,
+  "root": "/data/shihao/egoemg-native-center-reference-full-inputs-224f057b6564-20261102",
+  "source_commit": "224f057b65643c68dde632191a6c5387303a759e"
+}

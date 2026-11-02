@@ -1,0 +1,23 @@
+{
+  "all4282_inputs_targets_masks_and_private_identity_digests_exact_across_two_processes": true,
+  "all_four_input_and_reader_actors_physically_closed": true,
+  "component_final_review_complete": false,
+  "files_sha256": {
+    "README.md": "3b4e08f98ff09764e4f4b8a780982442aab5d3ef3fd6e1ef75a1269324fce797",
+    "admission.json": "9ce29e7b51444cf9c280f0b8ba6e422931ebca27d71eb510a1e6d76fd6640810",
+    "controller-source.py": "db91c186adcdb11edfed305c8b9039a07a11a051b834ac69eec0a798a4b15add",
+    "execution-config.json": "a73a4a4adb7f1ddf4ae7156d9ca233e6592c3970e3128bb7dfe9fa7be16cd8f3",
+    "launch.json": "06ac2d53064407770d09ca3406ba5e3a148f92db1c114d340417b1e0861695a3",
+    "reader-source.py": "8e2993b1688744fa985c7bef488819437ae36603a8807ac2ff776f0e87bf7a05",
+    "worker-source.py": "0a89cb1e579e09412d6f54484b1d74dddcbf817c8903e8394bba78eb60491ecd"
+  },
+  "format": "complete_native_center_reference_input_admission_public_artifact_v1",
+  "full_model_evaluation_complete": false,
+  "full_paper_complete": false,
+  "full_reference_input_validation_complete": true,
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "sha256": "d5eb1d6f3b1fa563c9aaf50a76463476d4aeca249c25354c7e2c1cf1e808f64d",
+  "source_commit": "224f057b65643c68dde632191a6c5387303a759e",
+  "table10_complete": false
+}
