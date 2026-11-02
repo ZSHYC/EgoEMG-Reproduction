@@ -1,0 +1,59 @@
+{
+  "actual_907_cache_admission_completed": false,
+  "actual_new_component_tests": 20,
+  "actual_runtime_python": "3.11.12 pinned server",
+  "actual_skips": 0,
+  "actual_summary": "20 passed in 4.64s",
+  "actual_terminal_state": {
+    "actual_exit_code": 0,
+    "child": {
+      "pid": 2336273,
+      "start_ticks": "442919918"
+    },
+    "ended_utc": "2026-11-02T06:44:58.814069+00:00",
+    "full_paper_complete": false,
+    "scientific_eligible": false,
+    "started_utc": "2026-11-02T06:44:53.836645+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2336272,
+      "start_ticks": "442919914"
+    }
+  },
+  "all2_original_test_actors_physically_closed": true,
+  "format": "HOT3D_readonly_cache_actual_server_engineering_v1",
+  "frozen_source_files_sha256": {
+    "assets_hot3d_train_manifest.json": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/hot3d_cache_intake.py": "a36a03025f15688f2aadb67974b07bcc90bca10181f2809a96b773e9770bf898",
+    "scripts/paper/hot3d_full_train_receiver.py": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381",
+    "scripts/paper/hot3d_layered_train_receiver.py": "ff89eb600a40906673e3dc726c1192303aa2e81a8469befcf6dca740338ea971",
+    "test-recorder.py": "8cdadaa7832c3a29be2052f0598720ad15eb0cc6679f6b9fa194d4245d699f3d",
+    "tests/test_hot3d_cache_intake.py": "ba637355fd4bea811c3891d74f1cc40c2269e2a4feeeeaf0ee6bbafc7650553a"
+  },
+  "frozen_source_members_exact": true,
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "log_sha256": "f536051ded8ee6443e09d6d25c8f1fd5ce2a6740a5b879c230c353ab26cf43b6",
+  "native_fixture_only_no_actual_HOT3D_download": true,
+  "observed_utc": "2026-11-02T06:45:51.341188+00:00",
+  "reader": {
+    "pid": 2336926,
+    "start_ticks": "442925664"
+  },
+  "reader_physically_closed_after_exit0": true,
+  "reader_torch_unimported": true,
+  "scientific_eligible": false,
+  "source_launch": {
+    "actual_recorder": {
+      "pid": 2336272,
+      "start_ticks": "442919914"
+    },
+    "archive_sha256": "820751c9009b792b59efeeaf5592bfacd26d87881c3343e194ff87e57d725572",
+    "frozen_file_count": 7,
+    "full_paper_complete": false,
+    "root": "/data/shihao/egoemg-hot3d-readonly-cache-new-tests-877e9058d67f-20261102",
+    "scientific_eligible": false,
+    "source_commit": "877e9058d67f4793ce2d2e9b245e5052c324a065"
+  }
+}

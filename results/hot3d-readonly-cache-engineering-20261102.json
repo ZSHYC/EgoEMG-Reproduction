@@ -1,0 +1,31 @@
+{
+  "actual_HOT3D_archive_downloads": 0,
+  "actual_cache_907_admission_completed": false,
+  "actual_exit_code": 0,
+  "actual_local_test_actor": {
+    "pid": 162415,
+    "start_ticks": "15562624"
+  },
+  "actual_log_sha256": "b8f1f44f862ba823cf43e265a9711a82d0db5a2c21f5d8b80ed4602b0e7b9c55",
+  "actual_missing_module_RED_log_sha256": "804dca8254cddcb83513ca279025871445209755ee8899fb14d541da23309d0d",
+  "actual_native_child_fixture_only": true,
+  "actual_summary": "20 passed in 4.63s",
+  "actual_test_actor_physically_closed": true,
+  "actual_tests": 20,
+  "ended_utc": "2026-11-02T06:44:04.116703+00:00",
+  "format": "HOT3D_readonly_cache_new_unit_engineering_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "one_fresh_review_pending": true,
+  "scientific_eligible": false,
+  "skips": 0,
+  "source_files_before_after_exact": true,
+  "source_files_sha256": {
+    "assets_hot3d_train_manifest.json": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+    "egoemg_repro/hot3d_cache_intake.py": "a36a03025f15688f2aadb67974b07bcc90bca10181f2809a96b773e9770bf898",
+    "scripts/paper/hot3d_full_train_receiver.py": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381",
+    "scripts/paper/hot3d_layered_train_receiver.py": "ff89eb600a40906673e3dc726c1192303aa2e81a8469befcf6dca740338ea971",
+    "tests/test_hot3d_cache_intake.py": "ba637355fd4bea811c3891d74f1cc40c2269e2a4feeeeaf0ee6bbafc7650553a"
+  },
+  "started_utc": "2026-11-02T06:43:59.221259+00:00"
+}
