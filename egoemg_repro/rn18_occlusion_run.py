@@ -54,11 +54,14 @@ def _guard():
 def _runtime_budget(root):
     """Protect the existing server jobs before and during owned CPU work."""
     import shutil
+    destination = _safe(root, exists=False)
+    while not destination.exists():
+        destination = destination.parent
     available = int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines()
         if line.startswith('MemAvailable:')))*1024
     rss = int(next(line.split()[1] for line in Path('/proc/self/status').read_text().splitlines()
         if line.startswith('VmRSS:')))*1024
-    if (shutil.disk_usage(root).free < 225*1024**3
+    if (shutil.disk_usage(destination).free < 225*1024**3
         or available < 128*1024**3 or rss > 128*1024**3):
         raise ValueError('native RN18 runtime disk/memory budget unavailable')
 
@@ -644,8 +647,9 @@ def run_dense_pass(inputs, fusion_fit, output, *, scope, qualification=None, rep
     if not isinstance(inputs, DenseRunInputs):
         raise ValueError('registered actual complete dense inputs required')
     inputs.check(); evidence = inputs.evidence
-    _runtime_budget(ROOT)
     if scope == 'complete': _qualification(qualification, evidence)
+    output = _safe(output, exists=False)
+    _runtime_budget(output)
     ranges = _scope_batches(evidence, scope); keys = evidence.keys()
     previous = read_dense_pass(replay_of, evidence=evidence) if replay_of is not None else None
     import torch
@@ -655,7 +659,7 @@ def run_dense_pass(inputs, fusion_fit, output, *, scope, qualification=None, rep
     torch.set_num_threads(2)
     trained = load_dense_trained_models(fusion_fit, upstream=evidence.upstream, recipe='rn18_s')
     _bind_models(inputs, trained)
-    output = _safe(output, exists=False); output.mkdir(mode=0o700)
+    output.mkdir(mode=0o700)
     (output/'batches').mkdir(mode=0o700)
     identity = _seal(dict(format='actual_native_dense_frozen_pass_v1', scope=scope,
         evidence_identity_sha256=evidence.identity['sha256'], input_admission=copy.deepcopy(inputs.identity),
@@ -681,7 +685,7 @@ def run_dense_pass(inputs, fusion_fit, output, *, scope, qualification=None, rep
                         expected_fingerprints = [_hash(json.loads(evidence.records[k['sequence']])['typed_input_sha256']) for k in expected_keys]
                         if batch['keys'] != expected_keys or batch['verified_input_sha256'] != expected_fingerprints:
                             raise ValueError('source DataLoader order/input verification changed')
-                        _runtime_budget(ROOT)
+                        _runtime_budget(output)
                         arrays_out = predict_dense_batch(trained, batch['fusion'], batch['standalone'])
                         arrays = dict(arrays_out['arrays'], **arrays_out['errors'],
                             crop_valid_mask=batch['fusion']['vision_valid_mask'].numpy().copy())
@@ -886,12 +890,14 @@ def run_dense_workflow(request, output):
     guard, sources = _guard()
     cli = _safe(ROOT/'scripts/paper/run_rn18_dense_occlusion.py'); guard.add(cli)
     sources[str(cli.relative_to(ROOT))] = _sha(cli)
-    root = _safe(output, exists=False); root.mkdir(mode=0o700)
+    root = _safe(output, exists=False)
+    _runtime_budget(root)
+    root.mkdir(mode=0o700)
     _write_json(root/'request.json', request); guard.add(root/'request.json')
     evidence = load_dense_evidence(**{n: request[n] for n in required[:5]})
     parent = process_identity(os.getppid())
     def check():
-        guard.check(); evidence.check(); _runtime_budget(ROOT)
+        guard.check(); evidence.check(); _runtime_budget(root)
         if 'torch' in sys.modules or not same_process(parent):
             raise ValueError('dense controller must retain its actual parent and stay model-free')
     common = [sys.executable, '-B', str(cli)]

@@ -342,3 +342,48 @@ def test_runtime_resource_shortage_refuses_work(shortage,tmp_path,monkeypatch):
         return original(path,*a,**kw)
     monkeypatch.setattr(Path,'read_text',read)
     with pytest.raises(ValueError):m._runtime_budget(tmp_path)
+
+
+@pytest.mark.parametrize('entrypoint', ['prediction', 'workflow'])
+def test_output_filesystem_low_reserve_refuses_before_loading_or_writing(
+        entrypoint, actual_inputs, tmp_path, monkeypatch):
+    """A healthy source mount must not authorize writes to a full output mount."""
+    import shutil
+    from types import SimpleNamespace
+    import egoemg_repro.rn18_occlusion_models as models
+    m = api(); gib = 1024**3; output = tmp_path/'pending-output'
+    def disk(path):
+        path = Path(path)
+        if not path.exists(): raise FileNotFoundError(path)
+        return SimpleNamespace(free=(224 if path == tmp_path or tmp_path in path.parents else 512)*gib)
+    def denied(*a, **kw):
+        raise AssertionError('loaded model/evidence before refusing the output filesystem')
+    monkeypatch.setattr(shutil, 'disk_usage', disk)
+    monkeypatch.setattr(models, 'load_rn18_dense_trained_models', denied)
+    monkeypatch.setattr(m, 'load_dense_evidence', denied)
+    with pytest.raises(ValueError, match='budget'):
+        if entrypoint == 'prediction':
+            m.run_dense_pass(actual_inputs, 'unused-fit', output, scope='qualification')
+        else:
+            request = dict(arguments(), data='unused-data', crops='unused-crops', fit='unused-fit')
+            m.run_dense_workflow(request, output)
+    assert not output.exists()
+
+
+def test_output_filesystem_budget_uses_existing_parent_without_creating_output(tmp_path, monkeypatch):
+    import shutil
+    from types import SimpleNamespace
+    m = api(); gib = 1024**3; original = Path.read_text
+    output = tmp_path/'not-created'/'result'
+    def disk(path):
+        path = Path(path)
+        if not path.exists(): raise FileNotFoundError(path)
+        return SimpleNamespace(free=(512 if path == tmp_path else 224)*gib)
+    def read(path, *a, **kw):
+        if str(path) == '/proc/meminfo': return 'MemAvailable: '+str(512*gib//1024)+' kB\n'
+        if str(path) == '/proc/self/status': return 'VmRSS: '+str(gib//1024)+' kB\n'
+        return original(path, *a, **kw)
+    monkeypatch.setattr(shutil, 'disk_usage', disk)
+    monkeypatch.setattr(Path, 'read_text', read)
+    m._runtime_budget(output)
+    assert not output.parent.exists()
