@@ -1,0 +1,322 @@
+{
+  "CUDA_initialized": false,
+  "actual_completed_paired_IO_identity_exact": true,
+  "actual_fusion_normalization_exact": true,
+  "actual_standalone_normalization_exact": true,
+  "complete_raw_dataset_rehashed": false,
+  "format": "actual_RN18_trained_model_to_closed_native_input_binding_v1",
+  "full_paper_complete": false,
+  "input_identity": {
+    "crop_and_label_masks_retained": true,
+    "dense_stride": 3000,
+    "figure13_reproduced": false,
+    "format": "source_native_dense_paired_input_io_v1",
+    "full_input_or_model_admitted": false,
+    "full_paper_complete": false,
+    "fusion_input_channels": 8,
+    "fusion_normalization": {
+      "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+      "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+      "canonical_normalization_errors_by_hand": {
+        "left": "KeyError",
+        "right": "KeyError"
+      },
+      "declared_namespace": "egoemg_unified",
+      "epsilon": 1e-06,
+      "estimated_from_project_train_rows": false,
+      "format": "original_rn18_fusion_legacy_normalization_v1",
+      "full_paper_complete": false,
+      "hands": {
+        "left": {
+          "dtype": "float32",
+          "mean": [
+            -7.231502723026306e-13,
+            1.448950443135033e-12,
+            -1.6892440571347755e-11,
+            -1.252661689654655e-11,
+            -1.2940328496247044e-11,
+            9.326261117548196e-12,
+            -2.8426799109082523e-11,
+            -3.779553493094001e-12
+          ],
+          "std": [
+            3.821516513824463,
+            4.0033464431762695,
+            4.532995700836182,
+            3.3738908767700195,
+            4.099949836730957,
+            4.044180393218994,
+            4.2281413078308105,
+            5.456417560577393
+          ]
+        },
+        "right": {
+          "dtype": "float32",
+          "mean": [
+            1.5540511585920846e-11,
+            -1.920762576768098e-10,
+            3.077472998658237e-11,
+            -7.338346076635194e-12,
+            -3.7279259540445864e-11,
+            2.417382787001099e-11,
+            3.4983644453534524e-11,
+            -1.1016149797926644e-11
+          ],
+          "std": [
+            12.625292778015137,
+            29.244260787963867,
+            12.783987045288086,
+            14.19461441040039,
+            14.211451530456543,
+            13.55282974243164,
+            17.53721809387207,
+            14.340578079223633
+          ]
+        }
+      },
+      "normalization_namespace": "egoemg",
+      "physical_fields": {
+        "left": "emg_left_filtered",
+        "right": "emg_right_filtered"
+      },
+      "requested_field": "filtered_paper",
+      "scientific_eligible": false,
+      "sha256": "93ff2015094d64e9f0c3d8fe4e0aeba1f0fef1df83e3111b4534da8b3e370c15",
+      "substitution": "explicit legacy namespace in the unchanged declared author alias asset"
+    },
+    "index_identity_sha256": "8067516e982bb2b92c659bb70562c379603ca3a0699438c71c0168b33d2347ea",
+    "jitter": false,
+    "native_point_wrist_conversion": true,
+    "reader_methods": [
+      "EgoEmgMemmapDataset._getitem_center_supervised",
+      "EgoEmgMemmapDataset._getitem_center_supervised_emg"
+    ],
+    "recipe": "rn18_s",
+    "repeat": 1,
+    "scientific_eligible": false,
+    "sha256": "8740a685e0c46fcacd6140c9e3cc9b15f4a241a99d20349757ea7a5e798a10b6",
+    "source_files_sha256": {
+      "classic_emg": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+      "classic_emg_cohort": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+      "data": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+      "emg_initializer_literal": "f0439d1a8d05bbf078570f806b88b2ab553f00990a91edde1563a5611250800f",
+      "fusion_literal_cohort": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+      "fusion_literal_data": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+      "occlusion_dense_data": "1168b9b9f7d069ef638e549c8433bf49b530a065216e5bcd20959cf6b64c59ab",
+      "occlusion_dense_inputs": "36a332016e1f05fdab1f0a7b59476fd9de97b59bf4aef1b9a9d1038723454246",
+      "rn18_fusion_data": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+      "upstream/assets/per_dataset_norm_stats_repro_filtered_paper_alias.json": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+      "upstream/egoemg/datasets/egoemg_memmap_dataset.py": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060",
+      "upstream/egoemg/datasets/layout_utils.py": "34293ab35a3138f4bd04847bf604968536d8720d9f2302d88f2a03db25ac50e8",
+      "upstream/egoemg/transforms.py": "295504d35ece59726593ee423749db85c68c140fb7f6d06b305b80352936bb59",
+      "vision_literal_data": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b"
+    },
+    "standalone_input_channels": 8,
+    "standalone_normalization": {
+      "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+      "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+      "epsilon": 1e-06,
+      "estimated_from_project_train_rows": false,
+      "format": "original_emg_initializer_per_hand_normalization_v1",
+      "full_paper_complete": false,
+      "hands": {
+        "left": {
+          "dtype": "float32",
+          "mean": [
+            -7.231502723026306e-13,
+            1.448950443135033e-12,
+            -1.6892440571347755e-11,
+            -1.252661689654655e-11,
+            -1.2940328496247044e-11,
+            9.326261117548196e-12,
+            -2.8426799109082523e-11,
+            -3.779553493094001e-12
+          ],
+          "std": [
+            3.821516513824463,
+            4.0033464431762695,
+            4.532995700836182,
+            3.3738908767700195,
+            4.099949836730957,
+            4.044180393218994,
+            4.2281413078308105,
+            5.456417560577393
+          ]
+        },
+        "right": {
+          "dtype": "float32",
+          "mean": [
+            1.5540511585920846e-11,
+            -1.920762576768098e-10,
+            3.077472998658237e-11,
+            -7.338346076635194e-12,
+            -3.7279259540445864e-11,
+            2.417382787001099e-11,
+            3.4983644453534524e-11,
+            -1.1016149797926644e-11
+          ],
+          "std": [
+            12.625292778015137,
+            29.244260787963867,
+            12.783987045288086,
+            14.19461441040039,
+            14.211451530456543,
+            13.55282974243164,
+            17.53721809387207,
+            14.340578079223633
+          ]
+        }
+      },
+      "namespace": "egoemg",
+      "native_loader": "EgoEmgMemmapDataset._load_norm_stats",
+      "physical_legacy_field": "filtered",
+      "production_ready": false,
+      "requested_field": "filtered_paper",
+      "scientific_eligible": false
+    },
+    "standalone_window_policy": "exact selected fusion window; no independent 12000-point center filtering",
+    "unique_hand_points": 11114,
+    "window_length": 12000,
+    "windows_crossing_center_split": 3504
+  },
+  "model_identity": {
+    "checkpoint_file_sha256": {
+      "emg": "4d53b5c6c548a16e29f466cd1917c2be62246adeb9cf0f730febcde3f71a5922",
+      "fusion": "b37f0f3c36ce48ecdcba43428db5529195bc08abfe7c7f5c06d5d4842b91dcd2",
+      "vision": "10be7acdcf011dde9bc9a8b8af5d93654c048a8bc2ef2335e8f9eaa5e2970e8a"
+    },
+    "complete_source_state_sha256": {
+      "emg": "7c5fa2c7faa93bf75c1545a3bcce4b9a0bc43876ba477f3b111086c34b1ba223",
+      "fusion": "876039298e64fd7f8591ace60f33d2ff8b8ddf166b3fdc83aca8f12df0464414",
+      "vision": "a6718b66222e4fc9ea67dcb7200efdea48cf3058a54292c6528ba82c897fffdb"
+    },
+    "complete_tensor_counts": {
+      "emg": 110,
+      "fusion": 244,
+      "vision": 124
+    },
+    "dense_input_or_inference_permit": false,
+    "figure13_reproduced": false,
+    "format": "actual_native_rn18_dense_trained_triplet_v1",
+    "full_paper_complete": false,
+    "fusion_fit_identity_sha256": "34832e737a03dc3ab1287446a5bc9270aaf429e1221228b18b2a8b6fd36b7719",
+    "fusion_fit_result_sha256": "bb4aa8f8c67cb45e9c5917a33282364e869bbfef1907e41105804fb35cb3d15e",
+    "initializer_handoff_identity_sha256": "bfef9ec860477e2c643a372df9ea1d328a7c14523f188aa1304267b6b9d8d08d",
+    "input_normalization": {
+      "asset": "assets/per_dataset_norm_stats_repro_filtered_paper_alias.json",
+      "asset_sha256": "d4b73febf386ec7b2028639eed8bbd7363d13cbe3fe489149915bcef071ee96a",
+      "canonical_normalization_errors_by_hand": {
+        "left": "KeyError",
+        "right": "KeyError"
+      },
+      "declared_namespace": "egoemg_unified",
+      "epsilon": 1e-06,
+      "estimated_from_project_train_rows": false,
+      "format": "original_rn18_fusion_legacy_normalization_v1",
+      "full_paper_complete": false,
+      "hands": {
+        "left": {
+          "dtype": "float32",
+          "mean": [
+            -7.231502723026306e-13,
+            1.448950443135033e-12,
+            -1.6892440571347755e-11,
+            -1.252661689654655e-11,
+            -1.2940328496247044e-11,
+            9.326261117548196e-12,
+            -2.8426799109082523e-11,
+            -3.779553493094001e-12
+          ],
+          "std": [
+            3.821516513824463,
+            4.0033464431762695,
+            4.532995700836182,
+            3.3738908767700195,
+            4.099949836730957,
+            4.044180393218994,
+            4.2281413078308105,
+            5.456417560577393
+          ]
+        },
+        "right": {
+          "dtype": "float32",
+          "mean": [
+            1.5540511585920846e-11,
+            -1.920762576768098e-10,
+            3.077472998658237e-11,
+            -7.338346076635194e-12,
+            -3.7279259540445864e-11,
+            2.417382787001099e-11,
+            3.4983644453534524e-11,
+            -1.1016149797926644e-11
+          ],
+          "std": [
+            12.625292778015137,
+            29.244260787963867,
+            12.783987045288086,
+            14.19461441040039,
+            14.211451530456543,
+            13.55282974243164,
+            17.53721809387207,
+            14.340578079223633
+          ]
+        }
+      },
+      "normalization_namespace": "egoemg",
+      "physical_fields": {
+        "left": "emg_left_filtered",
+        "right": "emg_right_filtered"
+      },
+      "requested_field": "filtered_paper",
+      "scientific_eligible": false,
+      "sha256": "93ff2015094d64e9f0c3d8fe4e0aeba1f0fef1df83e3111b4534da8b3e370c15",
+      "substitution": "explicit legacy namespace in the unchanged declared author alias asset"
+    },
+    "model_state_sha256": {
+      "emg": "c0b29b400b4a5e6b0f0a3ddbde7969ae979bd566dbd3d8033958f52badae519a",
+      "fusion": "876039298e64fd7f8591ace60f33d2ff8b8ddf166b3fdc83aca8f12df0464414",
+      "vision": "a6718b66222e4fc9ea67dcb7200efdea48cf3058a54292c6528ba82c897fffdb"
+    },
+    "producer_partition_content_sha256": {
+      "emg_initializer": "ca21b51f8206812c0d886238d2bb47657678b7514d53b413dbb4161bbfbbddfc",
+      "fusion": "44e9ebc8a2f63a79699c5a976bf2717b0fe7a376427c7c46f538d0745c2b4bd0",
+      "vision_initializer": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812"
+    },
+    "recipe": "rn18_s",
+    "scientific_eligible": false,
+    "scope": "complete trained triplet only; separate dense input/qualification/inference permit required",
+    "selected_completed_epochs": {
+      "emg": 74,
+      "fusion": 145,
+      "vision": 150
+    },
+    "selection_policy": {
+      "emg": "completed RN18 cotrain validation BEST export",
+      "fusion": "completed native full fusion validation BEST",
+      "vision": "completed historical vision LAST"
+    },
+    "sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee",
+    "source_audit_file_sha256": "4e0d4d84e1d5919640eafb4cdad078a601b5a1dcd1ea5d07be4eb616f41f7d6e",
+    "source_contract_sha256": "25104d40de0658de848f9aaf19ef5c6919fb43cd38d869004dfa0ba249adc8ca",
+    "source_files_sha256": {
+      "egoemg_repro/emg_initializer_literal.py": "f0439d1a8d05bbf078570f806b88b2ab553f00990a91edde1563a5611250800f",
+      "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+      "egoemg_repro/occlusion_dense_analysis.py": "dc5ab6befb74fc141acf467859f44621132ddece35b211f8af7b8eb6853c565e",
+      "egoemg_repro/occlusion_dense_inference.py": "c1d3378391630a6ec86deb34100186869da71cdaf91a6ee1974d325253f064c0",
+      "egoemg_repro/occlusion_dense_models.py": "417af8e8adca024c7ad81eb483852dd11cb1e040f4f8c99cc032b07b3ecbdc16",
+      "egoemg_repro/rn18_fusion_literal.py": "1160b90b66b8a9155c4ddad17e7f7cba1322d3f146b6da7011dc5539214fd5e7",
+      "egoemg_repro/rn18_fusion_runtime.py": "c0b4d3ffaddef4b1b9c70146c7d21c085bdda257e2326074749bc8189de076ef",
+      "egoemg_repro/rn18_fusion_transfer.py": "01831c0bdc3974a90b215cf84d1e4f43d05082f3d0f71a4a896b6f90e811cf34",
+      "egoemg_repro/rn18_occlusion_models.py": "1c3eee34197e87f7b0aa4c273a8f07d534742ec68e6fd437f58a8dc336fcfa09",
+      "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0"
+    },
+    "trained_full_producers_verified": true
+  },
+  "new_dense_predictions_produced": 0,
+  "optimizer_updates": 0,
+  "scientific_eligible": false,
+  "sha256": "891d7c9070f5e2eabdd340342a560e82569a63a72f89263e03e13e520bb2f868",
+  "source_emg_fit_identity_sha256": "b4f12902824d1a23dca3e9214da29d3581a75f1a8320543cced8c84f43f8c735",
+  "source_fusion_fit_identity_sha256": "34832e737a03dc3ab1287446a5bc9270aaf429e1221228b18b2a8b6fd36b7719",
+  "trained_model_or_full_inference_permit": false
+}

@@ -1,0 +1,29 @@
+{
+  "actual_terminal_state": {
+    "actual_exit_code": 0,
+    "child": {
+      "pid": 2301263,
+      "start_ticks": "442594403"
+    },
+    "ended_utc": "2026-11-02T05:50:47.659527+00:00",
+    "full_paper_complete": false,
+    "scientific_eligible": false,
+    "started_utc": "2026-11-02T05:50:38.694566+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2301262,
+      "start_ticks": "442594400"
+    }
+  },
+  "all156_frozen_members_exact": true,
+  "all2_original_actors_physically_closed": true,
+  "input_identity_sha256": "8740a685e0c46fcacd6140c9e3cc9b15f4a241a99d20349757ea7a5e798a10b6",
+  "model_identity_sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee",
+  "raw_file_sha256": "a28339ce63378d1db93f25f97dcac418db30670f4bac502fe0ec42c321248c5a",
+  "reader": {
+    "pid": 2302205,
+    "start_ticks": "442602225"
+  },
+  "reader_physically_closed_after_exit0": true,
+  "reader_torch_unimported": true
+}
