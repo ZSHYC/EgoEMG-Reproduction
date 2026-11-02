@@ -1,0 +1,27 @@
+{
+  "actual_epochs": 200,
+  "actual_point_validation_checks": 200,
+  "files_sha256": {
+    "training-curves.png": "4015861ded14ed2d665f7122f82c9a6fde32336ff3fe07fc00eec5e71f859efc",
+    "training-curves.svg": "dbff3e54f532521e3c781ad2e6544aabfc2abd5104080603e8e9e4fc380595ab"
+  },
+  "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+  "format": "actual_native_emgformer_200_epoch_training_curve_sources_v1",
+  "full_paper_complete": false,
+  "full_trajectory_evaluation_not_used_for_training_checkpoint_selection": true,
+  "matplotlib_version": "3.9.4",
+  "new_neural_forwards_or_optimizer_updates": 0,
+  "selected_completed_epoch": 142,
+  "size": "large",
+  "source_history_csv_sha256": "f3e9cf0af7f551defcd85e4d3d18f1e94b5b3e4b189060fc3cc73eb3d967e586",
+  "source_report_sha256": "0024d03995a4f5564da382a6e881e3e68482c1b94980c1fa3fc69e7bc22421c7",
+  "svg_only_trailing_line_whitespace_normalized_with_xml_path_tokens_attributes_and_text_exact": true,
+  "training_target_shape": [
+    22,
+    12000
+  ],
+  "validation_target_shape": [
+    22,
+    1
+  ]
+}

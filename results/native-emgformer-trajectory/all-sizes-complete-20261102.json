@@ -1,0 +1,154 @@
+{
+  "actual_three_original_full200_models": true,
+  "all130_original_size_loader_and_additional_reader_actors_physically_closed": true,
+  "all_existing_source_model_and_raw_artifact_generations_unchanged": true,
+  "closure_actor_count": 130,
+  "closure_reader_actor": {
+    "pid": 2115190,
+    "start_ticks": "441150814"
+  },
+  "extra_stdlib_closure_reader_actual_exit_code": 0,
+  "extra_stdlib_closure_reader_physically_exited": true,
+  "format": "actual_all_three_native_emgformer_trajectory_parent_and_size_closure_v1",
+  "full_paper_complete": false,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "no_new_training_or_checkpoint_selection": true,
+  "observed_utc": "2026-11-02T01:50:02.908478+00:00",
+  "paper_numerical_equivalence_established": false,
+  "parents": {
+    "collector": {
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "automatic_retry": false,
+        "child": {
+          "pid": 2032450,
+          "start_ticks": "440691194"
+        },
+        "ended_utc": "2026-11-02T01:43:13.360525+00:00",
+        "started_utc": "2026-11-02T00:33:26.606174+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2032449,
+          "start_ticks": "440691191"
+        }
+      },
+      "bundle_sha256": "a8142defd862a580340ed832f832d11afd36b2f559d8dc7f5cab26946bed3e64",
+      "frozen_members": 6,
+      "source_commit": "acc4ccb42966e35594b6db27c1b2d23e2d9fa82e"
+    },
+    "original": {
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1701856,
+          "start_ticks": "438130415"
+        },
+        "ended_utc": "2026-11-02T01:38:06.347149+00:00",
+        "started_utc": "2026-11-01T17:26:38.808657+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 1701854,
+          "start_ticks": "438130412"
+        }
+      },
+      "bundle_sha256": "cc02413f0c82d8b0ac09583e7255d666527cc75e58d3b7d08d1aa6a7763cacfa",
+      "frozen_members": 157,
+      "source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046"
+    }
+  },
+  "per_size_local_proof_file_sha256": {
+    "large": "946bc7121ac5eac94372cc6249b04474b83633049092c7d58241e6bf784a9b84",
+    "middle": "667d29bf4cf29a46c52e69e248ff807ff9fa39e6e7f9e5b0fd22df4abdf96b3b",
+    "small": "764a2172bd8ac8437c059dad735322b979cdd185d493d8c72d42960b125bde3d"
+  },
+  "sizes": {
+    "large": {
+      "actual_fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+      "actual_report_sha256": "0024d03995a4f5564da382a6e881e3e68482c1b94980c1fa3fc69e7bc22421c7",
+      "additional_reader_actor_count": 2,
+      "aligned_center": {
+        "absolute_error_sum_rad": 17149.65384951281,
+        "mae_deg": 16.50545564885053,
+        "valid_angle_count": 59532
+      },
+      "all_closed_source_artifact_generations_unchanged": true,
+      "durable_training_updates": 25000,
+      "full_training_epochs": 200,
+      "original_loader_actor_count": 24,
+      "original_size_owned_actor_count": 16,
+      "selected_best": {
+        "checkpoint_sha256": "896871c83cb46ac12a755ab4dcee0f89b0995cae8fdcfac6df47ec6820ce1605",
+        "file": "best-val_mae=val_mae=0.2554.ckpt",
+        "score": 0.255403995513916,
+        "validated": true
+      },
+      "selected_completed_epoch": 142,
+      "source_postexit_readback_file_sha256": "5b9ad7a465596ed3b1b6356b7ee1f80bc7bcb729faeca290f800718de044aff7",
+      "trajectory": {
+        "absolute_error_sum_rad": 198084988.04059562,
+        "mae_deg": 16.574094876419654,
+        "valid_angle_count": 684769448
+      }
+    },
+    "middle": {
+      "actual_fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+      "actual_report_sha256": "ae30888b17f4532f6f03615c070f37f4ba9349fafa765bba2d6ae18eeca744e6",
+      "additional_reader_actor_count": 2,
+      "aligned_center": {
+        "absolute_error_sum_rad": 17002.093408341687,
+        "mae_deg": 16.36343807003251,
+        "valid_angle_count": 59532
+      },
+      "all_closed_source_artifact_generations_unchanged": true,
+      "durable_training_updates": 25000,
+      "full_training_epochs": 200,
+      "original_loader_actor_count": 24,
+      "original_size_owned_actor_count": 16,
+      "selected_best": {
+        "checkpoint_sha256": "c9a62af344490dc530a89e4f6b861a5463cd8e9b8aa05fb5380d171776ee36ff",
+        "file": "best-val_mae=val_mae=0.2578.ckpt",
+        "score": 0.25775474309921265,
+        "validated": true
+      },
+      "selected_completed_epoch": 124,
+      "source_postexit_readback_file_sha256": "90aec6c950407086d86ac77581e1896950f0e8f44c0f4fd9ca00f21044ce4ad3",
+      "trajectory": {
+        "absolute_error_sum_rad": 196236371.3740086,
+        "mae_deg": 16.419418096895782,
+        "valid_angle_count": 684769448
+      }
+    },
+    "small": {
+      "actual_fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+      "actual_report_sha256": "9a2fca381d852a251ecfbdd13b51385582d9d4c43a42b6c53e2ddad82f28343d",
+      "additional_reader_actor_count": 2,
+      "aligned_center": {
+        "absolute_error_sum_rad": 17117.36820216172,
+        "mae_deg": 16.474382758101598,
+        "valid_angle_count": 59532
+      },
+      "all_closed_source_artifact_generations_unchanged": true,
+      "durable_training_updates": 25000,
+      "full_training_epochs": 200,
+      "original_loader_actor_count": 24,
+      "original_size_owned_actor_count": 16,
+      "selected_best": {
+        "checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+        "file": "best-val_mae=val_mae=0.2583.ckpt",
+        "score": 0.25830063223838806,
+        "validated": true
+      },
+      "selected_completed_epoch": 169,
+      "source_postexit_readback_file_sha256": "94d098fbeee5881950a92e625ce8d433ca285ef624ed90808c64f4e5ee0c5309",
+      "trajectory": {
+        "absolute_error_sum_rad": 197649970.0536001,
+        "mae_deg": 16.53769621006572,
+        "valid_angle_count": 684769448
+      }
+    }
+  },
+  "source_protocol_complete_on_available_legacy_cohort": true,
+  "torch_unimported": true
+}
