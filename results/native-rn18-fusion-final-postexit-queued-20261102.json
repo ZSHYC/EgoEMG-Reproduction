@@ -1,0 +1,339 @@
+{
+  "actual_closed_qualification_stages": {
+    "owned-qual-accept": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440357709",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1976384
+        },
+        "worker": {
+          "expected_start_ticks": "440357712",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1976385
+        }
+      },
+      "stage_result_sha256": "f87522dffe62d136b60fefb3999e9be4d5fdc431bb06304946ebeab26f1ffa6d",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-freeze": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440411113",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1986105
+        },
+        "worker": {
+          "expected_start_ticks": "440411117",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1986106
+        }
+      },
+      "stage_result_sha256": "0ea19a217a635d71ae422b8c922cad4f2d3c9d3e694c85ec8abc3da94bb0894d",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-prefix": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440311389",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1967442
+        },
+        "worker": {
+          "expected_start_ticks": "440311393",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1967445
+        }
+      },
+      "stage_result_sha256": "26f36e9310573608976f3e90f4b05657a30c90aedd5f6850b95bc3a25397098b",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-report": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440488860",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1999603
+        },
+        "worker": {
+          "expected_start_ticks": "440488863",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1999606
+        }
+      },
+      "stage_result_sha256": "27694521f1eef72b567204f72470a0854742afad70b6714b97c69f2b3423c3b7",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-resume": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440335495",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1971983
+        },
+        "worker": {
+          "expected_start_ticks": "440335499",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1971986
+        }
+      },
+      "stage_result_sha256": "fcacc2e98fce93cc2f577695cd598d4a30f0b91ded8a8c25afdad098067e5bd8",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-test-native": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440444761",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1989537
+        },
+        "worker": {
+          "expected_start_ticks": "440444765",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1989540
+        }
+      },
+      "stage_result_sha256": "3e27a9b4113337ed3d3d4e9d7dda7cd613cd424774b164a7135d629020ea1e33",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-test-replay": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440468051",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1994167
+        },
+        "worker": {
+          "expected_start_ticks": "440468055",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1994170
+        }
+      },
+      "stage_result_sha256": "028e198606cf8c703d5daa2c11c998aa95aa55bbfb74c7a090f05cbee058410a",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-val-native": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440370278",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1977810
+        },
+        "worker": {
+          "expected_start_ticks": "440370282",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1977813
+        }
+      },
+      "stage_result_sha256": "8ba2ac73c525c49a04550ab07977721df60d5b0273bacd7bcc268044e3483dcd",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-val-replay": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440391764",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1982154
+        },
+        "worker": {
+          "expected_start_ticks": "440391768",
+          "matching_live": false,
+          "missing": true,
+          "pid": 1982157
+        }
+      },
+      "stage_result_sha256": "4afbabde65470bb6b8f237e76b66738728fba5f8312dd519cb8080dfdc6ab3e0",
+      "status": "success",
+      "worker_exit_code": 0
+    },
+    "owned-qual-verify": {
+      "actors": {
+        "guardian": {
+          "expected_start_ticks": "440521287",
+          "matching_live": false,
+          "missing": true,
+          "pid": 2004262
+        },
+        "worker": {
+          "expected_start_ticks": "440521291",
+          "matching_live": false,
+          "missing": true,
+          "pid": 2004263
+        }
+      },
+      "stage_result_sha256": "8d05a21282def7963d3cfe35f26d8b97eb6b43f79d25a79bcbbf86630c5ee141",
+      "status": "success",
+      "worker_exit_code": 0
+    }
+  },
+  "actual_detached_actors": {
+    "child": {
+      "actual_start_ticks": "440658156",
+      "expected_start_ticks": "440658156",
+      "matching_live": true,
+      "pid": 2027123,
+      "ppid": 2027122,
+      "sid": 2027123,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-full-final-postexit-collector-3c01c2164ed0-20261102/private/execution.log",
+        "2": "/data/shihao/egoemg-rn18-fusion-full-final-postexit-collector-3c01c2164ed0-20261102/private/execution.log"
+      },
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "actual_start_ticks": "440658153",
+      "expected_start_ticks": "440658153",
+      "matching_live": true,
+      "pid": 2027122,
+      "ppid": 1,
+      "sid": 2027122,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-full-final-postexit-collector-3c01c2164ed0-20261102/private/recorder.stdout",
+        "2": "/data/shihao/egoemg-rn18-fusion-full-final-postexit-collector-3c01c2164ed0-20261102/private/recorder.stdout"
+      },
+      "tty_nr": 0
+    }
+  },
+  "actual_full_experiment_completed": false,
+  "actual_full_final_readback_executed": false,
+  "actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2027123,
+      "start_ticks": "440658156"
+    },
+    "started_utc": "2026-11-02T00:27:56.225598+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2027122,
+      "start_ticks": "440658153"
+    }
+  },
+  "all152_predecessor_frozen_members_exact": true,
+  "all6_collector_capsule_members_exact": true,
+  "automatic_retry": false,
+  "bundle_sha256": "132db556917c35aea2c5faaba4b690c4efc7f8eac8fe877e80c1a89d7ae6f907",
+  "collector_files_sha256": {
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "private/recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+    "private/request.json": "5b9a0f5067e1e0f41a27caf2192f1cfcbc6dda49c886e9be0d42d62250125bdf",
+    "private/runtime-probe.py": "1beda103c27a407d7c978912284099445768a862036d65bce322bc3978fdc640",
+    "private/worker.py": "79a5eaf40e328df757bce9533510abf72237bb50b4c59ad0c993a1d492bfa353"
+  },
+  "current_phase": "waiting-exact-rn18-fusion-full-workflow-closure",
+  "deadline_seconds": null,
+  "existing_complete_scientific_settings": 14,
+  "format": "actual_queued_native_rn18_fusion_full_final_postexit_reader_v1",
+  "full_paper_complete": false,
+  "independent_reader_will_require": {
+    "actual_complete_source_bytes": 61377230438,
+    "actual_complete_source_files": 53,
+    "actual_original_stage_count": 20,
+    "all42_original_actors_physically_closed": true,
+    "all_original_report_and_curve_bytes_exact": true,
+    "durable_optimizer_updates": 46950,
+    "existing_full_fit_and_raw_report_readers": true,
+    "no_cuda": true,
+    "no_learned_module_or_optimizer_constructors": true,
+    "no_new_learned_forwards_or_optimizer_updates": true,
+    "original_full_workflow_exit_code": 0,
+    "original_native_fit_epochs": 150,
+    "saved_fit_validation_pose_exact_before_test": true,
+    "train_val_test_consumptions": {
+      "test": 2792,
+      "train": 62470,
+      "val": 1052
+    }
+  },
+  "new_learned_training_or_prediction_jobs_added": 0,
+  "new_scientific_settings_added": 0,
+  "notes": [
+    "This actual detached CPU queue is not an accepted full scientific result. It does not retrain or requalify RN18 fusion.",
+    "Future completion requires actual native full training, frozen validation and complete test/replay/report, original actor closure, then real independent reader success and its own actor closure.",
+    "If the predecessor fails, the new collector records terminal failure and preserves evidence; no automatic retry, GPU change or source rewrite.",
+    "Shared fusion_literal_runtime.py remains unchanged; native RN18 family and trained initializer sources stay at the actual accepted generations."
+  ],
+  "observed_utc": "2026-11-02T00:28:36.828554+00:00",
+  "paper_numerical_equivalence_established": false,
+  "predecessor_actual_actors": {
+    "child": {
+      "actual_start_ticks": "440299588",
+      "expected_start_ticks": "440299588",
+      "matching_live": true,
+      "pid": 1966049,
+      "ppid": 1966047,
+      "sid": 1966049,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102/private/execution.log",
+        "2": "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102/private/execution.log"
+      },
+      "tty_nr": 0
+    },
+    "wrapper": {
+      "actual_start_ticks": "440299585",
+      "expected_start_ticks": "440299585",
+      "matching_live": true,
+      "pid": 1966047,
+      "ppid": 1,
+      "sid": 1966047,
+      "state": "S",
+      "stdio": {
+        "0": "/dev/null",
+        "1": "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102/private/recorder.stdout",
+        "2": "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102/private/recorder.stdout"
+      },
+      "tty_nr": 0
+    }
+  },
+  "predecessor_actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 1966049,
+      "start_ticks": "440299588"
+    },
+    "started_utc": "2026-11-01T23:28:10.541837+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 1966047,
+      "start_ticks": "440299585"
+    }
+  },
+  "predecessor_bundle_sha256": "e67b8ba1203d6515ee704384755208580e5dc904afc4eb07227acd7ba75d39b1",
+  "predecessor_root": "/data/shihao/egoemg-rn18-fusion-reviewed-original-full-cli-e53ecbef4581-20261102",
+  "predecessor_source_commit": "e53ecbef4581b033e6019ad73acd581eb860970d",
+  "root": "/data/shihao/egoemg-rn18-fusion-full-final-postexit-collector-3c01c2164ed0-20261102",
+  "scientific_eligible": false,
+  "source_commit": "3c01c2164ed05cb5d71e4062b78d24de7a1d81b1"
+}
