@@ -1,0 +1,17 @@
+{
+  "actual_epochs": 150,
+  "actual_validation_checks": 75,
+  "files_sha256": {
+    "learning-curves.png": "6b9b26def76243159c1ff8ecea347fb30b01886de1ec5a3b68bcbff5a1e82468",
+    "learning-curves.svg": "4d02bb64bc13047c0b29f3a0d06e9924858b9d2e0808f2c1b13df28f3209d1b8"
+  },
+  "format": "native_resnet50_complete_training_history_plot_v1",
+  "full_paper_complete": false,
+  "matplotlib_version": "3.9.4",
+  "missing_odd_epoch_validation_not_filled": true,
+  "selected_completed_epoch": 140,
+  "source_history_sha256": "722c0275cfdd9e1742a0eebedfe04661c7259e56b3c38762142d9f4f477e7267",
+  "source_report_sha256": "74b9e60fb4365ee30501894eb236ac168310ae5f1dcf7f8caee6e7510ab4149f",
+  "svg_serialization_note": "Only Matplotlib trailing line whitespace normalized; all XML elements, non-path attributes, path command/number tokens and text verified unchanged.",
+  "test_scores_not_used_for_plot_or_selection": true
+}

@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "metrics.json": "711458482aa1e7d4a83168bd0a41c64105b12611bb5992f3dcd0852dd2c795ec",
+    "metrics.md": "b78d7f2138ca02f47370d1e3991ceccc90959d3c9cc564103a855b60f3a79e6c"
+  },
+  "format": "original_resnet_public_report_completion_v1",
+  "full_paper_complete": false,
+  "report_sha256": "74b9e60fb4365ee30501894eb236ac168310ae5f1dcf7f8caee6e7510ab4149f",
+  "scientific_eligible": true,
+  "sha256": "ea11e31dbbe6c6c7dfe7609eee1c61cb81b7d50d6601c8629e149c96551ea8e6"
+}

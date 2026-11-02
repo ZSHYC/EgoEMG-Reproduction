@@ -1,0 +1,518 @@
+{
+  "actual_completed_epochs": 150,
+  "actual_current_original_stages": 9,
+  "actual_fit_result_sha256": "4261618c0d0e82fbdd1f3474748ab51bcaa4becf750c3ce7c0682fd5953a06bf",
+  "actual_full_source_payload_bytes": 57145308966,
+  "actual_full_source_payload_files": 52,
+  "actual_optimizer_updates": 75900,
+  "actual_report_sha256": "74b9e60fb4365ee30501894eb236ac168310ae5f1dcf7f8caee6e7510ab4149f",
+  "actual_selected_best": {
+    "checkpoint_sha256": "7a399396ca80d4ad7eddba6976b00d4f91947da593b3ac29762cbb0cdcfb2774",
+    "completed_epochs": 140,
+    "file": "resnet18-vision-epoch=139-val_mae=0.0944.ckpt",
+    "score": 0.0943874716758728,
+    "validated": true
+  },
+  "all10_original_qualification_stage_results_exact": true,
+  "all20_current_original_actors_closed": [
+    {
+      "pid": 1700972,
+      "start_ticks": "438124422"
+    },
+    {
+      "pid": 1700975,
+      "start_ticks": "438124425"
+    },
+    {
+      "pgrp": 1992492,
+      "pid": 1992492,
+      "sid": 1992492,
+      "start_ticks": "440461586",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1992490,
+      "pid": 1992490,
+      "sid": 1992490,
+      "start_ticks": "440461582",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1701268,
+      "pid": 1701268,
+      "sid": 1701268,
+      "start_ticks": "438127100",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1701265,
+      "pid": 1701265,
+      "sid": 1701265,
+      "start_ticks": "438127096",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1999667,
+      "pid": 1999667,
+      "sid": 1999667,
+      "start_ticks": "440489398",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1999664,
+      "pid": 1999664,
+      "sid": 1999664,
+      "start_ticks": "440489394",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004489,
+      "pid": 2004489,
+      "sid": 2004489,
+      "start_ticks": "440523012",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004488,
+      "pid": 2004488,
+      "sid": 2004488,
+      "start_ticks": "440523008",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2000096,
+      "pid": 2000096,
+      "sid": 2000096,
+      "start_ticks": "440493344",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2000093,
+      "pid": 2000093,
+      "sid": 2000093,
+      "start_ticks": "440493341",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2002378,
+      "pid": 2002378,
+      "sid": 2002378,
+      "start_ticks": "440508736",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2002375,
+      "pid": 2002375,
+      "sid": 2002375,
+      "start_ticks": "440508732",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1993669,
+      "pid": 1993669,
+      "sid": 1993669,
+      "start_ticks": "440464534",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1993665,
+      "pid": 1993665,
+      "sid": 1993665,
+      "start_ticks": "440464530",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1996290,
+      "pid": 1996290,
+      "sid": 1996290,
+      "start_ticks": "440477746",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1996287,
+      "pid": 1996287,
+      "sid": 1996287,
+      "start_ticks": "440477742",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004716,
+      "pid": 2004716,
+      "sid": 2004716,
+      "start_ticks": "440525638",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004715,
+      "pid": 2004715,
+      "sid": 2004715,
+      "start_ticks": "440525635",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "all20_reused_qualification_consumers_closed": [
+    {
+      "pgrp": 1279706,
+      "pid": 1279706,
+      "sid": 1279706,
+      "start_ticks": "435172648",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1279703,
+      "pid": 1279703,
+      "sid": 1279703,
+      "start_ticks": "435172644",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1284083,
+      "pid": 1284083,
+      "sid": 1284083,
+      "start_ticks": "435196625",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1284080,
+      "pid": 1284080,
+      "sid": 1284080,
+      "start_ticks": "435196622",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1274626,
+      "pid": 1274626,
+      "sid": 1274626,
+      "start_ticks": "435150192",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1274623,
+      "pid": 1274623,
+      "sid": 1274623,
+      "start_ticks": "435150188",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1290441,
+      "pid": 1290441,
+      "sid": 1290441,
+      "start_ticks": "435226832",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1290438,
+      "pid": 1290438,
+      "sid": 1290438,
+      "start_ticks": "435226828",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1277150,
+      "pid": 1277150,
+      "sid": 1277150,
+      "start_ticks": "435161125",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1277147,
+      "pid": 1277147,
+      "sid": 1277147,
+      "start_ticks": "435161121",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1284375,
+      "pid": 1284375,
+      "sid": 1284375,
+      "start_ticks": "435198558",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1284372,
+      "pid": 1284372,
+      "sid": 1284372,
+      "start_ticks": "435198554",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1287693,
+      "pid": 1287693,
+      "sid": 1287693,
+      "start_ticks": "435212300",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1287688,
+      "pid": 1287688,
+      "sid": 1287688,
+      "start_ticks": "435212296",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1279880,
+      "pid": 1279880,
+      "sid": 1279880,
+      "start_ticks": "435173575",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1279877,
+      "pid": 1279877,
+      "sid": 1279877,
+      "start_ticks": "435173572",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1281948,
+      "pid": 1281948,
+      "sid": 1281948,
+      "start_ticks": "435184713",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1281945,
+      "pid": 1281945,
+      "sid": 1281945,
+      "start_ticks": "435184709",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1290808,
+      "pid": 1290808,
+      "sid": 1290808,
+      "start_ticks": "435229535",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 1290805,
+      "pid": 1290805,
+      "sid": 1290805,
+      "start_ticks": "435229532",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "all4_postexit_collector_actors_closed": [
+    {
+      "pid": 2004818,
+      "start_ticks": "440526289"
+    },
+    {
+      "pid": 2004819,
+      "start_ticks": "440526292"
+    },
+    {
+      "pgrp": 2004944,
+      "pid": 2004944,
+      "sid": 2004944,
+      "start_ticks": "440527106",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2004943,
+      "pid": 2004943,
+      "sid": 2004943,
+      "start_ticks": "440527102",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "all_closed_artifact_files_after_exit_exact": 349,
+  "bitwise_uninterrupted_training_trajectory_guaranteed": false,
+  "coexisting_cuda_processes": {
+    "full-fit": {
+      "1693994:438043188": {
+        "pgrp": 1617920,
+        "pid": 1693994,
+        "sid": 1617920,
+        "start_ticks": "438043188",
+        "state": "R",
+        "uid": 1000
+      },
+      "1729506:438331143": {
+        "pgrp": 1617920,
+        "pid": 1729506,
+        "sid": 1617920,
+        "start_ticks": "438331143",
+        "state": "R",
+        "uid": 1000
+      }
+    }
+  },
+  "collector_bundle_sha256": "a09186230cc8ea2bfdafcd3c0f693a584c4ebd56ee2596a869d3a664afef5579",
+  "collector_capsule_files_exact": 6,
+  "collector_source_commit": "c07093dd78180fc878315018475f2d03729638a3",
+  "collector_terminal_state": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 2004819,
+      "start_ticks": "440526292"
+    },
+    "ended_utc": "2026-11-02T00:07:24.037135+00:00",
+    "started_utc": "2026-11-02T00:05:57.582628+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2004818,
+      "start_ticks": "440526289"
+    }
+  },
+  "collector_workflow_file_sha256": "f71fe21d97dfdea7cb52367d49bcf86bbe0889614ce6a6757ac39cfbdf4991b0",
+  "elapsed_fields_are_not_total_isolated_paper_gpu_hours": true,
+  "export_reader_torch_unimported": true,
+  "format": "actual_native_shared_resnet_full_final_report_and_postexit_acceptance_v1",
+  "full_paper_complete": false,
+  "full_six_domain_resume_exact": {
+    "callbacks": true,
+    "loops": true,
+    "model": true,
+    "optimizer": true,
+    "rng": true,
+    "scheduler": true
+  },
+  "full_source_payload_hashes_and_nine_attributes_exact_at_postexit_readback": true,
+  "full_source_payload_sha256": {
+    "crop:000000": "b15f5a10097f2a62d62e2feed4a2ffb14ac6321bcfc810ab931cb46320710e2c",
+    "crop:000001": "775b150b678e1137b42de1346f471bca46245517ad99802e2e87f100ddf9e7fd",
+    "crop:000002": "277fda78397f91330c7f88b90ccd9f7de494b51d0968fb782a044c38cce7a555",
+    "crop:000003": "a30cb36538437428c3daae08489a0906d75b128733e843504e27c044d9f28540",
+    "crop:000004": "9d6f29d5cf60eaf89155cb6d55d391ad1c938919ce77b54d06e7bfdf1560e51f",
+    "crop:000005": "7697d1f19e989e358001d4170976dcdb16994abf5f27cb1e0c408e7197c3a3b9",
+    "crop:000006": "99d066667fb3829822f4e0991d04b74ee8e8e3387027e15deee722a4cb8b1e36",
+    "crop:000007": "f4a75858da15fa4de17a4efc5139f12a9c8776c2f3ecabe9d1f4e07cc5fc01ac",
+    "crop:000008": "6edbeeffca3dbd059e98669c57d002ef3be47a6d30724371342b9439935df148",
+    "crop:000009": "cd8558913dd80ea174d175c89a13ea7d9351ca4fbc979d6452694f5c77c7b203",
+    "crop:000010": "e759d503e8cdc702f22933216a0d76c88e0b05b1105bd879b6f616baa33ecc85",
+    "crop:000011": "f424de4b2d4634dc9357a9ebc880f1d6cf3b1a15bdd2e1938edbc913dbb813ec",
+    "crop:000012": "b5dede28b116ab602d9b7a1e3c1193094c889ed53280976cb65e504079aaaf3e",
+    "crop:000013": "d8fb56539cfd1685ff64916050896ae07ae7b697227c935d05ec80df469c5b97",
+    "crop:000014": "526f8c8373df7f66065f2b64c4cbbb206921e293383b1e6bdc840df664cf2d08",
+    "crop:000015": "8394d176a10f2fc3541b4fca0d380c11491ea348ac8d802f22ae6197b3bd8074",
+    "crop:000016": "7d19aee8432be7c08fd40cf4ee507f00cf424a8365adfc655e31d2831c1af1fa",
+    "crop:000017": "02a5fb38f7433741bd6bd1ba04f67b8ffada369424ce884d44263387f2c669ea",
+    "crop:000018": "d2d9b538cb8299687493f86af9231c9219737b4536480101fc755ae3ee7f1f7c",
+    "crop:000019": "9c1c5c2dc1ef327808e55bf571f7906f432b49768e2ce441302942fea2944cf7",
+    "crop:000020": "4a58c8c0b91de2ce3cd1c18bddedf88dd45641f19dba097b8f08d6f0f10c9124",
+    "crop:000021": "1b5f08f70a1d2d80707cb74fc3c8ff32291c39552e2d75167f0e7148214f5b17",
+    "crop:000022": "93ee5ca40eb40714156d7716ab87d09b553cd639653d73c47a8afc977043e4e2",
+    "crop:000023": "1ac92783c0e08b3f29ad23ccbdaa3f02a321a7d00bc40174e8b6c2dc8eeffd08",
+    "crop:000024": "f8358d529951863ed7386f2f088403f23c88ee03cb1a9a239f36f6bc6fbf6334",
+    "crop:000025": "cdd5c63397720674a2c1a0bfc4e3355ca842cb387bc82f521d06299657eb5e43",
+    "crop:000026": "97ddb188b67630473546f4616950774bea65452d489bf23252ea401c0bae2e31",
+    "crop:000027": "3b889be0d52f3e90fd67eb7ea43e01f6b5eac6cf302199e580149899ff845b3a",
+    "crop:000028": "61410a401658e46694e9cdfa8b7ac24fdc8a4847243628af5ad05f6e8e5fc908",
+    "crop:000029": "8d72c1b6764a22c41687aa82cde64373325e137f1602da2a975f24ba78ccf32e",
+    "crop:000030": "3b455d4bf4949eb491ee95fd30395167c963c511e0ad683e05891c62fdd247d7",
+    "crop:000031": "e45b69f3d12ac7b3c6075ea999ae14f2dbad9f5e1589c494aa229d967574ac13",
+    "crop:000032": "4cd6f884123b620c3dad2b7c1f5032439271899903409cee631ef926a19694a3",
+    "crop:000033": "e75435e21109f950f6e0b173a923538d9edd226b31c1db0f90bafc8d318d8d7c",
+    "crop:000034": "5d0076843e0c1cb184c8258d20eb87b9b48e254e641e42ef5e6a249d2495a117",
+    "crop:000035": "05415309365bdb1ac9a55dc51e3df9525e12457b094093dbc9359c6b11d70645",
+    "crop:000036": "f4a6230851668c004383fd0c8ad720b85c90987f2279c313b4bfe2d003d8a2b7",
+    "crop:000037": "dde3d6cce131d1643ed8af81848cef94b223d02703bf11534e0071844ce9825f",
+    "crop:000038": "d7398042dc7ecd68da65c25b9c2b738d32f05eec2c60f94c50dfb4d5f8d0eb61",
+    "crop:000039": "9aa11c775909fc08cc6948bfb9c478dfb007b5bda0e96b5c0ee87f2215665319",
+    "crop:000040": "57c637a804559009fcdc209b120283a953e5b3f37c33f8b2d45ce841ef664d6e",
+    "field:frame_split_id": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef",
+    "field:generated_joint_angles_left": "85d03d9e992d5d085000d0d26ab25ab5f1a015ee509460d0131fbbbb2252005f",
+    "field:generated_joint_angles_right": "383922f2a6f9a6ee5c5109e88d1b65c4d62c8a77435ee0fcbe7b2ef222f4d5e7",
+    "field:generated_label_valid": "30486e402450e0a3eaddec6ab185ea6575bbc478fb41837a6ce981014d79eea2",
+    "field:image_webcam_frame_index": "4b5ada48bf96a59278761f41525d2153634b2937c40e57c0b6b96ad4d97d2508",
+    "field:mocap_left_wrist_pitch": "325372afc973aa10680e73cd956cde4ff245ebf0cdee650fce63edd5aa450cee",
+    "field:mocap_left_wrist_yaw": "d3d6936ba37ef517370f5f6c53ec5a6d6dd7667c7c619092e4faccb7c67d0730",
+    "field:mocap_right_wrist_pitch": "8c31710cd300927041524093ab151cd7bcc359924f4cb76fe582c492507b2d1b",
+    "field:mocap_right_wrist_yaw": "bc157f87c16a51df507abdb7d83e23da91ce45a17954dabbeb383a777fdd5fdb",
+    "metadata:episodes": "cb42886b5ca80a070d3b79f5e920cd01e364572e038ef11d5643e9ab73528a57",
+    "metadata:manifest": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+  },
+  "historical_model_source_bundle_sha256": "7515c11a54067128e419a4fab2e5982e6283a50b4359a272ad0c6efe42364324",
+  "historical_model_source_commit": "19526d3da4718fe957d478eea8ec9a013992ad02",
+  "latest_fit_invocation_elapsed_seconds": 23249.071366920136,
+  "latest_recovery_workflow_elapsed_seconds": 24026.245439279824,
+  "observed_utc": "2026-11-02T00:11:05.898882+00:00",
+  "optimizer_update_count_scope": "Global step of the completed durable checkpoint/epoch-journal chain; discarded interrupted attempts are not included, and total compute cannot be inferred from this count.",
+  "original_bundle_sha256": "796e61a0baf0c721b5a7cf717bfbc22b23d8de5b4657487bbec47ff2e31d756d",
+  "original_epoch_journal_file_sha256": "f710b2c0a0bfe3e8611c8caf364ae8c411e68e53272691ebfccf51bfbbf173d1",
+  "original_qualification_not_reexecuted": true,
+  "original_report_files_sha256": {
+    "completion.json": "c5906c02a88762d34d1e17fbce10765b72b12497698e13871c8f71a7dc9f6de3",
+    "metrics.json": "711458482aa1e7d4a83168bd0a41c64105b12611bb5992f3dcd0852dd2c795ec",
+    "metrics.md": "b78d7f2138ca02f47370d1e3991ceccc90959d3c9cc564103a855b60f3a79e6c"
+  },
+  "original_source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+  "original_terminal_state": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 1700975,
+      "start_ticks": "438124425"
+    },
+    "ended_utc": "2026-11-02T00:06:05.341659+00:00",
+    "started_utc": "2026-11-01T17:25:38.911968+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 1700972,
+      "start_ticks": "438124422"
+    }
+  },
+  "paper_numerical_equivalence_established": false,
+  "postexit_construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "postexit_cuda_initialized": false,
+  "postexit_new_learned_forwards": 0,
+  "postexit_new_optimizer_updates": 0,
+  "postexit_readback_seconds": 75.39648749306798,
+  "public_training_history_sha256": "722c0275cfdd9e1742a0eebedfe04661c7259e56b3c38762142d9f4f477e7267",
+  "scientific_eligible": true,
+  "shared_gpu_capacity_policy": {
+    "foreign_processes_modified": false,
+    "other_cuda_contexts_permitted": true,
+    "runtime_free_bytes_strict_min": 8589934592,
+    "start_free_bytes_min": 68719476736,
+    "start_stability_seconds": 20
+  },
+  "source_readback_file_sha256": "99ae4375bf709c3021cab842f134e57e03173b8ad7ebfa738804f84ad3115b93",
+  "source_workflow_file_sha256": "b0080048e5836bada4dd51a2e29236f0563bfde209b363f0ca9e87877c0b1204",
+  "variant": "resnet50"
+}
