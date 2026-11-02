@@ -166,14 +166,43 @@ def read_closed_reference_workflow(root,registration,*,scope,stage_names):
 
 
 def _qualification(root,registration,kind,full_models):
+ from egoemg_repro.center_reference_eval import read_reference_pass
  graph=read_closed_reference_workflow(root,registration,scope='engineering',stage_names=QUAL_NAMES)
+ names={'private/completed.json'}
+ for size in SIZES:
+  names.add('private/'+size+'/qualification.json')
+  for role in('native','replay'):
+   names.update('private/'+size+'/'+role+'/'+n for n in('pass.json','predictions.pt'))
+ pins=registration.get('accepted_artifact_files_sha256')
+ if type(pins)is not dict or set(pins)!=names:
+  raise ValueError('independently accepted completion and all qualification artifact digests required')
+ guard=guarded_source_files({str(_safe(Path(root)/n)):h for n,h in pins.items()})
  value=_json(Path(root)/'private/completed.json')
- if(not value.get('all_three_'+kind+'_model_qualifications_complete')
+ if(value.get('format')!='actual_native_center_reference_three_selected_models_'+kind+'_qualification_v1'
+     or value.get('source_commit')!=registration['source_commit']
+     or not value.get('all_three_'+kind+'_model_qualifications_complete')
      or value['scope']!='engineering'or value['total_actual_new_neural_forwards']!=24
      or value['total_optimizer_updates']!=0 or set(value['models'])!=set(SIZES)):
   raise ValueError('complete actual three-model qualification required')
+ summary_keys={'size','kind','scope','samples','source_indices','fit_result_sha256','input_admission_sha256',
+     'grid_sha256','model_before_sha256','model_after_sha256','prediction_sha256','raw_prediction_steps',
+     'runtime_policy','neural_forwards','optimizer_updates','optimizer_construction_attempts',
+     'native_runtime_construction_calls','process','started_ns','finished_ns','sha256'}
  for size in SIZES:
   v=value['models'][size];a,b=v['native'],v['replay'];target=full_models[size]['native']
+  reader=next(s['worker']for s in graph['state']['stages']if s['name']==size+'-verify')
+  if(v!=_json(Path(root)/'private'/size/'qualification.json')
+      or v['source_commit']!=registration['source_commit']or v['reader']!=reader
+      or v['reader_cuda_initialized']is not False):
+   raise ValueError('qualification completion must bind its actual closed verification producer')
+  for role,summary in(('native',a),('replay',b)):
+   actual=read_reference_pass(Path(root)/'private'/size/role)
+   producer=next(s['worker']for s in graph['state']['stages']if s['name']==size+'-'+role)
+   if(set(summary)!=summary_keys or any(actual.get(k)!=x for k,x in summary.items())
+       or {k:actual['process'][k]for k in('pid','start_ticks')}!=producer
+       or actual['size']!=size or actual['kind']!=role
+       or actual['sources_sha256']!=target['sources_sha256']):
+    raise ValueError('actual typed qualification pass/source/registered producer differs')
   if(a['samples']!=4 or b['samples']!=4 or a['scope']!='engineering'or b['scope']!='engineering'
       or a['source_indices']!=[0,2140,2141,4281]or a['prediction_sha256']!=b['prediction_sha256']
       or a['model_before_sha256']!=target['model_before_sha256']or b['model_after_sha256']!=target['model_after_sha256']
@@ -183,8 +212,9 @@ def _qualification(root,registration,kind,full_models):
    raise ValueError('qualification must use these exact original selected sources')
   if kind=='CPU'and a['runtime_policy']['device']!='cpu':raise ValueError('actual CPU qualification required')
   if kind=='GPU'and a['runtime_policy']!=target['runtime_policy']:raise ValueError('same actual full GPU policy qualification required')
+ guard.check()
  return dict(root=str(root),completion_sha256=_sha(Path(root)/'private/completed.json'),
-     actual_closed_actors=graph['actors'],scope='engineering',models=list(SIZES),actual_neural_forwards=24)
+     accepted_artifact_files_sha256=pins,actual_closed_actors=graph['actors'],scope='engineering',models=list(SIZES),actual_neural_forwards=24)
 
 
 def _csv(rows):

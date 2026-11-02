@@ -1,60 +1,200 @@
 {
+  "CPU_fix_acceptance_reader": {
+    "pid": 2225635,
+    "start_ticks": "442035056"
+  },
+  "CPU_fix_acceptance_reader_physically_closed": true,
+  "CPU_six_actual_passes_bound_to_registered_producers_and_16_accepted_artifacts": {
+    "accepted_artifact_files_sha256": {
+      "private/completed.json": "24c9d18c4e77a462275e5885468a18050b72d054c81fcc8f6d60dcaadd1bdc3d",
+      "private/large/native/pass.json": "3101563d40d1ce0bb3d1941201f34b6fc13de2ec4532bc5ed7d2af97251104be",
+      "private/large/native/predictions.pt": "33b07dc9ade8b9a026466b034cdc4a52b463ef9c0fa90d9fc1d4ac29d3f32a3f",
+      "private/large/qualification.json": "ec00686bcd6f3b4227f5cbdac117f055f71ad62eb08fd1a1d9b0f4bac655d2d4",
+      "private/large/replay/pass.json": "d095a12e0f245587ffd9560ffb05493d8358c3a562e05cca866b2536d49624a1",
+      "private/large/replay/predictions.pt": "33b07dc9ade8b9a026466b034cdc4a52b463ef9c0fa90d9fc1d4ac29d3f32a3f",
+      "private/middle/native/pass.json": "d9a5b7fab0abbf7bf22a7877f630d8fa851cf222c382b03453b2d9b769551adf",
+      "private/middle/native/predictions.pt": "16a69941bac29d55db4822e3e868f4df34a636b2956807622e4de424e3e7f041",
+      "private/middle/qualification.json": "aefb362b636dd6421143f4843a6fd98394d81c6bfa2111392ca24db793f93fb9",
+      "private/middle/replay/pass.json": "14050d2a84fc112ed5782899f671873df4f7dfa21a2ffd39dc03d9097c1f601c",
+      "private/middle/replay/predictions.pt": "16a69941bac29d55db4822e3e868f4df34a636b2956807622e4de424e3e7f041",
+      "private/small/native/pass.json": "9ce8f493c747ca774fb075cb87dfeb1f8ea1950d1d0bbb79954671e769e8ff10",
+      "private/small/native/predictions.pt": "d9878fbb0064a8b7c28490622a4d1a24cf869ea77a60d711fcefd8ef2af9a974",
+      "private/small/qualification.json": "00bd574bbb562f21f5b2cefc5c702cf354bccc2dfa5b8d7a0a478745f5cfc4ad",
+      "private/small/replay/pass.json": "40b42e817556f6d7e852f5c95171107f63ad3a515caafcad1dd0f5c18680273c",
+      "private/small/replay/predictions.pt": "d9878fbb0064a8b7c28490622a4d1a24cf869ea77a60d711fcefd8ef2af9a974"
+    },
+    "actual_closed_actors": [
+      {
+        "pid": 2214357,
+        "start_ticks": "441945316"
+      },
+      {
+        "pid": 2210175,
+        "start_ticks": "441910418"
+      },
+      {
+        "pid": 2210667,
+        "start_ticks": "441914697"
+      },
+      {
+        "pid": 2214358,
+        "start_ticks": "441945322"
+      },
+      {
+        "pid": 2214453,
+        "start_ticks": "441945618"
+      },
+      {
+        "pid": 2215008,
+        "start_ticks": "441949866"
+      },
+      {
+        "pid": 2215474,
+        "start_ticks": "441954082"
+      },
+      {
+        "pid": 2215573,
+        "start_ticks": "441954372"
+      },
+      {
+        "pid": 2216032,
+        "start_ticks": "441958264"
+      },
+      {
+        "pid": 2216500,
+        "start_ticks": "441962339"
+      },
+      {
+        "pid": 2210173,
+        "start_ticks": "441910414"
+      },
+      {
+        "pid": 2211143,
+        "start_ticks": "441918932"
+      }
+    ],
+    "actual_neural_forwards": 24,
+    "completion_sha256": "24c9d18c4e77a462275e5885468a18050b72d054c81fcc8f6d60dcaadd1bdc3d",
+    "models": [
+      "small",
+      "middle",
+      "large"
+    ],
+    "root": "/data/shihao/egoemg-native-center-reference-CPU-qualification-b4f68c4ad070-v2-20261102",
+    "scope": "engineering"
+  },
   "actual_closed_actors": [
     {
-      "pid": 2219357,
-      "start_ticks": "441987020"
+      "pid": 2225146,
+      "start_ticks": "442032533"
     },
     {
-      "pid": 2219358,
-      "start_ticks": "441987023"
+      "pid": 2225147,
+      "start_ticks": "442032537"
     }
   ],
   "actual_test_registration": {
     "actual_recorder": {
-      "pid": 2219357,
-      "start_ticks": "441987020"
+      "pid": 2225146,
+      "start_ticks": "442032533"
     },
-    "archive_sha256": "1c717ec6c5ca29fe4f58b878300966b57a253da14df30e64591a3f522a2c9f08",
-    "frozen_file_count": 339,
+    "archive_sha256": "14c995019a1402a57c1f1fdc43797881d75b25a321e7f1c0bfe3eba6f74de769",
+    "frozen_file_count": 340,
     "full_paper_complete": false,
-    "root": "/data/shihao/egoemg-native-center-reference-task3-tests-b4f68c4ad070-20261102",
+    "root": "/data/shihao/egoemg-native-center-reference-review-green-088be54dbce3-20261102",
     "scientific_eligible": false,
-    "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+    "source_commit": "088be54dbce38a486d73baa7229ab9697c60a9b2"
   },
   "actual_test_state": {
     "actual_exit_code": 0,
     "child": {
-      "pid": 2219358,
-      "start_ticks": "441987023"
+      "pid": 2225147,
+      "start_ticks": "442032537"
     },
-    "ended_utc": "2026-11-02T04:09:32.979156+00:00",
+    "ended_utc": "2026-11-02T04:17:08.117736+00:00",
     "full_paper_complete": false,
     "scientific_eligible": false,
-    "started_utc": "2026-11-02T04:09:24.893165+00:00",
+    "started_utc": "2026-11-02T04:17:00.035125+00:00",
     "status": "complete",
     "wrapper": {
-      "pid": 2219357,
-      "start_ticks": "441987020"
+      "pid": 2225146,
+      "start_ticks": "442032533"
     }
   },
-  "all339_frozen_source_members_sha256_exact": true,
-  "current_combined_new_component_suite_passed": 76,
-  "final_review_complete": false,
+  "all340_frozen_source_members_sha256_exact": true,
+  "current_combined_new_component_suite_passed": 83,
+  "final_review_complete": true,
   "format": "actual_closed_center_reference_collection_new_component_tests_v1",
   "full_paper_complete": false,
   "full_reference_model_evaluation_complete": false,
   "initial_collection_missing_entry_RED_failures": 17,
   "no_dependency_installation": true,
-  "observed_utc": "2026-11-02T04:12:36.856413+00:00",
+  "observed_utc": "2026-11-02T04:17:29.212734+00:00",
   "old_model_math_and_suites_not_repeated": true,
-  "pytest_log_sha256": "4ff7e37a8b6bd1cde8b8c9010550aab83da33fb8616664e9e8ace558ace51d22",
-  "pytest_log_tail": "........................................................................ [ 94%]\n....                                                                     [100%]\n76 passed in 7.23s\n",
+  "pre_review_76_test_evidence": {
+    "actual_closed_actors": [
+      {
+        "pid": 2219357,
+        "start_ticks": "441987020"
+      },
+      {
+        "pid": 2219358,
+        "start_ticks": "441987023"
+      }
+    ],
+    "actual_test_registration": {
+      "actual_recorder": {
+        "pid": 2219357,
+        "start_ticks": "441987020"
+      },
+      "archive_sha256": "1c717ec6c5ca29fe4f58b878300966b57a253da14df30e64591a3f522a2c9f08",
+      "frozen_file_count": 339,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task3-tests-b4f68c4ad070-20261102",
+      "scientific_eligible": false,
+      "source_commit": "b4f68c4ad070f40258aab133f9fae0628d5f2a3f"
+    },
+    "actual_test_state": {
+      "actual_exit_code": 0,
+      "child": {
+        "pid": 2219358,
+        "start_ticks": "441987023"
+      },
+      "ended_utc": "2026-11-02T04:09:32.979156+00:00",
+      "full_paper_complete": false,
+      "scientific_eligible": false,
+      "started_utc": "2026-11-02T04:09:24.893165+00:00",
+      "status": "complete",
+      "wrapper": {
+        "pid": 2219357,
+        "start_ticks": "441987020"
+      }
+    },
+    "pytest_log_sha256": "4ff7e37a8b6bd1cde8b8c9010550aab83da33fb8616664e9e8ace558ace51d22",
+    "pytest_log_tail": "........................................................................ [ 94%]\n....                                                                     [100%]\n76 passed in 7.23s\n",
+    "source_and_tests_sha256": {
+      "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+      "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
+      "scripts/paper/collect_native_center_reference.py": "1e3cb35f25161ce6f1ff5a408d080b7aa6d2f64df8ee8b63d22ef4024468f45c",
+      "scripts/paper/run_native_center_reference.py": "30e2da0d384559e8b5e524f5fc23c334b766fb0af0cea32eb293e36c82462ccc",
+      "tests/test_center_reference_collection.py": "20acafee0466703c8a7d4e19a270df87e9b5f2a4896a17e0a7f2a40ae8d4c3e7",
+      "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2",
+      "tests/test_center_reference_eval.py": "e2219d63b83288dc057a3126af3d8a1c547c538c8f6761d70a53bc5311b2c91f"
+    }
+  },
+  "pytest_log_sha256": "a3aeb4fa2cbeacc5dc7a3022a985933afd59189b171cee020c207d2d12f3c4c5",
+  "pytest_log_tail": "........................................................................ [ 86%]\n...........                                                              [100%]\n83 passed in 7.24s\n",
+  "review_important_findings": 1,
+  "review_important_findings_fixed": 1,
+  "review_no_second_review": true,
+  "review_regression_GREEN_passed": 7,
+  "review_regression_RED_failures": 7,
   "source_and_tests_sha256": {
     "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
     "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
-    "scripts/paper/collect_native_center_reference.py": "1e3cb35f25161ce6f1ff5a408d080b7aa6d2f64df8ee8b63d22ef4024468f45c",
+    "scripts/paper/collect_native_center_reference.py": "80d003fc9dcc837140200c15db7cb0f53b2e8188989679c3362d541806c91530",
     "scripts/paper/run_native_center_reference.py": "30e2da0d384559e8b5e524f5fc23c334b766fb0af0cea32eb293e36c82462ccc",
-    "tests/test_center_reference_collection.py": "20acafee0466703c8a7d4e19a270df87e9b5f2a4896a17e0a7f2a40ae8d4c3e7",
+    "tests/test_center_reference_collection.py": "2bce3fc25eb80763fde1347507cb2a44070745b8bf4104811a12ad57a2518d4c",
     "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2",
     "tests/test_center_reference_eval.py": "e2219d63b83288dc057a3126af3d8a1c547c538c8f6761d70a53bc5311b2c91f"
   },

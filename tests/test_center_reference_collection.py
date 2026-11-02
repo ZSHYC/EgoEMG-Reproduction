@@ -104,3 +104,67 @@ def test_full_counts_alone_do_not_accept_another_target_protocol(damage):
     elif damage=='different_target_packet':replay['prediction_sha256']='9'*64
     else:native['samples']=4154
     with pytest.raises(ValueError):api().require_full_reference_pair(native,replay)
+
+
+def qualification_workflow(root,monkeypatch):
+    """Gate fixture uses actual accepted CPU summaries; raw reader is a unit boundary.
+
+    It cannot certify inference: independent real packet checks are separately
+    exercised by the evaluator and the closed server qualification.
+    """
+    state,registration=workflow(root)
+    config=json.loads((root/'config.json').read_text());config['scope']='engineering'
+    (root/'config.json').write_text(json.dumps(config))
+    pins={n:hashlib.sha256((root/n).read_bytes()).hexdigest()for n in('config.json','controller.py')}
+    (root/'stage-receipt.json').write_text(json.dumps(dict(source_commit='a'*40,files_sha256=pins)))
+    registration.update(scope='engineering',frozen_members_sha256=pins)
+    source=json.loads((ROOT/'results/native-center-reference-CPU-qualification-20261102.json').read_text())
+    models=copy.deepcopy(source['models']);passes={};stages=[];targets={}
+    for size in ('small','middle','large'):
+        v=models[size];v['source_commit']='a'*40
+        for kind in ('native','replay'):
+            p=root/'private'/size/kind;p.mkdir(parents=True)
+            a=copy.deepcopy(v[kind]);a['sources_sha256']={'closed_call_boundary':'1'*64}
+            (p/'pass.json').write_text(json.dumps(a));(p/'predictions.pt').write_bytes(b'gate-only reader boundary')
+            passes[str(p)]=a
+            stages.append(dict(name=size+'-'+kind,worker={k:a['process'][k]for k in('pid','start_ticks')},status='complete',actual_exit_code=0))
+        stages.append(dict(name=size+'-verify',worker=v['reader'],status='complete',actual_exit_code=0))
+        (root/'private'/size/'qualification.json').write_text(json.dumps(v))
+        targets[size]={'native':passes[str(root/'private'/size/'native')]}
+    state.update(scope='engineering',stages=stages)
+    (root/'private/execution-state.json').write_text(json.dumps(state))
+    complete=dict(format='actual_native_center_reference_three_selected_models_CPU_qualification_v1',source_commit='a'*40,
+        all_three_CPU_model_qualifications_complete=True,scope='engineering',total_actual_new_neural_forwards=24,
+        total_optimizer_updates=0,models=models)
+    (root/'private/completed.json').write_text(json.dumps(complete))
+    artifacts=['private/completed.json']
+    for size in ('small','middle','large'):
+        artifacts.append('private/'+size+'/qualification.json')
+        for kind in ('native','replay'):
+            artifacts.extend('private/'+size+'/'+kind+'/'+n for n in ('pass.json','predictions.pt'))
+    registration['accepted_artifact_files_sha256']={n:hashlib.sha256((root/n).read_bytes()).hexdigest()for n in artifacts}
+    calls=[]
+    def validated_reader(path):calls.append(str(path));return copy.deepcopy(passes[str(path)])
+    monkeypatch.setattr(importlib.import_module('egoemg_repro.center_reference_eval'),'read_reference_pass',validated_reader)
+    return state,registration,targets,calls
+
+
+def test_qualification_reads_all_six_bound_passes_before_accepting_closed_summaries(tmp_path,monkeypatch):
+    root=tmp_path/'qualified';state,registration,targets,calls=qualification_workflow(root,monkeypatch)
+    result=api()._qualification(root,registration,'CPU',targets)
+    assert len(calls)==6 and set(calls)=={str(root/'private'/s/k)for s in('small','middle','large')for k in('native','replay')}
+    assert result['actual_neural_forwards']==24
+
+
+@pytest.mark.parametrize('damage',['missing_raw','changed_raw','producer','reader','completion_digest','summary_only'])
+def test_qualification_cannot_adopt_missing_replaced_or_unrelated_producer_artifacts(damage,tmp_path,monkeypatch):
+    root=tmp_path/'qualified';state,registration,targets,calls=qualification_workflow(root,monkeypatch)
+    if damage=='missing_raw':(root/'private/small/native/predictions.pt').unlink()
+    elif damage=='changed_raw':(root/'private/small/native/predictions.pt').write_bytes(b'replaced packet')
+    elif damage in('producer','reader'):
+        stage=state['stages'][0 if damage=='producer'else 2];stage['worker']=dict(pid=2147483555,start_ticks='0')
+        (root/'private/execution-state.json').write_text(json.dumps(state))
+    elif damage=='completion_digest':
+        p=root/'private/completed.json';v=json.loads(p.read_text());v['unrelated_observation']='replaced summary';p.write_text(json.dumps(v))
+    else:registration.pop('accepted_artifact_files_sha256')
+    with pytest.raises((ValueError,FileNotFoundError)):api()._qualification(root,registration,'CPU',targets)
