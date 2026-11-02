@@ -6,6 +6,7 @@ them independently and observe reader exit before issuing a completion proof.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import math
@@ -183,6 +184,11 @@ def _reduce(guard,source,kind,upstream):
     from egoemg_repro.emgformer_trajectory_results import read_trajectory_packet
     directory=source['flow']/('test-'+kind);value=guard.json(directory/'pass.json',sealed=True)
     n=source['report']['test']['consumed_samples'];full=source['full'];batch=500 if full else 2
+    public_statistics=copy.deepcopy(value['statistics'])
+    users=sorted(public_statistics['trajectory']['by_user'])
+    aliases={user:'user_'+str(index).zfill(3)for index,user in enumerate(users)}
+    for name in ('trajectory','aligned_center'):
+        public_statistics[name]['by_user']={aliases[user]:cell for user,cell in public_statistics[name]['by_user'].items()}
     if(value.get('directory')!=str(directory)or value['role']!='test'or value['kind']!=kind
        or value['samples']!=n or type(n)is not int or n<=0 or n%2 or(full and n!=2792)
        or value['batch_size']!=batch or value['workers']!=(6 if full else 0)
@@ -191,7 +197,7 @@ def _reduce(guard,source,kind,upstream):
        or value['fit_result_sha256']!=source['report']['fit_result_sha256']
        or value['selected_best']!=source['report']['training']['selected_best']
        or value['actual_optimizer_updates']!=0 or value['all_loader_workers_exited']is not True
-       or len(value['loader_workers'])!=value['workers']or value['statistics']!=source['report']['test']):
+       or len(value['loader_workers'])!=value['workers']or public_statistics!=source['report']['test']):
         raise ValueError('original complete test role/policy/fit differs')
     _closed(value['actor'])
     for actor in value['loader_workers']:_closed(actor)

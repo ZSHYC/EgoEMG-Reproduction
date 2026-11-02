@@ -118,6 +118,14 @@ def source_factory(tmp_path,closed_actors):
                 actual_optimizer_updates=0,statistics=stats,packet_journal_sha256=sha(journal),
                 packet_content_sha256=digest([digest({k:v for k,v in z.items()if k not in('sha256','file_sha256')})for z in records])))
             passfile=write(directory/'pass.json',value);all_paths.append(passfile);passes['test-'+kind]=value
+        baseline=copy.deepcopy(baseline)
+        users=sorted(baseline['trajectory']['by_user'])
+        aliases={user:'user_'+str(index).zfill(3)for index,user in enumerate(users)}
+        for name in ('trajectory','aligned_center'):
+            baseline[name]['by_user']={aliases[user]:cell for user,cell in baseline[name]['by_user'].items()}
+        if damage=='public_numeric':baseline['trajectory']['overall']['absolute_error_sum_rad']+=1.
+        elif damage=='public_center_user':baseline['aligned_center']['by_user']['user_000']['valid_angle_count']+=1
+        elif damage=='public_alias':baseline['trajectory']['by_user']['user_999']=baseline['trajectory']['by_user'].pop('user_000')
         report=seal(dict(format='original_emgformer_full_trajectory_report_v1',size=size,fit_result_sha256='b'*64,
             training=dict(scope='cpu_engineering',completed_epochs=2,optimizer_executions=4,full_training_terminated=False,selected_best=selected),
             test=baseline,scientific_eligible=False,trajectory_pipeline_complete=True,paper_numerical_equivalence_established=False,full_paper_complete=False))
@@ -184,6 +192,27 @@ def test_true_raw_bf16_collection_keeps_all_requests_and_remains_pending(source_
     public=(args['output']/'analysis.pending.json').read_text()
     assert 'PRIVATE_SUBJECT_SENTINEL'not in public and str(paths['root'])not in public
     assert not (args['output']/'completion.json').exists()
+
+
+def test_public_report_user_aliases_match_private_pass_statistics(source_factory):
+    module=api();args,paths=source_factory()
+    report=json.loads(paths['metrics'].read_text())
+    private=json.loads((paths['flow']/'test-native/pass.json').read_text())
+    for name in ('trajectory','aligned_center'):
+        assert set(report['test'][name]['by_user'])=={'user_000','user_001','user_002'}
+        assert all(user.startswith('PRIVATE_SUBJECT_SENTINEL_')for user in private['statistics'][name]['by_user'])
+    result=module.collect_native_joint_analysis(**args)
+    assert result['baseline_counts_and_metrics_match']and result['native_replay_records_equal']
+
+
+@pytest.mark.parametrize('damage',['public_numeric','public_center_user','public_alias'])
+def test_public_alias_projection_preserves_numeric_and_user_identity_checks(source_factory,monkeypatch,damage):
+    module=api();args,_=source_factory(damage)
+    calls=[]
+    def deny(*a,**k):calls.append(True);raise AssertionError('tensor loading preceded public statistics check')
+    monkeypatch.setattr(torch,'load',deny)
+    with pytest.raises(ValueError,match='role/policy/fit'):module.collect_native_joint_analysis(**args)
+    assert not calls and not args['output'].exists()
 
 
 @pytest.mark.parametrize('damage',['proof_hash','report_bytes','raw_bytes','raw_generation','reader_source','live_owner','pending_stage','missing_complete','engineering_full','conflicting_generation','unvalidated_selection','reader_actor_mismatch'])
@@ -279,4 +308,3 @@ def test_independent_verifier_waits_for_actual_producer_exit(source_factory):
     module=api();args,_=source_factory();module.collect_native_joint_analysis(**args)
     result=run_verifier_cli(module,verify_arguments(args['output']/'private-records.json',args['output']/'analysis.pending.json',args['output'].parent/'verification.json'))
     assert result.returncode!=0 and'physically exited'in result.stderr.lower()
-

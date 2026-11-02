@@ -1,0 +1,105 @@
+{
+  "actual_native_three_model_raw_analysis_complete": false,
+  "actual_owned_test_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2119478,
+      "pid": 2119478,
+      "sid": 2119478,
+      "start_ticks": "441177843",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 2119477,
+      "pid": 2119477,
+      "sid": 2119477,
+      "start_ticks": "441177838",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2119479,
+      "pid": 2119479,
+      "sid": 2119479,
+      "start_ticks": "441177847",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "actual_recorder_and_controller": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 2119477,
+      "start_ticks": "441177838"
+    },
+    "ended_utc": "2026-11-02T01:54:53.363838+00:00",
+    "started_utc": "2026-11-02T01:54:33.038497+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2119476,
+      "start_ticks": "441177835"
+    }
+  },
+  "actual_test_exit_code": 0,
+  "all4owners_physically_closed": true,
+  "all_frozen_source_files_exact": true,
+  "engineering_only": true,
+  "fix": "apply the exact original report sorted alias projection to a deep copy for complete statistics comparison; all numeric fields still compared",
+  "format": "native_joint_collection_single_review_fix_actual_engineering_v1",
+  "full_paper_complete": false,
+  "important_finding": "private by_user names differ from deterministic public report aliases",
+  "independent_verifier_standard_library_only": true,
+  "model_and_optimizer_constructors_denied": true,
+  "new_learned_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T01:55:44.564433+00:00",
+  "passed_tests": 51,
+  "prior_engineering_receipt": "results/native-joint-analysis/collection-engineering-tests-20261102.json",
+  "prior_engineering_receipt_sha256": "2b1deaf1a29dc56b7a95da67c0f4ab5e410f14cbd2cfa8a930d243c770b228a1",
+  "public_numeric_user_count_and_alias_substitution_still_rejected_before_raw_load": true,
+  "pytest_reported_seconds": 17.66,
+  "raw_dtype": "bfloat16",
+  "raw_roles": [
+    "native",
+    "replay"
+  ],
+  "regression_red": {
+    "all4owners_physically_closed": true,
+    "failed_tests": 6,
+    "passed_tests": 45,
+    "source_bundle_sha256": "e81ad94d0827167b6ff6454bf6a8adda005d5ae1130495286baf594d7790e0e7"
+  },
+  "requested_windows_per_raw_role": 6,
+  "runtime": {
+    "cuda_initialized": false,
+    "lightning": "2.5.0.post0",
+    "numpy": "1.26.4",
+    "pytest": "8.2.2",
+    "python": "3.11.12",
+    "torch": "2.2.2+cu118"
+  },
+  "single_fresh_context_review_performed": true,
+  "skipped_tests": 0,
+  "source_base_commit": "36776a6e2f85dcb771d082031f0d387a3f145337",
+  "source_bundle_sha256": "031d922cfa62660caa26371451f9333888cf02dfbb385b60a6355fb02c6e69b8",
+  "tested_uncommitted_unit_snapshot": true,
+  "unit_files_sha256": {
+    "egoemg_repro/native_joint_analysis.py": "1854da7b1f9aee5d31dfaee2c63f20faa7441f51daeb744bbba7b5d42380c4ea",
+    "scripts/paper/collect_native_joint_analysis.py": "b1c724276466af8573408d8fbf13343df7096fadb1d71da7f20e854fab2a6deb",
+    "tests/test_native_joint_analysis.py": "3f955edc19de0acab885b3440b4b1cfbd55f8128c6cee2a56677a80a24c6e906",
+    "tests/test_native_joint_collection.py": "152ab7a199f2285e687e9f1ff4e7b405b2d2c8266f8f3992a7a6a5035d07141d"
+  },
+  "whole_new_component_test_selection": [
+    "tests/test_native_joint_analysis.py",
+    "tests/test_native_joint_collection.py"
+  ]
+}
