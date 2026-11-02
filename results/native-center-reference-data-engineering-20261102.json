@@ -1,0 +1,143 @@
+{
+  "actual_new_component_tests_passed": 17,
+  "actual_three_owned_test_capsules": {
+    "generation_green": {
+      "actual_recorder": {
+        "pid": 2185139,
+        "start_ticks": "441724281"
+      },
+      "archive_sha256": "72cb15efb775ee4c2d6e175cdad76b71f01e2ed383a02238fa619d9f1e0b9415",
+      "frozen_file_count": 315,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task1-generation-green-be61e62e88c4-20261102",
+      "scientific_eligible": false,
+      "source_commit": "be61e62e88c41f862fb84a6001b02411620dda49"
+    },
+    "generation_red": {
+      "actual_recorder": {
+        "pid": 2184174,
+        "start_ticks": "441717050"
+      },
+      "archive_sha256": "427781bd05e73a7f71b554f80a3df4af1262bd7fe303d071fa6dd258e247131a",
+      "frozen_file_count": 315,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task1-generation-red-be61e62e88c4-20261102",
+      "scientific_eligible": false,
+      "source_commit": "be61e62e88c41f862fb84a6001b02411620dda49"
+    },
+    "initial_green": {
+      "actual_recorder": {
+        "pid": 2183703,
+        "start_ticks": "441714333"
+      },
+      "archive_sha256": "34230e4651aa91ab3f24d74f370a79f4f9dee4643ed7b963d5149bb252bc8e04",
+      "frozen_file_count": 315,
+      "full_paper_complete": false,
+      "root": "/data/shihao/egoemg-native-center-reference-task1-tests-be61e62e88c4-20261102",
+      "scientific_eligible": false,
+      "source_commit": "be61e62e88c41f862fb84a6001b02411620dda49"
+    }
+  },
+  "actual_three_results": {
+    "generation_green": {
+      "all_frozen_members_sha256_exact": true,
+      "all_two_actors_physically_closed": true,
+      "log_sha256": "ecd13209740ea1b35e275cbf365da33d6bb2e1a06b2087524778522131702bc4",
+      "log_tail": ".................                                                        [100%]\n17 passed in 6.16s\n",
+      "new_source_sha256": {
+        "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+        "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2"
+      },
+      "state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2185140,
+          "start_ticks": "441724285"
+        },
+        "ended_utc": "2026-11-02T03:25:44.422295+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T03:25:37.509644+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2185139,
+          "start_ticks": "441724281"
+        }
+      }
+    },
+    "generation_red": {
+      "all_frozen_members_sha256_exact": true,
+      "all_two_actors_physically_closed": true,
+      "log_sha256": "2e8695258df7bc747878c4605502ca617e431ab1507abfcc476ec157c5dc57a6",
+      "log_tail": "ule.reference_windows(tmp_path, UPSTREAM))\n        changed = tmp_path / filename\n        changed.write_bytes(changed.read_bytes() + b'\\n')\n>       with pytest.raises(ValueError, match='chang|source|generation'):\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\ntests/test_center_reference_data.py:131: Failed\n----------------------------- Captured stdout call -----------------------------\nCollected 2 val centers across 1 episodes (REF_WL=7790, required_window_length=12000)\nCollected 2 val centers across 1 episodes (REF_WL=7790, required_window_length=12000)\n=========================== short test summary info ============================\nFAILED tests/test_center_reference_data.py::test_changed_source_generation_is_rejected_after_construction[episode_index.dat]\n1 failed, 16 passed in 6.26s\n",
+      "new_source_sha256": {
+        "egoemg_repro/center_reference_data.py": "06e4dee0b77910d2b0bde50f226c5e59b49899e9a9ea7bf82e893903111f1111",
+        "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2"
+      },
+      "state": {
+        "actual_exit_code": 1,
+        "child": {
+          "pid": 2184176,
+          "start_ticks": "441717054"
+        },
+        "ended_utc": "2026-11-02T03:24:32.271266+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T03:24:25.200156+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 2184174,
+          "start_ticks": "441717050"
+        }
+      }
+    },
+    "initial_green": {
+      "all_frozen_members_sha256_exact": true,
+      "all_two_actors_physically_closed": true,
+      "log_sha256": "cbbe0a227ab5a72f143e2ec417db1414b61937586d2ee1a1b5a4b4b22ec8f9b3",
+      "log_tail": "...............                                                          [100%]\n15 passed in 5.39s\n",
+      "new_source_sha256": {
+        "egoemg_repro/center_reference_data.py": "06e4dee0b77910d2b0bde50f226c5e59b49899e9a9ea7bf82e893903111f1111",
+        "tests/test_center_reference_data.py": "fd1b530324ca5ab39a550ec53f1a207d9fa8dc0b033730c325934c3ea415f2ba"
+      },
+      "state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2183706,
+          "start_ticks": "441714337"
+        },
+        "ended_utc": "2026-11-02T03:24:04.266867+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T03:23:58.034176+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2183703,
+          "start_ticks": "441714333"
+        }
+      }
+    }
+  },
+  "all_six_test_and_recorder_actors_physically_closed": true,
+  "component_final_review_complete": false,
+  "episode_index_generation_regression_RED_failures": 1,
+  "episode_index_generation_regression_other_tests_passed": 16,
+  "existing_complete_server_runtime_used_without_install": true,
+  "final_server_GREEN_passed": 17,
+  "format": "actual_native_center_reference_data_new_component_engineering_tests_v1",
+  "full_paper_complete": false,
+  "full_reference_input_qualification_complete": false,
+  "full_shared_grid_model_evaluation_complete": false,
+  "initial_missing_adapter_RED_failures": 15,
+  "initial_server_GREEN_passed": 15,
+  "local_after_initial_implementation_11_cv2_dependency_failures_and4passes": true,
+  "local_existing_venv_has_no_cv2": true,
+  "observed_utc": "2026-11-02T03:27:03.632533+00:00",
+  "old_model_and_reducer_suites_not_repeated": true,
+  "source_and_tests_sha256": {
+    "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+    "tests/test_center_reference_data.py": "95d14e6afeed1d31b42b3b48f40730da8e1c4ef3c18478169bcf829c408bd3e2"
+  },
+  "source_base": "be61e62e88c41f862fb84a6001b02411620dda49",
+  "whole_project_pytest_claimed": false
+}

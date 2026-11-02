@@ -34,8 +34,8 @@
 
 **Interfaces:** `reference_windows(data, upstream, *, required_window_length=12000)`返回完整有序episode/start/end/center/split清单和来源身份；`CenterReferenceDataset(data, upstream, config, windows)`返回左手后右手、repeat0的原生点样本和完整元数据。所有窗口必须来自固定原官方函数，不由调用方任意选择。
 
-- [ ] 编写并观察失败的真实数据类测试：重排split-label词表、episode首尾和最后行边界、跨手顺序、非官方任意子清单拒绝、非有限输入拒绝、无效mask仍返回请求。
-- [ ] 最小实现调用未修改的官方collect函数和原 `_getitem_center_supervised_emg`，复用已有view/归一化，不载入模型或图像。
+- [x] 编写并观察失败的真实数据类测试：重排split-label词表、episode首尾和最后行边界、跨手顺序、非官方任意子清单拒绝、非有限输入拒绝、无效mask仍返回请求。
+- [x] 最小实现调用未修改的官方collect函数和原 `_getitem_center_supervised_emg`，复用已有view/归一化，不载入模型或图像。
 - [ ] 新组件测试通过；服务器完整2141窗口/4282手输入资格，source SHA/世代、所有输入有限和与已完成视觉目标逐请求精确连接；独立进程重读。四个旧探针只作既有工程证据，不重复冒充本步骤。
 - [ ] 提交Task1，ledger记录actual命令/结果/关闭身份，旧归约与数学源码保持原字节。
 
