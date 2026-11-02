@@ -1,0 +1,187 @@
+{
+  "actual_bilateral_single_sample_batches_verified": true,
+  "actual_source_bound_runs": {
+    "batch-red": {
+      "actual_counts": {
+        "deselected": 17,
+        "failed": 4,
+        "warnings": 2
+      },
+      "actual_frozen_members": 155,
+      "actual_pytest_log_sha256": "30c93fa107c4862771504f8087756d2e8dc02d4b26617fe113cc685afbfad9c3",
+      "actual_pytest_summary": "4 failed, 17 deselected, 2 warnings in 7.72s",
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "child": {
+          "pid": 2290333,
+          "start_ticks": "442492620"
+        },
+        "ended_utc": "2026-11-02T05:33:49.456237+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:33:40.863319+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 2290332,
+          "start_ticks": "442492617"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "egoemg_repro/rn18_occlusion_models.py": "d179f79e409b11acad37b00ef1d0c8d2a3a84d2c3e47940015bfc55a907088af",
+        "tests/test_rn18_occlusion_models.py": "5ad375595f59539e639149efed66d3f9f03c2b04e521d1c676f3cab13b371071"
+      }
+    },
+    "final21-green": {
+      "actual_counts": {
+        "passed": 21,
+        "warnings": 2
+      },
+      "actual_frozen_members": 155,
+      "actual_pytest_log_sha256": "01403f1e11dbd0026209ad21465bebdf5b39335be75195e0523cf0c340b59f15",
+      "actual_pytest_summary": "21 passed, 2 warnings in 25.68s",
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2290982,
+          "start_ticks": "442497588"
+        },
+        "ended_utc": "2026-11-02T05:34:57.097881+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:34:30.535356+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2290979,
+          "start_ticks": "442497584"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "egoemg_repro/rn18_occlusion_models.py": "6144bd5656e3e8bb915c5a19072cdb82adceb734880b728c81ecfd77c21667cc",
+        "tests/test_rn18_occlusion_models.py": "5ad375595f59539e639149efed66d3f9f03c2b04e521d1c676f3cab13b371071"
+      }
+    },
+    "green": {
+      "actual_counts": {
+        "failed": 1,
+        "passed": 16,
+        "warnings": 2
+      },
+      "actual_frozen_members": 155,
+      "actual_pytest_log_sha256": "b71f6220cddc0baecafb3bb5c0936772a2fe5a6cb690bccc60fa4c0bba0d05ca",
+      "actual_pytest_summary": "1 failed, 16 passed, 2 warnings in 17.75s",
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "child": {
+          "pid": 2288617,
+          "start_ticks": "442479665"
+        },
+        "ended_utc": "2026-11-02T05:31:49.938834+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:31:31.314859+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 2288616,
+          "start_ticks": "442479662"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "egoemg_repro/rn18_occlusion_models.py": "d179f79e409b11acad37b00ef1d0c8d2a3a84d2c3e47940015bfc55a907088af",
+        "tests/test_rn18_occlusion_models.py": "e9250b3a136fa2ba7a8a6dd508d4ef4d63ed87eeb5523721fbd6531968c6ff90"
+      }
+    },
+    "green-pathfix": {
+      "actual_counts": {
+        "passed": 17,
+        "warnings": 2
+      },
+      "actual_frozen_members": 155,
+      "actual_pytest_log_sha256": "588fb1df0b3532bed3274529b541ba29b78d4ec2054e3a3d21709c9ae7c0404a",
+      "actual_pytest_summary": "17 passed, 2 warnings in 18.28s",
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2289270,
+          "start_ticks": "442483780"
+        },
+        "ended_utc": "2026-11-02T05:32:31.679404+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:32:12.463399+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2289269,
+          "start_ticks": "442483776"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "egoemg_repro/rn18_occlusion_models.py": "d179f79e409b11acad37b00ef1d0c8d2a3a84d2c3e47940015bfc55a907088af",
+        "tests/test_rn18_occlusion_models.py": "ce0088a25d4bfdb5b12f7c248f63fe3cde3d173ffe50b2c828f9becacabb860f"
+      }
+    },
+    "red": {
+      "actual_counts": {
+        "errors": 14,
+        "failed": 3
+      },
+      "actual_frozen_members": 154,
+      "actual_pytest_log_sha256": "ed6ac1950ffc73630c3dcd99eac5adbc408b3558ffa30d6be88fd16ddc9fddad",
+      "actual_pytest_summary": "3 failed, 14 errors in 1.24s",
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "child": {
+          "pid": 2288011,
+          "start_ticks": "442474636"
+        },
+        "ended_utc": "2026-11-02T05:30:42.902447+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:30:41.022964+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 2288008,
+          "start_ticks": "442474632"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "tests/test_rn18_occlusion_models.py": "e9250b3a136fa2ba7a8a6dd508d4ef4d63ed87eeb5523721fbd6531968c6ff90"
+      }
+    }
+  },
+  "all10_original_test_actors_physically_closed": true,
+  "all_original_trained_states_unchanged_after_batch_forwards": true,
+  "complete_11114_dense_inference_complete": false,
+  "complete_native_trained_weight_reload_verified": true,
+  "dense_input_or_inference_permit": false,
+  "figure13_reproduced": false,
+  "final_actual_new_unit_tests": 21,
+  "final_skips": 0,
+  "format": "actual_RN18_trained_triplet_and_native_bilateral_batch_engineering_v1",
+  "full_paper_complete": false,
+  "independent_reader": {
+    "pid": 2292429,
+    "start_ticks": "442509699"
+  },
+  "independent_reader_physically_closed_after_exit0": true,
+  "independent_reader_torch_unimported": true,
+  "native_two_transformer_warnings_retained": true,
+  "new_integration_final_review_complete": false,
+  "observed_utc": "2026-11-02T05:36:31.714976+00:00",
+  "real_B64_and_group_tail_qualification_complete": false,
+  "scientific_settings_added": 0
+}

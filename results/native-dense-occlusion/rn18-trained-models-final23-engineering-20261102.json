@@ -1,0 +1,94 @@
+{
+  "actual_bilateral_single_sample_batches_verified": true,
+  "actual_source_bound_runs": {
+    "final23-green": {
+      "actual_counts": {
+        "passed": 23,
+        "warnings": 2
+      },
+      "actual_frozen_members": 155,
+      "actual_pytest_log_sha256": "a10d432606f2cb3c5cd9709bb98c8f5fb75e750b00c8e064b52f06769778f421",
+      "actual_pytest_summary": "23 passed, 2 warnings in 27.46s",
+      "actual_terminal_state": {
+        "actual_exit_code": 0,
+        "child": {
+          "pid": 2293865,
+          "start_ticks": "442522734"
+        },
+        "ended_utc": "2026-11-02T05:39:10.351276+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:38:41.998207+00:00",
+        "status": "complete",
+        "wrapper": {
+          "pid": 2293864,
+          "start_ticks": "442522731"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "egoemg_repro/rn18_occlusion_models.py": "1c3eee34197e87f7b0aa4c273a8f07d534742ec68e6fd437f58a8dc336fcfa09",
+        "tests/test_rn18_occlusion_models.py": "3c8198ec67f912b38011a37dd8658a222f38fe8fb78f30e345bd73e0ce477d3e"
+      }
+    },
+    "guard-red": {
+      "actual_counts": {
+        "deselected": 21,
+        "failed": 2,
+        "warnings": 2
+      },
+      "actual_frozen_members": 155,
+      "actual_pytest_log_sha256": "4a43166997750b49af7b2a6d8842b9caca316faf19bb6d77ae4c9ac4e6563f63",
+      "actual_pytest_summary": "2 failed, 21 deselected, 2 warnings in 7.18s",
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "child": {
+          "pid": 2293309,
+          "start_ticks": "442518625"
+        },
+        "ended_utc": "2026-11-02T05:38:08.987274+00:00",
+        "full_paper_complete": false,
+        "scientific_eligible": false,
+        "started_utc": "2026-11-02T05:38:00.908531+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 2293308,
+          "start_ticks": "442518621"
+        }
+      },
+      "all2_original_actors_physically_closed": true,
+      "all_frozen_members_sha256_exact": true,
+      "source_commit": "c09cabdd317f3d3ef37386953655f66445da9474",
+      "working_files_sha256": {
+        "egoemg_repro/rn18_occlusion_models.py": "6144bd5656e3e8bb915c5a19072cdb82adceb734880b728c81ecfd77c21667cc",
+        "tests/test_rn18_occlusion_models.py": "3c8198ec67f912b38011a37dd8658a222f38fe8fb78f30e345bd73e0ce477d3e"
+      }
+    }
+  },
+  "all14_test_actors_physically_closed_across_bound_runs": true,
+  "all4_additional_test_actors_physically_closed": true,
+  "all_original_trained_states_unchanged_after_batch_forwards": true,
+  "complete_11114_dense_inference_complete": false,
+  "complete_native_trained_weight_reload_verified": true,
+  "dense_input_or_inference_permit": false,
+  "figure13_reproduced": false,
+  "final_actual_new_unit_tests": 23,
+  "final_skips": 0,
+  "format": "actual_RN18_trained_triplet_and_native_bilateral_batch_engineering_v1",
+  "full_paper_complete": false,
+  "independent_reader": {
+    "pid": 2294583,
+    "start_ticks": "442527292"
+  },
+  "independent_reader_physically_closed_after_exit0": true,
+  "independent_reader_torch_unimported": true,
+  "native_two_transformer_warnings_retained": true,
+  "new_integration_final_review_complete": false,
+  "observed_utc": "2026-11-02T05:39:27.620843+00:00",
+  "previous21_source_bound_proof_file_sha256": "5d2081c2e6ce37119362ae70af0988d3ca0ea3e7cf875c71a3104b81e5749da7",
+  "real_B64_and_group_tail_qualification_complete": false,
+  "scientific_settings_added": 0,
+  "source_guard_replacement_negative_RED_to_GREEN": true
+}
