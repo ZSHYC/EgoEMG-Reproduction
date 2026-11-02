@@ -1,0 +1,8 @@
+{
+  "accepted_fusion_file_sha256": "493af1c26045aa50a096bee54714265dca7f63855218ebb293490bcc3f3c7fcc",
+  "accepted_index_file_sha256": "b57de34dcf8c18fa94cb6390c1a92cf90c619f7b1e95dfc77ce3f78ca0417318",
+  "data": "/home/shihao/projects/EgoEMG-Reproduction/data/legacy",
+  "index_root": "/data/shihao/egoemg-native-dense-occlusion-complete-indices-20261101",
+  "postexit_readback": "/data/shihao/egoemg-rn18-fusion-recovered-final-postexit-collector-d3f896d6f23e-20261102/private/postexit-readback.json",
+  "upstream": "/home/shihao/projects/EgoEMG-Reproduction/upstream"
+}

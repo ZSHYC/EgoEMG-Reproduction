@@ -1,0 +1,22 @@
+{
+  "actual_complete": false,
+  "actual_original_owners_matching_live": true,
+  "actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2283161,
+      "start_ticks": "442429117"
+    },
+    "started_utc": "2026-11-02T05:23:05.833262+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2283158,
+      "start_ticks": "442429114"
+    }
+  },
+  "bundle_sha256": "21e976a862ab1d180bcabdaddfab67188136aff0f15e17256f9b4af61c91844e",
+  "full_paper_complete": false,
+  "root": "/data/shihao/egoemg-rn18-dense-completed-producer-footprints-027664cd2cdd-20261102",
+  "scope": "two fresh actual RN18 trained producer weight-byte/complete11114 input-footprint audits, CPU-only with no Torch/models/geometry; no inference permit",
+  "source_commit": "027664cd2cdd15c755f88464f0c5700627404ffa"
+}

@@ -1,0 +1,5182 @@
+{
+  "actual_closed_owned_seed_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 2280429,
+      "pid": 2280429,
+      "sid": 2280429,
+      "start_ticks": "442402254",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 2280426,
+      "pid": 2280426,
+      "sid": 2280426,
+      "start_ticks": "442402250",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 2280430,
+      "pid": 2280430,
+      "sid": 2280430,
+      "start_ticks": "442402258",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "actual_new_bundle_sha256": "f4d73c7775a4095e8114b2ddc21eb991ccecb182fc74d2d3c434b7bf1e784ad8",
+  "actual_new_native_worker": {
+    "matching_live": true,
+    "pid": 2283893,
+    "ppid": 2282460,
+    "sid": 2283893,
+    "start_ticks": 442435027,
+    "state": "S",
+    "tty": 0
+  },
+  "actual_new_queue_actors": {
+    "child": {
+      "matching_live": true,
+      "pid": 2280426,
+      "ppid": 2280425,
+      "sid": 2280426,
+      "start_ticks": "442402250",
+      "state": "S",
+      "tty": 0
+    },
+    "wrapper": {
+      "matching_live": true,
+      "pid": 2280425,
+      "ppid": 1,
+      "sid": 2280425,
+      "start_ticks": "442402247",
+      "state": "S",
+      "tty": 0
+    }
+  },
+  "actual_new_queue_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2280426,
+      "start_ticks": "442402250"
+    },
+    "started_utc": "2026-11-02T05:18:37.160372+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2280425,
+      "start_ticks": "442402247"
+    }
+  },
+  "actual_new_source_commit": "e350af6417a9781c937fa23b879d31666f94fe94",
+  "actual_predecessor_failure": {
+    "actor": {
+      "pid": 2163105,
+      "start_ticks": 441544878
+    },
+    "automatic_retry": false,
+    "completed_archive_bytes": 90843555840,
+    "completed_archive_count": 833,
+    "current_archive_path": "train_aria/clip-002682.tar",
+    "error_type": "ValueError",
+    "message": "native source download failed; partial files retained without automatic retry",
+    "observed_utc": "2026-11-02T04:51:35.797389+00:00",
+    "original_payloads_and_partials_preserved": true,
+    "owned_native_worker_exited": true
+  },
+  "actual_seed_admission": {
+    "actual_copied_archives": 834,
+    "actual_copied_bytes": 90945996800,
+    "actual_gpu_actions": 0,
+    "all_old_and_new_whole_archive_lfs_sha256_exact": true,
+    "all_original_archive_and_top_file_generations_unchanged": true,
+    "copied_not_hardlinked": true,
+    "copies": [
+      {
+        "bytes": 104069120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001849.tar",
+        "sha256": "c3bfd5b26b1c80a4a8c038b1d26ef423464de0b12ee42c6adc67f0485dbd3775"
+      },
+      {
+        "bytes": 103690240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001850.tar",
+        "sha256": "3185648f6d99097d1f42b7933ead73ac8c56cbae54a1c703766dcda977e7e6b7"
+      },
+      {
+        "bytes": 103127040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001851.tar",
+        "sha256": "160280e8c4a7220fa79f27c7c502b458bcf84c35b95882452c6578c3eaa7fab2"
+      },
+      {
+        "bytes": 69744640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001852.tar",
+        "sha256": "3d0253c0e77836a211e4de046befb862712624190195a978d03443ebb5c0405e"
+      },
+      {
+        "bytes": 102051840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001853.tar",
+        "sha256": "6a264eaaf940e9597f616e514f09af79802d1ce9d0b8bd62553779c47f7a0115"
+      },
+      {
+        "bytes": 105031680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001854.tar",
+        "sha256": "f81202aac8c0250a1196532f90506e6b6067024577e4c8f746af26c1399b44a3"
+      },
+      {
+        "bytes": 104232960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001855.tar",
+        "sha256": "9aef98ad51b2e32aec0ff61ad8db8dae3940f54ea44719bc4da3ed8e0420ce59"
+      },
+      {
+        "bytes": 89088000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001856.tar",
+        "sha256": "2356d8cf22c75485d62d5b51519aca4a3795d41b936fefb3af097d6487e30b67"
+      },
+      {
+        "bytes": 101847040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001857.tar",
+        "sha256": "fa1db7547a832cb81483e63df60bb685f55d89ce89e6e09ac05f6a0cad864161"
+      },
+      {
+        "bytes": 99041280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001858.tar",
+        "sha256": "e9d0d4874a32925b4ec411ef640b922ee89d10c19700492bc1bfbe96be608560"
+      },
+      {
+        "bytes": 97484800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001859.tar",
+        "sha256": "7dd60eaded112ebc6ecf55cfb9bf3b185a94ffe6afde0a57f2c89679fb93d999"
+      },
+      {
+        "bytes": 98529280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001860.tar",
+        "sha256": "5007c082a6cf3b2a1f2c46300c12c92b15376980b664e41bcba7c7a99d39d5f6"
+      },
+      {
+        "bytes": 98181120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001861.tar",
+        "sha256": "65b09c9d6bd3fe2bae68f2485a890e8df4d9cd24a4fb962c90537ebfc0c29c36"
+      },
+      {
+        "bytes": 98775040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001862.tar",
+        "sha256": "ea7f8019d8dc74ef1d49447da1ad8054c036dbc882ae3488a484f1dd817a3097"
+      },
+      {
+        "bytes": 102768640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001863.tar",
+        "sha256": "f9079a62f134c9e6798ccb9c77f05d8872cf415322a67503aff77ab2c5b99bc3"
+      },
+      {
+        "bytes": 103577600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001864.tar",
+        "sha256": "6c5836a6e8a7789301aaf3e3057faa92b17670f215742b13d9dcd5119fc0a03e"
+      },
+      {
+        "bytes": 101754880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001865.tar",
+        "sha256": "527f9f6d900e2897348cfcea9411c5b3a06bef30c2d015a0a05a6732af4ee667"
+      },
+      {
+        "bytes": 102737920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001866.tar",
+        "sha256": "eea3c70c42a144a5598bebc08e1c778a1f820b3e9103f75f5413e9f8e3fa0f8c"
+      },
+      {
+        "bytes": 102164480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001867.tar",
+        "sha256": "98fca2b50ee27e75f31b2bf5b4ee20a63beaf682f4776602801bc61f71fa9494"
+      },
+      {
+        "bytes": 105164800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001868.tar",
+        "sha256": "d651d7137a81a6be033b277fdcb35a7b8612ee4b6910fd81125d37fd7f3835e4"
+      },
+      {
+        "bytes": 99737600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001869.tar",
+        "sha256": "2283a89a8508b3c3d62af706746d952acd9e51a7b8e83bdd6f8437ba8587b257"
+      },
+      {
+        "bytes": 97566720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001870.tar",
+        "sha256": "1d4f4d2e7968548ff2bea995e28ca3f1192f4c74637bcd194888a1dab0b8cebf"
+      },
+      {
+        "bytes": 95047680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001871.tar",
+        "sha256": "4e402f99627cec03efae7ec66df99f1b79f9cfc9e70a8aaf08fcd4ac814117cd"
+      },
+      {
+        "bytes": 104775680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001872.tar",
+        "sha256": "c379abc4d30705b85d2b20e891d842f267a34c87a926c4b932551a96abc65a06"
+      },
+      {
+        "bytes": 100689920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001873.tar",
+        "sha256": "b11baa3f9c3b66aff6e455cb9ebe89674f70fe24b47ce45169301ba9ee598277"
+      },
+      {
+        "bytes": 99266560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001874.tar",
+        "sha256": "63e0f7f05aebc24a8a2812e679fa9ed120a92bb06d596715d00c70d0c39bd566"
+      },
+      {
+        "bytes": 96686080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001875.tar",
+        "sha256": "ba168aa13b4fc9438ef65ea96cbb6c365d26a49c1b8eb33035bad804756c435d"
+      },
+      {
+        "bytes": 105113600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001876.tar",
+        "sha256": "3fabff1c7bd91474142b4cd32bd38af20973764843b1e82c45a377e2bceb46fe"
+      },
+      {
+        "bytes": 102604800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001877.tar",
+        "sha256": "edb15b8fd6456ae4b061315fad1686271db3f1ea22ce49bd8be3c868f0e1c357"
+      },
+      {
+        "bytes": 108666880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001878.tar",
+        "sha256": "ed1b35656cef57ce5ef75357dcc27ba8324d3c0d99ed650e8cd76270b40487b3"
+      },
+      {
+        "bytes": 99153920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001879.tar",
+        "sha256": "faa00bf5d86acc1dbfa541397f7175ebd9e432e050ea02a8e1773bd3878a9996"
+      },
+      {
+        "bytes": 97802240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001880.tar",
+        "sha256": "c2fc84502af6b1b50371aff085cce12f128e68ec4dd7a1e661229f05c18f3767"
+      },
+      {
+        "bytes": 98529280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001881.tar",
+        "sha256": "7bf91dd025239e564476c8fea0ccc89228c94668914cd508de67446e34381659"
+      },
+      {
+        "bytes": 98467840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001882.tar",
+        "sha256": "87c003425d6f3c2ca4c3fda9c5b0903c2d3aae827c93ba5fbfeeadb044233317"
+      },
+      {
+        "bytes": 87756800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001883.tar",
+        "sha256": "72701be00e74f1b5b0abd53c03c6110d55d5009b7f26d7c3c2ee6b3dc5debeb5"
+      },
+      {
+        "bytes": 78817280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001884.tar",
+        "sha256": "caff82da79af5fc769a6fcfd15d06fc46e54f327b6429a0e3f0403c996a3ab9c"
+      },
+      {
+        "bytes": 90920960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001885.tar",
+        "sha256": "1f9b43c4f16106a555a88bbdbf64e1fa7292c7666fbf34d27e6418a33ba15ae3"
+      },
+      {
+        "bytes": 93736960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001886.tar",
+        "sha256": "7f69a8039c343ff549a699309da30557dc038711348b24a8a6d801470b5a140d"
+      },
+      {
+        "bytes": 94760960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001887.tar",
+        "sha256": "3fa1c190f908a97562d6f4c496b331221193890c1bd96c0e584576752cbde556"
+      },
+      {
+        "bytes": 98570240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001888.tar",
+        "sha256": "7c570895c160297f398bb1aa269f8217eae07566b1ddc3feb858360fd2c0bf0f"
+      },
+      {
+        "bytes": 91914240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001889.tar",
+        "sha256": "8468c17bfb5d79e76f4b1a20b00fd43eff75b6c722939699d71a4798852965a9"
+      },
+      {
+        "bytes": 98078720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001890.tar",
+        "sha256": "5d82796bde60f9b6a3441f028fdb9e14bd63711ec32c8b4597822fb13d4dbc7a"
+      },
+      {
+        "bytes": 111032320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001891.tar",
+        "sha256": "66445e248f25679e61a95eedef79125ca0b3ef66960403ab57886beee1cfc33f"
+      },
+      {
+        "bytes": 99624960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001892.tar",
+        "sha256": "485c63153cd4985c502ea0f6a25a8e942de5db9635b6f55558d81b2e9df51b2a"
+      },
+      {
+        "bytes": 97218560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001893.tar",
+        "sha256": "879d4df736b5c009ef5cc0b65b08feddd5f6eb6f9585270d5dfe0ad17e3db335"
+      },
+      {
+        "bytes": 103956480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001894.tar",
+        "sha256": "9c93f32e4472aca021dea35a8504ed5daf0df1edd55169bfd59e5b3623537218"
+      },
+      {
+        "bytes": 101990400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001895.tar",
+        "sha256": "43400bcbe44afd90e89ccc13a1597173cedcbdc684eede4736f544af5b520a26"
+      },
+      {
+        "bytes": 104929280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001896.tar",
+        "sha256": "91bdf72281e4a993d0f752b7a86be3a39a4565c425b3be4e473b8889ad0cf770"
+      },
+      {
+        "bytes": 104826880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001897.tar",
+        "sha256": "7a8ca249a22a90931b04997917954c6abaf43b9f127695d739f34def545bcab9"
+      },
+      {
+        "bytes": 92610560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001898.tar",
+        "sha256": "98d1a918f1873462d940b719beafdc4e68182e0e491289764995b8f10ff928ea"
+      },
+      {
+        "bytes": 103700480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001899.tar",
+        "sha256": "8971f6ee61c98efca3e4a50a3d86768792e0485fc47acd35e709b399903c3141"
+      },
+      {
+        "bytes": 105369600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001900.tar",
+        "sha256": "bf4dea7489b483852af7f2be027999717a7ccd380202403bae26814ca1db6167"
+      },
+      {
+        "bytes": 103372800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001901.tar",
+        "sha256": "bcf29fd3871b85acbabcf076e03882c73f3f362acace7758aa8e77fc25d42c5f"
+      },
+      {
+        "bytes": 102225920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001902.tar",
+        "sha256": "73e004c33d36f07d2b764c588938358be2a9714151e39e76260aa4b275d6f0b8"
+      },
+      {
+        "bytes": 90368000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001903.tar",
+        "sha256": "3d4c3072671ad37b47d72ab455483e65842326b6e0f10bec4924d2f0d2c13a80"
+      },
+      {
+        "bytes": 94443520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001904.tar",
+        "sha256": "dd96f88765aa2362ffc3fbadd1b0ed99c7663ab1e2894f0a6dc70cac18162404"
+      },
+      {
+        "bytes": 97781760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001905.tar",
+        "sha256": "3d88847bf8557a2f26f8e2e7137f2fe1135c53689a7465897bcf7430b73efc49"
+      },
+      {
+        "bytes": 98119680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001906.tar",
+        "sha256": "1b897fbcc49d0df701e105827f23003cf015732c0292f2dd6e21e175c2833d04"
+      },
+      {
+        "bytes": 100065280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001907.tar",
+        "sha256": "4ca77d7a4de29a8dd3ad96d3d900544d155eff58279d2bfcf06501dfdb83dd0b"
+      },
+      {
+        "bytes": 99932160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001908.tar",
+        "sha256": "a4c471ab60dcd597464096606aed0f3a1bf618348267920631e219d1958ed670"
+      },
+      {
+        "bytes": 95221760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001909.tar",
+        "sha256": "bb6d2c1227bcfd55e1b5a2948a0251727d67e59d3328097dbe6144cfe23aff6f"
+      },
+      {
+        "bytes": 95416320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001910.tar",
+        "sha256": "a730e32d2c919d0a956c19c0dc8074210e587d78d3488077b0aa82e2bcf84591"
+      },
+      {
+        "bytes": 100075520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001911.tar",
+        "sha256": "7a3c9efd9fd72ad3bff7d23bd6100fed457a738776b5e4c2e50877e827167520"
+      },
+      {
+        "bytes": 92866560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001912.tar",
+        "sha256": "0ba4765daa3a55b2e9d12fde270f55742b2700af1a5b6c226724134e9e2667e8"
+      },
+      {
+        "bytes": 104192000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001913.tar",
+        "sha256": "6b5136c60dd7fd14c1fb239dd57c0bc43562a196efdd16f63a61f93146bdcc84"
+      },
+      {
+        "bytes": 97566720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001914.tar",
+        "sha256": "4178bf6cac5179ac3d3adb4dda184e449e004bbe0bc1acb0573587202e93d1d8"
+      },
+      {
+        "bytes": 93829120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001915.tar",
+        "sha256": "13f27dde99502a5d03d362b91b2eabb950ac7876d446dd30130f3eb7ab510aba"
+      },
+      {
+        "bytes": 98877440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001916.tar",
+        "sha256": "4091d76be905b08329008716c77e842b0f42d20a568b2090f48fbc293e14d66b"
+      },
+      {
+        "bytes": 96614400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001917.tar",
+        "sha256": "03b230bc34bef5a20341ee45b9dd5bf91cb95913b5c01f7dd0f7f75f71a6689f"
+      },
+      {
+        "bytes": 99512320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001918.tar",
+        "sha256": "f706cc08e8db1e0f02804518667c3d5d58cc134783e016e3ebaaeaba56e2c9be"
+      },
+      {
+        "bytes": 100741120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001919.tar",
+        "sha256": "43eade9c1bc926247a65c38e635f1d8c8b2f77e00ecfdd3bd0c3249b7742aebc"
+      },
+      {
+        "bytes": 99768320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001920.tar",
+        "sha256": "cdc06e3ede5cd17bd06ba9aa857fa3803edc40ff757d11c69405b6251181a41f"
+      },
+      {
+        "bytes": 97792000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001921.tar",
+        "sha256": "8540d30505dfc137afa951f5eaccae7099961e7656aa1192be0a02cd8fa07c52"
+      },
+      {
+        "bytes": 102400000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001922.tar",
+        "sha256": "483a1031f0f53f4ec511a57618e48cf3cbc379b20e83be611fd6fc5f7e49542b"
+      },
+      {
+        "bytes": 98344960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001923.tar",
+        "sha256": "0811961a7a36e199bacdc1914f8d4a23f8f56bdb4cbc7a6647780f62c8c286da"
+      },
+      {
+        "bytes": 104366080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001924.tar",
+        "sha256": "49841ffbc206d0edeee2f482b4752c5b41ed02a28059ff645093f8d99f79a129"
+      },
+      {
+        "bytes": 97280000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001925.tar",
+        "sha256": "19fb39da7fe95cbc7223557d8b5f7c18f62a0cb7d7b065f0f69fd2737fa060d2"
+      },
+      {
+        "bytes": 102031360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001926.tar",
+        "sha256": "514cdca51cd996dd304c45bfc38e7c3ce0d0435a0432fed68e233422f9b8410e"
+      },
+      {
+        "bytes": 96624640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001927.tar",
+        "sha256": "288bb253fc1236a2826dbd277b42eef4296535ffaecc8df2a692b3cba51077b7"
+      },
+      {
+        "bytes": 95344640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001928.tar",
+        "sha256": "2afe5097ddaf89efadda2509f83ec988b454356d09026dcae005c7a0a299ac50"
+      },
+      {
+        "bytes": 97034240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001929.tar",
+        "sha256": "0890575e42afd147997d7b09f1fb239c0c812fa059285edd9772da510ab4c003"
+      },
+      {
+        "bytes": 95733760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001930.tar",
+        "sha256": "df1399c80d25612b0f2b9aec3c4207de461aa5569afb04e6af82c5e50ce114db"
+      },
+      {
+        "bytes": 99921920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001931.tar",
+        "sha256": "ffc22a19d8b6957c7546931b10391889a4578b402108d3aed49515ddbf51b92b"
+      },
+      {
+        "bytes": 95662080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001932.tar",
+        "sha256": "6f71b656da801baa88fafb86da3ba8e51af9180d6cb85c9a2191f3f35270ffac"
+      },
+      {
+        "bytes": 99440640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001933.tar",
+        "sha256": "45ac306b8628b51887b29f7e161b873ce72dfec3f9710b019dae259452c83028"
+      },
+      {
+        "bytes": 106096640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001934.tar",
+        "sha256": "5f6aac68cdf6912c600aae9949264b1ed6ccd668063600105a205448dfd60cca"
+      },
+      {
+        "bytes": 97515520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001935.tar",
+        "sha256": "a72276643043de0061a03c81622066683400dde575dd42a8182ed7f91db3480f"
+      },
+      {
+        "bytes": 104355840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001936.tar",
+        "sha256": "c6474549863113c27ec58317058c474050a9be197a8f07a6908d51086391189c"
+      },
+      {
+        "bytes": 95590400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001937.tar",
+        "sha256": "d5d2610df4164f301bb6db38f5befb330bf23c7000e13facba75360c309c38fc"
+      },
+      {
+        "bytes": 102696960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001938.tar",
+        "sha256": "94d0123eaa33bac43fc7b8c984caa8285a3db3d9a6c07f1a3ecb676188f6c5aa"
+      },
+      {
+        "bytes": 101304320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001939.tar",
+        "sha256": "5a8fc620bd7c9f3d1d5fa38ddb4d71bec8d6d6e817d49e2a7dec3ee264a0988e"
+      },
+      {
+        "bytes": 106117120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001940.tar",
+        "sha256": "1bfa946c26428db086552fe48e71e672f562f4de2f31b612e829de2c955bf840"
+      },
+      {
+        "bytes": 104775680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001941.tar",
+        "sha256": "072d7f463a3d7948fbe57034a78b1af3362750828fa14908d9d6276b19dbc9af"
+      },
+      {
+        "bytes": 92303360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001942.tar",
+        "sha256": "fa185ce750945956a14418a4e450402ea51507cbd2b6250e58f62fff1adc652f"
+      },
+      {
+        "bytes": 95426560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001943.tar",
+        "sha256": "78ff04db6df1889a4295aca6a87e475c49c48dca917869e9c32575b864bee151"
+      },
+      {
+        "bytes": 98027520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001944.tar",
+        "sha256": "2036df9b294371a65e0d75a26e8f0fa85e8ff2aa3bc11665210066d6efab6210"
+      },
+      {
+        "bytes": 98222080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001945.tar",
+        "sha256": "483e5edbdf3c1576f372230cff7534f361287d1de63101043052e4da7c06303c"
+      },
+      {
+        "bytes": 97658880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001946.tar",
+        "sha256": "aeb55853f832fef20837a4a200844b69e935ad5ebfadf9c7f92e91f55de5cb52"
+      },
+      {
+        "bytes": 98334720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001947.tar",
+        "sha256": "c3959e9adafe50733889616a37877149090ec35b3e66f0debb9078c8561cb31a"
+      },
+      {
+        "bytes": 97136640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001948.tar",
+        "sha256": "58a88129a01c24c72f65eedcf03ee77f27ad2c0d0a317f485228d5c1d7c85985"
+      },
+      {
+        "bytes": 98693120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001949.tar",
+        "sha256": "46f4c1aeb412a1a18bcf4b91e3e7248e9c2f57f18b2e6cc56c55ed74e571eb64"
+      },
+      {
+        "bytes": 92979200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001950.tar",
+        "sha256": "03eb11896c53ef74c269312c8df67a4c56e17935400619a0a7ea6f72c5e412a8"
+      },
+      {
+        "bytes": 99430400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001951.tar",
+        "sha256": "d95210dd246ef2b717a08d9f797d0345adc172ec28e9f69dd78c45855150ea13"
+      },
+      {
+        "bytes": 87162880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001952.tar",
+        "sha256": "f8cb3307f4446241b65668ea0887e8c545ffcdd06b0d252997739f31e43a4230"
+      },
+      {
+        "bytes": 94525440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001953.tar",
+        "sha256": "05069776a2ddf5427aef272a48d82e7edf36c818203cfb66b67930e0bd5ef12d"
+      },
+      {
+        "bytes": 101038080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001954.tar",
+        "sha256": "1ab72b0c2dca247bd6662ba8e8b299adc3bc15105595a8d42df22e5761842dda"
+      },
+      {
+        "bytes": 88135680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001955.tar",
+        "sha256": "3f44894ce287505ad062313121b3be1f6f66332d857c4618bbbb5e8e4725f55c"
+      },
+      {
+        "bytes": 87613440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001956.tar",
+        "sha256": "d5e60548aa318614ff045e32a1b5efa5e971fc8933f75da0f30d5db8f3e2c127"
+      },
+      {
+        "bytes": 71034880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001957.tar",
+        "sha256": "e5f8c9e4dbd246e73b7d97e667d1f88b2286802f82af03a33cf21e9fae9af106"
+      },
+      {
+        "bytes": 99358720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001958.tar",
+        "sha256": "dde88b1ee6bccc7e63f94cd1015c297106d72fa3ca61de30170d336a12f51a5d"
+      },
+      {
+        "bytes": 103464960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001959.tar",
+        "sha256": "dcc157ecab847a0ed74aecf365846606d1bee8f36afc814ad3c4be4fa58c6773"
+      },
+      {
+        "bytes": 100751360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001960.tar",
+        "sha256": "5dd73791fc5c47374011b4bf37ac6a57cfcb1772112850d99e35202293a5dce3"
+      },
+      {
+        "bytes": 104908800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001961.tar",
+        "sha256": "e73092d0f4bb4eccc1bb050d8e9ac97e62ec48452f9d0b847e1bf9082a6e9439"
+      },
+      {
+        "bytes": 99061760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001962.tar",
+        "sha256": "8ebfa2f29b759639b831d498e7f7552fd6e7d25401b7ec3ba3a6fbb663437c30"
+      },
+      {
+        "bytes": 101406720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001963.tar",
+        "sha256": "08e6f85ea4f12e4f875bfc436bcc6a8ecc1bfdcc64c64aabaad4aeb14c987d90"
+      },
+      {
+        "bytes": 90900480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001964.tar",
+        "sha256": "47fc14c8bafdc183fd8cc5c3090ce751ca210634f26fdbe01d2fad9955554a4c"
+      },
+      {
+        "bytes": 103331840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001965.tar",
+        "sha256": "f24d86e44a801b6c4b3eb5c1b394be2ca67289de4a69ba243266dd770dd155d8"
+      },
+      {
+        "bytes": 92067840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001966.tar",
+        "sha256": "73fd7c3957c50c3b31e3d74130b3087b06f4d09b90ff2853d97993de22afcd51"
+      },
+      {
+        "bytes": 104273920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001967.tar",
+        "sha256": "a9fa7c1a7210c6ce95ba6cb9c37d1d94dc1cd3a0a9b32c5780a0c187aef86d50"
+      },
+      {
+        "bytes": 91310080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001968.tar",
+        "sha256": "b860890077cddec130382be34b9c52424b4509050507d552e6d92f1ba889fd38"
+      },
+      {
+        "bytes": 100935680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001969.tar",
+        "sha256": "3774fb9889160470fdc9d07844f74ec355922cb3911bc52fe5bd1a3fcb81ff33"
+      },
+      {
+        "bytes": 105093120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001970.tar",
+        "sha256": "2d8364af34d1d428ff25993351ef0788d83e7d96905cd7af9592f6f176ac440a"
+      },
+      {
+        "bytes": 114247680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001971.tar",
+        "sha256": "615c3ce5921185a15deebe6b8ccd825e721596f0121190d7059fac90e3dd8343"
+      },
+      {
+        "bytes": 119101440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001972.tar",
+        "sha256": "39443cd165977a00947930bcf5db0763a5489ad171b3df970f1bc64e81c43b50"
+      },
+      {
+        "bytes": 117309440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001973.tar",
+        "sha256": "08d57bd4b44d042301ab57db9953d7c7a946b4cbd81dab6f0031b20fa1d1fb4a"
+      },
+      {
+        "bytes": 118231040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001974.tar",
+        "sha256": "cb5fbcb2b7fee7d194bea147b49c2769ad6cf9300cdffeede16944886884ceb1"
+      },
+      {
+        "bytes": 117063680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001975.tar",
+        "sha256": "a4893db386c6d3b5ed9ed2ea0aaec5af3e884ebe019ed042062595bd6ded713f"
+      },
+      {
+        "bytes": 120965120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001976.tar",
+        "sha256": "d149acf841ab499ac8eaaa4bab3a0a27a1b02af0ead131e25485c12ec68cef49"
+      },
+      {
+        "bytes": 118876160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001977.tar",
+        "sha256": "635fe4f690ca609c78ce690cd47b7c3ff6141206b7abe3d09cf5dcc2060416af"
+      },
+      {
+        "bytes": 118384640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001978.tar",
+        "sha256": "681f959f4bf98bcf4c5e5a638be9dea0ec0436975a40a4d6808756325db88911"
+      },
+      {
+        "bytes": 117370880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001979.tar",
+        "sha256": "9b1d90bd16e6171945b8cf596aebad8478e0740ead6afeec30a1a964de4c2e45"
+      },
+      {
+        "bytes": 118855680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001980.tar",
+        "sha256": "ac463dfc1c7100c6c844af22d7fd36cc50a5bf5f042188cb38b52afac4bad3a2"
+      },
+      {
+        "bytes": 119828480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001981.tar",
+        "sha256": "0ed28d111cecfe55ca9e3cd60927659bc48d55ea1f429ae726ca403f30e5d90c"
+      },
+      {
+        "bytes": 117688320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001982.tar",
+        "sha256": "67f9906dc40c6d4df44b692cbd614691564af7e810e44f76d4d861e59c42fe95"
+      },
+      {
+        "bytes": 114124800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001983.tar",
+        "sha256": "04b99468b90d1fa65618cbd849729a8d864a1d1b64815f7fb26b96d050dba466"
+      },
+      {
+        "bytes": 109834240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001984.tar",
+        "sha256": "97d0c6d5b3efc07abf1efc4df39e17dcfe0f8922442a21262b66595f95742f78"
+      },
+      {
+        "bytes": 113592320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001985.tar",
+        "sha256": "d99b8adbc3304d64359e39ec681ab1c832cd59c5146ea9129aee48c5835e4f77"
+      },
+      {
+        "bytes": 113336320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001986.tar",
+        "sha256": "6879fa2fdb29ca9fa3b381b1bd66d2f22f338493e82e19f3ddd0e187fc7a6548"
+      },
+      {
+        "bytes": 120545280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001987.tar",
+        "sha256": "3c85ba25839e22df3af1125ffc0b165171f1113b8fcfee26a82cec64c08d2aec"
+      },
+      {
+        "bytes": 117841920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001988.tar",
+        "sha256": "5b1c626d249ea23acc4fe0c0ef8aff157316331f58be6b0f8af27076e8d6c282"
+      },
+      {
+        "bytes": 121630720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001989.tar",
+        "sha256": "a412e7172fcd31367d2c9eea8edd03dd015e4c6f2ac8204c1c2a0764034bb789"
+      },
+      {
+        "bytes": 114984960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001990.tar",
+        "sha256": "c01a6ba5920909e49c82b871cad3943c3a3f8f7fd5b4f6dcf79e79735f705808"
+      },
+      {
+        "bytes": 108247040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001991.tar",
+        "sha256": "f77a7b7756b2d2280b0d045eb1e33233403095e705bb487c41d19ab92b787d04"
+      },
+      {
+        "bytes": 109271040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001992.tar",
+        "sha256": "27b93fb4af045a9771bf2a021164146b4746ead74c682f5e6bdbfdb10ab04ca1"
+      },
+      {
+        "bytes": 107857920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001993.tar",
+        "sha256": "534511d65cca0016af9b22ccdffdf0a980992e2845a91c0c2152481bbbb6ef2c"
+      },
+      {
+        "bytes": 105881600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001994.tar",
+        "sha256": "e574bf1dc480c14fca17b93d8b1c020f4edc177aaacdd0004b168dcf5d706e74"
+      },
+      {
+        "bytes": 100638720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001995.tar",
+        "sha256": "f8d26e05b7f2d1251cdeaf374e5585489e5623f4f3f5dfe162a5cd84022add77"
+      },
+      {
+        "bytes": 108789760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001996.tar",
+        "sha256": "efa52e46beb607c3f646fb98e76f1dce62d8ebf585e3c95ba0426a0474cc1898"
+      },
+      {
+        "bytes": 106383360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001997.tar",
+        "sha256": "134f1882d7809912f86091ac576ae827a26f7e533dd9f1f6f543e1ae1947254c"
+      },
+      {
+        "bytes": 107530240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001998.tar",
+        "sha256": "cec1305088a2edf07a487665493d63d17f60cf4411e58260a0c7a3ad16989b15"
+      },
+      {
+        "bytes": 105666560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-001999.tar",
+        "sha256": "5cfa8642af6a5283cd374c8a25495bea80418c5600dcd50a557101e5624e0daf"
+      },
+      {
+        "bytes": 104120320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002000.tar",
+        "sha256": "1004e2167ce1b9b32d067f5935251a3baf953d7e7dfb914bd153521c946535cf"
+      },
+      {
+        "bytes": 100659200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002001.tar",
+        "sha256": "8f3b52c97ed9da544972b25ec68f8d78ef49289af0bdce33951be18e44f6b09d"
+      },
+      {
+        "bytes": 106168320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002002.tar",
+        "sha256": "817e1edeb2a9ddff80695bedba509a1091a8124bfc73fe5f635332e3b3aec6f1"
+      },
+      {
+        "bytes": 103731200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002003.tar",
+        "sha256": "66076fb3d29f2082fbc655b77ded64352abbc1d8266513a94f10c4209130fec0"
+      },
+      {
+        "bytes": 104806400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002004.tar",
+        "sha256": "f6a3c94ae6702e88239a1a8c95df1fbc67245d59468b3078b7b911a881caf061"
+      },
+      {
+        "bytes": 102615040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002005.tar",
+        "sha256": "15c4afed6ac985dfe82aa01d92708a80ef3d8369e293072dadc1f2b7f2b58adc"
+      },
+      {
+        "bytes": 103997440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002006.tar",
+        "sha256": "1213a591341d603104250dd9dfabc07f957f5de8f591646ca6d38ac67762cb39"
+      },
+      {
+        "bytes": 107735040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002007.tar",
+        "sha256": "5f1f461282b8ee8dafc463cc0905ac1f553da16adf608598ccf53e0c57f08c6a"
+      },
+      {
+        "bytes": 107417600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002008.tar",
+        "sha256": "1b909b96301aedd7626e8e2db316d4fd00a04d5e674480be8e283b2c787f5947"
+      },
+      {
+        "bytes": 112793600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002009.tar",
+        "sha256": "d75845c38081da0728c4037c64209f51a967d3300e36a05e235e1c025f9a71bb"
+      },
+      {
+        "bytes": 112240640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002010.tar",
+        "sha256": "1db289b0bed5b2cfdc840e347fa0754d9c4674e55173177ec7cb43545c098c58"
+      },
+      {
+        "bytes": 112435200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002011.tar",
+        "sha256": "2c0403cee694b57300d4fdd72413ed6153846d6bc1e1f0c2b6bc193fd6cb4eff"
+      },
+      {
+        "bytes": 111329280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002012.tar",
+        "sha256": "d408846f63d7ceab41f7aed909797986b7e136776cd5691ae607d613e4dd23c9"
+      },
+      {
+        "bytes": 109076480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002013.tar",
+        "sha256": "280af8f5947306a9b243ffa1e17bca35dbe82cb9d62dda9c1c166bbe7caedda9"
+      },
+      {
+        "bytes": 112486400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002014.tar",
+        "sha256": "0f7aa46976b66815c952dc8775fa55eab6c68e081d5bfde87df32f573e095545"
+      },
+      {
+        "bytes": 111902720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002015.tar",
+        "sha256": "c2a80456218797219f07457d8f6391bfcf6ee72917181a9141729415901cf525"
+      },
+      {
+        "bytes": 112988160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002016.tar",
+        "sha256": "d5f30aab841ac30b271be9c2bb71c9a6493a02bf13300f76f7d9b278e552d93e"
+      },
+      {
+        "bytes": 113817600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002017.tar",
+        "sha256": "97504ba03879b6eeaffd2ffcb76aaeef51545d6ef03655c253ec41edae6fd236"
+      },
+      {
+        "bytes": 113909760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002018.tar",
+        "sha256": "0baee6052852a4bca4279907cf639f4f48c051328daf17e17d84603e56df0a9a"
+      },
+      {
+        "bytes": 116551680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002019.tar",
+        "sha256": "d68832dc8ef7963971720f8df9ca2135baf08224128eefc78382646ee74077b1"
+      },
+      {
+        "bytes": 108257280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002020.tar",
+        "sha256": "787b38d9381c4e2a63c69f6ac49ac111d757a7b6aa79135a6e493edd35b671cc"
+      },
+      {
+        "bytes": 111493120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002021.tar",
+        "sha256": "03a6a1e20c2a7e3fc6ce50970b804494ec433893240295710345a2a81aabcfb9"
+      },
+      {
+        "bytes": 111360000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002022.tar",
+        "sha256": "21b9159eddf0c43d853e9a6206ad759702aac19569fc76a264335c69b3c313d3"
+      },
+      {
+        "bytes": 107018240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002023.tar",
+        "sha256": "7f203a37d029f530f500a86fe8357c401d50f83ea067eab4ef8871f3efedd095"
+      },
+      {
+        "bytes": 108871680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002024.tar",
+        "sha256": "2d58488736b7eeafe5ae0e8d56043b1b30b9dc89419b5cf12163f3e94534eeac"
+      },
+      {
+        "bytes": 113500160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002025.tar",
+        "sha256": "a81cfbf081727581cec2c7f1c244f40dfca6dda7cea5d4c510b6d0e515e3a8d4"
+      },
+      {
+        "bytes": 113602560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002026.tar",
+        "sha256": "b8ff210e3de13d88395916640f525c3ab9ebbc31014dbe9cc208e49d0a8b17ee"
+      },
+      {
+        "bytes": 110438400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002027.tar",
+        "sha256": "898a418366e3e0400d222354121f44c57ead60eab8f9e229dc5977ad1320410f"
+      },
+      {
+        "bytes": 115322880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002028.tar",
+        "sha256": "eec5e2930b31296fd2a0eb41c4a38a6d96a2b99b26e0fdb0979f36c345f35950"
+      },
+      {
+        "bytes": 109967360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002029.tar",
+        "sha256": "994da86f5481251581f01a9c3249c3f08c6bb6ff9b0ee3d7d0215d46e1eaaeb4"
+      },
+      {
+        "bytes": 111523840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002030.tar",
+        "sha256": "9607f1255f3f42f40e53f816933a6a03ccfed88df555c0bcb1d51e41854c7953"
+      },
+      {
+        "bytes": 113459200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002031.tar",
+        "sha256": "d31ff69cd9325aaba9ade9a752a3bf45f8e239c22a53bbe070c6726bed093a30"
+      },
+      {
+        "bytes": 114339840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002032.tar",
+        "sha256": "ab08ea5c55c4f447ee776d6f0cfc2aadf988e9f008240db509f29ce368afbd09"
+      },
+      {
+        "bytes": 112834560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002033.tar",
+        "sha256": "a346dc65c9230d8e689573af5511bf5ff96073c00c3d9370daa8c7482fd9344a"
+      },
+      {
+        "bytes": 115896320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002034.tar",
+        "sha256": "ffb5f4b8ebfd5faf7045578e33cdcd94be9b5ca9e777b3d58a7609222680c067"
+      },
+      {
+        "bytes": 115527680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002035.tar",
+        "sha256": "e1e5d6d86cb18a0bc99fdfcc1cd6ed79fb918e425f8e991715f441da36aca70f"
+      },
+      {
+        "bytes": 115056640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002036.tar",
+        "sha256": "5bf4f328ba73b0875112faa3a0be8985f94219160a681e8a3f51cb7d6fbe3616"
+      },
+      {
+        "bytes": 112701440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002037.tar",
+        "sha256": "3c1e59e36afc96ff8eca29edb48e678ff46242636b86dce0e2a89e71cd9b522b"
+      },
+      {
+        "bytes": 111042560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002038.tar",
+        "sha256": "0a739bed52e167bed56039f4451879fc1646e20acc652e1a5dd9142bf841d721"
+      },
+      {
+        "bytes": 114165760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002039.tar",
+        "sha256": "d24b017dfcb47587502e2548a57e0fc7572178a91ded8d24be103add15aa38f9"
+      },
+      {
+        "bytes": 112384000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002040.tar",
+        "sha256": "9f302a825a95c81aa84cef49e2691ce843da1aab6ec7ec0a9dce90b829df469f"
+      },
+      {
+        "bytes": 110704640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002041.tar",
+        "sha256": "141d084830bbc4cb162acda72a4d6e08c57142d726bc90187608add4d1e7b2ae"
+      },
+      {
+        "bytes": 109393920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002042.tar",
+        "sha256": "bb9ce0bae284143862b1913d6563419f11851008cdd5fba18cbae2a5bcfa6c73"
+      },
+      {
+        "bytes": 111421440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002043.tar",
+        "sha256": "6bfb57f53f399b596eebbc73b4fe943d342e86f18c8e46fff7fb6ead3de62a08"
+      },
+      {
+        "bytes": 112189440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002044.tar",
+        "sha256": "0020ebe10795c27f66cafa2b9ccf4384adbcb79eeb9695901fd029ba19d32800"
+      },
+      {
+        "bytes": 105728000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002045.tar",
+        "sha256": "195a06f6f4c2dee8587606e392877e464758af16d6e215010b84d88eff442caa"
+      },
+      {
+        "bytes": 112097280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002046.tar",
+        "sha256": "4f4cf14bcd1415f4ecd46c49037b96bdc11a90a88762ca48afe0a639a3f76e61"
+      },
+      {
+        "bytes": 111349760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002047.tar",
+        "sha256": "a293d6ee9c9503bdda7e5a9416ff201fbf6e4f09f8bd70177c44a93695e08785"
+      },
+      {
+        "bytes": 110254080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002048.tar",
+        "sha256": "fb4a8d837de5d55249422e819ea5738263bd38b5fe997aa83f707f18143dd8e4"
+      },
+      {
+        "bytes": 109772800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002049.tar",
+        "sha256": "447e972f71ef9f4a75e5091ce6b1bbe1cac4b7e20f41d62ca05ab46dd49f9783"
+      },
+      {
+        "bytes": 109578240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002050.tar",
+        "sha256": "f0e6bc2e1115b7d33cccbcc8aead002dfada094b52b9ccde23b3ff23b10ad300"
+      },
+      {
+        "bytes": 105666560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002051.tar",
+        "sha256": "569f56794a0c580fe94a4bba91ead77d417b817dcb0447f85c571fd415bef7c3"
+      },
+      {
+        "bytes": 106178560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002052.tar",
+        "sha256": "a7af80d821e1d2543ee6e3baa1cab067a9b1eba6a3adb8a1a66c6f343455d4db"
+      },
+      {
+        "bytes": 108605440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002053.tar",
+        "sha256": "f41ef0fb359ee15dcd00cc8bd14b930664a5c7ebb53ca62acfa9632632132406"
+      },
+      {
+        "bytes": 107253760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002054.tar",
+        "sha256": "7c7af1b168b1d51338aa0d408081b447b2fac630000c6dbff94eb74955261664"
+      },
+      {
+        "bytes": 109250560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002055.tar",
+        "sha256": "2467f589ec5ccd6223bbdcd72b965abe3c5d5d4c9237a16933f14be1235bfc40"
+      },
+      {
+        "bytes": 110305280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002056.tar",
+        "sha256": "18b870d56071896faeeb05e68df78b4d532ca01e67bf7d6a24c91c87d6ef3621"
+      },
+      {
+        "bytes": 108216320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002057.tar",
+        "sha256": "11868894c73a26e288b468493fe01a8b000805081fc4fd168ac21dd644ce4c4d"
+      },
+      {
+        "bytes": 104089600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002058.tar",
+        "sha256": "7df803331c6562d3e1035af669bf8ccc1d0d9902e7117c4cdd20745294d8756e"
+      },
+      {
+        "bytes": 99624960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002059.tar",
+        "sha256": "3585d4ecfaf619e665e94e0c216dfd8f56265d3ac5bcaa22b56368973c183917"
+      },
+      {
+        "bytes": 98314240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002060.tar",
+        "sha256": "18e23902313f9d6e7dc3c41241450cdce387329aefcc6621ce598db0554c73f4"
+      },
+      {
+        "bytes": 78151680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002061.tar",
+        "sha256": "ffde411bf3bcc6e4aa59a61bb80056cbb9485c9f10707dc195087d2df53aa6a8"
+      },
+      {
+        "bytes": 96235520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002062.tar",
+        "sha256": "988c8aefb5444e36a20b33b66618710d7ce60e5bd972b880dde7eff71c1d6085"
+      },
+      {
+        "bytes": 99573760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002063.tar",
+        "sha256": "5a251d041cc491d08c2b7912ccb03024acb15ef7df57befc926f5547b489215b"
+      },
+      {
+        "bytes": 76144640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002064.tar",
+        "sha256": "21a48c0b7f02015b912c0c8b63ebb4fe3d26b9c144091fd11307974a911ef68d"
+      },
+      {
+        "bytes": 120279040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002065.tar",
+        "sha256": "87f9b95a4e638577459cedbbaeae7d339ba6c640fc1da60c18340cc6deddc2eb"
+      },
+      {
+        "bytes": 124334080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002066.tar",
+        "sha256": "eed73d66786c1b53fbca1afe66f7f0e70994589da8343f382b4f7b91c8beb53a"
+      },
+      {
+        "bytes": 124600320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002067.tar",
+        "sha256": "d25f97eb6d1f49b6db4ce8c2c7109171a4a717155cf186519a24b4d8143dc65b"
+      },
+      {
+        "bytes": 125245440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002068.tar",
+        "sha256": "daca81bcba5bb1e19d0383aea8eaeeab8f3dc62113e32597f8fcccbd5fa31078"
+      },
+      {
+        "bytes": 125521920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002069.tar",
+        "sha256": "08da6523045c0b052af61391f2f1f220c3944bccf705678ed39c02aec4be9529"
+      },
+      {
+        "bytes": 122419200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002070.tar",
+        "sha256": "34e205de5a6e13de68f0b7b1cdce9d4713370f401e532a4738125e96d2b49c7d"
+      },
+      {
+        "bytes": 122552320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002071.tar",
+        "sha256": "862eb8c3db2dda2677ca8a6ffe440e7ab4957f64b9ccd28479b79dc9d48fe575"
+      },
+      {
+        "bytes": 122368000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002072.tar",
+        "sha256": "34ee5e88ca2513a096543fba1008f63f46f2dc0be31f5a097eea5190746debf5"
+      },
+      {
+        "bytes": 124149760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002073.tar",
+        "sha256": "f7a1b5c1edddd4e0ba7309414de77737c013c86788e3809b9c5812b6c3eb369c"
+      },
+      {
+        "bytes": 124569600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002074.tar",
+        "sha256": "dc1e8a2a80bafded05a95372de4c979a60854a06bca3f1a73019a16f28dca4d6"
+      },
+      {
+        "bytes": 122572800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002075.tar",
+        "sha256": "f178569bdf2195c2b402e153bae2cf80fc8925d45b48f842f6df50fec8b6df12"
+      },
+      {
+        "bytes": 120504320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002076.tar",
+        "sha256": "4982cb9ca88b69571d10d8738008037a2a19b51b87bc1476a1638f0fa0a6e80e"
+      },
+      {
+        "bytes": 122839040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002077.tar",
+        "sha256": "713cbb6a97d8e37b19113658b08174b61a12af259e1fb539ce3a1ca0538a5037"
+      },
+      {
+        "bytes": 123719680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002078.tar",
+        "sha256": "d23efb4a5fa4715e21d09d404a1ba52eeb6235f174196c8342a92bd167e635cb"
+      },
+      {
+        "bytes": 123975680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002079.tar",
+        "sha256": "057d1e3c09c08dcdf1e9a73013de0b8855c26bf69a2d96e1d54bbb5473fc3c89"
+      },
+      {
+        "bytes": 123125760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002080.tar",
+        "sha256": "8760291672f4cbb8fe06db118098fd9c21e7d2bbc93018c4ca8a3193b34e5409"
+      },
+      {
+        "bytes": 120954880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002081.tar",
+        "sha256": "179427868464c55648dd51cfd88fdca6c91daf2ded9504be3ace4d8b33b6f3ce"
+      },
+      {
+        "bytes": 121210880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002082.tar",
+        "sha256": "24e7b73fca5e96d6599a2bc019e110236f3516d2e439bd2e4c19aefd15483adc"
+      },
+      {
+        "bytes": 123310080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002083.tar",
+        "sha256": "d3e285a152e8689b25638d96c847d96584ba40fe50b95839e4a2d9ecab756c1c"
+      },
+      {
+        "bytes": 105543680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002084.tar",
+        "sha256": "b8cb7ffb808e2dfa4bb9c70634294b075361089e31f56770041000e596bf5280"
+      },
+      {
+        "bytes": 106618880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002085.tar",
+        "sha256": "abe628becfed6c250f4451e1907bfcbf1508cdfc088738abe88c38c0a4306e93"
+      },
+      {
+        "bytes": 108165120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002086.tar",
+        "sha256": "2b8c337ae02c264b4f8f94a2db743cbb0d647ad06d497daf2f3cb27bcf04119c"
+      },
+      {
+        "bytes": 107909120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002087.tar",
+        "sha256": "256ca46de074beb1f8abc8f2608e6c46352037f5e0cedf4f168f106fcb7743c2"
+      },
+      {
+        "bytes": 107642880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002088.tar",
+        "sha256": "3beb3b6892b9735d81ea68fa468abf575bbfbea99873d7f22c637e0c4b9a31e5"
+      },
+      {
+        "bytes": 105308160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002089.tar",
+        "sha256": "4640810c22999b61cf0560f3a97c4b35c368dcb74bdd7af7084538689cf8be2a"
+      },
+      {
+        "bytes": 104939520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002090.tar",
+        "sha256": "57b9aaff90e1aa31caf10c47aa5bc40bacf8b7ddc917b3e092e574986e8673e2"
+      },
+      {
+        "bytes": 104396800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002091.tar",
+        "sha256": "7bcde77bde0cc53ce44510cfd908d0bb2f7b9f35396447a114d8ea5259d90893"
+      },
+      {
+        "bytes": 103567360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002092.tar",
+        "sha256": "ee744ffb9bc82d9d07792411ce6d2e234e95256ba200cec9e3013463dcf677cf"
+      },
+      {
+        "bytes": 104458240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002093.tar",
+        "sha256": "5106536e232c8447ea546787e2bfec1a2729c2642353ad47f94cd4bf1feca88b"
+      },
+      {
+        "bytes": 103219200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002094.tar",
+        "sha256": "205f2d938ec0a51a731e097e2c2fb01f83bb8902fb4068f699d991d81557bccf"
+      },
+      {
+        "bytes": 105758720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002095.tar",
+        "sha256": "5c2a8088bb3bb4cd5e1ebe3eb947d0e3ced4d3028332c347db591c5ba2892d85"
+      },
+      {
+        "bytes": 105164800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002096.tar",
+        "sha256": "c07351c945824747a5081eba3fcad7f212f47133f2d65b3eaf530687ec0b1cd9"
+      },
+      {
+        "bytes": 105635840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002097.tar",
+        "sha256": "7e4e632d3f313507bfdee096ba09260fdf302e024adce9eca8dc92fcc7aa3297"
+      },
+      {
+        "bytes": 103444480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002098.tar",
+        "sha256": "8206e47e61afc31001f1201330772e6dd305c8cc8a8ae36d88ee44f2b86f49ad"
+      },
+      {
+        "bytes": 103198720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002099.tar",
+        "sha256": "79f13547ab9ccea06bc59239e4a620ea374b3c6f0402918eb890464e30ca1c9c"
+      },
+      {
+        "bytes": 104273920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002100.tar",
+        "sha256": "0318f62bd4a4baa007a65cf23e70a90095fe3db4fd43fd13e01b2ede312f7ef2"
+      },
+      {
+        "bytes": 103587840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002101.tar",
+        "sha256": "6eef3c89a0568d92b6814ca71b1226d6a23dafd48d093c3ff99a0457095c1132"
+      },
+      {
+        "bytes": 99522560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002102.tar",
+        "sha256": "67e858a5a948eeda8497b9a06a27d8c4ac4c8bd271a5b93c05ec142230db91f8"
+      },
+      {
+        "bytes": 100976640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002103.tar",
+        "sha256": "0dc3d2b347e7aa0e3174c6f8ca06a052aa82ef6b25d644da46511754230e935c"
+      },
+      {
+        "bytes": 100915200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002104.tar",
+        "sha256": "e17f49b951f9b0a6fd6948cfd576ea8fd5dedeebdd78e978d30ecab876aa3945"
+      },
+      {
+        "bytes": 102983680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002105.tar",
+        "sha256": "db9a3dd3b2c6468bceb061bbc96d0390a4a41db75ce35defdc5a74bd645042b3"
+      },
+      {
+        "bytes": 100669440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002106.tar",
+        "sha256": "89a36e51d910a3107657f52cc5d940eb94f162db7b2ef4822e45fc662c109de5"
+      },
+      {
+        "bytes": 102430720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002107.tar",
+        "sha256": "28b33b837fb5251c3695d0e47f558e475a5172173dd7489e7c8c3407ea45dae9"
+      },
+      {
+        "bytes": 102338560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002108.tar",
+        "sha256": "d99883efad9208146da6df7c53bf93e9d7e013d2dfd911acfc34ad13528eab5a"
+      },
+      {
+        "bytes": 104007680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002109.tar",
+        "sha256": "f1464619941e6688b0f135b41979e118b9dcab3aefe89c883f72ceb9fb8ba773"
+      },
+      {
+        "bytes": 101795840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002110.tar",
+        "sha256": "37c9903b62fd6f8666bafb99c6d2db6000b956a72ea893ae02073159b7d5b2ca"
+      },
+      {
+        "bytes": 105400320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002111.tar",
+        "sha256": "609ba95e9ffd9b5c5dc3a64160a52b39adb62f35e24546e38fc357deb31419bf"
+      },
+      {
+        "bytes": 103178240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002112.tar",
+        "sha256": "c1efed794ac45fd904ed6fdb0554b6a8ea11d68da48a4f345c66fdcefe037bd7"
+      },
+      {
+        "bytes": 102574080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002113.tar",
+        "sha256": "f01850f573e19bd0bd59dce4db9b5e4e80e6e40285a22c89df636bd313f3b282"
+      },
+      {
+        "bytes": 110458880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002114.tar",
+        "sha256": "bac615f0fe5a1f53003495e92b16336141f7ba2022a7b8e647a6d615ec504c92"
+      },
+      {
+        "bytes": 108769280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002115.tar",
+        "sha256": "6afdfd14ec22e861d9621b6b530b7fa73f744c43fcf81c2ab3947746ac2236fa"
+      },
+      {
+        "bytes": 108605440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002116.tar",
+        "sha256": "c5829f7ea4b13cc11dd5b16ed96c4c39f049fccb0dc44e053786a4be573c457b"
+      },
+      {
+        "bytes": 114554880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002117.tar",
+        "sha256": "6ba4bd1f59fbcb3fdd97c01221c983a66eb2f5259e828565ebb64088e6535ee5"
+      },
+      {
+        "bytes": 115374080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002118.tar",
+        "sha256": "0da5d89ffe452f1076283022eb75eb53a2f153582b40b909c9d4ea60ee4fb6b6"
+      },
+      {
+        "bytes": 112343040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002119.tar",
+        "sha256": "bb0ea63d38ece37595a58b543920a08a6ac109e187fcdddca8a7942d37a97459"
+      },
+      {
+        "bytes": 109701120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002120.tar",
+        "sha256": "d07147e1b8fbc497eb37732c38da41d77775d9fc711bd5069f88231de95c9931"
+      },
+      {
+        "bytes": 112865280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002121.tar",
+        "sha256": "f5388951c671a1d4463ef6be55aa1d1ee290a117108d1bf81705ae595b388b5a"
+      },
+      {
+        "bytes": 111032320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002122.tar",
+        "sha256": "4dc99bb6fb2a8ab4ded02e15a0aff20976c3588b021fdc5b937df6fa87e6e7dc"
+      },
+      {
+        "bytes": 105666560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002123.tar",
+        "sha256": "facd7fe8da5d2591e7a0adbb2e67fa8c57c34dd98ca2c0c667494e3727a808c6"
+      },
+      {
+        "bytes": 108482560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002124.tar",
+        "sha256": "7b61e6a509399b86ccfab61143a841a4e8c4353183c2aa930a36cbb5f2a435c9"
+      },
+      {
+        "bytes": 109189120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002125.tar",
+        "sha256": "64aa34b8cf6c7e353df5861b4a22d23c6533de49e87ccb257dd98ec745fb07d0"
+      },
+      {
+        "bytes": 104263680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002126.tar",
+        "sha256": "9fafcf14a17b0e569c104a786208215c8e82928e4d79f42def31f63d1108bb62"
+      },
+      {
+        "bytes": 103649280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002127.tar",
+        "sha256": "b493d666d8d1dc1aa6ba9044dbe759bbef2ba18ec5b67d1a70dcbc79068da154"
+      },
+      {
+        "bytes": 105400320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002128.tar",
+        "sha256": "44ebe28f89d29fdf2af492ac35a94e3aa5a730397633e63111fa65a2d22afb9a"
+      },
+      {
+        "bytes": 104529920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002129.tar",
+        "sha256": "204d3891060ce0aa8cfa37e6926629df739ce50b60b3e031d8f423979999d62a"
+      },
+      {
+        "bytes": 106772480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002130.tar",
+        "sha256": "beae0a4a90395bac738218f657842b6a25bc2b9f0e27e938c66c9735ba905ca5"
+      },
+      {
+        "bytes": 107284480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002131.tar",
+        "sha256": "db99a9017c109ae0ca2f17e271f7a0eb76525a304fd7f739f021f19621f270a6"
+      },
+      {
+        "bytes": 112568320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002132.tar",
+        "sha256": "ded97fab18ad7a6d288b6f80de082951407d6a95596e274659b64a83d18d30ca"
+      },
+      {
+        "bytes": 111288320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002133.tar",
+        "sha256": "c5d4675128cf5239fac78594fa6cb5764721b3f88e27210f9e9228f374f8fb7e"
+      },
+      {
+        "bytes": 111872000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002134.tar",
+        "sha256": "5f9f5cfcc37d84e8dfe6923168479bc2539a41d82b72c3c203667e0151cc46a3"
+      },
+      {
+        "bytes": 125562880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002135.tar",
+        "sha256": "c3478daddac538f39ed685f6834c701aa54a09d44d09316a1917887d74aab0f1"
+      },
+      {
+        "bytes": 124968960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002136.tar",
+        "sha256": "c85112bffff9d48e1741720debc5dcbe3c86c8e4b5907b6325cbe188aefcacae"
+      },
+      {
+        "bytes": 126392320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002137.tar",
+        "sha256": "8902557a2a4ad015d4988d519311e8bca0a5521bb4f6ae98c8f6e92f3f1be242"
+      },
+      {
+        "bytes": 126320640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002138.tar",
+        "sha256": "055f661f07b222b5b01447e1eea2b8150f0fa42b4653cf8896d9ce007a61d27c"
+      },
+      {
+        "bytes": 128092160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002139.tar",
+        "sha256": "a250a69562aa9dc85e67d99edf52c35c63658d36ee89dac12373666c0fdf2628"
+      },
+      {
+        "bytes": 126945280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002140.tar",
+        "sha256": "e27ef8022662eb51e83ae90989284ea90e3b0c3d1a29c8ecf39f6909123969d3"
+      },
+      {
+        "bytes": 124887040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002141.tar",
+        "sha256": "3c7482992bacf0f9f1a52dcea1f608b7234845d0f17dba3664be5ba08ee6a808"
+      },
+      {
+        "bytes": 123217920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002142.tar",
+        "sha256": "e35e48d75afa1316c54627d010d842e810bca3ab0e177b4d167a8c596fb4121d"
+      },
+      {
+        "bytes": 124272640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002143.tar",
+        "sha256": "bb03fd580437b24cfe7986bd6d9aa78ed8717e0fea12eb69df7d0c7c8cf11fed"
+      },
+      {
+        "bytes": 124200960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002144.tar",
+        "sha256": "3bc20d304165c6bee15b13c623cb8196f71c8d674498f7d1c6a2ccfcaf9e90bd"
+      },
+      {
+        "bytes": 126597120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002145.tar",
+        "sha256": "ae96de25e8259c29e75bae9d588fd34c5ffca16d23dcd8a02ba373c35544312d"
+      },
+      {
+        "bytes": 124385280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002146.tar",
+        "sha256": "1b391e9a47f61fed0a198d1d113b7631012786ee3ccd45c66a0fb93054b8dfd6"
+      },
+      {
+        "bytes": 123801600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002147.tar",
+        "sha256": "a64d61cf084875b27c5061f42bb3a2cee81ef5e28e6deab2c1e66b3da67a22f5"
+      },
+      {
+        "bytes": 124293120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002148.tar",
+        "sha256": "a48c39769e23d9d39858d1c6991369ccf0211760e9c1b1c2c5ac6824d48de6fd"
+      },
+      {
+        "bytes": 125839360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002149.tar",
+        "sha256": "c2a326dbf0a7fad015f2e3a64d7d272353000dad3787e0948ea39d309b33367d"
+      },
+      {
+        "bytes": 123340800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002150.tar",
+        "sha256": "1709848fc61f16850cb9db008b83f1dc2ae5f039ad13d200a45686ccc3b33595"
+      },
+      {
+        "bytes": 121006080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002151.tar",
+        "sha256": "d0b914685b1568cc2aacb5e6a86422e8a0b38911b0210aaa5e7a45f856ecd9c1"
+      },
+      {
+        "bytes": 124999680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002152.tar",
+        "sha256": "fc6c84f3c0e2ae71b31f661352f7d6d78c7ac049fa03e1c3742e10e38a294427"
+      },
+      {
+        "bytes": 112189440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002153.tar",
+        "sha256": "f935cee40fa9ddda33d6691ae40970d9c3d761aa04a7ad38e9a000aa64ae9330"
+      },
+      {
+        "bytes": 113162240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002154.tar",
+        "sha256": "4acf26d9fea59fca7ce4f230a2f970fc1a10c6728f69ab0c12e5e096f74dc1a3"
+      },
+      {
+        "bytes": 115640320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002155.tar",
+        "sha256": "93fb3f248cfab385fe42dd80dbcb8722f460dddf4205efe02f9a929748cad665"
+      },
+      {
+        "bytes": 113510400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002156.tar",
+        "sha256": "a4813f0ae3188234c66bff32c90ca125267e0d8903b077a23750893bcd1ac7c9"
+      },
+      {
+        "bytes": 113561600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002157.tar",
+        "sha256": "3504026c4fff79aef6fae9d203a3154364bffac8121a16ded4cd3fc03e146a1b"
+      },
+      {
+        "bytes": 113285120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002158.tar",
+        "sha256": "0216e92f7693c07ac6d9ddfd4fbdcc6f58af55f9a2e0bc8e4cde75b54d17695a"
+      },
+      {
+        "bytes": 114135040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002159.tar",
+        "sha256": "53572eba59349290dab5e55c887258b95554ab2cbee423992bdc0415cdf2b671"
+      },
+      {
+        "bytes": 111421440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002160.tar",
+        "sha256": "899455e02b02e1d6548294d10aec571b2b1ce6ad9227e38a99da498c7ae6ee4d"
+      },
+      {
+        "bytes": 111646720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002161.tar",
+        "sha256": "6541a0ce3ef7f8ee051e14da5bb26fa598393fd67ce5284b45c8e4bfb88af5c1"
+      },
+      {
+        "bytes": 111206400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002162.tar",
+        "sha256": "aa8d4d6e78db518e05a156dfcb6169d24bb06933b5774ae19b04de06820b24ad"
+      },
+      {
+        "bytes": 111554560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002163.tar",
+        "sha256": "f7169adb17fb9a3e74d807a68812b9eb89788b9c4f761e28a85aca1105083b09"
+      },
+      {
+        "bytes": 114739200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002164.tar",
+        "sha256": "4240f4f126d703a65cdd2b23dfc1aaf0a855c720b9118a2f5b7cd0936999fafd"
+      },
+      {
+        "bytes": 113981440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002165.tar",
+        "sha256": "fdf1ccc303d596f0aee5b84179ee1b108776b2631d3967b6adae12fd25e6ae1a"
+      },
+      {
+        "bytes": 116203520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002166.tar",
+        "sha256": "ed736caec8280513caddc8edc4a2824b9e8c1cf1a098f1cb22a25dececebee49"
+      },
+      {
+        "bytes": 111728640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002167.tar",
+        "sha256": "d048f3204b463aae76a15a41cfc73f5a21dba00a19b98cb7c74215717d5e9567"
+      },
+      {
+        "bytes": 113889280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002168.tar",
+        "sha256": "dc4c97420aabf3524d4dbf17ca716a85bb619acbd68af24555e27c7e3b425f0f"
+      },
+      {
+        "bytes": 114882560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002169.tar",
+        "sha256": "6c0bbfb2b8133dc3602386214e8e7d638da77d5a4bc5054a99508b360e4da836"
+      },
+      {
+        "bytes": 111411200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002170.tar",
+        "sha256": "cf0108f3ee1175dca12643ceae66744f47cdc3477d91b4d5b923b56e5a5c932b"
+      },
+      {
+        "bytes": 110448640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002171.tar",
+        "sha256": "b3407570500b9ce570aab00c3135d73c2a2c9a1249748682ef805c56717f5dde"
+      },
+      {
+        "bytes": 108206080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002172.tar",
+        "sha256": "ab78bd3f116b0d908f77a9899c5ac04b5af7ebbde9203451f41cb696aa3388fe"
+      },
+      {
+        "bytes": 111820800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002173.tar",
+        "sha256": "c00ab32123e13c8d11834c889ceca23f8d4becba3b993abeeee9a897dd432e05"
+      },
+      {
+        "bytes": 113745920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002174.tar",
+        "sha256": "2c97ee78a9424bfaaae4d4e3a7366144b1103a03fb4c4eafbbab6153e5d24de7"
+      },
+      {
+        "bytes": 125276160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002175.tar",
+        "sha256": "0aef42f69670a35e8fa024cbe0ab30797514852029ae0616d4ac1feaaca3fc43"
+      },
+      {
+        "bytes": 126402560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002176.tar",
+        "sha256": "5c72fdf84f82bbd8a2880fdcf0cdaccf57d5181e6711c965a77476e62b0d4121"
+      },
+      {
+        "bytes": 126955520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002177.tar",
+        "sha256": "56278081f8ff256e60d526345f64c1043f65351a443aa54b2f70d433f646248a"
+      },
+      {
+        "bytes": 124928000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002178.tar",
+        "sha256": "2468e3377f5a7205252d27613ccb16ab2e3a156cc9bb4d808358162303b39a47"
+      },
+      {
+        "bytes": 127651840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002179.tar",
+        "sha256": "1336f0b88d41530ac21d590d2e49d5cb159c4065f07d0d77ee3ab461049d955b"
+      },
+      {
+        "bytes": 125480960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002180.tar",
+        "sha256": "8d7da78d7d0fb1c74f7387c37187192c98545ebe0bd04597224e2e70a4686334"
+      },
+      {
+        "bytes": 123822080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002181.tar",
+        "sha256": "0a88e39d66b1ac0e017a5d29db6b49bb515f973d574f4209053ca712bbbcd761"
+      },
+      {
+        "bytes": 125941760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002182.tar",
+        "sha256": "6099c8c9a27246186354b291c644d5c1c1965da272d96e402e4d9de5edef9a8e"
+      },
+      {
+        "bytes": 126320640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002183.tar",
+        "sha256": "b8f259805f43cc74aaae5a037a1da8a48f82176308420c713715b00550a8a66c"
+      },
+      {
+        "bytes": 125921280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002184.tar",
+        "sha256": "0b06b4eec986e77e5a9b9d6ec519f365aceb758966edd2c60565f25e5be4bfca"
+      },
+      {
+        "bytes": 128020480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002185.tar",
+        "sha256": "c65f3ef3ea2ea283243c83305684b765d21685e97f396fe63fd91221bc028994"
+      },
+      {
+        "bytes": 124989440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002186.tar",
+        "sha256": "6350379c886cdf3e395e11a3c6367d50874a07f1b894d99e70fb96829bd3b7cf"
+      },
+      {
+        "bytes": 123934720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002187.tar",
+        "sha256": "f3b5158e4716a58284d57b2d33d9add549fccd50b86d36987bd4d4d957642568"
+      },
+      {
+        "bytes": 120975360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002188.tar",
+        "sha256": "24bce5d7be9540104be2f77e917c971c94d562962776c93f8f2639ec393828f1"
+      },
+      {
+        "bytes": 123658240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002189.tar",
+        "sha256": "4f312030640ce42ff062aea02ab5742a6231f03b7d03a0cd0daeb0e9f2ddf707"
+      },
+      {
+        "bytes": 122449920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002190.tar",
+        "sha256": "dba4e2050554546eeff0df5aeb219abd82906d3f15f1425a3800c3d4313a7e42"
+      },
+      {
+        "bytes": 121886720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002191.tar",
+        "sha256": "99b490801c42eaebe0e33c321199bc52d88f83670665bd85e579548542535eee"
+      },
+      {
+        "bytes": 123719680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002192.tar",
+        "sha256": "65c9fe909c8907f43bead90020fd42e3a204f046e62dc8f142682a9cd2690a26"
+      },
+      {
+        "bytes": 120842240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002193.tar",
+        "sha256": "5f079332d58281257e9c09c2dea6b17a02cb232192461b4a9d714460d146dd24"
+      },
+      {
+        "bytes": 120637440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002194.tar",
+        "sha256": "59e17a33ba1126df2ebe99657c3f5b011f72a299464a63370bcae705b5ce7a93"
+      },
+      {
+        "bytes": 124815360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002195.tar",
+        "sha256": "979e533ef5418b10c0a5eed8ba9797a36562683529c203e6152791d4201ed81e"
+      },
+      {
+        "bytes": 120371200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002196.tar",
+        "sha256": "da6f4577cade6b64e4c8ca6fd549ab9407baf74dde657741a209ceeaece68a1b"
+      },
+      {
+        "bytes": 118712320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002197.tar",
+        "sha256": "f13c547626a228574b025202481a4a18dce27281f554c0dd9150701bf33d2a84"
+      },
+      {
+        "bytes": 118814720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002198.tar",
+        "sha256": "17835b4b0477ec950557fe97a5c3b2c67ff8a0a52a7ad1dc88645e2692b4b44a"
+      },
+      {
+        "bytes": 119060480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002199.tar",
+        "sha256": "63c8151c500755a055485ff3a46d47d1d5601ea19ffa44f64cb5c0b82cf7b296"
+      },
+      {
+        "bytes": 118978560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002200.tar",
+        "sha256": "b04e59c560189723195224751351775c2490d01eda75a435788bb8ff2f812695"
+      },
+      {
+        "bytes": 118773760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002201.tar",
+        "sha256": "556787132366d27a849105885432101a7f305933c21daa0dc47167e5e4854f13"
+      },
+      {
+        "bytes": 117463040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002202.tar",
+        "sha256": "750d7a8f127f7964642c1eef2ce9918636b5714ab228c2f2f9bb7ee0b160364d"
+      },
+      {
+        "bytes": 119736320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002203.tar",
+        "sha256": "59e27f9db9134e607602e1f528d3b21873cd12c0a9f5df5297f9002aebfa93bc"
+      },
+      {
+        "bytes": 117923840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002204.tar",
+        "sha256": "48cb559df37131ac0317d8a4143765f4da0b99365131101e3b260c93db9c966b"
+      },
+      {
+        "bytes": 117012480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002205.tar",
+        "sha256": "9f15b9a7ad4908dfe3ee54b877433023663ca8700f6b396679adbba9a1f7d9ca"
+      },
+      {
+        "bytes": 117381120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002206.tar",
+        "sha256": "94c1314f000403e8817f0ec12729251094f979b7e1bab3fd44238bbf2e0e582a"
+      },
+      {
+        "bytes": 116582400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002207.tar",
+        "sha256": "d0d769296aa31243e68d04751878afef79f6088977fc30ba98cc471977e29690"
+      },
+      {
+        "bytes": 116367360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002208.tar",
+        "sha256": "ce328e98a1d98be2dc07037352f4f1186af3d7acc5e11a9741b0068765083fd6"
+      },
+      {
+        "bytes": 118681600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002209.tar",
+        "sha256": "1a37128b5c1c6cccb4a25470bd51178ac620a7bd364669d79d39a9f0d58a36ed"
+      },
+      {
+        "bytes": 117975040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002210.tar",
+        "sha256": "7752acfd1159dd3a6ed60e36cedfb90230bf0836cb46a5e734a2126f2cc7fa96"
+      },
+      {
+        "bytes": 117923840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002211.tar",
+        "sha256": "432e006fdfa28365bfa365a879682d5c4d4e76e03a706ea4a54aba06b6967735"
+      },
+      {
+        "bytes": 119992320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002212.tar",
+        "sha256": "0bdc95898ffe27b9b1bda8bdabd54551cd7ed66e50b3b300f7c8f1d452e30c6a"
+      },
+      {
+        "bytes": 119715840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002213.tar",
+        "sha256": "ca1431071ebdf7ceb101e2de174cd90540249f35282c9214c8fed3e7edbe252f"
+      },
+      {
+        "bytes": 117934080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002214.tar",
+        "sha256": "72bebc944feb7b907b802303bf8cc6235dc3699295414c183f0c43da04f4673c"
+      },
+      {
+        "bytes": 117145600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002215.tar",
+        "sha256": "2e615300bd36f5eccd2312406d65a8cd265a1ba865f2a05ec7a90bda7efe4e3b"
+      },
+      {
+        "bytes": 121026560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002216.tar",
+        "sha256": "b9153521baf347c0c9a5af6c96b7aad3d65c625f538045832624b47a964c4f6f"
+      },
+      {
+        "bytes": 117698560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002217.tar",
+        "sha256": "ed3f66da5d11c39c076f63b88d8d48db24028f7ec4cf8f4ab9a99351a9361a47"
+      },
+      {
+        "bytes": 114677760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002218.tar",
+        "sha256": "13a47c5b70ec3aea1b484b24a174ccf2d44cb42973318c3a21ae72f8c7e18ace"
+      },
+      {
+        "bytes": 115445760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002219.tar",
+        "sha256": "1fc315411bbedc5a1079a3a04beb8a77cc024ed11eccd52aa413b0a72bed6c53"
+      },
+      {
+        "bytes": 116582400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002220.tar",
+        "sha256": "3339cfd6ab571ecd3a16532a5ab0eb7570a162cf38fee5bdc0b399c9d5db7d0b"
+      },
+      {
+        "bytes": 115855360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002221.tar",
+        "sha256": "2fab14ad185c7cc61a7134ce572ff6ed89223c8859eb2d6dc9ac041c7166d1db"
+      },
+      {
+        "bytes": 118722560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002222.tar",
+        "sha256": "abfe987c9fbfaf66d4177bb6a650a47d6042e1ea26109a5528470f242f2a3afc"
+      },
+      {
+        "bytes": 118466560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002223.tar",
+        "sha256": "839e052449580b9f15d2e515d786738252a0c1ba7a6d3df35524d0beadccd52c"
+      },
+      {
+        "bytes": 119582720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002224.tar",
+        "sha256": "2091f609516153bd23130ce47f80c1563e6634d553c763bc5e82d99f7d7f22f4"
+      },
+      {
+        "bytes": 118865920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002225.tar",
+        "sha256": "c188d984228347bcf6573f0df74cc90fcd72f768319c72d2054ff5ce7cb748f2"
+      },
+      {
+        "bytes": 108933120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002226.tar",
+        "sha256": "91829fda525ddc4636ea18c3ffbd666d4a7dc19432afae40a831c14934ccaa81"
+      },
+      {
+        "bytes": 107642880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002227.tar",
+        "sha256": "dfd5147f21cc97e5b14bfa8db17d3460758a5dea0de813135a5f5f64cb8387f1"
+      },
+      {
+        "bytes": 109875200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002228.tar",
+        "sha256": "02e5defc20fcfa4b739d47aa435bc1494b47fc6f0361267487bab8eb4f2310e1"
+      },
+      {
+        "bytes": 104888320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002229.tar",
+        "sha256": "1f07921d8496d9a5a83207b64fd4eb1f6c34ddf3c360ad1739c53fd6fe6cda8e"
+      },
+      {
+        "bytes": 106127360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002230.tar",
+        "sha256": "399e52a3f720c7c18850188abe5f47cb1c4adc6210ab61ab7bb67198c505e5c2"
+      },
+      {
+        "bytes": 106373120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002231.tar",
+        "sha256": "a2e26ac16ad99c9bff883b70ee1e90e6edb10d2b16d236c611d83faa8ab53983"
+      },
+      {
+        "bytes": 104069120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002232.tar",
+        "sha256": "3170060dc5d3f0e606e5e90e98c17ddb07d5577a41d1d7ff1eb8b4636dbf5429"
+      },
+      {
+        "bytes": 103260160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002233.tar",
+        "sha256": "f93763d5c42697595047a37d22f096372b3f963c1fe11b06324a54e1ff763080"
+      },
+      {
+        "bytes": 101335040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002234.tar",
+        "sha256": "9529aeb8986d8320d994e8d806ebcafcb1df00eaabb33db1dd312a0a9838e21c"
+      },
+      {
+        "bytes": 102891520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002235.tar",
+        "sha256": "a2bd8e37f85956afdfb4186e5dba70fbfbcb1039c1f887b04ce74ee44772a2bf"
+      },
+      {
+        "bytes": 104990720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002236.tar",
+        "sha256": "e5ec8a894de0cc597d9b7262c41f4871540c452492c64c6d4d7c83c03e03e889"
+      },
+      {
+        "bytes": 107560960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002237.tar",
+        "sha256": "c95170d4a05915094adea52253f473a9139a1f7a5cac85d7fa8adc812d82d688"
+      },
+      {
+        "bytes": 106977280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002238.tar",
+        "sha256": "86d58135fc80bda097c8e28297caf0ee41fc888bd6ca34d3471de8d77ded0fcc"
+      },
+      {
+        "bytes": 100352000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002239.tar",
+        "sha256": "3d8cfc470d85db47a8a0ee044b602932567653ab84382b4a676adeebd61073ec"
+      },
+      {
+        "bytes": 98990080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002240.tar",
+        "sha256": "f5ceee499b7bf22747035e05e08921910350a84e3264380fee9da73e40183739"
+      },
+      {
+        "bytes": 101683200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002241.tar",
+        "sha256": "f4e0249990e7592d6dbd9e8d83950fea9a90783ae34aff0ce36c78fbbea854f7"
+      },
+      {
+        "bytes": 97761280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002242.tar",
+        "sha256": "ca5b32a5720cc1f28c6323cbf1c7c075dd765be1e254567e844fe1956da20ffd"
+      },
+      {
+        "bytes": 102256640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002243.tar",
+        "sha256": "97c2e58412e4ab0e25f744034ef032f21b9d591b6f83cb76bc76a2c9f03de67b"
+      },
+      {
+        "bytes": 116377600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002244.tar",
+        "sha256": "e2041f0989c5a73066349c57ca9dc45d0351a41072b836e87eba865ee83f9145"
+      },
+      {
+        "bytes": 115548160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002245.tar",
+        "sha256": "c5aa00fd822c0ebe815e574b2a0a32aa508ef69d49e6f0c1912ad603387a5acc"
+      },
+      {
+        "bytes": 115609600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002246.tar",
+        "sha256": "91660decf35ef6dc84ae779d71561f162d58a582229e1ef027f8bc6c3ee51a6f"
+      },
+      {
+        "bytes": 115384320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002247.tar",
+        "sha256": "30ad753967267d6e62e45f756fb103140d59bc47a80f7df7e9b70ac85fc44afa"
+      },
+      {
+        "bytes": 113633280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002248.tar",
+        "sha256": "7a93a400ba2917fc0986f5e2b6e492a531db3fb2de785ad82504cae4b5c92ccd"
+      },
+      {
+        "bytes": 116961280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002249.tar",
+        "sha256": "ded754b5d7d920a3fe90f5dd6a8e920e793211c72d00bc0c92bd9479f0d40858"
+      },
+      {
+        "bytes": 116684800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002250.tar",
+        "sha256": "2e46bf9ddf393a981dfa4ce87c4b3f0e4d6b5f3f84b3571ebdecee4675788ad2"
+      },
+      {
+        "bytes": 117022720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002251.tar",
+        "sha256": "a76413615699f172e0f9a2d11bac2141a7ea39ee429061d2aa9bbe5a1ee6c32f"
+      },
+      {
+        "bytes": 115394560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002252.tar",
+        "sha256": "401f136b1290f58fbde566a6d7af67c2978a8de75e55571c796f08e16b5d5546"
+      },
+      {
+        "bytes": 114309120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002253.tar",
+        "sha256": "afaa2f3c57b2232c05992e2311403ad081e012c9ad5c83eb307f33b6cc416348"
+      },
+      {
+        "bytes": 115957760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002254.tar",
+        "sha256": "121d7f59e065f80c2f4d79adf7567dbf6d6d2a4ba582a495a4e95ab2857a1505"
+      },
+      {
+        "bytes": 115404800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002255.tar",
+        "sha256": "fbb937f041a563e716acffdbff15ebe8721b5e7f467ed7720522fc4014cf1683"
+      },
+      {
+        "bytes": 92764160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002256.tar",
+        "sha256": "307045bb98664e002a099ba5f1285724f562667538ff003180113bc8fa8e294a"
+      },
+      {
+        "bytes": 93276160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002257.tar",
+        "sha256": "ed6be0d9a9f1634bd783ee60d11d3fbf5c025d607a3f17222b5b1b0b51959012"
+      },
+      {
+        "bytes": 93122560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002258.tar",
+        "sha256": "0819f5370c505a76ed53e4279a67f6aa03b1c7ded4d130eb99efbd2c3f723f5c"
+      },
+      {
+        "bytes": 93900800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002259.tar",
+        "sha256": "5ac7f6bd2896213bdc6855013f1c027b2ffb8bc77de458aec71b186c6b3bd52a"
+      },
+      {
+        "bytes": 92938240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002260.tar",
+        "sha256": "42dd2126dac115482d13afd27a5d58c866d47cf7e0059bf2783dbf3c6a435aa1"
+      },
+      {
+        "bytes": 93450240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002261.tar",
+        "sha256": "ab31c5d97048610c3cddcf60b48500c3d33de77d6bd97ac4c357a4e064f35090"
+      },
+      {
+        "bytes": 90204160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002262.tar",
+        "sha256": "8fe3a0efce350067e200448c4fd7c95b0cdf3c317a932146b0dd2683ce7cdcec"
+      },
+      {
+        "bytes": 99338240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002263.tar",
+        "sha256": "307532a739729b4e35f9575b810b2feab87d10bbce8c45f7ffe3d9f9a39c91d9"
+      },
+      {
+        "bytes": 93184000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002264.tar",
+        "sha256": "3beb270c832a703593fb4a9a2c00a8b15f03d662a6295d98fb8abbf29d446393"
+      },
+      {
+        "bytes": 98068480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002265.tar",
+        "sha256": "b12cd9e0203b02daecb36e915342680c6eb0322ab72f12f4a38ee6a32d194609"
+      },
+      {
+        "bytes": 96327680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002266.tar",
+        "sha256": "84a1a0d09ed4872184de14cd6fc0cd51644f11560349a8e0357f731dad13adbd"
+      },
+      {
+        "bytes": 99676160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002267.tar",
+        "sha256": "f58a485ed3290292037c498cb4c58445ffd81126b57e1b198d828204cd99cd0b"
+      },
+      {
+        "bytes": 95057920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002268.tar",
+        "sha256": "4f9fa30a81e628b092c22f74aa8d575251d8c4bf009f1a7ea533e67f37f3922c"
+      },
+      {
+        "bytes": 97771520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002269.tar",
+        "sha256": "097c3674ce8587ec539bdb1d382f0e6c70c930938cc167b5185ddf38fbe1ecd8"
+      },
+      {
+        "bytes": 97024000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002270.tar",
+        "sha256": "86217169c70d34171e29b70deba2303f6a7a91049442427b21ca7787f3978a9f"
+      },
+      {
+        "bytes": 100167680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002271.tar",
+        "sha256": "7854a67197746e70c0777d336239b9c793f60a54b2b62c1ca8c4dfdf5cd53bb2"
+      },
+      {
+        "bytes": 99676160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002272.tar",
+        "sha256": "3c07d2a1e61c6bb073836c990180dca95f98f4d62a18f91785cb9cdb47a26cff"
+      },
+      {
+        "bytes": 117647360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002273.tar",
+        "sha256": "825d154b023e51722f9fb2eb2fbc168f5a9d565a0f74680a41368653856c6207"
+      },
+      {
+        "bytes": 119633920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002274.tar",
+        "sha256": "55ef51f39b35ee3bc0c5a5b3c8026088670b5610c2084f800f091c2acb7486fc"
+      },
+      {
+        "bytes": 116971520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002275.tar",
+        "sha256": "effec51f164075563587374fda52cacc1b2d55ab6ceb246111631a765e6fd5dd"
+      },
+      {
+        "bytes": 115752960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002276.tar",
+        "sha256": "392d15b545f4c1525630a8c1b399c56c3a2622177885ef84712b47c4420912d2"
+      },
+      {
+        "bytes": 119869440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002277.tar",
+        "sha256": "393c5e5693d3c3c7a74efee142d9390751f7978c42606010e3175755debe51f0"
+      },
+      {
+        "bytes": 117575680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002278.tar",
+        "sha256": "4c148590b105ff9b1295e387028b8b05ef707ee0866916e39c90f74e49174705"
+      },
+      {
+        "bytes": 120463360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002279.tar",
+        "sha256": "84c1dfe0e2e8c9231f8812c90253d52e713c15133a8629898e126604448210c8"
+      },
+      {
+        "bytes": 120821760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002280.tar",
+        "sha256": "8d2e4b1bdbfcb14f33fd91e9dbdfa220963e83904caf0fed2dca89aaea9357bb"
+      },
+      {
+        "bytes": 116572160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002281.tar",
+        "sha256": "e44c1b833b3fd184c2af6bfda693ad02b44c3041802a024267f6d3670b192ade"
+      },
+      {
+        "bytes": 116224000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002282.tar",
+        "sha256": "4b16a6942314ea8b9f8a3efb3869c2b64c42f15fed80787cf1012df0ef59043c"
+      },
+      {
+        "bytes": 118609920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002283.tar",
+        "sha256": "68ebb28b7ebbe1fe96a549539589d08e439ed934c0429af25b07100f7484bd8a"
+      },
+      {
+        "bytes": 118077440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002284.tar",
+        "sha256": "312465e7515c655b89a5bce5c39eda8cc6bb84d2ec9d1d92d916d4ff54a2159e"
+      },
+      {
+        "bytes": 120125440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002285.tar",
+        "sha256": "dd0666e5ebcdb6b9d9beb74013ad04d34f172022c962ef889ba480637ea34a10"
+      },
+      {
+        "bytes": 120064000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002286.tar",
+        "sha256": "9252a95055ed8594742ca7fc672e50e4616eb3546891e5b2a79b4a98c4914cc1"
+      },
+      {
+        "bytes": 118333440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002287.tar",
+        "sha256": "e815ab3f45b6492774f9bbca70c72fecad1865bc34318f1a310b558b2f02d664"
+      },
+      {
+        "bytes": 118323200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002288.tar",
+        "sha256": "64290bc1a928cfcdba21fb77512675aea5b1bdb3a723018a685167a6d9890605"
+      },
+      {
+        "bytes": 121722880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002289.tar",
+        "sha256": "e0407d91d2ed9abbec2e932c5c9cc7a8625f4d20ab909bd359dbdc34260a1967"
+      },
+      {
+        "bytes": 120279040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002290.tar",
+        "sha256": "7ac977a77c5386cabe253d4f40c0fc5c7b3a26ca93793f211d8437394bd6c447"
+      },
+      {
+        "bytes": 110448640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002291.tar",
+        "sha256": "f67c13a01cc64eaf5d127c6fc6072f9993142dc8181ffefc6158870b22e579bb"
+      },
+      {
+        "bytes": 109322240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002292.tar",
+        "sha256": "e76ca5ec3ed79f55ddaba4a4b77c125039fec37d453715ea80729d0b3818a175"
+      },
+      {
+        "bytes": 109496320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002293.tar",
+        "sha256": "b3964e6c92b568cf498e46411355e7c0a081c1ad605c1f45ec3f35625a57a81f"
+      },
+      {
+        "bytes": 109772800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002294.tar",
+        "sha256": "48e18c712997bbe37c6d789da64e23a291ab33eacbd0795434eadcf45a68d18d"
+      },
+      {
+        "bytes": 112424960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002295.tar",
+        "sha256": "2c229d0bb6e8a7c0b061f2cbda8e803d6dae662b6e16150f3e1d746ddefaa697"
+      },
+      {
+        "bytes": 110438400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002296.tar",
+        "sha256": "3aecf49b21b004a356460c6d7234f1795ade5de477be1b8bf28ac137b4910f95"
+      },
+      {
+        "bytes": 109219840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002297.tar",
+        "sha256": "2cf2443527b991c6bd1c2c5e1da174cf2fdaef29b2c47d033f32ff8973bc8a1f"
+      },
+      {
+        "bytes": 109721600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002298.tar",
+        "sha256": "41e03c385a9bf0b8b0c82115b587e8828253e2c136ed4d11f4cbb066d6acc0e4"
+      },
+      {
+        "bytes": 109148160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002299.tar",
+        "sha256": "c27eca86728d026848db46c621641e5e2103f1a4cc913f4a4c04ad7b473ac3ac"
+      },
+      {
+        "bytes": 109629440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002300.tar",
+        "sha256": "ce258f38d9b0b70dd0056f76dbf41c118a3b521a474de2a10314d927628726e1"
+      },
+      {
+        "bytes": 108810240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002301.tar",
+        "sha256": "438ab8216d00c0ffe4911529a4cecb0acae535fad1cb72fda80edaad19f849e5"
+      },
+      {
+        "bytes": 107448320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002302.tar",
+        "sha256": "3223fb48ccf55bcf0351373463cc0d9043955e22a040ab33e968999d525673f1"
+      },
+      {
+        "bytes": 110233600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002303.tar",
+        "sha256": "913f912fb272197b944b6f812de50c2fff6e4eb3dd20047b2dab2ed16859c146"
+      },
+      {
+        "bytes": 108851200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002304.tar",
+        "sha256": "f651ca43d1b73d2a1b7b693c301f9e2348f8fce0e10e5db30c4bae604d2585cc"
+      },
+      {
+        "bytes": 109946880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002305.tar",
+        "sha256": "130c0504d113e8f7a48de8e85946993c2b2b40f8578f153a80f61ac0ee9d06ae"
+      },
+      {
+        "bytes": 107468800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002306.tar",
+        "sha256": "12dbf21bdb8ca8ef2b7d79f5e9f91e3b1e54d27bd9dd32f28b8780627b7ed6d0"
+      },
+      {
+        "bytes": 107950080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002307.tar",
+        "sha256": "fc3cdd9ff50e2add14c691d29da4e6df1bae30e82a622c401687cd70c432acbb"
+      },
+      {
+        "bytes": 109496320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002308.tar",
+        "sha256": "7fa9649bfb0fb5a3e4f969b8a220150eeda75c61e95833ff333258d9be15dda9"
+      },
+      {
+        "bytes": 107161600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002309.tar",
+        "sha256": "1f30e6a010cddf6851871c6c84b1fb4c0cb0449d0bd2852f2612d3d87dc08f87"
+      },
+      {
+        "bytes": 109578240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002310.tar",
+        "sha256": "e076a70e3a28178732229b7501007d2cb812e9face1ef1c96b07503dd301a544"
+      },
+      {
+        "bytes": 117207040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002311.tar",
+        "sha256": "d17057b61a4e0c29f93cc355c3a055e44ffccc232f98d564b74358cbcdd5c7ec"
+      },
+      {
+        "bytes": 115200000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002312.tar",
+        "sha256": "fe5700f70eb0de8e61d88757eb0448fe4ce2d57cf51972d377e482737ea51720"
+      },
+      {
+        "bytes": 114739200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002313.tar",
+        "sha256": "18d9a4c4adbcf750ac9c147e2c5abbb009fe3720f2a8a805e032135ce316c361"
+      },
+      {
+        "bytes": 116910080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002314.tar",
+        "sha256": "e2e0077d4fecb62db148fedb49627343e9d8532dec4bb7c908081deffb96f378"
+      },
+      {
+        "bytes": 116961280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002315.tar",
+        "sha256": "07a0781b0373872c6814e8f38b41862bffdd7749fe308439bdc53ec4f79878a7"
+      },
+      {
+        "bytes": 90449920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002316.tar",
+        "sha256": "e680eaab82b709b3b81f0d178cd74ea1961f7a12671a893095413d2a31a13fff"
+      },
+      {
+        "bytes": 90869760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002317.tar",
+        "sha256": "1192481ef072d804285738f4f1d27ed64c12f73e6b50f0dc16ca789e631ae185"
+      },
+      {
+        "bytes": 93286400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002318.tar",
+        "sha256": "b7898a63f4cb31da2f652114dac4b43f060b21849e7d5a5fa3432332576ed77c"
+      },
+      {
+        "bytes": 93777920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002319.tar",
+        "sha256": "a4f02dfb4ef214622cc4b59a378587ff6e43b066f3faf86b41d2148dd1eed9ef"
+      },
+      {
+        "bytes": 119992320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002320.tar",
+        "sha256": "fc59043e6f9afc88dd0442202dfb893ea399628cb6759c9ca21bb8bb31106ff9"
+      },
+      {
+        "bytes": 120576000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002321.tar",
+        "sha256": "78c71595c62ffa0592f67fd29f97f053a4dc0320c8d21bc691ecf38faef0b9b3"
+      },
+      {
+        "bytes": 118886400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002322.tar",
+        "sha256": "9da9b2b5c43ffbd532e3cb790f7c48802e4b3105d017e319cc44d5282ed0bd99"
+      },
+      {
+        "bytes": 118241280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002323.tar",
+        "sha256": "fd89b301ad5dbd87202acfae37574a6b5167f92ab0a0eb5a29cb9c09ff526226"
+      },
+      {
+        "bytes": 120371200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002324.tar",
+        "sha256": "fe5e699824546743a2745b8cf1182a10911b1f1bc5568aa2fad5d98afecb7859"
+      },
+      {
+        "bytes": 119613440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002325.tar",
+        "sha256": "328d91ffb7eaf3586a5469ac6773984e1009a2403845df87a321c714cc65be43"
+      },
+      {
+        "bytes": 117166080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002326.tar",
+        "sha256": "b327a353709fb52d1e67ac086b0ca4495c95554be06ad7262b20e6005629171a"
+      },
+      {
+        "bytes": 118906880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002327.tar",
+        "sha256": "507b16983cd9a4fcf5c15b73b0593977a27635624660cd944a14bd5b89cb29d8"
+      },
+      {
+        "bytes": 120156160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002328.tar",
+        "sha256": "f5312421815aa9cc498cf8426426ac47b400c6ab8e756012c17b03189ee1fc03"
+      },
+      {
+        "bytes": 120545280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002329.tar",
+        "sha256": "3404225a73a6097bfde06d7e93e2389ae341a0498a6a6e3491aac2a2c919f744"
+      },
+      {
+        "bytes": 118804480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002330.tar",
+        "sha256": "dbbc48d4ba1aa80ddb2d13a30bde5db3207636bf134d6c24c7a7d6db41d99fa6"
+      },
+      {
+        "bytes": 117800960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002331.tar",
+        "sha256": "8c0eab498a152f21aea2fb62857c863d38fb0f14953437d3db7714dabc1f0d75"
+      },
+      {
+        "bytes": 119971840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002332.tar",
+        "sha256": "fca662b7484f71eeaa41699ed2d6c0afe7e1c4e8adfe55fe1ca4e69afa3a79ad"
+      },
+      {
+        "bytes": 117114880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002333.tar",
+        "sha256": "ad1c3960e54ae87b4b1d46d56b0f28670f0b47c9452270927d0712ddcbf44bc0"
+      },
+      {
+        "bytes": 108718080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002334.tar",
+        "sha256": "97ab91a7235347262af382880f3292dcbb4ba0e337388d3a9f8d7f67a11bed92"
+      },
+      {
+        "bytes": 110223360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002335.tar",
+        "sha256": "2a40779af52ff4b7f1b2e71378dacd1176170cde2c846399d63e86d40393fb02"
+      },
+      {
+        "bytes": 108503040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002336.tar",
+        "sha256": "357639895078db7870be6965968976a737821de436f7d8ec1f3dd6a1c2ce3662"
+      },
+      {
+        "bytes": 109486080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002337.tar",
+        "sha256": "ee8a7f1abcb6972ef5c80815777e48f30fff311cc5a7a3ad0ff46e8147d109ec"
+      },
+      {
+        "bytes": 111677440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002338.tar",
+        "sha256": "5d55870db821afb87fbaf8600ddcd80f1213e933106de9b3d3cc135c7ad2d68c"
+      },
+      {
+        "bytes": 108584960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002339.tar",
+        "sha256": "6bfcb08de77a7cb3bc21beb2128fe0e540868bd9aa69c77f0669bdd7c442662b"
+      },
+      {
+        "bytes": 112107520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002340.tar",
+        "sha256": "8bebff3e80e1dbae0bf5d37be2e775c6b7f39b42457997dcfcbcd26b41931e01"
+      },
+      {
+        "bytes": 109916160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002341.tar",
+        "sha256": "b57d4d16ae5a2521ca3bcdfe90566cf9cebfe295c7425ab2485c0119f08301a6"
+      },
+      {
+        "bytes": 110417920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002342.tar",
+        "sha256": "4667d53aca80e9e8063c1a15ab3b5a6277236147f28e89548de27ce7acf081a0"
+      },
+      {
+        "bytes": 113940480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002343.tar",
+        "sha256": "a32e0af1083600bd6cbb404d0e205cad97d1f8570f413f0fdd5fa24d11a998c3"
+      },
+      {
+        "bytes": 108625920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002344.tar",
+        "sha256": "2e22d3ab6f11ab110ef29bc6cd6717f3a8a41cdb0c75085fbbd6eb91198c0556"
+      },
+      {
+        "bytes": 109639680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002345.tar",
+        "sha256": "eda17d67ff9bdb3f95b1045ca77ca6c3a605a48d1e66a7a597ea3035a65532b3"
+      },
+      {
+        "bytes": 107161600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002346.tar",
+        "sha256": "7f5ed93d6613472d1ccf6bdb0d0a309db01eb73864d4f44024421264f5c2850f"
+      },
+      {
+        "bytes": 108144640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002347.tar",
+        "sha256": "f30a22fa669110d2cd0710a938f476a20cd1f24b3e90f0602d7ba941a9c03f8b"
+      },
+      {
+        "bytes": 108544000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002348.tar",
+        "sha256": "7a9cb20d653afdb108ed91b6ce109a039ea092f2328a5cd6898f6ef1c0ea1f74"
+      },
+      {
+        "bytes": 107991040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002349.tar",
+        "sha256": "1d65b49a1aeb95f1523c2af1c992cd741882124d84810c1a0e0ff164c5c727e3"
+      },
+      {
+        "bytes": 115036160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002350.tar",
+        "sha256": "be5914a5a2b3bcaf21912c1373675610f4ff3b1ec25ef12350791af8250ba9f4"
+      },
+      {
+        "bytes": 117524480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002351.tar",
+        "sha256": "ddec4e282ec1c759670ec01afd4479fe3e8b5f7fa4bbe4ed3591e66309f2c3a9"
+      },
+      {
+        "bytes": 114247680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002352.tar",
+        "sha256": "d6c656c036a2094deb973547c414a4f669bb1aecb600b89a47beba0ee30bc11c"
+      },
+      {
+        "bytes": 117196800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002353.tar",
+        "sha256": "59a0460acc4ee4a7afed92eb4a06fdf677f27e66ffd04f6ebde30e7744aaa4cc"
+      },
+      {
+        "bytes": 116817920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002354.tar",
+        "sha256": "cc8f572e64b456ee1fc6c3cf52c4cbe76cd78e68fcc4235902a58bb805d5ebe9"
+      },
+      {
+        "bytes": 118487040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002355.tar",
+        "sha256": "478063a5a4b766df2216ec99a5cafb08fe34a4b43621d6052c1444a9d30e97c8"
+      },
+      {
+        "bytes": 118108160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002356.tar",
+        "sha256": "678caef8f9a61912dd60d6aedce9737fbdb876841ede81451765011a4b91bf8c"
+      },
+      {
+        "bytes": 119664640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002357.tar",
+        "sha256": "cd9b6c44d628ba84edb7fde4ac0bcd57dda06e9843b457a0c36c2310a0511e6d"
+      },
+      {
+        "bytes": 120145920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002358.tar",
+        "sha256": "f589e546a7bd964abc6707a89d4938b6837ca3bca5712572d20b6b2e4a088ece"
+      },
+      {
+        "bytes": 115353600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002359.tar",
+        "sha256": "8d79ca9f4f32e56ccea05c50511d86c694680c0da9a1008d8da34e050ab9b2d0"
+      },
+      {
+        "bytes": 116961280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002360.tar",
+        "sha256": "a5a5db9c228c90e9a0655cc3de4f0fb726fd6794ff89a9f2c3a70bb32b9f84d9"
+      },
+      {
+        "bytes": 116039680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002361.tar",
+        "sha256": "253b59592395190a4b9932bd86a939cf4b0a5c6aede013c5c42c175737cf7f21"
+      },
+      {
+        "bytes": 114903040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002362.tar",
+        "sha256": "d513253ea38024d7f9240a1a8113781306af583d7afd0e9a0eb7c6ae8f1dbb0e"
+      },
+      {
+        "bytes": 116848640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002363.tar",
+        "sha256": "e41e491504b1673806e97612526d0844192ff40eaa88f7bf9f7cbfde0f4aecf0"
+      },
+      {
+        "bytes": 117555200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002364.tar",
+        "sha256": "79892797a8713c7b9e6970e0389768ed5a899d547d42bfe86fd43fdbaab7e773"
+      },
+      {
+        "bytes": 114913280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002365.tar",
+        "sha256": "47837c71f776cde2094e4ea31d568208c91d3a0f432c61074f5f64b3b84fd8e6"
+      },
+      {
+        "bytes": 117381120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002366.tar",
+        "sha256": "18185c17dd34922b5141d13fb5023753739b44ac8dccba9322afd0f639d859cb"
+      },
+      {
+        "bytes": 118620160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002367.tar",
+        "sha256": "dcf859267639a2c915fd2c02bec955c989ab2e7d7eab23067c1f839aab357c34"
+      },
+      {
+        "bytes": 120719360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002368.tar",
+        "sha256": "f371f33462e412ee7025ff2d9e9b6b251c9debfff74fa001e1455f2d94aa2d08"
+      },
+      {
+        "bytes": 120084480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002369.tar",
+        "sha256": "6724c76df9ce345a2472dc72ae474fd8eb4594719b1dee4106c3e702503b59bf"
+      },
+      {
+        "bytes": 121630720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002370.tar",
+        "sha256": "4ef8e0ebd2d317ee144adf786107ba23dd9b9425cc99ab623f8733bd3ba19dad"
+      },
+      {
+        "bytes": 122193920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002371.tar",
+        "sha256": "2f94ed4595611728063eadbcbc8fa5e7ca3d7036889f15884d11e74e6f389a86"
+      },
+      {
+        "bytes": 119552000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002372.tar",
+        "sha256": "2cf13d12e186c238bb28534354b76d6d611f7e4e41e3de1d10c34a3687767f2a"
+      },
+      {
+        "bytes": 122511360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002373.tar",
+        "sha256": "2df91a08394004a460c371499b7a74479a978ce3d2fc6f0552b2333f29d31677"
+      },
+      {
+        "bytes": 121948160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002374.tar",
+        "sha256": "cd63fd4a0dd892cdc8b59c124df8aeb0fdd3dd4c88101c58af3da019bf4cc5d8"
+      },
+      {
+        "bytes": 122992640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002375.tar",
+        "sha256": "737af19b53561c865b5575458b735d5c9b5d49214c221b7b219c0cd83e35b090"
+      },
+      {
+        "bytes": 122224640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002376.tar",
+        "sha256": "d262c2f67e95b95b09e738fbe71648ebeb8b859b24d0893731f8ec28ad891004"
+      },
+      {
+        "bytes": 121794560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002377.tar",
+        "sha256": "bcc2bed5190ef5ab50956da469f66518816eda5e85731946c4c09aa9246f4553"
+      },
+      {
+        "bytes": 123760640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002378.tar",
+        "sha256": "400af8dd997e37fc7edabdfc8385204532421269b43116abd10b1790716468f9"
+      },
+      {
+        "bytes": 116029440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002379.tar",
+        "sha256": "cfaf8985accae9fdfd4a56d15e2ba7fb3193d2e965abe575945b8c2231ecbc7b"
+      },
+      {
+        "bytes": 116039680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002380.tar",
+        "sha256": "da7cfb9c22ffdbc9b5d2bc5c3df0c158c8e70c45bdf0317f3be694318dee51d1"
+      },
+      {
+        "bytes": 114964480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002381.tar",
+        "sha256": "9df79425d0b6a6a6d4bfbd975bf411af2622551b6fbf784d7924aad0835c89b8"
+      },
+      {
+        "bytes": 112660480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002382.tar",
+        "sha256": "04a8be8f325d5286bcfac52f29575165d72813704858bf1a07eaef58ff48312a"
+      },
+      {
+        "bytes": 116695040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002383.tar",
+        "sha256": "614fcfd72c85e7413e61df221fe8a125fb8d9f5f6c903ad9cabd5341ba112d8c"
+      },
+      {
+        "bytes": 118507520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002384.tar",
+        "sha256": "4e75a309abc5527a3a4d24fc66fac7e6a2ec3b1854c0a15ac4b471e57c92159c"
+      },
+      {
+        "bytes": 117995520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002385.tar",
+        "sha256": "14c5c0a9e39cec22795eff0c6023f1252ae3b0ef06dd0b0acfa4a845b6bbecd8"
+      },
+      {
+        "bytes": 119644160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002386.tar",
+        "sha256": "066a5006a6e5d4dfe9f2ed1671967e78a2775210d16f2b1d9b24e6f8c3c8c6ed"
+      },
+      {
+        "bytes": 116756480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002387.tar",
+        "sha256": "109064abd514707203140497892f768f645b6ea480b58103f6d429be9523c79f"
+      },
+      {
+        "bytes": 118384640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002388.tar",
+        "sha256": "9de48398de23c3d47686ce6b449bccf4ec2edc0bb076b6466a59822ff38e55de"
+      },
+      {
+        "bytes": 119111680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002389.tar",
+        "sha256": "dfe27ff6097582b5e0ff07b61ebfaaf56b38cc35672b66c166aa4a3756aa9a7f"
+      },
+      {
+        "bytes": 117852160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002390.tar",
+        "sha256": "aa3fd101018b605f7a3444e02f835a647d178bc27b12ec635f379528a1263bc1"
+      },
+      {
+        "bytes": 118446080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002391.tar",
+        "sha256": "0f711dc7b03bfb8a55c9502e8b932de2205a40fc486f27326cbf22042e6590cb"
+      },
+      {
+        "bytes": 119152640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002392.tar",
+        "sha256": "e5f23de2d910b954db355c077165650596cb423459c30717303d0a77dcd1df0f"
+      },
+      {
+        "bytes": 118773760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002393.tar",
+        "sha256": "1f9cfe8dfe273c6413fdaf8aeb0c0eeb0a8c212c0473f034005e2c5e24d86954"
+      },
+      {
+        "bytes": 117872640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002394.tar",
+        "sha256": "95bbeb09cfa125307d19ac53fea1aee6708a7504f2c20bb532d5707b648bc1af"
+      },
+      {
+        "bytes": 117862400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002395.tar",
+        "sha256": "e307ba0a815befd63f5add84c44adea5d37353896b74858ced8f7997aafb82af"
+      },
+      {
+        "bytes": 119613440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002396.tar",
+        "sha256": "7e06536cadbac2f71825ff56fd67496c4059638765aa16db2231547376e4447c"
+      },
+      {
+        "bytes": 118067200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002397.tar",
+        "sha256": "f5ecfd2d0dcd7c8090e652eb5748a67b97251daef62bce9791ba0222a1e37677"
+      },
+      {
+        "bytes": 118149120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002398.tar",
+        "sha256": "c8ca79c788eb5b8af7a135e6fe787933659c442662a861683856673b6791a902"
+      },
+      {
+        "bytes": 117760000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002399.tar",
+        "sha256": "ed3d08f98e9da1eda427262dc709def84481dcdecd1e1b1e38bc7c7741a70171"
+      },
+      {
+        "bytes": 112066560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002400.tar",
+        "sha256": "6563be6def881410aef1bf58cba783394f738984ec40d46aa654677d820d795d"
+      },
+      {
+        "bytes": 108636160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002401.tar",
+        "sha256": "ea7db8614321fbbe694933ca5b1bbb69b4a920fe399c8c1200944a8b2345574a"
+      },
+      {
+        "bytes": 111247360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002402.tar",
+        "sha256": "331ce5dd4dd05c2ceb7bb8003a59d527bfcaddb3a2a4865935d23c8422251c38"
+      },
+      {
+        "bytes": 109926400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002403.tar",
+        "sha256": "19036d95b07f23f90d6cefe237d51adb197ea26bb345aa4d2bbcdbd0301f1614"
+      },
+      {
+        "bytes": 111042560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002404.tar",
+        "sha256": "d2682efd4679b1b43ea8f2bc0a09dbfc1df98d9d6da2b24d1ee23f585108cf10"
+      },
+      {
+        "bytes": 111585280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002405.tar",
+        "sha256": "44e9c26c3d58537411e9d677e6bfccc78ed17196b85795b201294a9b11993a00"
+      },
+      {
+        "bytes": 106383360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002406.tar",
+        "sha256": "3da19a7d3558bfa659fe93c05464d3fe8fad9eff9ee99e70ac6d8876641890ca"
+      },
+      {
+        "bytes": 109056000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002407.tar",
+        "sha256": "74e71a49dcd1d193f36ee0b69e4c48d0936144bf513de01d5d0ea0e96a78a700"
+      },
+      {
+        "bytes": 108728320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002408.tar",
+        "sha256": "a57030ee374ef2bc0b570af40654ab6082cbe688ce61ddbede2e3c7f20a8546c"
+      },
+      {
+        "bytes": 110479360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002409.tar",
+        "sha256": "adfd0a5621ab6625ef077278d06456868e48589b32f2ab89f38f4ba64e37a4e3"
+      },
+      {
+        "bytes": 111196160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002410.tar",
+        "sha256": "58b740b1e86364f141d067d10f8579141ba2b2f2d92b755d678824e045926bcb"
+      },
+      {
+        "bytes": 112168960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002411.tar",
+        "sha256": "c962e62aa86d90c18fee0e56e73662b2ddc135cf6e1c1316f3ad4fd3486e7741"
+      },
+      {
+        "bytes": 111749120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002412.tar",
+        "sha256": "45999495b5148d6c614e8d0ead8ac340233c9c67975e5075385e1d16bbd5a018"
+      },
+      {
+        "bytes": 112271360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002413.tar",
+        "sha256": "f4b62340818da58bc10caec9613ace97d14c532a380ff365599fd7cd5297bed8"
+      },
+      {
+        "bytes": 113070080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002414.tar",
+        "sha256": "dd4ad49655b60e5da9f3fb94ab322aeff12aaa8ea2f90be6bcbf45f2151dfc72"
+      },
+      {
+        "bytes": 112240640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002415.tar",
+        "sha256": "6998727943ab68bd4cd5ccc7425fe4d0fecb559d823c893d1edf7990fdb0b098"
+      },
+      {
+        "bytes": 106588160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002416.tar",
+        "sha256": "935c6e8c1044ddf62fe70fd21de303b9a9ccaee73955b2ab5deeb61eecbb7cf4"
+      },
+      {
+        "bytes": 103301120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002417.tar",
+        "sha256": "1eacc450043af829f86d7032dbe5bd62269b362ec14151879c6495c866b5f68a"
+      },
+      {
+        "bytes": 103710720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002418.tar",
+        "sha256": "e52d21dbbcf73ad25c576228e9fe8c11a0a207c5bdc4969928444444038c067c"
+      },
+      {
+        "bytes": 100311040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002419.tar",
+        "sha256": "0bcc8d2c3730464ee22644fa357b9aeb91b11997f0e304527ef7dd6dc16a8d51"
+      },
+      {
+        "bytes": 98734080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002420.tar",
+        "sha256": "26d53aeda81fb3243ae31875e623b00ac3635d664bdbbda14248151d86e3527d"
+      },
+      {
+        "bytes": 100495360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002421.tar",
+        "sha256": "acbcead8bbe4ba1c1215f89ffde323b32479aefe10a52c82da2f6baa4523ae40"
+      },
+      {
+        "bytes": 100669440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002422.tar",
+        "sha256": "070874b235a8bbf15fc01d5c9015f34d32982fa7991142f844469b26e50b0b1b"
+      },
+      {
+        "bytes": 98365440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002423.tar",
+        "sha256": "1a611f2f7733304ba61041b09524b4b89cb2169a5ed9927bfa192d53b93f1364"
+      },
+      {
+        "bytes": 98058240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002424.tar",
+        "sha256": "c0363d6afb745d1cabda94ab8c4283ae14261532113fac972743e248e48b2f5d"
+      },
+      {
+        "bytes": 98969600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002425.tar",
+        "sha256": "4b008e81f752b94f167f8523f422365b5e9bcbcd974ab7f05e4b56f03f8a1f39"
+      },
+      {
+        "bytes": 99061760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002426.tar",
+        "sha256": "ffe16598900f6f698fdea6742e40d2d78a01eb5cfe0f03bb01edbccaced9000c"
+      },
+      {
+        "bytes": 98314240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002427.tar",
+        "sha256": "5a44d77d1cb60a9f33d2b29c9589efee21f0a96f07f7e789dd09c8ef03c47089"
+      },
+      {
+        "bytes": 96931840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002428.tar",
+        "sha256": "1c16ed0085dc02c5ebeb35981f0f5069491f86ef7acb72ba3ea9e89389e5016d"
+      },
+      {
+        "bytes": 97536000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002429.tar",
+        "sha256": "f195ef26dbe8af10e021a82c723bcdb59cf4964b9072d8f9ad75b2c711312f7a"
+      },
+      {
+        "bytes": 98836480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002430.tar",
+        "sha256": "4d489c03029bb825644f79f0218ddf634c3c54fa91200f40cb5dcd985385964b"
+      },
+      {
+        "bytes": 101130240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002431.tar",
+        "sha256": "403163e50e789613357cf462a87c8aeb55e696e2bf3a8a24b612ada5d843e1ce"
+      },
+      {
+        "bytes": 111964160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002432.tar",
+        "sha256": "d1c786e7b38bad9e5df1f844afea7df4f93c7cbe9d7b211f7068720a0633c456"
+      },
+      {
+        "bytes": 108595200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002433.tar",
+        "sha256": "8c8a4087bd495768568479dd605fbf6051271c287de33a49b54ee1ef2947dfbc"
+      },
+      {
+        "bytes": 112906240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002434.tar",
+        "sha256": "50482ff3c8f892f5e5612db19c7cfb0ca142e00ebaa74970d9a6db070bd5cb72"
+      },
+      {
+        "bytes": 111554560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002435.tar",
+        "sha256": "c1648b11847314d771c04a7cf202111699624a29e5a4d7a5a73f7e984dfef074"
+      },
+      {
+        "bytes": 108922880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002436.tar",
+        "sha256": "65899ee18c479732229fdf64bba3ebeb8378d43898e83f50bcdcf2cd28e04d70"
+      },
+      {
+        "bytes": 111462400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002437.tar",
+        "sha256": "26d45c714498e7ed1b5fe2a660c884ad56d791578d39242719d23bc8500697c9"
+      },
+      {
+        "bytes": 109219840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002438.tar",
+        "sha256": "01ec91d1a9bbded6bb3b74b60eab2238e9d470b3996e2e848464357c246af84e"
+      },
+      {
+        "bytes": 112844800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002439.tar",
+        "sha256": "bca7c7e385c04b72c0cebf0b8a492d4eff52c548c7af9a5784cd138e7845ebf3"
+      },
+      {
+        "bytes": 110131200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002440.tar",
+        "sha256": "577a6580034d4835b9e9d58a013a1a2f5ffcce85ba54e9f78deae4007b06ead5"
+      },
+      {
+        "bytes": 110827520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002441.tar",
+        "sha256": "8373b25501fcfa5293d1ca7c48ba7ee137dfb5b1da037b3da80fc421b38a8645"
+      },
+      {
+        "bytes": 112793600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002442.tar",
+        "sha256": "cf75fd80ca2c58937afbdb7614448b9f7ba919545629a934e3016980d6157dd5"
+      },
+      {
+        "bytes": 110581760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002443.tar",
+        "sha256": "ab1351bbb53dc78a7810ebe96d49ddc8120565fd35b3ee7ec7266ffef96a782b"
+      },
+      {
+        "bytes": 112896000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002444.tar",
+        "sha256": "93b9ce29043ffd74f64aacdfa97b18b34bf31d3bd707ac22a0f6d0022c1b3280"
+      },
+      {
+        "bytes": 111943680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002445.tar",
+        "sha256": "9af0ef710d1688a4d63ac00ed36bccd6fff9ca5353e75ed074184c76bdb4fac9"
+      },
+      {
+        "bytes": 112711680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002446.tar",
+        "sha256": "a76b9037e22d6bc30abf0565b7dccb62baf1e0376d5c67b7b85b98a1d79342fc"
+      },
+      {
+        "bytes": 109271040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002447.tar",
+        "sha256": "df6be72cd462007d6f1d6c47118349f51caae5a0ff3f598719b3bed2906f94c7"
+      },
+      {
+        "bytes": 111493120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002448.tar",
+        "sha256": "1fc808cdfc0a79c4ad96ff4bad671b844080dd1c52665aa87675d40c0619de7c"
+      },
+      {
+        "bytes": 111298560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002449.tar",
+        "sha256": "d76a0461d117461ee2a3f4ad83d714736f66b95b1dca21476c1605403d7b112b"
+      },
+      {
+        "bytes": 109721600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002450.tar",
+        "sha256": "417fa2390fca556d379ec1bc5fa92f3bb9780f46437da57b65b2c114a1654b97"
+      },
+      {
+        "bytes": 112865280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002451.tar",
+        "sha256": "56ed90e45acb4cee6ff1e5ddf2b5bfcb4f8bc31df8659cc12296557712a53583"
+      },
+      {
+        "bytes": 110540800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002452.tar",
+        "sha256": "70f25335427247cb7fe1bd11baf3c0a3ef3b5ede39ea777c83af27d8c07390b7"
+      },
+      {
+        "bytes": 111472640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002453.tar",
+        "sha256": "3e386c243b4cd4b478f4b5763108e7f4fac6a51f3b6b4569c0b61763b1c3148b"
+      },
+      {
+        "bytes": 108349440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002454.tar",
+        "sha256": "7616b3ba7785485e647d3716d004208d77f9b7dd068240124eb5166dc0ef1d1d"
+      },
+      {
+        "bytes": 111390720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002455.tar",
+        "sha256": "4001cbebb67cf830759c2ef0939b5361770f31efbcd18cbf7b94f1f0a8539ad0"
+      },
+      {
+        "bytes": 114892800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002456.tar",
+        "sha256": "41f6bd664c4f16bbd841c74875ba8bf28aa447f3f2279695b5d09e0eda2142b7"
+      },
+      {
+        "bytes": 114626560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002457.tar",
+        "sha256": "9683f7c737cade5e2790f14f36e2586f90509cc1b1de3e25223979d87be805d4"
+      },
+      {
+        "bytes": 110663680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002458.tar",
+        "sha256": "8b9c11e0c57dd5ebfca7d5f8cc1d57435ad2557bd3eca8983d69c14b4f3541bd"
+      },
+      {
+        "bytes": 108574720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002459.tar",
+        "sha256": "9aaad62db64fe0af87acf30add87182d0949775d0f54d1b58e6a34f5cd52b738"
+      },
+      {
+        "bytes": 116336640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002460.tar",
+        "sha256": "8cecf3762077fbe848cdf37e9ac5b4095e114a7db979f44e5b7dcd1576af838c"
+      },
+      {
+        "bytes": 114012160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002461.tar",
+        "sha256": "b3afaebb8feaa04882e8999663927e6115e2a77c6511e40dca34bced1107a988"
+      },
+      {
+        "bytes": 111063040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002462.tar",
+        "sha256": "c40c053305c914501fee6516ec68c813cac933a6cf6b12f12322db3a3f4567f5"
+      },
+      {
+        "bytes": 111687680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002463.tar",
+        "sha256": "5546bfffa1f613eaa9931eda3931489a875aca8fd1d44c606ec6678233680563"
+      },
+      {
+        "bytes": 109414400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002464.tar",
+        "sha256": "fb0859f8eaf802bbaaecb256f1dca5a32b4be5efbefde645344bee0b9b2c197e"
+      },
+      {
+        "bytes": 111790080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002465.tar",
+        "sha256": "1a4d60171b4fa4fd407942ac60b484eb763b4488d579d9a44016c242f86cf013"
+      },
+      {
+        "bytes": 114421760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002466.tar",
+        "sha256": "cf228f09df291bce0b21933e965f6920a7f7fe5fce3fbf295cd1caef8f00812b"
+      },
+      {
+        "bytes": 115169280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002467.tar",
+        "sha256": "fd93f31838a82d69169c8bf790f96cb401b2c493bda88d469837bbe3444176e7"
+      },
+      {
+        "bytes": 111677440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002468.tar",
+        "sha256": "979c336faa5a497c718b91e8d090d9d3ebd2651d32f4c91796a2321d8ef1e543"
+      },
+      {
+        "bytes": 107919360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002469.tar",
+        "sha256": "cfd0cfe2463d514b7635edaa0e54b9b6483f7b52aa9f697af0ed880863a06c6d"
+      },
+      {
+        "bytes": 110233600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002470.tar",
+        "sha256": "95f01e4ccf80540fc141a7646dcb5784480354df53827504d4d7f0eaefb7bcca"
+      },
+      {
+        "bytes": 111616000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002471.tar",
+        "sha256": "26a6ec7e3dd9642c7c937b4be602233eb80b7a7e312f77ad81de9e3b81d24d15"
+      },
+      {
+        "bytes": 112189440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002472.tar",
+        "sha256": "b94b5b1be13b851aaff53857ea8e9a4ca2e430424facc1a788ff1d4435e9caa0"
+      },
+      {
+        "bytes": 109322240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002473.tar",
+        "sha256": "189cd0346d00aebb28e44c3e7e0eb8c6fae4e734374b6bc616b583a8c1fe89b0"
+      },
+      {
+        "bytes": 113582080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002474.tar",
+        "sha256": "d5b91368ae4075bb6541a9fe0133f30cce8127a571226cecb4081d38c61be14e"
+      },
+      {
+        "bytes": 111943680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002475.tar",
+        "sha256": "8369dea1520a95897190ef5863deb0df07b95c661130b0d692c62cb499d38686"
+      },
+      {
+        "bytes": 110807040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002476.tar",
+        "sha256": "b601f744e9903213f5ba861e06148e095407c12da39130a2062281dd497d5dcd"
+      },
+      {
+        "bytes": 112322560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002477.tar",
+        "sha256": "8f9065a7167e6fe75d0a07a2148865af53de6b116c5254217d7bf302f6fc45c1"
+      },
+      {
+        "bytes": 110417920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002478.tar",
+        "sha256": "9cb089848d861aaa807ff9016f9273b5d471b3e8b76256cf5c26291bc7cf402b"
+      },
+      {
+        "bytes": 112373760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002479.tar",
+        "sha256": "c4ad15f037981ffed58900336842c4d25fcc10fa06b99dcfdd70a3cb7516e3d2"
+      },
+      {
+        "bytes": 110725120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002480.tar",
+        "sha256": "1e1db453df2cc87c42fafc4b717385ba3bca8edc52a59f97e66d71d93312132a"
+      },
+      {
+        "bytes": 111738880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002481.tar",
+        "sha256": "a868137d5802c77dfd4c6867b58d77e8713dcbd1af0da93ecadc632f0b792a94"
+      },
+      {
+        "bytes": 111554560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002482.tar",
+        "sha256": "dbd948d1b83bd9bf1c0812757a220833b99f0d0141ece4a23932dbacbbab7f17"
+      },
+      {
+        "bytes": 110366720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002483.tar",
+        "sha256": "b1c77333c0ef9cb3fff2f82e98f3869ac03cc3b2a8a68766cf7747bb4877719b"
+      },
+      {
+        "bytes": 113397760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002484.tar",
+        "sha256": "cb87b42ff5eaec1c78c77c9855cba69874ca349616a937bbfb6c8e4fa88693db"
+      },
+      {
+        "bytes": 112179200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002485.tar",
+        "sha256": "d79c0ede08f36a53e54ab27dd6e3faf4833981b947024f5d92f606c4bad9ee30"
+      },
+      {
+        "bytes": 113039360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002486.tar",
+        "sha256": "9e94c645f6cb1baecb7d03fa4ea5ba797495c23b6114be067a9a6b82706ff2f7"
+      },
+      {
+        "bytes": 110612480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002487.tar",
+        "sha256": "d85baa6a130aefcd59bb43a13671ca480cfecc26aedc7a5017e59c57ad65498c"
+      },
+      {
+        "bytes": 112834560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002488.tar",
+        "sha256": "c42b9decd232c1656545810318d77530e3765e0336cda1f1eb4c64f6b5076bea"
+      },
+      {
+        "bytes": 113152000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002489.tar",
+        "sha256": "18a00aedc3f1c76c61d03459aa29b25a5a9483bf1049c6bab6bb7ed725076e84"
+      },
+      {
+        "bytes": 112005120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002490.tar",
+        "sha256": "ea9520ceb840b65a3150ff115409bbfac6aeab0eafafbbddf26b729c9fb36c30"
+      },
+      {
+        "bytes": 111841280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002491.tar",
+        "sha256": "824132f04942eec0f5dcbacbed6be86892181b6061eaa8705aab2776fe39e5f0"
+      },
+      {
+        "bytes": 100331520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002492.tar",
+        "sha256": "42bff59544b54c6af64f56af7a06e7779fb44aa577ab59b95687c335b1c261f1"
+      },
+      {
+        "bytes": 111605760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002493.tar",
+        "sha256": "434a981a4a2464b8d01f256775ecdd11606e75db480ed98569760ddaf7fe9b8b"
+      },
+      {
+        "bytes": 110039040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002494.tar",
+        "sha256": "0dc3deabef1b0cd27b0cb5f98264eed33fcf2e9ee17cf1a5755ebd09e84186e9"
+      },
+      {
+        "bytes": 108881920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002495.tar",
+        "sha256": "10d670eb7269329f7d5ea9853d78baadb1a95759a2cf9fddec8f6dbd839dd102"
+      },
+      {
+        "bytes": 111841280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002496.tar",
+        "sha256": "93bf0b2caa75bda20363857361e7d6f270c590f7c3b5b1ebf55bdcb8dbaf15a5"
+      },
+      {
+        "bytes": 112035840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002497.tar",
+        "sha256": "9d4b94f7fa958b57ef57fffa49e514059a387503175995f32f07ea0bc4821b12"
+      },
+      {
+        "bytes": 113838080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002498.tar",
+        "sha256": "ce1bea958ae7217bea04d43be33cac8f2825c279617480fa5a9a882362950fbc"
+      },
+      {
+        "bytes": 112701440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002499.tar",
+        "sha256": "ef590bc01c8ade67b2ea79c6b6ebb4005eec05f6a3b100d8102c39815f15c0eb"
+      },
+      {
+        "bytes": 114923520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002500.tar",
+        "sha256": "b7ba04579a85254a83d554a4e3d24dec23264269f685a8460f5e9819ce93a329"
+      },
+      {
+        "bytes": 116838400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002501.tar",
+        "sha256": "1e0c5bfd04226adf6a6a9d28622f7e2f29dce22ae3acddd22a7a93231be986c5"
+      },
+      {
+        "bytes": 115609600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002502.tar",
+        "sha256": "5d1dc0cd47d92d4a6d5ac8f9cdb2f825731a0bfa3eed9bda29a278d9022c594b"
+      },
+      {
+        "bytes": 105932800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002503.tar",
+        "sha256": "e1529c733a0c876a5d57dca8f7c5217bc79cb99c3d7254795ec33211b1c5af61"
+      },
+      {
+        "bytes": 104714240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002504.tar",
+        "sha256": "c6c17fb1d1019eb14b972d0fe69c33282848bceb21990159b6f9559fc30fc01c"
+      },
+      {
+        "bytes": 102840320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002505.tar",
+        "sha256": "6c767dea383501f544ae0a6fac11228f08bc0d332a6a8c60837e9c7a8149fc43"
+      },
+      {
+        "bytes": 105093120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002506.tar",
+        "sha256": "497b3bdd94701618eaf0e6ae0f8ae90ec3ac290717219aba08e8558e428620ac"
+      },
+      {
+        "bytes": 105973760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002507.tar",
+        "sha256": "25e568eaae5173d26ba16cfc57f7a33f8e04bf2642d6282f1ab67322dcae2571"
+      },
+      {
+        "bytes": 107499520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002508.tar",
+        "sha256": "16370440f2a28967d1982644f7d5e1d6aa9d836a59091dccf8b154f614277788"
+      },
+      {
+        "bytes": 110960640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002509.tar",
+        "sha256": "508afc7af831bc2cc49c366ce69264e2d170d5c657dba3f579ff9fd4debc461a"
+      },
+      {
+        "bytes": 107653120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002510.tar",
+        "sha256": "4b4abd610c0c81ff4ae6ff7782cb96c6cdd6c44e1423f170569b3c8ac32d5dbb"
+      },
+      {
+        "bytes": 107919360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002511.tar",
+        "sha256": "3d6feda95e4d6805e424c72b3db5215fb5b69459b7e5136382af03f59f98fa99"
+      },
+      {
+        "bytes": 109649920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002512.tar",
+        "sha256": "b0d57eb13259998544f5effb93633f41477530b635bc48f654c5cd373bdbdc7d"
+      },
+      {
+        "bytes": 110499840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002513.tar",
+        "sha256": "476040352f3a61522a5581de97d217449ec4302d9c9b2d8b7928188e739f0d2c"
+      },
+      {
+        "bytes": 108431360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002514.tar",
+        "sha256": "78593a4dee33e9c2d4ddd92b22d3a210f12cf2f0dba3f5668024bbf6c20baee2"
+      },
+      {
+        "bytes": 109803520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002515.tar",
+        "sha256": "b36a79044a86804100000c6e47bf3ad6b7d202876f414c0515a374a40d390191"
+      },
+      {
+        "bytes": 111708160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002516.tar",
+        "sha256": "62bd9b26cc825b6431f6b8d065e6f70772db6cfc64448874dfb6c1d2eed746b4"
+      },
+      {
+        "bytes": 110131200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002517.tar",
+        "sha256": "769b6a5b6f7fd28b7a963e9204a48009e009c54a87be4ffa606b4157cf4b635f"
+      },
+      {
+        "bytes": 112250880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002518.tar",
+        "sha256": "dcd5c033ceed3638d4ed486f008b401419d63d0aea481f13c4617695a40cf2be"
+      },
+      {
+        "bytes": 110684160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002519.tar",
+        "sha256": "d786f1ab50491c97df460e679e7ce6f5dced986f453ff66b7c1cfeb30ced4ec0"
+      },
+      {
+        "bytes": 113305600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002520.tar",
+        "sha256": "7eab39e151a2b98244a3559e59dc70ce25ad8e861a29645b6e83dc783f4027fa"
+      },
+      {
+        "bytes": 110960640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002521.tar",
+        "sha256": "953d7bb25b983850aa0a4277e37a4a1bd2e96b3140a9f1a82ace0a4d07ec2c58"
+      },
+      {
+        "bytes": 112168960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002522.tar",
+        "sha256": "dc8d95b39c92fa47fd66cc0e0d6b4e2103acc225a323dbd4bcca312946e2acb9"
+      },
+      {
+        "bytes": 112568320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002523.tar",
+        "sha256": "17956cb0fafc2c30d25014effda55c396615a2dc22726b52346e3728ae1e431f"
+      },
+      {
+        "bytes": 112117760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002524.tar",
+        "sha256": "a02bb2c9ff2ef4af37b7f6d68b84e69024d31feb538426a6467cd883abeb1248"
+      },
+      {
+        "bytes": 111226880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002525.tar",
+        "sha256": "7f8a518641ae1ff56621ff543b137f1e0126890e6b41c359ba141c9376f50f69"
+      },
+      {
+        "bytes": 109056000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002526.tar",
+        "sha256": "e8612b6c16dc8eca3c4df89e65b4c79906a5140b2182e5e67f7083ed6c830ec8"
+      },
+      {
+        "bytes": 110295040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002527.tar",
+        "sha256": "f005825ae467d9aa7f8629a6426537c0681bbc9737db866b8636fd7ba32e6349"
+      },
+      {
+        "bytes": 111933440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002528.tar",
+        "sha256": "174062bebc4d92e41c8d87909609324975c1e3615f4a203bb9747f0973f9e514"
+      },
+      {
+        "bytes": 110684160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002529.tar",
+        "sha256": "b68be1146e3f63bf102e9d227d6bb1f3f9b373fb180033c4eee3caffbdfa8d31"
+      },
+      {
+        "bytes": 110878720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002530.tar",
+        "sha256": "84a72a7dc7f9fa8379de48e49d924ab40f04bee9a876d8dc47d5f9fe20031323"
+      },
+      {
+        "bytes": 109373440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002531.tar",
+        "sha256": "f2442c633f0b5690b8bb7991a0279241962b8c4eb3ff5466592600aa35504283"
+      },
+      {
+        "bytes": 112138240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002532.tar",
+        "sha256": "05de57aa3f40eabc58e8a32ce8beeb9cd60e1fe06a7594de17042acf9b6438bc"
+      },
+      {
+        "bytes": 111749120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002533.tar",
+        "sha256": "92f3b502ed0b6c6e8a9fcea0743c1b8aa023289bb380644f75913c9b08d1927c"
+      },
+      {
+        "bytes": 107458560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002534.tar",
+        "sha256": "a94c8a5f0c72623aa1958481c093768a9c45aa47b43a7d8607f45f9eb6102310"
+      },
+      {
+        "bytes": 109209600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002535.tar",
+        "sha256": "db1c7e45afaaccd40794cabb8b6349ec5489dc1936cca8646f71b669487e9c39"
+      },
+      {
+        "bytes": 111923200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002536.tar",
+        "sha256": "b15e2449aab7b110cba6d1210a57d530388f29bb77d812c00d3ee607a6765b36"
+      },
+      {
+        "bytes": 111267840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002537.tar",
+        "sha256": "1faea14081d120a0082cb0b3e39860d0cef2adf1994dad4e26b921b5b879f3f0"
+      },
+      {
+        "bytes": 111544320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002538.tar",
+        "sha256": "a5fda896540a11095e7d8cc21404761d952b3024cc1b6c02a912b691904c2475"
+      },
+      {
+        "bytes": 110264320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002539.tar",
+        "sha256": "854140940f67ad7448900c34b6af2eb89091399fda2531ba0c84ddecfec8bb40"
+      },
+      {
+        "bytes": 108533760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002540.tar",
+        "sha256": "91b176247313314c3873c3d207530d88feb6d00daf48d29704428ceae5b3a254"
+      },
+      {
+        "bytes": 113909760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002541.tar",
+        "sha256": "335090c4057666c297584401f2d3a47232f345a5b806041b65f6df1c0ede5d3d"
+      },
+      {
+        "bytes": 111083520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002542.tar",
+        "sha256": "cafa88ab2d1d98260cb67993a7b6a0daca4d11aad1f03cb536c075ea29880b64"
+      },
+      {
+        "bytes": 111605760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002543.tar",
+        "sha256": "1b598a04a2ebbdf7b3427fdbb70c57a745509d03f97027ed9d99d9a2e87b32c2"
+      },
+      {
+        "bytes": 111349760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002544.tar",
+        "sha256": "4e0b2ff496e5295d6244b5e08790bbadc09409e5e930e708ab2343c7ea552ed7"
+      },
+      {
+        "bytes": 111933440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002545.tar",
+        "sha256": "85c8b5973d8711d06a0f23d9aa0a16f2a58c091bfb645e343e4098afbadd3777"
+      },
+      {
+        "bytes": 111892480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002546.tar",
+        "sha256": "8de8880c4c2b5ad3c78705906e5f20062d99c3f09c49a8a789c2183e5ff1d89e"
+      },
+      {
+        "bytes": 108369920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002547.tar",
+        "sha256": "d97987b1d06acc7670ba4ca9b2cc94f8f7ab0c2cd97b2ee7e83a425ab546cf76"
+      },
+      {
+        "bytes": 107182080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002548.tar",
+        "sha256": "2d561ddfb9577563e31b628753961a8cffbad52379d1d1103b39cf8365240089"
+      },
+      {
+        "bytes": 107253760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002549.tar",
+        "sha256": "150ca24e554806917e77e73a9902fe818225a8b33588f0e49119582631c17385"
+      },
+      {
+        "bytes": 102912000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002550.tar",
+        "sha256": "88bd191d856e4bf9ad7f166ba89187a43416cc6ec22dfeaa2ce73eb58c1cb47d"
+      },
+      {
+        "bytes": 109824000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002551.tar",
+        "sha256": "97ab4fffbf023c6916e2a87ddb35e980640d7b8d50f0ea25dee2a040c01c91b6"
+      },
+      {
+        "bytes": 106864640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002552.tar",
+        "sha256": "72abb69f93c3349bdacf43b7f86f7fd5933652da7736239206995cfd5bf08915"
+      },
+      {
+        "bytes": 107274240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002553.tar",
+        "sha256": "52df4552b80525be8dcd3170b416cdf9b0e5eb20b5bbd6ab2b44207620c22cef"
+      },
+      {
+        "bytes": 106577920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002554.tar",
+        "sha256": "334e9f1e1af29ebea340558de067c55b9eb59b6b8678f8d0370de8b4d8e0acf4"
+      },
+      {
+        "bytes": 107520000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002555.tar",
+        "sha256": "b710bc87e9fb4470ee0f559225ede3f2ee351431fdfb9e24e96f22e9747edc95"
+      },
+      {
+        "bytes": 109742080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002556.tar",
+        "sha256": "57644d8231082cfcd6941cacf58710a824549c65e3a0013a68ed1931b9af3fe3"
+      },
+      {
+        "bytes": 105768960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002557.tar",
+        "sha256": "c69409ec7ad6f974204cb970d42ecd2764b82ce69edfe54b3cd10f94de6d9964"
+      },
+      {
+        "bytes": 109137920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002558.tar",
+        "sha256": "411d5711c8e1e4544cacc135d86e62311e2ac1508d1b58788da59d0cb4da0552"
+      },
+      {
+        "bytes": 110469120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002559.tar",
+        "sha256": "27c21fd3d0ec850233337cff82fcbd577ca0e13539a779dff5c134645b4c00d2"
+      },
+      {
+        "bytes": 109424640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002560.tar",
+        "sha256": "2ed886f6f4432154de97e0b696e0446387fb8e0ac57bdeca2565c57d00552547"
+      },
+      {
+        "bytes": 107264000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002561.tar",
+        "sha256": "2cf003d063e6ce702902ccc5beda7758f0c49f30c16e4d3661ce4bc4fb5e33fa"
+      },
+      {
+        "bytes": 109916160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002562.tar",
+        "sha256": "13b1a98f85100581c5ca9d6bf8d96c54a8d1505bde6a7efd1f0e5a688b272e03"
+      },
+      {
+        "bytes": 113797120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002563.tar",
+        "sha256": "b56a6872b87b391c20457275e09e83005b9cd8fc58735ae0c886653192605544"
+      },
+      {
+        "bytes": 110141440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002564.tar",
+        "sha256": "17b87cae96707288fd2e7de616661a0fa1d02badbb5ec1f3c1e85d87adc4cc3e"
+      },
+      {
+        "bytes": 113192960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002565.tar",
+        "sha256": "611c1becd105e01d76ec01e5dcfe0df6766836826c40f62f583ce1815310922e"
+      },
+      {
+        "bytes": 109158400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002566.tar",
+        "sha256": "e496763b2e858575bdc28756da13e852da8745ff59251ea4f77ef8dea4fec64c"
+      },
+      {
+        "bytes": 111544320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002567.tar",
+        "sha256": "a966004d750f79bf4ab16cece4bf83d64bbd3276f6d3b78e0d1f5c8e123c8d36"
+      },
+      {
+        "bytes": 110213120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002568.tar",
+        "sha256": "cc0fd5c38f6196e236e7d5c0c271b347317014b3d207f70a1e547943f8f34ff8"
+      },
+      {
+        "bytes": 111728640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002569.tar",
+        "sha256": "383698b8ff7d189444be388025b148e921baf93a2785904f4123b1114b7d6556"
+      },
+      {
+        "bytes": 111052800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002570.tar",
+        "sha256": "d69d94a31fbf02421411856b975f793819184bd9579d52f9ae987e1a90a2e730"
+      },
+      {
+        "bytes": 115589120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002571.tar",
+        "sha256": "7510f4e173f782fb82543e24fa8f597fb6b45c373e0e36a052d214818e30b40a"
+      },
+      {
+        "bytes": 112670720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002572.tar",
+        "sha256": "7e0597fbeaeed7e9add9dd93eb66f001f8517d6946c06d8d0bacea6ecd060f5e"
+      },
+      {
+        "bytes": 112394240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002573.tar",
+        "sha256": "b3762fcdea1849f166cb27f122b3e788acd513b6e5c21a5eb49302abea624255"
+      },
+      {
+        "bytes": 114432000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002574.tar",
+        "sha256": "59d08de9581f2bbe29a8c28c16b145d88acde2650cd208fa044e05e7b222b0d6"
+      },
+      {
+        "bytes": 109916160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002575.tar",
+        "sha256": "78213f65c43ac8be3d58378fc916fd6e278817351c3c12c63116472d0303ebf2"
+      },
+      {
+        "bytes": 115630080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002576.tar",
+        "sha256": "b8bf9c66a6bd64fe5cb4aa5bf1a87a6fecfab733b5b0c93c2de8ecd7fb34f7cd"
+      },
+      {
+        "bytes": 111267840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002577.tar",
+        "sha256": "554a47bd332698546ef1718b84460e1572c68597b659ba1eb21708997b90ae4f"
+      },
+      {
+        "bytes": 113664000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002578.tar",
+        "sha256": "1fc9b034e63f4257d3d0a60db5725ad83550abccfd73c2f4d60d2b7566626013"
+      },
+      {
+        "bytes": 111810560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002579.tar",
+        "sha256": "cd7e70ac7eb6d39a14cbea138237cebdcd573fe0895fae5da10033889ec29ee2"
+      },
+      {
+        "bytes": 100044800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002580.tar",
+        "sha256": "4f78efb4adc1428aad3aff894e7fbe5ef52bd7159d1753aff3035bb47ec7a1dc"
+      },
+      {
+        "bytes": 101519360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002581.tar",
+        "sha256": "a31627e0866f32b62faf394ddc41ba30b6fdcb8f257de69bd1f002147fb06d5d"
+      },
+      {
+        "bytes": 98600960,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002582.tar",
+        "sha256": "a1f0acb6f7ff166106887fae665f2ee1f7850a884d33cb50962df1ef21421925"
+      },
+      {
+        "bytes": 99717120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002583.tar",
+        "sha256": "4ea794a7ac1fb22a6159940749157e8c17122180ea6c0bc05e31d8523c273aec"
+      },
+      {
+        "bytes": 97515520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002584.tar",
+        "sha256": "6efb69b8c926b6064db371bb6d07ba3a4d9ef140e65f7393c3323fd36656d81f"
+      },
+      {
+        "bytes": 100075520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002585.tar",
+        "sha256": "d9f3c747337f718f545f3d2990ff005bd1069d5a3a848f2b9861e44fc0044e20"
+      },
+      {
+        "bytes": 104253440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002586.tar",
+        "sha256": "d66e5d1d86358de4a5b5a83553560841dab28a2215f7f2d8333b1b672ecfab65"
+      },
+      {
+        "bytes": 102092800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002587.tar",
+        "sha256": "e06ada509bd6eeb23403606f6df232fe1399ad0d031fb3fe0e04b90898dffbea"
+      },
+      {
+        "bytes": 102072320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002588.tar",
+        "sha256": "5c2d4e471780712bcb8300d8a5e571fcf4b2be41bd9daf57f34e52391080ced7"
+      },
+      {
+        "bytes": 101345280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002589.tar",
+        "sha256": "22f7a6863d1c99c19655663a99ccef1e011388d8fd5b3f60554f3e4ef974c64f"
+      },
+      {
+        "bytes": 100577280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002590.tar",
+        "sha256": "97603472b523fbd57f9adc8ef44b0c1e6f146f29774bf851925fcfde34857114"
+      },
+      {
+        "bytes": 99092480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002591.tar",
+        "sha256": "91a57110a94ff85331dbd640281fb63fca4228c3f30d4c146d3139de0c352055"
+      },
+      {
+        "bytes": 98764800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002592.tar",
+        "sha256": "8a1b620db4a4a2800168d0d8ce9cbd42bbbd24e5fab0e0da4a525526681fbcc6"
+      },
+      {
+        "bytes": 101703680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002593.tar",
+        "sha256": "ec397d97aca272eba70f5883168138e8ad8348021efaaa04c237c08ca0760568"
+      },
+      {
+        "bytes": 99696640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002594.tar",
+        "sha256": "a3ca88f57fb922bda143694e079a1467fb140d857bee634995f5bc0dc1e9ed85"
+      },
+      {
+        "bytes": 98539520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002595.tar",
+        "sha256": "e4c1d852731e8bed95ffbb8415d9792c2f4a1ca848f649482e3e8e0a8a19b109"
+      },
+      {
+        "bytes": 110469120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002596.tar",
+        "sha256": "2157d0197ea4137b2bd507b988fcbb7c483376c9efe971d41af68a03650f669c"
+      },
+      {
+        "bytes": 107448320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002597.tar",
+        "sha256": "f87e41d6ec7fa975ccee380cddbdc7e8c3506fbd30e0c339e3f52e86e2c153dc"
+      },
+      {
+        "bytes": 104601600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002598.tar",
+        "sha256": "3c5d0f70e7b14ba7ea8510c0669d7df71ee1765c05b4d8dc6f259575e6526fee"
+      },
+      {
+        "bytes": 107745280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002599.tar",
+        "sha256": "ff83dc2df12bf890bcd772940d1d707b024fdea0f72ca23af34281af08a4ca41"
+      },
+      {
+        "bytes": 110039040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002600.tar",
+        "sha256": "46c95906a7ee1ac58a3e0526edf8a2d35a861de53792b3cff37c150f1e9cf711"
+      },
+      {
+        "bytes": 109496320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002601.tar",
+        "sha256": "99831774e7bfdc3512a38fa004dbd1b89ccb57ce431e024a68c4348ed1901874"
+      },
+      {
+        "bytes": 109260800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002602.tar",
+        "sha256": "8fc3a90fe6bb8419eb0c4af411e7f0385758007d19dc2279f11333c4b4cec352"
+      },
+      {
+        "bytes": 109824000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002603.tar",
+        "sha256": "640f6479a39a5d08720f36f3afdc989b9a2bd7b6a406a7cd4ae496796b857bc5"
+      },
+      {
+        "bytes": 107745280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002604.tar",
+        "sha256": "f3d1f74044606fbbbdad5f91a86cc0e7873a336f86f7dd675745575fb042c9f2"
+      },
+      {
+        "bytes": 108697600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002605.tar",
+        "sha256": "c37b3d34381c808acca3db2604afdeea8707aa4d8db5f3356de04b9c785406f0"
+      },
+      {
+        "bytes": 109854720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002606.tar",
+        "sha256": "a2f6bd993479c61aa480be07cb5997d3acab85b76919c44607c0d8df93e39cb6"
+      },
+      {
+        "bytes": 100771840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002607.tar",
+        "sha256": "ab717b849a8e39083a6b7d1f782ed31757c89fc582b09a260b014ae0c9f1ebe7"
+      },
+      {
+        "bytes": 103045120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002608.tar",
+        "sha256": "4acb3f53e91d2fc68040a67cd7c9a9a2c7eae9987ff79cf1e53a9e3ee874f41c"
+      },
+      {
+        "bytes": 104970240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002609.tar",
+        "sha256": "e7be122c3e609b22052097f0c2a69fa317d0d743a9560c6105be2b004438d616"
+      },
+      {
+        "bytes": 102748160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002610.tar",
+        "sha256": "ef5c1716fac8551f04f6516da88f27400812dde2a3ed3e204d3dc01475d65fb1"
+      },
+      {
+        "bytes": 101888000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002611.tar",
+        "sha256": "bb8637ce7045133a1c5c1330037c54778e5d8ffb977b54274a90d449939d083d"
+      },
+      {
+        "bytes": 101693440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002612.tar",
+        "sha256": "7ebd075de061bb2a95511085e80143419a4197b9820b869409945201c172ff6c"
+      },
+      {
+        "bytes": 102871040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002613.tar",
+        "sha256": "13b55b9c8f143d982c42513d6084e6c6e9dbba573aeeef58597b91660ea522cb"
+      },
+      {
+        "bytes": 103168000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002614.tar",
+        "sha256": "750303cae8732d15e1bb0b1bcab3a365bbf0e79d2541bb0e21ac66a1d126a145"
+      },
+      {
+        "bytes": 98467840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002615.tar",
+        "sha256": "5280a798b6f77eafe89ad27bdbb3ebbd84f11a79150f6ae5591d4ff10dc42794"
+      },
+      {
+        "bytes": 107653120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002616.tar",
+        "sha256": "d7d54473cc586332d12a847f6ccb69415f7f43261ef53c9f2b691c8cebae1836"
+      },
+      {
+        "bytes": 99338240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002617.tar",
+        "sha256": "85993c444a68d7ca098e92695a3a135da0822d918859c703b2d36241f7186b53"
+      },
+      {
+        "bytes": 100874240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002618.tar",
+        "sha256": "81a56cfa6ff1a8f6f2f220618c46d4a8f45a4ba07bcb8ca79eab57caa3cacfb0"
+      },
+      {
+        "bytes": 105287680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002619.tar",
+        "sha256": "e9497ad586effe0c21ca11482810cfe9df398322a9985cb884e652afba9c9811"
+      },
+      {
+        "bytes": 100300800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002620.tar",
+        "sha256": "89eeaa6be6507b7d3fbb4ac08642b9cd056de6485bc4eeb24ea878dd24276a25"
+      },
+      {
+        "bytes": 101611520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002621.tar",
+        "sha256": "31401e680f4687efdb5e4f70493d4bb705a470758fa975acad6202a8d43a4766"
+      },
+      {
+        "bytes": 107530240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002622.tar",
+        "sha256": "52b8cd71cffddf1d2d988b5a9a603c95a37f140d3b3cfa07ad4a066f7ead9bbb"
+      },
+      {
+        "bytes": 108933120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002623.tar",
+        "sha256": "f1f167fbc59f646791d4102f665a4d9e6a07b0e53c434992aa8c061ea79b3772"
+      },
+      {
+        "bytes": 102615040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002624.tar",
+        "sha256": "b9ccdd95726d8d6ff8c6a99151376680706a7d1250a0fcd253eb3ad7c151e1f7"
+      },
+      {
+        "bytes": 100843520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002625.tar",
+        "sha256": "0ee873a633012d8f74d311ef63cc3e5b5faa9af0b964a5414813e975e6bbd9f7"
+      },
+      {
+        "bytes": 100198400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002626.tar",
+        "sha256": "dff7d67427728c556c2e057253db4e68551f9dfc3060756aca09414232b84384"
+      },
+      {
+        "bytes": 100986880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002627.tar",
+        "sha256": "8a8dcfdbdd5478cbb392d8b0b03e405f9b6747f6a7a3308908bd99e4936eac35"
+      },
+      {
+        "bytes": 98805760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002628.tar",
+        "sha256": "4867df5e0763681498cee556968683f14200a64f5740be4a5d0f138728932e65"
+      },
+      {
+        "bytes": 99092480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002629.tar",
+        "sha256": "3cadaabf38bd256eb428a499cd812cd6b448a03a3d794e012ce7c4043978a2f1"
+      },
+      {
+        "bytes": 99174400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002630.tar",
+        "sha256": "f63c20116df9cc9424980becc47fd468dc57652821e548588795cc8e7eaad3f5"
+      },
+      {
+        "bytes": 100689920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002631.tar",
+        "sha256": "2dc0aba4059ae4c96ea557cb30e693a60258eb1658b2fec52f8bd1103b9db6b0"
+      },
+      {
+        "bytes": 99573760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002632.tar",
+        "sha256": "d17a59c680da276d5222eb32cfbb1aee2aeb69de0892d53d2b87114f9ddaccf6"
+      },
+      {
+        "bytes": 103331840,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002633.tar",
+        "sha256": "7212495008205e5e2716a1038ca19f52da749bd4509c9901d193d1806cf988ae"
+      },
+      {
+        "bytes": 100823040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002634.tar",
+        "sha256": "1895b0981748d8a13ef726be002dd85feb51be145353aaf92948dd36a805a2c0"
+      },
+      {
+        "bytes": 102062080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002635.tar",
+        "sha256": "f0733f8fc93f28d3fba21a78d2c71edf4e74c2fd56c9592048be7a68c8fc126d"
+      },
+      {
+        "bytes": 100474880,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002636.tar",
+        "sha256": "f69b80369253d2e96508e6285fef87c41d45ce48865c14687750792b2b75dc61"
+      },
+      {
+        "bytes": 100505600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002637.tar",
+        "sha256": "def06fdfd0a6f8df3c03e5d065ad06c60cc3f129278553d60253c6065680cf58"
+      },
+      {
+        "bytes": 102215680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002638.tar",
+        "sha256": "48c423eea647cf4749351371fa8af43616a284a0dfcc9dcbebaf3a2cdcd82853"
+      },
+      {
+        "bytes": 102348800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002639.tar",
+        "sha256": "89742ee62d7bdd5d33d9dbe425cd648d92850bf385376d4528652c5ce1487410"
+      },
+      {
+        "bytes": 101058560,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002640.tar",
+        "sha256": "332776c16789eb69cabac829150c6d95307210eea4dadde6d3bf05f7260bfd1f"
+      },
+      {
+        "bytes": 100270080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002641.tar",
+        "sha256": "036882a4fcc1ff6b18e09cfea9541cff1f855278756b0e74d423ee81fbb40d36"
+      },
+      {
+        "bytes": 98529280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002642.tar",
+        "sha256": "9f6c714c4f9e707e53594640f4a0eb32ca3e4d5cfb95932a32131c8c0b4c790e"
+      },
+      {
+        "bytes": 99348480,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002643.tar",
+        "sha256": "a6f372791a3b7286224d8af9fc10ddab8e12e4b984b184b48a1c5619f4632fab"
+      },
+      {
+        "bytes": 100741120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002644.tar",
+        "sha256": "a54c7943574f2c238cc9a4d2de31e9dfdf4e5dbc464cd2b2fd4be4abbbb30307"
+      },
+      {
+        "bytes": 98928640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002645.tar",
+        "sha256": "01cf89c1f5d60335a53f87eae8ce61dca5279e1dfb4547be378816f736fdb43b"
+      },
+      {
+        "bytes": 97761280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002646.tar",
+        "sha256": "f18a2e8eca6f74e17073a24a957a6961f067a752261b180fae9ce59be97521a7"
+      },
+      {
+        "bytes": 99696640,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002647.tar",
+        "sha256": "854cd3b47f132f93f47bb91cfe808818c0f66c018bf15c6a5dad6353afbcc882"
+      },
+      {
+        "bytes": 100812800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002648.tar",
+        "sha256": "59ab5474d37d135b046bff1a527769e2638ddab767040c6922800bbc42bee8cb"
+      },
+      {
+        "bytes": 100433920,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002649.tar",
+        "sha256": "cc48c7006f9c599d390cfb761d032149dbb133c27302f0490c1d7eb19953a61e"
+      },
+      {
+        "bytes": 100966400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002650.tar",
+        "sha256": "85dc5f73fd18e15245863ed4444df8c3e1744d6c0765812a729e95fd04d8a29b"
+      },
+      {
+        "bytes": 100270080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002651.tar",
+        "sha256": "41c420b170837b80572f2705700cd1c026961dd952638ab0a7a432c89f7898be"
+      },
+      {
+        "bytes": 100577280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002652.tar",
+        "sha256": "fa9a581e329a2ba30aac0c2f7f594d3f97fc9784bc0b577e69ef2fff1a9fb4e3"
+      },
+      {
+        "bytes": 98611200,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002653.tar",
+        "sha256": "fdf87af5480ebdfab0655c08650e63499d791ef542aa8e4c1f0ca299f808e074"
+      },
+      {
+        "bytes": 101068800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002654.tar",
+        "sha256": "b465b64623d3b9730f795eff282714ddd8eeb65537209e2e21e97b0fc2143828"
+      },
+      {
+        "bytes": 102041600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002655.tar",
+        "sha256": "5a3d4ecc49042f0ccd46ef7451edbf8329074eeae83faf962c23dbf7918e8674"
+      },
+      {
+        "bytes": 98027520,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002656.tar",
+        "sha256": "1d76f107e79b76ed849c436afd177572484cdc02fe47164b928a14d041d48641"
+      },
+      {
+        "bytes": 99225600,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002657.tar",
+        "sha256": "7b7e6b2e4f6d1755935873ac6af4b7dbb45670ae7f7bc57dd99c6686668ec249"
+      },
+      {
+        "bytes": 100536320,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002658.tar",
+        "sha256": "a3774858dc40afef4167b66e5bac79efe4e8296c3d44e52c355e7ec85dd89ccf"
+      },
+      {
+        "bytes": 107776000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002659.tar",
+        "sha256": "8d573b554c2306031377695bd33e7c4350c110f0db4d966c22952a0c84065423"
+      },
+      {
+        "bytes": 111390720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002660.tar",
+        "sha256": "c4731e02f6550349414ef4b63f266964eb97af793fb062726cf4f13e2ed2b183"
+      },
+      {
+        "bytes": 107581440,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002661.tar",
+        "sha256": "45b613251762fc1fa48467e1ae2e07616f43d527cb936820a2f0a9a615957f4d"
+      },
+      {
+        "bytes": 107366400,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002662.tar",
+        "sha256": "4cff42affdf171cf96107f005500abc1be944cd9dcd96f468590e156b35b0859"
+      },
+      {
+        "bytes": 106926080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002663.tar",
+        "sha256": "f6dd9f989bfd90877a27efe1793356322125f9f079a62c0ab5a21220aaf8e9c1"
+      },
+      {
+        "bytes": 106782720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002664.tar",
+        "sha256": "76c2f6bcc5d8c3c82693b1a6e5e4c50bb9752432044395d96bcf24396a623469"
+      },
+      {
+        "bytes": 106270720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002665.tar",
+        "sha256": "056654e34079ca75352ff9154ee986bf7456064b021c2812696aa019173a2a02"
+      },
+      {
+        "bytes": 108277760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002666.tar",
+        "sha256": "ebd48effb3042cbd974c71a6c98a4a1be5f0f3a3da7f290d8ae0f850bbf4c888"
+      },
+      {
+        "bytes": 104929280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002667.tar",
+        "sha256": "9cd8f58728adac90d6405bd7c0f722c23c36e1e41ca0a500a8d2bed2a91f4f9b"
+      },
+      {
+        "bytes": 106506240,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002668.tar",
+        "sha256": "6975b417ff4807f6aa137601096cf0ca9c2bc4b41229582f9fb598ad84bea4f1"
+      },
+      {
+        "bytes": 107745280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002669.tar",
+        "sha256": "2c7ab49c98efad3cf7f78ebc527ea2535771491503973e1b328a6a74f9241e1f"
+      },
+      {
+        "bytes": 109813760,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002670.tar",
+        "sha256": "53e2f4fd53b9e4f45a056cce7172ffdc19f218b0de9789ee4a39356ee541296b"
+      },
+      {
+        "bytes": 106127360,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002671.tar",
+        "sha256": "de5c006ff9f513435f30547bb244782963439859b1e3fa2dd93f83b17cb096b0"
+      },
+      {
+        "bytes": 107479040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002672.tar",
+        "sha256": "d8a5dc838be58cff16b82acdaaf6a096f2a0fb5a227cb3ea7cfe6b38e99a0a94"
+      },
+      {
+        "bytes": 110561280,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002673.tar",
+        "sha256": "5d54b99e099a27e94eabc517ed6f04d4954bddae9655480f9571f2e6a94c1145"
+      },
+      {
+        "bytes": 106711040,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002674.tar",
+        "sha256": "c827657bec38125c2486f59276078a9ffd8c30aa33c6bcd840bf63e182dcef2d"
+      },
+      {
+        "bytes": 112926720,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002675.tar",
+        "sha256": "e54a09d9d3fd00014e4fcca515273b522ae1b8f682fb2ac95a3fd5ac4f8d2c80"
+      },
+      {
+        "bytes": 108359680,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002676.tar",
+        "sha256": "9581040d3cf7fb7dfb02ea16bf9a16a35e6bf46a396f31fc30ecd898d0803fd2"
+      },
+      {
+        "bytes": 109516800,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002677.tar",
+        "sha256": "97aedabdd7f8f67e993acc01b697c55596da0006f24f370a155c988c9b8da30c"
+      },
+      {
+        "bytes": 106926080,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002678.tar",
+        "sha256": "fa936cf784506cf0368840c1faa0c61e0e6faa755b943f86082845261697dee8"
+      },
+      {
+        "bytes": 109568000,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002679.tar",
+        "sha256": "52f770d1861a800e9b41dbd912b725943bd6374f36cd9d4c836b38738d290008"
+      },
+      {
+        "bytes": 111196160,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002680.tar",
+        "sha256": "a54c2e23895121c739e79e5ccfc9b2d79b4ef085db631af9faa907268f10ec9c"
+      },
+      {
+        "bytes": 115077120,
+        "old_generation_unchanged": true,
+        "path": "train_aria/clip-002681.tar",
+        "sha256": "cfc01bc382f33f30b76ecac906ac0d3115f0fdfaab2e5705055921899beb41c2"
+      },
+      {
+        "bytes": 102440960,
+        "old_generation_unchanged": true,
+        "path": "train_quest3/clip-000000.tar",
+        "sha256": "e78a506d43cf9b3a8fc0bc2b2b95d5222e2959c65d4ae8c2787efdca3a14ee50"
+      }
+    ],
+    "format": "explicit_closed_hot3d_tls_failure_all_seed_copy_admission_v1",
+    "full_paper_complete": false,
+    "not_source_numeric_qualification": true,
+    "observed_utc": "2026-11-02T05:21:55.799082+00:00",
+    "old_partial_files_preserved": true,
+    "original_manifest_revision_unchanged": true,
+    "original_receiver_and_native_actor_closed": true,
+    "original_worker_source_unchanged": true
+  },
+  "all7_predecessor_actor_handles_physically_closed": true,
+  "all834_actual_source_destination_inodes_distinct": true,
+  "archive_target_bytes": 294201743360,
+  "archive_target_count": 2804,
+  "author_mixture_reconstructed": false,
+  "automatic_retry": false,
+  "credentials_proxy_route_changed": false,
+  "first_new_download_whole_sha_after_exit": {
+    "actual_owner_closed": true,
+    "bytes": 110571520,
+    "native_exit_code": 0,
+    "native_worker": {
+      "pid": 2283431,
+      "start_ticks": 442430777
+    },
+    "observed_utc": "2026-11-02T05:24:10.358966+00:00",
+    "path": "train_aria/clip-002682.tar",
+    "reused_old_seed": false,
+    "sha256": "c74085d3e50cee881999ae678be523a6c17fe8820c325a236068032c3faf41a2",
+    "source_numeric_or_geometry_qualification": false,
+    "whole_sha256_and_generation_exact_after_exit": true
+  },
+  "format": "actual_closed_TLS833_HOT3D_same_source_explicit_recovery_v1",
+  "full_paper_complete": false,
+  "manifest_sha256": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+  "native_connections": 1,
+  "native_limit_mib_per_second": 32,
+  "native_max_tries": 1,
+  "new_gpu_actions": 0,
+  "new_journal_complete_archives": 835,
+  "new_journal_new_downloads": 2,
+  "new_model_runs": 0,
+  "observed_utc": "2026-11-02T05:24:10.249961+00:00",
+  "old_completed_journal_archives": 833,
+  "old_completed_journal_bytes": 90843555840,
+  "old_top_files_sha256": {
+    "aria2.log": "bcc92fa09ec8d06b0b86adb041a2b70b527770abddcbc5faabbedf4168656ec9",
+    "config.json": "e2a2743f6908a7677faa6c4556e978764e71be209192971c38cdc6c10ee032a9",
+    "failed.json": "a91b6bb2784d9b827ebcfaf06fdb971f61ef5a9be9c64d3710e75ff0de9fc615",
+    "manifest.json": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+    "private/execution-state.json": "41be82f866ee7430a70acbc73e09268075a5d41c305b3bc8e66b23c398ce3a26",
+    "private/stage-receipt.json": "512421172b0f2e58a06173bd1b185469f987eeceb0e4e013d2e37621e5da7663",
+    "progress.json": "84ad979d8a961eff72d898d9e8b6f34c4d4b305d1406bdc139df90e14598396a",
+    "qualification.py": "b854e29cbd6bbcfef4854e9329f68bbede9030753516932e3af3b52f81b573ef",
+    "receipts.jsonl": "2cabe4a3d34e5c25cf24bd07537305749df214766f5f0e6185a1ebc388ef9998",
+    "started.json": "d863a599c3fa19ef7677b1d104d03b19bac9a7eaf68bd7d0770c91dbd8df6301",
+    "worker.py": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381"
+  },
+  "predecessor_failure_cause": "TLS handshake non-properly terminated before payload creation; no HTTP response recorded by native worker",
+  "receiver_source_changed": false,
+  "reserve_gib": 200,
+  "same_original_origin_metadata_preflight": {
+    "headers": {
+      "Retry-After": null,
+      "X-Linked-Etag": "\"c74085d3e50cee881999ae678be523a6c17fe8820c325a236068032c3faf41a2\"",
+      "X-Linked-Size": "110571520",
+      "X-Repo-Commit": "30fe9674782f32e1e5edba98476b6ff4300132c5"
+    },
+    "http_status": 302,
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/30fe9674782f32e1e5edba98476b6ff4300132c5/train_aria/clip-002682.tar"
+  },
+  "seed_admission_file_sha256": "3373e7a24a0988e0d768cbb685dc1404e95ff48e9b3d14cadf00d027a4ec6478",
+  "source_numeric_qualification_complete": false,
+  "source_partial_files_at_failure": [],
+  "source_receiver_sha256": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381"
+}
