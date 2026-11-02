@@ -1,0 +1,38 @@
+{
+  "all32_full_and_qualification_and_chain_source_actors_physically_closed": true,
+  "csv_rows": {
+    "cells": 3,
+    "paper_comparison": 12,
+    "users": 120
+  },
+  "format": "actual_native_shared_center_SML_final_publication_QC_v1",
+  "independent_actual_data_bytes": 17069751557,
+  "independent_actual_data_files": 17,
+  "independent_arithmetic_proof_file_sha256": "eeea575617ddcd1727512a3e9949f133e3f903e10ae9ef4ed6290d7f36225d1d",
+  "independent_source_and_artifact_files": 469,
+  "invalid_per_model": 128,
+  "metrics_payload_sha256": "a9873725195169bde2f22db7aa8c8ad2dae777369e296ec476db4db286d161c3",
+  "models": 3,
+  "neural_forwards": 25692,
+  "only_native_SML_Table10_subresult_complete": true,
+  "optimizer_updates": 0,
+  "other_Table10_rows_and_full_paper_complete": false,
+  "paper_avg_reference_deg": {
+    "L": 14.6,
+    "M": 14.9,
+    "S": 14.5
+  },
+  "paper_population_or_label_equivalence": false,
+  "primary_mean_deg": {
+    "EMGFormer-L": 16.515481067594482,
+    "EMGFormer-M": 16.415178772957052,
+    "EMGFormer-S": 16.485544561755102
+  },
+  "public_user_aliases_per_model": 40,
+  "publication_file_sha256": "41d68704d4f9f6966e275695ad3134921da177426413bbe9187d5bca445415bf",
+  "raw_full_native_replay_passes": 6,
+  "requested_per_model": 4282,
+  "third_reader_and_parent_and_stdlib_export_closed": true,
+  "valid_angles_per_model": 91388,
+  "valid_per_model": 4154
+}

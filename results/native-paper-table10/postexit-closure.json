@@ -1,0 +1,26 @@
+{
+  "actual_reader_exit_code": 0,
+  "actual_reader_physically_closed_after_exit0": true,
+  "all_actual_source_actors_physically_closed": true,
+  "artifact_files_sha256": {
+    "cells.csv": "58e9a77f24f2487b9ecb9a9a347e31d2b6865e13b8de2736fc677eb1f30e26b2",
+    "metrics.verified-pending-exit.json": "052224646f30fc933f1eeef7d09dd3877e3ea5f47a306afae5e9ec34fbc28093",
+    "paper-comparison.csv": "5b2632515465b920bd3d21a72e412c9d41806936164883eb34a00b07dccd4128",
+    "users.csv": "4e7392c508a1e2d002b602dbcdf9c06048318dcd8b57d278fef3e2b85583043f",
+    "verification.json": "eeea575617ddcd1727512a3e9949f133e3f903e10ae9ef4ed6290d7f36225d1d"
+  },
+  "artifact_root": "/data/shihao/egoemg-native-center-reference-independent-final-18511be52f6a-20261102/private/verified-artifacts",
+  "chain_root": "/data/shihao/egoemg-native-center-reference-auto-full-chain-4846c9a79eab-20261102",
+  "format": "actual_closed_third_independent_native_center_reference_reader_v1",
+  "full_paper_complete": false,
+  "independent_full_packet_arithmetic_complete": true,
+  "pending_external_owner_closure_and_publication": true,
+  "scientific_eligible": false,
+  "source_commit": "18511be52f6a1d75649b0dccdb9f2c60e4369dc6",
+  "source_manifest_sha256": "8e812115ed47c59e3832a57bf19646388c28a3f736ea552c47523097f330850e",
+  "third_reader": {
+    "pid": 2275213,
+    "start_ticks": "442353033"
+  },
+  "verifier_source_sha256": "b0d0f1d769234d48021a07c2de543aeff7f2a11645e187b76ea260203b906570"
+}

@@ -1,0 +1,23 @@
+{
+  "actual_full_source_actors_closed": 32,
+  "actual_neural_forwards": 25692,
+  "all_reader_and_owner_and_stdlib_readback_physically_closed": true,
+  "complete_models": 3,
+  "complete_native_and_replay_passes": 6,
+  "files_sha256": {
+    "README.md": "51cf930653f8bdd1bf6997af7e028af5fa82870e4bac49ba5a576b04f977e4be",
+    "cells.csv": "58e9a77f24f2487b9ecb9a9a347e31d2b6865e13b8de2736fc677eb1f30e26b2",
+    "final-export-readback.json": "29e8f260ddd94650f58996a1aaf72a22b7bad0be11da5e3f6ac659a866fd9f06",
+    "metrics.json": "d37221f2982455a277cc33c3c8196df92bfcbb6add851e745aeae04bfd311677",
+    "paper-comparison.csv": "5b2632515465b920bd3d21a72e412c9d41806936164883eb34a00b07dccd4128",
+    "postexit-closure.json": "5f1e65d95b49509a2103ec8297e148fcabe53189425242c3aeb5738969885190",
+    "users.csv": "4e7392c508a1e2d002b602dbcdf9c06048318dcd8b57d278fef3e2b85583043f",
+    "verification.json": "eeea575617ddcd1727512a3e9949f133e3f903e10ae9ef4ed6290d7f36225d1d"
+  },
+  "format": "native_shared_center_SML_complete_publication_v1",
+  "full_paper_complete": false,
+  "metrics_payload_sha256": "a9873725195169bde2f22db7aa8c8ad2dae777369e296ec476db4db286d161c3",
+  "optimizer_updates": 0,
+  "paper_population_or_label_version_equivalence": false,
+  "scientific_eligible": true
+}

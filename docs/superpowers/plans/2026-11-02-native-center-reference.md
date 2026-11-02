@@ -58,12 +58,14 @@
 
 - [x] 编写并观察失败的活进程、被替换来源、私有by_user键、旧点/轨迹报告替换、同N但不同目标、缺少无效请求和非有限聚合测试。
 - [x] 实现model-free关闭后读取与匿名投影，复用原point统计和全量正确性凭据；保留逐手原float32与主要float64聚合的区别。
-- [ ] 正式S/M/L各完整原生评价及独立新进程重放；完整模型状态、typed输入/预测/目标/mask与来源一致；GPU资格、短训练或子清单不替代此项。
+- [x] 正式S/M/L各完整原生评价及独立新进程重放；完整模型状态、typed输入/预测/目标/mask与来源一致；GPU资格、短训练或子清单不替代此项。
 - [ ] 实际拥有者全部退出后CPU独立读取，第三独立算术/身份核验；发布表格与PDF显示参照、全部限制；公开匿名不可变URL逐字节核验。
 - [ ] 更新Table10实际状态与全文checkpoint，源/旧结果均未改变；只有所有交付实际验收才勾选完成，保持全论文goal active直到全部其余必需项也完成。
 
-当前状态：**Task1已完成**：[17项新组件检查](../../../results/native-center-reference-data-engineering-20261102.json)及[完整4282输入的两个独立进程／退出后17.07GB来源重hash](../../../results/native-center-reference-input-admission/README.md)均通过，四原输入/读取拥有者已退出；源代码224f057保持。**Task2/3继续执行**：新增三部分组件共83/83检查通过；真实选定S/M/L的CPU四请求原生及独立重放共24次前向、12来源拥有者与独立读取者均已退出。最初S验收脚本把raw步数写成1915，已按官方与已验收轨迹的230更正；保留失败记录并复用成功S产物，无重复前向。一次新组件审查提出的资格摘要来源绑定问题已由7个RED→GREEN负例和真实6包/16文件重新读取修正；GPU资格、完整六次4282请求预测和独立Table10交付仍未完成；尚无新的全量模型分数。保留本计划workspace/ledger，不重跑已关闭的来源审计、旧数学或输入资格。
+阶段历史快照（完整评价前）：**Task1已完成**：[17项新组件检查](../../../results/native-center-reference-data-engineering-20261102.json)及[完整4282输入的两个独立进程／退出后17.07GB来源重hash](../../../results/native-center-reference-input-admission/README.md)均通过，四原输入/读取拥有者已退出；源代码224f057保持。**Task2/3继续执行**：新增三部分组件共83/83检查通过；真实选定S/M/L的CPU四请求原生及独立重放共24次前向、12来源拥有者与独立读取者均已退出。最初S验收脚本把raw步数写成1915，已按官方与已验收轨迹的230更正；保留失败记录并复用成功S产物，无重复前向。一次新组件审查提出的资格摘要来源绑定问题已由7个RED→GREEN负例和真实6包/16文件重新读取修正；GPU资格、完整六次4282请求预测和独立Table10交付仍未完成；尚无新的全量模型分数。保留本计划workspace/ledger，不重跑已关闭的来源审计、旧数学或输入资格。
 
 第三独立算术读取器已实现：15项原始包／均值／SD／分母检查和5项CSV检查均观察RED→GREEN，四部分新组件服务器套件103/103通过，342冻结成员及两测试拥有者退出已核验；原实验340成员保持。该读取器不调用实验数值归约器，最终将重hash17个实际数据源、读取六个完整typed包并逐项比较匿名表和CSV。全量实际执行、读取者退出和最终发布仍欠，不把新单元检查视为全量模型结果。
 
 2026-11-02 Task2真实GPU资格已关闭：三模型各4请求原生／独立重放，共24次实际GPU前向，9阶段及10来源拥有者全部退出0；再一独立CPU读取者核验6原始包／16产物SHA与实际产生者并退出。实际raw长度230、FP32、原BEST状态前后一致。后继已自动启动原6×4282完整评价，不能将本资格升级为最终模型分数；Task3全量与独立算术仍欠。
+
+2026-11-02 Task3 actual full closure:6x4282=25692 original/replay forwards completed0 at05:09:37UTC; selectedSML states/typed predictions exact. Reviewed pendingcollector completed0, fullchain ended05:10:24UTC. Third independent reader2275213/start442353033 rehashed17datafiles17069751557bytes and all469source/artifact files, recomputed all3complete packets mean/SD/Avg/float32aux/CSV, source32actors closed; reader/owner2241446 ended0/gone at05:11:07UTC. Finalstdlibexport2276467/start442364577 also physicallyclosed. Native shared-center Avg S16.485544561755102/M16.415178772957052/L16.515481067594482deg; explicit PDFreference14.5/14.9/14.6 andpop/labels equivalenceFalse. Local results/native-paper-table10 ready; publicimmutable byteacceptance and finalstatus checkbox remain pending.
