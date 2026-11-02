@@ -1,0 +1,71 @@
+{
+  "actual_ssh_and_probe_exit_code": 0,
+  "complete_reference_input_validation": false,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "format": "native_table10_common_reference_real_input_engineering_probe_v1",
+  "full_paper_complete": false,
+  "local_probe_script_sha256": "b5568aebcab8d93b6a1c16c7809785ae11e64ffe83c0ec6a2c134d1208084fe4",
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T03:15:12.419994+00:00",
+  "probes": [
+    {
+      "boundary": "first",
+      "hand": "left",
+      "native_EMG_finite": true,
+      "native_EMG_input_shape": [
+        8,
+        12000
+      ],
+      "original_fusion_reader_error": "KeyError: 'image_head_frame_index'",
+      "point_target_and_mask_bytes_equal_actual_visual": true
+    },
+    {
+      "boundary": "last",
+      "hand": "left",
+      "native_EMG_finite": true,
+      "native_EMG_input_shape": [
+        8,
+        12000
+      ],
+      "original_fusion_reader_error": "KeyError: 'image_head_frame_index'",
+      "point_target_and_mask_bytes_equal_actual_visual": true
+    },
+    {
+      "boundary": "first",
+      "hand": "right",
+      "native_EMG_finite": true,
+      "native_EMG_input_shape": [
+        8,
+        12000
+      ],
+      "original_fusion_reader_error": "KeyError: 'image_head_frame_index'",
+      "point_target_and_mask_bytes_equal_actual_visual": true
+    },
+    {
+      "boundary": "last",
+      "hand": "right",
+      "native_EMG_finite": true,
+      "native_EMG_input_shape": [
+        8,
+        12000
+      ],
+      "original_fusion_reader_error": "KeyError: 'image_head_frame_index'",
+      "point_target_and_mask_bytes_equal_actual_visual": true
+    }
+  ],
+  "process": {
+    "pid": 2177405,
+    "start_ticks": "441660979"
+  },
+  "scope": "four real bilateral first/last-boundary inputs only; not complete4282 input validation or model evaluation",
+  "source_files_sha256": {
+    "emg_initializer_data": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+    "emgformer_literal": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
+    "official_center_frame": "9ed981e3652d94a25d4607ff3e0eb3802b0f279077eccafe933773026aeb085a"
+  }
+}

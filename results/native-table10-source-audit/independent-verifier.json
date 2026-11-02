@@ -1,0 +1,38 @@
+{
+  "actual_ssh_and_verifier_exit_code": 0,
+  "all_consumed_source_bytes_and_five_attributes_unchanged": true,
+  "all_three_audit_grid_probe_owners_physically_closed": true,
+  "all_three_original_point_metadata_targets_masks_exact": true,
+  "boundary_excluded_requests": 24,
+  "consumed_file_count": 26,
+  "cuda_initialized": false,
+  "format": "independent_actual_native_table10_source_audit_verification_v1",
+  "full_paper_complete": false,
+  "full_shared_grid_model_evaluation_complete": false,
+  "independent_center_hand_join_count": 0,
+  "independent_episode_metadata_grid_matches_both_actual_official_calls": true,
+  "independent_reader_physically_closed_after_exit0": true,
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T03:16:08.722075+00:00",
+  "official_common12000_requests": 4282,
+  "point_requests": 2792,
+  "process": {
+    "pid": 2178199,
+    "start_ticks": "441666932"
+  },
+  "split_request_counts": {
+    "common": {
+      "both": 322,
+      "gesture": 2314,
+      "user": 1646
+    },
+    "reference": {
+      "both": 322,
+      "gesture": 2324,
+      "user": 1660
+    }
+  },
+  "verifier_script_sha256": "a33b736a07feb5817360bdc7c31997d31ecdcf1bd5821c5a0bb2914c44b660bb",
+  "visual_reference_requests": 4306
+}

@@ -1,0 +1,122 @@
+{
+  "actual_seconds": 12.340064090676606,
+  "actual_ssh_and_audit_exit_code": 0,
+  "all_source_bytes_and_five_attributes_unchanged": true,
+  "common12000_without_old_vision_predictions_hand_requests": 0,
+  "common_max_required12000": {
+    "by_split": {
+      "both": 322,
+      "gesture": 2314,
+      "user": 1646
+    },
+    "episodes": 40,
+    "hand_requests": 4282,
+    "windows": 2141
+  },
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "consumed_files": {
+    "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-evaluation/test-native/predictions.pt": {
+      "generation": [
+        64512,
+        19339346252,
+        3803014,
+        1793523977347417643,
+        1793523977350417683
+      ],
+      "sha256": "45003fe0db806ea2438524894289ee4ed76a8f47de41cdcbde48bef025260de6"
+    },
+    "/data/shihao/outputs/egoemg-full-paper-20261026/vision-original-s-fee2e9b7d068-20261027/test-native/predictions.pt": {
+      "generation": [
+        64512,
+        7487961765,
+        1560818,
+        1793125797539546087,
+        1793125797540546088
+      ],
+      "sha256": "39e6f3613e1f67ec34109abbf46b2a04adbbdd317830dcd0396da87a42ba9856"
+    },
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/episode_index.dat": {
+      "generation": [
+        2050,
+        6831027,
+        529293800,
+        1792818681809495813,
+        1792818682402503570
+      ],
+      "sha256": "74d736c2ecc65dcf82defabeca606d1f854c6875ebbbfd1e5233aa530a914351"
+    },
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/frame_split_id.dat": {
+      "generation": [
+        2050,
+        6830930,
+        66161725,
+        1778040708000000000,
+        1792817259697122993
+      ],
+      "sha256": "9ecef5c0057c639aa90e9574f9cf30f9de070b833f3a38bd2cd0f679c31b31ef"
+    },
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/manifest.json": {
+      "generation": [
+        2050,
+        6830917,
+        9419,
+        1778047598000000000,
+        1792817013799534151
+      ],
+      "sha256": "ebcef7877444253869845b9337b7c0df2b16b0b6f55d83c58d6c3c03bae8ac09"
+    },
+    "/home/shihao/projects/EgoEMG-Reproduction/upstream/egoemg/center_frame.py": {
+      "generation": [
+        2050,
+        6829388,
+        11548,
+        1792816858814955050,
+        1792816858814955050
+      ],
+      "sha256": "9ed981e3652d94a25d4607ff3e0eb3802b0f279077eccafe933773026aeb085a"
+    },
+    "/home/shihao/projects/EgoEMG-Reproduction/upstream/egoemg/datasets/egoemg_memmap_dataset.py": {
+      "generation": [
+        2050,
+        6829395,
+        89462,
+        1792816858814955050,
+        1792816858814955050
+      ],
+      "sha256": "9f8999ccc6a2d964713ff85886781ecc4d41ddb18f2986e0fbe5c6cc11236060"
+    }
+  },
+  "cuda_initialized": false,
+  "format": "actual_pinned_official_center_frame_grid_source_audit_v1",
+  "full_paper_complete": false,
+  "full_shared_grid_model_evaluation_complete": false,
+  "local_audit_script_sha256": "2093ba7fc93426409dc8d2872fac86e1f55206fe7c7860707e9775a475e61b09",
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "observed_utc": "2026-11-02T03:13:07.261218+00:00",
+  "official_required_window_boundary_excluded_hand_requests": 24,
+  "official_stdout": "Collected 2153 val centers across 41 episodes (REF_WL=7790, required_window_length=None)\nCollected 2141 val centers across 40 episodes (REF_WL=7790, required_window_length=12000)\n",
+  "old_point_grid_hand_requests": 2792,
+  "old_point_grid_shared_with_official_reference_hand_requests": 0,
+  "old_vision_grid_hand_requests": 4306,
+  "old_vision_grid_shared_with_common12000_hand_requests": 4282,
+  "old_vision_grid_shared_with_official_reference_hand_requests": 4306,
+  "old_vision_predictions_outside_common12000_hand_requests": 24,
+  "process": {
+    "pid": 2175771,
+    "start_ticks": "441648022"
+  },
+  "reference": {
+    "by_split": {
+      "both": 322,
+      "gesture": 2324,
+      "user": 1660
+    },
+    "episodes": 41,
+    "hand_requests": 4306,
+    "windows": 2153
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "grid": {
+    "actual_remote_worker_source_sha256": "ce2c9df745044d1dfed43d706f50f8b0cd1e86f5825c3056080a585bd280a4ca",
+    "configuration_reconstructed_from_unchanged_recorded_inputs_for_replay": true,
+    "original_local_runner_sha256": "2093ba7fc93426409dc8d2872fac86e1f55206fe7c7860707e9775a475e61b09",
+    "replay_configuration_json_sha256": "1b6e736c5cfcfbb00730a6b47d539cce07972ba862238b1aa740d41213331dd4"
+  },
+  "independent-verifier": {
+    "actual_remote_worker_source_sha256": "68c264e71390c6fb789dfd09da52ef6a9436842cb3fcecd4d3467574c3e8533c",
+    "configuration_reconstructed_from_unchanged_recorded_inputs_for_replay": true,
+    "original_local_runner_sha256": "a33b736a07feb5817360bdc7c31997d31ecdcf1bd5821c5a0bb2914c44b660bb",
+    "replay_configuration_json_sha256": "4b595fda5561e879b96fda4edfac15cd886ea711501d95007eb485f010525780"
+  },
+  "input-probe": {
+    "actual_remote_worker_source_sha256": "d1a4a8bac3268493dda8bbb3be2a8df7a49dc0451f223e7ef8c36e572c5ea787",
+    "configuration_reconstructed_from_unchanged_recorded_inputs_for_replay": true,
+    "original_local_runner_sha256": "b5568aebcab8d93b6a1c16c7809785ae11e64ffe83c0ec6a2c134d1208084fe4",
+    "replay_configuration_json_sha256": "1b6e736c5cfcfbb00730a6b47d539cce07972ba862238b1aa740d41213331dd4"
+  },
+  "targets": {
+    "actual_remote_worker_source_sha256": "5060bb605184288d83ee281d4c0393e2a92a1f935c4a9ccdd9b81d77b65f52ff",
+    "configuration_reconstructed_from_unchanged_recorded_inputs_for_replay": true,
+    "original_local_runner_sha256": "a1f7c593372561c78a9bce95bbd7be09213637f0cf7abf47c56ab6e077ed11a3",
+    "replay_configuration_json_sha256": "579b20d96fc3c8d47d4a90380fc5ce9d6204e88a9603e1ef85e162bcd2378496"
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "actual_consumed_files": {
+    "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/execution-state.json": {
+      "generation": [
+        64512,
+        21645748830,
+        321,
+        1793529472511219955,
+        1793529472511219955
+      ],
+      "sha256": "7232a717a947091f72807fdaeff7d659a16975339d64c72e9387a6467b624896"
+    },
+    "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-evaluation/report/metrics.json": {
+      "generation": [
+        64512,
+        21645748824,
+        23179,
+        1793529380699104897,
+        1793529380699104897
+      ],
+      "sha256": "cc813f3054fc53d9cd6c0a7def81cd16b20e7c81334b6a18dc7d176a33af01b9"
+    },
+    "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-evaluation/test-native/pass.json": {
+      "generation": [
+        64512,
+        25915590508,
+        20786,
+        1793529204664956471,
+        1793529204664956471
+      ],
+      "sha256": "4c67b458630980c9221749efae532732dc823aaac19547a066845825a511d9d2"
+    },
+    "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-evaluation/test-native/predictions.pt": {
+      "generation": [
+        64512,
+        25915590506,
+        3803014,
+        1793529204585955503,
+        1793529204587955528
+      ],
+      "sha256": "52b70752c8db8715574a3e8c2870ac6c3bd63b9a7eb90a92b4a274d69066b1ec"
+    },
+    "/data/shihao/egoemg-native-emgformer-large-full-cli-20261101/private/full-fit/identity.json": {
+      "generation": [
+        64512,
+        19417194918,
+        164472,
+        1793499061196685516,
+        1793499061196685516
+      ],
+      "sha256": "e2456674c7f189f950a48fa5d0e6e287571a45de2e07cb6720b6bb3ae888ab3d"
+    },
+    "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/execution-state.json": {
+      "generation": [
+        64512,
+        28084462396,
+        321,
+        1793526409596084541,
+        1793526409597084548
+      ],
+      "sha256": "e9fde0f24eea47ad0701f9d64834a2fc1d9fad573368cc8a09665dc9882ee496"
+    },
+    "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-evaluation/report/metrics.json": {
+      "generation": [
+        64512,
+        25915557087,
+        23188,
+        1793526341809586308,
+        1793526341809586308
+      ],
+      "sha256": "d5e8622f145d38348d796ce2b9bb970c61228a767f57e51b894c21ba91bee3ca"
+    },
+    "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-evaluation/test-native/pass.json": {
+      "generation": [
+        64512,
+        320822360,
+        20796,
+        1793526196808667576,
+        1793526196808667576
+      ],
+      "sha256": "b09c7d61a7da0a3d59ea077a4a2ec201b9b801e95a094cec51a600a712e48228"
+    },
+    "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-evaluation/test-native/predictions.pt": {
+      "generation": [
+        64512,
+        320822358,
+        3803014,
+        1793526196729667138,
+        1793526196730667144
+      ],
+      "sha256": "b3b215dc7583860102385294d1a39dbb53c3bb00fd035f3efa984e17a2197e4e"
+    },
+    "/data/shihao/egoemg-native-emgformer-middle-full-cli-20261101/private/full-fit/identity.json": {
+      "generation": [
+        64512,
+        11814895591,
+        159143,
+        1793498987194678304,
+        1793498987195678318
+      ],
+      "sha256": "b86ed8a3eb69c639297242c95151cdc89b5e56b830490cd1379255944ff5fb90"
+    },
+    "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/execution-state.json": {
+      "generation": [
+        64512,
+        17471369838,
+        321,
+        1793524192619802436,
+        1793524192620802445
+      ],
+      "sha256": "28e66555b4fc5ad612916f6a54d663d3ce10d4c2922e393219a5b37c44e6db44"
+    },
+    "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-evaluation/report/metrics.json": {
+      "generation": [
+        64512,
+        28084323987,
+        23181,
+        1793524116806154194,
+        1793524116807154202
+      ],
+      "sha256": "0d2d2d213557456f2b1d6a137765616d733a1f2db3b4be842fde74947a84cbf8"
+    },
+    "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-evaluation/test-native/pass.json": {
+      "generation": [
+        64512,
+        19339346254,
+        20813,
+        1793523977437418838,
+        1793523977438418851
+      ],
+      "sha256": "ff1a47166e988158ee4187cafa3aa21e1ac4f8cd606a0a601442cb54e8ec3dca"
+    },
+    "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-evaluation/test-native/predictions.pt": {
+      "generation": [
+        64512,
+        19339346252,
+        3803014,
+        1793523977347417643,
+        1793523977350417683
+      ],
+      "sha256": "45003fe0db806ea2438524894289ee4ed76a8f47de41cdcbde48bef025260de6"
+    },
+    "/data/shihao/egoemg-native-emgformer-reviewed-full-75c45c3fb6e8-20261101/private/full-fit/identity.json": {
+      "generation": [
+        64512,
+        319787077,
+        151692,
+        1793498340843576984,
+        1793498340843576984
+      ],
+      "sha256": "8f2f33d583848b55d371ebaab0a6259e19dc02ba9fa797c79c580ce69036c457"
+    },
+    "/data/shihao/outputs/egoemg-full-paper-20261026/vision-original-s-fee2e9b7d068-20261027/full-fit/fit-result.json": {
+      "generation": [
+        64512,
+        20455905861,
+        5157,
+        1793125380763260358,
+        1793125380764260373
+      ],
+      "sha256": "d8baa9ef6adf118ba86cc03165e00a7e31c73e99bc05fcf42eb1e5a92bd80ce1"
+    },
+    "/data/shihao/outputs/egoemg-full-paper-20261026/vision-original-s-fee2e9b7d068-20261027/full-fit/identity.json": {
+      "generation": [
+        64512,
+        20650413403,
+        103963,
+        1793054151537434197,
+        1793054151538434212
+      ],
+      "sha256": "470f534eafd275755e6e1553376947b2ffd56793d0816132b02e9829448795cc"
+    },
+    "/data/shihao/outputs/egoemg-full-paper-20261026/vision-original-s-fee2e9b7d068-20261027/public-report/metrics.json": {
+      "generation": [
+        64512,
+        14248278195,
+        59929,
+        1793125989406149988,
+        1793125989407149992
+      ],
+      "sha256": "148b96026cee545cce088bb8d40906ffc6222853cac71b757536e53b1e70bbe4"
+    },
+    "/data/shihao/outputs/egoemg-full-paper-20261026/vision-original-s-fee2e9b7d068-20261027/test-native/pass.json": {
+      "generation": [
+        64512,
+        7487961767,
+        59917,
+        1793125797597546152,
+        1793125797597546152
+      ],
+      "sha256": "29a24fcb67f8252be5d7629cdbc2f2da8888acc39fe63af5e8d09949fd9eebcc"
+    },
+    "/data/shihao/outputs/egoemg-full-paper-20261026/vision-original-s-fee2e9b7d068-20261027/test-native/predictions.pt": {
+      "generation": [
+        64512,
+        7487961765,
+        1560818,
+        1793125797539546087,
+        1793125797540546088
+      ],
+      "sha256": "39e6f3613e1f67ec34109abbf46b2a04adbbdd317830dcd0396da87a42ba9856"
+    }
+  },
+  "actual_ssh_and_audit_exit_code": 0,
+  "all_source_bytes_and_five_attributes_unchanged": true,
+  "all_three_point_sources_same_actual_visual_targets": false,
+  "construction_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "format": "native_table10_point6000_visual_target_population_audit_v1",
+  "full_paper_complete": false,
+  "joins": {
+    "large": {
+      "checks": {
+        "all_requested_pairs_unique": true,
+        "all_shared_frozen_label_and_metadata_content_sha256_exact": true,
+        "center_exact": false,
+        "hand": false,
+        "mask_bool_bytes_exact": false,
+        "split": false,
+        "target_float32_bytes_exact": false,
+        "user": false
+      },
+      "invalid_points": 84,
+      "matched_actual_center_hand_split_user_requests": 0,
+      "point_requested": 2792,
+      "point_requests_without_matching_visual_center": 2792,
+      "point_valid_angles": 59576,
+      "same_complete_target_population": false,
+      "shared_content_files_sha256_equal": {
+        "field:frame_split_id": true,
+        "field:generated_joint_angles_left": true,
+        "field:generated_joint_angles_right": true,
+        "field:generated_label_valid": true,
+        "field:mocap_left_wrist_pitch": true,
+        "field:mocap_left_wrist_yaw": true,
+        "field:mocap_right_wrist_pitch": true,
+        "field:mocap_right_wrist_yaw": true,
+        "metadata:episodes": true,
+        "metadata:manifest": true
+      },
+      "valid_points": 2708,
+      "vision_first_repeat_requested": 4306,
+      "vision_valid_angles": 91916,
+      "visual_missing_image_requests": 173,
+      "visual_requests_without_matching_point_center": 4306,
+      "visual_visible_and_label_valid_requests": 4133,
+      "visual_visible_requests": 4133
+    },
+    "middle": {
+      "checks": {
+        "all_requested_pairs_unique": true,
+        "all_shared_frozen_label_and_metadata_content_sha256_exact": true,
+        "center_exact": false,
+        "hand": false,
+        "mask_bool_bytes_exact": false,
+        "split": false,
+        "target_float32_bytes_exact": false,
+        "user": false
+      },
+      "invalid_points": 84,
+      "matched_actual_center_hand_split_user_requests": 0,
+      "point_requested": 2792,
+      "point_requests_without_matching_visual_center": 2792,
+      "point_valid_angles": 59576,
+      "same_complete_target_population": false,
+      "shared_content_files_sha256_equal": {
+        "field:frame_split_id": true,
+        "field:generated_joint_angles_left": true,
+        "field:generated_joint_angles_right": true,
+        "field:generated_label_valid": true,
+        "field:mocap_left_wrist_pitch": true,
+        "field:mocap_left_wrist_yaw": true,
+        "field:mocap_right_wrist_pitch": true,
+        "field:mocap_right_wrist_yaw": true,
+        "metadata:episodes": true,
+        "metadata:manifest": true
+      },
+      "valid_points": 2708,
+      "vision_first_repeat_requested": 4306,
+      "vision_valid_angles": 91916,
+      "visual_missing_image_requests": 173,
+      "visual_requests_without_matching_point_center": 4306,
+      "visual_visible_and_label_valid_requests": 4133,
+      "visual_visible_requests": 4133
+    },
+    "small": {
+      "checks": {
+        "all_requested_pairs_unique": true,
+        "all_shared_frozen_label_and_metadata_content_sha256_exact": true,
+        "center_exact": false,
+        "hand": false,
+        "mask_bool_bytes_exact": false,
+        "split": false,
+        "target_float32_bytes_exact": false,
+        "user": false
+      },
+      "invalid_points": 84,
+      "matched_actual_center_hand_split_user_requests": 0,
+      "point_requested": 2792,
+      "point_requests_without_matching_visual_center": 2792,
+      "point_valid_angles": 59576,
+      "same_complete_target_population": false,
+      "shared_content_files_sha256_equal": {
+        "field:frame_split_id": true,
+        "field:generated_joint_angles_left": true,
+        "field:generated_joint_angles_right": true,
+        "field:generated_label_valid": true,
+        "field:mocap_left_wrist_pitch": true,
+        "field:mocap_left_wrist_yaw": true,
+        "field:mocap_right_wrist_pitch": true,
+        "field:mocap_right_wrist_yaw": true,
+        "metadata:episodes": true,
+        "metadata:manifest": true
+      },
+      "valid_points": 2708,
+      "vision_first_repeat_requested": 4306,
+      "vision_valid_angles": 91916,
+      "visual_missing_image_requests": 173,
+      "visual_requests_without_matching_point_center": 4306,
+      "visual_visible_and_label_valid_requests": 4133,
+      "visual_visible_requests": 4133
+    }
+  },
+  "local_audit_script_sha256": "a1f7c593372561c78a9bce95bbd7be09213637f0cf7abf47c56ab6e077ed11a3",
+  "new_neural_forwards": 0,
+  "new_optimizer_updates": 0,
+  "no_predictions_recomputed": true,
+  "observed_utc": "2026-11-02T03:11:27.713032+00:00",
+  "paper_population_or_data_version_equivalence": false,
+  "private_user_keys_not_exported": true,
+  "process": {
+    "pid": 2174414,
+    "start_ticks": "441637267",
+    "uid": 1005
+  },
+  "source_file_count": 20,
+  "sources": {
+    "large": {
+      "cohort_sha256": "fd3eb51d29f0feeb71b0ce6b321725e3b00d67e5bde11f4afe18ca3cd1dba010",
+      "completed_epochs": 200,
+      "fit_result_sha256": "cf57d3db07807de24d784bacd6a54ace4830c19dee87b362973b17162ba3b92b",
+      "optimizer_updates": 25000,
+      "pass_file_sha256": "4c67b458630980c9221749efae532732dc823aaac19547a066845825a511d9d2",
+      "payload_sha256": "52b70752c8db8715574a3e8c2870ac6c3bd63b9a7eb90a92b4a274d69066b1ec",
+      "point_source_index": 6000,
+      "public_alias_projection_exact": true,
+      "report_file_sha256": "cc813f3054fc53d9cd6c0a7def81cd16b20e7c81334b6a18dc7d176a33af01b9",
+      "requested": 2792,
+      "selected_best": {
+        "checkpoint_sha256": "896871c83cb46ac12a755ab4dcee0f89b0995cae8fdcfac6df47ec6820ce1605",
+        "file": "best-val_mae=val_mae=0.2554.ckpt",
+        "score": 0.255403995513916,
+        "validated": true
+      },
+      "source_pass_and_queue_owners_physically_closed": true
+    },
+    "middle": {
+      "cohort_sha256": "44832ab9f92b897c59ae7e1bad3be1cb93b258d40bd1434b73743b8f4562e968",
+      "completed_epochs": 200,
+      "fit_result_sha256": "9010f796b2f195a3907a14fae0f5d671f9f19c774e3ca4bb89bcbdfcba23c051",
+      "optimizer_updates": 25000,
+      "pass_file_sha256": "b09c7d61a7da0a3d59ea077a4a2ec201b9b801e95a094cec51a600a712e48228",
+      "payload_sha256": "b3b215dc7583860102385294d1a39dbb53c3bb00fd035f3efa984e17a2197e4e",
+      "point_source_index": 6000,
+      "public_alias_projection_exact": true,
+      "report_file_sha256": "d5e8622f145d38348d796ce2b9bb970c61228a767f57e51b894c21ba91bee3ca",
+      "requested": 2792,
+      "selected_best": {
+        "checkpoint_sha256": "c9a62af344490dc530a89e4f6b861a5463cd8e9b8aa05fb5380d171776ee36ff",
+        "file": "best-val_mae=val_mae=0.2578.ckpt",
+        "score": 0.25775474309921265,
+        "validated": true
+      },
+      "source_pass_and_queue_owners_physically_closed": true
+    },
+    "small": {
+      "cohort_sha256": "5a1ecdbe53022ba02ccdb39ff39675f62db2b08662ec3d9fa39842f853b9539f",
+      "completed_epochs": 200,
+      "fit_result_sha256": "c4e76f2b0e60557e18bfab3d9ffa52479fbb731818a3d1d8ed82f832cf19bde6",
+      "optimizer_updates": 25000,
+      "pass_file_sha256": "ff1a47166e988158ee4187cafa3aa21e1ac4f8cd606a0a601442cb54e8ec3dca",
+      "payload_sha256": "45003fe0db806ea2438524894289ee4ed76a8f47de41cdcbde48bef025260de6",
+      "point_source_index": 6000,
+      "public_alias_projection_exact": true,
+      "report_file_sha256": "0d2d2d213557456f2b1d6a137765616d733a1f2db3b4be842fde74947a84cbf8",
+      "requested": 2792,
+      "selected_best": {
+        "checkpoint_sha256": "8d726829e8ba8af72cb9f724767419f7a9cfd04d5ebd040cffc030a492d43443",
+        "file": "best-val_mae=val_mae=0.2583.ckpt",
+        "score": 0.25830063223838806,
+        "validated": true
+      },
+      "source_pass_and_queue_owners_physically_closed": true
+    },
+    "vision_vit_small": {
+      "cohort_sha256": "4580be4fcf98e1f5e683477db12bd2d2020a61cfd0a79755a2cea1171b2cecab",
+      "consumed": 8612,
+      "first_repeat_requested": 4306,
+      "fit_result_sha256": "c37fec4cf32569e7aa6eec0bcb69379e3bf38d6c1d8f767a0f65f50b4afd2067",
+      "original_point_source_index": 3895,
+      "original_window_length": 7790,
+      "pass_file_sha256": "29a24fcb67f8252be5d7629cdbc2f2da8888acc39fe63af5e8d09949fd9eebcc",
+      "payload_sha256": "39e6f3613e1f67ec34109abbf46b2a04adbbdd317830dcd0396da87a42ba9856",
+      "public_alias_projection_exact": true,
+      "report_file_sha256": "148b96026cee545cce088bb8d40906ffc6222853cac71b757536e53b1e70bbe4",
+      "second_repeat_target_mask_and_metadata_exact": true,
+      "selected_best": {
+        "checkpoint_sha256": "041050c2fc5c67050203744b08a25c19f449cc08ea5fdfd47d37fccb7e478b7b",
+        "file": "vit-small-epoch=093-val_mae=0.1012.ckpt",
+        "score": 0.10121652483940125,
+        "validated": true
+      },
+      "source_pass_and_controller_physically_closed": true
+    }
+  },
+  "trajectory_aligned_center6255_not_substituted": true
+}
