@@ -262,6 +262,7 @@ def read_control_batch(directory,record,*,expected_keys,baseline,baseline_ordina
 
 
 _INPUTS = weakref.WeakKeyDictionary()
+_TRANSPORT = weakref.WeakKeyDictionary()
 
 
 @dataclass(eq=False)
@@ -378,6 +379,41 @@ def _baseline_ordinal(evidence,keys):
     raise ValueError('exact original full native batch or group-tail keys required')
 
 
+def _validate_control_fingerprints(inputs,keys,fingerprints):
+    """Recompute all condition tensors from authenticated original samples.
+
+    Hashes of original rows alone cannot prove zero/roll/black transport. Cache
+    only within this registered, generation-guarded input provider; no model,
+    caller-supplied expected hashes or persisted cache can authorize admission.
+    """
+    if not isinstance(inputs,ControlInputs):
+        raise ValueError('registered complete native control inputs required')
+    inputs.check();evidence=inputs.evidence;ordinal=_baseline_ordinal(evidence,keys)
+    if (not isinstance(fingerprints,dict)or not fingerprints
+        or any(not isinstance(k,str)or not isinstance(v,str)or not re.fullmatch('[a-f0-9]{64}',v)
+            for k,v in fingerprints.items())):
+        raise ValueError('complete exact condition tensor fingerprint schema required')
+    cache=_TRANSPORT.setdefault(inputs,{})
+    if ordinal not in cache:
+        import torch
+        from .occlusion_dense_run import _collate_pairs
+        from .modality_controls import apply_input_condition
+        samples=[inputs[k['sequence']]for k in keys]
+        batch=_collate_pairs(samples,upstream=evidence.native.upstream)
+        if batch['keys']!=keys:
+            raise ValueError('fresh transport input keys differ from original native batch')
+        expected={'row:'+str(k['sequence']):s['verified_input_sha256']for k,s in zip(keys,samples)}
+        norm=inputs.normalization[keys[0]['hand']]
+        for c,(emg,vision)in enumerate(CONDITIONS):
+            transported=apply_input_condition(batch['fusion'],emg=emg,vision=vision,**norm)['batch']
+            expected.update({'condition:'+str(c)+':'+n:_typed_sha(x.numpy())
+                for n,x in transported.items()if isinstance(x,torch.Tensor)})
+        inputs.check();cache[ordinal]=_canonical(expected)
+    if fingerprints!=json.loads(cache[ordinal]):
+        raise ValueError('persisted six-condition tensors differ from deterministic admitted native inputs')
+    inputs.check()
+
+
 def predict_control_batch_set(inputs,trained,batch):
     """Run all fixed conditions on one complete original native batch/tail."""
     if not isinstance(inputs,ControlInputs):
@@ -440,7 +476,7 @@ def _budget(output):
     _runtime_budget(output)
 
 
-def read_control_pass(directory,*,evidence):
+def read_control_pass(directory,*,evidence,inputs=None):
     """Reopen the complete scope after its producer and all loaders exit."""
     if not isinstance(evidence,ControlEvidence):
         raise ValueError('registered complete control evidence required')
@@ -483,6 +519,10 @@ def read_control_pass(directory,*,evidence):
             for actor in group['workers']:_closed(actor)
         if [(g['split'],g['hand'])for g in result['loader_groups']]!=[(s,h)for s in('user','gesture','both')for h in('left','right')]:
             raise ValueError('six original loader groups must remain ordered and unique')
+        if inputs is None:inputs=admit_control_inputs(evidence)
+        if not isinstance(inputs,ControlInputs)or inputs.evidence is not evidence:
+            raise ValueError('same actual registered native inputs required for condition transport replay')
+        inputs.check()
         missing=invalid=0
         for ordinal,((start,stop),record)in enumerate(zip(ranges,records)):
             expected=keys[start:stop];base_ordinal=_baseline_ordinal(evidence,expected)
@@ -496,6 +536,7 @@ def read_control_pass(directory,*,evidence):
                 typed=json.loads(evidence.native.records[key['sequence']])['typed_input_sha256']
                 if record['inputs_sha256']['row:'+str(key['sequence'])]!=_hash(typed):
                     raise ValueError('original control row fingerprint changed')
+            _validate_control_fingerprints(inputs,expected,record['inputs_sha256'])
             missing+=int((~arrays['natural_crop_valid_mask']).sum())
             invalid+=int((~arrays['label_valid_mask']).sum())
         if (result['crop_missing'],result['label_invalid'])!=(missing,invalid):
@@ -504,7 +545,7 @@ def read_control_pass(directory,*,evidence):
             raise ValueError('complete native missing/invalid population required')
         evidence.check();guard.check()
         return dict(directory=str(directory),identity=identity,result=result,records=records,
-            _guard=guard,_result_file_sha256=_sha(directory/'result.json'))
+            _guard=guard,_result_file_sha256=_sha(directory/'result.json'),_inputs=inputs)
     except(OSError,KeyError,TypeError)as exc:
         raise ValueError('complete control pass unavailable or malformed')from exc
 
@@ -525,7 +566,7 @@ def _compare_control_passes(first,second,evidence):
 
 
 def accept_control_qualification(first,second,*,evidence,output):
-    a=read_control_pass(first,evidence=evidence);b=read_control_pass(second,evidence=evidence)
+    a=read_control_pass(first,evidence=evidence);b=read_control_pass(second,evidence=evidence,inputs=a['_inputs'])
     if a['identity']['scope']!='qualification'or b['identity']['scope']!='qualification':
         raise ValueError('actual original batch64 and group-tail control qualification required')
     _compare_control_passes(a,b,evidence)
@@ -539,7 +580,7 @@ def accept_control_qualification(first,second,*,evidence,output):
     return value
 
 
-def _qualification(path,evidence):
+def _qualification(path,evidence,inputs=None):
     if path is None:
         raise ValueError('actual six-condition batch64 qualification required before complete control inference')
     try:
@@ -551,7 +592,8 @@ def _qualification(path,evidence):
             or(v['actual_batch_size'],v['actual_workers'],v['actual_points_each'],v['actual_batches_each'])
                 !=(64,4,sum(b-a for a,b in ranges),12)or not v['separate_fresh_replay_exact']):
             raise ValueError('same actual native six-condition qualification required')
-        a=read_control_pass(v['first'],evidence=evidence);b=read_control_pass(v['second'],evidence=evidence)
+        a=read_control_pass(v['first'],evidence=evidence,inputs=inputs)
+        b=read_control_pass(v['second'],evidence=evidence,inputs=a['_inputs'])
         if (a['identity']['scope']!='qualification'or b['identity']['scope']!='qualification'
             or a['_result_file_sha256']!=v['first_result_file_sha256']or b['_result_file_sha256']!=v['second_result_file_sha256']):
             raise ValueError('actual original qualification scope and result bytes required')
@@ -566,9 +608,9 @@ def run_control_pass(inputs,output,*,scope,qualification=None,replay_of=None):
     if not isinstance(inputs,ControlInputs):
         raise ValueError('registered complete native control inputs required')
     inputs.check();evidence=inputs.evidence;ranges=control_batch_ranges(evidence,scope)
-    if scope=='complete':_qualification(qualification,evidence)
+    if scope=='complete':_qualification(qualification,evidence,inputs)
     _budget(output)
-    previous=read_control_pass(replay_of,evidence=evidence)if replay_of is not None else None
+    previous=read_control_pass(replay_of,evidence=evidence,inputs=inputs)if replay_of is not None else None
     import time
     import torch
     from .emg2pose_memory_process import process_identity
@@ -674,7 +716,7 @@ def build_control_report(first,second,*,evidence,output):
     """Read only the two complete passes; never construct a model or optimizer."""
     import csv
     from .emg2pose_memory_process import process_identity
-    a=read_control_pass(first,evidence=evidence);b=read_control_pass(second,evidence=evidence)
+    a=read_control_pass(first,evidence=evidence);b=read_control_pass(second,evidence=evidence,inputs=a['_inputs'])
     if a['identity']['scope']!='complete'or b['identity']['scope']!='complete':
         raise ValueError('two actual complete six-condition passes required for a control report')
     _compare_control_passes(a,b,evidence);_budget(output)
@@ -726,22 +768,86 @@ def build_control_report(first,second,*,evidence,output):
     return pending
 
 
+def _pending_control_metadata(value,evidence):
+    """Only the reporting actor and seal may differ after a fresh rebuild."""
+    value=_sealed(value)
+    fields={'format','evidence_identity_sha256','actual_points','actual_conditions',
+        'first_result_file_sha256','second_result_file_sha256','actual_complete_raw_replay_exact',
+        'artifacts_sha256','report_actor','scientific_eligible','full_paper_complete','sha256'}
+    try:
+        hashes=[value[n]for n in('first_result_file_sha256','second_result_file_sha256')]
+        artifacts=value['artifacts_sha256'];actor=value['report_actor']
+        if (set(value)!=fields or value['format']!='pending_complete_control_report_v1'
+            or value['evidence_identity_sha256']!=evidence.identity['sha256']
+            or type(value['actual_points'])is not int or value['actual_points']!=len(evidence.keys())
+            or type(value['actual_conditions'])is not int or value['actual_conditions']!=6
+            or value['actual_complete_raw_replay_exact']is not True
+            or value['scientific_eligible']is not False or value['full_paper_complete']is not False
+            or not isinstance(artifacts,dict)or set(artifacts)!={'metrics.json','condition-results.csv'}
+            or any(not isinstance(h,str)or not re.fullmatch('[a-f0-9]{64}',h)for h in [*hashes,*artifacts.values()])
+            or not isinstance(actor,dict)or type(actor.get('pid'))is not int
+            or not str(actor.get('start_ticks','')).isdigit()):
+            raise ValueError('exact complete control report metadata required')
+    except(KeyError,TypeError)as exc:
+        raise ValueError('complete pending control report unavailable')from exc
+    return {k:v for k,v in value.items()if k not in('sha256','report_actor')}
+
+
+def _same_actor(actual,expected):
+    return isinstance(actual,dict)and isinstance(expected,dict)and all(
+        actual.get(n)==expected.get(n)for n in('pid','start_ticks'))
+
+
+def _verification_receipt(original_path,rebuilt_path,pending,*,evidence,actor):
+    return _seal(dict(format='independently_rebuilt_complete_control_report_v1',
+        pending_report_file_sha256=_sha(original_path),rebuilt_pending_report_file_sha256=_sha(rebuilt_path),
+        artifacts_sha256=pending['artifacts_sha256'],evidence_identity_sha256=evidence.identity['sha256'],
+        all_numeric_json_and_csv_bytes_exact=True,actual_points=pending['actual_points'],actual_conditions=6,
+        first_result_file_sha256=pending['first_result_file_sha256'],second_result_file_sha256=pending['second_result_file_sha256'],
+        verifier_actor=actor,scientific_eligible=False,full_paper_complete=False))
+
+
 def verify_control_report(first,second,report,*,evidence,output):
+    from .emg2pose_memory_process import process_identity
     original_path=_safe(Path(report)/'pending-report.json');guard=_StatGuard([original_path])
-    original=_sealed(_json(original_path));_closed(original['report_actor'])
+    original=_sealed(_json(original_path));original_metadata=_pending_control_metadata(original,evidence)
+    _closed(original['report_actor'])
     for n,h in original['artifacts_sha256'].items():
         path=_safe(Path(report)/n);guard.add(path)
         if _sha(path)!=h:raise ValueError('original control report artifact changed')
     rebuilt=build_control_report(first,second,evidence=evidence,output=output)
-    if original['artifacts_sha256']!=rebuilt['artifacts_sha256']:
-        raise ValueError('fresh control report arithmetic/CSV reconstruction differs')
+    if original_metadata!=_pending_control_metadata(rebuilt,evidence):
+        raise ValueError('fresh control report scientific/provenance metadata or artifacts differ')
+    actor=process_identity()
+    if not _same_actor(rebuilt['report_actor'],actor):
+        raise ValueError('rebuilt control report must belong to the actual verifier')
     guard.check();evidence.check()
-    result=_seal(dict(format='independently_rebuilt_complete_control_report_v1',
-        pending_report_file_sha256=_sha(original_path),artifacts_sha256=original['artifacts_sha256'],
-        evidence_identity_sha256=evidence.identity['sha256'],all_numeric_json_and_csv_bytes_exact=True,
-        actual_points=original['actual_points'],scientific_eligible=False,full_paper_complete=False))
+    result=_verification_receipt(original_path,_safe(Path(output)/'pending-report.json'),rebuilt,evidence=evidence,actor=actor)
     _write(Path(output)/'verification.json',result)
     return result
+
+
+def _promote_verified_control_report(directory,*,evidence,report_actor,verifier_actor):
+    """Require both actual closed stage workers and all rebuilt metadata."""
+    directory=_safe(directory)
+    paths=[_safe(directory/n)for n in('report/pending-report.json','report-rebuilt/pending-report.json',
+        'report-rebuilt/verification.json')]
+    guard=_StatGuard(paths);pending,rebuilt,verified=[_sealed(_json(p))for p in paths]
+    if _same_actor(report_actor,verifier_actor):raise ValueError('separate actual report/verifier workers required')
+    for actor in(report_actor,verifier_actor):_closed(actor)
+    if (_pending_control_metadata(pending,evidence)!=_pending_control_metadata(rebuilt,evidence)
+        or not _same_actor(pending['report_actor'],report_actor)
+        or not _same_actor(rebuilt['report_actor'],verifier_actor)
+        or not _same_actor(verified.get('verifier_actor'),verifier_actor)
+        or verified!=_verification_receipt(paths[0],paths[1],rebuilt,evidence=evidence,actor=verified.get('verifier_actor'))):
+        raise ValueError('actual independent full control metadata/worker verification required')
+    for folder in('report','report-rebuilt'):
+        for n,h in pending['artifacts_sha256'].items():
+            path=_safe(directory/folder/n);guard.add(path)
+            if _sha(path)!=h:raise ValueError('verified native control artifact changed')
+    guard.check();evidence.check()
+    return _seal(dict({k:v for k,v in pending.items()if k!='sha256'},scientific_eligible=True,
+        available_legacy_control_pipeline_complete=True,verification_file_sha256=_sha(paths[2])))
 
 
 def run_control_workflow(request,output):
@@ -778,22 +884,15 @@ def run_control_workflow(request,output):
             or any(same_process(result[n])for n in('worker','guardian'))):
             raise ValueError('owned native control stage failed: '+name)
         owned.append(result);check()
-    pending=_sealed(_json(output/'report/pending-report.json'));verified=_sealed(_json(output/'report-rebuilt/verification.json'))
-    if (not verified['all_numeric_json_and_csv_bytes_exact']
-        or verified['pending_report_file_sha256']!=_sha(output/'report/pending-report.json')
-        or verified['artifacts_sha256']!=pending['artifacts_sha256']):
-        raise ValueError('actual independent full control report verification required')
-    for n,h in pending['artifacts_sha256'].items():
-        if _sha(output/'report'/n)!=h:raise ValueError('verified native control artifact changed')
-    report=_seal(dict({k:v for k,v in pending.items()if k!='sha256'},scientific_eligible=True,available_legacy_control_pipeline_complete=True,
-        verification_file_sha256=_sha(output/'report-rebuilt/verification.json')))
+    report=_promote_verified_control_report(output,evidence=evidence,
+        report_actor=owned[-2]['worker'],verifier_actor=owned[-1]['worker'])
     if source_cli_sha!=_sha(cli)or any(_sha(ROOT/n)!=h for n,h in sources.items()):
         raise ValueError('frozen control execution source changed')
     check()
     _write(output/'report/report.json',report)
     value=_seal(dict(format='actual_complete_owned_native_control_workflow_v1',
         evidence_identity_sha256=evidence.identity['sha256'],source_files_sha256=sources,cli_sha256=source_cli_sha,
-        actual_owned_stages=owned,all_owned_consumers_exited=True,actual_points=pending['actual_points'],actual_conditions=6,
+        actual_owned_stages=owned,all_owned_consumers_exited=True,actual_points=report['actual_points'],actual_conditions=6,
         report_file_sha256=_sha(output/'report/report.json'),available_legacy_control_pipeline_complete=True,
         parent_torch_unimported=True,scientific_eligible=True,full_paper_complete=False,seconds=time.monotonic()-started))
     _write(output/'workflow-result.json',value)

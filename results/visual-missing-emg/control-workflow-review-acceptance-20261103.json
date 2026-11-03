@@ -1,0 +1,40 @@
+{
+  "actual_complete_control_population_predictions": false,
+  "actual_engineering_test_and_collector_actors_closed": true,
+  "actual_native_Transformer_warnings": 2,
+  "actual_relevant_suite_passed": 90,
+  "actual_skipped": 0,
+  "actual_test_seconds": 408.81,
+  "declined_to_judge_rulings": [
+    "Original mathematics/geometry/readers unchanged and outside new integration review; inherited native limitations remain.",
+    "Actual qualification/full inference/replay/report must be observed in real owned execution; engineering does not establish them.",
+    "RN18 remains blocked on its real11114 original baseline/postexit proof.",
+    "Clustered inference/figures/publication of controlled results remain Task4; existing prediction exploratory audit is separate.",
+    "Whole-paper/PDF equivalence and scientific EMG efficacy not established by this code review."
+  ],
+  "engineering_proof_sha256": "72f26c48cc9f2f918eb8952bcab02d09f4c3f64e4e4f21b418dc5cd57a6d0ab7",
+  "final_runtime_source_sha256": {
+    "egoemg_repro/modality_control_inference.py": "695a2cc87676cdb271d65624f7f744b5af6b187a16f45180bbfbb7ca5653a912",
+    "egoemg_repro/modality_control_run.py": "031aa42c5973d53a1b9df21b80f5c3d1c47ecfce5983ad7d0437b2aef3ecf406",
+    "egoemg_repro/modality_controls.py": "ef0d03c43d7da617dc4111f7af06739cd99ea829d415e0e939f9365b91f58427",
+    "scripts/paper/run_modality_controls.py": "d5db5687e00f379f82b9dbe06ff398a5241a50a3790aaf87402fc887a3ad59a8"
+  },
+  "formal_complete_control_qualification": false,
+  "format": "one_fresh_control_workflow_review_and_material_fix_acceptance_v1",
+  "full_paper_complete": false,
+  "material_findings_fixed": [
+    "Pending report complete schema/provenance equals fresh rebuilt report; promotion binds both actual closed numeric workers and rebuilt verification file.",
+    "Persisted six-condition/tensor fingerprints exactly recomputed from authenticated native inputs before qualification/pass acceptance."
+  ],
+  "one_material_fix_pass": true,
+  "original_critical": 0,
+  "original_important": 2,
+  "original_minor": 0,
+  "original_verdict": "With fixes",
+  "review_base": "39fd6e3ce13d1234cfd902f597c588b632b285fe",
+  "reviewed_head": "cff9369519e395490153fe00307e4e239831ca91",
+  "reviewer": "/root/visual_missing_emg_controls_final_review",
+  "scientific_eligible": false,
+  "second_review_dispatched": false,
+  "status": "accepted-after-material-fixes"
+}

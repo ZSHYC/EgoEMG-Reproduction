@@ -1,0 +1,13 @@
+{
+  "analysis_sha256": "92b9267bf3c0e1be5e2d88e36efe68570109bf8cd93eb8befd9c68e75bfe998d",
+  "figure_sha256": "1e10ca56e213b5cca45c2c65b929ce64782a86294d8414075c24882f0455f758",
+  "format": "independent_stdlib_existing_missing_subject_arithmetic_v1",
+  "full_paper_complete": false,
+  "negative_mean_groups": 8,
+  "not_an_independent_bootstrap_method_validation": true,
+  "not_an_independent_neural_result": true,
+  "numpy_independent_fsum_matches": true,
+  "positive_mean_groups": 5,
+  "verified_groups": 13,
+  "verified_requests": 179
+}
