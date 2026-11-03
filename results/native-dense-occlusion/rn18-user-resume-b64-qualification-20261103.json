@@ -1,0 +1,110 @@
+{
+  "EMG_counterfactual_batch64_qualification_complete": false,
+  "actual6_qualification_owners_closed": [
+    {
+      "pgrp": 2650465,
+      "pid": 2650465,
+      "sid": 2650465,
+      "start_ticks": "451483435",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2650464,
+      "pid": 2650464,
+      "sid": 2650464,
+      "start_ticks": "451483431",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2658267,
+      "pid": 2658267,
+      "sid": 2658267,
+      "start_ticks": "451602400",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2658264,
+      "pid": 2658264,
+      "sid": 2658264,
+      "start_ticks": "451602396",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2664467,
+      "pid": 2664467,
+      "sid": 2664467,
+      "start_ticks": "451712352",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2664465,
+      "pid": 2664465,
+      "sid": 2664465,
+      "start_ticks": "451712349",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_complete_full_predictions": false,
+  "actual_full_pass_guardian": {
+    "pgrp": 2664544,
+    "pid": 2664544,
+    "sid": 2664544,
+    "start_ticks": "451712769",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_full_pass_started": true,
+  "actual_full_pass_worker": {
+    "pgrp": 2664545,
+    "pid": 2664545,
+    "sid": 2664545,
+    "start_ticks": "451712773",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_native_qualification": {
+    "actual_batch_size": 64,
+    "actual_batches_each": 12,
+    "actual_points_each": 618,
+    "actual_workers": 4,
+    "all_workers_exited": true,
+    "evidence_identity_sha256": "7aa46ff2ac4c120e77787480afb6550b23ac830d3471964e47c24b0d37366446",
+    "first": "/data/shihao/egoemg-rn18-dense-user-resume-full-cpu-52b1be79d2cd-20261103/private/flow/qual-a",
+    "first_result_file_sha256": "4051930fb4ce69bd6f0230f048c16b606a1697ca9ce21d1eb936ce66174f6464",
+    "format": "actual_dense_cpu_qualification_acceptance_v1",
+    "full_paper_complete": false,
+    "full_population_predicted": false,
+    "model_identity_sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee",
+    "pin_memory_requested": true,
+    "scientific_eligible": false,
+    "second": "/data/shihao/egoemg-rn18-dense-user-resume-full-cpu-52b1be79d2cd-20261103/private/flow/qual-b",
+    "second_result_file_sha256": "7c7e1200a22572c52fd4e91de2e759123ab5225aa13395a61fd1a8a4e1586068",
+    "separate_fresh_replay_exact": true,
+    "sha256": "b895041133c3cd5be9cb8a654e299cf2c9593f96741787d3dd10bcc61c0db4cf",
+    "source_files_sha256": {
+      "egoemg_repro/occlusion_dense_analysis.py": "dc5ab6befb74fc141acf467859f44621132ddece35b211f8af7b8eb6853c565e",
+      "egoemg_repro/occlusion_dense_inference.py": "c1d3378391630a6ec86deb34100186869da71cdaf91a6ee1974d325253f064c0",
+      "egoemg_repro/occlusion_dense_inputs.py": "36a332016e1f05fdab1f0a7b59476fd9de97b59bf4aef1b9a9d1038723454246",
+      "egoemg_repro/occlusion_dense_predictions.py": "ee28ac978fd0e066996d904bc61befd09aca46dabca13ff334368d0102161af5",
+      "egoemg_repro/rn18_occlusion_models.py": "1c3eee34197e87f7b0aa4c273a8f07d534742ec68e6fd437f58a8dc336fcfa09",
+      "egoemg_repro/rn18_occlusion_run.py": "dd630810d4497075274055fd73826f1e33b94740b1843fc1f5b9aea2c3914db5"
+    }
+  },
+  "bundle_sha256": "01de3722c07e2d1169057ded9dfafb5f4d913f4d7645b53db502587c25c4066c",
+  "figure13_reproduced": false,
+  "format": "actual_RN18_native_dense_user_resumed_batch64_qualification_milestone_v1",
+  "frozen_source_capsule_exact_at_observation": true,
+  "full_paper_complete": false,
+  "full_pass_population": 11114,
+  "full_pass_worker_and_guardian_matching_live_at_observation": true,
+  "observed_utc": "2026-11-03T07:11:51.118886+00:00",
+  "root": "/data/shihao/egoemg-rn18-dense-user-resume-full-cpu-52b1be79d2cd-20261103",
+  "source_commit": "52b1be79d2cd4d0106b45e111473c8e721829da8",
+  "source_observation_sha256": "10e2ca1f222f0441adabc6f0200c33e0059c53dee2d170f70b30a205175096cc"
+}
