@@ -34,6 +34,20 @@ def gone(handle):
     return not p.exists() or p.read_text().rsplit(')',1)[1].split()[19] != str(handle['start_ticks'])
 
 
+@pytest.fixture(autouse=True)
+def transport_fixture_capacity(monkeypatch):
+    """Tiny transport fixtures do not allocate a real225GiB source corpus.
+
+    Hosted CI exercises admission against an explicit capacity fixture. The
+    source-bound server run opts into the actual disk query; its acquisition
+    preflight and real receiver always use the actual filesystem as well.
+    """
+    if os.environ.get('EGOEMG_REQUIRE_HOT3D_TRANSPORT_CAPACITY')=='1':return
+    import shutil
+    from types import SimpleNamespace
+    monkeypatch.setattr(shutil,'disk_usage',lambda p:SimpleNamespace(free=225*1024**3+1024**2))
+
+
 @pytest.fixture
 def closed_source(tmp_path):
     root=tmp_path/'old';root.mkdir()

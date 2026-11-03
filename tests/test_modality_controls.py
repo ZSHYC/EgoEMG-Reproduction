@@ -6,7 +6,7 @@ import random
 
 import numpy as np
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor/runtime checks require the optional Torch tier")
 
 
 def api():

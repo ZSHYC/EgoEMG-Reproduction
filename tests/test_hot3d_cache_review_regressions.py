@@ -9,7 +9,7 @@ import sys
 
 import pytest
 
-from test_hot3d_cache_intake import api,actor,closed_source,dump,generation,prepare_cache,sha,native_fixture,gone
+from test_hot3d_cache_intake import api,actor,closed_source,dump,generation,prepare_cache,sha,native_fixture,gone,transport_fixture_capacity
 
 
 def successor(closed_source,tmp_path):

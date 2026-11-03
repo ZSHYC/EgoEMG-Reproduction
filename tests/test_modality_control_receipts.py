@@ -13,6 +13,8 @@ from types import SimpleNamespace
 
 import pytest
 
+pytest.importorskip("torch", reason="inference-only report guards require the optional Torch tier")
+
 from egoemg_repro import modality_control_run as m
 
 

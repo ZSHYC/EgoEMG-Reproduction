@@ -7,7 +7,7 @@ import copy
 import json
 
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor/runtime checks require the optional Torch tier")
 
 from test_modality_control_workflow import actual_inputs
 from egoemg_repro import modality_control_run as m

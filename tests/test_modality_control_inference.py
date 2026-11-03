@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor/runtime checks require the optional Torch tier")
 
 CONDITIONS = list(itertools.product(('aligned', 'normalized_zero', 'half_window_roll'), ('native', 'missing')))
 KW = dict(vision_mean=[127.5, 63.75, 255.], vision_std=[63.75, 127.5, 51.])

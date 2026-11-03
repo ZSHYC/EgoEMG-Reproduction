@@ -9,7 +9,7 @@ import sys
 
 import numpy as np
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor/runtime checks require the optional Torch tier")
 
 ROOT = Path(__file__).resolve().parents[1]
 ORDER = [(e,v) for e in ('aligned','normalized_zero','half_window_roll') for v in ('native','missing')]
