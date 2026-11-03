@@ -1,0 +1,82 @@
+{
+  "actual_complete_population_forward_started": false,
+  "actual_complete_population_predictions": false,
+  "actual_four_owners_matching_live": true,
+  "actual_full_control_qualification_complete": false,
+  "actual_full_replay_complete": false,
+  "actual_gpu_use_authorized": false,
+  "actual_optimizer_updates_authorized": 0,
+  "actual_qualification_guardian": {
+    "pgrp": 2700821,
+    "pid": 2700821,
+    "sid": 2700821,
+    "start_ticks": "452402883",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_qualification_worker": {
+    "pgrp": 2700822,
+    "pid": 2700822,
+    "sid": 2700822,
+    "start_ticks": "452402887",
+    "state": "R",
+    "uid": 1005
+  },
+  "actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2700807,
+      "start_ticks": "452402603"
+    },
+    "started_utc": "2026-11-03T09:05:20.691088+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2700805,
+      "start_ticks": "452402600"
+    }
+  },
+  "all_observed_controlling_ttys_zero": true,
+  "bundle_sha256": "0cb54e8121bb13780dbb8ef292a329c1675df56dab114dcb07ad5649bd910e26",
+  "conditions": [
+    [
+      "aligned",
+      "native"
+    ],
+    [
+      "aligned",
+      "missing"
+    ],
+    [
+      "normalized_zero",
+      "native"
+    ],
+    [
+      "normalized_zero",
+      "missing"
+    ],
+    [
+      "half_window_roll",
+      "native"
+    ],
+    [
+      "half_window_roll",
+      "missing"
+    ]
+  ],
+  "cpu_threads": 2,
+  "current_phase": "qual-a",
+  "expected_conditions": 6,
+  "expected_full_batches_each": 272,
+  "expected_full_points_each": 17168,
+  "format": "actual_reviewed_native_ViTS_six_condition_workflow_started_v1",
+  "frozen_all_capsule_source_bytes_exact": true,
+  "full_paper_complete": false,
+  "observed_utc": "2026-11-03T09:06:22.030403+00:00",
+  "own_stdin_dev_null": true,
+  "requested_batch_size": 64,
+  "requested_native_workers": 4,
+  "review_acceptance_sha256": "842870a90d664bd0c3e6653fc7af1198442cb91eba57537bf3edd51de31481fe",
+  "scientific_result_available": false,
+  "source_commit": "09335c96bc6bbe909e5f9e68f50636868b24153d",
+  "source_root": "/data/shihao/egoemg-modality-controls-vits-full-cpu-09335c96bc6b-20261103"
+}
