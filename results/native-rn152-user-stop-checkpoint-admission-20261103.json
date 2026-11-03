@@ -1,0 +1,582 @@
+{
+  "actual_closed_original_actors": [
+    {
+      "pid": 2651985,
+      "start_ticks": "451511180"
+    },
+    {
+      "pgrp": 2651986,
+      "pid": 2651986,
+      "sid": 2651986,
+      "start_ticks": "451511183",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2651991,
+      "pid": 2651991,
+      "sid": 2651991,
+      "start_ticks": "451511202",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2651990,
+      "pid": 2651990,
+      "sid": 2651990,
+      "start_ticks": "451511198",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_ended_utc": "2026-11-03T06:37:33.059979+00:00",
+  "actual_exit_code": 0,
+  "actual_restoration_not_yet_observed": true,
+  "admissions": {
+    "resnet152": {
+      "actor": {
+        "pgrp": 2651991,
+        "pid": 2651991,
+        "sid": 2651991,
+        "start_ticks": "451511202",
+        "state": "R",
+        "uid": 1005
+      },
+      "actual_restoration_not_yet_observed": true,
+      "all10_original_qualification_stages_closed": [
+        {
+          "stage": "owned-qual-accept",
+          "stage_result_file_sha256": "b43cdbb1590ce94c23862eb90a194a66b176184ec06ae0bb7442f966cbcd6913"
+        },
+        {
+          "stage": "owned-qual-freeze",
+          "stage_result_file_sha256": "18973330cf3f8627c9349ebe3d01b7329536d6dfc3eff452ac1e372e5c0bf397"
+        },
+        {
+          "stage": "owned-qual-prefix",
+          "stage_result_file_sha256": "bd49daf025c2102d8d694852c3119624b5bbca3d3e8468bb7607a04dfb763196"
+        },
+        {
+          "stage": "owned-qual-report",
+          "stage_result_file_sha256": "4be5494aa80dba9f97cb630ca60fcdedffe33ae5906a21097bea667537f7fb46"
+        },
+        {
+          "stage": "owned-qual-resume",
+          "stage_result_file_sha256": "41df4e19e19ba598c19dfa7e4a946992f9feee94b69daccd1adc39e2382845c1"
+        },
+        {
+          "stage": "owned-qual-test-native",
+          "stage_result_file_sha256": "1cd60c651c6ffec761a50dc11e53334c47fb4aba6120b35afe0cd5313d83d5e1"
+        },
+        {
+          "stage": "owned-qual-test-replay",
+          "stage_result_file_sha256": "7b86e36cc1fab245b6ce8fb741acbe9ae544ae7a0c2db353478a93460ffe1262"
+        },
+        {
+          "stage": "owned-qual-val-native",
+          "stage_result_file_sha256": "4e3c1b5e8412d835f931cfc69f60e318a93a8d802215fa1174666621d0eec9d4"
+        },
+        {
+          "stage": "owned-qual-val-replay",
+          "stage_result_file_sha256": "33c6189b9efa93f7204dec1d778ef17c122c68df19ecc29c53272b1d6d21b975"
+        },
+        {
+          "stage": "owned-qual-verify",
+          "stage_result_file_sha256": "585b126d522ed60be022a900a816b204046beaa792812d36ab09506c7062f2cc"
+        }
+      ],
+      "all_original_fit_files_archived": true,
+      "all_six_saved_state_domains_validated": true,
+      "archive_path": "/data/shihao/egoemg-native-rn152-user-stop-admission-52b1be79d2cd-20261103/private/resnet152/archive",
+      "checkpoints": {
+        "last.ckpt": {
+          "checkpoint_sha256": "9cc645c14281064b348e88d0ddef692a4ad98b67d9eb77f7ff5eabfdf61b9fdf",
+          "completed_epochs": 118,
+          "epoch_field": 117,
+          "global_step": 132514,
+          "minimum_val_mae": 0.0852610394358635,
+          "optimizer_executions": 132514,
+          "six_domain_snapshot": {
+            "callbacks": "5c833e8417b5acf37eed880aeb4a9a723edcbd1f1e0e51742627bd3f4a65e0a2",
+            "loops": "7300ea63c20691b23afb4872d6408ef2ed0244e73eb93bde3595574b57c23717",
+            "model": "605f2896ebc96b2d6429869f1254881e924d62c503128a89c7b7545754f17ebb",
+            "optimizer": "1e319e4001a2adc4f352b873a340a52738b34b5ab971937ca7978f9024603035",
+            "rng": "4b6d3277e9dcd576edc373b859622a49cc94331a4b1611140b326483259fb766",
+            "scheduler": "348a087f081c6b03486437e692a296d85d5cfdd78ff29bac493892790d91e76f"
+          },
+          "validation_checks": 59
+        },
+        "resnet18-vision-epoch=085-val_mae=0.0857.ckpt": {
+          "checkpoint_sha256": "3afe40894b2153483f85f7316324980183c90b6c32cc451344ceea0510d426ce",
+          "completed_epochs": 86,
+          "epoch_field": 85,
+          "global_step": 96578,
+          "minimum_val_mae": 0.08565329760313034,
+          "optimizer_executions": 96578,
+          "six_domain_snapshot": {
+            "callbacks": "2d4d7774134388481805ec3feb8ec0e459872d7b1c9502b3aaad51792650a58f",
+            "loops": "b3d2330184e92a321bc1ed87d6b62b7b35138bc9fa3fc9ada5894eb8b897e45d",
+            "model": "b98b191b4f343450f9778f1a110b0a0b909b480cd527a48b9d8ee35ffd564dd1",
+            "optimizer": "ae044acc44cd02ef4fa7d0966be19ebd8a5c0c1cb5fa43911dd9cfee141a045b",
+            "rng": "7cfb37b632a6460ed1c15647f7a44aef6e63b1c359c5e6a39533cfce5c91da6e",
+            "scheduler": "758a5cd03b70ffa4a246d12c2e91694bfcb480a9d0a0c781d891f5cd85da6d34"
+          },
+          "validation_checks": 43
+        },
+        "resnet18-vision-epoch=113-val_mae=0.0855.ckpt": {
+          "checkpoint_sha256": "6b42d076229fb7346a365424959b5c9bc7c052cba11012652ad0547b0d98527b",
+          "completed_epochs": 114,
+          "epoch_field": 113,
+          "global_step": 128022,
+          "minimum_val_mae": 0.0855044424533844,
+          "optimizer_executions": 128022,
+          "six_domain_snapshot": {
+            "callbacks": "81db6a2c73e2196696deda06ccdb59f40dac1c6d1abb1c233c832a01b2bb1dd6",
+            "loops": "c63a50f1ef35638086658fec8770bb81d1c71a921a6cdfd877414b5743f10bfe",
+            "model": "c2aeddad758097fde7378647be885bdb40fe233acb65599375beb57edbd049e1",
+            "optimizer": "e7a2e88bc008bf8882fcb3b6285c3c5a92f4ffba2101911a6eb7880bd2add787",
+            "rng": "8da54eb19f86ad29c21b9aa54d168d2d7702dcfc42edf6bf37e63fd73dcf2d8b",
+            "scheduler": "bc67cff5d86939060757ec2d78f0897e18895db2f086a6631c7f1bae94e4c761"
+          },
+          "validation_checks": 57
+        },
+        "resnet18-vision-epoch=115-val_mae=0.0853.ckpt": {
+          "checkpoint_sha256": "0bc6c788cb45cfa6c427185568af5c5664acca82ce0e70a3b716edcfae3e3e55",
+          "completed_epochs": 116,
+          "epoch_field": 115,
+          "global_step": 130268,
+          "minimum_val_mae": 0.0852610394358635,
+          "optimizer_executions": 130268,
+          "six_domain_snapshot": {
+            "callbacks": "a540888492604b3f177a2ddab6fcb8be4ab69dd5be1c4b54f4a9f704eb5d046e",
+            "loops": "894389fdabc4324265faae4317fc58877d23e3942b6255be86bd4accdd9b8901",
+            "model": "94ad625b3c6b0bbc306a274141e856b747608cd0020dd63851a31c8f30e17440",
+            "optimizer": "36f3510c1a337926e4294d071c9e7ad165bb65217f152aa53d361ab2fdad5acb",
+            "rng": "c6b0befcb74b9a1576aef776affca85da7ae2ad61aad923b978990c8518839e3",
+            "scheduler": "18fcacc755f0a20f193dd65ec0c2f81305d6a69390ef860b04c4295779f3961c"
+          },
+          "validation_checks": 58
+        }
+      },
+      "construction_attempts": {
+        "learned_module": 0,
+        "optimizer": 0
+      },
+      "cuda_initialized": false,
+      "files": {
+        "checkpoints/last.ckpt": {
+          "bytes": 712175071,
+          "sha256": "9cc645c14281064b348e88d0ddef692a4ad98b67d9eb77f7ff5eabfdf61b9fdf"
+        },
+        "checkpoints/resnet18-vision-epoch=085-val_mae=0.0857.ckpt": {
+          "bytes": 712162975,
+          "sha256": "3afe40894b2153483f85f7316324980183c90b6c32cc451344ceea0510d426ce"
+        },
+        "checkpoints/resnet18-vision-epoch=113-val_mae=0.0855.ckpt": {
+          "bytes": 712173599,
+          "sha256": "6b42d076229fb7346a365424959b5c9bc7c052cba11012652ad0547b0d98527b"
+        },
+        "checkpoints/resnet18-vision-epoch=115-val_mae=0.0853.ckpt": {
+          "bytes": 712174367,
+          "sha256": "0bc6c788cb45cfa6c427185568af5c5664acca82ce0e70a3b716edcfae3e3e55"
+        },
+        "epochs.jsonl": {
+          "bytes": 75086,
+          "sha256": "e90eb14abb30f0897c4b03b92752b5efc831a8289fc58f85820654feba3f0bc8"
+        },
+        "fit.lock": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "identity.json": {
+          "bytes": 292851,
+          "sha256": "031ecd3c5536abb2bc5256b5cc9c40d96de3a6bb69ac72e2a97ba4cfa678b6fd"
+        },
+        "logs/273e2a1e3a0442adb7282ac92cabaed2/hparams.yaml": {
+          "bytes": 8020,
+          "sha256": "f38783e079cc90ab8a1e3a8a058c034fec2e91999a6b3c7d5b307ab9e9c51266"
+        },
+        "logs/273e2a1e3a0442adb7282ac92cabaed2/metrics.csv": {
+          "bytes": 33213702,
+          "sha256": "16078767f282f573d105687dcc5f0f92d4db2ff3423855cac3d0ee0fe1931420"
+        },
+        "logs/44bf72ddd923461789a011680d8341ec/hparams.yaml": {
+          "bytes": 8019,
+          "sha256": "d589c342206f5766820280c060b2b12493235db792e7bb932f01663c5a1ecbd1"
+        },
+        "logs/44bf72ddd923461789a011680d8341ec/metrics.csv": {
+          "bytes": 11581172,
+          "sha256": "88fe86e56e152cf33eb5853a63f344c139d27cbb292cbe891e55da02ea4381c3"
+        },
+        "logs/67582b302664417393217f222426e68f/hparams.yaml": {
+          "bytes": 8020,
+          "sha256": "f38783e079cc90ab8a1e3a8a058c034fec2e91999a6b3c7d5b307ab9e9c51266"
+        },
+        "logs/67582b302664417393217f222426e68f/metrics.csv": {
+          "bytes": 1303429,
+          "sha256": "2239aff9633c2e9fc2e2cd3e6becb3aed79f59217fede53a40b5f216bcac7196"
+        },
+        "parents/parent-b21ca0fbd0af4311b262e6ddf92fc378.ckpt": {
+          "bytes": 712142431,
+          "sha256": "0304edaec2a231c85ee961c7d712e43a2dee4c57d43a45958a9414d57cb9333b"
+        },
+        "parents/parent-cf0db83ad49b4ea1a5ebfd8189e1549a.ckpt": {
+          "bytes": 712141151,
+          "sha256": "afe82fe741a616cde8af818d5876d12318411c0498fcb9c7d4bcf556bf0fac82"
+        },
+        "resume-observations/88f503cf4ed94a15baf758befbd73522.json": {
+          "bytes": 1310,
+          "sha256": "508ae9b17dbd3859ad0322661d175685ede8cd2421d985df356284b942d848b3"
+        },
+        "resume-observations/d091fffaa8d34a46b639f6783b9c9483.json": {
+          "bytes": 1310,
+          "sha256": "5d097502e9cdc85646ce85c5ae7411aef72d667d7f83381bd0cb3f9e2d67d7b2"
+        },
+        "uncommitted-epochs-2a2ea91c329b45d3bdd79ff0de0df62b.jsonl": {
+          "bytes": 572,
+          "sha256": "c886907d620a8d307df05d37e4c08c25da273c0635fea1ce2890102e5600365e"
+        }
+      },
+      "fit_identity_sha256": "05818fcf828c99327cd95b6145c3d782205cfe26ce658ff54087db81a869cfe1",
+      "format": "actual_user_stopped_native_RN152_checkpoint_archive_admission_v1",
+      "full_paper_complete": false,
+      "full_training_complete": false,
+      "interrupted_latest_owned_stages": [
+        {
+          "actual_guardian": {
+            "pgrp": 1701304,
+            "pid": 1701304,
+            "sid": 1701304,
+            "start_ticks": "438127300",
+            "state": "R",
+            "uid": 1005
+          },
+          "actual_worker": {
+            "pgrp": 1701309,
+            "pid": 1701309,
+            "sid": 1701309,
+            "start_ticks": "438127304",
+            "state": "R",
+            "uid": 1005
+          },
+          "both_physically_closed": true,
+          "started_file": "/data/shihao/egoemg-native-resnet152-shared-recovery-14a9a1e4486d-20261102/private/owned-full-fit/started.json",
+          "started_sha256": "e7063dccbc3211cfd01662a67e5c51a2a43fac9096b678d6924a33abddcf6b93"
+        }
+      ],
+      "interrupted_latest_owner_actual_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1701028,
+          "start_ticks": "438124592"
+        },
+        "ended_utc": "2026-11-02T06:51:14.292928+00:00",
+        "started_utc": "2026-11-01T17:25:40.580493+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1701027,
+          "start_ticks": "438124589"
+        }
+      },
+      "interrupted_latest_owner_bundle_sha256": "7e0f83a7d201b6125375ccfedbd0c003de6d23f55428e526dce85f22595557a2",
+      "interrupted_latest_owner_source_commit": "14a9a1e4486d77323e08acde00c3564d5a24a046",
+      "journal_complete_epochs": 118,
+      "last_checkpoint": {
+        "checkpoint_sha256": "9cc645c14281064b348e88d0ddef692a4ad98b67d9eb77f7ff5eabfdf61b9fdf",
+        "completed_epochs": 118,
+        "epoch_field": 117,
+        "global_step": 132514,
+        "minimum_val_mae": 0.0852610394358635,
+        "optimizer_executions": 132514,
+        "six_domain_snapshot": {
+          "callbacks": "5c833e8417b5acf37eed880aeb4a9a723edcbd1f1e0e51742627bd3f4a65e0a2",
+          "loops": "7300ea63c20691b23afb4872d6408ef2ed0244e73eb93bde3595574b57c23717",
+          "model": "605f2896ebc96b2d6429869f1254881e924d62c503128a89c7b7545754f17ebb",
+          "optimizer": "1e319e4001a2adc4f352b873a340a52738b34b5ab971937ca7978f9024603035",
+          "rng": "4b6d3277e9dcd576edc373b859622a49cc94331a4b1611140b326483259fb766",
+          "scheduler": "348a087f081c6b03486437e692a296d85d5cfdd78ff29bac493892790d91e76f"
+        },
+        "validation_checks": 59
+      },
+      "native_checkpoint_directory_preserved_for_future_resume": true,
+      "optimizer_updates": 0,
+      "original_file_nine_attributes": {
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/checkpoints/last.ckpt": [
+          64512,
+          15144919772,
+          712175071,
+          1793601953056821141,
+          1793601955440827314,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/checkpoints/resnet18-vision-epoch=085-val_mae=0.0857.ckpt": [
+          64512,
+          15144883218,
+          712162975,
+          1793584744180105119,
+          1793584746325131952,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/checkpoints/resnet18-vision-epoch=113-val_mae=0.0855.ckpt": [
+          64512,
+          15150329346,
+          712173599,
+          1793599805916240904,
+          1793599808028266359,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/checkpoints/resnet18-vision-epoch=115-val_mae=0.0853.ckpt": [
+          64512,
+          15150992548,
+          712174367,
+          1793600879244194849,
+          1793600881308219621,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/epochs.jsonl": [
+          64512,
+          8744400072,
+          75086,
+          1793601952240819051,
+          1793601952240819051,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/fit.lock": [
+          64512,
+          8744400070,
+          0,
+          1793530496129895040,
+          1793530496129895040,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/identity.json": [
+          64512,
+          8744400071,
+          292851,
+          1793530503604016774,
+          1793530503605016790,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/logs/273e2a1e3a0442adb7282ac92cabaed2/hparams.yaml": [
+          64512,
+          19340384434,
+          8020,
+          1793602263588265150,
+          1793602263588265150,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/logs/273e2a1e3a0442adb7282ac92cabaed2/metrics.csv": [
+          64512,
+          19340384435,
+          33213702,
+          1793602263521264724,
+          1793602263521264724,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/logs/44bf72ddd923461789a011680d8341ec/hparams.yaml": [
+          64512,
+          15144919756,
+          8019,
+          1793547071968959178,
+          1793547071968959178,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/logs/44bf72ddd923461789a011680d8341ec/metrics.csv": [
+          64512,
+          15144919757,
+          11581172,
+          1793547071968959178,
+          1793547071968959178,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/logs/67582b302664417393217f222426e68f/hparams.yaml": [
+          64512,
+          6613813883,
+          8020,
+          1793553135941735562,
+          1793553135941735562,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/logs/67582b302664417393217f222426e68f/metrics.csv": [
+          64512,
+          6613813884,
+          1303429,
+          1793553135522728579,
+          1793553135522728579,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/parents/parent-b21ca0fbd0af4311b262e6ddf92fc378.ckpt": [
+          64512,
+          2266346258,
+          712142431,
+          1793554049740698748,
+          1793554049740698748,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/parents/parent-cf0db83ad49b4ea1a5ebfd8189e1549a.ckpt": [
+          64512,
+          2266392807,
+          712141151,
+          1793551275204924507,
+          1793551275204924507,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/resume-observations/88f503cf4ed94a15baf758befbd73522.json": [
+          64512,
+          4450856661,
+          1310,
+          1793554061997855555,
+          1793554061998855567,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/resume-observations/d091fffaa8d34a46b639f6783b9c9483.json": [
+          64512,
+          4448381100,
+          1310,
+          1793551287050070490,
+          1793551287051070502,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit/uncommitted-epochs-2a2ea91c329b45d3bdd79ff0de0df62b.jsonl": [
+          64512,
+          8745405749,
+          572,
+          1793554049587696789,
+          1793554049587696789,
+          33204,
+          1005,
+          1005,
+          1
+        ]
+      },
+      "original_fit_path": "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit",
+      "qualification_fit_sha256": "3b38de31bdc9646443db6ffe52e45b2bf324a0b96a9ca73e2cffc764348aa3b0",
+      "scientific_eligible": false,
+      "seconds": 40.123482786118984,
+      "source_bundle_sha256": "75f626a693db29ddef5afa955b337155942b823ef417f9fe8c2ae16a27ac0b08",
+      "source_commit": "19526d3da4718fe957d478eea8ec9a013992ad02",
+      "source_root": "/data/shihao/egoemg-native-resnet152-full-cli-20261101",
+      "source_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 1061672,
+          "start_ticks": "433657403"
+        },
+        "ended_utc": "2026-11-01T15:31:13.737438+00:00",
+        "started_utc": "2026-11-01T05:01:08.692981+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 1061671,
+          "start_ticks": "433657400"
+        }
+      },
+      "uncommitted_journal_suffix_bytes": 0,
+      "uncommitted_journal_suffix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "variant": "resnet152"
+    }
+  },
+  "all4_original_actors_closed": true,
+  "all_archive_files_and_original_bytes_postexit_rehashed": true,
+  "archived_files": 18,
+  "bundle_sha256": "8b616e09e46eae5d4d4de6afb246e0f5ea9f2deaf5e074937e05302b82a67d1a",
+  "constructor_attempts": {
+    "learned_module": 0,
+    "optimizer": 0
+  },
+  "cuda_initialized": false,
+  "explicit_user_resume_instruction": "\u7ee7\u7eed",
+  "files_sha256": {
+    "private/resnet152/admission.json": "9f6fe02c18a582fe162d70eb7c57d3baf7188f881e613ce9c6dc2bb9fb616712",
+    "private/resnet152/archive/checkpoints/last.ckpt": "9cc645c14281064b348e88d0ddef692a4ad98b67d9eb77f7ff5eabfdf61b9fdf",
+    "private/resnet152/archive/checkpoints/resnet18-vision-epoch=085-val_mae=0.0857.ckpt": "3afe40894b2153483f85f7316324980183c90b6c32cc451344ceea0510d426ce",
+    "private/resnet152/archive/checkpoints/resnet18-vision-epoch=113-val_mae=0.0855.ckpt": "6b42d076229fb7346a365424959b5c9bc7c052cba11012652ad0547b0d98527b",
+    "private/resnet152/archive/checkpoints/resnet18-vision-epoch=115-val_mae=0.0853.ckpt": "0bc6c788cb45cfa6c427185568af5c5664acca82ce0e70a3b716edcfae3e3e55",
+    "private/resnet152/archive/epochs.jsonl": "e90eb14abb30f0897c4b03b92752b5efc831a8289fc58f85820654feba3f0bc8",
+    "private/resnet152/archive/fit.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/resnet152/archive/identity.json": "031ecd3c5536abb2bc5256b5cc9c40d96de3a6bb69ac72e2a97ba4cfa678b6fd",
+    "private/resnet152/archive/logs/273e2a1e3a0442adb7282ac92cabaed2/hparams.yaml": "f38783e079cc90ab8a1e3a8a058c034fec2e91999a6b3c7d5b307ab9e9c51266",
+    "private/resnet152/archive/logs/273e2a1e3a0442adb7282ac92cabaed2/metrics.csv": "16078767f282f573d105687dcc5f0f92d4db2ff3423855cac3d0ee0fe1931420",
+    "private/resnet152/archive/logs/44bf72ddd923461789a011680d8341ec/hparams.yaml": "d589c342206f5766820280c060b2b12493235db792e7bb932f01663c5a1ecbd1",
+    "private/resnet152/archive/logs/44bf72ddd923461789a011680d8341ec/metrics.csv": "88fe86e56e152cf33eb5853a63f344c139d27cbb292cbe891e55da02ea4381c3",
+    "private/resnet152/archive/logs/67582b302664417393217f222426e68f/hparams.yaml": "f38783e079cc90ab8a1e3a8a058c034fec2e91999a6b3c7d5b307ab9e9c51266",
+    "private/resnet152/archive/logs/67582b302664417393217f222426e68f/metrics.csv": "2239aff9633c2e9fc2e2cd3e6becb3aed79f59217fede53a40b5f216bcac7196",
+    "private/resnet152/archive/parents/parent-b21ca0fbd0af4311b262e6ddf92fc378.ckpt": "0304edaec2a231c85ee961c7d712e43a2dee4c57d43a45958a9414d57cb9333b",
+    "private/resnet152/archive/parents/parent-cf0db83ad49b4ea1a5ebfd8189e1549a.ckpt": "afe82fe741a616cde8af818d5876d12318411c0498fcb9c7d4bcf556bf0fac82",
+    "private/resnet152/archive/resume-observations/88f503cf4ed94a15baf758befbd73522.json": "508ae9b17dbd3859ad0322661d175685ede8cd2421d985df356284b942d848b3",
+    "private/resnet152/archive/resume-observations/d091fffaa8d34a46b639f6783b9c9483.json": "5d097502e9cdc85646ce85c5ae7411aef72d667d7f83381bd0cb3f9e2d67d7b2",
+    "private/resnet152/archive/uncommitted-epochs-2a2ea91c329b45d3bdd79ff0de0df62b.jsonl": "c886907d620a8d307df05d37e4c08c25da273c0635fea1ce2890102e5600365e"
+  },
+  "format": "independently_accepted_native_RN152_user_stopped_checkpoint_archives_v1",
+  "full_paper_complete": false,
+  "full_training_restarted": false,
+  "latest_checkpoint_saved_epochs": 118,
+  "observed_utc": "2026-11-03T06:40:13.475265+00:00",
+  "optimizer_updates": 0,
+  "original_fit_nine_attributes_unchanged": true,
+  "postexit_collector_actor": {
+    "pid": 2652987,
+    "start_ticks": "451530649"
+  },
+  "postexit_collector_also_exited": true,
+  "postexit_collector_seconds": 12.28834078554064,
+  "postexit_collector_torch_unimported": true,
+  "previous_user_stop_preserved": true,
+  "raw_workflow_file_sha256": "c31c90a0851ae434f8023bcd1896d91f5450a5a148bdeaeae12d9e038a14da4b",
+  "saved_six_domains_validated": true,
+  "scientific_eligible": false,
+  "source_capsule_files_exact": 156,
+  "source_commit": "52b1be79d2cd4d0106b45e111473c8e721829da8"
+}

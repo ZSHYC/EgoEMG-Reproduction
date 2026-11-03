@@ -1,0 +1,182 @@
+{
+  "RN18_result_pending": true,
+  "actual_new_inference": false,
+  "actual_new_training": false,
+  "availability_flags_sha256": "5be2c5d9af85b6d119ee2d0bc5d7f50ce693955e65ac2ec183a2606e0563f4db",
+  "controlled_missing_modality_experiment_complete": false,
+  "counts": {
+    "all_missing_crop_requests": 695,
+    "all_requests": 17168,
+    "invalid_label_missing_crop_requests": 516,
+    "invalid_label_requests": 518,
+    "invalid_label_with_crop_requests": 2,
+    "valid_label_missing_crop_requests": 179,
+    "valid_label_requests": 16650,
+    "valid_label_with_crop_requests": 16471
+  },
+  "created_utc": "2026-11-03T06:43:15.690440+00:00",
+  "evidence_extraction_file_sha256": "a64cf6c0d4528f09b0d1c89ac8e9a62f714acce56ec7d13ed17b763b5388276f",
+  "format": "exploratory_existing_ViTS_visual_availability_paired_summary_v1",
+  "full_paper_complete": false,
+  "groups": {
+    "valid_label_all": {
+      "emg_mae_deg": 15.987897653415647,
+      "episodes": 41,
+      "fusion_better_count": 9230,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 6.353489473134325,
+      "fusion_win_fraction": 0.5543543543543543,
+      "fusion_worse_count": 7420,
+      "gain_deg": 0.11974110378092992,
+      "relative_error_reduction_pct": 1.8497889478547076,
+      "samples": 16650,
+      "vision_mae_deg": 6.473230576915255
+    },
+    "valid_label_missing_crop": {
+      "emg_mae_deg": 17.664610978411563,
+      "episodes": 13,
+      "fusion_better_count": 84,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 18.11111907108203,
+      "fusion_win_fraction": 0.4692737430167598,
+      "fusion_worse_count": 95,
+      "gain_deg": 0.4115092281023216,
+      "relative_error_reduction_pct": 2.2216567835593963,
+      "samples": 179,
+      "vision_mae_deg": 18.52262829918435
+    },
+    "valid_label_with_crop": {
+      "emg_mae_deg": 15.969675828075701,
+      "episodes": 41,
+      "fusion_better_count": 9146,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 6.225712428751311,
+      "fusion_win_fraction": 0.5552789751684779,
+      "fusion_worse_count": 7325,
+      "gain_deg": 0.11657028875734125,
+      "relative_error_reduction_pct": 1.837986320533057,
+      "samples": 16471,
+      "vision_mae_deg": 6.342282717508652
+    },
+    "valid_label_with_crop_occlusion_0_6_to_0_8": {
+      "emg_mae_deg": 17.63485806347086,
+      "episodes": 37,
+      "fusion_better_count": 607,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 6.013908792078012,
+      "fusion_win_fraction": 0.5836538461538462,
+      "fusion_worse_count": 433,
+      "gain_deg": 0.21437427138085832,
+      "relative_error_reduction_pct": 3.4419481130937206,
+      "samples": 1040,
+      "vision_mae_deg": 6.2282830634588695
+    },
+    "valid_label_with_crop_occlusion_0_8_to_1_inclusive": {
+      "emg_mae_deg": 13.556816954158922,
+      "episodes": 17,
+      "fusion_better_count": 94,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 7.323176929713649,
+      "fusion_win_fraction": 0.5696969696969697,
+      "fusion_worse_count": 71,
+      "gain_deg": 0.33878779525783925,
+      "relative_error_reduction_pct": 4.421683046303766,
+      "samples": 165,
+      "vision_mae_deg": 7.661964724971489
+    },
+    "valid_label_with_crop_occlusion_below_0_6": {
+      "emg_mae_deg": 15.882313859608866,
+      "episodes": 40,
+      "fusion_better_count": 8445,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 6.228279842578209,
+      "fusion_win_fraction": 0.5531900956373641,
+      "fusion_worse_count": 6821,
+      "gain_deg": 0.10750556777600757,
+      "relative_error_reduction_pct": 1.696799383393214,
+      "samples": 15266,
+      "vision_mae_deg": 6.335785410354218
+    },
+    "valid_label_with_crop_occlusion_exactly_1": {
+      "emg_mae_deg": 14.128773538226431,
+      "episodes": 11,
+      "fusion_better_count": 39,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 9.630490685152736,
+      "fusion_win_fraction": 0.5909090909090909,
+      "fusion_worse_count": 27,
+      "gain_deg": 0.6209492057561874,
+      "relative_error_reduction_pct": 6.05719013488877,
+      "samples": 66,
+      "vision_mae_deg": 10.251439890908925
+    }
+  },
+  "limitations": [
+    "Frozen41-episode legacy result; equivalence to PDF population/data/labels not established.",
+    "Natural geometric occlusion proxy is not an artificial image mask; occlusion==1 is not proof of sensor outage.",
+    "Missing crops arise from the dataset pipeline, not a randomized intervention; valid-label missing subset179 spans13episodes and has only2 both-split requests.",
+    "Repeated/overlapping windows are not independent participants; no inferential claim from per-frame p values.",
+    "Some dense input windows overlap original training inputs under official center-only filtering; source result retains all keys and discloses overlaps.",
+    "Comparing separate vision/fusion model checkpoints cannot isolate the causal contribution of aligned EMG; same-checkpoint EMG corruption/ablation controls have not run.",
+    "Exploratory strata do not replace or alter published source-exactFigure13 bins, statistics, CSV or standardTable3 scores."
+  ],
+  "method": {
+    "error": "per-row unmasked22-angle MAE from lossless radian column times original57.3; no intermediate4-decimal rounding",
+    "gain": "vision MAE minus fusion MAE; positive favors fusion",
+    "grouping": "exploratory thresholds0.6/0.8 chosen after inspecting existing published results; not preregistered or original adaptive bins",
+    "inference": "descriptive only, no iid significance claim or confidence interval; overlapping windows and shared participant/episode dependencies remain",
+    "pairing": "same ordered split/hand/episode/center, targets and frozen existing predictions",
+    "target_population": "separately report generated-label-valid rows; preserve all17168 source rows and all695missing flags in evidence",
+    "win_fraction": "number of rows with strictly positive unrounded paired gain divided by all rows in subgroup"
+  },
+  "missing_valid_by_split": {
+    "both": {
+      "emg_mae_deg": 15.890927669405936,
+      "episodes": 1,
+      "fusion_better_count": 2,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 13.307787392288446,
+      "fusion_win_fraction": 1.0,
+      "fusion_worse_count": 0,
+      "gain_deg": 3.2841955728828918,
+      "relative_error_reduction_pct": 19.793870206935676,
+      "samples": 2,
+      "vision_mae_deg": 16.591982965171336
+    },
+    "gesture": {
+      "emg_mae_deg": 18.038340937854215,
+      "episodes": 9,
+      "fusion_better_count": 75,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 19.059054566445678,
+      "fusion_win_fraction": 0.5681818181818182,
+      "fusion_worse_count": 57,
+      "gain_deg": 0.985026657310399,
+      "relative_error_reduction_pct": 4.914301864547195,
+      "samples": 132,
+      "vision_mae_deg": 20.044081223756073
+    },
+    "user": {
+      "emg_mae_deg": 16.647166800002257,
+      "episodes": 4,
+      "fusion_better_count": 7,
+      "fusion_equal_count": 0,
+      "fusion_mae_deg": 15.543989692628383,
+      "fusion_win_fraction": 0.15555555555555556,
+      "fusion_worse_count": 38,
+      "gain_deg": -1.3984835128982862,
+      "relative_error_reduction_pct": -9.886415481562993,
+      "samples": 45,
+      "vision_mae_deg": 14.145506179730097
+    }
+  },
+  "paper_population_or_numerical_equivalence_established": false,
+  "scientific_eligible_within_stated_exploratory_legacy_scope": true,
+  "source_raw_csv_sha256": "cf5f96b0bc8e5a73df48668ffa4943a8ac01aa15e3e797939538557e06b8cf72",
+  "verified_checks": [
+    "Original complete evidence and current raw CSV hash bound.",
+    "All272full-a packets matched their accepted hashes; all17168 keys and lossless errors matched existing CSV; label/crop masks retained.",
+    "All existing source actors and extraction reader physically closed; zero learned model constructions/updates.",
+    "Local exact key join, source filtering population equality, label/crop partitions and separate raw-radian fsum cross-check passed."
+  ]
+}

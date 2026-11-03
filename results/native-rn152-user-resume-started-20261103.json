@@ -1,0 +1,73 @@
+{
+  "actual_native_resume_observation": {
+    "expected": {
+      "callbacks": "5c833e8417b5acf37eed880aeb4a9a723edcbd1f1e0e51742627bd3f4a65e0a2",
+      "loops": "7300ea63c20691b23afb4872d6408ef2ed0244e73eb93bde3595574b57c23717",
+      "model": "605f2896ebc96b2d6429869f1254881e924d62c503128a89c7b7545754f17ebb",
+      "optimizer": "1e319e4001a2adc4f352b873a340a52738b34b5ab971937ca7978f9024603035",
+      "rng": "4b6d3277e9dcd576edc373b859622a49cc94331a4b1611140b326483259fb766",
+      "scheduler": "348a087f081c6b03486437e692a296d85d5cfdd78ff29bac493892790d91e76f"
+    },
+    "identity_sha256": "05818fcf828c99327cd95b6145c3d782205cfe26ce658ff54087db81a869cfe1",
+    "observed": {
+      "callbacks": "5c833e8417b5acf37eed880aeb4a9a723edcbd1f1e0e51742627bd3f4a65e0a2",
+      "loops": "7300ea63c20691b23afb4872d6408ef2ed0244e73eb93bde3595574b57c23717",
+      "model": "605f2896ebc96b2d6429869f1254881e924d62c503128a89c7b7545754f17ebb",
+      "optimizer": "1e319e4001a2adc4f352b873a340a52738b34b5ab971937ca7978f9024603035",
+      "rng": "4b6d3277e9dcd576edc373b859622a49cc94331a4b1611140b326483259fb766",
+      "scheduler": "348a087f081c6b03486437e692a296d85d5cfdd78ff29bac493892790d91e76f"
+    },
+    "parent_checkpoint_sha256": "9cc645c14281064b348e88d0ddef692a4ad98b67d9eb77f7ff5eabfdf61b9fdf",
+    "process": {
+      "pid": 2653404,
+      "start_ticks": "451538198",
+      "uid": 1005
+    }
+  },
+  "actual_new_epoch_completion_not_yet_verified": true,
+  "actual_resume_observation_file": "1b58f59f34574b168d097ff611ff1995.json",
+  "actual_resume_observation_file_sha256": "c5df51e583dd993ff1ffaa7ab6423979a72c29843188b7f24bb055ced632c602",
+  "actual_state_restoration_observed": true,
+  "actual_worker": {
+    "pid": 2653404,
+    "start_ticks": "451538198",
+    "uid": 1005
+  },
+  "all_six_domains_exact": {
+    "callbacks": true,
+    "loops": true,
+    "model": true,
+    "optimizer": true,
+    "rng": true,
+    "scheduler": true
+  },
+  "archive_admission_file_sha256": "3711c4ef34259aa34a213c34ee6464da256e9bc1ff57e662a1bb09b39cccf24c",
+  "bitwise_uninterrupted_trajectory_guaranteed": false,
+  "bundle_sha256": "0ad7b6fb4986eb8b97d29ab2d702df28de5f7dd6645f600de0fc713245e4bb74",
+  "format": "actual_native_RN152118_checkpoint_user_resume_started_v1",
+  "full_evaluation_complete": false,
+  "full_paper_complete": false,
+  "full_training_complete": false,
+  "observed_utc": "2026-11-03T06:44:38.124397+00:00",
+  "original_fit_path": "/data/shihao/egoemg-native-resnet152-full-cli-20261101/private/full-fit",
+  "other_users_processes_not_modified": true,
+  "owners": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2653313,
+      "start_ticks": "451535551"
+    },
+    "started_utc": "2026-11-03T06:40:50.174581+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2653312,
+      "start_ticks": "451535548"
+    }
+  },
+  "physical_gpu_uuid": "GPU-3b5a6250-aa89-83c4-f375-844893f374f5",
+  "root": "/data/shihao/egoemg-native-rn152-user-resume-52b1be79d2cd-20261103",
+  "same_A800_model_different_physical_device_disclosed": true,
+  "saved_epochs_before_resume": 118,
+  "source_commit": "52b1be79d2cd4d0106b45e111473c8e721829da8",
+  "target_max_epochs": 150
+}

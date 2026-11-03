@@ -6,6 +6,8 @@
 
 **Spec:** [Approved full-paper design](../specs/2026-10-26-full-paper-reproduction-design.md), requirements2/4/7 and D19/D20 in [full-paper status](../../full-paper-status.md). No new scientific preference is needed: pinned executable source controls ambiguities.
 
+**2026-11-03 user priority:** determine whether EMG actually helps when visual information is unavailable. Preserve the full-paper scope and unchanged native workflows. [Existing ViT-S paired availability audit](../../../results/visual-missing-emg/README.md) separates genuine crop-missing requests, geometric occlusion, valid-label denominators and per-row gains/losses. Complete the live RN18 workflow and apply the same read-only analysis next. Same-checkpoint aligned-versus-corrupted EMG controls and artificial image-loss experiments remain explicitly pending complementary experiments; fix their input semantics, cohort and inference policy before execution, keep them distinct from original Figure13, and do not infer their results from existing model comparisons.
+
 **Architecture:** Separate source-bound dense selection, numeric geometry extraction, frozen-model predictions and aggregate analysis. Reuse original `EgoEmgMemmapDataset._build_window_index` and `_resolve_index_to_center`; reuse accepted native mesh/occlusion operators unchanged. Existing standard-role runner/receipts stay immutable. Dense roles remain a separately named evaluation population, never silently substituted into standard model reports.
 
 **Global constraints**
