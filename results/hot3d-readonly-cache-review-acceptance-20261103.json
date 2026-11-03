@@ -1,0 +1,38 @@
+{
+  "actual_complete_source_acquisition": false,
+  "actual_original_907_whole_cache_admission_completed": false,
+  "actual_relevant_tests": 37,
+  "actual_server_test_seconds": 11.68,
+  "actual_skipped": 0,
+  "all_test_and_independent_reader_actors_closed": true,
+  "declined_rulings": [
+    "Actual source closure/cachewholeSHA require Task2 real source admission, not local fixtures.",
+    "Actual network/status/capacity need current canonicalHEAD and fullremaining+225GiB; nativeTLS/maxtries1 unchanged.",
+    "Old scientific/model/geometry/ViT dependencies unchanged and outside this unit; no scientific qualification here.",
+    "Missingauthorassets/PDFpopulation equivalence remain unresolved; no author-mixture claim.",
+    "Privatepreparation/launcher outside original review; require exact committed bytes/resource/native owner checks beforeandduringdeployment."
+  ],
+  "engineering_proof_sha256": "18c851e6c8b37cf5dfd7edaececcb05dbe6b895b2ee225bbc31d71e325e54a39",
+  "final_runtime_source_sha256": {
+    "egoemg_repro/hot3d_cache_intake.py": "e89b107dc73950bf5a077adbdcab4ba342f406f0ddeed1600b21506899442e55",
+    "scripts/paper/hot3d_full_train_receiver.py": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381",
+    "scripts/paper/hot3d_layered_train_receiver.py": "ff89eb600a40906673e3dc726c1192303aa2e81a8469befcf6dca740338ea971"
+  },
+  "fixes": [
+    "Exact original inherited and receipt9attribute payload generations before any successor snapshot.",
+    "Ongoing regular/dangling native control exclusion for cached and owned payloads, including immediately after nativeexit0 and before journaling.",
+    "Actual owned native cleanup outcome andPID/start preserved across exceptions; unknown/unresolved closure not falsely promoted and reuse needs physical closure."
+  ],
+  "format": "HOT3D_prior_single_review_three_material_fixes_accepted_v1",
+  "full_paper_complete": false,
+  "one_material_fix_pass": true,
+  "original_critical": 0,
+  "original_important": 3,
+  "original_minor": 0,
+  "original_reviewed_source_commit": "52b1be79d2cd4d0106b45e111473c8e721829da8",
+  "reviewer": "/root/hot3d_readonly_cache_final_review",
+  "reviewer_replayed_existing_report_only": true,
+  "scientific_eligible": false,
+  "second_review_dispatched": false,
+  "status": "accepted-after-material-fixes"
+}

@@ -49,6 +49,15 @@ def _check_pins(pins):
         need(_generation(path)==tuple(generation),'source file generation changed')
 
 
+def _has_control(path):
+    p=Path(path);control=p.with_name(p.name+'.aria2')
+    return control.exists()or control.is_symlink()
+
+
+def _no_control(path):
+    need(not _has_control(path),'native control file remains; preserve partial without admission')
+
+
 def cache_from_closed_source(root, launch, assets):
     """Snapshot authenticated closed metadata and candidates, without copying.
 
@@ -97,15 +106,21 @@ def cache_from_closed_source(root, launch, assets):
         p=root/name
         if p.exists():
             value=read(p)
+            if name=='failed.json'and value.get('owned_native_worker_exited')is False:
+                need(value.get('current_worker')is not None,'unresolved native cleanup requires its exact worker identity before reuse')
             for n in('actor','current_worker'):
                 if value.get(n)is not None:close(value[n])
     journal=add(root/'receipts.jsonl');raw=journal.read_bytes()
     need(not raw or raw.endswith(b'\n'),'partial terminal journal tail needs separate audit')
     rows=[json.loads(line)for line in raw.splitlines()];entries={}
     need(len({r['path']for r in rows})==len(rows),'duplicate source journal path')
-    def candidate(name,path,kind):
+    def candidate(name,path,kind,generations=()):
         a=lookup[name];p=_path(path);g=_generation(p)
-        need(g[2]==a['expected_bytes']and not p.with_name(p.name+'.aria2').exists(),'incomplete source candidate')
+        for expected in generations:
+            need(isinstance(expected,(list,tuple))and len(expected)==9
+                and all(type(x)is int for x in expected)and g==tuple(expected),
+                'original recorded payload generation changed')
+        need(g[2]==a['expected_bytes'],'incomplete source candidate');_no_control(p)
         entries[name]=dict(physical_path=str(p),bytes=a['expected_bytes'],sha256=a['lfs_sha256'],generation=list(g),candidate_origin=kind)
     for row in rows:
         need(row['path']in lookup,'unknown source receipt');a=lookup[row['path']]
@@ -115,11 +130,12 @@ def cache_from_closed_source(root, launch, assets):
         else:need(row.get('reused_readonly_cache')or row.get('reused_closed_qualification_archive'),'missing original native owner')
         if row.get('reused_readonly_cache'):
             need(row['path']in inherited and row['payload_path']==inherited[row['path']]['physical_path'],'prior physical cache path differs')
-            candidate(row['path'],row['payload_path'],'closed_external_cache_receipt')
+            candidate(row['path'],row['payload_path'],'closed_external_cache_receipt',
+                [inherited[row['path']].get('generation')]+([row['payload_generation']]if 'payload_generation'in row else[]))
         else:
             p=root/'archives'/row['path']
             need('payload_path'not in row or _path(row['payload_path'])==_path(p),'owned source receipt path differs')
-            candidate(row['path'],p,'closed_owned_receipt')
+            candidate(row['path'],p,'closed_owned_receipt',[row['payload_generation']]if 'payload_generation'in row else[])
     terminal=read(root/('completed.json'if state['status']=='complete'else'failed.json'))
     count_key,bytes_key=('archive_count','archive_bytes')if state['status']=='complete'else('completed_archive_count','completed_archive_bytes')
     need(terminal[count_key]==len(rows)and terminal[bytes_key]==sum(r['bytes']for r in rows),'terminal source journal totals differ')
@@ -128,9 +144,9 @@ def cache_from_closed_source(root, launch, assets):
     for name,a in lookup.items():
         if name in entries:continue
         if name in inherited:
-            candidate(name,inherited[name]['physical_path'],'closed_future_external_candidate');continue
+            candidate(name,inherited[name]['physical_path'],'closed_future_external_candidate',[inherited[name].get('generation')]);continue
         p=root/'archives'/name
-        if p.is_file()and p.stat().st_size==a['expected_bytes']and not p.with_name(p.name+'.aria2').exists():
+        if p.is_file()and p.stat().st_size==a['expected_bytes']and not _has_control(p):
             candidate(name,p,'complete_size_unjournaled_candidate')
     _check_pins((r['path'],r['generation'])for r in pins.values())
     for h in handles.values():_closed(h)
@@ -150,6 +166,7 @@ class ReadOnlyCache:
     def verified_bytes(self):return sum(r[1]for r in self._entries.values())
     def check(self):
         _check_pins(self._pins)
+        for path,_,_ in self._entries.values():_no_control(path)
         for h in self._handles:_closed(h)
     def path_for(self, asset):
         self.check();record=self._entries.get(asset['path'])
@@ -172,7 +189,7 @@ def load_readonly_cache(path, *, expected_sha256, assets):
         for name,record in document['entries'].items():
             need(name in lookup,'cache contains unknown archive');a=lookup[name];p=_path(record['physical_path']);g=tuple(record['generation'])
             need(record['bytes']==a['expected_bytes']and record['sha256']==a['lfs_sha256'],'cache LFS descriptor differs')
-            need(_generation(p)==g and not p.with_name(p.name+'.aria2').exists(),'cache payload generation/control changed')
+            need(_generation(p)==g,'cache payload generation changed');_no_control(p)
             verify_payload(p,a)
             need(_generation(p)==g,'cache generation changed while hashing')
             pins.append((p,g));entries[name]=(p,a['expected_bytes'],a['lfs_sha256'])
@@ -188,14 +205,58 @@ def _native_command(binary, asset, target):
         '--stop-with-process='+str(os.getpid()),'--dir='+str(target.parent),'--out='+target.name,asset['url']]
 
 
+def _cleanup_native(child,worker):
+    """Keep initiating failures and report actual bounded cleanup evidence."""
+    detail=dict(native_child_created=child is not None,native_worker=worker,
+        worker_reaped=False,native_exit_code=None,physically_closed=child is None,cleanup_errors=[])
+    if child is None:return detail
+    def attempt(phase,operation):
+        try:return operation()
+        except BaseException as exc:
+            detail['cleanup_errors'].append(dict(phase=phase,error_type=type(exc).__name__,message=str(exc)[:200]))
+            return None
+    status=attempt('poll_before',child.poll)
+    if status is None:
+        attempt('terminate',child.terminate)
+        status=attempt('wait_after_terminate',lambda:child.wait(timeout=10))
+        if status is None:
+            attempt('kill',child.kill)
+            attempt('wait_after_kill',lambda:child.wait(timeout=5))
+    status=attempt('poll_after',child.poll)
+    detail['worker_reaped']=status is not None;detail['native_exit_code']=status
+    if worker is not None:
+        try:_closed(worker);detail['physically_closed']=True
+        except (OSError,ValueError)as exc:
+            detail['cleanup_errors'].append(dict(phase='physical_closure',error_type=type(exc).__name__,message=str(exc)[:200]))
+    return detail
+
+
+def _publish_failed_intake(root,owner,exc):
+    rows=[];journal=Path(root)/'receipts.jsonl'
+    if journal.exists():
+        raw=journal.read_bytes();lines=raw.splitlines();lines=lines if not raw or raw.endswith(b'\n')else lines[:-1]
+        rows=[json.loads(s)for s in lines]
+    detail=getattr(exc,'hot3d_owned_native_cleanup',None)
+    if detail is None:detail=_cleanup_native(None,None)
+    value=dict(observed_utc=now(),actor=owner,error_type=type(exc).__name__,message=str(exc)[:400],
+        completed_archive_count=len(rows),completed_archive_bytes=sum(r['bytes']for r in rows),
+        current_worker=detail['native_worker'],native_cleanup=detail,
+        owned_native_worker_exited=detail['physically_closed'],original_payloads_and_partials_preserved=True,
+        automatic_retry=False,numeric_qualification_complete=False,full_paper_complete=False)
+    exclusive(Path(root)/'failed.json',value)
+    return value
+
+
 def receive_assets(root, assets, cache, *, binary, guard):
     """Transport helper only. Small inputs cannot publish full completion."""
     root=_path(root);guard();cache.check()
     verify_capacity(root,remaining=sum(a['expected_bytes']for a in assets if cache.path_for(a)is None),reserve=RESERVE)
     need(not (root/'archives').exists(),'new owned archive root must not exist')
-    child=None;workers=[];count=received=reused=0;own_pins=[]
+    child=None;current_worker=None;workers=[];count=received=reused=0;own_pins=[]
     def check():
-        guard();cache.check();_check_pins(own_pins);verify_capacity(root,remaining=0,reserve=RESERVE)
+        guard();cache.check();_check_pins(own_pins)
+        for path,_ in own_pins:_no_control(path)
+        verify_capacity(root,remaining=0,reserve=RESERVE)
     def progress(current):
         atomic(root/'progress.json',dict(observed_utc=now(),actor=actor(os.getpid()),completed_archive_count=count,
             completed_archive_bytes=received,current_archive_path=current,
@@ -207,16 +268,16 @@ def receive_assets(root, assets, cache, *, binary, guard):
             for asset in assets:
                 check();target=cache.path_for(asset);worker=None;cached=target is not None
                 if not cached:
-                    target=root/'archives'/asset['path'];need(not target.exists()and not target.with_name(target.name+'.aria2').exists(),'existing partial requires explicit closed audit')
+                    target=root/'archives'/asset['path'];need(not target.exists()and not target.is_symlink(),'existing partial requires explicit closed audit');_no_control(target)
                     target.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
                     child=subprocess.Popen(_native_command(binary,asset,target),cwd=root,stdin=subprocess.DEVNULL,
                         stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-                    worker=actor(child.pid);workers.append(worker);progress(asset['path'])
+                    current_worker=None;worker=actor(child.pid);current_worker=worker;workers.append(worker);progress(asset['path'])
                     while child.poll()is None:
                         check();need((root/'aria2.log').stat().st_size<=32*1024**2,'native log exceeded bound')
                         progress(asset['path']);time.sleep(1)
                     need(child.returncode==0,'native source download failed; partial preserved without retry')
-                    g=_generation(target);verify_payload(target,asset);need(_generation(target)==g,'new payload generation changed')
+                    _no_control(target);g=_generation(target);verify_payload(target,asset);need(_generation(target)==g,'new payload generation changed');_no_control(target)
                     own_pins.append((target,g));_closed(worker)
                 check();count+=1;received+=asset['expected_bytes'];reused+=int(cached)
                 row=dict(observed_utc=now(),path=asset['path'],bytes=asset['expected_bytes'],sha256=asset['lfs_sha256'],
@@ -226,11 +287,8 @@ def receive_assets(root, assets, cache, *, binary, guard):
             check()
         return dict(archive_count=count,archive_bytes=received,reused_cache_archives=reused,
             new_download_archives=count-reused,native_workers=workers,numeric_qualification_complete=False,full_paper_complete=False)
-    except BaseException:
-        if child is not None and child.poll()is None:
-            child.terminate()
-            try:child.wait(timeout=10)
-            except subprocess.TimeoutExpired:child.kill();child.wait(timeout=5)
+    except BaseException as exc:
+        exc.hot3d_owned_native_cleanup=_cleanup_native(child,current_worker)
         raise
 
 
@@ -268,12 +326,5 @@ def main(root):
             manifest_sha256=MANIFEST_SHA256,all_publisher_lfs_sha256_exact=True,
             source_numeric_qualification_complete=False,author_mixture_reconstructed=False,actual_gpu_actions=0,actual_model_runs=0))
     except BaseException as exc:
-        rows=[];journal=root/'receipts.jsonl'
-        if journal.exists():
-            raw=journal.read_bytes();lines=raw.splitlines();lines=lines if not raw or raw.endswith(b'\n')else lines[:-1]
-            rows=[json.loads(s)for s in lines]
-        exclusive(root/'failed.json',dict(observed_utc=now(),actor=owner,error_type=type(exc).__name__,message=str(exc)[:400],
-            completed_archive_count=len(rows),completed_archive_bytes=sum(r['bytes']for r in rows),
-            owned_native_worker_exited=True,original_payloads_and_partials_preserved=True,automatic_retry=False,
-            numeric_qualification_complete=False,full_paper_complete=False))
+        _publish_failed_intake(root,owner,exc)
         raise
