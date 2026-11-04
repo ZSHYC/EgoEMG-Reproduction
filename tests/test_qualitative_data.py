@@ -10,7 +10,13 @@ import subprocess
 from types import SimpleNamespace
 
 import numpy as np
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 from test_occlusion_dense_data import config, store, UPSTREAM
 from egoemg_repro import qualitative_data as qualitative
@@ -48,6 +54,7 @@ def test_protocol_preserves_original_standard_stride_and_defaults(recipe, w):
     assert p['model_or_geometry_permit'] is False
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('recipe,w', [('vits_s',7790), ('rn18_s',12000)])
 @pytest.mark.parametrize('cap', [0, 1, 500])
 def test_full_native_membership_and_sampling_match_independent_rows_and_actual_source(tmp_path, recipe, w, cap):
@@ -69,6 +76,7 @@ def test_full_native_membership_and_sampling_match_independent_rows_and_actual_s
     assert selected.identity['figure7_reproduced'] is False
 
 
+@requires_official_runtime
 def test_default_rng_is_reset_for_each_group_and_original_cap500_is_real(tmp_path):
     w = 7790; n = w*1803
     split = np.repeat(np.array([1,2,3], np.int8), n//3)
@@ -89,6 +97,7 @@ def test_default_rng_is_reset_for_each_group_and_original_cap500_is_real(tmp_pat
         np.testing.assert_array_equal(left, original_sample(601,500,42))
 
 
+@requires_official_runtime
 def test_bytes_rng_and_readonly_copies_are_preserved(tmp_path):
     import torch
     store(tmp_path)
@@ -107,6 +116,7 @@ def test_bytes_rng_and_readonly_copies_are_preserved(tmp_path):
     assert not torch.cuda.is_initialized()
 
 
+@requires_official_runtime
 def test_crossing_windows_and_empty_groups_are_not_redefined(tmp_path):
     split, _ = store(tmp_path)
     selected=admit(tmp_path, max_samples_per_split=0)
@@ -132,6 +142,7 @@ def test_unregistered_or_engineering_source_cannot_claim_actual_release(tmp_path
         qualitative.admit_qualitative_selection(tmp_path,upstream=UPSTREAM,config=config('vits_s'),recipe='vits_s')
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('mutation',['append','hardlink','manifest'])
 def test_source_generation_changes_invalidate_registered_selection(tmp_path,mutation):
     store(tmp_path);selected=admit(tmp_path)

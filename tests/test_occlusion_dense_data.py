@@ -7,7 +7,13 @@ import random
 from pathlib import Path
 
 import numpy as np
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 UPSTREAM=Path(os.environ.get('EGOEMG_UPSTREAM',Path(__file__).parents[1]/'upstream')).resolve()
 
@@ -52,6 +58,7 @@ def test_exact_recipe_quarter_stride_uses_integer_floor_and_no_shared_center_gri
     assert p['model_or_geometry_permit']is False and p['full_paper_complete']is False
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('recipe,w,stride',[('vits_s',7790,1947),('rn18_s',12000,3000)])
 def test_exact_native_keys_order_centers_and_cross_split_windows_are_retained(tmp_path,recipe,w,stride):
     split,episodes=store(tmp_path,w);v=points(tmp_path,recipe);a=v['points'];expected=[]
@@ -75,6 +82,7 @@ def test_exact_native_keys_order_centers_and_cross_split_windows_are_retained(tm
     assert all(not arr.flags.writeable and arr.dtype.kind in'iu'for arr in a.values())
 
 
+@requires_official_runtime
 def test_native_odd_window_first_last_and_empty_split_edges(tmp_path):
     split,episodes=store(tmp_path,w=5)
     from egoemg_repro.data import LegacyStore
@@ -87,6 +95,7 @@ def test_native_odd_window_first_last_and_empty_split_edges(tmp_path):
     with pytest.raises(IndexError):v._resolve_index_to_center(len(v))
 
 
+@requires_official_runtime
 def test_all_train_fixture_retains_six_empty_heldout_groups(tmp_path):
     store(tmp_path,empty=True);v=points(tmp_path)
     assert v['identity']['unique_hand_points']==0 and len(v['identity']['groups'])==6
@@ -104,6 +113,7 @@ def test_recipe_and_config_drift_reject_before_index_input_io(tmp_path,damage):
     with pytest.raises(ValueError):m.native_dense_points(tmp_path/'missing',upstream=UPSTREAM,config=cfg,recipe=recipe)
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('damage',['float_split','split_shape','unknown_split_value','labels','overlap','metadata_split','field_link','root_link'])
 def test_malformed_index_inputs_cannot_create_dense_receipt(tmp_path,damage):
     root=tmp_path/'data';split,_=store(root)
@@ -132,6 +142,7 @@ def test_symlink_upstream_rejects_before_import_or_input_read(tmp_path):
     with pytest.raises(ValueError):api().native_dense_points(tmp_path/'missing',upstream=alias,config=config('vits_s'),recipe='vits_s')
 
 
+@requires_official_runtime
 def test_fresh_identity_rebuild_and_resealed_expected_forgery(tmp_path):
     from egoemg_repro.classic_emg import _hash
     store(tmp_path);v=points(tmp_path);second=points(tmp_path,expected=v['identity'])
@@ -141,6 +152,7 @@ def test_fresh_identity_rebuild_and_resealed_expected_forgery(tmp_path):
     with pytest.raises(ValueError,match='identity|receipt'):points(tmp_path,expected=bad)
 
 
+@requires_official_runtime
 def test_no_model_constructors_or_random_state_changes(tmp_path,monkeypatch):
     import torch
     store(tmp_path);cfg=config('vits_s');m=api()
@@ -154,6 +166,7 @@ def test_no_model_constructors_or_random_state_changes(tmp_path,monkeypatch):
     assert v['identity']['learned_pose_models_constructed']==0 and v['identity']['optimizer_updates']==0
 
 
+@requires_official_runtime
 def test_input_bytes_changed_during_native_index_construction_reject(tmp_path,monkeypatch):
     store(tmp_path);m=api();original=m._native_view;changed=False
     assert points(tmp_path)['identity']['unique_hand_points']>0

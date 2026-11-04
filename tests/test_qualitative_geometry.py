@@ -7,7 +7,7 @@ import random
 
 import numpy as np
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor checks require the optional Torch tier")
 
 from test_occlusion_dense_data import UPSTREAM
 

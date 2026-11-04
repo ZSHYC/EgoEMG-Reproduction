@@ -64,7 +64,9 @@ def test_valid_cpu_engineering_request_retains_all_six_shards(tmp_path):
     assert cfg == request(tmp_path)
 
 
-def test_workflow_sources_are_a_torch_free_real_file_snapshot():
+def test_workflow_sources_are_a_torch_free_real_file_snapshot(request):
+    from torch_free_case import run_torch_free_case
+    if run_torch_free_case(request): return
     import sys
     assert 'torch' not in sys.modules
     sources = workflow.workflow_sources()

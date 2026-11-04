@@ -322,7 +322,12 @@ def test_source_import_guard_precedes_execution_and_layer_creation(tmp_path,monk
     from types import SimpleNamespace,ModuleType
     import egoemg_repro.classic_emg as emg
     import egoemg_repro.classic_emg_cohort as cohort
-    m=api();upstream=tmp_path/'upstream';source=upstream/'scripts/eval/evaluate_occlusion_fusion.py'
+    m=api()
+    # The production entry owns a separate process. This in-process source-race
+    # fixture must restore its process-wide network guard on every exit.
+    monkeypatch.setattr(m.socket.socket,'connect',m.socket.socket.connect)
+    monkeypatch.setattr(m.socket,'create_connection',m.socket.create_connection)
+    upstream=tmp_path/'upstream';source=upstream/'scripts/eval/evaluate_occlusion_fusion.py'
     source.parent.mkdir(parents=True);source.write_text('generation = "before import"\n')
     assets=tmp_path/'assets';assets.mkdir();(assets/'MANO_RIGHT.pkl').write_bytes(b'fixture');(assets/'LICENSE.txt').write_bytes(b'fixture')
     monkeypatch.setattr(m,'MANO_ASSET_SHA','45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767',raising=False)

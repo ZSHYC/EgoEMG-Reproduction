@@ -121,7 +121,7 @@ def test_original_real_200_epoch_metadata_is_accepted_without_loading_weights(si
     # These are exact accepted real metadata bytes fetched from the server,
     # not a short/fake fit relabeled as full. No learned weights are fixtures.
     root=Path(os.environ.get('EGOEMG_REFERENCE_FIT_FIXTURES',
-        Path(__file__).parents[1]/'tmp/native-center-reference-real-fit-metadata-20261102'))/size
+        Path(__file__).parent/'fixtures/native-center-reference-real-fit-metadata'))/size
     assert root.is_dir(),'actual accepted metadata fixture must be staged, never skipped'
     copied=tmp_path/'source';shutil.copytree(root,copied)
     fit=copied/'private/full-fit';got=api().source_fit_metadata(fit)
@@ -138,7 +138,7 @@ def test_original_real_200_epoch_metadata_is_accepted_without_loading_weights(si
 
 def test_wrong_selected_weight_bytes_reject_before_deserialization(tmp_path):
     root=Path(os.environ.get('EGOEMG_REFERENCE_FIT_FIXTURES',
-        Path(__file__).parents[1]/'tmp/native-center-reference-real-fit-metadata-20261102'))/'small'
+        Path(__file__).parent/'fixtures/native-center-reference-real-fit-metadata'))/'small'
     copied=tmp_path/'source';shutil.copytree(root,copied);fit=copied/'private/full-fit'
     meta=api().source_fit_metadata(fit);weights=fit/'checkpoints'/meta['selected_best']['file'];weights.parent.mkdir()
     weights.write_bytes(b'this is not the accepted trained checkpoint')

@@ -128,7 +128,9 @@ def test_new_hardlink_invalidates_private_geometry_asset(native_sources):
         source.check()
 
 
-def test_unregistered_source_cannot_build_geometry():
+def test_unregistered_source_cannot_build_geometry(request):
+    from torch_free_case import run_torch_free_case
+    if run_torch_free_case(request): return
     with pytest.raises(ValueError, match='registered'):
         IKSource().build()
     assert 'torch' not in sys.modules

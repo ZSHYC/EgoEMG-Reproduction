@@ -18,6 +18,9 @@ emg2pose-runtime = ["h5py==3.11.0", "hydra-core==1.3.2", "scipy==1.13.1", "panda
 # Add to the model/vision extras to import the complete official reader for
 # reference comparisons; the nonvisual wrapper itself does not require cv2.
 official-reader = ["opencv-python-headless==4.10.0.84"]
+# The complete original evaluation module imports SMPL-X before its collator.
+# Model assets remain separately admitted; this extra supplies the import only.
+official-eval = ["smplx==0.1.28"]
 report = ["matplotlib==3.9.4", "contourpy<1.4"]
 
 [tool.setuptools.packages.find]

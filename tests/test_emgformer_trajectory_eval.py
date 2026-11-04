@@ -9,7 +9,13 @@ import subprocess
 import sys
 import time
 
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 ROOT = Path(__file__).resolve().parents[1]
 FIT = Path('/data/shihao/egoemg-native-emgformer-train-review-fixed-cpu-4c406a602e16-20261029/private/fit')
@@ -77,6 +83,7 @@ def test_guarded_cli_import_has_no_work_or_torch_construction():
     assert p.returncode == 0, p.stderr[-2000:]
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('role,kind,required', [('train', 'native', False), ('val', 'unknown', False), ('val', 'native', 1)])
 def test_invalid_scope_or_unregistered_inputs_reject_before_models(role, kind, required, monkeypatch, tmp_path):
     m = api(); import torch

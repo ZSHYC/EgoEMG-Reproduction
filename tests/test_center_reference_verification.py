@@ -7,7 +7,7 @@ import math
 
 import numpy as np
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor checks require the optional Torch tier")
 
 
 def api():

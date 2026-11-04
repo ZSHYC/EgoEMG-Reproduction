@@ -3,7 +3,13 @@ import copy
 import importlib
 
 import numpy as np
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 
 def api():
@@ -45,6 +51,7 @@ def models():
     return {k: m.eval() for k, m in dict(fusion=Fusion(), vision=Vision(), emg=Emg()).items()}
 
 
+@requires_official_runtime
 def test_native_three_branch_center_and_literal_unmasked_row_errors():
     m = api(); a, b = packets()
     out = m.native_forward_arrays(models(), a, b)
@@ -63,6 +70,7 @@ def test_native_three_branch_center_and_literal_unmasked_row_errors():
     assert not out['full_inference_permit']
 
 
+@requires_official_runtime
 def test_native_single_time_mask_keeps_original_two_dimensional_shape():
     m = api(); a, b = packets()
     assert a['label_valid_mask'].shape == (3, 1)
@@ -71,6 +79,7 @@ def test_native_single_time_mask_keeps_original_two_dimensional_shape():
     assert out['arrays']['label_valid_mask'].tolist() == [[False], [True], [False]]
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('damage', ['channels', 'window', 'target', 'mask', 'mask_shape', 'nonfinite', 'dtype'])
 def test_invalid_paired_batch_refused_before_any_model_call(damage):
     import torch
@@ -90,6 +99,7 @@ def test_invalid_paired_batch_refused_before_any_model_call(damage):
         m.native_forward_arrays({k: Forbidden().eval() for k in ('fusion', 'vision', 'emg')}, a, b)
 
 
+@requires_official_runtime
 def test_missing_branch_and_training_mode_are_not_repaired():
     m = api(); a, b = packets(); p = models(); p['vision'] = None
     with pytest.raises(ValueError): m.native_forward_arrays(p, a, b)
@@ -97,6 +107,7 @@ def test_missing_branch_and_training_mode_are_not_repaired():
     with pytest.raises(ValueError): m.native_forward_arrays(p, a, b)
 
 
+@requires_official_runtime
 def test_cpu_autocast_cannot_change_the_source_fp32_protocol():
     import torch
     m = api(); a, b = packets()
@@ -105,6 +116,7 @@ def test_cpu_autocast_cannot_change_the_source_fp32_protocol():
             m.native_forward_arrays(models(), a, b)
 
 
+@requires_official_runtime
 def test_collate_equals_the_function_in_the_whole_original_evaluation_module(monkeypatch):
     import importlib.util
     import os
@@ -134,6 +146,7 @@ def test_collate_equals_the_function_in_the_whole_original_evaluation_module(mon
         else: assert actual[n] == x
 
 
+@requires_official_runtime
 def test_full_forward_requires_registered_real_trained_admission():
     from types import SimpleNamespace
     m = api(); a, b = packets()

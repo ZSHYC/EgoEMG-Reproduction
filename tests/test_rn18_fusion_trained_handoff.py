@@ -11,7 +11,13 @@ import subprocess
 import sys
 
 import numpy as np
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 from test_fusion_literal_data import joint_store,UPSTREAM
 from test_vision_literal_data import crop_store,release_fixture_readers
@@ -104,6 +110,7 @@ def test_actual_engineering_producer_is_rejected_by_full_gate_before_any_output(
     assert not destination.exists()
 
 
+@requires_official_runtime
 def test_current_live_partial_initializer_cannot_supply_a_full_handoff(tmp_path,monkeypatch):
     import torch
     fit=Path(os.environ.get('EGOEMG_RN18_LIVE_INITIALIZER','/data/shihao/egoemg-rn18-cotrain-original-full-cli-20261101/private/full-fit'))

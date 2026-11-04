@@ -4,7 +4,13 @@ import importlib
 import json
 
 import numpy as np
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 from test_emg_initializer_data import source
 from test_emgformer_literal import UPSTREAM
@@ -48,6 +54,7 @@ def config(size='small'):
     return compose_emgformer(UPSTREAM, size)
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('reordered', [False, True])
 def test_complete_official_grid_keeps_center_split_and_max_window_boundary(tmp_path, reordered):
     # A window-length grid or numeric split-id hardcode breaks these literals.
@@ -68,6 +75,7 @@ def test_another_reference_budget_is_not_silently_accepted(tmp_path, length):
         api().reference_windows(tmp_path, UPSTREAM, required_window_length=length)
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('size', ['small', 'middle', 'large'])
 def test_actual_pure_emg_inputs_bind_hand_center_target_and_keep_invalid_request(tmp_path, size):
     arrays = fixture(tmp_path)
@@ -92,6 +100,7 @@ def test_actual_pure_emg_inputs_bind_hand_center_target_and_keep_invalid_request
         assert 'vision_img' not in sample and 'vision_valid_mask' not in sample
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('damage', ['subset', 'center', 'counts'])
 def test_caller_cannot_choose_a_smaller_or_shifted_scientific_grid(tmp_path, damage):
     fixture(tmp_path)
@@ -107,6 +116,7 @@ def test_caller_cannot_choose_a_smaller_or_shifted_scientific_grid(tmp_path, dam
         module.CenterReferenceDataset(tmp_path, UPSTREAM, config(), grid)
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('field', ['emg_left_filtered', 'generated_joint_angles_left'])
 def test_nonfinite_request_fails_instead_of_skipping_or_filling(tmp_path, field):
     arrays = fixture(tmp_path)
@@ -120,6 +130,7 @@ def test_nonfinite_request_fails_instead_of_skipping_or_filling(tmp_path, field)
         ds[0]
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('filename', ['manifest.json', 'episode_index.dat', 'frame_split_id.dat'])
 def test_changed_source_generation_is_rejected_after_construction(tmp_path, filename):
     fixture(tmp_path)

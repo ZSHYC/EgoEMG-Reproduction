@@ -9,7 +9,13 @@ import subprocess
 import sys
 
 import numpy as np
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM = Path(os.environ.get('EGOEMG_UPSTREAM', ROOT/'upstream')).resolve()
@@ -105,6 +111,7 @@ def packet():
     return a
 
 
+@requires_official_runtime
 def test_raw_packet_preserves_all_predictions_trajectory_center_flags_and_source_errors(tmp_path):
     m = api(); a = packet(); keys = [key(i) for i in range(3)]
     record = m.write_dense_batch(tmp_path, 0, keys=keys, arrays=a, inputs_sha256={'fusion:emg': 'a'*64})
@@ -116,6 +123,7 @@ def test_raw_packet_preserves_all_predictions_trajectory_center_flags_and_source
     assert not (tmp_path/'result.json').exists()  # A raw batch cannot finish a full pass.
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('damage', ['nonfinite', 'dtype', 'time_center', 'error', 'mask_shape', 'missing_crop_mask', 'duplicate', 'mixed_hand'])
 def test_corrupt_raw_semantics_reject_before_export(tmp_path, damage):
     m = api(); a = packet(); keys = [key(i) for i in range(3)]
@@ -132,6 +140,7 @@ def test_corrupt_raw_semantics_reject_before_export(tmp_path, damage):
     assert not list(tmp_path.glob('*.npz'))
 
 
+@requires_official_runtime
 def test_changed_or_truncated_packet_and_unsafe_paths_never_replay(tmp_path):
     m = api(); keys = [key(i) for i in range(3)]
     record = m.write_dense_batch(tmp_path, 0, keys=keys, arrays=packet(), inputs_sha256={'fusion:emg': 'a'*64})
@@ -141,6 +150,7 @@ def test_changed_or_truncated_packet_and_unsafe_paths_never_replay(tmp_path):
     with pytest.raises(ValueError): m.read_dense_batch(tmp_path, forged, expected_keys=keys)
 
 
+@requires_official_runtime
 def test_consistent_but_different_replay_predictions_are_rejected(tmp_path):
     import torch
     m = api(); keys = [key(i) for i in range(3)]
@@ -195,6 +205,7 @@ def test_cli_import_is_guarded_and_does_not_start_work(monkeypatch):
     runpy.run_path(str(path), run_name='spawn_probe')
 
 
+@requires_official_runtime
 def test_source_four_worker_loader_closes_its_children_after_late_consumer_failure():
     m = api(); handles = []
     class TinyPackets:
@@ -237,6 +248,7 @@ def comparison_packets(tmp_path):
     return results[0], results[1], SimpleNamespace(keys=lambda: keys)
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('damage', ['same_directory', 'copied_actor', 'wrong_parent_digest'])
 def test_a_pass_cannot_be_its_own_fresh_replay_or_bind_another_parent(tmp_path, damage):
     m = api(); first, second, evidence = comparison_packets(tmp_path)
@@ -247,11 +259,13 @@ def test_a_pass_cannot_be_its_own_fresh_replay_or_bind_another_parent(tmp_path, 
         m._compare_passes(first, second, evidence)
 
 
+@requires_official_runtime
 def test_distinct_closed_actors_with_the_exact_preceding_result_can_compare(tmp_path):
     m = api(); first, second, evidence = comparison_packets(tmp_path)
     m._compare_passes(first, second, evidence)
 
 
+@requires_official_runtime
 def test_report_stays_pending_before_independent_verification(tmp_path, monkeypatch):
     """Report-control logic only; source/model gates and math are substituted.
 

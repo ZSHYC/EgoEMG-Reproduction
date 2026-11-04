@@ -4,7 +4,13 @@ import hashlib
 import importlib
 import os
 from pathlib import Path
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 UPSTREAM=Path(os.environ.get('EGOEMG_UPSTREAM',Path(__file__).resolve().parents[1]/'upstream')).resolve()
 FIT=os.environ.get('EGOEMG_RN18_DENSE_TRAINED_FIT')
@@ -109,6 +115,7 @@ def test_resealed_or_copied_model_object_cannot_grant_trained_admission(actual_m
     p.check()
 
 
+@requires_official_runtime
 @pytest.mark.parametrize('family',['vits_s','unknown'])
 def test_wrong_family_is_refused_before_any_model_constructor(tmp_path,monkeypatch,family):
     import torch
@@ -118,6 +125,7 @@ def test_wrong_family_is_refused_before_any_model_constructor(tmp_path,monkeypat
     with pytest.raises(ValueError):m.load_rn18_dense_trained_models(tmp_path,upstream=UPSTREAM,recipe=family)
 
 
+@requires_official_runtime
 def test_unaccepted_fit_is_refused_before_any_model_constructor(tmp_path,monkeypatch):
     import torch
     m=api()

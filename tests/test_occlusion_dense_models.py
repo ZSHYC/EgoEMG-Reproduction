@@ -5,7 +5,13 @@ import json
 import os
 from pathlib import Path
 
+import importlib.util
 import pytest
+
+# Pure metadata checks remain available without the optional model runtime.
+requires_official_runtime = pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason='uses the complete optional official Torch reader/model/evaluation runtime')
 
 ROOT=Path(__file__).resolve().parents[1]
 UPSTREAM=Path(os.environ.get('EGOEMG_UPSTREAM',ROOT/'upstream')).resolve()
@@ -102,6 +108,7 @@ def test_mutated_role_state_or_non_native_forward_rejected(actual_models,monkeyp
     p.check()
 
 
+@requires_official_runtime
 def test_wrong_family_and_missing_completed_fit_reject_before_model_construction(tmp_path,monkeypatch):
     import torch
     m=api()

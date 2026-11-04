@@ -57,7 +57,9 @@ def carrier(batch):
     return arrays, record
 
 
-def test_every_original_shard_and_remainder_have_exact_stream_membership(inputs):
+def test_every_original_shard_and_remainder_have_exact_stream_membership(inputs, request):
+    from torch_free_case import run_torch_free_case
+    if run_torch_free_case(request): return
     assert 'torch' not in sys.modules
     for hand in ('right', 'left'):
         rows = []
@@ -97,7 +99,9 @@ def test_selection_returns_copies_and_binds_live_source(inputs):
         batch.check()
 
 
-def test_model_free_carrier_validation_is_explicitly_not_geometry_acceptance(inputs):
+def test_model_free_carrier_validation_is_explicitly_not_geometry_acceptance(inputs, request):
+    from torch_free_case import run_torch_free_case
+    if run_torch_free_case(request): return
     batch = results.select_ik_batch(inputs, 'right', 0, 0)
     arrays, record = carrier(batch)
     stats = results.validate_ik_state(batch, arrays, record)

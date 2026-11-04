@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="native tensor checks require the optional Torch tier")
 
 from test_occlusion_dense_data import UPSTREAM
 from egoemg_repro.classic_emg import _hash
