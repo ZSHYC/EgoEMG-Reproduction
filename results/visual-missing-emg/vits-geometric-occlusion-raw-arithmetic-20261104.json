@@ -1,0 +1,142 @@
+{
+  "all18_group_condition_means_and_penalties_match_complete_report": true,
+  "format": "independent_raw_ViTS_geometric_occlusion_control_arithmetic_v1",
+  "full_paper_complete": false,
+  "groups": {
+    "occlusion_0_6_to_0_8": {
+      "conditions": [
+        {
+          "condition": 0,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0,
+          "fusion_mae_deg": 6.013908792078011,
+          "vision_mae_deg": 6.2282830634588695
+        },
+        {
+          "condition": 1,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0,
+          "fusion_mae_deg": 20.086348480769217,
+          "vision_mae_deg": 20.798932891144204
+        },
+        {
+          "condition": 2,
+          "emg_intervention_penalty_vs_aligned_deg": -0.004306300249344741,
+          "fusion_mae_deg": 6.009602491828666,
+          "vision_mae_deg": 6.2282830634588695
+        },
+        {
+          "condition": 3,
+          "emg_intervention_penalty_vs_aligned_deg": 2.343582172832237,
+          "fusion_mae_deg": 22.429930653601453,
+          "vision_mae_deg": 20.798932891144204
+        },
+        {
+          "condition": 4,
+          "emg_intervention_penalty_vs_aligned_deg": -0.001301681753158426,
+          "fusion_mae_deg": 6.012607110324852,
+          "vision_mae_deg": 6.2282830634588695
+        },
+        {
+          "condition": 5,
+          "emg_intervention_penalty_vs_aligned_deg": 0.22425181490404958,
+          "fusion_mae_deg": 20.310600295673265,
+          "vision_mae_deg": 20.798932891144204
+        }
+      ],
+      "valid_requests_with_crop": 1040
+    },
+    "occlusion_0_8_to_1_inclusive": {
+      "conditions": [
+        {
+          "condition": 0,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0,
+          "fusion_mae_deg": 7.323176929713649,
+          "vision_mae_deg": 7.661964724971488
+        },
+        {
+          "condition": 1,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0,
+          "fusion_mae_deg": 17.900566160245376,
+          "vision_mae_deg": 17.898475947705183
+        },
+        {
+          "condition": 2,
+          "emg_intervention_penalty_vs_aligned_deg": 0.010181210897862912,
+          "fusion_mae_deg": 7.333358140611513,
+          "vision_mae_deg": 7.661964724971488
+        },
+        {
+          "condition": 3,
+          "emg_intervention_penalty_vs_aligned_deg": 1.9812730682438067,
+          "fusion_mae_deg": 19.88183922848918,
+          "vision_mae_deg": 17.898475947705183
+        },
+        {
+          "condition": 4,
+          "emg_intervention_penalty_vs_aligned_deg": 0.002105901139703664,
+          "fusion_mae_deg": 7.325282830853355,
+          "vision_mae_deg": 7.661964724971488
+        },
+        {
+          "condition": 5,
+          "emg_intervention_penalty_vs_aligned_deg": 0.2957323026386174,
+          "fusion_mae_deg": 18.19629846288399,
+          "vision_mae_deg": 17.898475947705183
+        }
+      ],
+      "valid_requests_with_crop": 165
+    },
+    "occlusion_below_0_6": {
+      "conditions": [
+        {
+          "condition": 0,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0,
+          "fusion_mae_deg": 6.2282798425782095,
+          "vision_mae_deg": 6.335785410354217
+        },
+        {
+          "condition": 1,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0,
+          "fusion_mae_deg": 16.99942946536431,
+          "vision_mae_deg": 17.209687840616795
+        },
+        {
+          "condition": 2,
+          "emg_intervention_penalty_vs_aligned_deg": 0.00781238129884434,
+          "fusion_mae_deg": 6.236092223877053,
+          "vision_mae_deg": 6.335785410354217
+        },
+        {
+          "condition": 3,
+          "emg_intervention_penalty_vs_aligned_deg": 2.0733536974440434,
+          "fusion_mae_deg": 19.072783162808353,
+          "vision_mae_deg": 17.209687840616795
+        },
+        {
+          "condition": 4,
+          "emg_intervention_penalty_vs_aligned_deg": 0.0004070919961811915,
+          "fusion_mae_deg": 6.228686934574391,
+          "vision_mae_deg": 6.335785410354217
+        },
+        {
+          "condition": 5,
+          "emg_intervention_penalty_vs_aligned_deg": 0.08279400853481406,
+          "fusion_mae_deg": 17.082223473899123,
+          "vision_mae_deg": 17.209687840616795
+        }
+      ],
+      "valid_requests_with_crop": 15266
+    }
+  },
+  "limitations": [
+    "Geometric occlusion score is the original source proxy, not a measured percentage of missing camera pixels.",
+    "0.6 and 0.8 thresholds are exploratory; no inference or favorable-bin selection.",
+    "Only originally valid labels with existing crop enter these geometric strata; natural crop loss is reported separately.",
+    "No new inference, model training, statistical significance or full paper completion claim."
+  ],
+  "ordered17168_keys_exact": true,
+  "source_files_sha256": {
+    "results/native-dense-occlusion/vits-full/raw_paired_errors.csv": "cf5f96b0bc8e5a73df48668ffa4943a8ac01aa15e3e797939538557e06b8cf72",
+    "results/visual-missing-emg/vits-controls-full/metrics.json": "627c98510bcac49866766d7c623fa7ae730d35d2da5f1bb6cc0e78773b78afce",
+    "results/visual-missing-emg/vits-controls-full/raw-control-errors.csv": "f57ebfedcd7a67b30f17d600f21c28001459b30355edd1cedf0793a1e58f7b3f"
+  }
+}
