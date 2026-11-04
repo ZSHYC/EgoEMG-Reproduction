@@ -1,0 +1,279 @@
+{
+  "actual_complete_batches_each": 176,
+  "actual_complete_prediction_passes": 2,
+  "actual_input_crop_missing_retained": 440,
+  "actual_invalid_label_retained": 327,
+  "actual_points": 11114,
+  "actual_zero_geometry_retained": 327,
+  "artifacts_sha256": {
+    "bins.csv": "12286cc37e00ff8f66082fb19576fe985c8599d0d412d2f2741c3c1742fcbb2f",
+    "occlusion_fusion_gain.png": "3ba0ecf734d998487cd2b1bd74d6e6ef6ef7df69d85e91dba9cf5598ea4f861f",
+    "occlusion_fusion_results.csv": "139d16fe94acbb0b486167fb4ea06ed661627ddd84a440f7f2b28836f2b764ac",
+    "original_plot.log": "5a41d975549c6680f41db908091e5629eceb405d8d04ee67c53d2c6885bb71ac",
+    "raw_paired_errors.csv": "b3bf87e2c84bcc9df99ae5ab34ed05b3a69a4b82ef29a2a8c58870de28bdce8f",
+    "statistics.json": "2acfba6b435f6f80f10d5ef263b9af62d90d5f2f58e48743fdbc65f7210a9ffd"
+  },
+  "available_legacy_figure13_pipeline_complete": true,
+  "completed_producer_footprints": {
+    "actual_accepted_completion_file_sha256": "493af1c26045aa50a096bee54714265dca7f63855218ebb293490bcc3f3c7fcc",
+    "actual_bound_metadata_file_sha256": [
+      "534a20d8710b0706362a6b26e02c7c4e06bf854e00fb9e073a8179ecc048d896",
+      "908a9422e6236a3f9041a8a1487719370d8a0ec349d6c1301c1cd021051d4c81",
+      "9a96605751ee2159a3ae8c7b94be2716ba32acdf7dd3b7ebdccce39a36a78f1b",
+      "b4d5d9c40c0e0c3332d3d1f505886b60de7d578d8ff7733b4fc420ebc4688c4c",
+      "c72a5d9b8dc1d62c9a995194c47c184a3ec2773fdcd36006115a07dc97c6daf8"
+    ],
+    "actual_completed_fit_identity_sha256": "34832e737a03dc3ab1287446a5bc9270aaf429e1221228b18b2a8b6fd36b7719",
+    "actual_completed_fit_result_sha256": "bb4aa8f8c67cb45e9c5917a33282364e869bbfef1907e41105804fb35cb3d15e",
+    "actual_independent_full_boolean_mask_checks": 9,
+    "actual_index_identity_sha256": "8067516e982bb2b92c659bb70562c379603ca3a0699438c71c0168b33d2347ea",
+    "actual_original_postexit_readback_file_sha256": "ed774f5c3d1c733684eeff8b744c091bf72f2ae93af63634b8cbc94f89ba70bf",
+    "actual_selected_weights_sha256": {
+      "emg_export": {
+        "bytes": 13910102,
+        "sha256": "4d53b5c6c548a16e29f466cd1917c2be62246adeb9cf0f730febcde3f71a5922"
+      },
+      "emg_original_BEST": {
+        "bytes": 41915576,
+        "sha256": "914af66d516bcba3dc6e09742fc1135af64e4e04e874ece4d63abf59030f532d"
+      },
+      "fusion": {
+        "bytes": 186245104,
+        "sha256": "b37f0f3c36ce48ecdcba43428db5529195bc08abfe7c7f5c06d5d4842b91dcd2"
+      },
+      "vision_export": {
+        "bytes": 45881850,
+        "sha256": "10be7acdcf011dde9bc9a8b8af5d93654c048a8bc2ef2335e8f9eaa5e2970e8a"
+      },
+      "vision_original_LAST": {
+        "bytes": 275123002,
+        "sha256": "e9bf7c7fa2abee7997c2c7c50f750137ded4ae8dad1cba998f52392516db5fc0"
+      }
+    },
+    "all_native_dense_samples_retained": true,
+    "checkpoint_bytes_verified": true,
+    "checkpoint_tensors_admitted": false,
+    "cuda_initialized": false,
+    "dense_input_or_inference_permit": false,
+    "figure13_reproduced": false,
+    "format": "actual_complete_RN18_dense_trained_producer_footprints_and_weight_bytes_v1",
+    "full_paper_complete": false,
+    "hand_requests": 11114,
+    "independent_unseen_input_footprints_proven": false,
+    "learned_pose_models_constructed": 0,
+    "native_geometry_executed": false,
+    "optimizer_updates": 0,
+    "producers": {
+      "emg_initializer": {
+        "actual_completed_producer_bound": true,
+        "actual_producer_partition_content_sha256": "ca21b51f8206812c0d886238d2bb47657678b7514d53b413dbb4161bbfbbddfc",
+        "any_training_input_overlap": true,
+        "dense_input_union_rows": 19773000,
+        "full_paper_complete": false,
+        "hand_requests": 11114,
+        "independent_full_boolean_row_mask_verified": true,
+        "model_or_geometry_permit": false,
+        "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+        "producer_partition_content_sha256": "ca21b51f8206812c0d886238d2bb47657678b7514d53b413dbb4161bbfbbddfc",
+        "roles": {
+          "test": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 0,
+            "overlapping_hand_requests": 0,
+            "producer_input_union_rows": 0
+          },
+          "train": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 928778,
+            "overlapping_hand_requests": 756,
+            "producer_input_union_rows": 41609029
+          },
+          "val": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 883980,
+            "overlapping_hand_requests": 726,
+            "producer_input_union_rows": 6312000
+          }
+        },
+        "scientific_eligible": false,
+        "source_data_and_checkpoint_admitted": false,
+        "unique_temporal_windows": 5557
+      },
+      "fusion": {
+        "actual_completed_producer_bound": true,
+        "actual_producer_partition_content_sha256": "44e9ebc8a2f63a79699c5a976bf2717b0fe7a376427c7c46f538d0745c2b4bd0",
+        "any_training_input_overlap": true,
+        "dense_input_union_rows": 19773000,
+        "full_paper_complete": false,
+        "hand_requests": 11114,
+        "independent_full_boolean_row_mask_verified": true,
+        "model_or_geometry_permit": false,
+        "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+        "producer_partition_content_sha256": "44e9ebc8a2f63a79699c5a976bf2717b0fe7a376427c7c46f538d0745c2b4bd0",
+        "roles": {
+          "test": {
+            "centers_in_producer_rows": 10452,
+            "intersection_rows": 16752000,
+            "overlapping_hand_requests": 11106,
+            "producer_input_union_rows": 16752000
+          },
+          "train": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 928778,
+            "overlapping_hand_requests": 756,
+            "producer_input_union_rows": 41609029
+          },
+          "val": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 883980,
+            "overlapping_hand_requests": 726,
+            "producer_input_union_rows": 6312000
+          }
+        },
+        "scientific_eligible": false,
+        "source_data_and_checkpoint_admitted": false,
+        "unique_temporal_windows": 5557
+      },
+      "vision_initializer": {
+        "actual_completed_producer_bound": true,
+        "actual_producer_partition_content_sha256": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812",
+        "any_training_input_overlap": true,
+        "dense_input_union_rows": 19773000,
+        "full_paper_complete": false,
+        "hand_requests": 11114,
+        "independent_full_boolean_row_mask_verified": true,
+        "model_or_geometry_permit": false,
+        "population_policy": "all supplied paired native keys; unique temporal input rows once, hand requests separately; half-open bounds",
+        "producer_partition_content_sha256": "69e06f76d7fd1d50e6d1448ef691860b6bdbae90a36d8c7bd9c681d79d79ea4f",
+        "roles": {
+          "test": {
+            "centers_in_producer_rows": 10452,
+            "intersection_rows": 16752000,
+            "overlapping_hand_requests": 11106,
+            "producer_input_union_rows": 16752000
+          },
+          "train": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 961800,
+            "overlapping_hand_requests": 778,
+            "producer_input_union_rows": 41715600
+          },
+          "val": {
+            "centers_in_producer_rows": 0,
+            "intersection_rows": 883980,
+            "overlapping_hand_requests": 726,
+            "producer_input_union_rows": 6312000
+          }
+        },
+        "scientific_eligible": false,
+        "source_data_and_checkpoint_admitted": false,
+        "unique_temporal_windows": 5557
+      }
+    },
+    "python_numpy_rng_unchanged": true,
+    "recipe": "rn18_s",
+    "source_partition_content_sha256": {
+      "emg_initializer": "ca21b51f8206812c0d886238d2bb47657678b7514d53b413dbb4161bbfbbddfc",
+      "fusion": "44e9ebc8a2f63a79699c5a976bf2717b0fe7a376427c7c46f538d0745c2b4bd0",
+      "vision_initializer": "4a355040cac040e5fa4527879e862a57c3dd2e42f46e62e3eba838b65c009812"
+    },
+    "source_selection": {
+      "emg": "RN18 cotrain validation BEST74 of150",
+      "fusion_best_completed_epoch": 145,
+      "vision": "legacy trained LAST150"
+    },
+    "torch_imported": false,
+    "trained_model_dispatch_validated": false
+  },
+  "completion_receipt_file_sha256": "743d183419e125de5240096ca8dfb77916297d9084f2feaf7e9b7330957d4e95",
+  "evidence_identity_sha256": "7aa46ff2ac4c120e77787480afb6550b23ac830d3471964e47c24b0d37366446",
+  "exact_all_raw_prediction_replay": true,
+  "figure13_reproduced": false,
+  "format": "actual_complete_legacy_rn18_dense_paired_report_v1",
+  "full_paper_complete": false,
+  "hardware": {
+    "architecture": "x86_64",
+    "autocast": false,
+    "available_memory_reserve_gib": 128,
+    "batch_size": 64,
+    "boot_id": "f119e6bc-c7bb-4dfe-9bba-1d6308678c78",
+    "cpu_model": "Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz",
+    "device": "cpu",
+    "disk_reserve_gib": 225,
+    "drop_last": false,
+    "dtype": "float32",
+    "hostname": "node235",
+    "logical_cpus": 128,
+    "num_workers": 4,
+    "own_memory_limit_gib": 128,
+    "pin_memory": true,
+    "shuffle": false,
+    "torch_threads": 2,
+    "torch_version": "2.2.2+cu118"
+  },
+  "limitations": [
+    "Available41episode legacy release, not established as the PDF complete corpus.",
+    "Official1920x1080 video fallback, original X mirror/no distortion; physical equivalence unproven.",
+    "Dense center-heldout windows include original disclosed training-input overlap; all keys retained.",
+    "Original CSV unmasked22-angle sample errors differ from masked standard Table3 results.",
+    "Stale archived eval config/attention patch replaced by current pinned native forwards and actual cotrain source."
+  ],
+  "matplotlib_version": "3.9.4",
+  "model_identity_sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee",
+  "native_csv_statistics_sha256": "44042ce4e014443c68e534d5e29da0ef0251d254e0b29020e714f1be941985aa",
+  "original_plot_exit_code": 0,
+  "paper_numerical_equivalence_established": false,
+  "report_actor": {
+    "pgrp": 2809520,
+    "pid": 2809520,
+    "sid": 2809520,
+    "start_ticks": "455209433",
+    "state": "R",
+    "uid": 1005
+  },
+  "scientific_eligible": true,
+  "sha256": "b6ca9c04665965f191967f8dc06c7da23806ba584898e95146af69a163b3972c",
+  "source_binned_population": 10632,
+  "source_contract": {
+    "adapter_source_sha256": "dc5ab6befb74fc141acf467859f44621132ddece35b211f8af7b8eb6853c565e",
+    "bin_interval": "[lo,hi)",
+    "bin_width": 0.05,
+    "degree_factor": 57.3,
+    "error_round_decimals": 4,
+    "figure13_reproduced": false,
+    "filter": "occlusion_score.notna() & (mae_vision_deg > 0.01)",
+    "format": "pinned_author_dense_analysis_contract_v1",
+    "full_paper_complete": false,
+    "geometry_round_decimals": 6,
+    "maximum_scatter_points": 4000,
+    "min_samples_per_bin": 100,
+    "minimum_final_bin": 10,
+    "scatter_sampling_does_not_limit_inference": true,
+    "scatter_seed": 42,
+    "scientific_eligible": false,
+    "sem_ddof": 1,
+    "sha256": "25104d40de0658de848f9aaf19ef5c6919fb43cd38d869004dfa0ba249adc8ca",
+    "source_error_reduction": "per-sample mean of all 22 joint absolute errors",
+    "source_error_uses_mask": false,
+    "source_files_sha256": {
+      "scripts/eval/evaluate_occlusion_fusion.py": "0d72f2f8303e5a366cb8cfd1032a8c7cc137cc5b15c21c4f741e6d51a2f96d88",
+      "scripts/paper/plot_occlusion_fusion.py": "5da84888764de46cdd87722d852e92fa4d9fa1b9ab704c79d4d347e59ac04f76"
+    },
+    "source_trend_label": "LOESS trend",
+    "spearman_population": "all filtered per-sample occlusion and rounded delta, including unbinned rows",
+    "spline_degree": 3,
+    "spline_points": 200,
+    "spline_smoothing": "number of bins * 0.4",
+    "spline_weights": "bin counts",
+    "trend_implementation": "scipy.interpolate.UnivariateSpline",
+    "upstream_revision": "f7cbd048b7092139852270491d3859cd472e0311"
+  },
+  "source_filter_population": 10787,
+  "source_spearman": {
+    "native_nonfinite": false,
+    "pvalue": 7.12214894254356e-08,
+    "rho": 0.051848997743241684,
+    "sample_count": 10787
+  },
+  "verification_status": "verified by separate process and closed owned stage"
+}

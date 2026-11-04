@@ -45,14 +45,16 @@ def _route(recipe):
 
 
 def _accepted_baseline(recipe):
-    if recipe=='rn18_s':
-        # Pin its real postexit proof only after the live original workflow and
-        # collector finish. A qualification milestone is not a full baseline.
-        raise ValueError('completed RN18 original baseline pending; full postexit proof required')
-    if recipe!='vits_s':
+    completed={
+        'vits_s':('vits-complete-prediction-report-20261101.json',
+            '337e10528f518a9cf2fbfaa7fd560fd57b6dd25a2d272d110a737e9991233c18'),
+        'rn18_s':('rn18-complete-prediction-report-20261104.json',
+            '68f49b1a00df46279803f594ebc0dbebd5577b24c09a964e5084f0690777614d')}
+    if recipe not in completed:
         raise ValueError('explicit original control recipe required')
-    path=_safe(ROOT/'results/native-dense-occlusion/vits-complete-prediction-report-20261101.json')
-    if _sha(path)!='337e10528f518a9cf2fbfaa7fd560fd57b6dd25a2d272d110a737e9991233c18':
+    name,expected=completed[recipe]
+    path=_safe(ROOT/'results/native-dense-occlusion'/name)
+    if _sha(path)!=expected:
         raise ValueError('fixed actual completed original baseline proof bytes required')
     return path,_json(path)
 

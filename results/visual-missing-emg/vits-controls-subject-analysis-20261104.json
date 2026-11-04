@@ -1,0 +1,297 @@
+{
+  "all17168_original_baseline_keys_and_unrounded_errors_exact": true,
+  "all_original_label_and_crop_flags_exact": true,
+  "format": "complete_ViTS_fixed_checkpoint_EMG_intervention_clustered_contrasts_v1",
+  "full_paper_complete": false,
+  "full_postexit_proof_sha256": "bacb5cbebe87f20ed265095272ee3ff0c66ea0cd4d5f781fe35449c7189bc1ec",
+  "independent_standard_library_fsum_means_match_complete_report": true,
+  "limitations": [
+    "Exploratory percentile intervals, no multiple comparison correction, no significance claim; whole legacy subject/recording groups resampled.",
+    "41 episode_subject labels, one recording each; physical independence and PDF population equivalence not established.",
+    "Normalized zero is an intervention on the trained input, potentially out of distribution, not a separately trained vision-only ablation.",
+    "Half-window circular roll preserves same-window activity and adds a seam; it does not remove all EMG pose information.",
+    "Original dense center windows retain disclosed training-input overlap; these are legacy-pipeline sensitivity results.",
+    "Artificial full loss, natural crop absence, and geometric occlusion are distinct; these numbers do not close the full paper."
+  ],
+  "positive_contrast_meaning": "zero or roll has greater error than aligned EMG in the same frozen fusion checkpoint; final contrast compares separate standalone vision model",
+  "raw_control_errors_sha256": "f57ebfedcd7a67b30f17d600f21c28001459b30355edd1cedf0793a1e58f7b3f",
+  "subject_join_receipt_sha256": "3bd6fcabc7bb0b5ae5e10a04b09809570cabece67b11fab006f3312627fc7cf5",
+  "summaries": {
+    "all_valid": {
+      "EMG_roll_penalty_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.1614498527703207,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          0.05896451292929296,
+          0.15533041726129998
+        ],
+        "groups_equal": 0,
+        "groups_negative": 9,
+        "groups_positive": 32,
+        "request_weighted_mean_deg": 0.09922812525075567,
+        "requests_equal": 186,
+        "requests_negative": 7995,
+        "requests_positive": 8469,
+        "subject_recording_groups": 41,
+        "valid_requests": 16650
+      },
+      "EMG_roll_penalty_native_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.048148313456655,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -0.003726185356832722,
+          0.02602991386743656
+        ],
+        "groups_equal": 0,
+        "groups_negative": 16,
+        "groups_positive": 25,
+        "request_weighted_mean_deg": 0.006691028515044767,
+        "requests_equal": 187,
+        "requests_negative": 8057,
+        "requests_positive": 8406,
+        "subject_recording_groups": 41,
+        "valid_requests": 16650
+      },
+      "EMG_zero_penalty_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 2.4407013063246277,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          1.3745898834645562,
+          3.0432737403499543
+        ],
+        "groups_equal": 0,
+        "groups_negative": 3,
+        "groups_positive": 38,
+        "request_weighted_mean_deg": 2.1065249652038287,
+        "requests_equal": 10,
+        "requests_negative": 6664,
+        "requests_positive": 9976,
+        "subject_recording_groups": 41,
+        "valid_requests": 16650
+      },
+      "EMG_zero_penalty_native_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": -0.015857104641211987,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          0.008507153062028969,
+          0.11545558824440748
+        ],
+        "groups_equal": 0,
+        "groups_negative": 10,
+        "groups_positive": 31,
+        "request_weighted_mean_deg": 0.04648965585010277,
+        "requests_equal": 30,
+        "requests_negative": 7390,
+        "requests_positive": 9230,
+        "subject_recording_groups": 41,
+        "valid_requests": 16650
+      },
+      "fusion_gain_over_standalone_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.5235419523640579,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -0.1331915991908216,
+          0.5994931723715858
+        ],
+        "groups_equal": 0,
+        "groups_negative": 11,
+        "groups_positive": 30,
+        "request_weighted_mean_deg": 0.24169413874808462,
+        "requests_equal": 0,
+        "requests_negative": 7438,
+        "requests_positive": 9212,
+        "subject_recording_groups": 41,
+        "valid_requests": 16650
+      }
+    },
+    "natural_crop_missing_valid": {
+      "EMG_roll_penalty_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": -0.6163507102176814,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -0.9927274234938835,
+          1.3266414747729953
+        ],
+        "groups_equal": 0,
+        "groups_negative": 7,
+        "groups_positive": 6,
+        "request_weighted_mean_deg": 0.5932806351789216,
+        "requests_equal": 1,
+        "requests_negative": 81,
+        "requests_positive": 97,
+        "subject_recording_groups": 13,
+        "valid_requests": 179
+      },
+      "EMG_roll_penalty_native_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": -0.6163507102176814,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -0.9927274234938835,
+          1.3266414747729953
+        ],
+        "groups_equal": 0,
+        "groups_negative": 7,
+        "groups_positive": 6,
+        "request_weighted_mean_deg": 0.5932806351789216,
+        "requests_equal": 1,
+        "requests_negative": 81,
+        "requests_positive": 97,
+        "subject_recording_groups": 13,
+        "valid_requests": 179
+      },
+      "EMG_zero_penalty_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 1.823010138437457,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          1.1741204755304566,
+          5.298974573606649
+        ],
+        "groups_equal": 0,
+        "groups_negative": 4,
+        "groups_positive": 9,
+        "request_weighted_mean_deg": 3.673673795850416,
+        "requests_equal": 0,
+        "requests_negative": 43,
+        "requests_positive": 136,
+        "subject_recording_groups": 13,
+        "valid_requests": 179
+      },
+      "EMG_zero_penalty_native_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 1.823010138437457,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          1.1741204755304566,
+          5.298974573606649
+        ],
+        "groups_equal": 0,
+        "groups_negative": 4,
+        "groups_positive": 9,
+        "request_weighted_mean_deg": 3.673673795850416,
+        "requests_equal": 0,
+        "requests_negative": 43,
+        "requests_positive": 136,
+        "subject_recording_groups": 13,
+        "valid_requests": 179
+      },
+      "fusion_gain_over_standalone_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": -0.09847344287671597,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -1.4745426219589954,
+          2.519224943248554
+        ],
+        "groups_equal": 0,
+        "groups_negative": 8,
+        "groups_positive": 5,
+        "request_weighted_mean_deg": 0.4115092281023217,
+        "requests_equal": 0,
+        "requests_negative": 95,
+        "requests_positive": 84,
+        "subject_recording_groups": 13,
+        "valid_requests": 179
+      }
+    },
+    "natural_crop_present_valid": {
+      "EMG_roll_penalty_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.12355262920156075,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          0.05741924867705486,
+          0.14152255617193865
+        ],
+        "groups_equal": 0,
+        "groups_negative": 9,
+        "groups_positive": 32,
+        "request_weighted_mean_deg": 0.09385896738073309,
+        "requests_equal": 185,
+        "requests_negative": 7914,
+        "requests_positive": 8372,
+        "subject_recording_groups": 41,
+        "valid_requests": 16471
+      },
+      "EMG_roll_penalty_native_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.0004935301349363776,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -0.00015722386706385584,
+          0.0008384186620555617
+        ],
+        "groups_equal": 0,
+        "groups_negative": 15,
+        "groups_positive": 26,
+        "request_weighted_mean_deg": 0.00031621583865390154,
+        "requests_equal": 186,
+        "requests_negative": 7976,
+        "requests_positive": 8309,
+        "subject_recording_groups": 41,
+        "valid_requests": 16471
+      },
+      "EMG_zero_penalty_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 2.4849362876699157,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          1.3465937957159628,
+          3.0305406337879224
+        ],
+        "groups_equal": 0,
+        "groups_negative": 3,
+        "groups_positive": 38,
+        "request_weighted_mean_deg": 2.0894938413688613,
+        "requests_equal": 10,
+        "requests_negative": 6621,
+        "requests_positive": 9840,
+        "subject_recording_groups": 41,
+        "valid_requests": 16471
+      },
+      "EMG_zero_penalty_native_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.007990590648235759,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          0.001555102480249106,
+          0.01238814659565167
+        ],
+        "groups_equal": 0,
+        "groups_negative": 8,
+        "groups_positive": 33,
+        "request_weighted_mean_deg": 0.007070922254082118,
+        "requests_equal": 30,
+        "requests_negative": 7347,
+        "requests_positive": 9094,
+        "subject_recording_groups": 41,
+        "valid_requests": 16471
+      },
+      "fusion_gain_over_standalone_missing_vision": {
+        "bootstrap_seed": 20261103,
+        "bootstrap_whole_group_draws": 10000,
+        "equal_subject_mean_deg": 0.5474822193843961,
+        "exploratory_cluster_bootstrap_percentile95_deg": [
+          -0.13501115763421256,
+          0.59543130520832
+        ],
+        "groups_equal": 0,
+        "groups_negative": 11,
+        "groups_positive": 30,
+        "request_weighted_mean_deg": 0.23984865875328112,
+        "requests_equal": 0,
+        "requests_negative": 7343,
+        "requests_positive": 9128,
+        "subject_recording_groups": 41,
+        "valid_requests": 16471
+      }
+    }
+  }
+}

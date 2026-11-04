@@ -116,12 +116,25 @@ def arguments():
         fit='/data/shihao/egoemg-native-fusion-full-59b5ed5f525f-20261028/private/full-fit')
 
 
-def test_rn18_completed_baseline_is_required_before_control_source_admission():
+def test_rn18_completed_baseline_pins_actual_full_postexit_proof():
     m=api()
-    # RN18's original full pass is still running; its milestone cannot be used
-    # as a complete baseline or filled in by a matching-sized ViTS artifact.
-    with pytest.raises(ValueError,match='completed.*baseline|baseline.*pending'):
-        m.load_control_evidence(dict(arguments(),recipe='rn18_s'))
+    path,proof=m._accepted_baseline('rn18_s')
+    assert path.name=='rn18-complete-prediction-report-20261104.json'
+    assert proof['actual_complete_points_each']==11114
+    assert proof['actual_complete_prediction_passes']==2
+    assert proof['postexit_collector_also_exited']
+    assert proof['model_identity_sha256']=='1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee'
+
+
+@pytest.mark.parametrize('replacement',['vits','altered_rn18'])
+def test_rn18_baseline_rejects_other_recipe_or_changed_completed_proof(tmp_path,monkeypatch,replacement):
+    m=api();folder=tmp_path/'results/native-dense-occlusion';folder.mkdir(parents=True)
+    source=ROOT/'results/native-dense-occlusion'/('vits-complete-prediction-report-20261101.json'if replacement=='vits'else'rn18-complete-prediction-report-20261104.json')
+    raw=source.read_bytes()+(b' 'if replacement=='altered_rn18'else b'')
+    (folder/'rn18-complete-prediction-report-20261104.json').write_bytes(raw)
+    monkeypatch.setattr(m,'ROOT',tmp_path)
+    with pytest.raises(ValueError,match='fixed actual completed original baseline proof bytes'):
+        m._accepted_baseline('rn18_s')
 
 
 @pytest.fixture(scope='module')
