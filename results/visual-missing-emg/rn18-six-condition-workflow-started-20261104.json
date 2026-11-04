@@ -1,0 +1,143 @@
+{
+  "CPU_threads": 2,
+  "accepted_baseline_proof_sha256": "68f49b1a00df46279803f594ebc0dbebd5577b24c09a964e5084f0690777614d",
+  "actual_batch_size": 64,
+  "actual_complete_batches_required": 176,
+  "actual_complete_points_required": 11114,
+  "actual_conditions": 6,
+  "actual_full_control_population_predictions_complete": false,
+  "actual_owners": {
+    "child": {
+      "controlling_tty": "0",
+      "expected": {
+        "pid": 2892367,
+        "start_ticks": "458522007"
+      },
+      "fd0": "/dev/null",
+      "fd1": "/data/shihao/egoemg-modality-controls-rn18-full-cpu-f60f34f4396c-packaging-v2-20261104/private/execution.log",
+      "io": "rchar: 614593767\nwchar: 189301\nsyscr: 13597\nsyscw: 27\nread_bytes: 263696384\nwrite_bytes: 208896\ncancelled_write_bytes: 12288\n",
+      "matching_live": true,
+      "ppid": "2892366",
+      "rss_pages": "30757",
+      "state": "S"
+    },
+    "wrapper": {
+      "controlling_tty": "0",
+      "expected": {
+        "pid": 2892366,
+        "start_ticks": "458522004"
+      },
+      "fd0": "/dev/null",
+      "fd1": "/data/shihao/egoemg-modality-controls-rn18-full-cpu-f60f34f4396c-packaging-v2-20261104/private/recorder.stdout",
+      "io": "rchar: 1137046\nwchar: 246\nsyscr: 109\nsyscw: 1\nread_bytes: 0\nwrite_bytes: 4096\ncancelled_write_bytes: 0\n",
+      "matching_live": true,
+      "ppid": "1",
+      "rss_pages": "2816",
+      "state": "S"
+    }
+  },
+  "actual_qualification_stage": {
+    "guardian": {
+      "controlling_tty": "0",
+      "expected": {
+        "pgrp": 2892379,
+        "pid": 2892379,
+        "sid": 2892379,
+        "start_ticks": "458522450",
+        "state": "R",
+        "uid": 1005
+      },
+      "fd0": "/dev/null",
+      "fd1": "/data/shihao/egoemg-modality-controls-rn18-full-cpu-f60f34f4396c-packaging-v2-20261104/private/flow/owned-qual-a/guardian.log",
+      "io": "rchar: 1228652\nwchar: 472\nsyscr: 501\nsyscw: 2\nread_bytes: 0\nwrite_bytes: 4096\ncancelled_write_bytes: 0\n",
+      "matching_live": true,
+      "ppid": "2892367",
+      "rss_pages": "3328",
+      "state": "S"
+    },
+    "worker": {
+      "controlling_tty": "0",
+      "expected": {
+        "pgrp": 2892380,
+        "pid": 2892380,
+        "sid": 2892380,
+        "start_ticks": "458522454",
+        "state": "R",
+        "uid": 1005
+      },
+      "fd0": "/dev/null",
+      "fd1": "/data/shihao/egoemg-modality-controls-rn18-full-cpu-f60f34f4396c-packaging-v2-20261104/private/flow/owned-qual-a/worker.log",
+      "io": "rchar: 63058812714\nwchar: 45979775\nsyscr: 261785\nsyscw: 196\nread_bytes: 14490714112\nwrite_bytes: 45903872\ncancelled_write_bytes: 45883392\n",
+      "matching_live": true,
+      "ppid": "2892379",
+      "rss_pages": "354015",
+      "state": "R"
+    }
+  },
+  "actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 2892367,
+      "start_ticks": "458522007"
+    },
+    "started_utc": "2026-11-04T02:05:14.731782+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 2892366,
+      "start_ticks": "458522004"
+    }
+  },
+  "actual_three_postexit_proof_pin_tests_passed": {
+    "actual_stage": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 2892369,
+        "pid": 2892369,
+        "sid": 2892369,
+        "start_ticks": "458522023",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 2892367,
+        "pid": 2892367,
+        "sid": 2892367,
+        "start_ticks": "458522007",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 2892370,
+        "pid": 2892370,
+        "sid": 2892370,
+        "start_ticks": "458522027",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    "actual_three_proof_byte_tests_passed": true,
+    "full_paper_complete": false
+  },
+  "actual_three_test_worker_log": "...                                                                      [100%]\n3 passed, 29 deselected in 1.02s\n",
+  "actual_workers": 4,
+  "automatic_retry": false,
+  "format": "actual_native_RN18_six_condition_full_workflow_started_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-11-04T02:11:33.548565+00:00",
+  "only_completed_baseline_admission_function_changed_after_review_AST_exact": true,
+  "original_failed_packaging_four_actors_closed_before_successor": true,
+  "original_failed_packaging_sources_and_exit_records_preserved": true,
+  "original_packaging_attempt_failed_before_any_control_inference": true,
+  "original_review_preserved": true,
+  "root": "/data/shihao/egoemg-modality-controls-rn18-full-cpu-f60f34f4396c-packaging-v2-20261104",
+  "source_bundle_sha256": "90570a99ba1e6e1e7467809b3c845953bdb28407a9c408d848dccff9e9b48374",
+  "source_capsule_bytes_exact": true,
+  "source_commit": "f60f34f4396cb5694faad5741fed230b12b3d214"
+}

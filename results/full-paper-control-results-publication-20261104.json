@@ -1,0 +1,116 @@
+{
+  "all23_changed_public_blobs_match_local_git": true,
+  "base64_immutable_files_byte_exact": [
+    {
+      "bytes": 5834,
+      "path": "results/visual-missing-emg/README.md",
+      "public_blob_sha": "97d337a2b82d483789b710d31f9efb958211d371",
+      "sha256": "742d320fe4df998c35c191818a70112b76f442a887fd210416913a350011283b"
+    },
+    {
+      "bytes": 7748,
+      "path": "scripts/paper/analyze_vits_controls.py",
+      "public_blob_sha": "d035ad14c7c43d37c0d3360788d0ec57875779f3",
+      "sha256": "e83654fc54fe7977a426d59c9671d432aa8f92e1563bf5ed5c2a41072f198521"
+    }
+  ],
+  "changed_blobs": [
+    {
+      "path": "README.md",
+      "sha": "ebd4b42a36b6f779921afc8b3465736be7b2246d"
+    },
+    {
+      "path": "docs/full-paper-status.md",
+      "sha": "7552a61c30d71276ceca9e4bd7988a9075d67102"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-visual-missing-emg-controls.md",
+      "sha": "d99c42f15a56509551b8f7e561485dcc7533054b"
+    },
+    {
+      "path": "egoemg_repro/modality_control_run.py",
+      "sha": "bfd9ab662ed802bb9d56b72e31a2cee136f93e6f"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-complete-prediction-report-20261104.json",
+      "sha": "111ce07a4e46f5a7b4bb73fdcd54414021b7a8a0"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/bins.csv",
+      "sha": "2779dc4b7e7c3bdfe400b984f5b12aac3d44ec3d"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/completion.json",
+      "sha": "4eb57a5534bfe9e2a62c170d65e2d6f497497422"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/occlusion_fusion_gain.png",
+      "sha": "ef18057e620a577af7e7101668b992eb2f1fe800"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/occlusion_fusion_results.csv",
+      "sha": "341314fe433d4729ceeee1f6cdb771e0ab8fe29d"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/raw_paired_errors.csv",
+      "sha": "b52e1c0ca677d23257cead8b5bbb40b3db73a255"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/report.json",
+      "sha": "fef7f4f17e89f0c490fee87d88f7d358b3f00efc"
+    },
+    {
+      "path": "results/native-dense-occlusion/rn18-full/statistics.json",
+      "sha": "22332cc622acb9d0a797266d3780b50cc7c38fda"
+    },
+    {
+      "path": "results/visual-missing-emg/README.md",
+      "sha": "97d337a2b82d483789b710d31f9efb958211d371"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-full/condition-results.csv",
+      "sha": "a208f406d0a1b4823dcb2a6d5229b6995bcb7fe4"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-full/metrics.json",
+      "sha": "9baac033c47c61caf9a0c1037b9bcd67beb3a8b0"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-full/raw-control-errors.csv",
+      "sha": "02a93fe01b79ca8bdb35f00fe4c99d6a7a731218"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-full/report.json",
+      "sha": "01b843af4f8f36dfe9fde10bb6634a0b2d655524"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-missing-contrasts-20261104.png",
+      "sha": "f315a8b6392ee8de38dceb365c747e90a42f36d3"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-per-subject-20261104.csv",
+      "sha": "4399f1fbae5fdfa7215643d2caf12f0b70646b1a"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-controls-subject-analysis-20261104.json",
+      "sha": "a948f17d64b3ab6818d1a0ccc46eaac34b0d9b55"
+    },
+    {
+      "path": "results/visual-missing-emg/vits-six-condition-complete-20261104.json",
+      "sha": "0ed029683659a21aa618bd814ef0d7ff3b2fe4cd"
+    },
+    {
+      "path": "scripts/paper/analyze_vits_controls.py",
+      "sha": "d035ad14c7c43d37c0d3360788d0ec57875779f3"
+    },
+    {
+      "path": "tests/test_modality_control_run.py",
+      "sha": "d17be62a0bec77fc9e568391b9e0a9e21e987217"
+    }
+  ],
+  "full_paper_complete": false,
+  "head": "f60f34f4396cb5694faad5741fed230b12b3d214",
+  "tree_sha": "f60f34f4396cb5694faad5741fed230b12b3d214",
+  "tree_truncated": false,
+  "visibility": "public"
+}

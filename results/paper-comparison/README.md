@@ -1,6 +1,6 @@
 # 已完成MAE与论文原表的数值参照
 
-2026-11-02更新：14个模型／表格条目中，EMGFormer-S／M／L主行采用新验收的原生完整轨迹；RN18、RN50及RN18融合主行采用完整原生／明确派生结果。旧legacy协议行和全部既有JSON／CSV快照保留，模型家族数量不因补充协议而增加。
+2026-11-04更新：14个模型／表格条目中，EMGFormer-S／M／L主行采用新验收的原生完整轨迹；RN18、RN50、RN152及RN18融合主行采用完整原生／明确派生结果。旧legacy协议行和全部既有JSON／CSV快照保留，模型家族数量不因补充协议而增加。
 
 下表只作数值参照，不构成同条件架构排名。PDF Avg为跨条件样本加权；当前原生轨迹／中心主行为其各自有效角度pooled，条件跨用户mean±SD另列。数据版本、训练来源、单rank、人口、mask和聚合仍未完全对齐。论文只显示一位小数，差值按约数理解。
 
@@ -20,7 +20,7 @@
 | --- | ---: | ---: | ---: | --- |
 | [ResNet-18](../original-resnet/resnet18/metrics.json) | 5.9 | 6.61 | 约+0.71 | 原生或明确派生7,790点／0.02，旧版队列 |
 | [ResNet-50](../original-resnet/resnet50/metrics.json) | 5.3 | 5.88 | 约+0.58 | 原生或明确派生7,790点／0.02，旧版队列 |
-| [ResNet-152](../completed/resnet152/metrics.json) | 5.1 | 5.98 | 约+0.88 | legacy12,000点／0.01 |
+| [ResNet-152](../original-resnet/resnet152/metrics.json) | 5.1 | 5.50 | 约+0.40 | RN18配置明确扩展主干／batch180，7,790点／0.02 |
 | [ViT-S](../original-vision/vit-small/metrics.json) | 6.0 | 6.46 | 约+0.46 | 原生或明确派生7,790点／0.02，旧版队列 |
 | [ViT-B](../original-vision/vit-base/metrics.json) | 5.8 | 6.76 | 约+0.96 | 原生或明确派生7,790点／0.02，旧版队列 |
 | [ViT-L](../original-vision/vit-large/metrics.json) | 5.4 | 6.23 | 约+0.83 | 原生或明确派生7,790点／0.02，旧版队列 |
@@ -55,12 +55,12 @@ legacy RN18→RN18+S仍为**7.784887°→6.793533°**，减少0.991354°（12.73
 ## 核心剩余项
 
 - S/M/L原生完整轨迹协议已全部验收；PDF精确人口、作者来源与跨条件样本加权等价仍未证明。
-- 原生RN152继续运行；RN18融合150轮／46,950更新、完整验证／测试重放及53来源退出后独立验收现已完成。新同帧4282人口的FP32评价和独立算术仍在运行。
+- RN152明确派生配方150轮／168,450更新及独立退出后报告重建已完成，唯一中心5.501598°；RN18融合完整结果与S/M/L的4282同帧子项也已分别验收，PDF协议等价仍未建立。
 - EMG2Pose三项完整来源250轮及Table11/13最终测试仍欠，官方S stride3900／M/L780保持。
-- ViT-S旧版17,168点遮挡分析ρ=0.023640393／p=0.002283599保留；RN18路线、物理相机和人口等价仍欠。
+- ViT-S17,168点与RN18的11,114点双遍遮挡预测／原图表／退出后验收均完成；RN18ρ=0.051848998、p=7.12215e−8。物理相机、PDF人口／数值等价仍欠；[额外EMG控制](../visual-missing-emg/README.md)独立报告。
 - markers2mano、精确作者混合、marker／腕角／IK重生成及其余全文项目仍须完成，不能由这些MAE宣布全文完成。
 
-[最新JSON与来源SHA](completed-mae-20261102-rn18-fusion.json) · [最新CSV](completed-mae-20261102-rn18-fusion.csv) · [此前SM快照](completed-mae-20261102-sm-trajectory.json) · [此前S快照](completed-mae-20261102-s-trajectory.json) · [此前RN50快照](completed-mae-20261102-rn50.json) · [全文清单](../../docs/full-paper-status.md)
+[最新JSON与来源SHA](completed-mae-20261104-rn152.json) · [最新CSV](completed-mae-20261104-rn152.csv) · [此前SM快照](completed-mae-20261102-sm-trajectory.json) · [此前S快照](completed-mae-20261102-s-trajectory.json) · [此前RN50快照](completed-mae-20261102-rn50.json) · [全文清单](../../docs/full-paper-status.md)
 
 ## RN18融合的新增原生协议
 
@@ -69,3 +69,5 @@ legacy RN18→RN18+S仍为**7.784887°→6.793533°**，减少0.991354°（12.73
 该2792人口不能与4306原生视觉或4282新同帧人口直接计算控制变量收益。上文legacy匹配收益保持原来源；旧6.793533°行移入新快照历史部分，不增加14模型家族数。
 
 [最新数值JSON](completed-mae-20261102-rn18-fusion.json) · [CSV](completed-mae-20261102-rn18-fusion.csv) · [前一轨迹快照](completed-mae-20261102-sml-trajectory.json)
+
+[RN152完整来源与边界](../original-resnet/resnet152/README.md)：原生类／明确派生150轮已验收，保留历史legacy5.982738°；当前主行5.501598°，单独原生batch加权5.498264°，不混合聚合。

@@ -1,3 +1,5 @@
+> **2026-11-04 新增完整RN152结果与接续**：[RN152明确派生配方](results/original-resnet/resnet152/README.md)150轮／168,450更新、BEST116、完整测试／独立重放与退出后原始链重建已验收，中心pooled **5.501598°**（论文5.1°，口径／数据差异保留）。EMG2Pose原44／5／5轮检查点已核验并发起原250轮接续，目前是全25,253来源复核阶段，尚未观察新GPU恢复；RN18六条件实际资格运行。全文继续。
+
 > **2026-11-04 视觉缺失重点实验完成第一条路线**：ViT-S六条件两遍完整17,168请求及独立原始重读已验收。人为完全缺图时，真实EMG相对归一化置零降低MAE **2.1065°**（38/41用户／录制组改善），相对半窗口时移降低0.0992°；独立纯视觉与融合的平均差0.2417°之整组区间跨0，不能宣称稳定优于纯视觉。[完整对照、用户分组和复算](results/visual-missing-emg/README.md)。RN18原11,114请求完整基线／重放／图表及退出后验收也完成，同模型六条件继续。全文尚未完成；下方带日期段落是历史进展。
 
 > **2026-11-02 原生ResNet-18完整结果**：[报告／原始JSON／真实训练曲线](results/original-resnet/resnet18/README.md)完成150轮／33,750更新，验证best第136轮；完整测试、独立typed重放和退出后52文件57.145GB来源核验均已结束，原40＋收集4个拥有进程关闭。唯一手样本中心MAE **6.607195°**，有图子集 **6.469979°**；论文RN18 Avg5.9°，数值差约+0.71°。新[14模型数值参照](results/paper-comparison/README.md)保留历史legacy及其匹配融合收益，不把不同协议混作受控排名，整篇仍未完成。
@@ -114,7 +116,7 @@
 | **EMG + Vision → Pose** | ResNet-18 + EMGFormer-S · 8 通道残差融合 · 150 epochs | 训练器测试、严格导出及独立复算通过 | **6.7935°** |
 | **EMG → Pose · L** | [EMGFormer-L](results/completed/emgformer-l/README.md) · 200 epochs | 训练器测试、严格导出及独立中心复算通过 | **16.6121°** |
 | **Vision → Pose · RN50** | [ResNet-50](results/completed/resnet50/README.md) · 150 epochs | 训练器测试、严格导出及独立复算通过 | **6.6401°** |
-| **Vision → Pose · RN152** | [ResNet-152](results/completed/resnet152/README.md) · 150 epochs | 训练器测试、严格导出及独立复算通过 | **5.9827°** |
+| **Vision → Pose · RN152** | [ResNet-152](results/original-resnet/resnet152/README.md) · 原生类／明确派生150 epochs | 完整原生测试、独立重放及退出后重建通过 | **5.5016°** |
 
 七项结果均来自实际完整运行，分别使用冻结配方与独立输出目录。全部模型使用同一冻结测试中心和有图匹配子集；不以短训练或论文参考值替代本项目成绩。指标定义与来源见[实验结果](docs/results.md)。
 

@@ -49,4 +49,4 @@
 
 [150轮CSV](training-history.csv) · [SVG](learning-curves.svg) · [绘图来源与SHA](learning-curves.json)
 
-此结果补齐同一RN50架构的原生派生协议；模型家族数量不增加。RN152、RN18融合、原生S／M／L轨迹、EMG2Pose完整基准、标注／来源及全文其它项目仍待完成。
+此结果补齐同一RN50架构的原生派生协议；模型家族数量不增加。RN152、RN18融合及原生S／M／L轨迹后来已分别验收；EMG2Pose完整基准、标注／来源及全文其它项目仍待完成。
