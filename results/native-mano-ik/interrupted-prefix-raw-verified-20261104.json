@@ -1,0 +1,1446 @@
+{
+  "actual_all_original_indices_raw_poses_canonical_poses_parameters_and_statistics_reopened": true,
+  "actual_completed_original_batches": 68,
+  "actual_completed_original_rows": 686528,
+  "actual_hand": "right",
+  "actual_new_geometry_layers": 0,
+  "actual_new_optimization_steps": 0,
+  "actual_shard": 0,
+  "all4_postexit_raw_read_owning_actors_physically_closed": true,
+  "all_completed_packets_still_pending_independent_fresh_geometry": true,
+  "all_recorded_original_owning_actors_physically_closed": [
+    {
+      "pid": 2126085,
+      "start_ticks": "441226339"
+    },
+    {
+      "pid": 2126086,
+      "start_ticks": "441226342"
+    },
+    {
+      "pgrp": 2138095,
+      "pid": 2138095,
+      "sid": 2138095,
+      "start_ticks": "441333010",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2138094,
+      "pid": 2138094,
+      "sid": 2138094,
+      "start_ticks": "441333006",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2138481,
+      "pid": 2138481,
+      "sid": 2138481,
+      "start_ticks": "441337122",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 2138478,
+      "pid": 2138478,
+      "sid": 2138478,
+      "start_ticks": "441337118",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "collector_actor": {
+    "pgrp": 2898572,
+    "pid": 2898572,
+    "sid": 2898572,
+    "start_ticks": "458679281",
+    "state": "R",
+    "uid": 1005
+  },
+  "collector_seconds": 86.73583410866559,
+  "collector_torch_unimported": true,
+  "first_uncompleted_batch_index": 68,
+  "format": "actual_interrupted_original_native_IK68batch_prefix_postexit_raw_read_v1",
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "incomplete_batch_directories_preserved": [
+    "batch-00068"
+  ],
+  "learned_models_constructed": 0,
+  "observed_utc": "2026-11-04T02:32:54.264607+00:00",
+  "original_batch_size": 10096,
+  "original_batches": [
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 0,
+      "end": 10096,
+      "original_native_closure_evaluations": 4040,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 17,
+      "result_file_sha256": "e0361c40fa77108df07257b00bfb1dc0184d6af33be98552bbdb89a7f06f2911",
+      "rows": 10096,
+      "start": 0,
+      "state_file_sha256": "21aee421b1d99bba8ad144a7c029ab602eb084b33bc83d4c949c445d186c6cee"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 1,
+      "end": 20192,
+      "original_native_closure_evaluations": 6169,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "169bfb48867d2c1c02892360d1525589e478603f055797cd7fe92b68d1209101",
+      "rows": 10096,
+      "start": 10096,
+      "state_file_sha256": "2aa12258d434602ca11fe43f16172f38b1dabf81a21ae10390b5747c9372219f"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 2,
+      "end": 30288,
+      "original_native_closure_evaluations": 2944,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "14f8f5c6012951c900ba57877e008561c395e43912a1ccbf46d000cc8b6944e9",
+      "rows": 10096,
+      "start": 20192,
+      "state_file_sha256": "c3c830bc66e34a2e159e1c1f6434dd601a6407d63d3e71f3d5034c7cf1c8d79e"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 3,
+      "end": 40384,
+      "original_native_closure_evaluations": 11242,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "e4f83209b0e838aa8208f509cb063d2147875a9c453ec8822950763c52f86d16",
+      "rows": 10096,
+      "start": 30288,
+      "state_file_sha256": "f65071408ed19b9c199a0dd4e329a8a284c55f946f9b6d2f7df5846ef5ec238e"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 4,
+      "end": 50480,
+      "original_native_closure_evaluations": 2549,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "4e7e5b90da84ed7fb058cba3c251750fe47312f473b6aad9b8acf22dbd7e76d2",
+      "rows": 10096,
+      "start": 40384,
+      "state_file_sha256": "79b2d6fde5d357496cb968ff51e9dd84c6abda1aff96e60431e133b60810919b"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 5,
+      "end": 60576,
+      "original_native_closure_evaluations": 3532,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "ddd946e5738c8853d14407e5cc9a9d9daf4f5547ed1f67d68347c05e4c8e2787",
+      "rows": 10096,
+      "start": 50480,
+      "state_file_sha256": "d3674b03cf6b76f0382a44b0b707c07d6da56593cf5f9078d71aae0c1d9fbbfa"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 6,
+      "end": 70672,
+      "original_native_closure_evaluations": 2036,
+      "original_native_optimizer_steps": 91,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "b111bee309cdeac34c2f862b2f0ec64dbe68eddc39a39aab83197958b2341653",
+      "rows": 10096,
+      "start": 60576,
+      "state_file_sha256": "9ef43520fd61ad7a677d41777073c181ede5142c7d12f3dc2907c05d8602c313"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 7,
+      "end": 80768,
+      "original_native_closure_evaluations": 7857,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "ca8f9fcd11b52670de1f48ee4f639f78e43e28484d5cc5cd4a3683a46554f6de",
+      "rows": 10096,
+      "start": 70672,
+      "state_file_sha256": "692e11f2d5d472f99a4d28efa506dba7f0c20f12acf8d623774366b507665823"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 8,
+      "end": 90864,
+      "original_native_closure_evaluations": 2826,
+      "original_native_optimizer_steps": 91,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "a807c1f01d9957cb85df30872bd124f08fbd7064b1c9be6608cbf2c885d8b35f",
+      "rows": 10096,
+      "start": 80768,
+      "state_file_sha256": "7d5e5c271a63d0447de1d1592e7c49d2f2bfa536e84b77fdb2d3539441de4883"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 9,
+      "end": 100960,
+      "original_native_closure_evaluations": 5381,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "c40b2503eefbfab51a66ca055467c7b3fed0f4331a1e88f78f40cba2f866cf3a",
+      "rows": 10096,
+      "start": 90864,
+      "state_file_sha256": "de78f7d8ca589ba788cfb9255836f2a0a285587c4d12707620b58c6901c7fe65"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 10,
+      "end": 111056,
+      "original_native_closure_evaluations": 5995,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "3b5acc2f62f3f1a342fe7140ff0f35d6739b5b9cd71efdcbed75c9012ac38653",
+      "rows": 10096,
+      "start": 100960,
+      "state_file_sha256": "1fd36f7ae61d641b9a1f3e136affcd971fb46146fc3b31df7a9e3744af410c2a"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 11,
+      "end": 121152,
+      "original_native_closure_evaluations": 3704,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "7de67cb18ade9f690275d6bd37649b6698bec223cef67cf63d56c78367cf5831",
+      "rows": 10096,
+      "start": 111056,
+      "state_file_sha256": "bea21199989e6b8e29d9b1eb73cde1ab2e6aa5a453888c72bde13f1d24322bc8"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 12,
+      "end": 131248,
+      "original_native_closure_evaluations": 5766,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "0a1404e1fd45aa2c38e3ddb9737d2e0742d82c8c3f67a74c3f93ad4a9ae6c71d",
+      "rows": 10096,
+      "start": 121152,
+      "state_file_sha256": "854e2797036d55779d8bcece88360a9af27c735b54c5db7736e05bc0b13b6fea"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 13,
+      "end": 141344,
+      "original_native_closure_evaluations": 6049,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "2fc523d62895e7da7e342b43ede68045b86af31651fdcc1b94f2412996983b4e",
+      "rows": 10096,
+      "start": 131248,
+      "state_file_sha256": "3077f2a01ca77064632b64c325dd5569b898e9bd4da9020ca0993fc05b5735a7"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 14,
+      "end": 151440,
+      "original_native_closure_evaluations": 9971,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "f2fbe82be1d62dff993992729862a9bc02d201f80ccfdf62ca167eb8c590ae24",
+      "rows": 10096,
+      "start": 141344,
+      "state_file_sha256": "8bf14acfc07f36e64aa4261ec900230d07ffd4bbb877017a62d410c18d8e1fd5"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 15,
+      "end": 161536,
+      "original_native_closure_evaluations": 1879,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "e4a0717c3140902b2304e98238f52382ca1e20e8f362476bf91f643656c552d6",
+      "rows": 10096,
+      "start": 151440,
+      "state_file_sha256": "c41edcea710177ad95051a6bf6d9ffba138ec5b5883218c03572712c46aabe03"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 16,
+      "end": 171632,
+      "original_native_closure_evaluations": 11428,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "cc8f19e6ce4b79440a0efe60408ff5b2cd15a59af0adeeb78e3f1f3a3247abb3",
+      "rows": 10096,
+      "start": 161536,
+      "state_file_sha256": "93b5be39e88fe80a0d4a2a5d157fc34780e87660d3c13f2cceb0dd5fd7121b58"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 17,
+      "end": 181728,
+      "original_native_closure_evaluations": 6612,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "a4d306961143a24d5ca0f3ba20269a82b88605d716576b52bfc8874517d167ad",
+      "rows": 10096,
+      "start": 171632,
+      "state_file_sha256": "32eb0abfdae40bce2a94ed0900df6395d26c6fc13fca6bb6bf89fb76a5b266d0"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 18,
+      "end": 191824,
+      "original_native_closure_evaluations": 6763,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "3d162a3be0c291ed5064d534244ea1c36f5c4c501336879bedc8c4f06f7d7bb8",
+      "rows": 10096,
+      "start": 181728,
+      "state_file_sha256": "5e8fc2cfd691d00faf2a28d8d748279d3372fdaf1c6056004eeaec64e563ceb5"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 19,
+      "end": 201920,
+      "original_native_closure_evaluations": 4216,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "11003d72aca46628d4f54fba4f7ac34c7a8f14de1f46ed86cc1d37b1c8c831f7",
+      "rows": 10096,
+      "start": 191824,
+      "state_file_sha256": "41fd8e8837c906d17e8c93880dd4115c7dcaf3ad25c942e3bb7258143a8c3b3c"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 20,
+      "end": 212016,
+      "original_native_closure_evaluations": 4967,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "44472706466a1fb1faf473a2d29ab6b00b4be2fd0da95314a47e53c39fb2a830",
+      "rows": 10096,
+      "start": 201920,
+      "state_file_sha256": "af3ca4a52e112f0d5ac67a71f333821ad235ca5521d3cd5a0b8580d9b70978d0"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 21,
+      "end": 222112,
+      "original_native_closure_evaluations": 4037,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "66c7d6510196f92319db5e5d73a07c53fb8810c68f231b4740e398b0a6cb066c",
+      "rows": 10096,
+      "start": 212016,
+      "state_file_sha256": "c261239df62b15d51c0ce76f571eb685d581680c780008b43e4ff1c63008d820"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 22,
+      "end": 232208,
+      "original_native_closure_evaluations": 3897,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "232e34781c5f3c29922eaf7767ea9dd1552320db407eed02ef1dbea5036fcd78",
+      "rows": 10096,
+      "start": 222112,
+      "state_file_sha256": "ecdfa6f91c7cfd3947043b119936b3ac61ec8b078e1083ce43ed312c9d8ff49f"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 23,
+      "end": 242304,
+      "original_native_closure_evaluations": 2923,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "295d779d44e9388822ad551b8b8e29405a4f432ae15e6a58d9774f270600b7b5",
+      "rows": 10096,
+      "start": 232208,
+      "state_file_sha256": "6e7f5c0d3d3313fe11e2fbd8b830067e3f4035b758c565f1c505fdf3c1a69a50"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 24,
+      "end": 252400,
+      "original_native_closure_evaluations": 3761,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "a1ccc6e36939ed9b81868643ea8d15916ac35eba2d1c6689fd5c71722093c689",
+      "rows": 10096,
+      "start": 242304,
+      "state_file_sha256": "6494a32738ef0c7e5ccbf1a8dc034e2338ff9e53e705d79fed99d24527e91e94"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 25,
+      "end": 262496,
+      "original_native_closure_evaluations": 4073,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "e5bcd16566763489c0b3118d9b6436a8f6feee4392dd8936f2dced5be1793902",
+      "rows": 10096,
+      "start": 252400,
+      "state_file_sha256": "08ce06dfce8056d82dcae68b9dfd649c6e1ee78bbca46f699ec49bcae36000ea"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 26,
+      "end": 272592,
+      "original_native_closure_evaluations": 8493,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "e0b98775cee2eda959d7d9af1ebafe2f78410b570591c0a9af14eef2f436b5ff",
+      "rows": 10096,
+      "start": 262496,
+      "state_file_sha256": "c0c42512ce93f9f881048adb053d7abd3ce13bd2e07ed7c9b099460e38921cda"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 27,
+      "end": 282688,
+      "original_native_closure_evaluations": 3735,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "2c3e63ca4476d39207c96709eb695636a012f95f05d8766825ef22fc4c11d2b4",
+      "rows": 10096,
+      "start": 272592,
+      "state_file_sha256": "7bc028a48f1c81bbe53896e39640f0325add65b592881c7aae90f3c1c0faaf48"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 28,
+      "end": 292784,
+      "original_native_closure_evaluations": 4025,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "d10198893b68f3d93a96afef3b0d43d59d336c9b21a7d58265acab95c99692db",
+      "rows": 10096,
+      "start": 282688,
+      "state_file_sha256": "569734bf25590beff16a2e2154374964ad9e48a48140932b582019238f790a95"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 29,
+      "end": 302880,
+      "original_native_closure_evaluations": 8252,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "e0ef1796fda849ca351374664c9dd845153bc58afebdd5268386698dc2a8ad02",
+      "rows": 10096,
+      "start": 292784,
+      "state_file_sha256": "13904e4025acb2a09fe4d56bc26e24b40e6041a086520e7d34e4670d3e13c37e"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 30,
+      "end": 312976,
+      "original_native_closure_evaluations": 11592,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "5210418578cc1b20a9efb9a7a813adb810974b524d02b82a952b5cadf28b58d9",
+      "rows": 10096,
+      "start": 302880,
+      "state_file_sha256": "fb3a3650d88ea1c691ffbf4b4250d4108693d4eefd5c9cf32efb69dd9ff68b8a"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 31,
+      "end": 323072,
+      "original_native_closure_evaluations": 3758,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "30817c78bf18a6d5949b1b3da370cd7f798e6b94c175c8ed935dac2b3828c1b2",
+      "rows": 10096,
+      "start": 312976,
+      "state_file_sha256": "958f9f6f3f015f9427ce07b4071989c22c87c90d69c7abcafa044e365f7121b2"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 32,
+      "end": 333168,
+      "original_native_closure_evaluations": 3183,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "d118982696ad7e59b73f0e79339ff56bc5fc081e0beaf9d3c1c2272f9bb62cef",
+      "rows": 10096,
+      "start": 323072,
+      "state_file_sha256": "869a694592315219c0cb8ca21489ed672d8a8b6a5ac5b92938fd16adfc41c9ce"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 33,
+      "end": 343264,
+      "original_native_closure_evaluations": 2757,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "f411c9d7fd71302936075412589fba42cab0538b569d4dfc1d0e215a13704422",
+      "rows": 10096,
+      "start": 333168,
+      "state_file_sha256": "6d1d1cd67677614b6573178c86b1e77c461efec627f408842b593cb23242d0f7"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 34,
+      "end": 353360,
+      "original_native_closure_evaluations": 2341,
+      "original_native_optimizer_steps": 91,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "36164fcbeb3751cd753d70e6c983916205cf896707db3a68688e38f37a6eb4eb",
+      "rows": 10096,
+      "start": 343264,
+      "state_file_sha256": "36773716d80bb3baffa9027855ccb99e7bd54791cc8acf6576c98ac7d5c0a2be"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 35,
+      "end": 363456,
+      "original_native_closure_evaluations": 2337,
+      "original_native_optimizer_steps": 91,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "96d5a9a777c214d68d63d93086e5eadeced714cfc38604ae6a5cbf360f711f9e",
+      "rows": 10096,
+      "start": 353360,
+      "state_file_sha256": "fc01d94fd566c351cb9ad0d97dddc13cbe0d46767c195ecf1bdd3c142dff688d"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 36,
+      "end": 373552,
+      "original_native_closure_evaluations": 4949,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "602ef3911d072ca70a63a6631655b201111b6d737d4e8765d0200c1f58f40e9a",
+      "rows": 10096,
+      "start": 363456,
+      "state_file_sha256": "b10e3afe03f7c62ab67fb8cacc758b979aea13b2a62520a1fb4d1a350fa63388"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 37,
+      "end": 383648,
+      "original_native_closure_evaluations": 4583,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "d1d952ef9159d2b1ac2cdbb13518c19ebaee1097c5d9a00ab52d9f67251fd890",
+      "rows": 10096,
+      "start": 373552,
+      "state_file_sha256": "a60164a68216ed98b46f0e94cba6d4543db26b362164cab8f93b6818d0e61e75"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 38,
+      "end": 393744,
+      "original_native_closure_evaluations": 3765,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "bab46e983950dc29958e1cbb9200e29f14f9684ca6dfe513fd41894613f15ba0",
+      "rows": 10096,
+      "start": 383648,
+      "state_file_sha256": "5e3620c6ced7f88e57f370f7a3da1cb05aeac610d61b03c7936a504fa47784d3"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 39,
+      "end": 403840,
+      "original_native_closure_evaluations": 2635,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "c90af0514d5644fd951fc70315875a3dca9443578e55df06a3e36005765ddaa2",
+      "rows": 10096,
+      "start": 393744,
+      "state_file_sha256": "5d7cd0e13b72462dd0fde64b4ed2944cecb681bc28af50fa0e99064bea628eb7"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 40,
+      "end": 413936,
+      "original_native_closure_evaluations": 4377,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "6ee079748b97f1ef735472f0517be96b82197d2277cc02af619e218a0fb82df6",
+      "rows": 10096,
+      "start": 403840,
+      "state_file_sha256": "1a81f62b10d5c2449bb910166bd666cd0605ede73f76fdcc39f04c022d0b0c8e"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 41,
+      "end": 424032,
+      "original_native_closure_evaluations": 10382,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "1bbc1f636c1c4edb4bc1df1f91986d0bd3186ec0d5a7da8e55cc3fcf6cc3bbeb",
+      "rows": 10096,
+      "start": 413936,
+      "state_file_sha256": "e1cb399814a51cfd13882b6bae14700b31ba159bdadd2e49a85bf3788f1f959a"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 42,
+      "end": 434128,
+      "original_native_closure_evaluations": 4583,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "f1a111e6b5a78cea902a9de6a0e96f633810a6f55073e11b207e64f641e34586",
+      "rows": 10096,
+      "start": 424032,
+      "state_file_sha256": "ec528ec48e00c8cd406d92c5a63d61b409a02338f1ba7e3e848dd799bd1f713b"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 43,
+      "end": 444224,
+      "original_native_closure_evaluations": 5493,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "4ff7ac67c634be96c763c9080f8b41c98e30cf4560773bd613270bdbd9e423f9",
+      "rows": 10096,
+      "start": 434128,
+      "state_file_sha256": "ec666ccee2691aa49f83579786b93047d0ffba294564ddd83bc938bad8b874da"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 44,
+      "end": 454320,
+      "original_native_closure_evaluations": 11460,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "f3b0a49d5a60c0d53931f53fce926aaf7ce6a32e19ea713971731786b957cbef",
+      "rows": 10096,
+      "start": 444224,
+      "state_file_sha256": "6506944ebd324b78f2a39ed88610a1ef54236014e67fba9c3a42fd9a4e43fe74"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 45,
+      "end": 464416,
+      "original_native_closure_evaluations": 6696,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "d8bf2d9f872de56e9838e2616f337006541eca46f316d96d9f025cdb95b2573b",
+      "rows": 10096,
+      "start": 454320,
+      "state_file_sha256": "3b32f2bf949b5227445ea7af55913d0166c05de15f1ec261e954164dc0e662fe"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 46,
+      "end": 474512,
+      "original_native_closure_evaluations": 5373,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "d769c13e467e3077a9da1a53bc0fceb7612f0e9ec222a000033856bb55f8681c",
+      "rows": 10096,
+      "start": 464416,
+      "state_file_sha256": "e37e83c9d03ae7da20594fd15187fbbc1162888a2e1f0613a58c11bc033dd327"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 47,
+      "end": 484608,
+      "original_native_closure_evaluations": 3069,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "87639fb20a212cd11fa532b11dcfb11e47c5f404440ff16f34b74e66c52f1bf4",
+      "rows": 10096,
+      "start": 474512,
+      "state_file_sha256": "0310ec5cf2a61c799a6a25c1edcb71d51010efa50fad9884a3bf68f3b7b47b89"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 48,
+      "end": 494704,
+      "original_native_closure_evaluations": 4287,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "c0c35008696a4b934658cbf2d1653ec04141e6bfe8f36bf2376f109641efeab4",
+      "rows": 10096,
+      "start": 484608,
+      "state_file_sha256": "1524657c7bd815dcba87f0afd9a5dd96aa9c05fb80b8e336f43851547c0d02cd"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 49,
+      "end": 504800,
+      "original_native_closure_evaluations": 12157,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "7b3ed12acb8d9ff5d56888d38b6f0fac5758d173cd013a5be71301be83684b3a",
+      "rows": 10096,
+      "start": 494704,
+      "state_file_sha256": "a5562ae2bb63a713b311e4f7e43ea79d7f3f751119ea5a91038482767eb7eccc"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 50,
+      "end": 514896,
+      "original_native_closure_evaluations": 11516,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "8a42497c48d3cae44b73c056d7d274d9ca3b265be7adbb110dd644328971838a",
+      "rows": 10096,
+      "start": 504800,
+      "state_file_sha256": "2833e108e25b9e2b6b25de40e3626f6114ca807b763d8000a10baeb41b96fea2"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 51,
+      "end": 524992,
+      "original_native_closure_evaluations": 6099,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "e8a0b81df1c7b658c66360558e75c95b6573d350062f69e91ba5fa541e86e847",
+      "rows": 10096,
+      "start": 514896,
+      "state_file_sha256": "48e92ce67828d0b4b25e168c18b908bfb3d7aff2b8880079a060942a30251788"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 52,
+      "end": 535088,
+      "original_native_closure_evaluations": 6017,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "2404a4b0d1f074ad1c8a5c4e8fa70280de054468ba671379b954cf515553b135",
+      "rows": 10096,
+      "start": 524992,
+      "state_file_sha256": "a256becefadd8f9fa2615814c60de0547f5ae006a5589fc62dcb924f39bd00ce"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 53,
+      "end": 545184,
+      "original_native_closure_evaluations": 12291,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "251a8e7360d3b8a3b734f436e7d01427fd693b8fd476875231e08c860ebac69e",
+      "rows": 10096,
+      "start": 535088,
+      "state_file_sha256": "88a970c08ab0e75cd175e5458b0e846c91f8ce5c33827dcea2388f7ce79721af"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 54,
+      "end": 555280,
+      "original_native_closure_evaluations": 6497,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "00b5370f16dec30f3f74e2549b2ece0212d56dfb6a5bd5729949cbbac250ea61",
+      "rows": 10096,
+      "start": 545184,
+      "state_file_sha256": "8cbdf11eac053ba776569edf939a05815b9469913a6eb4c251d468e4a60d7ba8"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 55,
+      "end": 565376,
+      "original_native_closure_evaluations": 1805,
+      "original_native_optimizer_steps": 91,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "a4aeb0682865cfe50dd9eaab95d05207d2b3c0b65a41be1fc7892150fc49f37a",
+      "rows": 10096,
+      "start": 555280,
+      "state_file_sha256": "628ffe15cfec9c5eef0726d27e92c4c88ae89ca4dad20c6f159b49951fe5aeee"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 56,
+      "end": 575472,
+      "original_native_closure_evaluations": 3769,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "3de86ffdec8ffba9929c7718d22c22c8af7ec6dcbd8f924d0fa092f7c0f075de",
+      "rows": 10096,
+      "start": 565376,
+      "state_file_sha256": "f374c28231c341b1b68982562c6e198e67fe78b8e72e532bd924ac35eaeff625"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 57,
+      "end": 585568,
+      "original_native_closure_evaluations": 10606,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "92bc63207ac9b57c7fb4f63672aa9f1bcbecb2054b214a6d597821a9a4fccd45",
+      "rows": 10096,
+      "start": 575472,
+      "state_file_sha256": "dbfc4a86384424861da0008b2859658811f38640e293f2fba06604fb15701a26"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 58,
+      "end": 595664,
+      "original_native_closure_evaluations": 6628,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "6305956af89795eb77f4880ca0389cca77e17aefefc4de107b4a0423e1466790",
+      "rows": 10096,
+      "start": 585568,
+      "state_file_sha256": "8ddd2293f11089149fa519c69e941111abbb8f57beb8dc77eb3ce517e7377320"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 59,
+      "end": 605760,
+      "original_native_closure_evaluations": 3969,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "16fce958a5cb8b0a576fb1043f638e69ec6a30dcd55766e1ff0ff42f7113b6b0",
+      "rows": 10096,
+      "start": 595664,
+      "state_file_sha256": "6a0c8b4d392f8663d3141ef71e59df5edfe5fcf78d711f0ac406266eed45c513"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 60,
+      "end": 615856,
+      "original_native_closure_evaluations": 4088,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "9d60bae4db1de19750b1dac544d1a5269c81ee40ee5d823ccfe409e28a8add45",
+      "rows": 10096,
+      "start": 605760,
+      "state_file_sha256": "dd52fd4442a49bb26953feb3446ee9d21f65f97e0dea0e492a8ca1862ad2ace6"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 61,
+      "end": 625952,
+      "original_native_closure_evaluations": 4319,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "68e470980d1c9a1b4f8da77bf7139b838139b66f95c6eab3b329915e2ccf565e",
+      "rows": 10096,
+      "start": 615856,
+      "state_file_sha256": "d4c559205a7ecdaf600b9cf88db6c1f518f08097ea729028e0c18b4c119a6672"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 62,
+      "end": 636048,
+      "original_native_closure_evaluations": 3880,
+      "original_native_optimizer_steps": 121,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "dcab196fe2113111f7e452f06a0d7265a1f031d955a2f4e9c8abefe3dc111730",
+      "rows": 10096,
+      "start": 625952,
+      "state_file_sha256": "1399299de5504f5784e783a50eacaca6c97d4d4669ff66a9668485cdb588dbea"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 63,
+      "end": 646144,
+      "original_native_closure_evaluations": 5086,
+      "original_native_optimizer_steps": 181,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "8b24295081cf1fea9852bc7d8ef50659cd8498fe667cdd3f373189f5be4f2039",
+      "rows": 10096,
+      "start": 636048,
+      "state_file_sha256": "9bc0e6f4a89eb40ed7330f410c403ccc340505122bd91401a4809584b6c0d783"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 64,
+      "end": 656240,
+      "original_native_closure_evaluations": 7966,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "638abbec029193ccade8602e2e0793fc6d8dd70826c36b7690dca0b6314e5228",
+      "rows": 10096,
+      "start": 646144,
+      "state_file_sha256": "abb72c4d8cc44087e29de193ca0827794af7c3aeef10fa9ebbb9c65bd5c20727"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 65,
+      "end": 666336,
+      "original_native_closure_evaluations": 5086,
+      "original_native_optimizer_steps": 151,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "bab5a4dce36a89bee9bcdfc3e4d23050d7705feba9293725c727d6fba2c7c3ba",
+      "rows": 10096,
+      "start": 656240,
+      "state_file_sha256": "f23617f04cd8590cb78f71181da33251424195172867d480a6b665909fc4e943"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 66,
+      "end": 676432,
+      "original_native_closure_evaluations": 11477,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "ce34b99550d5d5786cc758fbd2ace0ecb92e413841bd26de7b5ba054deb2f95e",
+      "rows": 10096,
+      "start": 666336,
+      "state_file_sha256": "37bbf0ea0a0f75d66442079799eb02c2fd2e3287183fed6a384349695f3a28c0"
+    },
+    {
+      "actual_original_producer_actor": {
+        "pgrp": 2138481,
+        "pid": 2138481,
+        "sid": 2138481,
+        "start_ticks": "441337122",
+        "state": "R",
+        "uid": 1005
+      },
+      "batch_index": 67,
+      "end": 686528,
+      "original_native_closure_evaluations": 7195,
+      "original_native_optimizer_steps": 200,
+      "raw_zero_pose_rows": 0,
+      "result_file_sha256": "71541ab50f5b4de049710dd6bf7a9ea520cc3f3bf55cdf29cc1f314a8c74e45a",
+      "rows": 10096,
+      "start": 676432,
+      "state_file_sha256": "7f6830a0cbc8e46ccc1c000544db27ced21f922cafad6835b06904546778d2fc"
+    }
+  ],
+  "original_complete_sources_and_assets_rehashed": true,
+  "original_configuration_file_sha256": "5b5f52b766e50aa3e351d465cc096821f3ef9ca2083df9a165dc08cec595b43d",
+  "original_full_input_rows_per_hand": 66161725,
+  "original_full_input_total_rows": 132323450,
+  "original_input_identity_sha256": "8caead37a57825b3e75b497d20ceb1974431e6afb9781973027d3092aa9b52c6",
+  "original_native_source_identity_sha256": "f5697debfd5191870c276a4c51617ee357875f95c1e8b092618fdfdfbac19b30",
+  "original_qualification_file_sha256": "4ec10d58c3553a1eeccfa5e0017d508b9fd21ef64823fe19cbbc30dc918d4087",
+  "original_qualified_runtime_identity": {
+    "actual_mano_geometry_layers": 1,
+    "compatibility_names_restored": [
+      "numpy.bool",
+      "numpy.int",
+      "numpy.float",
+      "numpy.complex",
+      "numpy.object",
+      "numpy.unicode",
+      "numpy.str",
+      "inspect.getargspec"
+    ],
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "device": "cuda:0",
+    "format": "original_native_ik_geometry_runtime_v1",
+    "full_paper_complete": false,
+    "learned_pose_models_constructed": 0,
+    "numpy": "1.26.4",
+    "precision": "float32",
+    "scientific_eligible": false,
+    "source_identity_sha256": "f5697debfd5191870c276a4c51617ee357875f95c1e8b092618fdfdfbac19b30",
+    "torch": "2.2.2+cu118",
+    "torch_threads": 2
+  },
+  "original_recorded_ik_closure_evaluations": 387193,
+  "original_recorded_ik_optimizer_steps": 10926,
+  "original_source_and_packet_generations_unchanged": true,
+  "original_source_bundle_sha256": "0d31b2e92f0eaa413e94c9519e1544b1db2e8757c53212127a8e9619df7e7e0b",
+  "original_source_commit": "bdf59e746e0d9854c59f5b316f4b50d0490f2fc0",
+  "original_terminal_state": {
+    "actual_exit_code": 1,
+    "automatic_retry": false,
+    "child": {
+      "pid": 2126086,
+      "start_ticks": "441226342"
+    },
+    "ended_utc": "2026-11-02T06:51:12.795923+00:00",
+    "started_utc": "2026-11-02T02:02:38.085527+00:00",
+    "status": "failed",
+    "wrapper": {
+      "pid": 2126085,
+      "start_ticks": "441226339"
+    }
+  },
+  "postexit_raw_audit_file_sha256": "23d96a110501a309238e819855fd087f2bb9850083de083192c0d21910a98c53",
+  "postexit_raw_reader_bundle_sha256": "c7193f22f85722b4a952849ccba384fbd26cd7455173714ec893367294b25d1a",
+  "postexit_raw_reader_source_commit": "79db851fe7670524671f7d32c550a2942fcf96ee",
+  "postexit_raw_reader_workflow_terminal_state": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 2898568,
+      "start_ticks": "458679273"
+    },
+    "ended_utc": "2026-11-04T02:32:55.762827+00:00",
+    "started_utc": "2026-11-04T02:31:27.387930+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 2898566,
+      "start_ticks": "458679269"
+    }
+  },
+  "raw_zero_pose_rows_retained": 17,
+  "regenerated_wrist_angles": false,
+  "scientific_eligible": false,
+  "serialized_residual_mean_landmark_distance_mm": 9.686113545491212,
+  "transport_collector_actor": {
+    "pid": 2899405,
+    "start_ticks": "458714715"
+  },
+  "transport_collector_also_physically_closed": true
+}
