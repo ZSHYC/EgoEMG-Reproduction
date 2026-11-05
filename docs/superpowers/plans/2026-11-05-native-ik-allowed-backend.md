@@ -30,11 +30,11 @@
 
 **Files:** modify `scripts/paper/run_native_mano_ik_continuation.py`; create `tests/test_native_ik_allowed_backend.py`; minimally update existing continuation boundary tests for the newly allowed full request.
 
-**Interfaces:** `validate_request(configuration)`; `require_scientific_request(configuration, old_request)`; `require_allowed_physical_gpu(uuid, physical_index)`; `admit_current_backend(configuration, inputs, sources, prefix, physical, physical_index) -> (binding_record, IKArtifactBindings)`; `_admit_document(document)` independently returns providers plus backend guards.
+**Interfaces:** `validate_request(configuration)`; `require_scientific_request(configuration, old_request)`; `require_allowed_physical_gpu(uuid, physical_index)`; `bind_current_qualification_configuration(configuration, permit, physical, bindings) -> sha256`; `admit_current_backend(configuration, inputs, sources, prefix, physical, physical_index) -> (binding_record, IKArtifactBindings)`; `_admit_document(document)` independently returns providers plus backend guards.
 
-- [x] Write/observe RED for protected and unknown UUIDs, remapped physical indices, allowed operational changes versus every scientific key, new descriptor/runtime mismatch and missing/forged/engineering permits. Pure policy acceptance is not scientific authorization.
+- [x] Write/observe RED for protected and unknown UUIDs, remapped physical indices, allowed operational changes versus every scientific key, new descriptor and creation-configuration mismatch, and engineering carrier rejection despite permit-file claims. The three carrier cases do not reach the real permit reader; actual full-provider negative reads are separate Task2 evidence. Runtime equality uses the unchanged original gate. Pure policy acceptance is not scientific authorization.
 - [x] Authenticate full permits only through unchanged original `_check_qualification`; bind actual new hash/descriptor/runtime, original prefix hardware separately, and preserve guards in parent/fresh workers. Keep CPU engineering explicit and false for full completion.
-- [ ] Run focused new/continuation suites GREEN, inspect actual counts, commit. Run the project NoTorch suite once for changed source; do not rerun original math suites.
+- [x] Run focused new/continuation suites GREEN, inspect actual counts, commit. Run the project NoTorch suite once for changed source; do not rerun original math suites. Actual132GREEN/12.32s, task-done132/12.52s, project2833passed/1929skipped/286.63s; source3e6959d.
 
 ## Task 2: review and real qualification handoff
 
@@ -42,8 +42,8 @@
 
 **Interfaces:** consumes Task1 binding and exact current allowed-qualification launch handles. Produces only actual closed permit admission evidence, then a distinct owned full continuation on that qualified allowed card.
 
-- [ ] Run new boundary checks in existing server runtime without learned models/optimizers. Reopen actual engineering artifacts for affected I/O without relabeling or rerunning old optimization.
-- [ ] Perform one fresh review of only this backend boundary; one focused RED→GREEN material fix phase; record set-aside decisions.
+- [x] Run new boundary checks in existing server runtime without learned models/optimizers. Reopen actual engineering artifacts for affected I/O without relabeling or rerunning old optimization. Actual132/0skip20.16s;62rows24packets/alllabels and fresh backend document,118actors+collectorclosed, source3e6959d. Engineering optimization retains1980851; full positive remains false.
+- [x] Perform one fresh review of only this backend boundary; one focused RED→GREEN material fix phase; record set-aside decisions. Reviewer ik_allowed_backend_final_review_20261105:0Critical/0Important/1Minor attribution issue; no production fix required. Carrier-only coverage clarified above; actual full-provider invalid-permit reads recorded separately. No second review/math rerun.
 - [ ] Observe the same qualification handles. After actual success/closure, independently authenticate new/current and historical qualification graphs under accepted code, then register/observe detached full continuation. If resource wait persists, keep this incomplete; do not invent a positive permit or useGPU0/1.
 - [ ] Observe every original missing batch, all fresh geometry/labels and postexit closure before full completion. Publish implementation and evidence by authorized feature-branch FF only.
 

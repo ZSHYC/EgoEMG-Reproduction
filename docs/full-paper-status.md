@@ -1,3 +1,5 @@
+> **2026-11-05 新卡IK接口及真实拒绝检查**：[新后端边界审查](../results/native-mano-ik/allowed-backend-review-acceptance-20261105.json)无严重／重要问题，历史硬件、新资格及创建配置分开绑定。服务器132通过／0跳过，本地无Torch2833通过／1929跳过；[真实62行工程读取](../results/native-mano-ik/allowed-backend-current-engineering-20261105.json)和[全量来源4种资格拒绝](../results/native-mano-ik/allowed-backend-actual-full-negative-read-20261105.json)均在实际拥有者退出后验收，没有新优化或新卡正资格。0/1卡仍禁止，新卡真实资格／全量标签仍未完成。15:06UTC同一S/M/L训练保存72／11／10轮，RN18六条件第二遍35／176批、2200／11114请求；这些是进行中进度，全文未完成。
+
 > **2026-11-05 允许GPU的新资格队列**：[仅GPU2–7的默认B10096资格等待任务](../results/native-mano-ik/allowed-GPU-qualification-wait-20261105.json)实际两个拥有者后台存活，完整来源已准入，物理UUID逐一绑定。全部允许卡仍有任务，资格／新优化／全量标签流程尚未启动；GPU0/1不参与候选，外部进程不修改。新卡资格不能由旧GPU1记录替代，整篇论文仍未完成。
 
 > **2026-11-05 GPU限制与IK续跑修正**：用户明确禁止物理GPU0/1；[实际占用核查](../results/server-GPU01-protection-20261105.json)确认这两卡没有shihao计算进程，未启动的GPU1续跑入口已停用，[仓库规则](../AGENTS.md)保留约束。新卡须完成真实B10096资格，不能改名复用旧卡资格。[续跑工程／一次审查修正](../results/native-mano-ik/README.md)完成62真实姿态、24包及全部标签字节读取；新83项服务器检查通过，当前无Torch全套2784通过／1929跳过。修正源码下完整68旧包／686528行来源和旧资格已重新只读核验，6拥有者＋收集者关闭；未开始新全量优化或完成标签重生成，全文仍未完成。

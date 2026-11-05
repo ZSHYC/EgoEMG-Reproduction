@@ -1,0 +1,140 @@
+{
+  "actual_focused_green": {
+    "passed": 132,
+    "seconds": 12.32,
+    "skipped": 0
+  },
+  "actual_full_negative_evidence": {
+    "all_four_enter_actual_original_reader": true,
+    "cases": [
+      "missing",
+      "historical_GPU1_permit",
+      "relabelled_old_permit",
+      "engineering_completion"
+    ],
+    "closed_actors": 8,
+    "collector_closed": true,
+    "full_rows_per_hand": 66161725,
+    "historical_batches_reopened": 68,
+    "path": "results/native-mano-ik/allowed-backend-actual-full-negative-read-20261105.json",
+    "positive_permit_granted": false,
+    "sha256": "9f5a2e3109955543dde0163b7d7bbf8e9c2649394b0bad01744173fc2820ff9a"
+  },
+  "actual_logs_sha256": {
+    "IK-allowed-backend-configuration-GREEN-20261105.log": "1ccd3100d0f054cb56abc8b26e7ff1933d81585af1bfdf67ea115c3539d92cd1",
+    "IK-allowed-backend-corrected-RED-20261105.log": "a2c5900136d0ac8dcaff36c08f20fa0f346bc23fc87ad13642284b624b9b4bd9",
+    "IK-allowed-backend-full-light-20261105.log": "2042c10c591d04fbfeb45c4cacf425073d017cdcb4a037f78e465b27864bc43c",
+    "IK-new-qualification-configuration-binding-RED-20261105.log": "74698c56d42cee0af561c67664c24a92b45adccdfff7f6d59dc3391fa151b383"
+  },
+  "actual_project_NoTorch": {
+    "failed": 0,
+    "full_Torch_CI_claimed": false,
+    "passed": 2833,
+    "seconds": 286.63,
+    "skipped": 1929,
+    "warnings": 3
+  },
+  "actual_server_green": {
+    "construction_attempts": {
+      "module": 0,
+      "optimizer": 0
+    },
+    "cuda_initialized": false,
+    "passed": 132,
+    "seconds": 20.16,
+    "skipped": 0
+  },
+  "actual_task_done_green": {
+    "passed": 132,
+    "seconds": 12.52
+  },
+  "affected_files_sha256": {
+    "scripts/paper/run_native_mano_ik_continuation.py": "30b5c907b7a2a1ed90098137e68c6d9505274e09bbd0f26f4af64cd0cf65b5bc",
+    "tests/test_native_ik_allowed_backend.py": "e7a3b73694c4e182d539068bf0aa54dac680773cee0911e635849dd2bacb5efe",
+    "tests/test_native_ik_continued_workflow.py": "5bceaa0b1302b28a11ee839864ccdf8d007412347a4c8d59e26c20fe1837f3e4"
+  },
+  "allowed_physical_GPUs": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "critical_findings": 0,
+  "engineering_evidence": {
+    "closed_actors": 118,
+    "collector_closed": true,
+    "current_source": "3e6959d58b06e27a2a254cee13164c9c2bbe8dc9",
+    "new_optimization": false,
+    "original_native_source": "198085123ec0aaae9a43a888515993c5f14610ba",
+    "packets": 24,
+    "path": "results/native-mano-ik/allowed-backend-current-engineering-20261105.json",
+    "rows": 62,
+    "sha256": "b42dd17e1a490f0f9133f95e0103445ec51d5435d2600552a5d00987d44a18dc"
+  },
+  "forbidden_physical_GPUs": [
+    0,
+    1
+  ],
+  "format": "native_IK_allowed_backend_single_review_and_actual_boundary_acceptance_v1",
+  "full_continuation_started": false,
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "important_findings": 0,
+  "minor_findings": 1,
+  "minor_ruling": "Three unit permit-file variants all stop at engineering-prefix mode mismatch. Their coverage is explicitly carrier rejection only. Actual full-source four-case negative reads separately enter the unchanged reader; test naming/deduplication cleanup is deferred and nonblocking, not silently counted as full-permit reader unit coverage.",
+  "new_GPU_positive_qualification_admitted": false,
+  "observed_RED": {
+    "creation_configuration_missing_API_failures": 11,
+    "creation_configuration_seconds": 0.23,
+    "existing_rejections": 2,
+    "initial_corrected_failures": 36,
+    "seconds": 0.78
+  },
+  "one_fresh_boundary_review": true,
+  "original_mathematics_or_prior_integration_re_reviewed": false,
+  "production_fix_required": false,
+  "remaining_critical": 0,
+  "remaining_important": 0,
+  "review_focus_results": {
+    "engineering_authority": "CPU/carrier records retain false qualification/full flags; no full positive fabricated",
+    "hardware_provenance": "old prefix hardware/permit retained separately from new actual qualification and creation configuration",
+    "protected_UUID_and_remapped_index": "validated before new CUDA; actual mapping checked by parent guards",
+    "qualification_lifetime": "original raw/stage artifact bindings plus new sealed creation config guards survive waits and fresh workers",
+    "scientific_request": "only gpu_uuid, qualification and disk reserve can change for formal requests"
+  },
+  "reviewed_base": "3a562efb1bedd99c16ba6159e3154c7624fbb483",
+  "reviewed_head": "3e6959d58b06e27a2a254cee13164c9c2bbe8dc9",
+  "reviewer": "ik_allowed_backend_final_review_20261105",
+  "set_aside_rulings": [
+    {
+      "behavior": "original13sciencefiles, models, mathematics and old mixed maps",
+      "ruling": "Closed and byte-identical; no re-review or repeated native optimization."
+    },
+    {
+      "behavior": "arbitrary in-process mutation or fabricated full graphs",
+      "ruling": "No defective supported path demonstrated; outside recorded launch/source trust boundary."
+    },
+    {
+      "behavior": "historical GPU1 provenance",
+      "ruling": "Read-only authentication allocates no CUDA and does not authorize new GPU1 execution."
+    },
+    {
+      "behavior": "full new allowed-card permit and deployment",
+      "ruling": "Still pending actual qualification success and closure; implementation review does not prove it."
+    },
+    {
+      "behavior": "engineering reread described as fresh optimization",
+      "ruling": "Rejected; native optimization retains actual1980851, current3e establishes source-bound model-free rereading."
+    },
+    {
+      "behavior": "first hardcoded filename read failure",
+      "ruling": "Packaging-only failure retained; metadata-driven V2 correct, production interface unchanged."
+    },
+    {
+      "behavior": "first real negative harness FileNotFoundError",
+      "ruling": "Unchanged original reader correctly rejected missing data; corrected harness accepts ValueError/FileNotFoundError. Failed attempt and all4closedactors retained, no production change."
+    }
+  ]
+}
