@@ -6,6 +6,7 @@ geometry, shard finalization and bilateral assembly have separate owned actors.
 from __future__ import annotations
 
 import argparse
+import copy
 import fcntl
 import json
 import os
@@ -27,16 +28,23 @@ from egoemg_repro.native_ik_continuation import admit_ik_prefix,write_continued_
 from scripts.paper import run_native_mano_ik as original
 
 IMPORTED_SHA=file_sha256(__file__)
-QUALIFIED_GPU='GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae'
+ALLOWED_GPUS={
+    'GPU-3b5a6250-aa89-83c4-f375-844893f374f5':2,
+    'GPU-20575323-8e23-b0b8-74b4-b987d870b0e3':3,
+    'GPU-07ce4138-60af-137b-b134-7f267cece52d':4,
+    'GPU-9dcbac35-9a85-6e75-e412-bf4dd590578a':5,
+    'GPU-6b41c390-53fc-6ccc-ea07-0648926ae5cb':6,
+    'GPU-83b7beb5-2729-4e3b-ed78-b949192152fb':7}
 SOURCE_NAMES=original.SOURCE_NAMES+['egoemg_repro/native_ik_continuation.py',
     'scripts/paper/run_native_mano_ik_continuation.py',
-    'results/native-mano-ik/interrupted-prefix-raw-verified-20261104.json']
+    'results/native-mano-ik/interrupted-prefix-raw-verified-20261104.json','AGENTS.md']
 
 
 def validate_request(configuration):
     original.validate_request('workflow',configuration)
+    if configuration['device']=='cuda:0'and configuration['gpu_uuid']not in ALLOWED_GPUS:
+        raise ValueError('user allows only physical GPU2-7; GPU0/1 are prohibited')
     if not configuration['engineering']:
-        if configuration['gpu_uuid']!=QUALIFIED_GPU:raise ValueError('same actually qualified physical GPU1 required')
         if configuration['minimum_free_bytes']<225*1024**3:raise ValueError('full continuation requires225GiB storage reserve')
     return configuration
 
@@ -46,9 +54,89 @@ def workflow_sources():
     return {name:file_sha256(_safe(ROOT/name))for name in SOURCE_NAMES}
 
 
-def require_original_physical_backend(configuration,old_configuration,actual_physical):
-    if not configuration['engineering']and actual_physical!=old_configuration.get('physical_device'):
-        raise ValueError('same original qualified physical GPU and driver/backend record required')
+def require_allowed_physical_gpu(uuid,physical_index):
+    if (uuid not in ALLOWED_GPUS or type(physical_index)is not int
+        or ALLOWED_GPUS[uuid]!=physical_index or physical_index not in range(2,8)):
+        raise ValueError('same actually allowed physical GPU2-7 UUID/index required')
+
+
+def _physical_index(uuid):
+    raw=subprocess.check_output(['nvidia-smi','-i',uuid,'--query-gpu=index,uuid','--format=csv,noheader,nounits'],text=True)
+    rows=[[v.strip()for v in line.split(',')]for line in raw.splitlines()if line.strip()]
+    if len(rows)!=1 or len(rows[0])!=2 or rows[0][1]!=uuid:
+        raise ValueError('actual physical GPU index/UUID required')
+    index=int(rows[0][0]);require_allowed_physical_gpu(uuid,index);return index
+
+
+def require_scientific_request(configuration,old_request):
+    operational={'minimum_free_bytes'}
+    if not configuration['engineering']:operational|={'gpu_uuid','qualification'}
+    if (set(configuration)!=set(old_request)
+        or any(old_request[k]!=v for k,v in configuration.items()if k not in operational)):
+        raise ValueError('original continued scientific request/source paths must remain identical')
+
+
+def require_qualified_physical_backend(configuration,qualification,actual_physical):
+    if not configuration['engineering']and actual_physical!=qualification.get('physical_device'):
+        raise ValueError('same newly qualified physical GPU and driver/backend record required')
+
+
+def bind_current_qualification_configuration(configuration,permit,physical,bindings):
+    """Bind permit provenance; this check alone grants no qualification."""
+    path=Path(configuration['qualification'])/'configuration.json'
+    qualified,frozen,sha=original._read(path);bindings.guards.append(frozen)
+    wanted=dict(configuration,qualification=None);actual=qualified.get('request')
+    if (configuration['engineering']or qualified.get('action')!='qualify'
+        or type(actual)is not dict or set(actual)!=set(wanted)
+        or any(actual[k]!=v for k,v in wanted.items()if k!='minimum_free_bytes')
+        or permit.get('configuration_sha256')!=sha
+        or any(qualified.get(k)!=permit.get(k)for k in ('input_identity_sha256','source_identity_sha256','sources_sha256'))):
+        raise ValueError('current qualification must bind its actual same-source/GPU creation configuration')
+    original.validate_request('qualify',actual)
+    require_qualified_physical_backend(configuration,qualified,physical)
+    bindings.add_file(path,sha);bindings.check();return sha
+
+
+def admit_current_backend(configuration,inputs,sources,prefix,physical,physical_index):
+    """Authenticate a new permit without replacing historic prefix provenance."""
+    validate_request(configuration);inputs.check();prefix.check()
+    from egoemg_repro.native_ik_continuation import _state
+    old=_state(prefix);history=old['original_configuration'];runtime=prefix.identity['runtime_identity']
+    if configuration['engineering']is not prefix.identity['engineering']:
+        raise ValueError('engineering prefix cannot authorize a formal backend')
+    if sources is not None:
+        sources.check()
+        if _hash(sources.identity)!=old['audit']['original_native_source_identity_sha256']:
+            raise ValueError('same original scientific source/assets required on new card')
+    if configuration['device']=='cuda:0':
+        require_allowed_physical_gpu(configuration['gpu_uuid'],physical_index)
+        if type(physical)is not dict or physical.get('uuid')!=configuration['gpu_uuid']:
+            raise ValueError('current physical backend UUID differs from request')
+    elif physical is not None or physical_index is not None:
+        raise ValueError('CPU engineering cannot claim physical CUDA hardware')
+    bindings=results.IKArtifactBindings();qualification_sha=qualification_configuration_sha=None
+    if configuration['engineering']:
+        if physical!=history.get('physical_device'):
+            raise ValueError('engineering retains its actual original physical backend')
+    else:
+        if sources is None or inputs.identity.get('engineering')is not False:
+            raise ValueError('actual full source providers required for current qualification')
+        qualification_sha,bindings,actual_runtime=original._check_qualification(
+            configuration,inputs,sources,physical,original.workflow_sources())
+        permit,frozen,sha=original._read(Path(configuration['qualification'])/'qualification.json')
+        bindings.guards.append(frozen)
+        if sha!=qualification_sha:raise ValueError('current qualification changed after authentication')
+        require_qualified_physical_backend(configuration,permit,physical)
+        qualification_configuration_sha=bind_current_qualification_configuration(configuration,permit,physical,bindings)
+        original.check_qualified_runtime(actual_runtime,dict(action='workflow',request=configuration,qualified_runtime_identity=runtime))
+    record=dict(format='original_IK_separate_current_qualification_and_historical_prefix_backend_v1',
+        engineering=configuration['engineering'],physical_device=copy.deepcopy(physical),physical_index=physical_index,
+        original_prefix_physical_device=copy.deepcopy(history.get('physical_device')),
+        original_prefix_qualification_file_sha256=history.get('qualification_file_sha256'),
+        qualification_file_sha256=qualification_sha,qualification_configuration_file_sha256=qualification_configuration_sha,
+        qualified_runtime_identity=copy.deepcopy(runtime),
+        original_default_batch10096_qualified=not configuration['engineering'],scientific_eligible=False,full_paper_complete=False)
+    bindings.check(rehash=True);prefix.check();return record,bindings
 
 
 def read_closed_stage(directory,owner):
@@ -71,23 +159,28 @@ def _admit_document(document):
     cfg=document['request'];validate_request(cfg);inputs,sources=original._admit(cfg)
     prefix=admit_ik_prefix(inputs,document['original_root'],proof=document['prefix_proof'],engineering=cfg['engineering'])
     from egoemg_repro.native_ik_continuation import _state
-    require_original_physical_backend(cfg,_state(prefix)['original_configuration'],document['physical_device'])
+    require_scientific_request(cfg,_state(prefix)['original_configuration']['request'])
+    physical=original._gpu_record(cfg['gpu_uuid'])if cfg['device']=='cuda:0'else None
+    index=_physical_index(cfg['gpu_uuid'])if physical is not None else None
+    backend,backend_bindings=admit_current_backend(cfg,inputs,sources,prefix,physical,index)
     if (_hash(inputs.identity)!=document['input_identity_sha256']
         or _hash(sources.identity)!=document['source_identity_sha256']
-        or _hash(prefix.identity)!=document['prefix_identity_sha256']):
+        or _hash(prefix.identity)!=document['prefix_identity_sha256']
+        or backend!=document['backend_binding']or physical!=document['physical_device']
+        or backend['qualified_runtime_identity']!=document['qualified_runtime_identity']):
         raise ValueError('fresh continuation source/input/prefix admission differs')
-    return inputs,sources,prefix
+    return inputs,sources,prefix,backend_bindings
 
 
 def _worker(action,config_path,output,*,hand=None,shard=None):
     document,frozen,config_sha=original._read(config_path);cfg=document['request'];validate_request(cfg)
     source_guard=_Guard([ROOT/name for name in SOURCE_NAMES],[])
     if document['continuation_sources_sha256']!=workflow_sources():raise ValueError('continued worker source snapshot differs')
-    inputs,sources,prefix=_admit_document(document);output=_safe(output,exists=False)
+    inputs,sources,prefix,backend_bindings=_admit_document(document);output=_safe(output,exists=False)
     if output.exists():raise FileExistsError(output)
     flow=Path(config_path).parent/'flow';branch=flow/f'{hand}-shard-{shard}';stage_bindings=results.IKArtifactBindings()
     def guard():
-        frozen.check();source_guard.check();inputs.check();sources.check();prefix.check();stage_bindings.check()
+        frozen.check();source_guard.check();inputs.check();sources.check();prefix.check();stage_bindings.check();backend_bindings.check()
         if not same_process(document['controller_actor']):raise ValueError('continuation controller owner exited')
     def stage_receipt(role):
         receipt,binding=read_closed_stage(Path(config_path).parent/f'owned-{hand}-{shard}-{role}',document['controller_actor'])
@@ -180,24 +273,23 @@ def run_continued_workflow(configuration,original_root,prefix_proof,output):
     source_guard=_Guard([ROOT/name for name in SOURCE_NAMES],[]);snapshot=workflow_sources();source_guard.check()
     inputs,sources=original._admit(cfg);prefix=admit_ik_prefix(inputs,original_root,proof=prefix_proof,engineering=cfg['engineering'])
     from egoemg_repro.native_ik_continuation import _state
-    old_request=_state(prefix)['original_configuration']['request']
-    if any(old_request.get(k)!=v for k,v in cfg.items()if k!='minimum_free_bytes'):
-        raise ValueError('original continued scientific request/source paths must remain identical')
+    require_scientific_request(cfg,_state(prefix)['original_configuration']['request'])
     if _hash(sources.identity)!=_state(prefix)['audit']['original_native_source_identity_sha256']:
         raise ValueError('original actual geometry source/assets must remain identical')
     results._new_output(inputs,output)
     if output.is_relative_to(_safe(original_root)):raise ValueError('old workflow must remain read-only')
     if shutil.disk_usage(output.parent).free<cfg['minimum_free_bytes']:raise ValueError('continued IK initial storage reserve unavailable')
     physical=original._gpu_record(cfg['gpu_uuid'])if cfg['device']=='cuda:0'else None
-    require_original_physical_backend(cfg,_state(prefix)['original_configuration'],physical)
+    index=_physical_index(cfg['gpu_uuid'])if physical is not None else None
+    backend,backend_bindings=admit_current_backend(cfg,inputs,sources,prefix,physical,index)
     output.mkdir(parents=True,mode=0o700);owner=process_identity();started=time.monotonic()
     document=results.seal(dict(format='original_native_IK_continued_configuration_v1',action='workflow',request=cfg,
         controller_actor=owner,original_root=str(_safe(original_root)),prefix_proof=str(_safe(prefix_proof)),
         input_identity_sha256=_hash(inputs.identity),source_identity_sha256=_hash(sources.identity),
         prefix_identity_sha256=_hash(prefix.identity),scientific_sources_sha256=original.workflow_sources(),
-        continuation_sources_sha256=snapshot,physical_device=physical,qualified_runtime_identity=prefix.identity['runtime_identity']))
+        continuation_sources_sha256=snapshot,physical_device=physical,qualified_runtime_identity=backend['qualified_runtime_identity'],backend_binding=backend))
     config_path=output/'configuration.json';results.write_json(config_path,document);config_guard=_Guard([config_path],[])
-    stage_paths=[];owned=[];artifacts=results.IKArtifactBindings();lock=None
+    stage_paths=[];owned=[];artifacts=results.IKArtifactBindings();artifacts.absorb(backend_bindings);lock=None
     def guard(*,check_gpu=True):
         source_guard.check();config_guard.check();inputs.check();sources.check();prefix.check();artifacts.check()
         reserve=cfg['minimum_free_bytes']if not cfg['engineering']else 15*1024**3
@@ -205,6 +297,7 @@ def run_continued_workflow(configuration,original_root,prefix_proof,output):
         available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines()if s.startswith('MemAvailable:'))
         if available<(128 if not cfg['engineering']else 2)*1024**3:raise ValueError('continued IK host-memory headroom unavailable')
         if physical is not None:
+            require_allowed_physical_gpu(cfg['gpu_uuid'],_physical_index(cfg['gpu_uuid']))
             if original._gpu_record(cfg['gpu_uuid'])!=physical:raise ValueError('qualified continued GPU hardware changed')
             if check_gpu:
                 sessions=[]
@@ -259,7 +352,7 @@ def run_continued_workflow(configuration,original_root,prefix_proof,output):
                 stage(hand,shard,'map',branch/'map');stage(hand,shard,'verify',branch/'verify');stage(hand,shard,'finalize',branch/'labels')
         labels=stage(None,None,'assemble',output/'labels');guard();artifacts.check(rehash=True);prefix.check(rehash=True)
         if 'torch'in sys.modules:raise ValueError('continued IK parent must remain Torch-free')
-        value=results.seal(dict(format='original_native_IK_complete_mixed_owned_workflow_v1',actor=owner,
+        value=results.seal(dict(format='original_native_IK_complete_mixed_owned_workflow_v1',actor=owner,backend_binding=backend,
             configuration_sha256=file_sha256(config_path),continuation_sources_sha256=snapshot,
             scientific_sources_sha256=original.workflow_sources(),prefix_identity=prefix.identity,
             labels_result_sha256=file_sha256(output/'labels/labels.json'),rows_per_hand=labels['rows_per_hand'],total_rows=labels['total_rows'],

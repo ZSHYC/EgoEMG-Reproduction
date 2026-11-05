@@ -165,7 +165,7 @@ def test_owned_continuation_runner_is_missing_until_implemented():
 @pytest.mark.parametrize('fault',['cpu_full','wrong_gpu','small_batch','small_reserve','unknown_key'])
 def test_invalid_continuation_never_starts_input_or_GPU_io(tmp_path,fault):
     cfg=native_request(tmp_path)
-    cfg.update(engineering=False,batch_size=10096,device='cuda:0',gpu_uuid='GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae',
+    cfg.update(engineering=False,batch_size=10096,device='cuda:0',gpu_uuid='GPU-6b41c390-53fc-6ccc-ea07-0648926ae5cb',
         qualification=str(tmp_path/'qualification'),minimum_free_bytes=225*1024**3)
     if fault=='cpu_full':cfg.update(device='cpu',gpu_uuid=None)
     elif fault=='wrong_gpu':cfg['gpu_uuid']='GPU-not-the-qualified-card'
@@ -220,10 +220,10 @@ def test_failed_live_or_swapped_owned_roles_cannot_complete_a_stage(stage_carrie
 @pytest.mark.parametrize('fault',['driver','pci_bus','name','memory'])
 def test_full_continuation_cannot_reuse_qualification_on_changed_physical_backend(tmp_path,fault):
     cfg=native_request(tmp_path);cfg['engineering']=False
-    original=dict(uuid='GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae',driver_version='595.91.07',
-        pci_bus_id='00000000:16:00.0',name='NVIDIA A800-SXM4-80GB',total_memory_mib=81920)
+    original=dict(uuid='GPU-6b41c390-53fc-6ccc-ea07-0648926ae5cb',driver_version='595.91.07',
+        pci_bus_id='00000000:C6:00.0',name='NVIDIA A800-SXM4-80GB',total_memory_mib=81920)
     actual=copy.deepcopy(original);actual[dict(driver='driver_version',pci_bus='pci_bus_id',name='name',memory='total_memory_mib')[fault]]='changed'
-    gate=getattr(runner(),'require_original_physical_backend',None)
+    gate=getattr(runner(),'require_qualified_physical_backend',None)
     assert callable(gate),'same-UUID continuation must also enforce the actual qualified physical backend record'
     with pytest.raises(ValueError):gate(cfg,dict(physical_device=original),actual)
     gate(cfg,dict(physical_device=original),original)
