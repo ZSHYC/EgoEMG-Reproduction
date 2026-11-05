@@ -105,6 +105,37 @@ def test_actual_live_or_wrong_receipt_owner_never_supplies_verified_lineage(cont
     with pytest.raises(ValueError):read(continued,receipt_actor=actor)
 
 
+# A guardian's pre-gate snapshot may be sleeping while the same worker's
+# packet/map snapshot is running. State is evidence, not a stable identity key.
+def test_new_producer_handoff_accepts_changed_state_and_preserves_actual_packet_actor(continued,tmp_path):
+    x=continued;packet_actor=x['doc']['entries'][2]['producer_actor']
+    handed=copy.deepcopy(packet_actor);handed['state']='S'if packet_actor['state']!='S'else'R'
+    value=api().write_continued_shard(x['inputs'],x['prefix'],hand='right',shard=0,
+        new_root=x['new_root'],new_producer_actor=handed,configuration_sha256='a'*64,output=tmp_path/'next-map')
+    assert value['new_producer_actor']==handed
+    assert value['entries'][2]['producer_actor']==packet_actor
+    assert value['entries'][2]['producer_actor']['state']!=handed['state']
+
+
+def test_map_receipt_handoff_accepts_changed_state_and_preserves_actual_record(continued):
+    actor=copy.deepcopy(continued['receipt_actor']);actor['state']='S'if actor['state']!='S'else'R'
+    mixed=read(continued,receipt_actor=actor)
+    assert mixed.entries==tuple(continued['doc']['entries'])
+    assert json.loads((continued['directory']/'mixed.json').read_text())['receipt_actor']==continued['receipt_actor']
+    mixed.check(rehash=True)
+
+
+@pytest.mark.parametrize('role',['producer','receipt'])
+@pytest.mark.parametrize('field',['pid','start_ticks','uid','sid','pgrp'])
+def test_handoff_still_rejects_changed_stable_identity(continued,tmp_path,role,field):
+    x=continued;actor=copy.deepcopy(x['doc']['entries'][2]['producer_actor']if role=='producer'else x['receipt_actor'])
+    actor[field]=str(int(actor[field])+1)if field=='start_ticks'else actor[field]+100000000
+    with pytest.raises(ValueError):
+        if role=='receipt':read(x,receipt_actor=actor)
+        else:api().write_continued_shard(x['inputs'],x['prefix'],hand='right',shard=0,
+            new_root=x['new_root'],new_producer_actor=actor,configuration_sha256='a'*64,output=tmp_path/'wrong-map')
+
+
 @pytest.mark.parametrize('role',['old','new','map'])
 def test_late_packet_or_receipt_changes_invalidate_consumption(continued,role):
     m=read(continued)

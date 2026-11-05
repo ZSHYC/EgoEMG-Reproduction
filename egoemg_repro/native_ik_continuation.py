@@ -28,6 +28,13 @@ _PREFIXES=weakref.WeakKeyDictionary()
 _MIXED=weakref.WeakKeyDictionary()
 
 
+def _same_actor(a,b):
+    # Guardian and worker snapshots can observe different scheduling states.
+    # Keep both snapshots intact; only stable process identity defines a role.
+    return (type(a)is dict and type(b)is dict
+        and all(k in a and k in b and a[k]==b[k]for k in results._ACTOR_KEYS))
+
+
 def _closed(actor):
     # Historical outer recorders carry PID/start only; packet actors also carry
     # uid/session/pgrp and are checked by the unchanged original inspector.
@@ -239,8 +246,8 @@ def _mixed_entries(inputs,prefix,hand,shard,new_root,new_actor,bindings):
         packet=results.inspect_ik_batch(inputs,directory);metadata=packet.metadata;b=metadata['batch']
         if (b!=results.select_ik_batch(inputs,hand,shard,index).identity
             or metadata['runtime_identity']!=prefix.identity['runtime_identity']
-            or(not reused and metadata['actor']!=new_actor)
-            or(reused and metadata['actor']==new_actor)):
+            or(not reused and not _same_actor(metadata['actor'],new_actor))
+            or(reused and _same_actor(metadata['actor'],new_actor))):
             raise ValueError('actual old/new packet actor, runtime or original batch differs')
         result_sha=bindings.add_file(directory/'result.json')
         state_sha=bindings.add_file(directory/'state.npz',metadata['state_file_sha256'])
@@ -263,7 +270,7 @@ def write_continued_shard(inputs,prefix,*,hand,shard,new_root,new_producer_actor
     bindings=results.IKArtifactBindings()
     entries,snapshot=_mixed_entries(inputs,prefix,hand,shard,new_root,new_producer_actor,bindings)
     actor=process_identity()
-    if any(e['producer_actor']==actor for e in entries):raise ValueError('mixed receipt actor cannot replace a packet producer')
+    if any(_same_actor(e['producer_actor'],actor)for e in entries):raise ValueError('mixed receipt actor cannot replace a packet producer')
     value=results.seal(dict(format='original_native_IK_explicit_mixed_shard_map_v1',
         receipt_actor=actor,configuration_sha256=configuration_sha256,input_identity_sha256=_hash(inputs.identity),
         prefix_identity_sha256=_hash(prefix.identity),hand=hand,shard=shard,
@@ -301,14 +308,14 @@ def read_continued_shard(inputs,directory,*,configuration_sha256,receipt_actor,p
     value=_json(directory/'mixed.json',bindings,sealed=True)
     results.require_closed(receipt_actor)
     if (value.get('format')!='original_native_IK_explicit_mixed_shard_map_v1'
-        or value.get('receipt_actor')!=receipt_actor or value.get('configuration_sha256')!=configuration_sha256
+        or not _same_actor(value.get('receipt_actor'),receipt_actor)or value.get('configuration_sha256')!=configuration_sha256
         or value.get('input_identity_sha256')!=_hash(inputs.identity)
         or value.get('prefix_identity_sha256')!=_hash(prefix.identity)
         or value.get('runtime_identity')!=prefix.identity['runtime_identity']
         or any(value.get(k)is not False for k in ('geometric_reconstruction_verified','full_frame_labels_regenerated','scientific_eligible','full_paper_complete'))):
         raise ValueError('same closed mixed receipt/configuration/input/runtime required')
     entries,snapshot=_mixed_entries(inputs,prefix,value['hand'],value['shard'],value['new_packets_root'],value['new_producer_actor'],bindings)
-    if entries!=value['entries']or any(e['producer_actor']==receipt_actor for e in entries):
+    if entries!=value['entries']or any(_same_actor(e['producer_actor'],receipt_actor)for e in entries):
         raise ValueError('exact original/new per-packet producer map required')
     rows=sum(e['rows']for e in entries);reused=sum(e['rows']for e in entries if e['reused'])
     identity=dict(format='registered_original_IK_mixed_shard_v1',hand=value['hand'],shard=value['shard'],
