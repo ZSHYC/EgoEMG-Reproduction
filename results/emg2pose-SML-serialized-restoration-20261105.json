@@ -1,0 +1,415 @@
+{
+  "actual_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 3424688,
+      "pid": 3424688,
+      "sid": 3424688,
+      "start_ticks": "468762185",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 3424687,
+      "pid": 3424687,
+      "sid": 3424687,
+      "start_ticks": "468762180",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "success",
+    "worker": {
+      "pgrp": 3424689,
+      "pid": 3424689,
+      "sid": 3424689,
+      "start_ticks": "468762189",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 0
+  },
+  "actual_terminal_state": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 3424687,
+      "start_ticks": "468762180"
+    },
+    "ended_utc": "2026-11-05T06:31:58.701223+00:00",
+    "started_utc": "2026-11-05T06:31:56.462800+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 3424686,
+      "start_ticks": "468762177"
+    }
+  },
+  "all4_original_read_owning_actors_physically_closed": [
+    {
+      "pid": 3424686,
+      "start_ticks": "468762177"
+    },
+    {
+      "pid": 3424687,
+      "start_ticks": "468762180"
+    },
+    {
+      "pgrp": 3424689,
+      "pid": 3424689,
+      "sid": 3424689,
+      "start_ticks": "468762189",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3424688,
+      "pid": 3424688,
+      "sid": 3424688,
+      "start_ticks": "468762185",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "collector_actor": {
+    "pgrp": 3425407,
+    "pid": 3425407,
+    "sid": 3425407,
+    "start_ticks": "468771535",
+    "state": "R",
+    "uid": 1005
+  },
+  "collector_also_physically_closed": true,
+  "collector_torch_unimported": true,
+  "format": "three_native_continuations_actual_serialized_six_domain_restoration_postexit_verified_v1",
+  "full_paper_complete": false,
+  "observed_utc": "2026-11-05T06:33:30.752453+00:00",
+  "raw": {
+    "actor": {
+      "pgrp": 3424689,
+      "pid": 3424689,
+      "sid": 3424689,
+      "start_ticks": "468762189",
+      "state": "R",
+      "uid": 1005
+    },
+    "all_checkpoint_reads_fd_generation_stable": true,
+    "all_three_serialized_actual_restoration_domains_exact": true,
+    "checkpoint_or_journal_bytes_written": 0,
+    "cuda_initialized": false,
+    "format": "actual_three_live_native_continuations_serialized_six_domain_restoration_read_v1",
+    "full_paper_complete": false,
+    "full_training_complete": false,
+    "model_and_optimizer_construction_attempts": {
+      "model": 0,
+      "optimizer": 0
+    },
+    "models": {
+      "large": {
+        "actual_live_resume_actors": [
+          {
+            "pid": 2894223,
+            "start_ticks": "458549558"
+          },
+          {
+            "pid": 2894225,
+            "start_ticks": "458549560"
+          },
+          {
+            "pgrp": 2894227,
+            "pid": 2894227,
+            "sid": 2894227,
+            "start_ticks": "458549569",
+            "state": "R",
+            "uid": 1005
+          },
+          {
+            "pgrp": 2894226,
+            "pid": 2894226,
+            "sid": 2894226,
+            "start_ticks": "458549565",
+            "state": "R",
+            "uid": 1005
+          }
+        ],
+        "actual_persisted_journal_prefix_exact": true,
+        "actual_serialized_restoration_observation": {
+          "actual": {
+            "callbacks": "285eaefcb97cda3870f967cf770b96199018c8d6ce00fcd07cb8d2bc53dca458",
+            "loops": "327ed50c1332698e107603862a55cb72bf649031467b13b819d7fb139680395f",
+            "model": "1dfa33a4f913098d2ab1bf76097401319db1b4225495a0d84fa04b25f044345e",
+            "optimizer": "3c680fa8bdb3543c539e34a941751b3f2018acc87e9b84599ad1b8782563ab26",
+            "rng": "ffab55fc7db218d93abca8718c3e02eab4a4de4e543553ac52fb551166cde4a9",
+            "scheduler": "d7346a23db65b6fa2fd27fa336d7cc9bb025c93fd73a363d5d6aeafd344ac86e"
+          },
+          "expected": {
+            "callbacks": "285eaefcb97cda3870f967cf770b96199018c8d6ce00fcd07cb8d2bc53dca458",
+            "loops": "327ed50c1332698e107603862a55cb72bf649031467b13b819d7fb139680395f",
+            "model": "1dfa33a4f913098d2ab1bf76097401319db1b4225495a0d84fa04b25f044345e",
+            "optimizer": "3c680fa8bdb3543c539e34a941751b3f2018acc87e9b84599ad1b8782563ab26",
+            "rng": "ffab55fc7db218d93abca8718c3e02eab4a4de4e543553ac52fb551166cde4a9",
+            "scheduler": "d7346a23db65b6fa2fd27fa336d7cc9bb025c93fd73a363d5d6aeafd344ac86e"
+          }
+        },
+        "all_six_actual_restoration_matches": {
+          "callbacks": true,
+          "loops": true,
+          "model": true,
+          "optimizer": true,
+          "rng": true,
+          "scheduler": true
+        },
+        "checkpoint_bytes": 196422728,
+        "checkpoint_generation_fd_stat": [
+          64512,
+          4339455195,
+          196422728,
+          1793860118421913182,
+          1793860118643916838,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "checkpoint_path": "/data/shihao/egoemg-large-full-continuation-20261101/experiment/fit/checkpoints/last.ckpt",
+        "checkpoint_sha256": "503f65f646dbc2c0a4697b33fc26e7b377ec370451da65b5702e20e8b2b89e1b",
+        "final_evaluation_complete": false,
+        "fit": "/data/shihao/egoemg-large-full-continuation-20261101/experiment/fit",
+        "full_training_complete": false,
+        "global_step": 70272,
+        "identity_file_sha256": "2707fc4a6f82396f8fb451ba39d08637f27f98dc2f23a00ad0249da61398f1d4",
+        "observed_path_generation_after_read": [
+          64512,
+          4339455195,
+          196422728,
+          1793860118421913182,
+          1793860118643916838,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "original_admitted_epochs": 5,
+        "original_admitted_journal_prefix_exact": true,
+        "original_admitted_optimizer_executions": 39040,
+        "original_expected_six_domain_snapshot": {
+          "callbacks": "285eaefcb97cda3870f967cf770b96199018c8d6ce00fcd07cb8d2bc53dca458",
+          "loops": "327ed50c1332698e107603862a55cb72bf649031467b13b819d7fb139680395f",
+          "model": "1dfa33a4f913098d2ab1bf76097401319db1b4225495a0d84fa04b25f044345e",
+          "optimizer": "3c680fa8bdb3543c539e34a941751b3f2018acc87e9b84599ad1b8782563ab26",
+          "rng": "ffab55fc7db218d93abca8718c3e02eab4a4de4e543553ac52fb551166cde4a9",
+          "scheduler": "d7346a23db65b6fa2fd27fa336d7cc9bb025c93fd73a363d5d6aeafd344ac86e"
+        },
+        "original_source_capsule_and_live_controller_members_exact": true,
+        "saved_complete_epochs_in_observed_checkpoint": 9
+      },
+      "middle": {
+        "actual_live_resume_actors": [
+          {
+            "pid": 2894218,
+            "start_ticks": "458549549"
+          },
+          {
+            "pid": 2894219,
+            "start_ticks": "458549551"
+          },
+          {
+            "pgrp": 2894224,
+            "pid": 2894224,
+            "sid": 2894224,
+            "start_ticks": "458549560",
+            "state": "R",
+            "uid": 1005
+          },
+          {
+            "pgrp": 2894222,
+            "pid": 2894222,
+            "sid": 2894222,
+            "start_ticks": "458549556",
+            "state": "R",
+            "uid": 1005
+          }
+        ],
+        "actual_persisted_journal_prefix_exact": true,
+        "actual_serialized_restoration_observation": {
+          "actual": {
+            "callbacks": "e1582e21165ed957711d67cdb2d6237e3058e07162ffa683f3379258e95488b1",
+            "loops": "327ed50c1332698e107603862a55cb72bf649031467b13b819d7fb139680395f",
+            "model": "e8370bf6d3ceaad04b610420d7c5fe248643ab3ed29ea4e0550fac5fe6803858",
+            "optimizer": "4a8bfedfe89633caa28d57bf5eef912965bb39bb7182af973a6afc6f122cbf76",
+            "rng": "50b491cb6db908a5f548022e9ecb784e808c5a8b60b37621da51223b4675e84a",
+            "scheduler": "d7346a23db65b6fa2fd27fa336d7cc9bb025c93fd73a363d5d6aeafd344ac86e"
+          },
+          "expected": {
+            "callbacks": "e1582e21165ed957711d67cdb2d6237e3058e07162ffa683f3379258e95488b1",
+            "loops": "327ed50c1332698e107603862a55cb72bf649031467b13b819d7fb139680395f",
+            "model": "e8370bf6d3ceaad04b610420d7c5fe248643ab3ed29ea4e0550fac5fe6803858",
+            "optimizer": "4a8bfedfe89633caa28d57bf5eef912965bb39bb7182af973a6afc6f122cbf76",
+            "rng": "50b491cb6db908a5f548022e9ecb784e808c5a8b60b37621da51223b4675e84a",
+            "scheduler": "d7346a23db65b6fa2fd27fa336d7cc9bb025c93fd73a363d5d6aeafd344ac86e"
+          }
+        },
+        "all_six_actual_restoration_matches": {
+          "callbacks": true,
+          "loops": true,
+          "model": true,
+          "optimizer": true,
+          "rng": true,
+          "scheduler": true
+        },
+        "checkpoint_bytes": 79949336,
+        "checkpoint_generation_fd_stat": [
+          64512,
+          28087846998,
+          79949336,
+          1793848736462940162,
+          1793848736516940811,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "checkpoint_path": "/data/shihao/egoemg-middle-full-continuation-20261101/experiment/fit/checkpoints/last.ckpt",
+        "checkpoint_sha256": "b49833452e586d17d8f7666aba552a59ce8ed0b5167d9f19c56f1d8745370a7c",
+        "final_evaluation_complete": false,
+        "fit": "/data/shihao/egoemg-middle-full-continuation-20261101/experiment/fit",
+        "full_training_complete": false,
+        "global_step": 70272,
+        "identity_file_sha256": "c2c37723f3099cb07f91caf2f8819ddc8a6996a5225f232d5fce146cc1a21b29",
+        "observed_path_generation_after_read": [
+          64512,
+          28087846998,
+          79949336,
+          1793848736462940162,
+          1793848736516940811,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "original_admitted_epochs": 5,
+        "original_admitted_journal_prefix_exact": true,
+        "original_admitted_optimizer_executions": 39040,
+        "original_expected_six_domain_snapshot": {
+          "callbacks": "e1582e21165ed957711d67cdb2d6237e3058e07162ffa683f3379258e95488b1",
+          "loops": "327ed50c1332698e107603862a55cb72bf649031467b13b819d7fb139680395f",
+          "model": "e8370bf6d3ceaad04b610420d7c5fe248643ab3ed29ea4e0550fac5fe6803858",
+          "optimizer": "4a8bfedfe89633caa28d57bf5eef912965bb39bb7182af973a6afc6f122cbf76",
+          "rng": "50b491cb6db908a5f548022e9ecb784e808c5a8b60b37621da51223b4675e84a",
+          "scheduler": "d7346a23db65b6fa2fd27fa336d7cc9bb025c93fd73a363d5d6aeafd344ac86e"
+        },
+        "original_source_capsule_and_live_controller_members_exact": true,
+        "saved_complete_epochs_in_observed_checkpoint": 9
+      },
+      "small": {
+        "actual_live_resume_actors": [
+          {
+            "pid": 2894214,
+            "start_ticks": "458549540"
+          },
+          {
+            "pid": 2894215,
+            "start_ticks": "458549543"
+          },
+          {
+            "pgrp": 2894220,
+            "pid": 2894220,
+            "sid": 2894220,
+            "start_ticks": "458549552",
+            "state": "R",
+            "uid": 1005
+          },
+          {
+            "pgrp": 2894217,
+            "pid": 2894217,
+            "sid": 2894217,
+            "start_ticks": "458549548",
+            "state": "R",
+            "uid": 1005
+          }
+        ],
+        "actual_persisted_journal_prefix_exact": true,
+        "actual_serialized_restoration_observation": {
+          "actual": {
+            "callbacks": "f96f32e7a8420b165ee6ccd9b53d96b7682e2a8e58e5a9a289ffb612456a41a6",
+            "loops": "0ea8b9dfac25a24494c807469c9fa07f2bdd53ffa6d8be5b61b92490416a9797",
+            "model": "0133cb51962a7b62ae3ba690385a3d9ee74566f3cd14d9732d016f9420a2f2bd",
+            "optimizer": "5fba4dd32d08bb2b1a2ea9c1471f9fee6ba252f8c245d34a26743a9bd51f913d",
+            "rng": "4f2512174e5c4152e8fc4dacc640e5b4a1fe710e8076eab911183b1698064099",
+            "scheduler": "b99830e5dd3aa435bf63df186b77ff8a67ac80eeabb1020032a888e3df06a214"
+          },
+          "expected": {
+            "callbacks": "f96f32e7a8420b165ee6ccd9b53d96b7682e2a8e58e5a9a289ffb612456a41a6",
+            "loops": "0ea8b9dfac25a24494c807469c9fa07f2bdd53ffa6d8be5b61b92490416a9797",
+            "model": "0133cb51962a7b62ae3ba690385a3d9ee74566f3cd14d9732d016f9420a2f2bd",
+            "optimizer": "5fba4dd32d08bb2b1a2ea9c1471f9fee6ba252f8c245d34a26743a9bd51f913d",
+            "rng": "4f2512174e5c4152e8fc4dacc640e5b4a1fe710e8076eab911183b1698064099",
+            "scheduler": "b99830e5dd3aa435bf63df186b77ff8a67ac80eeabb1020032a888e3df06a214"
+          }
+        },
+        "all_six_actual_restoration_matches": {
+          "callbacks": true,
+          "loops": true,
+          "model": true,
+          "optimizer": true,
+          "rng": true,
+          "scheduler": true
+        },
+        "checkpoint_bytes": 42050552,
+        "checkpoint_generation_fd_stat": [
+          64512,
+          21649360018,
+          42050552,
+          1793859622672792428,
+          1793859622701792754,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "checkpoint_path": "/data/shihao/outputs/egoemg-full-paper-20261026/emg2pose-full-queue-20261028T061208002698/small/fit/checkpoints/last.ckpt",
+        "checkpoint_sha256": "3cff24b062a75009f3a01dbb35e4f3c2ed356f21fc9bf8b79b5c70d34b183303",
+        "final_evaluation_complete": false,
+        "fit": "/data/shihao/outputs/egoemg-full-paper-20261026/emg2pose-full-queue-20261028T061208002698/small/fit",
+        "full_training_complete": false,
+        "global_step": 102960,
+        "identity_file_sha256": "6c1954f2e611666199bd36c525122ef3441846186fd23728b24ea6c0bd23dc91",
+        "observed_path_generation_after_read": [
+          64512,
+          21649360018,
+          42050552,
+          1793859622672792428,
+          1793859622701792754,
+          33152,
+          1005,
+          1005,
+          1
+        ],
+        "original_admitted_epochs": 44,
+        "original_admitted_journal_prefix_exact": true,
+        "original_admitted_optimizer_executions": 69696,
+        "original_expected_six_domain_snapshot": {
+          "callbacks": "f96f32e7a8420b165ee6ccd9b53d96b7682e2a8e58e5a9a289ffb612456a41a6",
+          "loops": "0ea8b9dfac25a24494c807469c9fa07f2bdd53ffa6d8be5b61b92490416a9797",
+          "model": "0133cb51962a7b62ae3ba690385a3d9ee74566f3cd14d9732d016f9420a2f2bd",
+          "optimizer": "5fba4dd32d08bb2b1a2ea9c1471f9fee6ba252f8c245d34a26743a9bd51f913d",
+          "rng": "4f2512174e5c4152e8fc4dacc640e5b4a1fe710e8076eab911183b1698064099",
+          "scheduler": "b99830e5dd3aa435bf63df186b77ff8a67ac80eeabb1020032a888e3df06a214"
+        },
+        "original_source_capsule_and_live_controller_members_exact": true,
+        "saved_complete_epochs_in_observed_checkpoint": 65
+      }
+    },
+    "no_training_process_stopped_or_paused": true,
+    "observed_utc": "2026-11-05T06:31:58.110229+00:00",
+    "seconds": 1.5030011404305696
+  },
+  "restoration_read_file_sha256": "4ba282a67e608142440a042a58934cebce31d7261c83419d08435798c891fd72",
+  "source_bundle_sha256": "b97d0392636e8c90cbea88b5dc733654814f64cc289a906e6cdec2e705c1a14d",
+  "source_capsule_members_after_exit_exact": 159,
+  "source_commit": "9f8da2dfbd3e09d8caaa97f6d0bc3d8d205a257e",
+  "workflow_result_file_sha256": "ac20d9a4a2aa52a0e60728d3e46037868d447a6cf0cb2db86617fb8b89dede3b"
+}
