@@ -1,6 +1,25 @@
 # 官方普通网格定性预测入口
 
-前置[普通网格与配对输入](../results/native-qualitative/README.md)已经完整验收。本入口为 Figure7 默认抽样重新执行实际冻结预测；当前接入已完成的 ViT-S／EMGFormer-S／融合三模型，RN18兼容融合来源仍待训练结束。**这里的2,322个默认抽样用于定性筛选，不能替换全量表格评价。** 最终条件例图、完整新集成审查和 Figure7 验收尚未完成。
+前置[普通网格与配对输入](../results/native-qualitative/README.md)已经完整验收。本页第一套入口为 ViT-S Figure7 默认抽样重新执行实际冻结预测；RN18完整模型及其2,208点精确缓存复用现已验收，使用下文单独的缓存导图入口。**这里的默认抽样用于定性筛选，不能替换全量表格评价。** ViT-S三类旧版例图已完成；RN18实际完整候选／条件例图、新整合验收及原论文人口等价仍欠。
+
+## RN18已完成预测的缓存导图
+
+[`render_rn18_qualitative.py`](../scripts/paper/render_rn18_qualitative.py)只消费[已独立验收的2,208点缓存](../results/native-qualitative/rn18-cache-source-read-20261105.json)。它核对完整历史代码包／原始数组／退出的生产者，重新准入原53文件输入，逐点验证11个实际输入张量后才将密网格键映射到原普通网格键。实际RGB、四组姿态、原始前20角网格和所有22角误差使用既有原生助手；源生产者身份与密网格原键单独保留，不执行神经网络预测。
+
+[新增35项服务器检查及两张真实面板](../results/native-qualitative/rn18-cached-visual-engineering-20261105.json)已通过、0跳过；本机无Torch完整检查2701通过／1929可选或实际数据用例跳过。完整120候选和独立导图重建仍待实际执行，不能以两张工程面板宣布Figure7完成。
+
+```bash
+CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 \
+python scripts/paper/render_rn18_qualitative.py \
+  --cache-root /path/to/accepted-rn18-ordinary-cache-source \
+  --upstream /path/to/the-same-pinned-official-source \
+  --data /path/to/the-original-legacy --crops /path/to/the-original-crops \
+  --output /path/to/new-rn18-candidates --limit 120 --extra-ranks 1746 2119
+```
+
+数据、裁剪及上游路径须与缓存生产时实际相同。默认仍按原始未舍入收益排序选取前120个可显示候选；`--extra-ranks`显式追加诊断示例，保留原排名并在元数据中单独标记，不改变默认池或统计总体。当前2,119个追踪过滤后请求中的1,745改善／374变差排名全部保留；例图及这些跨模型比较不能单独证明EMG贡献。缺crop和无效标签在完整预测／缓存中保留，显示遵循原有追踪条件；不会生成虚构RGB。
+
+## ViT-S原生普通网格预测及导图
 
 入口固定原始7,790窗口／普通步长，seed42每个split和手重置、每组最多500。六组各自B64，保留尾批，共38批，最后一批33个样本；不复用最近的密网格中心。所有80个缺少裁剪、64个无效标签、230个跨中心split窗口均保留，官方追踪过滤在全部推理结束后执行。
 
