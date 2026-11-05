@@ -1,12 +1,12 @@
 # 官方普通网格定性预测入口
 
-前置[普通网格与配对输入](../results/native-qualitative/README.md)已经完整验收。本页第一套入口为 ViT-S Figure7 默认抽样重新执行实际冻结预测；RN18完整模型及其2,208点精确缓存复用现已验收，使用下文单独的缓存导图入口。**这里的默认抽样用于定性筛选，不能替换全量表格评价。** ViT-S三类旧版例图已完成；RN18实际完整候选／条件例图、新整合验收及原论文人口等价仍欠。
+前置[普通网格与配对输入](../results/native-qualitative/README.md)已经完整验收。本页第一套入口为 ViT-S Figure7 默认抽样重新执行实际冻结预测；RN18完整模型及其2,208点精确缓存复用现已验收，使用下文单独的缓存导图入口。**这里的默认抽样用于定性筛选，不能替换全量表格评价。** ViT-S和[RN18三类旧版例图及失败诊断](../results/native-qualitative/examples-rn18-legacy/README.md)均已验收；原论文人口与物理相机等价仍欠。
 
 ## RN18已完成预测的缓存导图
 
 [`render_rn18_qualitative.py`](../scripts/paper/render_rn18_qualitative.py)只消费[已独立验收的2,208点缓存](../results/native-qualitative/rn18-cache-source-read-20261105.json)。它核对完整历史代码包／原始数组／退出的生产者，重新准入原53文件输入，逐点验证11个实际输入张量后才将密网格键映射到原普通网格键。实际RGB、四组姿态、原始前20角网格和所有22角误差使用既有原生助手；源生产者身份与密网格原键单独保留，不执行神经网络预测。
 
-[新增35项服务器检查及两张真实面板](../results/native-qualitative/rn18-cached-visual-engineering-20261105.json)已通过、0跳过；本机无Torch完整检查2701通过／1929可选或实际数据用例跳过。[完整120候选加两张显式失败诊断及独立重建](../results/native-qualitative/rn18-full-candidate-pool-complete-20261105.json)已完成退出后验收：122套PNG／NPZ／元数据字节一致，2,074数组及缓存姿态／源像素重查一致。三类人工例图及新整合审查仍欠，不能以工程面板或候选池宣布Figure7完成。
+[新增35项服务器检查及两张真实面板](../results/native-qualitative/rn18-cached-visual-engineering-20261105.json)已通过、0跳过；本机无Torch完整检查2701通过／1929可选或实际数据用例跳过。[完整120候选加两张显式失败诊断及独立重建](../results/native-qualitative/rn18-full-candidate-pool-complete-20261105.json)已完成退出后验收：122套PNG／NPZ／元数据字节一致，2,074数组及缓存姿态／源像素重查一致。[三类人工例图与独立负收益诊断](../results/native-qualitative/examples-rn18-legacy/README.md)及[一次新整合审查／最终验收](../results/native-qualitative/rn18-qualitative-review-acceptance-20261105.json)现已完成，无待修正项。最终四例68数组／12原生误差／四科研行像素及实际模糊中心帧绑定复核；仅完成可得旧版定性范围，不能宣布PDF原图人口或全文等价。
 
 ```bash
 CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 \
@@ -49,7 +49,7 @@ python scripts/paper/run_native_qualitative.py verify \
 
 [实际预测快照](../results/native-qualitative/frozen-prediction-running-20261101.json)已成为历史记录；[完整双遍结果](../results/native-qualitative/frozen-predictions-complete-20261101.json)现已验收，每遍2,322点/38批，全部原始数组精确重放、模型状态不变、60拥有者与退出后独立复核进程关闭。不能将定性抽样分母替换为全量表格分母。
 
-[完整布尔来源闭环](../results/native-qualitative/boolean-flags-complete-20261101.json)现已完成：两个独立实际准入／导出、6个原始拥有者与退出后NumPy复核进程均已关闭，四文件完整字节与所有2,322点逐项一致。原始条件会保留2,242点；未追踪20、无有效手marker64、陈旧帧0，前两者存在重叠。所有2,322点继续进行预测，之后才按这些标志排序；不能把标签有效性直接当作该过滤条件。此闭环本身只证明过滤输入；两遍模型预测已由独立完整证明验收，三类例图与新版数据人口等价仍欠。
+[完整布尔来源闭环](../results/native-qualitative/boolean-flags-complete-20261101.json)现已完成：两个独立实际准入／导出、6个原始拥有者与退出后NumPy复核进程均已关闭，四文件完整字节与所有2,322点逐项一致。原始条件会保留2,242点；未追踪20、无有效手marker64、陈旧帧0，前两者存在重叠。所有2,322点继续进行预测，之后才按这些标志排序；不能把标签有效性直接当作该过滤条件。此闭环本身只证明过滤输入；两遍模型预测和旧版三类例图已由独立完整证明验收，新版数据人口等价仍欠。
 
 同点候选池入口如下。它只消费已独立验收并实际关闭的双遍预测来源；固定完整来源证明和所有原始文件须保持。每张候选保留实际RGB、四组22角、原始前20角网格、未舍入误差、公共视角及全部文件SHA。默认120只限制供人工检查的图片数，不改变2,242点完整收益排序；缺RGB样本仍留在排名中。不会自动赋予三类条件标签。
 

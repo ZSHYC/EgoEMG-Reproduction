@@ -1,0 +1,140 @@
+{
+  "accepted_cache_proof_sha256": "c7a36ad430a9d080ea1fa12f9d4718e0bd506186e46836a3028ce84e1056ea69",
+  "cache_lineage": {
+    "dense_key": {
+      "center_idx": 59712548,
+      "ep_idx": 37,
+      "group_index": 1,
+      "hand": "left",
+      "native_index": 2756,
+      "sequence": 7028,
+      "split": "gesture",
+      "window_end": 59718548,
+      "window_start": 59706548
+    },
+    "dense_sequence": 7028,
+    "ordinary_key": {
+      "center_idx": 59712548,
+      "ep_idx": 37,
+      "group_index": 1,
+      "hand": "left",
+      "native_index": 697,
+      "sequence": 1460,
+      "split": "gesture",
+      "window_end": 59718548,
+      "window_start": 59706548
+    },
+    "ordinary_sequence": 1460,
+    "original_batch_ordinal": 111,
+    "original_row_in_batch": 4,
+    "verified_input_sha256": "9a667bf27b1044a9830144af211467eed7f471a2f33125f6f220f7b1bd005281"
+  },
+  "diagnostic_extra": true,
+  "figure7_reproduced": false,
+  "file_sha256": "a99890c7e0a467a62d71f09a8b68ae359cde2ed7cb5773ab01c13bcc5f701055",
+  "full_paper_complete": false,
+  "panel_metadata": {
+    "arrays_sha256": {
+      "emg:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "emg:unscaled_vertices": "3e7a4cc5cfcf739404549a8af78f72a0c033a72b25242b4a8e3b7517d477faa5",
+      "emg:vertices": "b4ad566a02647f50eb78731e560b92e357fcd831b1d8147e800601da71469d35",
+      "fusion:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "fusion:unscaled_vertices": "2535302756fe353f82086c522f88e645cfd9748b4a13a6fdb8835d75fbc2dd5b",
+      "fusion:vertices": "58b1b80413fd899028dcfea1b7d032e27b8b0787b3c845d9d31bf9ba3b3deb4b",
+      "gt:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "gt:unscaled_vertices": "0550bec08fd6302678ae48b1afb62b66298e116e24a4b279d87bc759180a2ed2",
+      "gt:vertices": "0f9f8b196d3e15c46a2e12b3b03ef52ccbaf6f10aea300a3e6e58b1f8d159c80",
+      "pose:emg": "75aa2b45fe836adb78adf63b885e92301a75ad358859e26f9a0758944869d891",
+      "pose:fusion": "cae89fd44e4d2fdf682fe075f61b918557b023b89b24b13a21d435a867f93647",
+      "pose:gt": "d84f91ccec1f90c27350e18d518d620aaa4ae0f63ecfc9bf07cf9d8944d0c488",
+      "pose:vision": "c59388f5504aee7c69bd782c2c212b76e26ecc8e55172c07f4c6584402f42c42",
+      "rgb": "d1f0223651f23fd66980f6404f76918168afc85c259c26c24e7225f509ceb235",
+      "vision:faces": "5f78c1f4a86d0362f414a6061706717223607b969282ffa78eabfe41c54ce485",
+      "vision:unscaled_vertices": "67dfc9abe38126451588435bc15b5b399a657cc9a5f19ac2760d46b6d7dd55a7",
+      "vision:vertices": "730c2added9a150d74c0611674fa503a1190bffc91b426f2579912f3d404f53c"
+    },
+    "crop_valid": true,
+    "delta_rad": -0.1333182156085968,
+    "errors_deg": {
+      "emg": 29.07090384364128,
+      "fusion": 32.51751406788826,
+      "vision": 24.878380313515663
+    },
+    "errors_rad": {
+      "emg": 0.5073456168174744,
+      "fusion": 0.5674958825111389,
+      "vision": 0.4341776669025421
+    },
+    "figure7_reproduced": false,
+    "format": "same_key_original_qualitative_numeric_panel_v1",
+    "full_paper_complete": false,
+    "geometry_adapter_source_sha256": "aeb3e64e90ad50ab936514883e8f49bdef32ca047829973bd7d9c1ffa8a5fdb8",
+    "geometry_source_files_sha256": {
+      "egoemg/UmeTrack/dataset/generic_hand_model.json": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31",
+      "egoemg/UmeTrack/lib/common/hand.py": "f225e339e8b73de258c2bf87072a7af3f857b4ffed68532159f60417b0a88136",
+      "egoemg/UmeTrack/lib/common/hand_skinning.py": "307b322fbfc785346325737f831b61c581e45bd1a819444d71a5e13895c43d6e",
+      "egoemg/UmeTrack/lib/common/pytorch3d_transforms_so3.py": "8392acd6c420e24f576c34c8deafbac8b52a41dc8343dccc42084af2b959e9a1",
+      "egoemg/UmeTrack/lib/tracker/video_pose_data.py": "b1d08ec7ce9dc773ceca67a8e2c9d39569e2999aee67cd77861606c3cd297428",
+      "scripts/eval/find_fusion_wins.py": "69d063ebe7d06fae067a5d9b18eb52dd1116e06eafd9b1f991ed1b20e03116f0"
+    },
+    "input_typed_sha256": {
+      "fusion:emg": "7bb854e824320c2e5f2092e7fae808d0a65fd898a50ce0ade51ce2f174bea3fc",
+      "fusion:emg_channel_mask": "55e541ac98d35f8957d5cb7ac6015d86917b24db33bdc00ec2f3f3e1c930d371",
+      "fusion:joint_angles": "d0477df27c134ffbd2493e48371acb5328299777cfb5671ebda0a076adbe9fd9",
+      "fusion:label_valid_mask": "b65b3a00e129517a0b43bf43e44c2e1c74821281013a5d978179d6b4efc00b93",
+      "fusion:vision_frame_indices": "a91756151d613c359fc1a9f6468efae28ff212fe067d24b77449b657d9222847",
+      "fusion:vision_img": "555ea6f69f2963f39f8f1723cb1e03afe18ea4830996a7f0602f9a1064e1edcb",
+      "fusion:vision_valid_mask": "b65b3a00e129517a0b43bf43e44c2e1c74821281013a5d978179d6b4efc00b93",
+      "standalone:emg": "7bb854e824320c2e5f2092e7fae808d0a65fd898a50ce0ade51ce2f174bea3fc",
+      "standalone:emg_channel_mask": "55e541ac98d35f8957d5cb7ac6015d86917b24db33bdc00ec2f3f3e1c930d371",
+      "standalone:joint_angles": "d0477df27c134ffbd2493e48371acb5328299777cfb5671ebda0a076adbe9fd9",
+      "standalone:label_valid_mask": "b65b3a00e129517a0b43bf43e44c2e1c74821281013a5d978179d6b4efc00b93"
+    },
+    "key": {
+      "center_idx": 59712548,
+      "ep_idx": 37,
+      "group_index": 1,
+      "hand": "left",
+      "native_index": 697,
+      "sequence": 1460,
+      "split": "gesture",
+      "window_end": 59718548,
+      "window_start": 59706548
+    },
+    "label_valid": true,
+    "left_rgb_already_canonical": true,
+    "mesh_finger_angles": 20,
+    "native_mesh_normalization": "each pose separately: median vertex span -> 0.09 when span >1e-6",
+    "normalized_rgb_sha256": "555ea6f69f2963f39f8f1723cb1e03afe18ea4830996a7f0602f9a1064e1edcb",
+    "numeric_error_angles": 22,
+    "physical_rgb_projection_proven": false,
+    "scientific_eligible": false,
+    "shared_view": {
+      "azimuth": -70.0,
+      "elevation": 20.0,
+      "limits": [
+        [
+          -0.11911520674824715,
+          0.015035759061574935
+        ],
+        [
+          -0.08739064760506153,
+          0.04676031820476055
+        ],
+        [
+          -0.0648926155269146,
+          0.06925835028290749
+        ]
+      ],
+      "projection": "ortho",
+      "zoom": 1.5
+    },
+    "trained_source_admitted": false,
+    "wrist_angles_displayed": false
+  },
+  "png_pixels_sha256": "75014b435f2041fdd5ef1de9d5559bbc49de69dc25b5e59cb3fe0597519c5c85",
+  "rank": 2119,
+  "renderer_source_sha256": "a46dd25512c402b92b8dc03ce30d74a87411dd9e75738a8f0a19ab6aa8be1e80",
+  "source_model_identity_sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee",
+  "trained_source_admitted": false
+}

@@ -1,0 +1,14 @@
+{
+  "collector_actor": {
+    "pgrp": 3464314,
+    "pid": 3464314,
+    "sid": 3464314,
+    "start_ticks": "469417154",
+    "state": "R",
+    "uid": 1005
+  },
+  "collector_also_physically_closed": true,
+  "collector_torch_unimported": true,
+  "selected_rank": 94,
+  "source_full_private_readback_sha256": "cede531fde6a90d8633a31d86da9466cf140067d6b30eaefbced6f389568e054"
+}

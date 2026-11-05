@@ -1,0 +1,105 @@
+{
+  "center_RGB_matches_saved_model_input": true,
+  "center_frame_index": 49307,
+  "center_frame_int64_tensor_hash_matches_native_model_input": true,
+  "contact_sheet_sha256": "80e9a0f75ca63393b5d8d8ba9e951d61f91ac6bb150cbaef93da46448abead69",
+  "format": "RN18_actual_model_center_and_five_neighbour_crop_context_v1",
+  "frames": [
+    {
+      "file": "frame_00049305.jpg",
+      "frame_index": 49305,
+      "jpeg_sha256": "68d897e3887a9ccf848f359ac0ab994eabd1fda326ce2dfb43ca416f43c76e8e",
+      "offset": -2,
+      "rgb_typed_sha256": "deb93189e4d372d237d7b46d4911b2232fa79565ceade30526495855145cb979"
+    },
+    {
+      "file": "frame_00049306.jpg",
+      "frame_index": 49306,
+      "jpeg_sha256": "27c6b76a0582b756ed0cc5b81e15a7d2f56639a33d0c8325f8df53cb142f668c",
+      "offset": -1,
+      "rgb_typed_sha256": "5ebaf67da6775999c84ed92a22157ca7c74085ac9ea5bc0416ffe37e3d0e1de5"
+    },
+    {
+      "file": "frame_00049307.jpg",
+      "frame_index": 49307,
+      "jpeg_sha256": "6b953c71a08cdfb7445260a2dc2718be03aea10deb98a06b778413257907b0ec",
+      "offset": 0,
+      "rgb_typed_sha256": "09bc666cc65a6dfbaa15a9c5990a2c0a36687f9e7495cfbf4c37b0dc1dbbd010"
+    },
+    {
+      "file": "frame_00049308.jpg",
+      "frame_index": 49308,
+      "jpeg_sha256": "af78884d2a514eb80217c9ea6a42542a04685791a349d79473b90094f1bfd964",
+      "offset": 1,
+      "rgb_typed_sha256": "bc1a8f0557492acd7849ddae6a801dd0cb877cd3ae2c97af17b3d6c78f2e81a5"
+    },
+    {
+      "file": "frame_00049309.jpg",
+      "frame_index": 49309,
+      "jpeg_sha256": "8883ac8d3d15d7ad6c4df7ac882ef00f2c6cefbd920f8faa79bdd0be1252d4d9",
+      "offset": 2,
+      "rgb_typed_sha256": "eee9a0586a87c3cb0738bc6982a275c0212efb487091dd642ea296e6ab861a59"
+    }
+  ],
+  "key": {
+    "center_idx": 38374971,
+    "ep_idx": 24,
+    "group_index": 1,
+    "hand": "left",
+    "native_index": 433,
+    "sequence": 1284,
+    "split": "gesture",
+    "window_end": 38380971,
+    "window_start": 38368971
+  },
+  "no_neighbour_predictions": true,
+  "physical_motion_ground_truth_proven": false,
+  "rank": 94,
+  "source_field": "image_webcam_frame_index",
+  "source_nine_attributes": {
+    "/home/shihao/projects/EgoEMG-Reproduction/data/crops/episode_000024.data.mdb": [
+      2050,
+      7889188,
+      1322823680,
+      1792912241263881304,
+      1792912242552896548,
+      33204,
+      1005,
+      1005,
+      1
+    ],
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/image_webcam_frame_index.dat": [
+      2050,
+      7888621,
+      264646900,
+      1778044927000000000,
+      1792817967940874798,
+      33152,
+      1005,
+      1005,
+      2
+    ],
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/manifest.json": [
+      2050,
+      6830917,
+      9419,
+      1778047598000000000,
+      1792817013799534151,
+      33152,
+      1005,
+      1005,
+      1
+    ],
+    "/home/shihao/projects/EgoEMG-Reproduction/data/legacy/metadata.npz": [
+      2050,
+      6830919,
+      17088,
+      1778047601000000000,
+      1792817016717564333,
+      33152,
+      1005,
+      1005,
+      1
+    ]
+  }
+}

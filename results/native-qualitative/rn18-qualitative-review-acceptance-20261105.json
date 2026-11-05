@@ -1,0 +1,106 @@
+{
+  "accepted_complete_pool_proof_sha256": "b127199980ad55317b76884d3d3c30d9283f8c110911dc42d58bf4aa72784d64",
+  "assessment": "Ready within available legacy RN18 qualitative scope; promote reviewed artifacts and update pending metadata only.",
+  "closed_core_math_models_tests_or_reviews_repeated": false,
+  "critical_findings": 0,
+  "current_tested_source_sha256": {
+    "egoemg_repro/rn18_qualitative_render.py": "d25cac638da9bafe3fcf063ef26b6d1e2300c0d57ccda309073eaa3e16122e13",
+    "scripts/paper/render_rn18_qualitative.py": "d7d58df6495685a3fe229974d41d14a84cce413b97ec131a757db36a071a47be",
+    "tests/test_rn18_qualitative_render.py": "7392d998313b2730e0942647203b713ddb2d712695f5f688476c3178d0c3cd75"
+  },
+  "existing_actual_server_checks": 35,
+  "existing_actual_server_skipped": 0,
+  "figure7_reproduced": false,
+  "format": "single_fresh_RN18_cached_visual_integration_review_and_acceptance_v1",
+  "fresh_final_review_count": 1,
+  "full_paper_complete": false,
+  "important_findings": 0,
+  "local_initial_assembly_failure": {
+    "cause": "Oneoff assembler used a different dtype/shape hash header; corrected to existing source schema. Original arrays and scientific runtime unchanged.",
+    "corrected_assembly_all4_FP32_errors_and_row_pixels_exact": true,
+    "prior_partial_draft_preserved": true
+  },
+  "material_code_fix_passes": 0,
+  "minor_findings": 0,
+  "new_neural_inference_performed": false,
+  "new_optimizer_updates": 0,
+  "original_full_source_122_reconstruction_not_repeated": true,
+  "parent_fresh_promotion_checks": {
+    "complete_pool_and_full_rank_key_error_binding": true,
+    "context_files_CSV_license_and_center_binding": true,
+    "selected_leaf_bytes_unchanged": true,
+    "three_current_tested_source_hashes_exact": true,
+    "torch_unimported": true,
+    "typed_arrays": 68,
+    "unchanged_scientific_rows": 4
+  },
+  "physical_projection_proven": false,
+  "reviewed_base_commit": "53b50b010293",
+  "reviewed_draft_selection_sha256": "119b9e026978431c210790f9b9464ef03f804198a0827b8d156622cd38efb71a",
+  "reviewed_head_commit": "51b24d893f5971de92e67379a648473df26db858",
+  "reviewer": "/root/rn18_visual_final_review_20261105",
+  "reviewer_independent_readonly_checks": {
+    "actual_center_RGB_and_int64_frame_hash": true,
+    "collector_readback_binding": true,
+    "cuda_initialized": false,
+    "destination_relative_links": true,
+    "leaf_context_CSV_license_hashes": 24,
+    "native_FP32_errors": 12,
+    "typed_arrays": 68,
+    "unchanged_scientific_rows": 4
+  },
+  "rulings": [
+    {
+      "behavior": "Original sampling, ranking, dense inference and trained models",
+      "risk": "This new unit does not independently revalidate all old scientific mathematics.",
+      "ruling": "Reuse fixed accepted cache/full-source evidence; no re-review or rerun"
+    },
+    {
+      "behavior": "Old ViTS, IK, FK and display mathematics",
+      "risk": "Any pre-existing core defect remains outside new RN18 integration scope.",
+      "ruling": "Accepted earlier; inspect direct interfaces only"
+    },
+    {
+      "behavior": "Paper population and physical RGB reprojection",
+      "risk": "Cannot claim PDF-equivalent Figure7 or physical alignment.",
+      "ruling": "Unproven and explicitly excluded from available legacy completion"
+    },
+    {
+      "behavior": "Motion-blur certainty and crop-caused failure",
+      "risk": "Visual condition labels are not ground truth.",
+      "ruling": "Manual overlapping interpretations; retain sensor/defocus/resampling/causal caveats"
+    },
+    {
+      "behavior": "EMG causal or population benefit from selected wins",
+      "risk": "Rank-selected examples are biased illustrative samples.",
+      "ruling": "No such inference; separate controlled experiments and worst-rank diagnostic"
+    },
+    {
+      "behavior": "Pure numeric panel eligibility flags",
+      "risk": "A numeric helper alone never authorizes training or new inference.",
+      "ruling": "Keep false flags unchanged; upstream authenticated cache/run graph supplies source provenance"
+    },
+    {
+      "behavior": "Aggregate index byte equality",
+      "risk": "Do not mislabel process-specific indexes as identical.",
+      "ruling": "Actor provenance may differ; compare scientific row PNG/NPZ/metadata bytes"
+    },
+    {
+      "behavior": "Arbitrary in-process monkeypatches",
+      "risk": "This is not a defense against arbitrary execution in the reader process.",
+      "ruling": "No supported-workflow defect established"
+    },
+    {
+      "behavior": "Draft cross-directory links",
+      "risk": "Temporary draft location is not public publication.",
+      "ruling": "Check against final destination after promotion"
+    },
+    {
+      "behavior": "Publication and whole-paper completion",
+      "risk": "Legacy figure scope cannot replace unfinished Tables1–15/Figures1–13/data/annotation work.",
+      "ruling": "Publish only after this acceptance and actual GitHub readback; whole paper stays active"
+    }
+  ],
+  "second_review_performed": false,
+  "supported_rn18_legacy_three_visual_examples_complete": true
+}

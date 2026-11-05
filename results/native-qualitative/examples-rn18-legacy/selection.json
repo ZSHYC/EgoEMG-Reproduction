@@ -1,0 +1,210 @@
+{
+  "accepted_cache_proof_sha256": "c7a36ad430a9d080ea1fa12f9d4718e0bd506186e46836a3028ce84e1056ea69",
+  "all4_original_FP32_22angle_errors_recomputed_exact": true,
+  "all4_scientific_row_pixels_unchanged": true,
+  "candidate_pool_proof_file_sha256": "b127199980ad55317b76884d3d3c30d9283f8c110911dc42d58bf4aa72784d64",
+  "case_selection_policy": "All120 gain-ranked RGB candidates plus explicit1746/2119 diagnostics viewed in five contacts; six full panels shortlisted; two five-frame contexts inspected; manual ranks39/15/94 illustrate three overlapping descriptive conditions; rank2119 is the explicit worst-gain diagnostic. No model tuning, no unbiased aggregate or EMG causal claim.",
+  "composites": [
+    {
+      "all_scientific_row_pixels_unchanged": true,
+      "file": "figure7-rn18-legacy-examples.png",
+      "file_sha256": "4edf1d8f7315ab825766222b879f3c928a446bb3aa16b96f6a0992d64344e8a0",
+      "pasted_row_height": 512,
+      "pasted_x": 300,
+      "selected_ranks": [
+        39,
+        15,
+        94
+      ]
+    },
+    {
+      "all_scientific_row_pixels_unchanged": true,
+      "file": "rn18-fusion-worse-diagnostic.png",
+      "file_sha256": "e6dd3fe4099f03191b20eea46e525f325d4ebc2aa7a9f0dfba668e8a71ac39f6",
+      "pasted_row_height": 512,
+      "pasted_x": 300,
+      "selected_ranks": [
+        2119
+      ]
+    }
+  ],
+  "diagnostic_examples": [
+    {
+      "arrays_file": "rank_2119_seq_001460.npz",
+      "arrays_file_sha256": "bbb013275ff154715fa53758826ee67246d8799b3879334f77b1ed238600828d",
+      "condition": "diagnostic_fusion_worse",
+      "delta_deg": -7.639133754372597,
+      "diagnostic_extra": true,
+      "display_label": "Fusion-worse diagnostic",
+      "errors_deg": {
+        "emg": 29.07090384364128,
+        "fusion": 32.51751406788826,
+        "vision": 24.878380313515663
+      },
+      "errors_rad": {
+        "emg": 0.5073456168174744,
+        "fusion": 0.5674958825111389,
+        "vision": 0.4341776669025421
+      },
+      "gain_deg": -7.639133754372597,
+      "key": {
+        "center_idx": 59712548,
+        "ep_idx": 37,
+        "group_index": 1,
+        "hand": "left",
+        "native_index": 697,
+        "sequence": 1460,
+        "split": "gesture",
+        "window_end": 59718548,
+        "window_start": 59706548
+      },
+      "manual_visual_rationale_zh": "完整2119点排名中的最差Vision−Fusion收益点，作为预先显式指定的负收益诊断保留。RGB中部分手部及指尖被裁剪边界截断，Fusion的22角MAE高于Vision；不能据此断言裁剪造成失败或估计总体失败频率。",
+      "metadata_file": "rank_2119_seq_001460.json",
+      "metadata_file_sha256": "c73956848d281ff7fc3c5d4df881d531a234c8b11de7422983b49f0c0c8d8013",
+      "png_file": "rank_2119_seq_001460.png",
+      "png_file_sha256": "a99890c7e0a467a62d71f09a8b68ae359cde2ed7cb5773ab01c13bcc5f701055",
+      "rank": 2119,
+      "selection_is_manual_visual_interpretation": true
+    }
+  ],
+  "error_csv_file_sha256": "76d77366035279b955b3bfe621c86788681cc1d9792dd3662f0c0b9dd7eaef86",
+  "figure7_reproduced": false,
+  "format": "manually_reviewed_RN18_original_ordinary_qualitative_examples_v1",
+  "full_paper_complete": false,
+  "full_rank_equal": 0,
+  "full_rank_fusion_better": 1745,
+  "full_rank_fusion_worse": 374,
+  "license_file_sha256": "336255dc30193e8e15d689d9481bb05673d89055718f3a96923a7ffb99adbbaf",
+  "motion_context_files_sha256": {
+    "motion-context/collector.json": "1c730e708c434d5b7761498b1718337e23d98f86d94681c64d1a42920ed7d673",
+    "motion-context/evidence.json": "e16d4f575d95e7af91886aaea5858aff74329630bfa8afcf23c7cf4ad306295d",
+    "motion-context/frame_00049305.jpg": "68d897e3887a9ccf848f359ac0ab994eabd1fda326ce2dfb43ca416f43c76e8e",
+    "motion-context/frame_00049306.jpg": "27c6b76a0582b756ed0cc5b81e15a7d2f56639a33d0c8325f8df53cb142f668c",
+    "motion-context/frame_00049307.jpg": "6b953c71a08cdfb7445260a2dc2718be03aea10deb98a06b778413257907b0ec",
+    "motion-context/frame_00049308.jpg": "af78884d2a514eb80217c9ea6a42542a04685791a349d79473b90094f1bfd964",
+    "motion-context/frame_00049309.jpg": "8883ac8d3d15d7ad6c4df7ac882ef00f2c6cefbd920f8faa79bdd0be1252d4d9",
+    "motion-context/motion-context.png": "80e9a0f75ca63393b5d8d8ba9e951d61f91ac6bb150cbaef93da46448abead69"
+  },
+  "physical_projection_proven": false,
+  "prefilter_selected": 2208,
+  "review_acceptance_file_sha256": "61aa59d4a94001e5af3ce27c8c69c67b3ee240e2a19cc976791a644d076a5fbe",
+  "review_status": "one_fresh_RN18_integration_review_no_actionable_findings",
+  "selected_examples": [
+    {
+      "arrays_file": "rank_0039_seq_000038.npz",
+      "arrays_file_sha256": "fc0980c0d52dbd41f059515d48cff349ce29c34bbe7b89abb96a279d3030469f",
+      "condition": "self_occlusion",
+      "delta_deg": 6.792812687158584,
+      "diagnostic_extra": false,
+      "display_label": "Self-occlusion",
+      "errors_deg": {
+        "emg": 15.44144762456417,
+        "fusion": 6.699478961527348,
+        "vision": 13.492291648685931
+      },
+      "errors_rad": {
+        "emg": 0.2694842517375946,
+        "fusion": 0.11691935360431671,
+        "vision": 0.2354675680398941
+      },
+      "gain_deg": 6.792812687158584,
+      "key": {
+        "center_idx": 8639983,
+        "ep_idx": 8,
+        "group_index": 0,
+        "hand": "left",
+        "native_index": 42,
+        "sequence": 38,
+        "split": "user",
+        "window_end": 8645983,
+        "window_start": 8633983
+      },
+      "manual_visual_rationale_zh": "一根手指伸直，其余手指弯向掌侧并相互重叠，部分屈曲关节和指尖在RGB中不可见。人工解释为自遮挡，不推断具体指名或传感器遮挡真值。",
+      "metadata_file": "rank_0039_seq_000038.json",
+      "metadata_file_sha256": "d3f655eef828d4553a30108c03b542c9d16ba7e28cfa93a5467ec21c481d2b9b",
+      "png_file": "rank_0039_seq_000038.png",
+      "png_file_sha256": "f23a051c2e25e04bb089cbb5834100d4e87a826cf4b1209a15a75a96bb449160",
+      "rank": 39,
+      "selection_is_manual_visual_interpretation": true
+    },
+    {
+      "arrays_file": "rank_0015_seq_001103.npz",
+      "arrays_file_sha256": "54f43f08a0de33ad2470a52f4c05e6ae6b51e1d014159d8eb297ff7dded971d6",
+      "condition": "depth_ambiguity",
+      "delta_deg": 8.403953562676906,
+      "diagnostic_extra": false,
+      "display_label": "Depth ambiguity",
+      "errors_deg": {
+        "emg": 12.00090305507183,
+        "fusion": 4.12953088581562,
+        "vision": 12.533484448492526
+      },
+      "errors_rad": {
+        "emg": 0.20943984389305115,
+        "fusion": 0.07206860184669495,
+        "vision": 0.21873445808887482
+      },
+      "gain_deg": 8.403953562676906,
+      "key": {
+        "center_idx": 14099324,
+        "ep_idx": 11,
+        "group_index": 1,
+        "hand": "left",
+        "native_index": 145,
+        "sequence": 1103,
+        "split": "gesture",
+        "window_end": 14105324,
+        "window_start": 14093324
+      },
+      "manual_visual_rationale_zh": "手部斜对相机，屈曲手指和多个指尖在投影中重叠；沿视线方向的指间距和屈曲深度难从单张RGB唯一确定。人工解释为深度歧义，也含自遮挡；没有额外深度真值。",
+      "metadata_file": "rank_0015_seq_001103.json",
+      "metadata_file_sha256": "4879ce1bf8a674a01d83168a18fdcaa2b322a72b11cf0812df1124fa834d6931",
+      "png_file": "rank_0015_seq_001103.png",
+      "png_file_sha256": "a6ac015a5e2ff5a9abe5b4929636ff02cee919da411b02f9fb2ab611122ec198",
+      "rank": 15,
+      "selection_is_manual_visual_interpretation": true
+    },
+    {
+      "arrays_file": "rank_0094_seq_001284.npz",
+      "arrays_file_sha256": "d21f3f305f4bc6f82e9f454ad5453b34d542c1ca5ec5cd9b977ebbd475fcccd7",
+      "condition": "motion_blur",
+      "delta_deg": 5.585329011082649,
+      "diagnostic_extra": false,
+      "display_label": "Blur consistent with motion",
+      "errors_deg": {
+        "emg": 35.66951994895935,
+        "fusion": 7.183215782046318,
+        "vision": 12.768544793128967
+      },
+      "errors_rad": {
+        "emg": 0.622504711151123,
+        "fusion": 0.12536153197288513,
+        "vision": 0.22283673286437988
+      },
+      "gain_deg": 5.585329011082649,
+      "key": {
+        "center_idx": 38374971,
+        "ep_idx": 24,
+        "group_index": 1,
+        "hand": "left",
+        "native_index": 433,
+        "sequence": 1284,
+        "split": "gesture",
+        "window_end": 38380971,
+        "window_start": 38368971
+      },
+      "manual_visual_rationale_zh": "握拢手部的上边缘出现拖影、轮廓模糊，背景横杆边界相对清楚。同episode第49305–49309帧的轮廓和朝向连续变化，中心49307与实际模型RGB一致；人工判断与运动模糊一致，未测快门，不能排除失焦、分辨率或裁剪重采样的贡献。",
+      "metadata_file": "rank_0094_seq_001284.json",
+      "metadata_file_sha256": "60251b1472abaf1b8dafd1a6b5fbe0b239653c0a0d281f16ee44801ef8732d87",
+      "png_file": "rank_0094_seq_001284.png",
+      "png_file_sha256": "08eced8a267236799c7dc5937010cf3e329d5d3cca594725a0a448fe2f7a704f",
+      "rank": 94,
+      "selection_is_manual_visual_interpretation": true
+    }
+  ],
+  "source_commit": "d0786d7ae8ed93b73bdea90b02ede241f4cb95b5",
+  "source_model_identity_sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee",
+  "source_tracking_filter_pass": 2119,
+  "supported_rn18_legacy_three_visual_examples_complete": true,
+  "visual_categories_have_sensor_ground_truth": false
+}
