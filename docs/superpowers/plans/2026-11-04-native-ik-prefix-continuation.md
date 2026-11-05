@@ -33,10 +33,10 @@
 
 **Interfaces:** `admit_ik_prefix(inputs, original_root, *, proof, engineering=False) -> IKPrefix`; `IKPrefix.identity` returns a deep independent dict; `.check()` validates registration/live providers/generations/closed source actors; `.batch_prefix(hand, shard) -> tuple[Path,...]` returns only the contiguous admitted original packet directories. Full mode requires exact pinned real proof and actual full registered inputs. Explicit engineering can use smaller real-file fixtures but always retains false full/scientific flags.
 
-- [ ] Write RED tests for missing implementation, complete ordered prefix against the original selector, defensive copies, old live/swapped actors, missing JSON/NPZ, duplicate/reordered/holey/extra complete batches, copied or mutated identity/provider, same-size replacement/hardlinks, optional-mask appearance, and forged/resealed full audit. A structural synthetic carrier tests engineering I/O only.
-- [ ] Run only `python -m pytest -q tests/test_native_ik_continuation.py`; observe the intended missing-module/input failure before implementing admission.
-- [ ] Implement registered prefix/guards using unchanged `inspect_ik_batch`, `select_ik_batch`, `require_closed` and existing source guards. Never materialize output labels or touch old packet generations.
-- [ ] Run the same focused suite GREEN, record actual counts/skips and commit. Do not rerun original optimizer/math tests.
+- [x] Write RED tests for missing implementation, complete ordered prefix against the original selector, defensive copies, old live/swapped actors, missing JSON/NPZ, duplicate/reordered/holey/extra complete batches, copied or mutated identity/provider, same-size replacement/hardlinks, optional-mask appearance, and forged/resealed full audit. A structural synthetic carrier tests engineering I/O only.
+- [x] Run only `python -m pytest -q tests/test_native_ik_continuation.py`; observe the intended missing-module/input failure before implementing admission.
+- [x] Implement registered prefix/guards using unchanged `inspect_ik_batch`, `select_ik_batch`, `require_closed` and existing source guards. Never materialize output labels or touch old packet generations.
+- [x] Run the same focused suite GREEN, record actual counts/skips and commit. Do not rerun original optimizer/math tests.
 
 ## Task2: strict continued workflow and separate geometric replay
 
