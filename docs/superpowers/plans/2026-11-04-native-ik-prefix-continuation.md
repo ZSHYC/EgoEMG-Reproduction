@@ -64,4 +64,14 @@ read-only historical inputs. See [repository GPU rule](../../../AGENTS.md).
 - [ ] Independently re-open the genuine full68-prefix/source/qualification once under the accepted new code. Register a detached new workflow waiting for the same qualified idleGPU1; confirm actual PID/start/resource/source bindings, not just a lock file or requested launch.
 - [ ] Observe the same workflow through all original batches, all fresh geometry, complete bilateral labels and postexit closure; publish aggregate actual errors/zero populations/work and source/label hashes. No completion from queue registration or a partial producer. Keep old failures, partial files, masks and original labels.
 
+2026-11-05 allowed-device qualification update: a distinct qualification-only
+capsule at `/data/shihao/egoemg-IK-allowed-GPU-qualification-1302baaec836-20261105`
+has actual live recorder3517083/start470320435 and controller3517084/start470320438.
+Full source admission succeeded; all six allowed physical index/UUID bindings
+are checked, with two idle/no-consumer/64GiB observations before selection.
+No qualification stage or full continuation exists yet. Evidence:
+`results/native-mano-ik/allowed-GPU-qualification-wait-20261105.json`.
+This uses the unchanged original qualification CLI; later continuation must
+separately authenticate its actual closed permit and new physical backend.
+
 Self-review: the two code interfaces are consistent; Task1 owns exact prefix admission/generations, Task2 owns role attribution/full ordering and physical lifecycle, Task3 owns actual native execution, independent geometry and final closure. No new model or scientific protocol is introduced; full-paper scope is unchanged.
