@@ -1,0 +1,42 @@
+{
+  "GPU1_full_continuation_never_launched": true,
+  "eligible_physical_indices": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "forbidden_gpu_uuids": [
+    "GPU-bb3b892e-454f-e10e-c305-5ab94db2c384",
+    "GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae"
+  ],
+  "forbidden_physical_indices": [
+    0,
+    1
+  ],
+  "format": "user_protected_physical_GPU01_policy_and_actual_ownership_check_v1",
+  "full_paper_complete": false,
+  "historical_GPU1_qualification_relabelled": false,
+  "new_allowed_device_qualification_required": true,
+  "own_consumers_on_gpu0_or1": false,
+  "protected_gpu_processes": [
+    {
+      "gpu_index": 0,
+      "owned_by_shihao": false,
+      "pid": 2905243,
+      "uid": 1000
+    },
+    {
+      "gpu_index": 1,
+      "owned_by_shihao": false,
+      "pid": 2905244,
+      "uid": 1000
+    }
+  ],
+  "shihao_uid": 1005,
+  "unlaunched_GPU1_entry_disabled": true,
+  "user_instruction": "0\uff0c1\u53f7gpu\u4e0d\u8981\u7528\uff0c\u90a3\u662f\u522b\u4eba\u7684",
+  "utc": "2026-11-05T10:41:55.608077+00:00"
+}

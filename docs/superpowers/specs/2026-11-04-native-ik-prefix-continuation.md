@@ -1,5 +1,14 @@
 # Preserve and continue interrupted original IK batches
 
+**2026-11-05 user resource override:** physical GPUs0/1 are prohibited, including
+queues and qualification. The original GPU1 qualification remains historical
+evidence only. No new full continuation was launched on GPU1; its prepared
+launcher was disabled. Before full continuation on an allowed GPU2–7, complete
+an actual original B10096 qualification on that device and bind the new physical
+backend separately from the historical prefix's provenance. The fixed-GPU1
+deployment clauses below describe the original design and are superseded by
+this restriction; they must not be bypassed by relabeling qualification.
+
 This is an operational addendum to the approved full-paper reproduction and the native full-data IK plan, not a new annotation method. The user stopped all experiments on November2 and later explicitly resumed the full goal. Current independent evidence is [the actual68-batch postexit raw audit](../../../results/native-mano-ik/interrupted-prefix-raw-verified-20261104.json).
 
 The original full workflow produced right-hand shard0 batches0–67 before the stop:686,528 rows,10,926 original optimizer steps and387,193 closures. All raw parameters, exact original input indices/poses, source assets, statistics and actual exited actors were independently reopened. Seventeen zero poses remain. Batch68's unfinished directory remains preserved. These packets still require fresh independent geometry; they are not completed regenerated labels.

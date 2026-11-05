@@ -1,0 +1,184 @@
+{
+  "accepted_source_full68_read_evidence": {
+    "checks": 83,
+    "collector_closed": true,
+    "new_optimizer_steps": 0,
+    "owning_actors_closed": 6,
+    "path": "results/native-mano-ik/full68-prefix-read-accepted-20261105.json",
+    "reused_rows": 686528,
+    "sha256": "773f45ada960b15965d56f13a5eadaae2ab803beab5e8f2e1a540677b5c772c1"
+  },
+  "actual_local_project_suite": {
+    "command": "tmp/unit-light-env/bin/python -B -m pytest -q --basetemp tmp/IK-actor-state-full-light-scratch-20261105",
+    "environment": "existing Python3.12 NumPy1.26.4 without Torch; optional/private-data skips are not full Torch CI success",
+    "failed": 0,
+    "passed": 2784,
+    "seconds": 288.0,
+    "skipped": 1929,
+    "warnings": 3
+  },
+  "actual_logs_sha256": {
+    "IK-actor-state-full-light-20261105.log": "b7eaa9024c237f6c4e912b156063591c46d4766dd58022c0b67e99341b970aff",
+    "IK-actor-state-handoff-GREEN-20261105.log": "3e0140c1c415bf3cf269ac37260fb626a7d47392fadbdcff1227aebea0792a95",
+    "IK-actor-state-handoff-RED-20261105.log": "86542935e71cd9b63c44e0e99b2e3beb1c69db1b97e20f0686a1180d080bf8c0"
+  },
+  "affected_code_and_tests_sha256": {
+    "egoemg_repro/native_ik_continuation.py": "47bcd526ad9a32e7bdf122b41e19b1b3de53f5e426752db020008a2d14c0f28c",
+    "scripts/paper/run_native_mano_ik_continuation.py": "e1c822811be4f5e556ec8d31cc912b0a7c86be1662142158e6733f1d69da3bb4",
+    "tests/test_native_ik_continuation.py": "f06ca537044cf55ca9102059529bd4357a0143c4cad4ed5058eddce15c154157",
+    "tests/test_native_ik_continued_workflow.py": "4d15e11fe9e2a5a0a9f39acd4fcf5d3f714e52f677567e8fa11f47f625821980"
+  },
+  "deployment_allowed_on_old_GPU1": false,
+  "engineering_evidence": {
+    "collector_closed": true,
+    "new_batches": 23,
+    "new_closures": 19951,
+    "new_optimizer_steps": 1433,
+    "owning_actors_closed": 108,
+    "path": "results/native-mano-ik/mixed-prefix-native-engineering-20261105.json",
+    "reused_batches": 1,
+    "reused_closures": 1139,
+    "reused_optimizer_steps": 61,
+    "rows": 62,
+    "sha256": "f6ad1c93f517073e7372722194ae3d0513f4565bb95d0320afce652308593350",
+    "source_commit": "198085123ec0aaae9a43a888515993c5f14610ba"
+  },
+  "finding": "Guardian pre-gate and worker self snapshots can differ only in transient state; full dictionary equality rejected legitimate producer and mapper handoffs.",
+  "fix_source_commit": "d22ac5b8b833f0a4380fc97f548cf8e2382a86f9",
+  "format": "native_IK_prefix_continuation_single_integration_review_and_fix_acceptance_v1",
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "important_findings_resolved": 1,
+  "initial_critical": 0,
+  "initial_important": 1,
+  "initial_minor": 0,
+  "new_allowed_device_qualification_required": true,
+  "one_fresh_review_only": true,
+  "original_scientific_files_byte_identical_to_full_producer": true,
+  "original_scientific_snapshot_file_count": 13,
+  "original_scientific_snapshot_files_sha256": {
+    "assets/native_ik_dependency_sources.json": "da59ca6c488e08c409ebd3bc202fd244aa365b0e7c6fb3c75a7984710d65d75d",
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "egoemg_repro/native_ik_inputs.py": "09bc85a8695a82461c615b34bf71e33b3ddf2a4200e1fae1598286bc9d2a7373",
+    "egoemg_repro/native_ik_results.py": "3eb3082773a1c52417d8d1e41ce5c77a3050aa30aa2ddd88f17fb8a1cd9a97e8",
+    "egoemg_repro/native_ik_runtime.py": "a8f1b495f193c921bb2a578f19396bc89de0f23e893e845505254959bbe9d541",
+    "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+    "results/legacy-geometry-complete-numeric-admission-20261101.json": "757eef807837c8c44a6be6cbe0b237473f30953a543477dfc13fc32543c96b6a",
+    "scripts/paper/run_native_mano_ik.py": "ebd7f2f80b2924ae43602a043adbb72b1175877f2c3735c9b48a4090e3934bbe"
+  },
+  "raw_focused_green": "........................................................................ [ 86%]\n...........                                                              [100%]\n83 passed in 12.10s\n",
+  "raw_project_summary": "2784 passed, 1929 skipped, 3 warnings in 288.00s (0:04:47)",
+  "regressions": {
+    "actual_focused_green": 83,
+    "actual_intended_red": 2,
+    "actual_server_green": 83,
+    "actual_server_skipped": 0,
+    "changed_stable_identity_negative_cases": 10,
+    "changed_state_positive_cases": 2,
+    "fields": [
+      "pid",
+      "start_ticks",
+      "uid",
+      "sid",
+      "pgrp"
+    ]
+  },
+  "remaining_critical": 0,
+  "remaining_important": 0,
+  "remaining_minor": 0,
+  "resolution": "Compare only stable pid/start_ticks/uid/sid/pgrp at role boundaries; retain actual recorded dictionaries and exact packet/map content binding.",
+  "review_rulings": [
+    {
+      "behavior": "forged full proof",
+      "ruling": "Pinned original proof SHA rejects resealing before source admission."
+    },
+    {
+      "behavior": "engineering authority",
+      "ruling": "Engineering formats and false full/scientific flags remain explicit."
+    },
+    {
+      "behavior": "original source or qualification drift",
+      "ruling": "Manifest body, members, original scientific snapshot and qualified graph remain bound."
+    },
+    {
+      "behavior": "copied providers and mutated identity",
+      "ruling": "Registration, live provider checks and defensive copies remain enforced."
+    },
+    {
+      "behavior": "file replacement, hardlinks and masks",
+      "ruling": "Generation, inode, link and absent-mask guards remain enforced."
+    },
+    {
+      "behavior": "holes, reorder, duplicates and extra packets",
+      "ruling": "Exact contiguous prefix inventory and original selectors remain enforced."
+    },
+    {
+      "behavior": "trailing incomplete packet",
+      "ruling": "Preserved and excluded; historical partial contents have no public content authentication and never become reusable results."
+    },
+    {
+      "behavior": "coupled batch membership and tails",
+      "ruling": "Original selectors retained; actual engineering covers a retained prefix and partial tails."
+    },
+    {
+      "behavior": "aggregate replacing actual producers",
+      "ruling": "Actual metadata and stage role bindings remain distinct; stable-identity finding fixed."
+    },
+    {
+      "behavior": "unclosed or swapped verifier",
+      "ruling": "Closed role bindings and unchanged per-packet acceptance remain enforced."
+    },
+    {
+      "behavior": "indirect assembly validation",
+      "ruling": "Parent freezes actual finalizer stages; unchanged assembly reopens the closed shard graph."
+    },
+    {
+      "behavior": "late verification drift",
+      "ruling": "Per-packet hash checks, map generation checks and full rehash before/after consumption remain enforced."
+    },
+    {
+      "behavior": "wrong physical backend",
+      "ruling": "Full-only original descriptor gate is intact; user now prohibits original GPU1, so new deployment is not permitted under that qualification."
+    },
+    {
+      "behavior": "foreign GPU users",
+      "ruling": "Never terminate foreign consumers; no new GPU0/1 work or queues allowed."
+    },
+    {
+      "behavior": "resource loss",
+      "ruling": "Disk/RAM/device/source gates remain active across supported waiting and execution."
+    },
+    {
+      "behavior": "failed roots and retry",
+      "ruling": "Create-only roots; failed outputs retained; no automatic retry."
+    },
+    {
+      "behavior": "manual arbitrary in-process forgery",
+      "ruling": "No defective supported workflow demonstrated; outside recorded launch/source trust boundary."
+    },
+    {
+      "behavior": "original mathematics",
+      "ruling": "Unchanged and closed; no optimizer/FK/math re-review or rerun."
+    },
+    {
+      "behavior": "engineering source versus current source",
+      "ruling": "Actual engineering remains source1980851; affected role handoffs tested on current d22 source without relabeling old optimization."
+    },
+    {
+      "behavior": "work accounting",
+      "ruling": "Engineering reused61steps/1139closures, new1433steps/19951closures; original full prefix reused10926steps/387193closures."
+    },
+    {
+      "behavior": "full admission versus completion",
+      "ruling": "Current full68 readonly source/qualification read completed and six owners+collector closed; fresh old68 geometry, new full optimization, final labels and whole paper remain incomplete."
+    }
+  ],
+  "reviewed_base": "05e8438a179f830e9aaba4cb6d719808354bb98e",
+  "reviewed_head": "b4a1af045f003fb719f25e95e3dd571ffe60379e",
+  "reviewer": "ik_continuation_final_review_20261105"
+}

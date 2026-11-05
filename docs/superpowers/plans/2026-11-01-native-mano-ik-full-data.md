@@ -56,6 +56,12 @@ Runtime interface: `admit_ik_sources(upstream, manotorch, chumpy, mano_assets) -
 
 ## Task3: complete released rows, isolated labels and publication
 
+2026-11-05 user override: physicalGPUs0/1 may no longer be used, including
+queues. The oldGPU1 qualification is historical, not authority for another
+device. The unlaunched continuation entry was disabled. New allowed-device
+B10096 qualification/backend binding is required before a full successor;
+historical68 packets and original mathematical source remain unchanged.
+
 - [ ] Queue actual full six-shard, right-then-left default execution only after exact owned predecessor success/closure and physical resource admission. Never restart solely because a poll expires or a log is quiet.
 - [ ] Preserve all66,161,725 rows per hand, partial batches, raw state and isolated float32[20] label outputs; do not edit the source manifest or replace released labels. Actual serial hardware scheduling is disclosed separately from original six-GPU defaults.
 - [ ] Independently reconstruct every completed batch and confirm original source/input/asset generations, exact membership/angles/parameter bindings, final counts and actual owning-process closure. Report real wall time and IK updates separately from model training.

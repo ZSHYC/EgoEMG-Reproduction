@@ -1,5 +1,11 @@
 # Native IK Prefix Continuation Implementation Plan
 
+**2026-11-05 resource override:** the user prohibits physical GPUs0/1. Do not
+execute the original GPU1 deployment step below. The prepared launcher was never
+started and is disabled. Actual qualification and backend binding on an allowed
+GPU2–7 are required before a new full continuation; the old68 batches remain
+read-only historical inputs. See [repository GPU rule](../../../AGENTS.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: use superpowers:executing-plans inline, task by task. Existing full-paper design and explicit resume authorize this source-faithful operational recovery. One fresh integration review after the new unit is complete; no repeated old model/IK mathematics review.
 
 **Goal:** Complete the original132,323,450-row IK workflow while preserving its68 genuinely completed batches and actual producer lineage.
@@ -53,8 +59,8 @@
 
 **Files:** evidence under `results/native-mano-ik/`; update this plan, original full-data plan and full-paper status.
 
-- [ ] Run a genuine small real-pose CPU engineering prefix in a separately owned process, then a new continued producer and fresh geometric reader over all six original logical shards/hand. Choose a declared small source with a within-shard partial prefix and a final partial batch; no source-data replacement, synthetic optimization or full10096 claim. Preserve actual old/new per-packet identities and read original geometry/labels byte-exact after all actors exit.
-- [ ] Perform ONE fresh review of this new whole integration against the spec, Task1/2 tests and real engineering. Resolve material findings in one observed RED→GREEN pass; do not re-review original closed mathematics or fake final qualification from engineering.
+- [x] Run a genuine small real-pose CPU engineering prefix in a separately owned process, then a new continued producer and fresh geometric reader over all six original logical shards/hand. Choose a declared small source with a within-shard partial prefix and a final partial batch; no source-data replacement, synthetic optimization or full10096 claim. Preserve actual old/new per-packet identities and read original geometry/labels byte-exact after all actors exit. Evidence: `results/native-mano-ik/mixed-prefix-native-engineering-20261105.json`; actual source1980851,62rows/24packets/1reused+23new,108owningactors+collectorclosed.
+- [x] Perform ONE fresh review of this new whole integration against the spec, Task1/2 tests and real engineering. Resolve material findings in one observed RED→GREEN pass; do not re-review original closed mathematics or fake final qualification from engineering. OneImportant stable-actor handoff fixed atd22ac5b;2RED→83GREEN, actualserver83/0skip, projectNoTorch2784passed/1929skipped. See `results/native-mano-ik/continuation-integration-review-20261105.json`.
 - [ ] Independently re-open the genuine full68-prefix/source/qualification once under the accepted new code. Register a detached new workflow waiting for the same qualified idleGPU1; confirm actual PID/start/resource/source bindings, not just a lock file or requested launch.
 - [ ] Observe the same workflow through all original batches, all fresh geometry, complete bilateral labels and postexit closure; publish aggregate actual errors/zero populations/work and source/label hashes. No completion from queue registration or a partial producer. Keep old failures, partial files, masks and original labels.
 
