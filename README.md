@@ -1,4 +1,4 @@
-> **2026-11-05 最新状态**：[ViT-S与RN18旧版定性样例](results/native-qualitative/README.md)均已验收；RN18新增三类同点图和独立最差收益诊断，一次新整合审查无待修正项。关于EMG作用，[ViT-S完整同模型受控实验](results/visual-missing-emg/README.md)显示完全缺图时真实EMG比归一化置零降低MAE2.1065°，38／41录制组改善；自然部分遮挡额外作用很小，尚未证明融合稳定优于独立视觉。RN18六条件和EMG2Pose S/M/L完整250轮继续；[核心成绩与PDF对照](results/paper-comparison/README.md)已有，数据／协议等价和全文仍未完成。下方日期条目保留历史状态。
+> **2026-11-05 最新状态**：[ViT-S与RN18旧版定性样例](results/native-qualitative/README.md)均已验收；RN18新增三类同点图和独立最差收益诊断，一次新整合审查无待修正项。关于EMG作用，[ViT-S完整同模型受控实验](results/visual-missing-emg/README.md)显示完全缺图时真实EMG比归一化置零降低MAE2.1065°，38／41录制组改善；自然部分遮挡额外作用很小，尚未证明融合稳定优于独立视觉。RN18六条件和EMG2Pose S/M/L完整250轮继续；[三项最终评估接续](results/emg2pose-final-evaluation/README.md)已在服务器独立等待真实训练完成，尚无新增最终成绩；[核心成绩与PDF对照](results/paper-comparison/README.md)已有，数据／协议等价和全文仍未完成。下方日期条目保留历史状态。
 
 > **2026-11-04 新增完整RN152结果与接续**：[RN152明确派生配方](results/original-resnet/resnet152/README.md)150轮／168,450更新、BEST116、完整测试／独立重放与退出后原始链重建已验收，中心pooled **5.501598°**（论文5.1°，口径／数据差异保留）。EMG2Pose原44／5／5轮检查点已核验并发起原250轮接续，目前是全25,253来源复核阶段，尚未观察新GPU恢复；RN18六条件实际资格运行。全文继续。
 
