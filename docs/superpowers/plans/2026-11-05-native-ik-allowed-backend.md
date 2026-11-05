@@ -47,4 +47,18 @@
 - [ ] Observe the same qualification handles. After actual success/closure, independently authenticate new/current and historical qualification graphs under accepted code, then register/observe detached full continuation. If resource wait persists, keep this incomplete; do not invent a positive permit or useGPU0/1.
 - [ ] Observe every original missing batch, all fresh geometry/labels and postexit closure before full completion. Publish implementation and evidence by authorized feature-branch FF only.
 
+2026-11-05 operational ruling: a detached **holder** may wait for the existing
+qualification before any full workflow exists. The actual independent positive
+admission and full-flow creation remain gated on predecessor success and12actor
+closure; registration is not a permit or full execution. Corrected V2 root
+`/data/shihao/egoemg-IK-allowed-qualified-successor-v2-9c6e8d98d74e-20261105`
+has actual recorder3619866/start472005931 and controller3619867/start472005934;
+qualification retains3517083/3517084 with its original start ticks. All4 owners
+live/noCUDA, no qualification/admission/full stage exists. Evidence:
+`results/native-mano-ik/allowed-qualified-successor-holder-wait-20261105.json`.
+The superseded unstarted holder stopped only its own child through pidfd before
+fresh admission;2ownersclosed/terminal−15 are preserved. Source input total_rows
+counts one hand, so future bilateral witness uses2×that value and explicitly
+requires132,323,450rows. Numerical and reviewed boundary code are unchanged.
+
 Self-review: Task1 produces source-bound current backend records/guards consumed by Task2; real permit success is an explicit deployment dependency, not replaced by policy/carrier tests. Old mathematics and whole-paper scope remain unchanged.
