@@ -1,0 +1,63 @@
+{
+  "actual_complete": false,
+  "actual_observation_file_sha256": "5155c320b40ee3c3a93603690344d0580171e67d1d5353310503b9bf235b236e",
+  "actual_producer_stage_at_observation": {
+    "descriptor_bindings": {},
+    "guardian": {
+      "pgrp": 3438161,
+      "pid": 3438161,
+      "sid": 3438161,
+      "start_ticks": "468999232",
+      "state": "R",
+      "uid": 1005
+    },
+    "owner": {
+      "pgrp": 3438160,
+      "pid": 3438160,
+      "sid": 3438160,
+      "start_ticks": "468999227",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker": {
+      "pgrp": 3438162,
+      "pid": 3438162,
+      "sid": 3438162,
+      "start_ticks": "468999236",
+      "state": "R",
+      "uid": 1005
+    }
+  },
+  "actual_state_at_observation": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 3438160,
+      "start_ticks": "468999227"
+    },
+    "started_utc": "2026-11-05T07:11:26.929741+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 3438159,
+      "start_ticks": "468999224"
+    }
+  },
+  "all_four_exact_original_owning_actors_observed_live": true,
+  "all_frozen_capsule_source_bytes_exact": true,
+  "explicit_additional_diagnostic_ranks": [
+    1746,
+    2119
+  ],
+  "figure7_reproduced": false,
+  "format": "actual_RN18_full_qualitative_source_export_and_independent_reconstruction_started_v1",
+  "full_paper_complete": false,
+  "manual_condition_examples_selected": false,
+  "new_RN18_integration_final_review_complete": false,
+  "new_neural_forward_required": false,
+  "observed_utc": "2026-11-05T07:12:39+00:00",
+  "source_bundle_sha256": "9bab84f68351ed58552a7e309116312f0b1a4877e1db54f7214ef59d76d83fa4",
+  "source_commit": "d0786d7ae8ed93b73bdea90b02ede241f4cb95b5",
+  "source_root": "/data/shihao/egoemg-rn18-full-qualitative-pool-d0786d7ae8ed-20261105",
+  "target_default_ranked_panels": 120,
+  "target_independent_fresh_full_reconstruction_panels": 122,
+  "target_total_panels": 122
+}

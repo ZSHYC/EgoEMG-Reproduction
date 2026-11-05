@@ -6,7 +6,7 @@
 
 [`render_rn18_qualitative.py`](../scripts/paper/render_rn18_qualitative.py)只消费[已独立验收的2,208点缓存](../results/native-qualitative/rn18-cache-source-read-20261105.json)。它核对完整历史代码包／原始数组／退出的生产者，重新准入原53文件输入，逐点验证11个实际输入张量后才将密网格键映射到原普通网格键。实际RGB、四组姿态、原始前20角网格和所有22角误差使用既有原生助手；源生产者身份与密网格原键单独保留，不执行神经网络预测。
 
-[新增35项服务器检查及两张真实面板](../results/native-qualitative/rn18-cached-visual-engineering-20261105.json)已通过、0跳过；本机无Torch完整检查2701通过／1929可选或实际数据用例跳过。完整120候选和独立导图重建仍待实际执行，不能以两张工程面板宣布Figure7完成。
+[新增35项服务器检查及两张真实面板](../results/native-qualitative/rn18-cached-visual-engineering-20261105.json)已通过、0跳过；本机无Torch完整检查2701通过／1929可选或实际数据用例跳过。[完整120候选加两张显式失败诊断及独立重建](../results/native-qualitative/rn18-full-visual-workflow-started-20261105.json)现已在服务器启动，尚未验收，不能以两张工程面板宣布Figure7完成。
 
 ```bash
 CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 \
