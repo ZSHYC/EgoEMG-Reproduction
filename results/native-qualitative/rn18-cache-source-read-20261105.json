@@ -1,0 +1,435 @@
+{
+  "actual_closed_owning_actors": [
+    {
+      "pid": 3427707,
+      "start_ticks": "468807896"
+    },
+    {
+      "pid": 3427708,
+      "start_ticks": "468807899"
+    },
+    {
+      "pgrp": 3427710,
+      "pid": 3427710,
+      "sid": 3427710,
+      "start_ticks": "468807908",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3427709,
+      "pid": 3427709,
+      "sid": 3427709,
+      "start_ticks": "468807904",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3428618,
+      "pid": 3428618,
+      "sid": 3428618,
+      "start_ticks": "468822755",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3428617,
+      "pid": 3428617,
+      "sid": 3428617,
+      "start_ticks": "468822751",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_owned_stages": [
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 3427709,
+        "pid": 3427709,
+        "sid": 3427709,
+        "start_ticks": "468807904",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 3427708,
+        "pid": 3427708,
+        "sid": 3427708,
+        "start_ticks": "468807899",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 3427710,
+        "pid": 3427710,
+        "sid": 3427710,
+        "start_ticks": "468807908",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 3428617,
+        "pid": 3428617,
+        "sid": 3428617,
+        "start_ticks": "468822751",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 3427708,
+        "pid": 3427708,
+        "sid": 3427708,
+        "start_ticks": "468807899",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 3428618,
+        "pid": 3428618,
+        "sid": 3428618,
+        "start_ticks": "468822755",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    }
+  ],
+  "actual_terminal_state": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 3427708,
+      "start_ticks": "468807899"
+    },
+    "ended_utc": "2026-11-05T06:42:08.458856+00:00",
+    "started_utc": "2026-11-05T06:39:33.656238+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 3427707,
+      "start_ticks": "468807896"
+    }
+  },
+  "all6_actual_owning_actors_physically_closed": true,
+  "all_frozen_capsule_members_after_exit_exact": 169,
+  "artifact_file_sha256": {
+    "cache-join.json": "8fd1aba91f240b4968c10d404a09fa40e3c83f589ac383495da9dd1789655e60",
+    "ranking.csv": "89a29e2183bbd0ad1abaea4b84cf17bf5afab41e3bf0f161e76e8819a13ae37f",
+    "ranking.json": "9f6b64188961668ba8226b5b32e55cfd65f2da9bde99f56b87dfd80d7d3a7261"
+  },
+  "collector_actor": {
+    "pgrp": 3428910,
+    "pid": 3428910,
+    "sid": 3428910,
+    "start_ticks": "468827287",
+    "state": "R",
+    "uid": 1005
+  },
+  "collector_also_physically_closed": true,
+  "collector_torch_unimported": true,
+  "figure7_reproduced": false,
+  "format": "actual_RN18_ordinary2208_complete_dense_cache_join_ranking_and_dual_raw_postexit_verified_v1",
+  "full_paper_complete": false,
+  "limitations": [
+    "This completes exact cache reuse and ranking for the official default ordinary RN18 population; it is not the six-condition EMG contribution experiment.",
+    "All2208 requests retain original89missing crops and71invalid labels until original source tracking filter.",
+    "Ranked fusion wins are illustrative candidates, not evidence of general or causal EMG benefit.",
+    "Actual source-specific image/mesh panels and manual conditions, independent visual reconstruction and integration acceptance remain pending.",
+    "Available legacy data do not establish PDF population or physical-camera equivalence."
+  ],
+  "manual_condition_examples_selected": false,
+  "observed_utc": "2026-11-05T06:42:50.431478+00:00",
+  "posttransport_all2119_original_stable_rank_rows_rebuilt_exact": true,
+  "posttransport_full2208_cache_key_join_exact": true,
+  "posttransport_model_free_original_AST_CSV_bytes_rebuilt_exact": true,
+  "posttransport_positive_negative_counts_recomputed": {
+    "equal": 0,
+    "negative": 374,
+    "positive": 1745
+  },
+  "preceding_readonly_attempts_preserved_and_closed": [
+    {
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 3423026,
+          "start_ticks": "468734841"
+        },
+        "ended_utc": "2026-11-05T06:27:27.363316+00:00",
+        "started_utc": "2026-11-05T06:27:23.075180+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 3423025,
+          "start_ticks": "468734835"
+        }
+      },
+      "all4_owning_actors_physically_closed": [
+        {
+          "pid": 3423025,
+          "start_ticks": "468734835"
+        },
+        {
+          "pid": 3423026,
+          "start_ticks": "468734841"
+        },
+        {
+          "pgrp": 3423028,
+          "pid": 3423028,
+          "sid": 3423028,
+          "start_ticks": "468734853",
+          "state": "R",
+          "uid": 1005
+        },
+        {
+          "pgrp": 3423027,
+          "pid": 3423027,
+          "sid": 3423027,
+          "start_ticks": "468734849",
+          "state": "R",
+          "uid": 1005
+        }
+      ],
+      "all_frozen_capsule_members_exact": true,
+      "error_log_sha256": "ac66bb80929f33d9b055fa88adc904b63b89be14e2a8617100a77ea06e0ed55e",
+      "last_error_line": "FileNotFoundError: [Errno 2] No such file or directory: '/data/shihao/egoemg-rn18-ordinary-cache-source-read-9f8da2dfbd3e-20261105/results/native-rn18-fusion-full-complete-20261102.json'",
+      "preserved_partial_output_files": [],
+      "root": "/data/shihao/egoemg-rn18-ordinary-cache-source-read-9f8da2dfbd3e-20261105",
+      "source_bundle_sha256": "70162f6aca19084d38da5f3ae01f836e4f265460ec9ff8b4b55814bf7192d56c",
+      "source_commit": "9f8da2dfbd3e09d8caaa97f6d0bc3d8d205a257e"
+    },
+    {
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 3423573,
+          "start_ticks": "468742309"
+        },
+        "ended_utc": "2026-11-05T06:31:12.240362+00:00",
+        "started_utc": "2026-11-05T06:28:37.753022+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 3423572,
+          "start_ticks": "468742306"
+        }
+      },
+      "all4_owning_actors_physically_closed": [
+        {
+          "pid": 3423572,
+          "start_ticks": "468742306"
+        },
+        {
+          "pid": 3423573,
+          "start_ticks": "468742309"
+        },
+        {
+          "pgrp": 3423575,
+          "pid": 3423575,
+          "sid": 3423575,
+          "start_ticks": "468742318",
+          "state": "R",
+          "uid": 1005
+        },
+        {
+          "pgrp": 3423574,
+          "pid": 3423574,
+          "sid": 3423574,
+          "start_ticks": "468742314",
+          "state": "R",
+          "uid": 1005
+        }
+      ],
+      "all_frozen_capsule_members_exact": true,
+      "error_log_sha256": "4854f5f8eb2f8c5b483155a15e9aa85f8dd7a1d02d770af75194b080321da086",
+      "last_error_line": "KeyError: 'typed_input_sha256'",
+      "preserved_partial_output_files": [],
+      "root": "/data/shihao/egoemg-rn18-ordinary-cache-source-read-packaging-v2-9f8da2dfbd3e-20261105",
+      "source_bundle_sha256": "6ed4f12538f00fc762443ad18802ad74beb4b838b15ff10c76c574f269efa18f",
+      "source_commit": "9f8da2dfbd3e09d8caaa97f6d0bc3d8d205a257e"
+    },
+    {
+      "actual_terminal_state": {
+        "actual_exit_code": 1,
+        "automatic_retry": false,
+        "child": {
+          "pid": 3425453,
+          "start_ticks": "468771598"
+        },
+        "ended_utc": "2026-11-05T06:35:55.157042+00:00",
+        "started_utc": "2026-11-05T06:33:30.643274+00:00",
+        "status": "failed",
+        "wrapper": {
+          "pid": 3425451,
+          "start_ticks": "468771595"
+        }
+      },
+      "all4_owning_actors_physically_closed": [
+        {
+          "pid": 3425451,
+          "start_ticks": "468771595"
+        },
+        {
+          "pid": 3425453,
+          "start_ticks": "468771598"
+        },
+        {
+          "pgrp": 3425457,
+          "pid": 3425457,
+          "sid": 3425457,
+          "start_ticks": "468771607",
+          "state": "R",
+          "uid": 1005
+        },
+        {
+          "pgrp": 3425455,
+          "pid": 3425455,
+          "sid": 3425455,
+          "start_ticks": "468771603",
+          "state": "R",
+          "uid": 1005
+        }
+      ],
+      "all_frozen_capsule_members_exact": true,
+      "error_log_sha256": "36e1080f36a5fbd590c85e98ce2ded230a1ea34b7324d2f1a2dde73e97b8cd42",
+      "last_error_line": "AttributeError: '_StatGuard' object has no attribute 'stamps'",
+      "preserved_partial_output_files": [
+        "arrays.npz",
+        "cache-join.json",
+        "flags.json",
+        "ordinary-records.json",
+        "ranking.csv",
+        "ranking.json"
+      ],
+      "root": "/data/shihao/egoemg-rn18-ordinary-cache-source-read-input-api-v3-9f8da2dfbd3e-20261105",
+      "source_bundle_sha256": "f16a6b88137eaaa35708ff95839ae70925c06ae7f46f8c71dfd96878803a08ba",
+      "source_commit": "9f8da2dfbd3e09d8caaa97f6d0bc3d8d205a257e"
+    }
+  ],
+  "ranking_candidate_comparison_counts": {
+    "equal": 0,
+    "fusion_better_than_vision": 1745,
+    "fusion_worse_than_vision": 374,
+    "source_filter_pass": 2119
+  },
+  "rendered_candidates": 0,
+  "source_audit": {
+    "actor": {
+      "pgrp": 3427710,
+      "pid": 3427710,
+      "sid": 3427710,
+      "start_ticks": "468807908",
+      "state": "R",
+      "uid": 1005
+    },
+    "actual_dense_source_points": 11114,
+    "actual_fresh_original_selected_input_reads": 2208,
+    "actual_geometry_calls": 0,
+    "actual_neural_forwards": 0,
+    "actual_optimizer_updates": 0,
+    "actual_selected": 2208,
+    "all10_selected_prediction_arrays_sha256": {
+      "crop_valid_mask": "befc9e6d1d9c8c74e366cfe0c52a2b6c33f58c03d152ed39b9979adebb1057df",
+      "emg_full_prediction": "f795b72427cce1089c026e2aa0b615e19c8884fa42c60c8ef33967491c90c024",
+      "emg_prediction": "2d2b2f879a28b16bb6da12297c78da932ed91f5e1bdc4cbacbaf7c662348373f",
+      "fusion_prediction": "83484bb6b1cb547fc42c5f685320cf558c05d8f12c2808d34dc91af66f685929",
+      "label_valid_mask": "8a8d670d610356a0ad95a115dc3845769f0eae21b68f0b754a9a8f16e20a6d8c",
+      "mae_emg_rad": "aa167b6d1bee8699beb9f73ca287e2393a2500d9ac9cc9144c6bbf04d15ad701",
+      "mae_fusion_rad": "a371f8e691ab77301768a0db39e83d630809cd7d1bc84ba6454b48bf2f54f285",
+      "mae_vision_rad": "dbe7ccd370cae3d5b217ddb6331a5c10abf6d3bbc394066e76bc6d6aada5a86d",
+      "targets": "b817eb1c58e759170cc7e452536f8385f5a4429e2fcf64a60538212c3b40355a",
+      "vision_prediction": "54cd34ba9a4bf023dd5b6c1bc2adcd020edd9748841bb3e94e85ab68ae0e5a9f"
+    },
+    "all11_original_inputs_exact": true,
+    "all_original_key_windows_targets_masks_preserved": true,
+    "baseline_completed_proof_sha256": "68f49b1a00df46279803f594ebc0dbebd5577b24c09a964e5084f0690777614d",
+    "construction_attempts": {
+      "learned_module": 0,
+      "optimizer": 0
+    },
+    "cuda_initialized": false,
+    "dense_evidence_identity_sha256": "7aa46ff2ac4c120e77787480afb6550b23ac830d3471964e47c24b0d37366446",
+    "figure7_reproduced": false,
+    "files_sha256": {
+      "arrays.npz": "a83bca02143d6673acac72f61ae62264c1d32dc5901c5777b1615fa0056c7992",
+      "cache-join.json": "8fd1aba91f240b4968c10d404a09fa40e3c83f589ac383495da9dd1789655e60",
+      "flags.json": "07e20ca19c9be51bc39b0a15d4ede2421929cb1336cd0e4d3b1e4755c84d5943",
+      "ordinary-records.json": "bb13164f6fe2d12e4a19aea504c8f515a30ce5874184d2cbfdb5889aa17cb722",
+      "ranking.csv": "89a29e2183bbd0ad1abaea4b84cf17bf5afab41e3bf0f161e76e8819a13ae37f",
+      "ranking.json": "9f6b64188961668ba8226b5b32e55cfd65f2da9bde99f56b87dfd80d7d3a7261",
+      "sources-nine.json": "7aa229a1d95004b30ff31ef61fcb4dec3e3c4f956b96d275f8b2308f50fe8bb1"
+    },
+    "format": "actual_RN18_ordinary_default_exact_cache_reuse_source_audit_v1",
+    "full53_input_files_rehashed": true,
+    "full_input_bytes": 61377230438,
+    "full_paper_complete": false,
+    "ordinary_invalid_labels_retained": 71,
+    "ordinary_missing_crops_retained": 89,
+    "ordinary_paired_proof_sha256": "c61e85df0b043e591ea52d9ab20984183894cbf9dc32dc9e555a50940fcdd312",
+    "seconds": 145.8861677478999,
+    "source_filter_and_original_ranking": {
+      "crop_invalid_retained": 0,
+      "label_invalid_retained": 0,
+      "rejected": 89,
+      "selected": 2208,
+      "tracked_filter_pass": 2119
+    },
+    "source_model_identity_sha256": "1bb167a3f47a2b8912e24502b252ebfa81fea2e90c02f11b204259608b88c6ee"
+  },
+  "source_audit_file_sha256": "1d929707465aa54bb002448a47fb81beb03b78049f7197e35bf6b8d5f9b96f57",
+  "source_bundle_sha256": "67bc976c9d52aea26364f3b6edbfa6d208ec4adbb02d0274ceb67e1660c988b1",
+  "source_commit": "86a2f9f0a7b33b9de381339544b4ddd34255614b",
+  "source_generations_after_postexit_read_exact": true,
+  "verification": {
+    "actor": {
+      "pgrp": 3428618,
+      "pid": 3428618,
+      "sid": 3428618,
+      "start_ticks": "468822755",
+      "state": "R",
+      "uid": 1005
+    },
+    "actual_all10_selected_arrays_exact_both_original_passes": true,
+    "actual_neural_forwards": 0,
+    "actual_optimizer_updates": 0,
+    "actual_original_full_passes_reopened": 2,
+    "actual_selected_rows_each_full_pass": 2208,
+    "all_files_sha256": {
+      "arrays.npz": "a83bca02143d6673acac72f61ae62264c1d32dc5901c5777b1615fa0056c7992",
+      "cache-join.json": "8fd1aba91f240b4968c10d404a09fa40e3c83f589ac383495da9dd1789655e60",
+      "flags.json": "07e20ca19c9be51bc39b0a15d4ede2421929cb1336cd0e4d3b1e4755c84d5943",
+      "ordinary-records.json": "bb13164f6fe2d12e4a19aea504c8f515a30ce5874184d2cbfdb5889aa17cb722",
+      "ranking.csv": "89a29e2183bbd0ad1abaea4b84cf17bf5afab41e3bf0f161e76e8819a13ae37f",
+      "ranking.json": "9f6b64188961668ba8226b5b32e55cfd65f2da9bde99f56b87dfd80d7d3a7261",
+      "sources-nine.json": "7aa229a1d95004b30ff31ef61fcb4dec3e3c4f956b96d275f8b2308f50fe8bb1"
+    },
+    "figure7_reproduced": false,
+    "format": "independent_numpy_RN18_ordinary_cache_original_dual_full_raw_reconstruction_v1",
+    "full_paper_complete": false,
+    "independent_source_filter_and_stable_delta_ranking_exact": true,
+    "original_targets_masks_and_row_input_hashes_exact": true,
+    "seconds": 4.669068346731365,
+    "source_audit_file_sha256": "1d929707465aa54bb002448a47fb81beb03b78049f7197e35bf6b8d5f9b96f57",
+    "source_generations_after_read_exact": true,
+    "source_reader_actor_closed": true,
+    "torch_unimported": true
+  },
+  "verification_file_sha256": "2855e010504fdff2ec86850062a05de607cf30d829d11cd027731631ba156f7b",
+  "workflow_result_file_sha256": "6c52d6487696830dbc2e1c361c7c2a2674298e28f987593ef5e83067ed95439f"
+}
