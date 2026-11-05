@@ -1,0 +1,3934 @@
+{
+  "actual_batch_size": 3,
+  "actual_input_witness": {
+    "actual_source_rows_per_hand": 31,
+    "engineering_only": true,
+    "full_paper_complete": false,
+    "hand_witnesses": {
+      "left": {
+        "original_indices": [
+          0,
+          331074,
+          331075,
+          331076,
+          331077,
+          331078,
+          331079,
+          331080,
+          331081,
+          331082,
+          331083,
+          331084,
+          331085,
+          331086,
+          331087,
+          331088,
+          331089,
+          331090,
+          331091,
+          331092,
+          331093,
+          331094,
+          331095,
+          331096,
+          331097,
+          331098,
+          331099,
+          331100,
+          331101,
+          331102,
+          331103
+        ],
+        "selected_bytes_sha256": "106a09d2147c3cac125a0a3fa005cb3614f558d8e78d3a026db9d30654ecf2d7",
+        "source_nine": [
+          64512,
+          20098206480,
+          12703051200,
+          1793502914568155445,
+          1793502926512314174,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "zero_rows": 1
+      },
+      "right": {
+        "original_indices": [
+          0,
+          331074,
+          331075,
+          331076,
+          331077,
+          331078,
+          331079,
+          331080,
+          331081,
+          331082,
+          331083,
+          331084,
+          331085,
+          331086,
+          331087,
+          331088,
+          331089,
+          331090,
+          331091,
+          331092,
+          331093,
+          331094,
+          331095,
+          331096,
+          331097,
+          331098,
+          331099,
+          331100,
+          331101,
+          331102,
+          331103
+        ],
+        "selected_bytes_sha256": "0a615c49de476a8ea1a9198fd50ff71de0a7bac79932243bd4ca723a8f8ebb09",
+        "source_nine": [
+          64512,
+          20098206482,
+          12703051200,
+          1793506399868143318,
+          1793506417418343426,
+          33204,
+          1005,
+          1005,
+          1
+        ],
+        "zero_rows": 1
+      }
+    },
+    "sha256": "f35e3abf1f2b20fa8e6a6433454630e2d4b1e6ea64cee26748e6bf00d5b616aa"
+  },
+  "actual_named_closed_actor_count": 108,
+  "actual_named_closed_owning_actors": [
+    {
+      "pid": 3502361,
+      "start_ticks": "470088294"
+    },
+    {
+      "pid": 3502362,
+      "start_ticks": "470088297"
+    },
+    {
+      "pgrp": 3502373,
+      "pid": 3502373,
+      "sid": 3502373,
+      "start_ticks": "470088351",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502372,
+      "pid": 3502372,
+      "sid": 3502372,
+      "start_ticks": "470088348",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502471,
+      "pid": 3502471,
+      "sid": 3502471,
+      "start_ticks": "470089176",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502468,
+      "pid": 3502468,
+      "sid": 3502468,
+      "start_ticks": "470089172",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502495,
+      "pid": 3502495,
+      "sid": 3502495,
+      "start_ticks": "470089397",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502494,
+      "pid": 3502494,
+      "sid": 3502494,
+      "start_ticks": "470089394",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502574,
+      "pid": 3502574,
+      "sid": 3502574,
+      "start_ticks": "470089619",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502573,
+      "pid": 3502573,
+      "sid": 3502573,
+      "start_ticks": "470089615",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502587,
+      "pid": 3502587,
+      "sid": 3502587,
+      "start_ticks": "470089851",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502586,
+      "pid": 3502586,
+      "sid": 3502586,
+      "start_ticks": "470089847",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502710,
+      "pid": 3502710,
+      "sid": 3502710,
+      "start_ticks": "470091080",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502708,
+      "pid": 3502708,
+      "sid": 3502708,
+      "start_ticks": "470091076",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502723,
+      "pid": 3502723,
+      "sid": 3502723,
+      "start_ticks": "470091302",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502722,
+      "pid": 3502722,
+      "sid": 3502722,
+      "start_ticks": "470091298",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502802,
+      "pid": 3502802,
+      "sid": 3502802,
+      "start_ticks": "470091526",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502801,
+      "pid": 3502801,
+      "sid": 3502801,
+      "start_ticks": "470091522",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502816,
+      "pid": 3502816,
+      "sid": 3502816,
+      "start_ticks": "470091758",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3502815,
+      "pid": 3502815,
+      "sid": 3502815,
+      "start_ticks": "470091754",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503085,
+      "pid": 3503085,
+      "sid": 3503085,
+      "start_ticks": "470092988",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503084,
+      "pid": 3503084,
+      "sid": 3503084,
+      "start_ticks": "470092984",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503099,
+      "pid": 3503099,
+      "sid": 3503099,
+      "start_ticks": "470093211",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503098,
+      "pid": 3503098,
+      "sid": 3503098,
+      "start_ticks": "470093208",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503187,
+      "pid": 3503187,
+      "sid": 3503187,
+      "start_ticks": "470093434",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503186,
+      "pid": 3503186,
+      "sid": 3503186,
+      "start_ticks": "470093431",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503202,
+      "pid": 3503202,
+      "sid": 3503202,
+      "start_ticks": "470093669",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503201,
+      "pid": 3503201,
+      "sid": 3503201,
+      "start_ticks": "470093665",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503322,
+      "pid": 3503322,
+      "sid": 3503322,
+      "start_ticks": "470094898",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503321,
+      "pid": 3503321,
+      "sid": 3503321,
+      "start_ticks": "470094895",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503337,
+      "pid": 3503337,
+      "sid": 3503337,
+      "start_ticks": "470095123",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503336,
+      "pid": 3503336,
+      "sid": 3503336,
+      "start_ticks": "470095120",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503423,
+      "pid": 3503423,
+      "sid": 3503423,
+      "start_ticks": "470095541",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503422,
+      "pid": 3503422,
+      "sid": 3503422,
+      "start_ticks": "470095538",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503445,
+      "pid": 3503445,
+      "sid": 3503445,
+      "start_ticks": "470095778",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503444,
+      "pid": 3503444,
+      "sid": 3503444,
+      "start_ticks": "470095774",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503575,
+      "pid": 3503575,
+      "sid": 3503575,
+      "start_ticks": "470097005",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503574,
+      "pid": 3503574,
+      "sid": 3503574,
+      "start_ticks": "470097001",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503597,
+      "pid": 3503597,
+      "sid": 3503597,
+      "start_ticks": "470097228",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503596,
+      "pid": 3503596,
+      "sid": 3503596,
+      "start_ticks": "470097224",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503676,
+      "pid": 3503676,
+      "sid": 3503676,
+      "start_ticks": "470097452",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503675,
+      "pid": 3503675,
+      "sid": 3503675,
+      "start_ticks": "470097448",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503690,
+      "pid": 3503690,
+      "sid": 3503690,
+      "start_ticks": "470097683",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503689,
+      "pid": 3503689,
+      "sid": 3503689,
+      "start_ticks": "470097680",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503825,
+      "pid": 3503825,
+      "sid": 3503825,
+      "start_ticks": "470098915",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503824,
+      "pid": 3503824,
+      "sid": 3503824,
+      "start_ticks": "470098911",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503838,
+      "pid": 3503838,
+      "sid": 3503838,
+      "start_ticks": "470099139",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503837,
+      "pid": 3503837,
+      "sid": 3503837,
+      "start_ticks": "470099135",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503936,
+      "pid": 3503936,
+      "sid": 3503936,
+      "start_ticks": "470099564",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503935,
+      "pid": 3503935,
+      "sid": 3503935,
+      "start_ticks": "470099561",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503950,
+      "pid": 3503950,
+      "sid": 3503950,
+      "start_ticks": "470099797",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3503949,
+      "pid": 3503949,
+      "sid": 3503949,
+      "start_ticks": "470099793",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504073,
+      "pid": 3504073,
+      "sid": 3504073,
+      "start_ticks": "470101028",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504072,
+      "pid": 3504072,
+      "sid": 3504072,
+      "start_ticks": "470101024",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504086,
+      "pid": 3504086,
+      "sid": 3504086,
+      "start_ticks": "470101251",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504085,
+      "pid": 3504085,
+      "sid": 3504085,
+      "start_ticks": "470101248",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504165,
+      "pid": 3504165,
+      "sid": 3504165,
+      "start_ticks": "470101475",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504164,
+      "pid": 3504164,
+      "sid": 3504164,
+      "start_ticks": "470101471",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504181,
+      "pid": 3504181,
+      "sid": 3504181,
+      "start_ticks": "470101707",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504180,
+      "pid": 3504180,
+      "sid": 3504180,
+      "start_ticks": "470101704",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504305,
+      "pid": 3504305,
+      "sid": 3504305,
+      "start_ticks": "470102939",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504304,
+      "pid": 3504304,
+      "sid": 3504304,
+      "start_ticks": "470102935",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504321,
+      "pid": 3504321,
+      "sid": 3504321,
+      "start_ticks": "470103163",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504320,
+      "pid": 3504320,
+      "sid": 3504320,
+      "start_ticks": "470103160",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504406,
+      "pid": 3504406,
+      "sid": 3504406,
+      "start_ticks": "470103388",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504405,
+      "pid": 3504405,
+      "sid": 3504405,
+      "start_ticks": "470103384",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504419,
+      "pid": 3504419,
+      "sid": 3504419,
+      "start_ticks": "470103621",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504418,
+      "pid": 3504418,
+      "sid": 3504418,
+      "start_ticks": "470103618",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504546,
+      "pid": 3504546,
+      "sid": 3504546,
+      "start_ticks": "470104853",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504545,
+      "pid": 3504545,
+      "sid": 3504545,
+      "start_ticks": "470104849",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504568,
+      "pid": 3504568,
+      "sid": 3504568,
+      "start_ticks": "470105077",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504567,
+      "pid": 3504567,
+      "sid": 3504567,
+      "start_ticks": "470105073",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504665,
+      "pid": 3504665,
+      "sid": 3504665,
+      "start_ticks": "470105503",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504664,
+      "pid": 3504664,
+      "sid": 3504664,
+      "start_ticks": "470105500",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504678,
+      "pid": 3504678,
+      "sid": 3504678,
+      "start_ticks": "470105735",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504677,
+      "pid": 3504677,
+      "sid": 3504677,
+      "start_ticks": "470105731",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504810,
+      "pid": 3504810,
+      "sid": 3504810,
+      "start_ticks": "470107160",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504809,
+      "pid": 3504809,
+      "sid": 3504809,
+      "start_ticks": "470107156",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504824,
+      "pid": 3504824,
+      "sid": 3504824,
+      "start_ticks": "470107383",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504823,
+      "pid": 3504823,
+      "sid": 3504823,
+      "start_ticks": "470107379",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504911,
+      "pid": 3504911,
+      "sid": 3504911,
+      "start_ticks": "470107812",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504910,
+      "pid": 3504910,
+      "sid": 3504910,
+      "start_ticks": "470107808",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504925,
+      "pid": 3504925,
+      "sid": 3504925,
+      "start_ticks": "470108044",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3504924,
+      "pid": 3504924,
+      "sid": 3504924,
+      "start_ticks": "470108040",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505056,
+      "pid": 3505056,
+      "sid": 3505056,
+      "start_ticks": "470109477",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505055,
+      "pid": 3505055,
+      "sid": 3505055,
+      "start_ticks": "470109473",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505076,
+      "pid": 3505076,
+      "sid": 3505076,
+      "start_ticks": "470109701",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505075,
+      "pid": 3505075,
+      "sid": 3505075,
+      "start_ticks": "470109697",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505154,
+      "pid": 3505154,
+      "sid": 3505154,
+      "start_ticks": "470109925",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505153,
+      "pid": 3505153,
+      "sid": 3505153,
+      "start_ticks": "470109922",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505169,
+      "pid": 3505169,
+      "sid": 3505169,
+      "start_ticks": "470110157",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505168,
+      "pid": 3505168,
+      "sid": 3505168,
+      "start_ticks": "470110154",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505303,
+      "pid": 3505303,
+      "sid": 3505303,
+      "start_ticks": "470111390",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505302,
+      "pid": 3505302,
+      "sid": 3505302,
+      "start_ticks": "470111386",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505329,
+      "pid": 3505329,
+      "sid": 3505329,
+      "start_ticks": "470111613",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505328,
+      "pid": 3505328,
+      "sid": 3505328,
+      "start_ticks": "470111610",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505408,
+      "pid": 3505408,
+      "sid": 3505408,
+      "start_ticks": "470111838",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505407,
+      "pid": 3505407,
+      "sid": 3505407,
+      "start_ticks": "470111834",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505422,
+      "pid": 3505422,
+      "sid": 3505422,
+      "start_ticks": "470112070",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505421,
+      "pid": 3505421,
+      "sid": 3505421,
+      "start_ticks": "470112066",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505440,
+      "pid": 3505440,
+      "sid": 3505440,
+      "start_ticks": "470112368",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3505438,
+      "pid": 3505438,
+      "sid": 3505438,
+      "start_ticks": "470112364",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pid": 3501158,
+      "start_ticks": "470068413"
+    },
+    {
+      "pid": 3501159,
+      "start_ticks": "470068416"
+    },
+    {
+      "pgrp": 3501162,
+      "pid": 3501162,
+      "sid": 3501162,
+      "start_ticks": "470068435",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3501161,
+      "pid": 3501161,
+      "sid": 3501161,
+      "start_ticks": "470068432",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3501533,
+      "pid": 3501533,
+      "sid": 3501533,
+      "start_ticks": "470070268",
+      "state": "R",
+      "uid": 1005
+    },
+    {
+      "pgrp": 3501532,
+      "pid": 3501532,
+      "sid": 3501532,
+      "start_ticks": "470070264",
+      "state": "R",
+      "uid": 1005
+    }
+  ],
+  "actual_readback": {
+    "actor": {
+      "pgrp": 3505440,
+      "pid": 3505440,
+      "sid": 3505440,
+      "start_ticks": "470112368",
+      "state": "R",
+      "uid": 1005
+    },
+    "all_entries": [
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-20261105/private/interrupted-prefix/private/full-label-workflow/flow/right-shard-0/produce/batch-00000",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3501533,
+          "pid": 3501533,
+          "sid": 3501533,
+          "start_ticks": "470070268",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "c9d9397c81a20ddd02b177cd67d07eed646fe9a77c0335841e1de98d00d91a5d",
+        "reused": true,
+        "rows": 3,
+        "shard": 0,
+        "state_sha256": "c10742c984ab4642f887d779a0247b79e53e9214549a714fc7f47a848035c11d"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-0/produce/batch-00001",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3502373,
+          "pid": 3502373,
+          "sid": 3502373,
+          "start_ticks": "470088351",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "a5fd93159babb3f8cb895bc3d2249f4cd6a54fdfd0db29fb88198fdc6075cc72",
+        "reused": false,
+        "rows": 2,
+        "shard": 0,
+        "state_sha256": "667a551df5b321834824d1e725d1ecdfed8e52bf8b1a67d096dcb986aac7ff0a"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-1/produce/batch-00000",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3502587,
+          "pid": 3502587,
+          "sid": 3502587,
+          "start_ticks": "470089851",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "0ca355cb175f1be6e72012b16550cc18f692e5cf648b0cfa03142c58a9a43221",
+        "reused": false,
+        "rows": 3,
+        "shard": 1,
+        "state_sha256": "782c41f309a23a577780343f7052547034ec4c99378d776069d3ee42bd8ce010"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-1/produce/batch-00001",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3502587,
+          "pid": 3502587,
+          "sid": 3502587,
+          "start_ticks": "470089851",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "726bd1ea761769ae0fa2cd233bc3b5e1f21bed1c7145ef81aa671672283f4fb4",
+        "reused": false,
+        "rows": 2,
+        "shard": 1,
+        "state_sha256": "d7e7bf374c301b400ba8df13094dac345e4e0750b82633f38cebcd284387cb22"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-2/produce/batch-00000",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3502816,
+          "pid": 3502816,
+          "sid": 3502816,
+          "start_ticks": "470091758",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "00cff33fcecb920a3f961b22da0380e2e4b94ed84c33c5e76c32e615da42e206",
+        "reused": false,
+        "rows": 3,
+        "shard": 2,
+        "state_sha256": "c8dd8f237a9caf97beddd5e654480dcc6ee23cf02e0a72d5b9523428f126696b"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-2/produce/batch-00001",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3502816,
+          "pid": 3502816,
+          "sid": 3502816,
+          "start_ticks": "470091758",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "c30bded677b8d3eedaec7576ac2a317ad5fc5ac15574735adf726154e1ea54a7",
+        "reused": false,
+        "rows": 2,
+        "shard": 2,
+        "state_sha256": "41806b8e70b5a6c6c4c95296feaf2b56aeb93eb1b67eab98856b7fee82cf60e0"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-3/produce/batch-00000",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3503202,
+          "pid": 3503202,
+          "sid": 3503202,
+          "start_ticks": "470093669",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "7251b85682891188c657387e7a6037f35f668caef63c57a2baf76833f11e0b67",
+        "reused": false,
+        "rows": 3,
+        "shard": 3,
+        "state_sha256": "ab7e22f6eefa8a95e30b007d50ea6b783f0a8bbd18e59faca5cb843c205430d7"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-3/produce/batch-00001",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3503202,
+          "pid": 3503202,
+          "sid": 3503202,
+          "start_ticks": "470093669",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "1fe8d98efbb880a524a6b9cfa335390c129f7c1c83c9a0d66b1353e999b98506",
+        "reused": false,
+        "rows": 2,
+        "shard": 3,
+        "state_sha256": "4fc83a12ffd162f524c7d9217577aeb889de7a51e2fdf235bcd969ed3ec3a2c2"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-4/produce/batch-00000",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3503445,
+          "pid": 3503445,
+          "sid": 3503445,
+          "start_ticks": "470095778",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "b14d4979fe7a26bc40e01805f377d6779e969ed58561183d11b3881af4e402a2",
+        "reused": false,
+        "rows": 3,
+        "shard": 4,
+        "state_sha256": "4d8f91e54a9babfa53bc95b2a3cdf312797de280d56f0a3d5aa9ef87eb5de617"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-4/produce/batch-00001",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3503445,
+          "pid": 3503445,
+          "sid": 3503445,
+          "start_ticks": "470095778",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "995d82f60d07ad85ff667c57864facd4ce008fee875e411205cad14d249e6cd1",
+        "reused": false,
+        "rows": 2,
+        "shard": 4,
+        "state_sha256": "de3cfed3415ff26fb33851692c7b1dd3fe6beb965dc1db5a7023f24c219a3960"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-5/produce/batch-00000",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3503690,
+          "pid": 3503690,
+          "sid": 3503690,
+          "start_ticks": "470097683",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "fce63df411cb8b8ee35effa51fe3cd72b2d6250aa4364c8b55cfc0cb905e3042",
+        "reused": false,
+        "rows": 3,
+        "shard": 5,
+        "state_sha256": "203f354584042de306498ed7d7a7b820fe10fe627a16fe3d9122f2d94f19f18f"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/right-shard-5/produce/batch-00001",
+        "hand": "right",
+        "producer_actor": {
+          "pgrp": 3503690,
+          "pid": 3503690,
+          "sid": 3503690,
+          "start_ticks": "470097683",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "5b6f965ea2c62966b6a7e569dc91a2bbb5f25e2672ea968771c94bbd07e140a6",
+        "reused": false,
+        "rows": 3,
+        "shard": 5,
+        "state_sha256": "ead0f702efdf0d480571ab88b3ec81d87c594757aa324484e4bbcc3f1fdb2ddc"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-0/produce/batch-00000",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3503950,
+          "pid": 3503950,
+          "sid": 3503950,
+          "start_ticks": "470099797",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "e17759a6d1c624cef0b7b8f58f01816ececdd3c068adc42b16a9cf97d63ca1f2",
+        "reused": false,
+        "rows": 3,
+        "shard": 0,
+        "state_sha256": "6399ec6b9343095ce556986723928b9f5b2830282a928202f57539635a402d56"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-0/produce/batch-00001",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3503950,
+          "pid": 3503950,
+          "sid": 3503950,
+          "start_ticks": "470099797",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "db1723de27bc09039b170b9e0c4a92c0e410d70b5777be0e136261966bf5202a",
+        "reused": false,
+        "rows": 2,
+        "shard": 0,
+        "state_sha256": "4c72d46e5771f8e4339dac0474876e58694fa39489630c7c50ec288d67977f97"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-1/produce/batch-00000",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504181,
+          "pid": 3504181,
+          "sid": 3504181,
+          "start_ticks": "470101707",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "01660e781c1b30cc2e338ac50abb5632d64d6fbfbafa5282dd60c7fe88f9df0c",
+        "reused": false,
+        "rows": 3,
+        "shard": 1,
+        "state_sha256": "fefb292c5319f1142119d190b1d6b5a0fdbc9b25f39f11702b682f32776fe53d"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-1/produce/batch-00001",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504181,
+          "pid": 3504181,
+          "sid": 3504181,
+          "start_ticks": "470101707",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "c1f87d0741b97f08870eb68671ba2fb803832a2b9cd15c4edede19bb0c5b8680",
+        "reused": false,
+        "rows": 2,
+        "shard": 1,
+        "state_sha256": "974961ad3e2481fa427c3189f4dd380f94b8df78f0c4fc31ad4a5bbc555d4dd8"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-2/produce/batch-00000",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504419,
+          "pid": 3504419,
+          "sid": 3504419,
+          "start_ticks": "470103621",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "b32812656fcef6cb84e96429ee72c147b6eed9c557d7d448ebffa2d6ecde2ed3",
+        "reused": false,
+        "rows": 3,
+        "shard": 2,
+        "state_sha256": "f34f820d35769df1a88b8e44eff07b5499ad6b5f41510b7323562030db612eea"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-2/produce/batch-00001",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504419,
+          "pid": 3504419,
+          "sid": 3504419,
+          "start_ticks": "470103621",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "aa016715e4906cd9bbe6cbda7457f28ca91b35307f2f978795f653d6bd9e2c62",
+        "reused": false,
+        "rows": 2,
+        "shard": 2,
+        "state_sha256": "36a70bdbbb379cd82fa9acd062748300325be18f004e77410c9b4d3082af800e"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-3/produce/batch-00000",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504678,
+          "pid": 3504678,
+          "sid": 3504678,
+          "start_ticks": "470105735",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "294f98842890a24b2201a595cd17f35f94074169454b56ee4c41d01b4896b954",
+        "reused": false,
+        "rows": 3,
+        "shard": 3,
+        "state_sha256": "ddcd2c801368d75519213ce1e543e0f9cf0215e583d10cd2b4930f32171200c8"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-3/produce/batch-00001",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504678,
+          "pid": 3504678,
+          "sid": 3504678,
+          "start_ticks": "470105735",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "9a5ecc3ba42a9e23b8d8d10530f04a1afa7727ff4135918a6632524e017ec8e8",
+        "reused": false,
+        "rows": 2,
+        "shard": 3,
+        "state_sha256": "600f16aff9eb3ea336686b6d8eda951f95b10c3b84f971e406722fe6556efbcb"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-4/produce/batch-00000",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504925,
+          "pid": 3504925,
+          "sid": 3504925,
+          "start_ticks": "470108044",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "6979a7de14aa3d11a3ffca4fe68248116236099c5dfbfbecaa52b0330f7efc61",
+        "reused": false,
+        "rows": 3,
+        "shard": 4,
+        "state_sha256": "b9c3ee293cb7466576f23e8b92ba14b2453aab5e65da6637bd8528b7405c1491"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-4/produce/batch-00001",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3504925,
+          "pid": 3504925,
+          "sid": 3504925,
+          "start_ticks": "470108044",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "34483cbb5a4408a931db5c0510400124381ec545b4efd3a787c8ad3c2a110e14",
+        "reused": false,
+        "rows": 2,
+        "shard": 4,
+        "state_sha256": "0cd912c9c0c2ea5a0c76b2355232f197af4a0eac5e5ca65c86af81d0549cd420"
+      },
+      {
+        "batch_index": 0,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-5/produce/batch-00000",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3505169,
+          "pid": 3505169,
+          "sid": 3505169,
+          "start_ticks": "470110157",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "275a762b9aae3e70c2af34a4198c1d2c1a91e9afb0ad601232450398cc1aab29",
+        "reused": false,
+        "rows": 3,
+        "shard": 5,
+        "state_sha256": "b1039e6302d2ff4c9e68320da1e0f8253306855524e43a28bc8726d93af97364"
+      },
+      {
+        "batch_index": 1,
+        "directory": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-v2-20261105/private/continued/flow/left-shard-5/produce/batch-00001",
+        "hand": "left",
+        "producer_actor": {
+          "pgrp": 3505169,
+          "pid": 3505169,
+          "sid": 3505169,
+          "start_ticks": "470110157",
+          "state": "R",
+          "uid": 1005
+        },
+        "result_sha256": "b1d7346be40630e800d09a1d4b2cb4cea1082a6ad01098a2fb3e12fb0f9a4667",
+        "reused": false,
+        "rows": 3,
+        "shard": 5,
+        "state_sha256": "bab2d5e51999f20dc94382f9f9bbc859171d2448c460c91826c84e2bc27953e7"
+      }
+    ],
+    "all_original_raw_and_fresh_geometry_receipts_reopened": true,
+    "all_packet_angles_equal_assembled_labels": true,
+    "format": "actual_mixed_native_IK62_real_pose_postexit_model_free_readback_v1",
+    "full_frame_labels_regenerated": false,
+    "full_paper_complete": false,
+    "new_batches": 23,
+    "packets": 24,
+    "parent_torch_unimported": true,
+    "reused_batches": 1,
+    "sha256": "bd5bb9354ecee44f977557ca8ff6aceddb5d14e8bedbaa26f3544376cd0a1c1a"
+  },
+  "actual_server_checks": 67,
+  "actual_server_skipped": 0,
+  "actual_source_files_sha256": {
+    "assets/native_ik_dependency_sources.json": "da59ca6c488e08c409ebd3bc202fd244aa365b0e7c6fb3c75a7984710d65d75d",
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/audit.py": "86cf0c74086f2581f430ee88d8725df10c3389379535ef9036e2d7a892b27cdd",
+    "egoemg_repro/center_reference_data.py": "4669e2d089e41e930843895f866c8bd1038f0832b8a8ba9ce39072f276026744",
+    "egoemg_repro/center_reference_eval.py": "af485e6c0d9fa70fab1863eeaa1fffc8764b8c0c90a5804014f274e168047be7",
+    "egoemg_repro/classic_emg.py": "cc5a9b838f57fbd6536e61f9aac1cc6328f4b7e5e2da486f7d1abdba4785c1a5",
+    "egoemg_repro/classic_emg_artifacts.py": "f68b5441b5dd3f79ee96cdb897dd7b62991357eb95e9bb9502b66a1ff7ecdc0b",
+    "egoemg_repro/classic_emg_cohort.py": "72267d660f55e9f5fbbd2e1e17edf07627ef01d2ba09e92fca1086c50a16dbd3",
+    "egoemg_repro/classic_emg_cuda_check.py": "cfbccea940016fd1981aeebdfa7144399ba804ced7c66adec81cd7a32e8e8c54",
+    "egoemg_repro/classic_emg_data.py": "5d1783045b094e2ac404ea8a3605122e93ef40c5995d4d18a964f7b0bff62e06",
+    "egoemg_repro/classic_emg_evaluate.py": "6db6f44afdaa74053407f906523d12b61a6c0ff62f1acb609fd08c938e0759fc",
+    "egoemg_repro/classic_emg_formal.py": "9f2ecd61c0731571137a85bd61f75a624fa910c8a0fec3eb454ed4f3ef40ab31",
+    "egoemg_repro/classic_emg_report.py": "bdddaf770519151c24cd0f8fdbd9f40e4453e04fa1a28e15088ad825af325868",
+    "egoemg_repro/classic_emg_train.py": "52b1ce655f3c4e107e3d809e403cd507fbcfd655f7ac9ea7bc0b9a592b18b0d8",
+    "egoemg_repro/crops.py": "1aa0871d6ede77d93988d455d0930e1f42470c1a92a47cfc8e49252bbfc0695e",
+    "egoemg_repro/data.py": "de7a716c6616277f6189c94abb09803f950dd27bc1f9f7193b1a000758a88f0e",
+    "egoemg_repro/dataset_statistics.py": "e61c383d8d7ea48717e8dca56c5506f8ab3c2fb1396707d506f0e570e8ee2d11",
+    "egoemg_repro/download.py": "5063fc0a5a0dbb1929c054a9cac86d3f90c01b375171660b6d75e2707e684e75",
+    "egoemg_repro/emg2pose_archive.py": "9fb6681fc4e3090573cfb01b04ad73d2052fb441085c39ed9dfec7b6939059e1",
+    "egoemg_repro/emg2pose_archive_retry.py": "e574b8bd0725c69e9c6955ed06983768c42894ff184614bc5da1bc6d9b66c418",
+    "egoemg_repro/emg2pose_check.py": "7c633a98d7528ed0c4e414ebc56e65ba306b1655693489282da9f1dddab5b2cf",
+    "egoemg_repro/emg2pose_compact_archive.py": "4d78fb412a819244bdda104c78ab99154195641ddb688371566935922d1892f7",
+    "egoemg_repro/emg2pose_compact_codec.py": "c7eb616b54d38ff98dac0c460c2983736d8c9615003a69913081a2139a32fe30",
+    "egoemg_repro/emg2pose_compact_data.py": "b6f1880667b2f26dc21db59586ec82924ccde4a941731973041f4f78c708114a",
+    "egoemg_repro/emg2pose_compact_dataset.py": "7992a3134555ef4b044c0fe6e7ab2dc9f3d6cd869cedcd84848df8fd521d7cc2",
+    "egoemg_repro/emg2pose_compact_index.py": "d29f5f1e6ffec9571eddadefe0ac876633b8ce975a6d5d7596e05037f9deb036",
+    "egoemg_repro/emg2pose_compact_runtime.py": "a0793eaf7d2b04c03e19228f30acc133c2e436efa1c8daa701275f7d07181f35",
+    "egoemg_repro/emg2pose_data.py": "226f6420a89c27916434f4f2b46d7297beea2c1c030bc2149e294a66374431e6",
+    "egoemg_repro/emg2pose_direct_evaluate.py": "12c83fc36584455fc0dff9b410b75f6547ef10f3d70a25317b7b3c080dd2c144",
+    "egoemg_repro/emg2pose_direct_evaluation_data.py": "e0313a33a06cea042ad80e20f093341bdbeb3b3d58f66e9f8b6c63e7a912c395",
+    "egoemg_repro/emg2pose_direct_experiment.py": "03fd4baffd5086fd4147b9cf900da42a9c7e784e9ebec4e5467763dd375b499c",
+    "egoemg_repro/emg2pose_direct_recovery.py": "10e616029fc8b05e21598d6b24af44e3a7aae00e46415e1a9ac1653238f124e7",
+    "egoemg_repro/emg2pose_direct_report.py": "0926c93d23359b626c5b31bbdeb2d0d4d8ea202c308524c0b1829a5085e5f0a9",
+    "egoemg_repro/emg2pose_direct_runtime.py": "3c23be89522e3a6a112e279b6f95223583daf0555586eabedbf279c31233d67b",
+    "egoemg_repro/emg2pose_direct_source.py": "ffd74770e3c32b028c392992266983e3bafeb5f1bb5310dc9f35419559cc347f",
+    "egoemg_repro/emg2pose_direct_train.py": "864cc36efe1bedf13cfc56ddeeb6872acd0c7ac57897975b5bb35a9f6c3c9b93",
+    "egoemg_repro/emg2pose_disk_download.py": "5b440a922fc6495508ed258d7b2a752086380d5edf41dcf9529d4f2a20f17297",
+    "egoemg_repro/emg2pose_disk_pipeline.py": "c5377f50d5193ebe7159c39c60ca00eccc219858488af280c8b38a2f2e65a345",
+    "egoemg_repro/emg2pose_disk_prepare.py": "aa79e081a2413eb6c5427eefb159167f6700f1c8d51ddb6435b789028bdf0b0a",
+    "egoemg_repro/emg2pose_memory_archive.py": "a8d1aed29e2f89ae9e84e8ee16ca85299c2358b13f0b2c0ad53725e5c5230bd4",
+    "egoemg_repro/emg2pose_memory_data.py": "7d1a89c2554b84dbdf01752f66600a3816a86821ec9e807c3df399ddd4e9214f",
+    "egoemg_repro/emg2pose_memory_dataset.py": "eda423288e8450fbe987900dda60597d8d9072cb7e666d8502545f28ec1f35db",
+    "egoemg_repro/emg2pose_memory_evaluate.py": "54ec2a6deb3ce4aa4003bb766340c8baefb0c8cb9586fa0b9f91195742757ad9",
+    "egoemg_repro/emg2pose_memory_evaluation_data.py": "9be3a4e9e71d90f7e6a8ac374cfe17684a93d63521da4ff10cd4c1052b8dc4b3",
+    "egoemg_repro/emg2pose_memory_index.py": "31f8ac2dc50f2deee265307cca07fabd7527151956ced4cadd1a8ecc2212ba40",
+    "egoemg_repro/emg2pose_memory_prepare.py": "86e691d2148b86ba9cc11c33a7832d30b3cf7f91ee87c244e1c5c774ffd53bb5",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "egoemg_repro/emg2pose_memory_recovery.py": "eaa6dd2b9f37671e58c6a53690af1f9121682d6a8dfd49e63f6f3c1723610eeb",
+    "egoemg_repro/emg2pose_memory_report.py": "9f409a7276f83ffe08fb77f5cca29658e7e232fe618832fde7e0ab21423276ed",
+    "egoemg_repro/emg2pose_memory_runtime.py": "3a3df632ad9c3871e774a8874f711585305d70bce4b2efc36c31b678427790d1",
+    "egoemg_repro/emg2pose_memory_statistics.py": "751bc4d9c8e9fab2731722e981ea64587abeb5af2490e6af4f420854cfd92af4",
+    "egoemg_repro/emg2pose_memory_train.py": "d91fad5a13c24848b749b3b09a36c8eb2d04a42436af6eb2fd5077cfbd1a492b",
+    "egoemg_repro/emg2pose_prefetch.py": "074d640394f46c13bda57c442733fa4a709db3ade632b07fba46ca3b65bbd753",
+    "egoemg_repro/emg2pose_runtime.py": "9659560fa9ccad474b7d8de3808579e0561f1ee339899eba096fcd238d33b422",
+    "egoemg_repro/emg2pose_tar_preservation.py": "7af211ac85dd690a596ebaae232a25d603f40d610326aaa4c746de25bf4cdff9",
+    "egoemg_repro/emg_initializer_cohort.py": "7c3624c1d22640144ea2e2d79c369fad917c5a9a4e48f1e60ef36048bf43a5b2",
+    "egoemg_repro/emg_initializer_data.py": "0287bb5aa8031556222f374f733a7301db02373fcf80101550f6cdd0cb1d6136",
+    "egoemg_repro/emg_initializer_literal.py": "f0439d1a8d05bbf078570f806b88b2ab553f00990a91edde1563a5611250800f",
+    "egoemg_repro/emg_initializer_runtime.py": "4286435f60ca50499d88e29d38ed66e3b1bf965039024ddb5dadb736d3fa5ff9",
+    "egoemg_repro/emg_initializer_train.py": "de1663ef5547b9b6dd49df197217681075e148afc1fa7aec22997aedf49e9c72",
+    "egoemg_repro/emgformer_cohort.py": "c076a746abd25eb48fd4eb29135921c5cdeae8c083f9b38d423161a49fe25ea4",
+    "egoemg_repro/emgformer_data.py": "c74e4a70760c4c6689d7c7a2f4dc6aa4cde1bbb94fb79d70983ed2cbd27cb4c0",
+    "egoemg_repro/emgformer_eval.py": "32f5be097a57793f1c899d0a530873728a6424a556bda9e3ab3825ebb6307480",
+    "egoemg_repro/emgformer_execution.py": "8c43d0a5953cbacdf5830393f229bb771c16b4ade5c8d81609411bdc71f11cf9",
+    "egoemg_repro/emgformer_literal.py": "da7ba7c1e1035ad520c5ae9cb1ecdf8014f07363d95568d8542ae060941ae701",
+    "egoemg_repro/emgformer_resource.py": "8f769c9917ae0fc51d76589e065f31a220d22f5e3b6011255b4d87b347c5f1dc",
+    "egoemg_repro/emgformer_runtime.py": "7691be8aacfb6a6796225ee91be9a19643d585a83512134178aa8ea354513bbb",
+    "egoemg_repro/emgformer_train.py": "3cc0be18daa1a405594a9c7c4998bd20d0efce26603c6069c823cb4d58e220e6",
+    "egoemg_repro/emgformer_trajectory_data.py": "c1f66a7689022da7b471b2a4ee5ec2da0eb75a139be90eb5b1217e84de77b1fa",
+    "egoemg_repro/emgformer_trajectory_eval.py": "0a85fc8df618113cba2181e62a8229e90542e91e5d4804901d430e08494a4a5c",
+    "egoemg_repro/emgformer_trajectory_results.py": "6b5b8415c48f9108904df2330881fa93cee4fb4115d2560b8cb817fc1d0cc17b",
+    "egoemg_repro/fusion_initializer_handoff.py": "9fdf4842d12b61ed5092746b06a0284af4a2abca91c93a388c67fcda930b5f80",
+    "egoemg_repro/fusion_literal.py": "2f9abe8e25422219558925f524b99904f770f4a260ec0c2ddcba2fb81a7c302a",
+    "egoemg_repro/fusion_literal_cohort.py": "46fa578bf2df89b03008dcb62a88783b28e0b4d88246dca8c520c74cd8677ed1",
+    "egoemg_repro/fusion_literal_data.py": "083b37f8af74f78fdd80e0288b16ce8e1c9abb76fde71977f57152275ee4101a",
+    "egoemg_repro/fusion_literal_eval.py": "aa7321912d6fc0f3fc134e1713c9e2b1e7d272a710f9a4f2d07061de46aa0002",
+    "egoemg_repro/fusion_literal_runtime.py": "3b357bdb0e41f3536c2296324917465ad25b2d13c8cccb553815fb729310ca60",
+    "egoemg_repro/fusion_literal_train.py": "6167f5cb0ca06202b5529d14c30d7e25c97133a23e9da4c8d8f1c919c7b0f95c",
+    "egoemg_repro/geometry_report.py": "df60de31ecbf621c7258d12e9c0dee5c665af1efbc7bc0e4e6b791da33a0ac52",
+    "egoemg_repro/hot3d_cache_intake.py": "e89b107dc73950bf5a077adbdcab4ba342f406f0ddeed1600b21506899442e55",
+    "egoemg_repro/metrics.py": "12d6eb170997ae78ddbf5602d1252d05a778f1357f17b28aa3b96d06a618798e",
+    "egoemg_repro/modality_control_inference.py": "695a2cc87676cdb271d65624f7f744b5af6b187a16f45180bbfbb7ca5653a912",
+    "egoemg_repro/modality_control_run.py": "7bff7c5c588e82606b0b6b8339118a92256552cdcf3037e5d426fd2633738f1b",
+    "egoemg_repro/modality_controls.py": "ef0d03c43d7da617dc4111f7af06739cd99ea829d415e0e939f9365b91f58427",
+    "egoemg_repro/native_ik_continuation.py": "e11098706eca22834425a284585a9a154cd10b1ebbccaff8ea5f1456790f3f66",
+    "egoemg_repro/native_ik_inputs.py": "09bc85a8695a82461c615b34bf71e33b3ddf2a4200e1fae1598286bc9d2a7373",
+    "egoemg_repro/native_ik_results.py": "3eb3082773a1c52417d8d1e41ce5c77a3050aa30aa2ddd88f17fb8a1cd9a97e8",
+    "egoemg_repro/native_ik_runtime.py": "a8f1b495f193c921bb2a578f19396bc89de0f23e893e845505254959bbe9d541",
+    "egoemg_repro/native_joint_analysis.py": "1854da7b1f9aee5d31dfaee2c63f20faa7441f51daeb744bbba7b5d42380c4ea",
+    "egoemg_repro/neuropose_native_eval.py": "3af1e23656d69c630a1e7ad44af526bcdefe585b7735d26e4fd8f642b5efe140",
+    "egoemg_repro/neuropose_native_train.py": "a4c842627eefdacbcf8ae10d22ba901eb9c07f1ec86e9187f222e0432d1c4927",
+    "egoemg_repro/occlusion_dense_analysis.py": "dc5ab6befb74fc141acf467859f44621132ddece35b211f8af7b8eb6853c565e",
+    "egoemg_repro/occlusion_dense_data.py": "1168b9b9f7d069ef638e549c8433bf49b530a065216e5bcd20959cf6b64c59ab",
+    "egoemg_repro/occlusion_dense_footprints.py": "da29019787e6f0337f2ec30dbde76f8ec8af7b4ab60a7c8178d2e3f3d0632463",
+    "egoemg_repro/occlusion_dense_geometry.py": "afd77adf4747386b3c77289300e0b25a8c09dd63e2402e657b067e3d3df6532d",
+    "egoemg_repro/occlusion_dense_geometry_data.py": "dc4af6487549e60b5cb2a482d0834506226a4f9e261c2ec763a99d1e441ad6ee",
+    "egoemg_repro/occlusion_dense_inference.py": "c1d3378391630a6ec86deb34100186869da71cdaf91a6ee1974d325253f064c0",
+    "egoemg_repro/occlusion_dense_inputs.py": "36a332016e1f05fdab1f0a7b59476fd9de97b59bf4aef1b9a9d1038723454246",
+    "egoemg_repro/occlusion_dense_models.py": "417af8e8adca024c7ad81eb483852dd11cb1e040f4f8c99cc032b07b3ecbdc16",
+    "egoemg_repro/occlusion_dense_predictions.py": "ee28ac978fd0e066996d904bc61befd09aca46dabca13ff334368d0102161af5",
+    "egoemg_repro/occlusion_dense_run.py": "e648af868ed189d7283d9cbed2f0f5cc55d67e3b3ea0171725ef99e7ffce3051",
+    "egoemg_repro/owned_recorder.py": "855f014ad72cd98070de9cedc454000f973421770335fde49390dad70d8f2354",
+    "egoemg_repro/paper_analysis.py": "9762be3e41e33ec65a72ed7c7b66c62f3d39baffade7a3b8e9d5309fa498e549",
+    "egoemg_repro/paper_table9.py": "101e7732ee4e7230200b8fa5c071378df80b8f47bc851121704bca834b825aed",
+    "egoemg_repro/partitions.py": "ec816483e5d567cec45df77bd6823e97c201d3fd20f45b0d8004827565fdf678",
+    "egoemg_repro/qualitative_analysis.py": "c3f483b50595a5baea0da4192d09c74445029b040c5a4e754f8e956a5fe23ce9",
+    "egoemg_repro/qualitative_data.py": "a7bc25051149749e007d515bf5bc5c5fc155781274694cd1cd16b4f2072cb919",
+    "egoemg_repro/qualitative_flags.py": "d8ce48a4610c22d8916f6332bbef9325600384125ba794f7d5ae1e328606b072",
+    "egoemg_repro/qualitative_geometry.py": "aeb3e64e90ad50ab936514883e8f49bdef32ca047829973bd7d9c1ffa8a5fdb8",
+    "egoemg_repro/qualitative_inputs.py": "abf1092886dc75a26e8016ad0b1313f525c22c094a189f9da47e4f6cf8a08648",
+    "egoemg_repro/qualitative_render.py": "a46dd25512c402b92b8dc03ce30d74a87411dd9e75738a8f0a19ab6aa8be1e80",
+    "egoemg_repro/qualitative_run.py": "c9dd2ff076506bae9070f2758ed02c353cf1402d21795df8542271d7d77477bf",
+    "egoemg_repro/range_download.py": "a09919cf9f312570c9121eb8b63a43043ee6c00aa4786ee2f0f3f6004e8e1fe5",
+    "egoemg_repro/range_recovery.py": "626417e1680bcd487da7a12edd0a76a2d1d5b74bf55707ae78526349e41acd13",
+    "egoemg_repro/release_timing.py": "c1c154c5815670b54b5efcc3693bc8c245ea3166057601ed76ab3d73c96b0dac",
+    "egoemg_repro/report.py": "88b835885d3f78705874b8d1e5d428c741dd3ffc02a7b2ea440f50a678ca892f",
+    "egoemg_repro/resnet_data.py": "df2312fd9a29c0d51a60e6a8327f1d80402e6d3d82b3ec85e46253fd45c394ab",
+    "egoemg_repro/resnet_eval.py": "ff7c7b245e4a399c85602115d314418ef3e3c29af705313ee29c1fdde970ad4c",
+    "egoemg_repro/resnet_literal.py": "07471737e142f48db05ba082d0f01d65bd77fff8e26635e0a29ee4c28de108cb",
+    "egoemg_repro/resnet_runtime.py": "a2881225abfd2e238ae3a671c7cd6ee235cc2a0400b2c31968cdbe0ebce08c9d",
+    "egoemg_repro/resnet_train.py": "858bbac469f7f57e5bc2419764875a28089274d7522dec9460f8712d98b75d62",
+    "egoemg_repro/rn18_fusion_cohort.py": "0eca1ac9b5e46421b667d4a50539b14d4a9df6f70cce04d383d7b0f5a4ae225a",
+    "egoemg_repro/rn18_fusion_data.py": "c9f90ced4afb7868f99510632a9daacb4b86fd7a81265d612468b77faa1c205d",
+    "egoemg_repro/rn18_fusion_eval.py": "4b45bfe0d1ba13a5bb7e69250a34271598731d3350a111b63b3410bc5b200df1",
+    "egoemg_repro/rn18_fusion_experiment.py": "7da07048ebf5160e62f8ad276f4d03f7c4ffba2168d1fd2d201ec220730627fd",
+    "egoemg_repro/rn18_fusion_handoff.py": "212fe881a6ea83e91b0c571b23d176c16c2b48190eb0660024ad02c5df824c75",
+    "egoemg_repro/rn18_fusion_literal.py": "1160b90b66b8a9155c4ddad17e7f7cba1322d3f146b6da7011dc5539214fd5e7",
+    "egoemg_repro/rn18_fusion_runtime.py": "c0b4d3ffaddef4b1b9c70146c7d21c085bdda257e2326074749bc8189de076ef",
+    "egoemg_repro/rn18_fusion_train.py": "a5cf509288f95d5cafdec046cc343fc5d051481695680f7aab9d095f1e6d86b4",
+    "egoemg_repro/rn18_fusion_trained_handoff.py": "54d957d58d1b28ebe827774a2df406545504a0e971b09099990f77032354bb41",
+    "egoemg_repro/rn18_fusion_transfer.py": "01831c0bdc3974a90b215cf84d1e4f43d05082f3d0f71a4a896b6f90e811cf34",
+    "egoemg_repro/rn18_fusion_vision_producer.py": "46080ff9dc1f491ecf1375109ec191204c38f032f2929cb4de62777f1fd10801",
+    "egoemg_repro/rn18_fusion_workflow.py": "e0745ba638a86de62052f9ef886562a4fc7006336cc111a8159f417ae94372bb",
+    "egoemg_repro/rn18_initializer_cohort.py": "3a57e264fc316578c44aa813a6ae153854911373bb3b61edcf0750a8b8544be8",
+    "egoemg_repro/rn18_initializer_data.py": "700afbc082841236792900d9856bbc26bca7c870dc47ccf4c22f78a2a58bccff",
+    "egoemg_repro/rn18_initializer_train.py": "3f3270d2fe41eab05048ab2d271582e814cf18551cb432fa258947a7fefb501e",
+    "egoemg_repro/rn18_occlusion_models.py": "1c3eee34197e87f7b0aa4c273a8f07d534742ec68e6fd437f58a8dc336fcfa09",
+    "egoemg_repro/rn18_occlusion_run.py": "dd630810d4497075274055fd73826f1e33b94740b1843fc1f5b9aea2c3914db5",
+    "egoemg_repro/rn18_qualitative_render.py": "d25cac638da9bafe3fcf063ef26b6d1e2300c0d57ccda309073eaa3e16122e13",
+    "egoemg_repro/semantic_centers.py": "c8be5798a2c27bf9303482fdefe3b9de9eea04cf250f385e17e8a21c808b0e15",
+    "egoemg_repro/semantic_coverage.py": "0cd84bfae0398f158c5b46423f280571126ce12fa84e830c7df805d4a9064e9e",
+    "egoemg_repro/semantic_frames.py": "8e5da62395a9198ce697811596e99cd595ba82ebbf0573dbeffe186420e08068",
+    "egoemg_repro/semantic_tables.py": "fe0e0e3a87888bcca763bd28e8ea894328316c36d60b2b9e3e1616c7b272d1ea",
+    "egoemg_repro/train.py": "10696073b661823a9bf47ddda26b4c3b27324b00c9b62e3841a670409e872b6a",
+    "egoemg_repro/vision_literal.py": "738a4e81e6988f08d39768991b1192dd0295b9da870a63d89a7461a927adc5a0",
+    "egoemg_repro/vision_literal_check.py": "9601034285aaea5cb35abed793576ab5ecf901146b55a4c3901f7b242234b227",
+    "egoemg_repro/vision_literal_cohort.py": "997cb2f7975f49b45b6313294b0dc3f20150f775bbfe65aa1c02857ace89b977",
+    "egoemg_repro/vision_literal_data.py": "1d7da41ec2e326a930bdcf1aab4c1615cce85f4256fe5ecc3a399155eb51e06b",
+    "egoemg_repro/vision_literal_eval.py": "63553900476855dc0cf9ecc2f97f841e33225470488066de39af23465565c581",
+    "egoemg_repro/vision_literal_runtime.py": "bb430267f819c1a1c46ed961397a81c3b9619d9a48f321939cc78808bc85e4d0",
+    "egoemg_repro/vision_literal_train.py": "b89e20be1e6ef3669f634391ac072c51ecc929c9517fbc244b6a02747c52efd7",
+    "egoemg_repro/visual.py": "b8c390c0291abd67ee58a6f46caddce38296f2013b9f19088c330792b3d76cdb",
+    "egoemg_repro/wilor_literal.py": "2c31460ce384d8b7ec268f2c09f09e77a1492cf0bdb1e6767f04a47ecd081ee2",
+    "egoemg_repro/wilor_literal_runtime.py": "c802cdbe4b11dbb6ca7beed881b6c655c9ccfb7db7751f3078b7334661da5730",
+    "egoemg_repro/wilor_native_eval.py": "bcf5d58e55e5542da00450fae3d88ca2e29bcc23977eae96632d362b30b8a3f7",
+    "egoemg_repro/wilor_native_train.py": "91967a141fad6a00cf19711f8d06749e0409b21f06b8f6325a2808ae8cf011b2",
+    "egoemg_repro/wilor_recovery.py": "331161d115bb96c87c12e6f6c678f4abee1e2bc1225a6ff1521ac1ab0016c075",
+    "egoemg_repro/wilor_recovery_eval.py": "d3916e71eb68c241650cc8b7c527cbcfc91f6f976c6e7991a1bace17ec729824",
+    "private/readback-worker.py": "1c9139432e2bca52c1b5b6ca9a3bca1bbe1ef31c382d2962ef5c68f9bea4a005",
+    "private/recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+    "private/request.json": "7fc00fa72237d2a3c4e10a2b732c135c1bc16db2753e22fdb9fde0623af49441",
+    "private/runtime-probe.py": "deed103b840c9122628cadb6d07f1e3d0b1800a366440a38ede42608a6910a0a",
+    "results/legacy-geometry-complete-numeric-admission-20261101.json": "757eef807837c8c44a6be6cbe0b237473f30953a543477dfc13fc32543c96b6a",
+    "results/native-mano-ik/interrupted-prefix-raw-verified-20261104.json": "22b00fb5a7e35e47e8021a015a8f289303d177f8d71ea0683dca4afdad84928c",
+    "scripts/paper/run_native_mano_ik.py": "ebd7f2f80b2924ae43602a043adbb72b1175877f2c3735c9b48a4090e3934bbe",
+    "scripts/paper/run_native_mano_ik_continuation.py": "5c62f1288e6012642c80c57aa94f982f6f640c1f9ece60794757fcae817b79df",
+    "tests/test_native_ik_continuation.py": "f06ca537044cf55ca9102059529bd4357a0143c4cad4ed5058eddce15c154157",
+    "tests/test_native_ik_continued_workflow.py": "ac72d88dd399a28fff8b66b751b20b136b7a395a33bb325b5497abee6f7f713c",
+    "tests/test_native_ik_results.py": "288629dbf9d6606705a6f124289c08b29e92984e03d1480431bc41b75e9c22ab",
+    "tests/test_native_ik_workflow.py": "3b10a795666012729c8f0ba7507713fe27c4badd1ea2e2c76b3b80e81315c4d4",
+    "upstream/egoemg/UmeTrack/dataset/generic_hand_model.json": "2eb8029a8e1cedc2cf5b40c14c0955e2004277024df3c6304ce0bb74106a7c31",
+    "upstream/scripts/ik/batch_ik_mesh.py": "794fdfcb82a692812de4ca7a15fd4e41c0c3f3717424dd917fb05e4f9508da2c"
+  },
+  "actual_terminal_state": {
+    "actual_exit_code": 0,
+    "automatic_retry": false,
+    "child": {
+      "pid": 3502362,
+      "start_ticks": "470088297"
+    },
+    "ended_utc": "2026-11-05T10:17:02.538938+00:00",
+    "started_utc": "2026-11-05T10:12:57.631615+00:00",
+    "status": "complete",
+    "wrapper": {
+      "pid": 3502361,
+      "start_ticks": "470088294"
+    }
+  },
+  "actual_test_log": "...................................................................      [100%]\n67 passed in 15.31s\n",
+  "actual_test_log_sha256": "efe13920e7be8859d0acbf19b2459b13ecec06d265ce7e7da824445c17eaae3e",
+  "actual_test_witness": {
+    "actor": {
+      "pgrp": 3501162,
+      "pid": 3501162,
+      "sid": 3501162,
+      "start_ticks": "470068435",
+      "state": "R",
+      "uid": 1005
+    },
+    "actual_exit_code": 0,
+    "construction_attempts": {
+      "module": 0,
+      "optimizer": 0
+    },
+    "cuda_initialized": false,
+    "seconds": 15.47333310265094
+  },
+  "actual_total_rows": 62,
+  "actual_workflow": {
+    "actor": {
+      "pgrp": 3502362,
+      "pid": 3502362,
+      "sid": 3502362,
+      "start_ticks": "470088297",
+      "state": "R",
+      "uid": 1005
+    },
+    "actual_batch_size": 3,
+    "actual_continued_stages": [
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502372,
+          "pid": 3502372,
+          "sid": 3502372,
+          "start_ticks": "470088348",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-0-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502373,
+          "pid": 3502373,
+          "sid": 3502373,
+          "start_ticks": "470088351",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502468,
+          "pid": 3502468,
+          "sid": 3502468,
+          "start_ticks": "470089172",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-0-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502471,
+          "pid": 3502471,
+          "sid": 3502471,
+          "start_ticks": "470089176",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502494,
+          "pid": 3502494,
+          "sid": 3502494,
+          "start_ticks": "470089394",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-0-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502495,
+          "pid": 3502495,
+          "sid": 3502495,
+          "start_ticks": "470089397",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502573,
+          "pid": 3502573,
+          "sid": 3502573,
+          "start_ticks": "470089615",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-0-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502574,
+          "pid": 3502574,
+          "sid": 3502574,
+          "start_ticks": "470089619",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502586,
+          "pid": 3502586,
+          "sid": 3502586,
+          "start_ticks": "470089847",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-1-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502587,
+          "pid": 3502587,
+          "sid": 3502587,
+          "start_ticks": "470089851",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502708,
+          "pid": 3502708,
+          "sid": 3502708,
+          "start_ticks": "470091076",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-1-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502710,
+          "pid": 3502710,
+          "sid": 3502710,
+          "start_ticks": "470091080",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502722,
+          "pid": 3502722,
+          "sid": 3502722,
+          "start_ticks": "470091298",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-1-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502723,
+          "pid": 3502723,
+          "sid": 3502723,
+          "start_ticks": "470091302",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502801,
+          "pid": 3502801,
+          "sid": 3502801,
+          "start_ticks": "470091522",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-1-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502802,
+          "pid": 3502802,
+          "sid": 3502802,
+          "start_ticks": "470091526",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3502815,
+          "pid": 3502815,
+          "sid": 3502815,
+          "start_ticks": "470091754",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-2-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3502816,
+          "pid": 3502816,
+          "sid": 3502816,
+          "start_ticks": "470091758",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503084,
+          "pid": 3503084,
+          "sid": 3503084,
+          "start_ticks": "470092984",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-2-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503085,
+          "pid": 3503085,
+          "sid": 3503085,
+          "start_ticks": "470092988",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503098,
+          "pid": 3503098,
+          "sid": 3503098,
+          "start_ticks": "470093208",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-2-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503099,
+          "pid": 3503099,
+          "sid": 3503099,
+          "start_ticks": "470093211",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503186,
+          "pid": 3503186,
+          "sid": 3503186,
+          "start_ticks": "470093431",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-2-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503187,
+          "pid": 3503187,
+          "sid": 3503187,
+          "start_ticks": "470093434",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503201,
+          "pid": 3503201,
+          "sid": 3503201,
+          "start_ticks": "470093665",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-3-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503202,
+          "pid": 3503202,
+          "sid": 3503202,
+          "start_ticks": "470093669",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503321,
+          "pid": 3503321,
+          "sid": 3503321,
+          "start_ticks": "470094895",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-3-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503322,
+          "pid": 3503322,
+          "sid": 3503322,
+          "start_ticks": "470094898",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503336,
+          "pid": 3503336,
+          "sid": 3503336,
+          "start_ticks": "470095120",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-3-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503337,
+          "pid": 3503337,
+          "sid": 3503337,
+          "start_ticks": "470095123",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503422,
+          "pid": 3503422,
+          "sid": 3503422,
+          "start_ticks": "470095538",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-3-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503423,
+          "pid": 3503423,
+          "sid": 3503423,
+          "start_ticks": "470095541",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503444,
+          "pid": 3503444,
+          "sid": 3503444,
+          "start_ticks": "470095774",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-4-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503445,
+          "pid": 3503445,
+          "sid": 3503445,
+          "start_ticks": "470095778",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503574,
+          "pid": 3503574,
+          "sid": 3503574,
+          "start_ticks": "470097001",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-4-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503575,
+          "pid": 3503575,
+          "sid": 3503575,
+          "start_ticks": "470097005",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503596,
+          "pid": 3503596,
+          "sid": 3503596,
+          "start_ticks": "470097224",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-4-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503597,
+          "pid": 3503597,
+          "sid": 3503597,
+          "start_ticks": "470097228",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503675,
+          "pid": 3503675,
+          "sid": 3503675,
+          "start_ticks": "470097448",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-4-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503676,
+          "pid": 3503676,
+          "sid": 3503676,
+          "start_ticks": "470097452",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503689,
+          "pid": 3503689,
+          "sid": 3503689,
+          "start_ticks": "470097680",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-5-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503690,
+          "pid": 3503690,
+          "sid": 3503690,
+          "start_ticks": "470097683",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503824,
+          "pid": 3503824,
+          "sid": 3503824,
+          "start_ticks": "470098911",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-5-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503825,
+          "pid": 3503825,
+          "sid": 3503825,
+          "start_ticks": "470098915",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503837,
+          "pid": 3503837,
+          "sid": 3503837,
+          "start_ticks": "470099135",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-5-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503838,
+          "pid": 3503838,
+          "sid": 3503838,
+          "start_ticks": "470099139",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503935,
+          "pid": 3503935,
+          "sid": 3503935,
+          "start_ticks": "470099561",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "right-5-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503936,
+          "pid": 3503936,
+          "sid": 3503936,
+          "start_ticks": "470099564",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3503949,
+          "pid": 3503949,
+          "sid": 3503949,
+          "start_ticks": "470099793",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-0-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3503950,
+          "pid": 3503950,
+          "sid": 3503950,
+          "start_ticks": "470099797",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504072,
+          "pid": 3504072,
+          "sid": 3504072,
+          "start_ticks": "470101024",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-0-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504073,
+          "pid": 3504073,
+          "sid": 3504073,
+          "start_ticks": "470101028",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504085,
+          "pid": 3504085,
+          "sid": 3504085,
+          "start_ticks": "470101248",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-0-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504086,
+          "pid": 3504086,
+          "sid": 3504086,
+          "start_ticks": "470101251",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504164,
+          "pid": 3504164,
+          "sid": 3504164,
+          "start_ticks": "470101471",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-0-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504165,
+          "pid": 3504165,
+          "sid": 3504165,
+          "start_ticks": "470101475",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504180,
+          "pid": 3504180,
+          "sid": 3504180,
+          "start_ticks": "470101704",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-1-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504181,
+          "pid": 3504181,
+          "sid": 3504181,
+          "start_ticks": "470101707",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504304,
+          "pid": 3504304,
+          "sid": 3504304,
+          "start_ticks": "470102935",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-1-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504305,
+          "pid": 3504305,
+          "sid": 3504305,
+          "start_ticks": "470102939",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504320,
+          "pid": 3504320,
+          "sid": 3504320,
+          "start_ticks": "470103160",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-1-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504321,
+          "pid": 3504321,
+          "sid": 3504321,
+          "start_ticks": "470103163",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504405,
+          "pid": 3504405,
+          "sid": 3504405,
+          "start_ticks": "470103384",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-1-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504406,
+          "pid": 3504406,
+          "sid": 3504406,
+          "start_ticks": "470103388",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504418,
+          "pid": 3504418,
+          "sid": 3504418,
+          "start_ticks": "470103618",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-2-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504419,
+          "pid": 3504419,
+          "sid": 3504419,
+          "start_ticks": "470103621",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504545,
+          "pid": 3504545,
+          "sid": 3504545,
+          "start_ticks": "470104849",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-2-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504546,
+          "pid": 3504546,
+          "sid": 3504546,
+          "start_ticks": "470104853",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504567,
+          "pid": 3504567,
+          "sid": 3504567,
+          "start_ticks": "470105073",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-2-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504568,
+          "pid": 3504568,
+          "sid": 3504568,
+          "start_ticks": "470105077",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504664,
+          "pid": 3504664,
+          "sid": 3504664,
+          "start_ticks": "470105500",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-2-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504665,
+          "pid": 3504665,
+          "sid": 3504665,
+          "start_ticks": "470105503",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504677,
+          "pid": 3504677,
+          "sid": 3504677,
+          "start_ticks": "470105731",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-3-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504678,
+          "pid": 3504678,
+          "sid": 3504678,
+          "start_ticks": "470105735",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504809,
+          "pid": 3504809,
+          "sid": 3504809,
+          "start_ticks": "470107156",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-3-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504810,
+          "pid": 3504810,
+          "sid": 3504810,
+          "start_ticks": "470107160",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504823,
+          "pid": 3504823,
+          "sid": 3504823,
+          "start_ticks": "470107379",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-3-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504824,
+          "pid": 3504824,
+          "sid": 3504824,
+          "start_ticks": "470107383",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504910,
+          "pid": 3504910,
+          "sid": 3504910,
+          "start_ticks": "470107808",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-3-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504911,
+          "pid": 3504911,
+          "sid": 3504911,
+          "start_ticks": "470107812",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3504924,
+          "pid": 3504924,
+          "sid": 3504924,
+          "start_ticks": "470108040",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-4-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3504925,
+          "pid": 3504925,
+          "sid": 3504925,
+          "start_ticks": "470108044",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505055,
+          "pid": 3505055,
+          "sid": 3505055,
+          "start_ticks": "470109473",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-4-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505056,
+          "pid": 3505056,
+          "sid": 3505056,
+          "start_ticks": "470109477",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505075,
+          "pid": 3505075,
+          "sid": 3505075,
+          "start_ticks": "470109697",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-4-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505076,
+          "pid": 3505076,
+          "sid": 3505076,
+          "start_ticks": "470109701",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505153,
+          "pid": 3505153,
+          "sid": 3505153,
+          "start_ticks": "470109922",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-4-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505154,
+          "pid": 3505154,
+          "sid": 3505154,
+          "start_ticks": "470109925",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505168,
+          "pid": 3505168,
+          "sid": 3505168,
+          "start_ticks": "470110154",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-5-produce",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505169,
+          "pid": 3505169,
+          "sid": 3505169,
+          "start_ticks": "470110157",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505302,
+          "pid": 3505302,
+          "sid": 3505302,
+          "start_ticks": "470111386",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-5-map",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505303,
+          "pid": 3505303,
+          "sid": 3505303,
+          "start_ticks": "470111390",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505328,
+          "pid": 3505328,
+          "sid": 3505328,
+          "start_ticks": "470111610",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-5-verify",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505329,
+          "pid": 3505329,
+          "sid": 3505329,
+          "start_ticks": "470111613",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505407,
+          "pid": 3505407,
+          "sid": 3505407,
+          "start_ticks": "470111834",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "left-5-finalize",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505408,
+          "pid": 3505408,
+          "sid": 3505408,
+          "start_ticks": "470111838",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      },
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505421,
+          "pid": 3505421,
+          "sid": 3505421,
+          "start_ticks": "470112066",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "role": "assemble",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505422,
+          "pid": 3505422,
+          "sid": 3505422,
+          "start_ticks": "470112070",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      }
+    ],
+    "actual_extra_stages": [
+      {
+        "all_owned_consumers_exited": true,
+        "descriptor_bindings": {},
+        "format": "egoemg_owned_stage_v1",
+        "guardian": {
+          "pgrp": 3505438,
+          "pid": 3505438,
+          "sid": 3505438,
+          "start_ticks": "470112364",
+          "state": "R",
+          "uid": 1005
+        },
+        "kill_escalation_used": false,
+        "owner": {
+          "pgrp": 3502362,
+          "pid": 3502362,
+          "sid": 3502362,
+          "start_ticks": "470088297",
+          "state": "R",
+          "uid": 1005
+        },
+        "reason": "worker_exit",
+        "scientific_complete": false,
+        "status": "success",
+        "worker": {
+          "pgrp": 3505440,
+          "pid": 3505440,
+          "sid": 3505440,
+          "start_ticks": "470112368",
+          "state": "R",
+          "uid": 1005
+        },
+        "worker_exit_code": 0
+      }
+    ],
+    "actual_total_rows": 62,
+    "all_owned_consumers_physically_closed": true,
+    "bundle_sha256": "dd8d9336789a98a68426c3f382d7582d1eeb0a38c2aec2cf7aa8001d7ddbed58",
+    "completion_file_sha256": "5e9bd74dde32ec22f5f485d656746c99953b6a573762d718f30205a3f0f60e34",
+    "default_batch10096_qualified": false,
+    "format": "actual_native_IK_mixed_prefix_62real_pose_CPU_engineering_v1",
+    "full_frame_labels_regenerated": false,
+    "full_paper_complete": false,
+    "new_actual_ik_closure_evaluations": 19951,
+    "new_actual_ik_optimizer_steps": 1433,
+    "new_batches": 23,
+    "original_large_source_generations_unchanged": true,
+    "parent_torch_unimported": true,
+    "readback_file_sha256": "ec3a373228a800023b51739c8a45cdfb89e59234d1fa73e49f010412e1492dda",
+    "reused_actual_prefix_stage": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "error_type": "OwnedStageError",
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 3501532,
+        "pid": 3501532,
+        "sid": 3501532,
+        "start_ticks": "470070264",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 3501159,
+        "pid": 3501159,
+        "sid": 3501159,
+        "start_ticks": "470068416",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "failed",
+      "worker": {
+        "pgrp": 3501533,
+        "pid": 3501533,
+        "sid": 3501533,
+        "start_ticks": "470070268",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 1
+    },
+    "reused_all6_previous_owning_actors_physically_closed": [
+      {
+        "pid": 3501158,
+        "start_ticks": "470068413"
+      },
+      {
+        "pid": 3501159,
+        "start_ticks": "470068416"
+      },
+      {
+        "pgrp": 3501162,
+        "pid": 3501162,
+        "sid": 3501162,
+        "start_ticks": "470068435",
+        "state": "R",
+        "uid": 1005
+      },
+      {
+        "pgrp": 3501161,
+        "pid": 3501161,
+        "sid": 3501161,
+        "start_ticks": "470068432",
+        "state": "R",
+        "uid": 1005
+      },
+      {
+        "pgrp": 3501533,
+        "pid": 3501533,
+        "sid": 3501533,
+        "start_ticks": "470070268",
+        "state": "R",
+        "uid": 1005
+      },
+      {
+        "pgrp": 3501532,
+        "pid": 3501532,
+        "sid": 3501532,
+        "start_ticks": "470070264",
+        "state": "R",
+        "uid": 1005
+      }
+    ],
+    "reused_batches": 1,
+    "reused_engineering_bundle_sha256": "8b81f57faf302499714dc3235ea62b7df8d5e31c77e6923a9d9fe040a5d6d692",
+    "reused_engineering_root": "/data/shihao/egoemg-IK-mixed-continuation-engineering-198085123ec0-20261105",
+    "reused_previous_actual_test_stage": {
+      "all_owned_consumers_exited": true,
+      "descriptor_bindings": {},
+      "format": "egoemg_owned_stage_v1",
+      "guardian": {
+        "pgrp": 3501161,
+        "pid": 3501161,
+        "sid": 3501161,
+        "start_ticks": "470068432",
+        "state": "R",
+        "uid": 1005
+      },
+      "kill_escalation_used": false,
+      "owner": {
+        "pgrp": 3501159,
+        "pid": 3501159,
+        "sid": 3501159,
+        "start_ticks": "470068416",
+        "state": "R",
+        "uid": 1005
+      },
+      "reason": "worker_exit",
+      "scientific_complete": false,
+      "status": "success",
+      "worker": {
+        "pgrp": 3501162,
+        "pid": 3501162,
+        "sid": 3501162,
+        "start_ticks": "470068435",
+        "state": "R",
+        "uid": 1005
+      },
+      "worker_exit_code": 0
+    },
+    "reused_rows": 3,
+    "scientific_eligible": false,
+    "scientific_source_and_test_bytes_identical_to_previous_tested_capsule": true,
+    "sha256": "66a9b46e56972b61f4d1453eb97189e0321bc853ac8b9018ff6daa8867aa81ea",
+    "source_commit": "198085123ec0aaae9a43a888515993c5f14610ba",
+    "total_actual_ik_closure_evaluations": 21090,
+    "total_actual_ik_optimizer_steps": 1494
+  },
+  "all_actual_continued_artifacts_sha256": {
+    "private/continued/completion.json": "5e9bd74dde32ec22f5f485d656746c99953b6a573762d718f30205a3f0f60e34",
+    "private/continued/configuration.json": "6e1be3773c121e83dabeb4bbea47cedc0a77e819e5dd54baddc671b15d6f4ee8",
+    "private/continued/flow/left-shard-0/labels/finger_angles.dat": "511b7af11bb017e87c0915874f27834fa76a4b2274c22da62275e6d9a908ad57",
+    "private/continued/flow/left-shard-0/labels/shard.json": "92cab0e052850979593a14917d00afe1e86b630d3cbf8ec7939db77e122fa3e1",
+    "private/continued/flow/left-shard-0/map/mixed.json": "5d0afca4068b970e49295c3a5dba70dcbfbc0469221935fd4c090f9b6d29a05f",
+    "private/continued/flow/left-shard-0/produce/batch-00000/result.json": "e17759a6d1c624cef0b7b8f58f01816ececdd3c068adc42b16a9cf97d63ca1f2",
+    "private/continued/flow/left-shard-0/produce/batch-00000/state.npz": "6399ec6b9343095ce556986723928b9f5b2830282a928202f57539635a402d56",
+    "private/continued/flow/left-shard-0/produce/batch-00001/result.json": "db1723de27bc09039b170b9e0c4a92c0e410d70b5777be0e136261966bf5202a",
+    "private/continued/flow/left-shard-0/produce/batch-00001/state.npz": "4c72d46e5771f8e4339dac0474876e58694fa39489630c7c50ec288d67977f97",
+    "private/continued/flow/left-shard-0/produce/new-packets.json": "77a728c64a082e8ab2820c48cc541c71845b93a7a48895b79ca841a40f98018b",
+    "private/continued/flow/left-shard-0/verify/batch-00000/verification.json": "f0965b2730cbfb4407c48fccd508114b58a25b94af1ecf94ca53c430dac9db7b",
+    "private/continued/flow/left-shard-0/verify/batch-00001/verification.json": "932278542cd367971703364d556035ad69c9056990c1bc67d6eebce83ca8b347",
+    "private/continued/flow/left-shard-0/verify/verified.json": "d2dda48e272a753c25d8df5bcb76ddab3928d2d08bef290d9c26f6894bf32d47",
+    "private/continued/flow/left-shard-1/labels/finger_angles.dat": "86f7f97e26a57b0c741d79bc9da664470db1c6b83456ea1e610150c00db4d6ef",
+    "private/continued/flow/left-shard-1/labels/shard.json": "0becc592b31ae60142a128cb446727fca7e53c0609dcd8ceb4868c8a1d680398",
+    "private/continued/flow/left-shard-1/map/mixed.json": "6935bcec711872ff674f49a972e4c088b93224c118f83a8cfc74eed5c4a00c35",
+    "private/continued/flow/left-shard-1/produce/batch-00000/result.json": "01660e781c1b30cc2e338ac50abb5632d64d6fbfbafa5282dd60c7fe88f9df0c",
+    "private/continued/flow/left-shard-1/produce/batch-00000/state.npz": "fefb292c5319f1142119d190b1d6b5a0fdbc9b25f39f11702b682f32776fe53d",
+    "private/continued/flow/left-shard-1/produce/batch-00001/result.json": "c1f87d0741b97f08870eb68671ba2fb803832a2b9cd15c4edede19bb0c5b8680",
+    "private/continued/flow/left-shard-1/produce/batch-00001/state.npz": "974961ad3e2481fa427c3189f4dd380f94b8df78f0c4fc31ad4a5bbc555d4dd8",
+    "private/continued/flow/left-shard-1/produce/new-packets.json": "0e4b5077a0f7e0e89712a7fac173b7d4260c7fe330f96542760a065db378c856",
+    "private/continued/flow/left-shard-1/verify/batch-00000/verification.json": "22eccc25bb156f9adb4050045248fa2c71a9dc6a5cc31b17300853b7b83b37ad",
+    "private/continued/flow/left-shard-1/verify/batch-00001/verification.json": "cc6c1ffe89f43c09e580e54518df79eec8708fee38545e749f0ef897ba76f0ef",
+    "private/continued/flow/left-shard-1/verify/verified.json": "9f4e107749b9600dccbbd25f62f5ef28f8a86904275b5f5bc09f4a5d5320b19e",
+    "private/continued/flow/left-shard-2/labels/finger_angles.dat": "b75ba25b7af38afa74b2f72d7a81b7dac13cc584e0366a90526acaba71768dc7",
+    "private/continued/flow/left-shard-2/labels/shard.json": "8952d902caa07faa224da97e00d752a0c5dc688adb74f9821cf7b59f02a3bde4",
+    "private/continued/flow/left-shard-2/map/mixed.json": "0785c99dc0ef6830ec66876cfe401a05727164b726663f3b72c7bb7f1d7a7b11",
+    "private/continued/flow/left-shard-2/produce/batch-00000/result.json": "b32812656fcef6cb84e96429ee72c147b6eed9c557d7d448ebffa2d6ecde2ed3",
+    "private/continued/flow/left-shard-2/produce/batch-00000/state.npz": "f34f820d35769df1a88b8e44eff07b5499ad6b5f41510b7323562030db612eea",
+    "private/continued/flow/left-shard-2/produce/batch-00001/result.json": "aa016715e4906cd9bbe6cbda7457f28ca91b35307f2f978795f653d6bd9e2c62",
+    "private/continued/flow/left-shard-2/produce/batch-00001/state.npz": "36a70bdbbb379cd82fa9acd062748300325be18f004e77410c9b4d3082af800e",
+    "private/continued/flow/left-shard-2/produce/new-packets.json": "7ce01723bf8aa36c0ceabfc25fd522aa31f15c9868f04a51f6e906de7233b745",
+    "private/continued/flow/left-shard-2/verify/batch-00000/verification.json": "a707a412cc93cc5fd22b5d49c1ba32ff994f17a573de4d3002a7d328ecdfcb94",
+    "private/continued/flow/left-shard-2/verify/batch-00001/verification.json": "ea0b979c8f0a1445f3d955ba828ce123cff0defde0f30320205bb6a90e72c4e6",
+    "private/continued/flow/left-shard-2/verify/verified.json": "39ab826c4a460a72112321e6264aeb981fc6ab0cbfa69c95418693c2481ff97d",
+    "private/continued/flow/left-shard-3/labels/finger_angles.dat": "267f1d8858350ef57c285e6f2ad7e8c3c669e0174d7add1d4ee86a542a2e272d",
+    "private/continued/flow/left-shard-3/labels/shard.json": "16957d7c4f008df41b8172945f65816245b9fd0f0718dd2a2db9a36acc67529b",
+    "private/continued/flow/left-shard-3/map/mixed.json": "ebe37ab5df1e9be23e4494f44f3480c4b199e5cabedf49c8514443e34d2fa896",
+    "private/continued/flow/left-shard-3/produce/batch-00000/result.json": "294f98842890a24b2201a595cd17f35f94074169454b56ee4c41d01b4896b954",
+    "private/continued/flow/left-shard-3/produce/batch-00000/state.npz": "ddcd2c801368d75519213ce1e543e0f9cf0215e583d10cd2b4930f32171200c8",
+    "private/continued/flow/left-shard-3/produce/batch-00001/result.json": "9a5ecc3ba42a9e23b8d8d10530f04a1afa7727ff4135918a6632524e017ec8e8",
+    "private/continued/flow/left-shard-3/produce/batch-00001/state.npz": "600f16aff9eb3ea336686b6d8eda951f95b10c3b84f971e406722fe6556efbcb",
+    "private/continued/flow/left-shard-3/produce/new-packets.json": "7784291f8836af26e0d75ddd7af4fdf9560877f110b33ee399ba1d188c4cd4e6",
+    "private/continued/flow/left-shard-3/verify/batch-00000/verification.json": "1f7cbe40ae2bba935493b61fe5184fc5d9f409b4b45c6c77034d539a32058be4",
+    "private/continued/flow/left-shard-3/verify/batch-00001/verification.json": "ddfe64f644c1612c3863ddc1b96ef15ecf8168403f212fd4226a0b8d9cd99aea",
+    "private/continued/flow/left-shard-3/verify/verified.json": "788db2c05662884b0924898c987a984e16e1983f250fc2a5ead4e99b7cab61bf",
+    "private/continued/flow/left-shard-4/labels/finger_angles.dat": "3b1edd836353c44ba0b20958136ec30e0c66f0007c6177fde6af4c5b05c8ac05",
+    "private/continued/flow/left-shard-4/labels/shard.json": "fd1d45682da5764f0893c2e5b703d812ce7bf9eabf1cafab6cb576589e98e888",
+    "private/continued/flow/left-shard-4/map/mixed.json": "5d551b63d93ad4e1e64da00474b016374c751713007d6705ae64ee5d32eb9e30",
+    "private/continued/flow/left-shard-4/produce/batch-00000/result.json": "6979a7de14aa3d11a3ffca4fe68248116236099c5dfbfbecaa52b0330f7efc61",
+    "private/continued/flow/left-shard-4/produce/batch-00000/state.npz": "b9c3ee293cb7466576f23e8b92ba14b2453aab5e65da6637bd8528b7405c1491",
+    "private/continued/flow/left-shard-4/produce/batch-00001/result.json": "34483cbb5a4408a931db5c0510400124381ec545b4efd3a787c8ad3c2a110e14",
+    "private/continued/flow/left-shard-4/produce/batch-00001/state.npz": "0cd912c9c0c2ea5a0c76b2355232f197af4a0eac5e5ca65c86af81d0549cd420",
+    "private/continued/flow/left-shard-4/produce/new-packets.json": "799bc12705b3ebc2f208740d79d902c80d09c16da7e1379f8055b07ed0fba64d",
+    "private/continued/flow/left-shard-4/verify/batch-00000/verification.json": "1a2332a96f0b8dcb83dad01fcb701a5ef174d49f3b826a2118a87078170bfde6",
+    "private/continued/flow/left-shard-4/verify/batch-00001/verification.json": "66c223681ad33ea488122bded42df529dfaced9a7a31ed0da607e05d8396760b",
+    "private/continued/flow/left-shard-4/verify/verified.json": "2ad13839da14cd40a813b433e43173399e2ebfcd66eda1d341d2acb065e5c463",
+    "private/continued/flow/left-shard-5/labels/finger_angles.dat": "517b4cd89f25556fa14cefe0ebb67b727345503f8fc58ab89280dd0e7c8fb22a",
+    "private/continued/flow/left-shard-5/labels/shard.json": "58df9e7d6a518ba469343a40d838e6e7d90ffc7188d8ac6801fbcacd48e44d06",
+    "private/continued/flow/left-shard-5/map/mixed.json": "81cbe2018c95dae4b5f02789a69a48aaadbb01a08454890ea01c0bfb1fd56a08",
+    "private/continued/flow/left-shard-5/produce/batch-00000/result.json": "275a762b9aae3e70c2af34a4198c1d2c1a91e9afb0ad601232450398cc1aab29",
+    "private/continued/flow/left-shard-5/produce/batch-00000/state.npz": "b1039e6302d2ff4c9e68320da1e0f8253306855524e43a28bc8726d93af97364",
+    "private/continued/flow/left-shard-5/produce/batch-00001/result.json": "b1d7346be40630e800d09a1d4b2cb4cea1082a6ad01098a2fb3e12fb0f9a4667",
+    "private/continued/flow/left-shard-5/produce/batch-00001/state.npz": "bab2d5e51999f20dc94382f9f9bbc859171d2448c460c91826c84e2bc27953e7",
+    "private/continued/flow/left-shard-5/produce/new-packets.json": "1ad3da67d8cd5f8b0db5731c9a8643f41844f7aec99ef1c1b66ac775227f7e43",
+    "private/continued/flow/left-shard-5/verify/batch-00000/verification.json": "6f14f22112c28e1b20fa88cb77a5ba3f2639fc8c0c19eeef267b8732ef5f5c63",
+    "private/continued/flow/left-shard-5/verify/batch-00001/verification.json": "9174529006170a95304e75b49e67378383637d448f7088e11402923e633511ef",
+    "private/continued/flow/left-shard-5/verify/verified.json": "079faaaa56fa7bd9b60b9bee5dab163766ddbc9fa48c19f53adfa4344d61a187",
+    "private/continued/flow/right-shard-0/labels/finger_angles.dat": "dce3e8a3de355e5780e21883c435e8268716bf7289df7e535264161ed49457c5",
+    "private/continued/flow/right-shard-0/labels/shard.json": "6ba0aac1a572bbac85c12ef2c10cd32a1f31beea1e31a3b9a15f822dedd145fc",
+    "private/continued/flow/right-shard-0/map/mixed.json": "2817343b2190fe5518fe8bbecbe05d6de4e0e452ce0c0bc949c11d791d486a90",
+    "private/continued/flow/right-shard-0/produce/batch-00001/result.json": "a5fd93159babb3f8cb895bc3d2249f4cd6a54fdfd0db29fb88198fdc6075cc72",
+    "private/continued/flow/right-shard-0/produce/batch-00001/state.npz": "667a551df5b321834824d1e725d1ecdfed8e52bf8b1a67d096dcb986aac7ff0a",
+    "private/continued/flow/right-shard-0/produce/new-packets.json": "651fdb43d496a15ead11318215f36fb097825ba6d4d426eeb1248bd04af81018",
+    "private/continued/flow/right-shard-0/verify/batch-00000/verification.json": "429d23ae4e2f954e0711671de64e0ef02c7dacdc09d6cd7e2c03dce2284bc57c",
+    "private/continued/flow/right-shard-0/verify/batch-00001/verification.json": "53d4066e8480ef8c792d1bb79cc5c6287553fdefd7398b81d6a1a34b24b8c7ab",
+    "private/continued/flow/right-shard-0/verify/verified.json": "beb4f9d0a12e3b01f943849796b133d48b02aa468224d6e0f6a546b131641b16",
+    "private/continued/flow/right-shard-1/labels/finger_angles.dat": "865f8dcac85f893c9af20fbba066e16c45d00934939c8340f80822aabe760dae",
+    "private/continued/flow/right-shard-1/labels/shard.json": "ffcbcf0299ff3766d25dd18d14f95cbeabdf44d48a37574356592b85dedfc1ca",
+    "private/continued/flow/right-shard-1/map/mixed.json": "24ab59a0af2ea39fac6f37ecf68ac99343433ecc302a4b5571a84bdbb99c2e99",
+    "private/continued/flow/right-shard-1/produce/batch-00000/result.json": "0ca355cb175f1be6e72012b16550cc18f692e5cf648b0cfa03142c58a9a43221",
+    "private/continued/flow/right-shard-1/produce/batch-00000/state.npz": "782c41f309a23a577780343f7052547034ec4c99378d776069d3ee42bd8ce010",
+    "private/continued/flow/right-shard-1/produce/batch-00001/result.json": "726bd1ea761769ae0fa2cd233bc3b5e1f21bed1c7145ef81aa671672283f4fb4",
+    "private/continued/flow/right-shard-1/produce/batch-00001/state.npz": "d7e7bf374c301b400ba8df13094dac345e4e0750b82633f38cebcd284387cb22",
+    "private/continued/flow/right-shard-1/produce/new-packets.json": "f095aac9d3c658aa4aaf742df0870b713df8030c0f30f3ca51d5f9bfcde2c2b5",
+    "private/continued/flow/right-shard-1/verify/batch-00000/verification.json": "59f460810750c0253da4e35f12728f01b643da6c523596c045ea803cdc99921f",
+    "private/continued/flow/right-shard-1/verify/batch-00001/verification.json": "9fda3973ef753412cf1bbd8d227e6ff894cff316733a395141c2b9fdc15feecb",
+    "private/continued/flow/right-shard-1/verify/verified.json": "fdcbfbf6478d058b7af06e3264b389cb6544bf87c412a04207aa126b52aad6e3",
+    "private/continued/flow/right-shard-2/labels/finger_angles.dat": "0399453c459cde11474e76dfc0d3f6c06236b0c41c4cf726790499d6e62ac2c8",
+    "private/continued/flow/right-shard-2/labels/shard.json": "9e6085bd28aeadb73004b72aca5ad73df6cba507f1257bde5a809b4c3e11d526",
+    "private/continued/flow/right-shard-2/map/mixed.json": "2833184b76b20be24ca516c4b704628096551828f285f9275c27baeecc14e43e",
+    "private/continued/flow/right-shard-2/produce/batch-00000/result.json": "00cff33fcecb920a3f961b22da0380e2e4b94ed84c33c5e76c32e615da42e206",
+    "private/continued/flow/right-shard-2/produce/batch-00000/state.npz": "c8dd8f237a9caf97beddd5e654480dcc6ee23cf02e0a72d5b9523428f126696b",
+    "private/continued/flow/right-shard-2/produce/batch-00001/result.json": "c30bded677b8d3eedaec7576ac2a317ad5fc5ac15574735adf726154e1ea54a7",
+    "private/continued/flow/right-shard-2/produce/batch-00001/state.npz": "41806b8e70b5a6c6c4c95296feaf2b56aeb93eb1b67eab98856b7fee82cf60e0",
+    "private/continued/flow/right-shard-2/produce/new-packets.json": "bc24c5fb4d437b834758e3049b7b6a8f673c6c1fd1b8e13d98032dfabdf66636",
+    "private/continued/flow/right-shard-2/verify/batch-00000/verification.json": "a7b49e67ec4d7fc10fe1d1eb37f8e98e5e5f6c4469bf53ccb48f182f8dc454a0",
+    "private/continued/flow/right-shard-2/verify/batch-00001/verification.json": "e1eec4db0b70ff5a87d76084b0eda051e1672d0d23346cf410e4e9d0609b42e0",
+    "private/continued/flow/right-shard-2/verify/verified.json": "a375eaae8d426f1db9955fbd9a53675b519f21c88e6ae09ee5c759af16a4de3a",
+    "private/continued/flow/right-shard-3/labels/finger_angles.dat": "5e9d25ceb4ea05968cda40d760877bf2b5f08bd05038a994c923d6db580b2501",
+    "private/continued/flow/right-shard-3/labels/shard.json": "8032a8fe493ef56b926f3d9a2258ac55853edfa204ae21c927a30dc5fe3ad5d3",
+    "private/continued/flow/right-shard-3/map/mixed.json": "9d0a49ef3ffd455e1e10718fdb69420f719a2a8a4366037d63e9c0402dc8d832",
+    "private/continued/flow/right-shard-3/produce/batch-00000/result.json": "7251b85682891188c657387e7a6037f35f668caef63c57a2baf76833f11e0b67",
+    "private/continued/flow/right-shard-3/produce/batch-00000/state.npz": "ab7e22f6eefa8a95e30b007d50ea6b783f0a8bbd18e59faca5cb843c205430d7",
+    "private/continued/flow/right-shard-3/produce/batch-00001/result.json": "1fe8d98efbb880a524a6b9cfa335390c129f7c1c83c9a0d66b1353e999b98506",
+    "private/continued/flow/right-shard-3/produce/batch-00001/state.npz": "4fc83a12ffd162f524c7d9217577aeb889de7a51e2fdf235bcd969ed3ec3a2c2",
+    "private/continued/flow/right-shard-3/produce/new-packets.json": "8a7399593833b651786fb03ee2ab1351d94a63aa818991e9c8aa8d15fef09dc0",
+    "private/continued/flow/right-shard-3/verify/batch-00000/verification.json": "dff937aef7f02e98813d02bc1cfeda6b6a18062c7afb2c814b768d3d43df4eda",
+    "private/continued/flow/right-shard-3/verify/batch-00001/verification.json": "1c10aae9804216822eed0319b33c8a574a5baec8196ee9e6f58b17af476f972d",
+    "private/continued/flow/right-shard-3/verify/verified.json": "b9e4140bdd9e253a8cfed07a8ef231576fa608900148b540f97fe53bda8ba8a3",
+    "private/continued/flow/right-shard-4/labels/finger_angles.dat": "c90095e4ddf065df8730a096ccb659d05b6c65906e3e20a2cf3c10d612a75c8d",
+    "private/continued/flow/right-shard-4/labels/shard.json": "8d571852c280e4865900fbc096445aa29a2ea8bd3cf6bebaca2db1fa570d14bf",
+    "private/continued/flow/right-shard-4/map/mixed.json": "216a6df9e866d8d24e001685fca2597048ef93a6f7e172629148a7afb805ea8a",
+    "private/continued/flow/right-shard-4/produce/batch-00000/result.json": "b14d4979fe7a26bc40e01805f377d6779e969ed58561183d11b3881af4e402a2",
+    "private/continued/flow/right-shard-4/produce/batch-00000/state.npz": "4d8f91e54a9babfa53bc95b2a3cdf312797de280d56f0a3d5aa9ef87eb5de617",
+    "private/continued/flow/right-shard-4/produce/batch-00001/result.json": "995d82f60d07ad85ff667c57864facd4ce008fee875e411205cad14d249e6cd1",
+    "private/continued/flow/right-shard-4/produce/batch-00001/state.npz": "de3cfed3415ff26fb33851692c7b1dd3fe6beb965dc1db5a7023f24c219a3960",
+    "private/continued/flow/right-shard-4/produce/new-packets.json": "92633045419aaa54bad132f55130eeb6c2aa7543fd907ada83cbd2c4cbec9cd3",
+    "private/continued/flow/right-shard-4/verify/batch-00000/verification.json": "c82129d217b0ec2f3bba3db552cda1ff5f6aa3922fc107b7766de8d44c5efcd3",
+    "private/continued/flow/right-shard-4/verify/batch-00001/verification.json": "24d5234cb094e116a6030114b340dc87024a5f110c75c05cd17c05367abfb13d",
+    "private/continued/flow/right-shard-4/verify/verified.json": "fdb6ff7d92dc04f5a134e07091583de7b3ac15c0d4e29c866a18050b523f715b",
+    "private/continued/flow/right-shard-5/labels/finger_angles.dat": "3368103a80d90324666878f250c43e3f685bac7fed4cc29cac8c86dffe46160e",
+    "private/continued/flow/right-shard-5/labels/shard.json": "f35610841724e50e052d1a217954642e9b99e97c5c3379c1ad212fad57c0ba89",
+    "private/continued/flow/right-shard-5/map/mixed.json": "663c9679bccff1a8bd30c90aeebf135e9d11886a83fc90eae8dc8309fc3b394e",
+    "private/continued/flow/right-shard-5/produce/batch-00000/result.json": "fce63df411cb8b8ee35effa51fe3cd72b2d6250aa4364c8b55cfc0cb905e3042",
+    "private/continued/flow/right-shard-5/produce/batch-00000/state.npz": "203f354584042de306498ed7d7a7b820fe10fe627a16fe3d9122f2d94f19f18f",
+    "private/continued/flow/right-shard-5/produce/batch-00001/result.json": "5b6f965ea2c62966b6a7e569dc91a2bbb5f25e2672ea968771c94bbd07e140a6",
+    "private/continued/flow/right-shard-5/produce/batch-00001/state.npz": "ead0f702efdf0d480571ab88b3ec81d87c594757aa324484e4bbcc3f1fdb2ddc",
+    "private/continued/flow/right-shard-5/produce/new-packets.json": "02f5d70848e014324023ba605671779a9924df3160fade8c6165baa8d2bf650b",
+    "private/continued/flow/right-shard-5/verify/batch-00000/verification.json": "f40b1dd129a41276d4a1ca23f5fb104575f79214ecf320d500af5fad70bae21d",
+    "private/continued/flow/right-shard-5/verify/batch-00001/verification.json": "a5b69d8cf336d2586a7ff9af084b79d2acc84d88ccc3d1e126ddf51624927e06",
+    "private/continued/flow/right-shard-5/verify/verified.json": "7b4aa9d944bf8faa48aef51375e4f27b47af466a960cf036b4b8542d88ae5ee1",
+    "private/continued/labels/generated_umetrack_left_finger_angles.dat": "eaf9ec35d4346b40b1a11bc5370584865dfad0df89ce8ea0706720aa3c0d2aaf",
+    "private/continued/labels/generated_umetrack_right_finger_angles.dat": "0391bd6b3a109fa12b9b11227f90ebb7cb133f1880732b8634d76d976eeed003",
+    "private/continued/labels/labels.json": "dc766e022b38f053f30212f044d2fb7a6e9cec90228072faec6c4e3547c3950b",
+    "private/continued/owned-assemble/guardian-result.json": "976627e8a49377a84751dbfba909faae4c1841c62b280843760258b3e9e410be",
+    "private/continued/owned-assemble/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-assemble/stage-result.json": "34db5515fb602594ac2b55f109efe2b497488b82e253ddb613b4937901390f64",
+    "private/continued/owned-assemble/started.json": "6bfa920c8947bcc730df14cfa8325076267e0134270be9ec026dd58af17e613d",
+    "private/continued/owned-assemble/worker.log": "4c49d29c914d02df8f114211582a8192ffa1341d34b4bb60d5b1c77720cd5d12",
+    "private/continued/owned-left-0-finalize/guardian-result.json": "8384e9e8fc7394fb8c05c5d41f6ce56daf9d8bf6fa4beccbfd58766b3f26b12d",
+    "private/continued/owned-left-0-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-0-finalize/stage-result.json": "56d0d9f3d75b171b97851ef836593dbb189fe3ef94e8fdaa78e095b74cfba046",
+    "private/continued/owned-left-0-finalize/started.json": "be5496eee3da590dba7faa7ff11b75b4692265250305ffaac0918dfa606e057b",
+    "private/continued/owned-left-0-finalize/worker.log": "ad5b8999f5960e772497a9581d50bead4d8b77888cf75d2a1a02cba88c824abe",
+    "private/continued/owned-left-0-map/guardian-result.json": "d16a46373c24a1747557332681e4b8e93a14189d1bdb6617ac42981449c61c69",
+    "private/continued/owned-left-0-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-0-map/stage-result.json": "2817910d2533bfb391b2644486f868bd6700305c3432a9aac09cfb1cd6bca2ef",
+    "private/continued/owned-left-0-map/started.json": "a4cc0dc5fcd3037aaf39d98d2b5a24f9c95d475833184e63e6b2ec15c1094cbd",
+    "private/continued/owned-left-0-map/worker.log": "3b81339d52379bde283ef314b08e39cd6015ca7faaec74bcd4dbe174325b9b59",
+    "private/continued/owned-left-0-produce/guardian-result.json": "2b24fe24d94ae298f5c09ed2f29ea08ab201529ffbc43815597be97541c960f7",
+    "private/continued/owned-left-0-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-0-produce/stage-result.json": "d866d67858e064ec810bd66c25817a7f2b8df42be98321f2860bf224e4076e16",
+    "private/continued/owned-left-0-produce/started.json": "baadd8b2d96afe1bc31b7e7992c07e8d942c62ff6398fd612fc9b6864e594cd9",
+    "private/continued/owned-left-0-produce/worker.log": "8026006009c4991c107b7abcd45ad983c6b571f13d34aee73d47114f2918f00a",
+    "private/continued/owned-left-0-verify/guardian-result.json": "990409c99fce9af42460a59d50900f8e8eeb6e3fd71bc5d70145f10d40fb37b1",
+    "private/continued/owned-left-0-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-0-verify/stage-result.json": "79959902e95650fcc60f518a8a6fd56c55502c5b56d5fcc0cb3ce29d7016c148",
+    "private/continued/owned-left-0-verify/started.json": "e17374977a65784ea4062131adfbff46a933555c7397c49e644341635ad77ea4",
+    "private/continued/owned-left-0-verify/worker.log": "a7ce450f855e6f945c65bd8456405a82817f25a8c8e1422248055ace5198f51c",
+    "private/continued/owned-left-1-finalize/guardian-result.json": "ee10ead0867d42d7ec7d465eceb85ad9b81c627cf64e80c991c902e7b072c7b7",
+    "private/continued/owned-left-1-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-1-finalize/stage-result.json": "172125ae42d91e880fb4bbba62e7a13f5867d119c8d9d17ad64586927bd02392",
+    "private/continued/owned-left-1-finalize/started.json": "0a3e2d6f4a657c0befb7c83fe13eab7476e19894527eb9d01e6020b1029c2561",
+    "private/continued/owned-left-1-finalize/worker.log": "18c2153799e44b396d7286217975737e1d16f00d47db507428c26b00953bceb3",
+    "private/continued/owned-left-1-map/guardian-result.json": "171ee91c121d3f7e7b2c2eaa553160db69a1be70f816fe0ec888701dd2752650",
+    "private/continued/owned-left-1-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-1-map/stage-result.json": "7ca11d36412d27acee679692bba9b37d974da501dc0070273c1a49fc2d90decc",
+    "private/continued/owned-left-1-map/started.json": "933a8c1de290eec574534281f3f5e9bbb690c8d1d7bb76a7373dcaeb869dc3b9",
+    "private/continued/owned-left-1-map/worker.log": "fd95aba449f931f7f48636b0f15b469a05fc39e99d402bea78d8002e0bf3b75a",
+    "private/continued/owned-left-1-produce/guardian-result.json": "c2b7b4d5b61a84a3bb53ed39df3eee9b63d3d430225548ab39b719bd9fb8a132",
+    "private/continued/owned-left-1-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-1-produce/stage-result.json": "f22100ee3b266a7bb36bf8c09f6781abd5184a576bde6c79ec09db42227cbf13",
+    "private/continued/owned-left-1-produce/started.json": "d29089689647109dfe5351c54d5d5f2954e1391fd8286f4e881a36902eff642d",
+    "private/continued/owned-left-1-produce/worker.log": "3844a4b478e71c22ad7ba4304f624b42f283ba4bc090cc128b0ad0108f7fd8da",
+    "private/continued/owned-left-1-verify/guardian-result.json": "a281859ea676b785775acd9db9304c539f6b76186881c8199299090967e1791d",
+    "private/continued/owned-left-1-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-1-verify/stage-result.json": "6b1877871389562878d1725c26ad84c9904bb3d8a9c188b7d2e0462e333d86b8",
+    "private/continued/owned-left-1-verify/started.json": "4b0e644fac9ce4ffe3f47d0d4bb803aee3edf6a10a55903b65d085715833dcf6",
+    "private/continued/owned-left-1-verify/worker.log": "0c8db7f8d2953f303fe2d5ce0e722777713e71257e7d76236b02ec6893b6e078",
+    "private/continued/owned-left-2-finalize/guardian-result.json": "0b2173e8bee5119bf3a06733774e55e9ed820ff96fd74b9c6f3cc5e517072646",
+    "private/continued/owned-left-2-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-2-finalize/stage-result.json": "e61f9f18b3518a6e8e8e0541505ded42e0b82add293292ad790abccb46f054da",
+    "private/continued/owned-left-2-finalize/started.json": "39aaa94b1ae7b296ae4e457721bf176be1c3d18441f087697e4ec9f7a0d35970",
+    "private/continued/owned-left-2-finalize/worker.log": "80e4748512d75d4158625532ac142e62129b4347803030c87ef7044cc5ff3e28",
+    "private/continued/owned-left-2-map/guardian-result.json": "c6e0053a101ea55e164c90db4488dae88b9401d2c1f41e09d274efb1b055b454",
+    "private/continued/owned-left-2-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-2-map/stage-result.json": "e9558de0b04f3048bd97f49d4b29e570e075fa4efcb98584b505bc9a43a68699",
+    "private/continued/owned-left-2-map/started.json": "427361cdde677fac395094ce69199d218e1126f6f2339c7d320decc700b22725",
+    "private/continued/owned-left-2-map/worker.log": "2355bb1e831d6fd49dd5944226a38fded98addedc11426853fd74e0e94f5da0d",
+    "private/continued/owned-left-2-produce/guardian-result.json": "53a5cc3a6ea2dae62a6c8b526e4e14bf3b396a70d8a5afbcdc051637e0b34d3e",
+    "private/continued/owned-left-2-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-2-produce/stage-result.json": "311b0da3b1a9aacf65a5249f92422a08186c66e80159cf429dd6a31855548558",
+    "private/continued/owned-left-2-produce/started.json": "55bfe5bf15bab4360e9f354cad6dd414c7b03e4ec1d820558632b4c3288e644e",
+    "private/continued/owned-left-2-produce/worker.log": "e6f39653865d000079e81a7b01a2a29a5bb9e28964fbe386692400ef5cfbcbc8",
+    "private/continued/owned-left-2-verify/guardian-result.json": "b5112189a967ca7dd737057395551a1320fb81532c7988624b903bb6a21b72aa",
+    "private/continued/owned-left-2-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-2-verify/stage-result.json": "a5be71a8d7351874a80f0acf4cf8406dba4b129f1228dd5f4bf958a685fa0285",
+    "private/continued/owned-left-2-verify/started.json": "7d3d7ab8f43b68ac9eb8b76919bf7c123e90073d8c7cd1309c9c9bd792cac9dd",
+    "private/continued/owned-left-2-verify/worker.log": "acb6e180811876ee23e9a5aa3f284c17b3bcade38899364994ee32651b43da75",
+    "private/continued/owned-left-3-finalize/guardian-result.json": "4c320b7aeb7bff9f779da0e9c8da57cf5cc91aea704a2be3967248194fc09a1e",
+    "private/continued/owned-left-3-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-3-finalize/stage-result.json": "ae6fa3fc64940b67548d1d6d7b760874cf6f01eddf13a78343b566b95b324a5f",
+    "private/continued/owned-left-3-finalize/started.json": "76cc99c6041ec78d0f86f99a23cdfeb25571a7443cbde04068a77d2f3c154f1a",
+    "private/continued/owned-left-3-finalize/worker.log": "7bc61dab9429d5d37eb3382a392dbd0bf2b35a1ebce3d460cf0856c9faa7bb38",
+    "private/continued/owned-left-3-map/guardian-result.json": "4f483f3bfb0bd9264822979c109c7f2e0aabbb3a8575daf46937be3ab35d7abb",
+    "private/continued/owned-left-3-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-3-map/stage-result.json": "20341802ccdc86026ff11e727b7ee5a9d543274640a552ff3fa7461aa1de3507",
+    "private/continued/owned-left-3-map/started.json": "20036568b1931c6f2f892b10f0ba5c0df2f7d84e92e8e397d30d1a50932de70a",
+    "private/continued/owned-left-3-map/worker.log": "485b9b33c2aa5a1dad20745012292f3587235ad912e5676a2383676efd101bdb",
+    "private/continued/owned-left-3-produce/guardian-result.json": "87dff49ba4ebecca782d7c315b92bf33acc5f2276f71c44e498727cb0652f922",
+    "private/continued/owned-left-3-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-3-produce/stage-result.json": "ed299695d508b6852da65328409c23ff545febf6dca522cf4c51b5d0e2646762",
+    "private/continued/owned-left-3-produce/started.json": "0c81018b7bb398c501054e5b95c6748385ecd5dd326504ad0651a720ec9e8a25",
+    "private/continued/owned-left-3-produce/worker.log": "74a4a85249c85fc8d51b7cc375848563093051869ed9364afb380e9898b12b2b",
+    "private/continued/owned-left-3-verify/guardian-result.json": "2d225e152d661cc79b571a92ea2a3ae8cc3cd31a8ef3455704ec347ad740407a",
+    "private/continued/owned-left-3-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-3-verify/stage-result.json": "323da75fb2c07a600ef24bed4d6791d9a0bafb16d64ce1211c8a5f5fc56dfcf6",
+    "private/continued/owned-left-3-verify/started.json": "15e774e6868d0672ce24d0440e0de39db8d4cf9fe55d21344fb49c082f2b833a",
+    "private/continued/owned-left-3-verify/worker.log": "24e99439c9340454b229c47fb3cc3f26bfff00c89a394407381f26d06ca6de05",
+    "private/continued/owned-left-4-finalize/guardian-result.json": "58533741ae5d853bbca41c947f71e9d929296d41cdcceada1cf08b1bef93bf16",
+    "private/continued/owned-left-4-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-4-finalize/stage-result.json": "8662c74f01b741556ba7352729b64d86f941dc5f89034a3bc046e3c6364367d2",
+    "private/continued/owned-left-4-finalize/started.json": "b1a003f7bff240f7539a5d8faabe5b1dd1fb97053507ea8d30201407a70dce3b",
+    "private/continued/owned-left-4-finalize/worker.log": "4a26cd3ebae5a336627a674af370e965779c5d0e272cb54f3b30e69de22e3019",
+    "private/continued/owned-left-4-map/guardian-result.json": "9718991bed4fcab13c768eaf592b51c592d4bf760254cb82a93208f6f07140e6",
+    "private/continued/owned-left-4-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-4-map/stage-result.json": "d99005809e17390708c3c1ca9865f8a17e6070aa88e4b890d4415ef91549bfd3",
+    "private/continued/owned-left-4-map/started.json": "367cda2cf09338b039f9bcc3afccb75de9eb9260cde66b15e9925b315e3a317a",
+    "private/continued/owned-left-4-map/worker.log": "815c5db70950b7f9f0cef4cc48eacfaeec3294877bb14737d88726916d7273aa",
+    "private/continued/owned-left-4-produce/guardian-result.json": "b1a41086a51bbcc3dca0a1bd70ab9c8a6ee3b91afb05c438ddee668e42c860e4",
+    "private/continued/owned-left-4-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-4-produce/stage-result.json": "d07bf0033a0f8028a0cab7bb464c80e4d224a00a9c1dcf5dbbdf30dda3b7a9c1",
+    "private/continued/owned-left-4-produce/started.json": "e387f698febe59c595b06a0bd85c4ccfa8709adf1a38087d25c01bb68e930622",
+    "private/continued/owned-left-4-produce/worker.log": "69c86a1aff30f6db5ce843c32395151833f6f638da42b0ec8062d877a707e1ec",
+    "private/continued/owned-left-4-verify/guardian-result.json": "f8aabb0addc827537f0a3a8f0aa46753efd53fee54e4757c79e9b5eceb756273",
+    "private/continued/owned-left-4-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-4-verify/stage-result.json": "371cc7a8bf485e0c0527dd85059a3de0ba46578ae2c872ee5f4b7a5b783d12eb",
+    "private/continued/owned-left-4-verify/started.json": "52968d4b797ce4ec9185cb10676c12aa222f2ae2dc40eb604b68a91713d07ce9",
+    "private/continued/owned-left-4-verify/worker.log": "29f896ecbdcb77338be8462ad6453141dd1c00b844290a2548e9669fa513b650",
+    "private/continued/owned-left-5-finalize/guardian-result.json": "13f74ba4f9c4f58153569f817d054fd023ef09929517c5ed909d3c82027dc510",
+    "private/continued/owned-left-5-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-5-finalize/stage-result.json": "60a60ef36fc2de6a42f5d4839d30affe0e74925e7f5e57e41e956bbcf7f18b8f",
+    "private/continued/owned-left-5-finalize/started.json": "d7fd63ca8f25fd338cfcaa3c2de8faa245aac239e364a930fbd10e53a3c4a202",
+    "private/continued/owned-left-5-finalize/worker.log": "58efe156f5df183947316ce8a9088168e177dd57df346cf1a08474472f61ea90",
+    "private/continued/owned-left-5-map/guardian-result.json": "c7273de7a7b5863766f329fc707ba4b1f9e91d49ca7b603a3e0ed3677503f22a",
+    "private/continued/owned-left-5-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-5-map/stage-result.json": "ed95f544b15c3ff94744d0b6906fa9886f3e7a1b4b8e6f415f47d39f72f76104",
+    "private/continued/owned-left-5-map/started.json": "0f52079ccc58b5c78834c9c2dba90dcaf856c5b86a0bcb68236cd6c55f9bb74c",
+    "private/continued/owned-left-5-map/worker.log": "2634e2960f47338e401c35c43e66edc3c439f5d1e2fbe708e5d03763bde57d4e",
+    "private/continued/owned-left-5-produce/guardian-result.json": "6412bda6ed72bd61ebb01a9406200085cc0079c72b1643828d9cfa98482f9ade",
+    "private/continued/owned-left-5-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-5-produce/stage-result.json": "0765e2a65a85ece2c60bfecf1851e1098db91e7b6ac53b3a8cc6d39dfc205758",
+    "private/continued/owned-left-5-produce/started.json": "31638f1ddf481bee65b77898ad2cbfe8c5521a207b1f669a16524e8e77534a71",
+    "private/continued/owned-left-5-produce/worker.log": "7e8d18ef175a2f0ac3588d67388e9da57458bbeb1abff57a2e9be0965563fd8e",
+    "private/continued/owned-left-5-verify/guardian-result.json": "09287947eadb8a1cff3cdd0956104a074e7256000bb8a6f7299b44d4ae76d9f7",
+    "private/continued/owned-left-5-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-left-5-verify/stage-result.json": "fb31d834e469bdd0423023fbfcd12786609c7ebc4a8b61f1b7fc1195e59b89f6",
+    "private/continued/owned-left-5-verify/started.json": "699bb561a064d6877c48b883373dcd211f153291a8806619368a2075e403a867",
+    "private/continued/owned-left-5-verify/worker.log": "daf9079ac2769800ab3d8a9706ab09870a31b624049dcb716236d7fe256af8e8",
+    "private/continued/owned-right-0-finalize/guardian-result.json": "bbeb89c3e1910af965345e7b4b34ef986950007cc06d0788ca8b529135c97485",
+    "private/continued/owned-right-0-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-0-finalize/stage-result.json": "a7acc2f2e7758e263db0a065350710f140633d527e4e3d312439bc58fcb41c36",
+    "private/continued/owned-right-0-finalize/started.json": "8a17e2a1554dee2aaf451aec99d760c3b709aea60449fa770097abd792e93735",
+    "private/continued/owned-right-0-finalize/worker.log": "631482081e9e0a2fc5e94b2677169c0ce1770cb720db5c445eeba7145d29eb19",
+    "private/continued/owned-right-0-map/guardian-result.json": "66c3a9cf3492409a0e74a9114fc206edc14ed165ca3b60f5ce9461d19769c71f",
+    "private/continued/owned-right-0-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-0-map/stage-result.json": "a38aaa115d936355a5f4faf43f06f5bfe83c6485bd5b141791a952033df91c53",
+    "private/continued/owned-right-0-map/started.json": "de2bc9c04386031dfb209b2885bcbc08a883c4a41e74ea2e7972364455dd5035",
+    "private/continued/owned-right-0-map/worker.log": "c2b8f45510c531bcc91ffb58c46453c97598174282a5c2535e8a3bde9971fd99",
+    "private/continued/owned-right-0-produce/guardian-result.json": "8897c148382c4fbae64e246f7bac90d19849685dee82f528aa321b1319f4094e",
+    "private/continued/owned-right-0-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-0-produce/stage-result.json": "8bc2c1084a2cb1e1742b24495f891e9277079234c9eb23d0595dcb5c3bc07aa8",
+    "private/continued/owned-right-0-produce/started.json": "7a579b08c9bfa10dcaca906276fedb6982852ad94970cbc68424b987ea16b440",
+    "private/continued/owned-right-0-produce/worker.log": "969e2f846e32983c07f811ff495dcf9934ffba9688438f6665fb1b53786b8797",
+    "private/continued/owned-right-0-verify/guardian-result.json": "1106e6d6e04647f504e49cdfb7a6809f5c396b4dee760490922d2a365668512e",
+    "private/continued/owned-right-0-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-0-verify/stage-result.json": "b49b2505202eb06d12db8cdf40b3d7e3a6219b5783b9dc86d19f3c394a74e60a",
+    "private/continued/owned-right-0-verify/started.json": "3228aa8db79aaeac96f4934d1dc9807cfe29f79934b802bd006a124568df44ce",
+    "private/continued/owned-right-0-verify/worker.log": "285d1496f10440901c9ce4362f31f57d66adc24ce1ccf3c5fe99a4a526a0428b",
+    "private/continued/owned-right-1-finalize/guardian-result.json": "6af72e17792928c77e0d280fdd3400b0af9d1a3f55fe3ef8a9b6a01f7dfd4bb5",
+    "private/continued/owned-right-1-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-1-finalize/stage-result.json": "346d53f8142bfbc187f35a81ec3d06d92d189fbb1c101b7cdcc03491bb636446",
+    "private/continued/owned-right-1-finalize/started.json": "552d4b34c9ed5781001ee2d0e39a26d831cb040e76eea7c2ed75502a4e052843",
+    "private/continued/owned-right-1-finalize/worker.log": "e6bab9ec35913217dada6c8b49acad1fd84d3ace4099cd5d52ad14126c76f93a",
+    "private/continued/owned-right-1-map/guardian-result.json": "877fe8a6b90f225fa2361c05b493297df0b0816c44f2ae025e6d3d770cd3fafe",
+    "private/continued/owned-right-1-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-1-map/stage-result.json": "23b22c2743b48c3e4ca77385fe8dcbae6d6cd65713e179f978f07d2c3d07dc2e",
+    "private/continued/owned-right-1-map/started.json": "35b828014f29a51ef31e03239b8250395e8810c2b40e9a9852d74860d800fc0e",
+    "private/continued/owned-right-1-map/worker.log": "147f9f8c9b5d331cdafd774a60f4edfaffb108fae5d5b500997cef1afada6118",
+    "private/continued/owned-right-1-produce/guardian-result.json": "3f9a2fd0a870a43c3f0a9b6d1895c31ba312fdfab45bfff42e774e48a7115118",
+    "private/continued/owned-right-1-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-1-produce/stage-result.json": "be9b70059090f7a784c48686519158a1d1e8fded49cf4985595eb48238f06fe6",
+    "private/continued/owned-right-1-produce/started.json": "ee9428ee7fd964fbd8b3798b9d94eaf9c76d24a85748e2e65dbdc174cefb6b6c",
+    "private/continued/owned-right-1-produce/worker.log": "cbeda836aba79e9335c13914786a7944ec30910360685b7d5c524593060824fc",
+    "private/continued/owned-right-1-verify/guardian-result.json": "81829ff7eb87e990ad5b7417fb2d1d0d8875ec7ca43d97eb68892971144095f8",
+    "private/continued/owned-right-1-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-1-verify/stage-result.json": "8d1a24bf537756f08b04e08604b7a3bc664804a564c9f6939bfaa34d12f9ca2a",
+    "private/continued/owned-right-1-verify/started.json": "2394cc2e42928f26de3c77b036477a4f580d0fc1911ed48b419a360578bbc7a1",
+    "private/continued/owned-right-1-verify/worker.log": "5bf9cce60275fa4723b1ccaf14c6a5162fc695c44f397153517109d449ed4fb7",
+    "private/continued/owned-right-2-finalize/guardian-result.json": "fb28f6f95ef8dddfbab0c185b5d8c8b5ac01cb2e7fce450cd3d167a75abb2f50",
+    "private/continued/owned-right-2-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-2-finalize/stage-result.json": "9d68c0f544e7e9ba3924829b35848dbf384b32ba5019a4ce9a738d06f2a7c6cf",
+    "private/continued/owned-right-2-finalize/started.json": "027efc3d95534421962d1285ac561f0b723c4dc61b77580ddd5bdf57d73ac03c",
+    "private/continued/owned-right-2-finalize/worker.log": "3be4ac2d193a9b6efd51bd3ed22222b13ac5d19832fb6fe71444a54ce2a20fd4",
+    "private/continued/owned-right-2-map/guardian-result.json": "a72dc0123c4b4865cb5d5b2a09f06c6b486ebca2551fd2d40f811d350e44ca97",
+    "private/continued/owned-right-2-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-2-map/stage-result.json": "861313a207a4e247ddf34aa8139ba8b4ee48160dc33cd8e2277f463da6a23706",
+    "private/continued/owned-right-2-map/started.json": "d8eb2a335ebae59c075038b66634b5447b166b335c58fcba53e8ff37eb7ddc4c",
+    "private/continued/owned-right-2-map/worker.log": "c2144188038ecf9a6f716e1d37897dd4e4139b0bfb67d9f79fc125ec2e82e40a",
+    "private/continued/owned-right-2-produce/guardian-result.json": "4c02c760736b1305e7b6117826e1989d59286dbae80d84e336624348d303e75b",
+    "private/continued/owned-right-2-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-2-produce/stage-result.json": "a285847813d15d37adb2bfdf3b66dd04076f9b70ac5542eec77121644340b055",
+    "private/continued/owned-right-2-produce/started.json": "6e4698ad10d8b7275f1c27c6a191159ce493ea88eb1b99acb53340c6f7a91e3b",
+    "private/continued/owned-right-2-produce/worker.log": "fa80cfbbfa5028abeb913ece766ce0eca9edfad9f9b50b62fb9024142dff43af",
+    "private/continued/owned-right-2-verify/guardian-result.json": "3873fafe14b6e27b0b8f3377b2e45e726a7f1f5db57bd328bede147177eeec0f",
+    "private/continued/owned-right-2-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-2-verify/stage-result.json": "bd69b1ca21f8e4d9fe564bdb224c62696a9122ef8d236f31941529f3a83da0e7",
+    "private/continued/owned-right-2-verify/started.json": "9c26e994c55e6bc085b6716f87b33ea9e024acbf153f981787f793a72d03dee3",
+    "private/continued/owned-right-2-verify/worker.log": "4d25e69a81116f7a3495ee16489e443dfddd4ada2989fbb4daa549328c039dd1",
+    "private/continued/owned-right-3-finalize/guardian-result.json": "467eee8e1aad55c5cbb260ed5d31c30a846d757cf0bea97d9141d1d25b95c320",
+    "private/continued/owned-right-3-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-3-finalize/stage-result.json": "389f5e9bdc60b35f1d282dec47c224ab88c821913ff0503ec6768bada42bbda2",
+    "private/continued/owned-right-3-finalize/started.json": "dee7091a3d7564d8c132f5993bc147eb2786b3f1c583dbbe39e61603e081074d",
+    "private/continued/owned-right-3-finalize/worker.log": "accb90a08de7f12c28fd229793c45550162b09ecd891dabc0446eb0a2465cfca",
+    "private/continued/owned-right-3-map/guardian-result.json": "9aa814dd1985a4fc7f457eed0eace7f9780eadd123c3eb26e1f87236a4fc41be",
+    "private/continued/owned-right-3-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-3-map/stage-result.json": "7a9c329b5610c1d08f0658d86234405b20857e106cca06396a21ebd2b3ccf456",
+    "private/continued/owned-right-3-map/started.json": "dea73adbb764017acc7b381375f3f387170ca97b1c0186584dab2e060d36e29c",
+    "private/continued/owned-right-3-map/worker.log": "633b6f1d3cec0926f95645587adfd50153a8414ef5272a71c64088388605ceb4",
+    "private/continued/owned-right-3-produce/guardian-result.json": "15008b6c1086aacc5ced532bf32ac8f0df589777119db371c4a5e800d13ab8ac",
+    "private/continued/owned-right-3-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-3-produce/stage-result.json": "27c8edee2c82870981b05bcf6530aac8eb2c14966cd183a622da0a678c532dbd",
+    "private/continued/owned-right-3-produce/started.json": "c05ef0fef9f024b4d6afb87c52e4d7dd50cbec27253e80b2dcc7911f4ae8e12e",
+    "private/continued/owned-right-3-produce/worker.log": "942595463efd4a412270d5d5b6ad8a1a710c16b00199cd29c6d6b01e5b57f4f7",
+    "private/continued/owned-right-3-verify/guardian-result.json": "f8baf25fc01994a80de98d3c2bdb44945630ee2df2bf6f50b1b97feff57f7d42",
+    "private/continued/owned-right-3-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-3-verify/stage-result.json": "16eae6297613d4c689bf59a5ad30df5a1b7f7e3026a8f9aa8489dc195861a59c",
+    "private/continued/owned-right-3-verify/started.json": "5119fc88f99fc13dc23186bf050b382f59a24c5f93d7aa1edbfa78bae36f03dd",
+    "private/continued/owned-right-3-verify/worker.log": "eeb94e6a55a32cacfe211f11590c6f65e1d1eb2f81028d9c9dd0c2ffa0781162",
+    "private/continued/owned-right-4-finalize/guardian-result.json": "aed25fbd152465c4c27f929610a354eae9357fa1c940b70d871ea6e10b639f21",
+    "private/continued/owned-right-4-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-4-finalize/stage-result.json": "92fc49b02b16b280d67dcf8fdb3a56babd39f3d8f55dde1b4969ff103271caa3",
+    "private/continued/owned-right-4-finalize/started.json": "bba5c0dd1c7852ab1db8f273f8bd841b63c424f3ebb0422cfcd1ea470903989f",
+    "private/continued/owned-right-4-finalize/worker.log": "ae1658de5d2f79828fb9c6600de56d4226daeb9e8833b099a6868ad7392c6026",
+    "private/continued/owned-right-4-map/guardian-result.json": "3f91c2676a361e92ece3c9ad854e32b70dc1683b52695857ecd3db93085bb2cd",
+    "private/continued/owned-right-4-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-4-map/stage-result.json": "f128aa304fabd6f6ed6795816ab593bcf9f69808de386586098802b9a7d91d76",
+    "private/continued/owned-right-4-map/started.json": "5d9996a31c537a29eb1a2b6a1fd715108ee423ef291a1a91817eec78e1c0f3c9",
+    "private/continued/owned-right-4-map/worker.log": "b42c73c4b6a048c7c9af5119fc4d4a8fa67fd8e3f252b61ec80d125ea13f6636",
+    "private/continued/owned-right-4-produce/guardian-result.json": "770fe778f8fbec1e2b75d91ed115377ff381d2bfd27fc655ef84f3735831a978",
+    "private/continued/owned-right-4-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-4-produce/stage-result.json": "c013fdaf1cd2a63d077f6ba17ef4a65e81ddb8ca56811352ad3ab1dbea01b241",
+    "private/continued/owned-right-4-produce/started.json": "0fb15592bd79a362c75d08aa74e47d7998a9d3c4abdab58cd8d52a5acb446a5b",
+    "private/continued/owned-right-4-produce/worker.log": "cd5b077ed91f8188d48615bfc01620f588f4fc6b422eb264538a3beda3cf5956",
+    "private/continued/owned-right-4-verify/guardian-result.json": "8818cecda2c292475b11368e87e2cc8554c258927f766172f6394b07895fc61c",
+    "private/continued/owned-right-4-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-4-verify/stage-result.json": "75ad3494eb10d7fe6eae49df1400c9490651caf35800dcbb8afa19a2dfbb35b5",
+    "private/continued/owned-right-4-verify/started.json": "eb0da4e7f6a6753315b2ee48e3a94552e66d41639027eb09a31198a6e4074a24",
+    "private/continued/owned-right-4-verify/worker.log": "5088a1ce65fffb3dae7395f149d60e43a16882dd55b9aaf0adf008277938df3a",
+    "private/continued/owned-right-5-finalize/guardian-result.json": "dbf8c0a656c8c6d9b47453d5c73b198c60debc5d5e1e886a7248a4d1a69ae6d3",
+    "private/continued/owned-right-5-finalize/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-5-finalize/stage-result.json": "c683e1bb70f0cf9c29c90fe4f8ed3a19d67552dd7d4661582deaa6f9add3c7be",
+    "private/continued/owned-right-5-finalize/started.json": "9eb1fd0f318645be809162e2c882923ab6a8e7806529069fc43a6635006a78fa",
+    "private/continued/owned-right-5-finalize/worker.log": "38201afd35869c1e866125611a61c8aef0dd46be2dd78150d6739e27e38dc522",
+    "private/continued/owned-right-5-map/guardian-result.json": "01d88df408280fb15c226bec23299806ee370090e2211485d638e73973aafb2f",
+    "private/continued/owned-right-5-map/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-5-map/stage-result.json": "6d3c5e81ec0c50fd2b477a66e45b5b03df48f5cba756ca634107d36daf45802c",
+    "private/continued/owned-right-5-map/started.json": "d179497e0693574617c4a61cd9c69f000482914a78317bc221a1aa7024f1f535",
+    "private/continued/owned-right-5-map/worker.log": "1fdacde35d43d6bfb250aa144a4e22297f3d1f9ab840fc88c244dcca86267fae",
+    "private/continued/owned-right-5-produce/guardian-result.json": "6ab6f43dfaa101601a6ac7eaeb8f446ff40522f9a70c5246d26ce77458d1b0b5",
+    "private/continued/owned-right-5-produce/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-5-produce/stage-result.json": "bd255300c189c50e8fc5d3c9b0342110f9aa876b8f2c40e3c54f720ee7e7568b",
+    "private/continued/owned-right-5-produce/started.json": "d99f8503b61ddaf3dbe802e392f31b039dcfe0163c8cac55e286c1fd18644628",
+    "private/continued/owned-right-5-produce/worker.log": "596675c778f3145b38f22ad9b83b9c1869a8ac1ca63db053c772816127867fe3",
+    "private/continued/owned-right-5-verify/guardian-result.json": "7a8128cf400b854b485fe9a2c2d8d200e61c6bf026fbf81abd9ec310d8d11ac7",
+    "private/continued/owned-right-5-verify/guardian.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private/continued/owned-right-5-verify/stage-result.json": "1bb1d8f7d8e6ca5c75534e10085372df581356917bd7e6df40bd7d8f911f8872",
+    "private/continued/owned-right-5-verify/started.json": "1a79d88609910caca3dc3efd4835cc0fead6ef26a3fdac3ab15796470e5bdc88",
+    "private/continued/owned-right-5-verify/worker.log": "1cf882a5717e3ae11e5330e0f7315d192956aa4db1de22fa62454d1537b203b1"
+  },
+  "all_current_50_owned_stages_and_original6_actors_closed": true,
+  "collector_actor": {
+    "pgrp": 3506363,
+    "pid": 3506363,
+    "sid": 3506363,
+    "start_ticks": "470131047",
+    "state": "R",
+    "uid": 1005
+  },
+  "collector_also_physically_closed": true,
+  "collector_torch_unimported": true,
+  "format": "actual_native_IK_mixed_prefix_CPU_engineering_and_postexit_acceptance_v1",
+  "full_frame_labels_regenerated": false,
+  "full_paper_complete": false,
+  "native_CPU_geometry_engineering_complete": true,
+  "new_batches": 23,
+  "old_full68prefix_admission_under_new_code": false,
+  "original_default_batch10096_qualified": false,
+  "original_failed_engineering_root_preserved": true,
+  "original_native_prefix_files_sha256": {
+    "private/interrupted-prefix/prefix-proof.json": "39c6f000764229620f17769edf837eba33696c2df1a23727f967ec5f2cf83e81",
+    "private/interrupted-prefix/private/execution-state.json": "88962377624d93641f5200e9d1464bc9f5be5a1e9f240be8624af8754d35e5ee",
+    "private/interrupted-prefix/private/full-label-workflow/configuration.json": "f7c08ad35c534006d7eafa9d7d9f467b1c3dc5841bfa6f66c70407a3a198f474",
+    "private/interrupted-prefix/private/full-label-workflow/flow/right-shard-0/produce/batch-00000/result.json": "c9d9397c81a20ddd02b177cd67d07eed646fe9a77c0335841e1de98d00d91a5d",
+    "private/interrupted-prefix/private/full-label-workflow/flow/right-shard-0/produce/batch-00000/state.npz": "c10742c984ab4642f887d779a0247b79e53e9214549a714fc7f47a848035c11d"
+  },
+  "reused_batches": 1,
+  "source_bundle_sha256": "dd8d9336789a98a68426c3f382d7582d1eeb0a38c2aec2cf7aa8001d7ddbed58",
+  "source_commit": "198085123ec0aaae9a43a888515993c5f14610ba",
+  "workflow_file_sha256": "65f10a3140d44a3b108e5a38818b87b977a4d248dc4e7f73f0f6364608a56b1d"
+}

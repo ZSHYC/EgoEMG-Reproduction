@@ -184,3 +184,15 @@ def test_failed_live_or_swapped_owned_roles_cannot_complete_a_stage(stage_carrie
     else:value['guardian']=value['worker']
     (root/'stage-result.json').write_text(json.dumps(value))
     with pytest.raises(ValueError):runner().read_closed_stage(root,owner)
+
+
+@pytest.mark.parametrize('fault',['driver','pci_bus','name','memory'])
+def test_full_continuation_cannot_reuse_qualification_on_changed_physical_backend(tmp_path,fault):
+    cfg=native_request(tmp_path);cfg['engineering']=False
+    original=dict(uuid='GPU-8b2cacdf-4470-21f2-01c5-e15475dbdfae',driver_version='595.91.07',
+        pci_bus_id='00000000:16:00.0',name='NVIDIA A800-SXM4-80GB',total_memory_mib=81920)
+    actual=copy.deepcopy(original);actual[dict(driver='driver_version',pci_bus='pci_bus_id',name='name',memory='total_memory_mib')[fault]]='changed'
+    gate=getattr(runner(),'require_original_physical_backend',None)
+    assert callable(gate),'same-UUID continuation must also enforce the actual qualified physical backend record'
+    with pytest.raises(ValueError):gate(cfg,dict(physical_device=original),actual)
+    gate(cfg,dict(physical_device=original),original)

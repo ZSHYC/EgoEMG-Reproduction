@@ -46,6 +46,11 @@ def workflow_sources():
     return {name:file_sha256(_safe(ROOT/name))for name in SOURCE_NAMES}
 
 
+def require_original_physical_backend(configuration,old_configuration,actual_physical):
+    if not configuration['engineering']and actual_physical!=old_configuration.get('physical_device'):
+        raise ValueError('same original qualified physical GPU and driver/backend record required')
+
+
 def read_closed_stage(directory,owner):
     """Authenticate real started/terminal role bindings before reading outputs."""
     directory=_safe(directory);bindings=results.IKArtifactBindings();values=[]
@@ -65,6 +70,8 @@ def read_closed_stage(directory,owner):
 def _admit_document(document):
     cfg=document['request'];validate_request(cfg);inputs,sources=original._admit(cfg)
     prefix=admit_ik_prefix(inputs,document['original_root'],proof=document['prefix_proof'],engineering=cfg['engineering'])
+    from egoemg_repro.native_ik_continuation import _state
+    require_original_physical_backend(cfg,_state(prefix)['original_configuration'],document['physical_device'])
     if (_hash(inputs.identity)!=document['input_identity_sha256']
         or _hash(sources.identity)!=document['source_identity_sha256']
         or _hash(prefix.identity)!=document['prefix_identity_sha256']):
@@ -182,6 +189,7 @@ def run_continued_workflow(configuration,original_root,prefix_proof,output):
     if output.is_relative_to(_safe(original_root)):raise ValueError('old workflow must remain read-only')
     if shutil.disk_usage(output.parent).free<cfg['minimum_free_bytes']:raise ValueError('continued IK initial storage reserve unavailable')
     physical=original._gpu_record(cfg['gpu_uuid'])if cfg['device']=='cuda:0'else None
+    require_original_physical_backend(cfg,_state(prefix)['original_configuration'],physical)
     output.mkdir(parents=True,mode=0o700);owner=process_identity();started=time.monotonic()
     document=results.seal(dict(format='original_native_IK_continued_configuration_v1',action='workflow',request=cfg,
         controller_actor=owner,original_root=str(_safe(original_root)),prefix_proof=str(_safe(prefix_proof)),
