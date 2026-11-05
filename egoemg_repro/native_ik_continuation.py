@@ -25,6 +25,7 @@ REFERENCE_SHA='22b00fb5a7e35e47e8021a015a8f289303d177f8d71ea0683dca4afdad84928c'
 FULL_ORIGINAL_ROOT=Path('/data/shihao/egoemg-native-ik-full-data-bdf59e746e0d-v2-20261102')
 IMPORTED_SHA=file_sha256(__file__)
 _PREFIXES=weakref.WeakKeyDictionary()
+_MIXED=weakref.WeakKeyDictionary()
 
 
 def _closed(actor):
@@ -210,3 +211,112 @@ def admit_ik_prefix(inputs,original_root,*,proof=None,engineering=False):
         identity=value,identity_hash=_hash(value),batches=batches,actors=actors,sources=sources,qualification=qualification,
         original_configuration=copy.deepcopy(config),audit=copy.deepcopy(accepted))
     prefix.check();return prefix
+
+
+def _continued_context(inputs,prefix):
+    s=_state(prefix);prefix.check();inputs.check()
+    if s['inputs']is not inputs:raise ValueError('same registered prefix input provider required')
+    return s
+
+
+def _new_inventory(root):
+    root=_safe(root);s=root.lstat()
+    if not stat.S_ISDIR(s.st_mode):raise ValueError('new IK packet directory required')
+    return (s.st_dev,s.st_ino,s.st_mtime_ns,s.st_ctime_ns,s.st_nlink,tuple(sorted(p.name for p in root.iterdir())))
+
+
+def _mixed_entries(inputs,prefix,hand,shard,new_root,new_actor,bindings):
+    s=_continued_context(inputs,prefix);old=prefix.batch_prefix(hand,shard)
+    count=inputs.identity['batches_per_hand'][shard];new_root=_safe(new_root)
+    if new_root.is_relative_to(s['root']):raise ValueError('new packets cannot be written into the old workflow')
+    results.require_closed(new_actor)
+    wanted={f'batch-{i:05d}'for i in range(len(old),count)}
+    actual={p.name for p in new_root.iterdir()}-{'new-packets.json'}
+    if actual!=wanted:raise ValueError('complete exact missing original packet directories required')
+    snapshot=_new_inventory(new_root);entries=[]
+    for index in range(count):
+        reused=index<len(old);directory=old[index]if reused else new_root/f'batch-{index:05d}'
+        packet=results.inspect_ik_batch(inputs,directory);metadata=packet.metadata;b=metadata['batch']
+        if (b!=results.select_ik_batch(inputs,hand,shard,index).identity
+            or metadata['runtime_identity']!=prefix.identity['runtime_identity']
+            or(not reused and metadata['actor']!=new_actor)
+            or(reused and metadata['actor']==new_actor)):
+            raise ValueError('actual old/new packet actor, runtime or original batch differs')
+        result_sha=bindings.add_file(directory/'result.json')
+        state_sha=bindings.add_file(directory/'state.npz',metadata['state_file_sha256'])
+        packet.check(rehash=True)
+        entries.append(dict(batch_index=index,hand=hand,shard=shard,rows=b['rows'],reused=reused,
+            directory=str(directory),producer_actor=metadata['actor'],result_sha256=result_sha,state_sha256=state_sha))
+    prefix.check();bindings.check()
+    if _new_inventory(new_root)!=snapshot:raise ValueError('new packet source changed during mixed admission')
+    return entries,snapshot
+
+
+def write_continued_shard(inputs,prefix,*,hand,shard,new_root,new_producer_actor,configuration_sha256,output):
+    """Persist a mixed directory map in a separate, model-free receipt actor."""
+    s=_continued_context(inputs,prefix);output=_safe(output,exists=False)
+    if output.exists():raise FileExistsError(output)
+    if output.is_relative_to(s['root']):raise ValueError('old IK workflow remains read-only')
+    results._new_output(inputs,output)
+    if type(configuration_sha256)is not str or len(configuration_sha256)!=64:
+        raise ValueError('source-bound continuation configuration SHA required')
+    bindings=results.IKArtifactBindings()
+    entries,snapshot=_mixed_entries(inputs,prefix,hand,shard,new_root,new_producer_actor,bindings)
+    actor=process_identity()
+    if any(e['producer_actor']==actor for e in entries):raise ValueError('mixed receipt actor cannot replace a packet producer')
+    value=results.seal(dict(format='original_native_IK_explicit_mixed_shard_map_v1',
+        receipt_actor=actor,configuration_sha256=configuration_sha256,input_identity_sha256=_hash(inputs.identity),
+        prefix_identity_sha256=_hash(prefix.identity),hand=hand,shard=shard,
+        new_packets_root=str(_safe(new_root)),new_producer_actor=copy.deepcopy(new_producer_actor),
+        runtime_identity=prefix.identity['runtime_identity'],entries=entries,
+        geometric_reconstruction_verified=False,full_frame_labels_regenerated=False,scientific_eligible=False,full_paper_complete=False))
+    bindings.check(rehash=True);prefix.check();output.mkdir(mode=0o700,parents=True)
+    results.write_json(output/'mixed.json',value)
+    if _new_inventory(_safe(new_root))!=snapshot:raise ValueError('new packet generation changed after map write')
+    bindings.check();prefix.check();return value
+
+
+@dataclass(frozen=True,eq=False)
+class ContinuedIKShard:
+    def check(self,*,rehash=False):
+        if type(self)is not ContinuedIKShard or self not in _MIXED:
+            raise ValueError('registered mixed original IK shard required')
+        s=_MIXED[self];s['prefix'].check();s['bindings'].check(rehash=rehash)
+        if (file_sha256(__file__)!=IMPORTED_SHA or _hash(s['identity'])!=s['identity_hash']
+            or _hash(s['entries'])!=s['entries_hash']or _new_inventory(s['new_root'])!=s['new_inventory']):
+            raise ValueError('mixed original IK shard source or generation changed')
+        results.require_closed(s['receipt_actor'])
+        for actor in s['producer_actors']:results.require_closed(actor)
+
+    @property
+    def identity(self):self.check();return copy.deepcopy(_MIXED[self]['identity'])
+
+    @property
+    def entries(self):self.check();return tuple(copy.deepcopy(_MIXED[self]['entries']))
+
+
+def read_continued_shard(inputs,directory,*,configuration_sha256,receipt_actor,prefix):
+    """Read all true producers; a closed aggregate alone is insufficient."""
+    _continued_context(inputs,prefix);directory=_safe(directory);bindings=results.IKArtifactBindings()
+    value=_json(directory/'mixed.json',bindings,sealed=True)
+    results.require_closed(receipt_actor)
+    if (value.get('format')!='original_native_IK_explicit_mixed_shard_map_v1'
+        or value.get('receipt_actor')!=receipt_actor or value.get('configuration_sha256')!=configuration_sha256
+        or value.get('input_identity_sha256')!=_hash(inputs.identity)
+        or value.get('prefix_identity_sha256')!=_hash(prefix.identity)
+        or value.get('runtime_identity')!=prefix.identity['runtime_identity']
+        or any(value.get(k)is not False for k in ('geometric_reconstruction_verified','full_frame_labels_regenerated','scientific_eligible','full_paper_complete'))):
+        raise ValueError('same closed mixed receipt/configuration/input/runtime required')
+    entries,snapshot=_mixed_entries(inputs,prefix,value['hand'],value['shard'],value['new_packets_root'],value['new_producer_actor'],bindings)
+    if entries!=value['entries']or any(e['producer_actor']==receipt_actor for e in entries):
+        raise ValueError('exact original/new per-packet producer map required')
+    rows=sum(e['rows']for e in entries);reused=sum(e['rows']for e in entries if e['reused'])
+    identity=dict(format='registered_original_IK_mixed_shard_v1',hand=value['hand'],shard=value['shard'],
+        configuration_sha256=configuration_sha256,map_file_sha256=file_sha256(directory/'mixed.json'),
+        rows=rows,reused_rows=reused,new_rows=rows-reused,reused_batches=sum(e['reused']for e in entries),
+        new_batches=sum(not e['reused']for e in entries),geometric_reconstruction_verified=False,
+        scientific_eligible=False,full_frame_labels_regenerated=False,full_paper_complete=False)
+    mixed=ContinuedIKShard();_MIXED[mixed]=dict(identity=identity,identity_hash=_hash(identity),entries=entries,
+        entries_hash=_hash(entries),prefix=prefix,bindings=bindings,receipt_actor=copy.deepcopy(receipt_actor),
+        producer_actors=[e['producer_actor']for e in entries],new_root=_safe(value['new_packets_root']),new_inventory=snapshot)
+    mixed.check(rehash=True);return mixed

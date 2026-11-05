@@ -44,10 +44,10 @@
 
 **Interfaces:** `run_continued_workflow(configuration, original_root, prefix_proof, output)` creates a new root and source-bound configuration; workers produce new packets, verify all mixed packets, finalize and assemble through original helpers. The new producer summary has `receipt_actor` and an ordered per-batch `producer_actor`, `directory`, result/state hashes and a reused/new marker. `read_continued_shard(inputs, directory, *, configuration_sha256, receipt_actor, prefix)` validates the exact map and returns immutable original/new producer-directory pairs for the fresh verifier. It cannot turn an aggregate actor into a packet producer or reuse an old receipt as a new role.
 
-- [ ] Write RED for changed batch keys/configuration/runtime/source, false reused/new flags, swapped packet/aggregate actors, missing old/new packets, same-state false producer claims, late source drift, existing output, stopped/failed worker and forged completion. Preserve the original CLI rejection of mixed actor receipts.
-- [ ] Implement a Torch-free parent with actual owned stages and physical/resource/source gates. New production calls only unchanged `produce_ik_batch` for missing batches; fresh verification calls unchanged `verify_ik_batch` for every old/new packet with optimizer construction/steps denied.
-- [ ] Require exact full ordered pairs before unchanged `finalize_ik_shard`, then all twelve original shards before `assemble_ik_labels`; report reused/new counts/work separately. Bind new wrapper bytes separately from the reused original qualified scientific snapshot.
-- [ ] Run `python -m pytest -q tests/test_native_ik_continuation.py tests/test_native_ik_continued_workflow.py` GREEN, inspect actual output and commit.
+- [x] Write RED for changed batch keys/configuration/runtime/source, false reused/new flags, swapped packet/aggregate actors, missing old/new packets, same-state false producer claims, late source drift, existing output, stopped/failed worker and forged completion. Preserve the original CLI rejection of mixed actor receipts.
+- [x] Implement a Torch-free parent with actual owned stages and physical/resource/source gates. New production calls only unchanged `produce_ik_batch` for missing batches; fresh verification calls unchanged `verify_ik_batch` for every old/new packet with optimizer construction/steps denied.
+- [x] Require exact full ordered pairs before unchanged `finalize_ik_shard`, then all twelve original shards before `assemble_ik_labels`; report reused/new counts/work separately. Bind new wrapper bytes separately from the reused original qualified scientific snapshot.
+- [x] Run `python -m pytest -q tests/test_native_ik_continuation.py tests/test_native_ik_continued_workflow.py` GREEN, inspect actual output and commit.
 
 ## Task3: real mixed-lineage engineering, review, full continuation and publication
 
