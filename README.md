@@ -1,3 +1,5 @@
+> **2026-11-06 标注输入接续与HOT3D推进**：[marker／腕部8文件接续](docs/raw-marker-acquisition.md)重新通过原完整16MiB公开范围检查，原1GiB保全，新目录已实写318.8MB，全部44.196GB及独立读回仍欠；旧失败不覆盖。[HOT3D上次新增336包后的接续](results/hot3d-closed1379-cache-admission-20261106.md)已完成1,380包／149.3GB整SHA，563旧来源拥有者关闭，原清单仍需补1,424包。两流程0GPU，0/1卡仍禁止。09:15北京时间S/M/L保存80／12／11轮；RN18六条件第二遍99／176批、6256／11114请求。仍无新增最终模型成绩，全文继续。
+
 > **2026-11-06 HOT3D 旧完整缓存准入与接续**：[实际113.4GB整SHA与原始拥有者证据](results/hot3d-closed1043-cache-admission-20261106.md)确认1,044包全部匹配固定发布方LFS，222旧来源拥有者关闭，原数据0复制。新四拥有者存活，00:10北京时间仍在接收器启动阶段，尚无新完成归档；后续目标仍为完整2,804包，剩余1,760包，225GiB预留不降。原下载器/TLS/maxtries1保持，无GPU操作。全部来源、数值资格、作者混合与全文仍未完成。
 
 > **2026-11-05 最新状态**：[ViT-S与RN18旧版定性样例](results/native-qualitative/README.md)均已验收；RN18新增三类同点图和独立最差收益诊断，一次新整合审查无待修正项。关于EMG作用，[ViT-S完整同模型受控实验](results/visual-missing-emg/README.md)显示完全缺图时真实EMG比归一化置零降低MAE2.1065°，38／41录制组改善；自然部分遮挡额外作用很小，尚未证明融合稳定优于独立视觉。RN18六条件和EMG2Pose S/M/L完整250轮继续；[三项最终评估接续](results/emg2pose-final-evaluation/README.md)已在服务器独立等待真实训练完成，尚无新增最终成绩；[核心成绩与PDF对照](results/paper-comparison/README.md)已有，数据／协议等价和全文仍未完成。下方日期条目保留历史状态。
