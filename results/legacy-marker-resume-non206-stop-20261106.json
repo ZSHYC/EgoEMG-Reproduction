@@ -1,0 +1,98 @@
+{
+  "format": "actual_legacy_marker_resumed_non206_terminal_preserved_prefix_v1",
+  "observed_utc": "2026-11-06T02:13:05.009293+00:00",
+  "source_root": "/data/shihao/egoemg-legacy-marker-resume-02123781d9ab-20261106",
+  "source_commit": "02123781d9aba6c0fc77b7a2b103e4ba21fb7776",
+  "bundle_sha256": "fe8881e6bbdedfb44766bf5d2ac0a7ce6208e5930ad5e52e795c441094c3737d",
+  "actual_state": {
+    "actual_exit_code": 1,
+    "automatic_retry": false,
+    "child": {
+      "pid": 3814722,
+      "start_ticks": "475646060"
+    },
+    "ended_utc": "2026-11-06T01:56:33.777434+00:00",
+    "started_utc": "2026-11-06T01:39:15.256702+00:00",
+    "status": "failed",
+    "wrapper": {
+      "pid": 3814721,
+      "start_ticks": "475646056"
+    }
+  },
+  "actual_owned_download_stage": {
+    "all_owned_consumers_exited": true,
+    "descriptor_bindings": {},
+    "error_type": "OwnedStageError",
+    "format": "egoemg_owned_stage_v1",
+    "guardian": {
+      "pgrp": 3814731,
+      "pid": 3814731,
+      "sid": 3814731,
+      "start_ticks": "475646166",
+      "state": "R",
+      "uid": 1005
+    },
+    "kill_escalation_used": false,
+    "owner": {
+      "pgrp": 3814722,
+      "pid": 3814722,
+      "sid": 3814722,
+      "start_ticks": "475646060",
+      "state": "R",
+      "uid": 1005
+    },
+    "reason": "worker_exit",
+    "scientific_complete": false,
+    "status": "failed",
+    "worker": {
+      "pgrp": 3814732,
+      "pid": 3814732,
+      "sid": 3814732,
+      "start_ticks": "475646169",
+      "state": "R",
+      "uid": 1005
+    },
+    "worker_exit_code": 1
+  },
+  "all4_current_actors_physically_closed": true,
+  "partial_path": "/data/shihao/egoemg-legacy-marker-resume-02123781d9ab-20261106/data/mocap_left_keypoints.dat.part",
+  "partial_bytes": 3875536896,
+  "partial_sha256": "80b01ba9ffebb06afb0e824847e85e3bd65404ae87933ebae3566db75a190634",
+  "partial_nine_attributes": [
+    64512,
+    751647483,
+    3875536896,
+    1793930171394948444,
+    1793930171394948444,
+    33152,
+    1005,
+    1005,
+    1
+  ],
+  "original_preserved_prefix_bytes": 1073741824,
+  "original_preserved_prefix_sha256": "7e308e9c54778783bedcc90cf8f28a3b6e278c823f415b0cf0e212d3db085b75",
+  "actual_new_committed_bytes": 2801795072,
+  "actual_new_complete16MiB_chunks": 167,
+  "first_new16MiB_sha256": "09a20ace85f9293878c2bc0ef5ca5442ae2a5031495ea339cc26ba73b2586195",
+  "first_new16MiB_matches_actual_preflight": true,
+  "original_old_prefix_generation_unchanged": true,
+  "all_staged_source_bytes_unchanged": true,
+  "protocol_error": "public endpoint did not return HTTP206",
+  "underlying_current_HTTP_status_and_body_not_recorded": true,
+  "current_quota_cause_not_proven": true,
+  "automatic_protocol_retry": false,
+  "new_download_workflow_launched": false,
+  "completed_final_files": 0,
+  "complete_selected8file_source": false,
+  "independent_complete8file_readback_performed": false,
+  "raw_to_labels_performed": false,
+  "annotation_model_executed": false,
+  "actual_GPU_actions": 0,
+  "actual_model_runs": 0,
+  "full_paper_complete": false,
+  "collector_actor": {
+    "pid": 3893467,
+    "start_ticks": "475847988"
+  },
+  "collector_also_physically_closed": true
+}

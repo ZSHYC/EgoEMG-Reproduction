@@ -1,0 +1,131 @@
+{
+  "actual_acquisition_worker_and_guardian_matching_live": {
+    "guardian": true,
+    "worker": true
+  },
+  "actual_cache_admission": {
+    "actor": {
+      "pid": 3815975,
+      "start_ticks": 475671310
+    },
+    "all_publisher_LFS_sha256_exact": true,
+    "candidate_archives": 1380,
+    "copied_archive_bytes": 0,
+    "full_paper_complete": false,
+    "numeric_qualification_complete": false,
+    "observed_utc": "2026-11-06T01:46:24.435681+00:00",
+    "old_file_generations_unchanged": true,
+    "whole_cache_bytes_rehashed": 149343641600
+  },
+  "actual_complete_journal_archives": 1405,
+  "actual_complete_journal_bytes": 151821977600,
+  "actual_first_new_archive_whole_sha_independently_verified": true,
+  "actual_first_new_native_control_absent": true,
+  "actual_first_new_native_owner_physically_closed": true,
+  "actual_first_new_native_receipt": {
+    "bytes": 97136640,
+    "matches_publisher_lfs_sha256": true,
+    "native_exit_code": 0,
+    "native_worker": {
+      "pid": 3883531,
+      "start_ticks": 475790347
+    },
+    "observed_utc": "2026-11-06T02:03:40.258037+00:00",
+    "path": "train_aria/clip-003228.tar",
+    "payload_generation": [
+      64512,
+      14215275989,
+      97136640,
+      1793930618809222520,
+      1793930618809222520,
+      33204,
+      1005,
+      1005,
+      1
+    ],
+    "payload_path": "/data/shihao/egoemg-annotation-sources/hot3d-public-train-readonly-cache-5bf8af893798-20261106/archives/train_aria/clip-003228.tar",
+    "reused_readonly_cache": false,
+    "sha256": "bd9ca7b62712f0c04475338d5a7b258fb760f081b77c2ea88ac391ca0c9844d8"
+  },
+  "actual_free_bytes": 1269273780224,
+  "actual_gpu_actions": 0,
+  "actual_model_runs": 0,
+  "actual_new_journal_archives": 26,
+  "actual_reserve_bytes": 241591910400,
+  "actual_state": {
+    "automatic_retry": false,
+    "child": {
+      "pid": 3815973,
+      "start_ticks": "475671279"
+    },
+    "started_utc": "2026-11-06T01:43:27.455751+00:00",
+    "status": "running",
+    "wrapper": {
+      "pid": 3815972,
+      "start_ticks": "475671277"
+    }
+  },
+  "actual_target_archives": 2804,
+  "actual_target_bytes": 294201743360,
+  "actual_whole_cache_admitted_archives": 1380,
+  "actual_whole_cache_admitted_bytes": 149343641600,
+  "actual_wrapper_and_controller_matching_live": {
+    "child": true,
+    "wrapper": true
+  },
+  "all_frozen_source_files_sha256": {
+    "config.json": "c28be252252fbfaf3acf9a4e3c75d6dd69d66629df8fde1a275121154157e8fa",
+    "egoemg_repro/__init__.py": "6103cfcd4a90339b804308dcb82a86448749c728fd093ebfab546ff9bfdb3e96",
+    "egoemg_repro/emg2pose_memory_process.py": "8dd958fdbe9b2a14258a1b1b225d3806dc86f7f903cbbf7775e298d1041528db",
+    "egoemg_repro/hot3d_cache_intake.py": "e89b107dc73950bf5a077adbdcab4ba342f406f0ddeed1600b21506899442e55",
+    "manifest.json": "3495c287c68dfc36abcabd91bdd03fc461c54cac00b8f9bd2cb5ca59aadb39ee",
+    "private/cache.json": "36e9f38aa47a63797a779cc4681862d3d7bf24094680a3bde4bbc98c47722b4e",
+    "private/preflight.json": "b8a10f5b18d50d427474096907b78801243c8a5493f843330cd23f50a17b7bfd",
+    "private/recorder.py": "4743290ff5b7d66e71a157a5af8489bf8befeb2286e28125bb7109233eb4a253",
+    "private/review.json": "bda941ce8d62f07a6faf8ba1c42b15bdf6ff8acb9d83b8096996b69271a75e18",
+    "private/runtime-probe.py": "020eaef3fa05b0f6f1a0bceacb1de13654c9e76de970da5de49fa4f5df55e40d",
+    "scripts/paper/hot3d_full_train_receiver.py": "cc94d103f95980161a9a4d1e16b8903dc24ad4c5588010f5a6c2ee98a3342381",
+    "scripts/paper/hot3d_layered_train_receiver.py": "ff89eb600a40906673e3dc726c1192303aa2e81a8469befcf6dca740338ea971"
+  },
+  "all_original_source_actors_physically_closed": true,
+  "author_mixture_reconstructed": false,
+  "bundle_sha256": "8d429f3dd428c31166d87cf6a737e00766f40872b55ebd84a2a59029a10e2feb",
+  "cache_admission_file_sha256": "5f522f1f926aa4994492a17fda5309d21b14c4a6722d7bd3a4b6a2fc17cf3d80",
+  "cache_descriptor_file_sha256": "36e9f38aa47a63797a779cc4681862d3d7bf24094680a3bde4bbc98c47722b4e",
+  "collector_actor": {
+    "pid": 3893463,
+    "start_ticks": "475847879"
+  },
+  "collector_also_physically_closed": true,
+  "collector_torch_unimported": true,
+  "copied_archive_bytes": 0,
+  "format": "actual_reviewed_readonly_HOT3D_cache_admission_and_first_new_native_archive_v1",
+  "full_paper_complete": false,
+  "full_source_complete": false,
+  "latest_actual_progress": {
+    "actor": {
+      "pid": 3815975,
+      "start_ticks": 475671310
+    },
+    "completed_archive_bytes": 151821977600,
+    "completed_archive_count": 1405,
+    "current_archive_path": "train_aria/clip-003254.tar",
+    "current_worker": {
+      "pid": 3893390,
+      "start_ticks": 475846387
+    },
+    "full_paper_complete": false,
+    "numeric_qualification_complete": false,
+    "observed_utc": "2026-11-06T02:12:53.375577+00:00",
+    "reused_readonly_cache_archives": 1379,
+    "target_archive_bytes": 294201743360,
+    "target_archive_count": 2804
+  },
+  "numeric_qualification_complete": false,
+  "observed_utc": "2026-11-06T02:12:54.213210+00:00",
+  "old_metadata_sha_and_all9attribute_generations_unchanged": true,
+  "old_source_journal_archives": 1379,
+  "original_native_connection_split_maxtries1_TLS_options_unchanged": true,
+  "source_commit": "5bf8af893798ab533715f45e71c79f7cde484e77",
+  "source_root": "/data/shihao/egoemg-annotation-sources/hot3d-public-train-readonly-cache-5bf8af893798-20261106"
+}
